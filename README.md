@@ -1,0 +1,126 @@
+# 🩺 Vorsorgereminder
+
+Preventive-care appointments in Germany come with fixed time windows — and for children's
+check-ups those windows are **hard deadlines**: a U6 caught up after the 14th month of life is no
+longer covered and comes out of your own pocket. STIKO vaccinations depend on minimum intervals
+between doses, and from 35 onwards hardly anyone knows the intervals for the general check-up or
+skin-cancer screening.
+
+Vorsorgereminder keeps a profile per family member, derives the full preventive-care schedule from
+the date of birth, and reminds you in time.
+
+- 👨‍👩‍👧 **Per family member** — from newborn to grandparent
+- 📅 **Four catalogs** — children's check-ups U1–U9/J1, the STIKO vaccination calendar, dental
+  care, and adult and cancer screening
+- 🔒 **Entirely local** — no account, no servers, no analytics, no ads
+- 📤 **ICS export** — into any calendar or mail client, with stable UIDs instead of duplicates
+- 🔄 **Two devices, one state** — QR pairing, then encrypted sync over your WLAN
+- 📚 **Sourced** — every appointment names its source and its as-of date, right in the app
+- 🌍 **Bilingual** — the app speaks German and English
+
+> **Status:** under development. There is no release yet.
+
+## Why another app
+
+Health-insurer apps cover parts of this, but only for their own members and only by handing the
+data to the insurer. Vaccination-passport apps handle vaccinations but neither children's
+check-ups nor adult screening. The [official STIKO app by the RKI][stiko-app] targets medical
+professionals — a personal reminder calendar is explicitly not part of it. The closest match is
+[APPzumARZT][appzumarzt], which also keeps all data on the device, but is closed source, offers
+neither calendar export nor device-to-device sync, and ships bundled with sponsored content.
+
+## Installation
+
+Signed APKs will appear under [Releases](https://github.com/praetorianer777/vorsorgereminder/releases).
+iOS is built and tested, but not distributed yet.
+
+## Catalogs and sources
+
+The catalogs live as versioned JSON files in [`assets/catalogs/`](assets/catalogs/). Every rule
+carries a source reference with an as-of date, shown in the app both on the appointment's detail
+page and collected under "Sources & legal". A test fails as soon as a rule without a resolvable
+source enters a catalog — the sourcing requirement is enforced by CI, not by discipline.
+
+All catalogs describe the German statutory system; rule text is stored per language so the app can
+present it in German or English.
+
+| Catalog | Contents | Source |
+|---|---|---|
+| Children's check-ups | U1–U9 incl. U7a and J1, with time windows **and** tolerance limits; newborn, hearing, pulse-oximetry and cystic-fibrosis screening | [G-BA Kinder-Richtlinie][gba-kinder] |
+| Vaccinations | Vaccination calendar: standard immunisations from infant to adult, minimum intervals, boosters | [STIKO recommendations][stiko] |
+| Dental care | FU1–FU3, individual prophylaxis IP1–IP5, adult check-ups | [G-BA Zahnärztliche Früherkennung][gba-zahn] |
+| Adult check-up | Once between 18 and 34, then every three years from 35; hepatitis B/C screening; abdominal aortic aneurysm | [G-BA Gesundheitsuntersuchungs-Richtlinie][gba-gu] |
+| Cancer screening | Skin, cervical, mammography, colorectal, prostate, chlamydia — by age and sex | [G-BA Krebsfrüherkennungs-Richtlinie][gba-kfe] |
+
+Services that are **not** statutory (U10, U11, J2, professional tooth cleaning) are labelled
+"depends on your insurer" in the app. `catalog-watch.yml` checks nightly whether one of the source
+documents has changed and files an issue if so.
+
+## Device sync
+
+Both devices exchange public keys once via QR code and derive a shared key from them
+(X25519 → HKDF); the private half never leaves the device. After that they find each other over
+mDNS on the same WLAN and exchange only the changes since the last sync, encrypted with
+AES-256-GCM. There is no server and no account. Without a shared WLAN, you export a
+password-encrypted file instead.
+
+## Privacy
+
+The app stores data locally only, needs no network access beyond the LAN sync, and sends no
+telemetry. There is no account and no operator who could see anything.
+
+## Building
+
+Requires a Flutter SDK (stable, ≥ 3.24) with Dart ≥ 3.5.
+
+```bash
+flutter pub get
+flutter run                  # debug build on an attached device
+flutter build apk --release  # release APK
+```
+
+## Testing
+
+| Suite | How | What it covers |
+|---|---|---|
+| Everything | `./run-tests.sh` | The single entry point. The branch-guard hook runs it before every push, and `ci.yml` has no other step. |
+| Shell | `./tests/test-release.sh`, `./.claude/hooks/tests/branch-guard-test.sh` | Release script and branch guard, offline and without Flutter |
+| Format & analysis | `dart format --set-exit-if-changed .`, `flutter analyze --fatal-infos` | |
+| Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, ICS writer, oplog merge |
+| Integration | `ANDROID_E2E=1 ./run-tests.sh` | The app on an emulator or device; runs nightly in CI |
+
+## Continuous integration
+
+The principle: everything fast and offline gates the PR, everything slow or network-dependent runs
+at night.
+
+| Workflow | When | What |
+|---|---|---|
+| `ci.yml` | PR, push to `main`, nightly | runs nothing but `run-tests.sh` |
+| `release.yml` | tag `v*` | builds and signs the APKs and publishes them idempotently as a release |
+| `ios-build.yml` | nightly | `flutter build ios --no-codesign` — keeps iOS compiling |
+| `android-e2e.yml` | nightly | integration tests on the emulator |
+| `catalog-watch.yml` | nightly | checks whether a guideline source has changed |
+
+## Contributing
+
+Every change hangs off an issue and a branch named `<type>/<issue>-<slug>`, and lands via pull
+request. Details in [`.claude/skills/gh/SKILL.md`](.claude/skills/gh/SKILL.md).
+
+## ⚠️ Disclaimer
+
+This app is not medical advice. Its data is taken from the guidelines listed above, as of the
+dates given there, and comes without warranty. Entitlements change and vary between insurers —
+when in doubt, ask your doctor's office or your health insurer.
+
+## License
+
+[GPL-3.0](LICENSE)
+
+[stiko-app]: https://www.rki.de/DE/Themen/Infektionskrankheiten/Impfen/Staendige-Impfkommission/STIKO-App/stiko-app-node.html
+[appzumarzt]: https://www.felix-burda-stiftung.de/appzumarzt
+[gba-kinder]: https://www.g-ba.de/richtlinien/15/
+[stiko]: https://www.rki.de/DE/Themen/Infektionskrankheiten/Impfen/Impfkalender/impfkalender-node.html
+[gba-zahn]: https://www.g-ba.de/richtlinien/29/
+[gba-gu]: https://www.g-ba.de/richtlinien/10/
+[gba-kfe]: https://www.g-ba.de/richtlinien/17/

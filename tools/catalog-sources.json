@@ -1,0 +1,35 @@
+{
+  "_comment": "Primary sources of the preventive-care catalogs. sha256 is the fingerprint of the document as last reviewed; catalog-watch.yml reports any deviation as an issue. An empty sha256 means: record it on the next run.",
+  "sources": [
+    {
+      "id": "gba-kinder-rl",
+      "name": "G-BA Kinder-Richtlinie",
+      "url": "https://www.g-ba.de/downloads/62-492-2156/Kinder-RL_2020-05-14_iK-2020-03-25.pdf",
+      "sha256": ""
+    },
+    {
+      "id": "stiko-impfkalender",
+      "name": "STIKO Impfkalender",
+      "url": "https://www.rki.de/DE/Themen/Infektionskrankheiten/Impfen/Staendige-Impfkommission/Empfehlungen-der-STIKO/Empfehlungen/Impfkalender.pdf",
+      "sha256": ""
+    },
+    {
+      "id": "gba-zahn-frueherkennung",
+      "name": "G-BA Zahnärztliche Früherkennung",
+      "url": "https://www.g-ba.de/richtlinien/29/",
+      "sha256": ""
+    },
+    {
+      "id": "gba-gesundheitsuntersuchung",
+      "name": "G-BA Gesundheitsuntersuchungs-Richtlinie",
+      "url": "https://www.g-ba.de/richtlinien/10/",
+      "sha256": ""
+    },
+    {
+      "id": "gba-krebsfrueherkennung",
+      "name": "G-BA Krebsfrüherkennungs-Richtlinie",
+      "url": "https://www.g-ba.de/richtlinien/17/",
+      "sha256": ""
+    }
+  ]
+}
