@@ -1,4 +1,5 @@
 import 'rule.dart';
+import 'schedule.dart';
 
 /// Where an appointment stands relative to today.
 enum OccurrenceStatus {
@@ -67,6 +68,14 @@ class Occurrence {
   /// True when the window still depends on something unrecorded, such as a
   /// series dose whose predecessor has not been entered yet.
   final bool provisional;
+
+  /// The dose a completion for this occurrence records.
+  ///
+  /// Only a vaccination series has doses. For a recurring entitlement the
+  /// instance id is a date, which must never be stored as a dose id, or every
+  /// repeat would be recorded as a separate appointment that no later
+  /// recomputation can find again.
+  String? get doseId => rule.schedule is Series ? instanceId : null;
 
   /// Stable across recomputation, and the basis of the ICS UID, so re-importing
   /// an export updates an event instead of duplicating it.

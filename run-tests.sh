@@ -13,6 +13,11 @@ if ! command -v flutter >/dev/null 2>&1; then
   exit 1
 fi
 
+# Generated code is not committed, so a fresh checkout has none of it and the
+# analyzer would report every drift table as missing.
+echo "⚙️  Codegen"
+dart run build_runner build
+
 echo "🎨 Formatting"
 # Everything git would keep, which is tracked files plus new ones that are not
 # ignored. Listing only tracked files let a brand-new file pass the local gate

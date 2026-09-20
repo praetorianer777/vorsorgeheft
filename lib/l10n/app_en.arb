@@ -1,11 +1,125 @@
 {
   "@@locale": "en",
   "appTitle": "Vorsorgereminder",
-  "@appTitle": {
-    "description": "The application name, shown in the app bar and the task switcher"
+  "familyTitle": "Family",
+  "familyEmptyTitle": "No one here yet",
+  "familyEmptyBody": "Add a family member and their preventive-care schedule is worked out from their date of birth.",
+  "addPerson": "Add person",
+  "editPerson": "Edit person",
+  "personName": "Name",
+  "personNameMissing": "Please enter a name",
+  "dateOfBirth": "Date of birth",
+  "dateOfBirthMissing": "Please pick a date of birth",
+  "dateOfBirthInFuture": "A date of birth cannot be in the future",
+  "sexLabel": "Sex",
+  "sexHelp": "Used only to work out which screenings someone is entitled to. Left unstated, sex-specific screenings are shown as possibly applying.",
+  "sexMale": "Male",
+  "sexFemale": "Female",
+  "sexNotStated": "Not stated",
+  "notes": "Notes",
+  "save": "Save",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "deletePersonTitle": "Delete {name}?",
+  "@deletePersonTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
-  "disclaimerShort": "Not medical advice. Entitlements vary by insurer.",
-  "@disclaimerShort": {
-    "description": "One-line disclaimer shown beneath the timeline"
+  "deletePersonBody": "Their recorded appointments are deleted with them. This cannot be undone.",
+  "statusDue": "Due",
+  "statusOverdue": "Overdue",
+  "statusExpired": "Expired",
+  "statusUpcoming": "Upcoming",
+  "statusDone": "Done",
+  "statusSkipped": "Skipped",
+  "sectionNeedsAttention": "Needs attention",
+  "sectionComingUp": "Coming up",
+  "sectionSettled": "Done and skipped",
+  "sectionExpired": "No longer available",
+  "notStatutory": "Depends on your insurer",
+  "mayApply": "May apply",
+  "provisional": "Date is provisional until the previous dose is recorded",
+  "windowLabel": "Window",
+  "deadlineLabel": "Catch up by",
+  "deadlinePassed": "The entitlement lapsed on {date}",
+  "@deadlinePassed": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMMd"
+      }
+    }
+  },
+  "completedOnLabel": "Done on {date}",
+  "@completedOnLabel": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMMd"
+      }
+    }
+  },
+  "markDone": "Record as done",
+  "markSkipped": "Record as skipped",
+  "undoRecord": "Undo",
+  "sourceLabel": "Source: {name} · as of {date}",
+  "@sourceLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMMd"
+      }
+    }
+  },
+  "openSource": "Open the original document",
+  "sourcesTitle": "Sources & legal",
+  "sourcesIntro": "Every appointment in this app comes from one of the documents below. The date is when that document was last reviewed for this app.",
+  "catalogVersionLabel": "{name}, version {version}",
+  "@catalogVersionLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "disclaimerTitle": "This is not medical advice",
+  "disclaimerBody": "The information here is taken from the guidelines listed above, as of the dates given, and comes without warranty. Entitlements change and vary between insurers. When in doubt, ask your doctor's office or your health insurer.",
+  "privacyTitle": "Your data stays here",
+  "privacyBody": "Everything is stored on this device. There is no account, no server and no analytics.",
+  "settingsTitle": "Settings",
+  "languageLabel": "Language",
+  "languageSystem": "System language",
+  "ageYears": "{years, plural, =1{1 year old} other{{years} years old}}",
+  "@ageYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+  "ageMonths": "{months, plural, =1{1 month old} other{{months} months old}}",
+  "@ageMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "ageDays": "{days, plural, =1{1 day old} other{{days} days old}}",
+  "@ageDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
   }
 }

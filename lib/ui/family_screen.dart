@@ -1,0 +1,116 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../app/providers.dart';
+import '../domain/person.dart';
+import '../l10n/app_localizations.dart';
+import 'formatting.dart';
+import 'person_form_screen.dart';
+import 'sources_screen.dart';
+import 'timeline_screen.dart';
+
+class FamilyScreen extends ConsumerWidget {
+  const FamilyScreen({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final persons = ref.watch(personsProvider);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(l10n.familyTitle),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            tooltip: l10n.sourcesTitle,
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(builder: (_) => const SourcesScreen()),
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        key: const Key('add-person'),
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute<void>(builder: (_) => const PersonFormScreen()),
+        ),
+        icon: const Icon(Icons.person_add_outlined),
+        label: Text(l10n.addPerson),
+      ),
+      body: persons.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, _) => Center(child: Text('$error')),
+        data: (people) => people.isEmpty
+            ? _Empty(l10n: l10n)
+            : ListView.builder(
+                padding: const EdgeInsets.only(bottom: 88),
+                itemCount: people.length,
+                itemBuilder: (context, i) => _PersonTile(person: people[i]),
+              ),
+      ),
+    );
+  }
+}
+
+class _Empty extends StatelessWidget {
+  const _Empty({required this.l10n});
+
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) => Center(
+    child: Padding(
+      padding: const EdgeInsets.all(32),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            l10n.familyEmptyTitle,
+            style: Theme.of(context).textTheme.titleMedium,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            l10n.familyEmptyBody,
+            style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+class _PersonTile extends ConsumerWidget {
+  const _PersonTile({required this.person});
+
+  final Person person;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final attention = ref.watch(familyAttentionProvider(person.id));
+    final today = ref.watch(clockProvider)();
+
+    return ListTile(
+      key: Key('person-${person.id}'),
+      leading: CircleAvatar(
+        child: Text(person.name.characters.firstOrNull?.toUpperCase() ?? '?'),
+      ),
+      title: Text(person.name),
+      subtitle: Text(formatAge(l10n, person.dateOfBirth, today)),
+      trailing: attention == 0
+          ? const Icon(Icons.chevron_right)
+          : Badge(
+              label: Text('$attention'),
+              child: const Icon(Icons.chevron_right),
+            ),
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => TimelineScreen(personId: person.id),
+        ),
+      ),
+    );
+  }
+}
