@@ -193,6 +193,48 @@ void main() {
     });
   });
 
+  test('an adult sees none of it', () {
+    // Section 1 of the Kinder-Richtlinie grants the entitlement only until the
+    // 18th birthday. Without that cap an adult's timeline fills with childhood
+    // check-ups that lapsed decades ago.
+    final adult = Person(
+      id: 'adult',
+      name: 'Erwachsen',
+      dateOfBirth: DateTime.utc(1988, 6, 30),
+    );
+    expect(
+      computeOccurrences(
+        person: adult,
+        catalogs: catalogs,
+        completions: const [],
+        today: DateTime.utc(2026, 9, 20),
+      ),
+      isEmpty,
+    );
+  });
+
+  test('an eighteenth birthday is still inside the entitlement', () {
+    final person = Person(
+      id: 'teen',
+      name: 'Teen',
+      dateOfBirth: DateTime.utc(2008, 9, 20),
+    );
+    final onBirthday = computeOccurrences(
+      person: person,
+      catalogs: catalogs,
+      completions: const [],
+      today: DateTime.utc(2026, 9, 20),
+    );
+    final dayAfter = computeOccurrences(
+      person: person,
+      catalogs: catalogs,
+      completions: const [],
+      today: DateTime.utc(2026, 9, 21),
+    );
+    expect(onBirthday, isNotEmpty);
+    expect(dayAfter, isEmpty);
+  });
+
   test('a newborn sees the whole programme ahead of them', () {
     final occurrences = computeOccurrences(
       person: child,
