@@ -3,8 +3,14 @@
   "sources": [
     {
       "id": "gba-kinder-rl",
-      "name": "G-BA Kinder-Richtlinie",
-      "url": "https://www.g-ba.de/downloads/62-492-2156/Kinder-RL_2020-05-14_iK-2020-03-25.pdf",
+      "name": "G-BA Kinder-Richtlinie (consolidated version in force 2026-01-01)",
+      "url": "https://www.g-ba.de/downloads/62-492-3998/Kinder-RL_2025-05-15_iK-2026-01-01.pdf",
+      "sha256": ""
+    },
+    {
+      "id": "gba-jug-rl",
+      "name": "G-BA Jugendgesundheitsuntersuchungs-Richtlinie (J1)",
+      "url": "https://www.g-ba.de/downloads/62-492-1270/RL-JUG_2016-07-21_iK-2017-01-01.pdf",
       "sha256": ""
     },
     {

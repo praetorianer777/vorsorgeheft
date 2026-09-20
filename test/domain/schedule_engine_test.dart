@@ -88,13 +88,31 @@ void main() {
       expect(o.status, OccurrenceStatus.due);
     });
 
-    test('is still due on the tolerance limit itself', () {
+    test('is still due on the last day of the recommended window', () {
+      final o = run(
+        catalogs: catalogs,
+        person: personBornOn(birth),
+        today: DateTime.utc(2026, 3, 10),
+      ).single;
+      expect(o.status, OccurrenceStatus.due);
+    });
+
+    test('is overdue between the window and the tolerance limit', () {
+      final o = run(
+        catalogs: catalogs,
+        person: personBornOn(birth),
+        today: DateTime.utc(2026, 3, 11),
+      ).single;
+      expect(o.status, OccurrenceStatus.overdue);
+    });
+
+    test('is still catchable on the tolerance limit itself', () {
       final o = run(
         catalogs: catalogs,
         person: personBornOn(birth),
         today: DateTime.utc(2026, 5, 10),
       ).single;
-      expect(o.status, OccurrenceStatus.due);
+      expect(o.status, OccurrenceStatus.overdue);
     });
 
     test('expires the day after the tolerance limit', () {
