@@ -1,0 +1,275 @@
+{
+  "_conversion": "German guidelines count periods as 'Lebensmonat', where the first one begins at birth: the 34th month of life starts at the age of 33 months. The windows below are therefore the guideline's numbers minus one. The guideline's own boundaries line up when read this way - Teil B ends 'zum vollendeten 33. Lebensmonat' and Teil C begins 'ab dem 34. Lebensmonat', which is the same day. The fluoride varnish entitlement (twice per calendar half-year, FU-RL §§ 6 and 10) is deliberately not a reminder of its own: four notifications a year for something that happens at the same appointment is noise, so it is named in the examinations it accompanies instead.",
+  "catalogId": "dental",
+  "catalogVersion": "2026.09",
+  "name": {
+    "en": "Dental check-ups",
+    "de": "Zahnvorsorge"
+  },
+  "sources": {
+    "gba-fu-rl": {
+      "name": {
+        "en": "G-BA guideline on early detection of dental disease",
+        "de": "G-BA Richtlinie über die Früherkennungsuntersuchungen auf Zahn-, Mund- und Kieferkrankheiten"
+      },
+      "url": "https://www.g-ba.de/richtlinien/29/",
+      "document": "Fassung vom 15. Mai 2025, in Kraft getreten am 1. Januar 2026, §§ 4 und 9",
+      "asOf": "2026-09-20"
+    },
+    "gba-ip-rl": {
+      "name": {
+        "en": "G-BA guideline on individual dental prophylaxis",
+        "de": "G-BA Individualprophylaxe-Richtlinien"
+      },
+      "url": "https://www.g-ba.de/richtlinien/31/",
+      "document": "Fassung vom 4. Juni 2003, in Kraft getreten am 1. Januar 2004, Abschnitte A und B",
+      "asOf": "2026-09-20"
+    },
+    "sgb5-55": {
+      "name": {
+        "en": "§ 55 SGB V, bonus for regular dental examinations",
+        "de": "§ 55 SGB V, Bonus für regelmäßige Zahnuntersuchungen"
+      },
+      "url": "https://www.gesetze-im-internet.de/sgb_5/__55.html",
+      "document": "§ 55 Absatz 1 Sätze 4 und 5",
+      "asOf": "2026-09-20"
+    }
+  },
+  "rules": [
+    {
+      "id": "z1",
+      "title": {
+        "en": "Z1",
+        "de": "Z1"
+      },
+      "description": {
+        "en": "First dental examination, in the 6th to 9th month of life. Fluoride varnish can be applied at the same appointment.",
+        "de": "Erste zahnärztliche Früherkennungsuntersuchung, vom 6. bis zum vollendeten 9. Lebensmonat. Fluoridlack kann im selben Termin aufgetragen werden."
+      },
+      "source": "gba-fu-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 5
+        },
+        "to": {
+          "months": 9
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 6
+        }
+      }
+    },
+    {
+      "id": "z2",
+      "title": {
+        "en": "Z2",
+        "de": "Z2"
+      },
+      "description": {
+        "en": "Second dental examination, in the 10th to 20th month of life. At least four months after the previous one.",
+        "de": "Zweite zahnärztliche Früherkennungsuntersuchung, vom 10. bis zum vollendeten 20. Lebensmonat. Mindestens vier Monate nach der vorherigen."
+      },
+      "source": "gba-fu-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 9
+        },
+        "to": {
+          "months": 20
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 6
+        }
+      }
+    },
+    {
+      "id": "z3",
+      "title": {
+        "en": "Z3",
+        "de": "Z3"
+      },
+      "description": {
+        "en": "Third dental examination, in the 21st to 33rd month of life. At least four months after the previous one.",
+        "de": "Dritte zahnärztliche Früherkennungsuntersuchung, vom 21. bis zum vollendeten 33. Lebensmonat. Mindestens vier Monate nach der vorherigen."
+      },
+      "source": "gba-fu-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 20
+        },
+        "to": {
+          "months": 33
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 6
+        }
+      }
+    },
+    {
+      "id": "z4",
+      "title": {
+        "en": "Z4",
+        "de": "Z4"
+      },
+      "description": {
+        "en": "Fourth dental examination, in the 34th to 48th month of life. Fluoride varnish can be applied at the same appointment.",
+        "de": "Vierte zahnärztliche Früherkennungsuntersuchung, vom 34. bis zum vollendeten 48. Lebensmonat. Fluoridlack kann im selben Termin aufgetragen werden."
+      },
+      "source": "gba-fu-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 33
+        },
+        "to": {
+          "months": 48
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 6
+        }
+      }
+    },
+    {
+      "id": "z5",
+      "title": {
+        "en": "Z5",
+        "de": "Z5"
+      },
+      "description": {
+        "en": "Fifth dental examination, in the 49th to 60th month of life. At least twelve months after the previous one.",
+        "de": "Fünfte zahnärztliche Früherkennungsuntersuchung, vom 49. bis zum vollendeten 60. Lebensmonat. Mindestens zwölf Monate nach der vorherigen."
+      },
+      "source": "gba-fu-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 48
+        },
+        "to": {
+          "months": 60
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 6
+        }
+      }
+    },
+    {
+      "id": "z6",
+      "title": {
+        "en": "Z6",
+        "de": "Z6"
+      },
+      "description": {
+        "en": "Sixth dental examination, in the 61st to 72nd month of life. At least twelve months after the previous one.",
+        "de": "Sechste zahnärztliche Früherkennungsuntersuchung, vom 61. bis zum vollendeten 72. Lebensmonat. Mindestens zwölf Monate nach der vorherigen."
+      },
+      "source": "gba-fu-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 60
+        },
+        "to": {
+          "months": 72
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 6
+        }
+      }
+    },
+    {
+      "id": "ip-6-11",
+      "title": {
+        "en": "Individual prophylaxis",
+        "de": "Individualprophylaxe"
+      },
+      "description": {
+        "en": "Oral hygiene status, instruction and fluoridation, once a year from the 6th birthday.",
+        "de": "Mundhygienestatus, Unterweisung und Fluoridierung, einmal jährlich ab dem 6. Geburtstag."
+      },
+      "source": "gba-ip-rl",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 6
+        },
+        "every": {
+          "years": 1
+        },
+        "until": {
+          "years": 11
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "ip-12-17",
+      "title": {
+        "en": "Individual prophylaxis",
+        "de": "Individualprophylaxe"
+      },
+      "description": {
+        "en": "From 12 to 17 the oral hygiene status is recorded once per calendar half-year, and each one counts towards the dental prosthesis bonus.",
+        "de": "Von 12 bis 17 wird der Mundhygienestatus einmal je Kalenderhalbjahr erhoben; jeder Termin zählt für den Bonus beim Zahnersatz."
+      },
+      "source": "sgb5-55",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 12
+        },
+        "every": {
+          "months": 6
+        },
+        "until": {
+          "years": 18
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "dental-checkup-adult",
+      "title": {
+        "en": "Dental check-up",
+        "de": "Zahnärztliche Kontrolle"
+      },
+      "description": {
+        "en": "One examination per calendar year from 18. Ten unbroken years of them raise the health insurer's share of a dental prosthesis.",
+        "de": "Eine Untersuchung je Kalenderjahr ab 18. Zehn lückenlose Jahre erhöhen den Kassenanteil beim Zahnersatz."
+      },
+      "source": "sgb5-55",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 18
+        },
+        "every": {
+          "years": 1
+        }
+      }
+    }
+  ]
+}

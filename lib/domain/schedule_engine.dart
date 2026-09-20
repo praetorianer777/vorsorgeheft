@@ -164,6 +164,7 @@ Iterable<Occurrence> _forRule({
       every: every,
       untilAge: until,
       history: history,
+      today: today,
       generateUntil: generateUntil,
       make: make,
     ),
@@ -183,6 +184,7 @@ Iterable<Occurrence> _forRule({
       afterRuleId: after ?? rule.id,
       fromAge: fromAge,
       history: history,
+      today: today,
       generateUntil: generateUntil,
       make: make,
     ),
@@ -213,6 +215,7 @@ List<Occurrence> _recurring({
   required AgeOffset every,
   required AgeOffset? untilAge,
   required _History history,
+  required DateTime today,
   required DateTime generateUntil,
   required _Make make,
 }) {
@@ -233,6 +236,12 @@ List<Occurrence> _recurring({
   final anchor = history.lastDone(rule.id);
   var due = anchor == null ? from.applyTo(birth) : every.applyTo(anchor);
   final cutoff = untilAge?.applyTo(birth);
+  due = _currentRepeat(due, every, today, cutoff);
+
+  // With an age limit the last repeat can have elapsed entirely. Nothing can
+  // be caught up after that, so the rule is over rather than overdue, and only
+  // what was actually recorded stays on the timeline.
+  if (cutoff != null && every.applyTo(due).isBefore(today)) return occurrences;
 
   var emitted = 0;
   while (cutoff == null || !due.isAfter(cutoff)) {
@@ -299,8 +308,9 @@ List<Occurrence> _series({
 }
 
 /// A booster counts from the last dose actually given, of this rule or of the
-/// primary series it refreshes. With nothing recorded it falls back to an age,
-/// and with neither it produces nothing rather than guessing.
+/// primary series it refreshes, whichever is later. With nothing recorded it
+/// falls back to an age, and with neither it produces nothing rather than
+/// guessing.
 List<Occurrence> _booster({
   required Rule rule,
   required DateTime birth,
@@ -308,10 +318,18 @@ List<Occurrence> _booster({
   required String afterRuleId,
   required AgeOffset? fromAge,
   required _History history,
+  required DateTime today,
   required DateTime generateUntil,
   required _Make make,
 }) {
-  final anchor = history.lastDone(afterRuleId);
+  // Ten years from the last tetanus shot means the last one actually given:
+  // once a booster has been had, it is the anchor, not the childhood series it
+  // originally refreshed.
+  final own = history.lastDone(rule.id);
+  final previous = history.lastDone(afterRuleId);
+  final anchor = own == null || (previous != null && previous.isAfter(own))
+      ? previous
+      : own;
   if (anchor == null && fromAge == null) return const [];
 
   final occurrences = <Occurrence>[];
@@ -326,7 +344,12 @@ List<Occurrence> _booster({
     );
   }
 
-  var due = anchor == null ? fromAge!.applyTo(birth) : every.applyTo(anchor);
+  var due = _currentRepeat(
+    anchor == null ? fromAge!.applyTo(birth) : every.applyTo(anchor),
+    every,
+    today,
+    null,
+  );
   var emitted = 0;
   while (emitted == 0 || !due.isAfter(generateUntil)) {
     occurrences.add(make(windowStart: due, instanceId: _instanceId(due)));
@@ -335,6 +358,28 @@ List<Occurrence> _booster({
   }
 
   return occurrences;
+}
+
+/// The repeat that can still be acted on, skipping the ones a later repeat has
+/// already superseded.
+///
+/// An entitlement that comes round every year has one instance that matters:
+/// the one running now. Emitting every missed repeat since somebody turned
+/// eighteen buries it under twenty years of appointments nobody can make any
+/// more, and turns the whole timeline into noise.
+DateTime _currentRepeat(
+  DateTime first,
+  AgeOffset every,
+  DateTime today,
+  DateTime? cutoff,
+) {
+  var due = first;
+  while (true) {
+    final next = every.applyTo(due);
+    if (next.isAfter(today)) return due;
+    if (cutoff != null && next.isAfter(cutoff)) return due;
+    due = next;
+  }
 }
 
 String _instanceId(DateTime date) =>

@@ -49,9 +49,15 @@ present it in German or English.
 |---|---|---|
 | Children's check-ups | U1–U9 incl. U7a and J1, with time windows **and** tolerance limits; newborn, hearing, pulse-oximetry and cystic-fibrosis screening | [G-BA Kinder-Richtlinie][gba-kinder] |
 | Vaccinations | Vaccination calendar: standard immunisations from infant to adult, minimum intervals, boosters | [STIKO recommendations][stiko] |
-| Dental care | FU1–FU3, individual prophylaxis IP1–IP5, adult check-ups | [G-BA Zahnärztliche Früherkennung][gba-zahn] |
+| Dental care | Z1–Z6 for the first six years, individual prophylaxis from 6 to 17, one adult check-up per calendar year | [G-BA FU-Richtlinie][gba-zahn], [IP-Richtlinie][gba-ip], [§ 55 SGB V][sgb55] |
 | Adult check-up | Once between 18 and 34, then every three years from 35; hepatitis B/C screening; abdominal aortic aneurysm | [G-BA Gesundheitsuntersuchungs-Richtlinie][gba-gu] |
-| Cancer screening | Skin, cervical, mammography, colorectal, prostate, chlamydia — by age and sex | [G-BA Krebsfrüherkennungs-Richtlinie][gba-kfe] |
+| Cancer screening | Skin from 35, cervical from 20, mammography 50–75, prostate from 45, chlamydia to 25 | [G-BA Krebsfrüherkennungs-Richtlinie][gba-kfe] |
+| Organised programmes | Cervical co-test from 35 and colorectal screening from 50, which moved into their own guideline | [G-BA oKFE-Richtlinie][gba-okfe] |
+
+Two things are deliberately missing. The lung cancer screening is only for heavy smokers, and the
+app does not ask about smoking; indication-based vaccinations depend on illness, occupation,
+pregnancy or travel, none of which the app knows. A reminder for either would be wrong for almost
+everyone who saw it.
 
 Services that are **not** statutory (U10, U11, J2, professional tooth cleaning) are labelled
 "depends on your insurer" in the app. `catalog-watch.yml` checks nightly whether one of the source
@@ -146,3 +152,6 @@ when in doubt, ask your doctor's office or your health insurer.
 [gba-zahn]: https://www.g-ba.de/richtlinien/29/
 [gba-gu]: https://www.g-ba.de/richtlinien/10/
 [gba-kfe]: https://www.g-ba.de/richtlinien/17/
+[gba-okfe]: https://www.g-ba.de/richtlinien/104/
+[gba-ip]: https://www.g-ba.de/richtlinien/31/
+[sgb55]: https://www.gesetze-im-internet.de/sgb_5/__55.html

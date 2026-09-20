@@ -1,0 +1,592 @@
+{
+  "_conversion": "The calendar lists tetanus, diphtheria, pertussis, Hib, polio and hepatitis B as six rows given at the same three appointments, because one six-in-one vaccine covers them. They are one rule here: six reminders for one appointment would be six chances to ignore it. Ages are the calendar's own columns; a dose also carries the minimum interval to the one before it, which is what makes a late dose move the ones after it instead of silently going out of date. Only standard immunisations (S) are modelled. Indication-based vaccinations depend on illness, occupation, pregnancy or travel, none of which the app knows about, and a reminder for one would be wrong for almost everyone who saw it.",
+  "catalogId": "vaccinations",
+  "catalogVersion": "2026.09",
+  "name": {
+    "en": "Vaccinations",
+    "de": "Impfungen"
+  },
+  "sources": {
+    "stiko-2026": {
+      "name": {
+        "en": "STIKO vaccination calendar 2026",
+        "de": "STIKO-Impfkalender 2026"
+      },
+      "url": "https://www.rki.de/DE/Themen/Infektionskrankheiten/Impfen/Impfkalender/impfkalender-node.html",
+      "document": "Epidemiologisches Bulletin 4/2026 vom 22. Januar 2026, Tabelle 1 (Impfkalender) und Tabelle 2",
+      "asOf": "2026-09-20"
+    },
+    "stiko-updates": {
+      "name": {
+        "en": "STIKO recommendations, amendments during 2026",
+        "de": "STIKO-Empfehlungen, Änderungen im Jahr 2026"
+      },
+      "url": "https://www.rki.de/DE/Themen/Infektionskrankheiten/Impfen/Staendige-Impfkommission/Empfehlungen-der-STIKO/empfehlungen-der-stiko-node.html",
+      "document": "Randnotizen zum Impfkalender 2026: COVID-19 (Epid. Bull. 28/2026), RSV (Epid. Bull. 37/2026)",
+      "asOf": "2026-09-20"
+    }
+  },
+  "rules": [
+    {
+      "id": "rsv-infant",
+      "title": {
+        "en": "RSV protection (infant)",
+        "de": "RSV-Schutz (Säugling)"
+      },
+      "description": {
+        "en": "A single dose of monoclonal antibodies before the baby's first RSV season. Babies born between April and September get it in the autumn; babies born during the season, as soon as possible after birth.",
+        "de": "Einmalgabe monoklonaler Antikörper vor der ersten RSV-Saison. Zwischen April und September geborene Kinder erhalten sie im Herbst, während der Saison geborene möglichst rasch nach der Geburt."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {},
+        "to": {
+          "months": 12
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 1
+        }
+      }
+    },
+    {
+      "id": "rotavirus",
+      "title": {
+        "en": "Rotavirus",
+        "de": "Rotaviren"
+      },
+      "description": {
+        "en": "An oral vaccination in two or three doses, at least four weeks apart, starting from six weeks of age. It has to be finished by 24 or 32 weeks of age, depending on the vaccine.",
+        "de": "Schluckimpfung in zwei oder drei Dosen im Abstand von mindestens vier Wochen, frühestens ab sechs Lebenswochen. Sie muss je nach Impfstoff bis zur 24. bzw. 32. Lebenswoche abgeschlossen sein."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "weeks": 6
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "months": 3
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "months": 4
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "weeks": 32
+        }
+      }
+    },
+    {
+      "id": "six-in-one",
+      "title": {
+        "en": "Six-in-one vaccination",
+        "de": "Sechsfachimpfung"
+      },
+      "description": {
+        "en": "Tetanus, diphtheria, pertussis, Hib, polio and hepatitis B in one vaccine, at 2, 4 and 11 months. The third dose comes at least six months after the second. Premature babies get an extra dose at 3 months.",
+        "de": "Tetanus, Diphtherie, Pertussis, Hib, Poliomyelitis und Hepatitis B in einem Impfstoff, mit 2, 4 und 11 Monaten. Die dritte Dosis folgt mindestens sechs Monate nach der zweiten. Frühgeborene erhalten eine zusätzliche Dosis mit 3 Monaten."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "months": 2
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "months": 4
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "months": 11
+            },
+            "minIntervalFromPrevious": {
+              "months": 6
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "pneumococcal-infant",
+      "title": {
+        "en": "Pneumococcal (infant)",
+        "de": "Pneumokokken (Säugling)"
+      },
+      "description": {
+        "en": "Three doses at 2, 4 and 11 months, the last at least six months after the one before.",
+        "de": "Drei Dosen mit 2, 4 und 11 Monaten, die letzte mindestens sechs Monate nach der vorherigen."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "months": 2
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "months": 4
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "months": 11
+            },
+            "minIntervalFromPrevious": {
+              "months": 6
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 2
+        }
+      }
+    },
+    {
+      "id": "meningococcal-b",
+      "title": {
+        "en": "Meningococcal B",
+        "de": "Meningokokken B"
+      },
+      "description": {
+        "en": "Three doses at 2, 4 and 12 months. It is caught up only until the fifth birthday.",
+        "de": "Drei Dosen mit 2, 4 und 12 Monaten. Nachgeholt wird nur bis zum 5. Geburtstag."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "months": 2
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "months": 4
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "months": 12
+            },
+            "minIntervalFromPrevious": {
+              "months": 6
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 5
+        }
+      }
+    },
+    {
+      "id": "mmr",
+      "title": {
+        "en": "Measles, mumps, rubella",
+        "de": "Masern, Mumps, Röteln"
+      },
+      "description": {
+        "en": "Two doses at 11 and 15 months, at least four weeks apart. The series should be finished by the 15th month of life.",
+        "de": "Zwei Dosen mit 11 und 15 Monaten, mindestens vier Wochen auseinander. Die Impfung soll bis zum 15. Lebensmonat abgeschlossen sein."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "months": 11
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "months": 15
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "varicella",
+      "title": {
+        "en": "Chickenpox",
+        "de": "Windpocken"
+      },
+      "description": {
+        "en": "Two doses at 11 and 15 months, at least four weeks apart. Can be given at the same appointment as the measles vaccination.",
+        "de": "Zwei Dosen mit 11 und 15 Monaten, mindestens vier Wochen auseinander. Kann im selben Termin wie die Masernimpfung gegeben werden."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "months": 11
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "months": 15
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "tdap-booster-preschool",
+      "title": {
+        "en": "Tetanus booster (5 to 6)",
+        "de": "Tetanus-Auffrischung (5 bis 6)"
+      },
+      "description": {
+        "en": "First booster against tetanus, diphtheria and pertussis, at 5 to 6 years.",
+        "de": "Erste Auffrischimpfung gegen Tetanus, Diphtherie und Pertussis, mit 5 bis 6 Jahren."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "years": 5
+        },
+        "to": {
+          "years": 7
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "tdap-ipv-booster-teen",
+      "title": {
+        "en": "Tetanus and polio booster (9 to 16)",
+        "de": "Tetanus- und Polio-Auffrischung (9 bis 16)"
+      },
+      "description": {
+        "en": "Second booster against tetanus, diphtheria and pertussis, together with the polio booster, at 9 to 16 years.",
+        "de": "Zweite Auffrischimpfung gegen Tetanus, Diphtherie und Pertussis zusammen mit der Polio-Auffrischung, mit 9 bis 16 Jahren."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "years": 9
+        },
+        "to": {
+          "years": 17
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "hpv",
+      "title": {
+        "en": "HPV",
+        "de": "HPV"
+      },
+      "description": {
+        "en": "Two doses at least five months apart, for girls and boys aged 9 to 14. Missed doses are caught up until 17. Started from 15, or with less than five months between the first two, a third dose is needed.",
+        "de": "Zwei Dosen im Abstand von mindestens fünf Monaten, für Mädchen und Jungen von 9 bis 14 Jahren. Versäumte Impfungen werden bis 17 nachgeholt. Ab 15 begonnen oder bei weniger als fünf Monaten Abstand ist eine dritte Dosis nötig."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "years": 9
+            },
+            "to": {
+              "years": 15
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "years": 9
+            },
+            "to": {
+              "years": 18
+            },
+            "minIntervalFromPrevious": {
+              "months": 5
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "meningococcal-acwy",
+      "title": {
+        "en": "Meningococcal ACWY",
+        "de": "Meningokokken ACWY"
+      },
+      "description": {
+        "en": "One dose at 12 to 14 years. It is caught up until the 25th birthday.",
+        "de": "Eine Dosis mit 12 bis 14 Jahren. Nachgeholt wird bis zum 25. Geburtstag."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "years": 12
+        },
+        "to": {
+          "years": 15
+        },
+        "toleranceTo": {
+          "years": 25
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 25
+        }
+      }
+    },
+    {
+      "id": "td-booster",
+      "title": {
+        "en": "Tetanus and diphtheria booster",
+        "de": "Tetanus-Diphtherie-Auffrischung"
+      },
+      "description": {
+        "en": "A Td booster every ten years throughout adult life. The next one due is given once as Tdap, so that it also refreshes the protection against pertussis.",
+        "de": "Td-Auffrischimpfung alle zehn Jahre im Erwachsenenalter. Die nächste fällige Impfung wird einmalig als Tdap gegeben und frischt damit auch den Keuchhustenschutz auf."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "years": 10
+        },
+        "after": "tdap-ipv-booster-teen",
+        "fromAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "measles-adult",
+      "title": {
+        "en": "Measles vaccination for adults",
+        "de": "Masernimpfung für Erwachsene"
+      },
+      "description": {
+        "en": "One dose of an MMR vaccine for everyone born after 1970 who is 18 or older and was never vaccinated, vaccinated only once, or does not know.",
+        "de": "Eine Dosis eines MMR-Impfstoffs für alle nach 1970 Geborenen ab 18 Jahren, die nicht, nur einmal oder mit unklarem Status geimpft sind."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "onceFromAge",
+        "from": {
+          "years": 18
+        }
+      },
+      "eligibility": {
+        "minAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "herpes-zoster",
+      "title": {
+        "en": "Shingles",
+        "de": "Gürtelrose"
+      },
+      "description": {
+        "en": "Two doses of the inactivated vaccine from 60, two to six months apart.",
+        "de": "Zwei Dosen des Totimpfstoffs ab 60, im Abstand von zwei bis sechs Monaten."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "years": 60
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "years": 60
+            },
+            "minIntervalFromPrevious": {
+              "months": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "pneumococcal-adult",
+      "title": {
+        "en": "Pneumococcal (adult)",
+        "de": "Pneumokokken (Erwachsene)"
+      },
+      "description": {
+        "en": "A single dose of the 20-valent conjugate vaccine from 60.",
+        "de": "Einmalige Impfung mit dem 20-valenten Konjugatimpfstoff ab 60."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "onceFromAge",
+        "from": {
+          "years": 60
+        }
+      }
+    },
+    {
+      "id": "influenza",
+      "title": {
+        "en": "Flu vaccination",
+        "de": "Grippeimpfung"
+      },
+      "description": {
+        "en": "Once every autumn or winter from 60, one dose per season.",
+        "de": "Jeden Herbst oder Winter ab 60, eine Impfung je Saison."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 60
+        },
+        "every": {
+          "years": 1
+        }
+      }
+    },
+    {
+      "id": "covid",
+      "title": {
+        "en": "COVID-19 booster",
+        "de": "COVID-19-Auffrischung"
+      },
+      "description": {
+        "en": "One dose each autumn from 75. The STIKO moved this from 60 to 75 in July 2026 and dropped the separate recommendation on reaching basic immunity.",
+        "de": "Eine Impfung jeden Herbst ab 75. Die STIKO hat dies im Juli 2026 von 60 auf 75 geändert und die gesonderte Empfehlung zur Basisimmunität gestrichen."
+      },
+      "source": "stiko-updates",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 75
+        },
+        "every": {
+          "years": 1
+        }
+      }
+    },
+    {
+      "id": "rsv-adult",
+      "title": {
+        "en": "RSV vaccination (from 75)",
+        "de": "RSV-Impfung (ab 75)"
+      },
+      "description": {
+        "en": "A single RSV vaccination from 75, given in late summer or autumn before the season starts.",
+        "de": "Einmalige RSV-Impfung ab 75, im Spätsommer oder Herbst vor Beginn der Saison."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "onceFromAge",
+        "from": {
+          "years": 75
+        }
+      }
+    }
+  ]
+}

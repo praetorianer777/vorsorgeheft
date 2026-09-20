@@ -86,19 +86,22 @@ void main() {
     await store.savePerson(newborn);
     final service = serviceWith();
     await service.reschedule();
-    final before = gateway.pending.where((r) => r.ruleId == 'u6').length;
-    expect(before, greaterThan(0));
+    // Whichever appointment is nearest: the rolling window holds the twenty
+    // soonest reminders across every catalog, so naming one here would make
+    // the test depend on what else happens to be due that week.
+    final ruleId = gateway.pending.first.ruleId;
+    expect(gateway.pending.where((r) => r.ruleId == ruleId), isNotEmpty);
 
     await store.recordCompletion(
       Completion(
         personId: 'mila',
-        ruleId: 'u6',
+        ruleId: ruleId,
         completedOn: DateTime.utc(2026, 9, 20),
       ),
     );
     await service.reschedule();
 
-    expect(gateway.pending.where((r) => r.ruleId == 'u6'), isEmpty);
+    expect(gateway.pending.where((r) => r.ruleId == ruleId), isEmpty);
   });
 
   test('a deleted person takes their reminders with them', () async {

@@ -168,6 +168,7 @@ void main() {
       expect(find.text('Familie'), findsOneWidget);
       await openTimeline(tester);
       expect(find.text('Jetzt dran'), findsOneWidget);
+      await scrollTo(tester, find.text('Demnächst'));
       expect(find.text('Demnächst'), findsWidgets);
     },
   );
