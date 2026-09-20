@@ -9,6 +9,12 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- Keep a profile per family member and see their appointments on one timeline,
+  grouped into what needs doing now, what is coming up, what is settled and
+  what can no longer be had. Each appointment names the guideline it comes from
+  and the date that guideline was last reviewed.
+- Record an appointment as done or deliberately skipped, and undo it.
+- German and English throughout.
 - Children's check-ups U1 to U9 and the J1, with the exclusion deadlines past
   which the entitlement lapses, plus the newborn, hearing, pulse-oximetry and
   cystic-fibrosis screenings. U10, U11 and J2 are included but flagged as
