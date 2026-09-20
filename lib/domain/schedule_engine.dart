@@ -143,7 +143,7 @@ Iterable<Occurrence> _forRule({
       [
         make(
           windowStart: from.applyTo(birth),
-          windowEnd: (toleranceTo ?? to).applyTo(birth),
+          windowEnd: to.applyTo(birth),
           deadline: hardDeadline ? toleranceTo!.applyTo(birth) : null,
           completion: history.latest(rule.id),
         ),

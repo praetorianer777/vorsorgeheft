@@ -1,0 +1,484 @@
+{
+  "_conversion": "German guidelines count periods as 'Lebenstag/-woche/-monat', where the first one begins at birth: the 10th month of life is the month between ages 9 and 10 months. Ages here are therefore the guideline number minus one for a window's start, and the guideline number minus one day for its end. 'from' and 'to' are the recommended window; 'toleranceTo' is the last date the appointment can still be caught up.",
+  "catalogId": "children",
+  "catalogVersion": "2026.09",
+  "name": {
+    "en": "Children's check-ups",
+    "de": "Kindervorsorge"
+  },
+  "sources": {
+    "gba-kinder-rl": {
+      "name": {
+        "en": "G-BA guideline on early detection of illness in children",
+        "de": "G-BA Kinder-Richtlinie"
+      },
+      "url": "https://www.g-ba.de/richtlinien/15/",
+      "document": "Fassung vom 15. Mai 2025, in Kraft getreten am 1. Januar 2026, § 2",
+      "asOf": "2026-09-20"
+    },
+    "gba-jug-rl": {
+      "name": {
+        "en": "G-BA guideline on the adolescent health examination",
+        "de": "G-BA Jugendgesundheitsuntersuchungs-Richtlinie"
+      },
+      "url": "https://www.g-ba.de/richtlinien/14/",
+      "document": "Fassung vom 21. Juli 2016, in Kraft getreten am 1. Januar 2017, Abschnitt 2",
+      "asOf": "2026-09-20"
+    },
+    "bvkj-u10-u11-j2": {
+      "name": {
+        "en": "BZgA on U10, U11 and J2",
+        "de": "BZgA zu U10, U11 und J2"
+      },
+      "url": "https://www.kindergesundheit-info.de/themen/faq/gehoeren-u10-u11-und-j2-auch-zu-den-normalen-frueherkennungsuntersuchungen/",
+      "asOf": "2026-09-20"
+    }
+  },
+  "rules": [
+    {
+      "id": "u1",
+      "title": {
+        "en": "U1",
+        "de": "U1"
+      },
+      "description": {
+        "en": "Examination immediately after birth, within the first 30 minutes.",
+        "de": "Untersuchung unmittelbar nach der Geburt, innerhalb der ersten 30 Minuten."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {},
+        "to": {
+          "minutes": 30
+        }
+      }
+    },
+    {
+      "id": "newborn-screening",
+      "title": {
+        "en": "Extended newborn screening",
+        "de": "Erweitertes Neugeborenen-Screening"
+      },
+      "description": {
+        "en": "Blood sample screening for metabolic, hormone and other congenital disorders. Taken no earlier than 36 and no later than 72 hours of life; 48 to 72 hours is optimal. A sample missed in this window must be taken without delay.",
+        "de": "Blutprobe zur Früherkennung von Stoffwechsel-, Hormon- und weiteren angeborenen Erkrankungen. Nicht vor vollendeten 36 und nicht nach 72 Lebensstunden; optimal sind 48 bis 72 Lebensstunden. Eine in diesem Zeitfenster versäumte Probenentnahme muss unverzüglich nachgeholt werden."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "hours": 36
+        },
+        "to": {
+          "hours": 72
+        }
+      }
+    },
+    {
+      "id": "cf-screening",
+      "title": {
+        "en": "Cystic fibrosis screening",
+        "de": "Screening auf Mukoviszidose"
+      },
+      "description": {
+        "en": "Taken from the same blood sample as the extended newborn screening. It can be caught up within the first four weeks of life.",
+        "de": "Wird aus derselben Blutprobe wie das erweiterte Neugeborenen-Screening bestimmt. Es kann in den ersten vier Lebenswochen nachgeholt werden."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "hours": 36
+        },
+        "to": {
+          "hours": 72
+        },
+        "toleranceTo": {
+          "weeks": 4
+        }
+      }
+    },
+    {
+      "id": "hearing-screening",
+      "title": {
+        "en": "Newborn hearing screening",
+        "de": "Neugeborenen-Hörscreening"
+      },
+      "description": {
+        "en": "Measured for each ear, to be done by the third day of life. If it did not happen before discharge it takes place at the U2 at the latest.",
+        "de": "Messung an jedem Ohr, soll bis zum 3. Lebenstag durchgeführt werden. Ist sie nicht vor der Entlassung erfolgt, findet sie spätestens im Rahmen der U2 statt."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {},
+        "to": {
+          "days": 2
+        },
+        "toleranceTo": {
+          "days": 13
+        }
+      }
+    },
+    {
+      "id": "pulse-oximetry",
+      "title": {
+        "en": "Pulse oximetry screening",
+        "de": "Pulsoxymetrie-Screening"
+      },
+      "description": {
+        "en": "Screening for critical congenital heart defects, on the second day of life, between 24 and 48 hours. In exceptional cases from the fourth hour of life and until the U2 at the latest.",
+        "de": "Screening auf kritische angeborene Herzfehler, am 2. Lebenstag nach der 24. bis zur 48. Lebensstunde. Im Ausnahmefall frühestens nach der 4. Lebensstunde und bis spätestens zur U2."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "hours": 24
+        },
+        "to": {
+          "hours": 48
+        },
+        "toleranceTo": {
+          "days": 13
+        }
+      }
+    },
+    {
+      "id": "u2",
+      "title": {
+        "en": "U2",
+        "de": "U2"
+      },
+      "description": {
+        "en": "Check-up in the 3rd to 10th day of life. It can be caught up until the 3rd to 14th day of life; after that the statutory entitlement lapses.",
+        "de": "Früherkennungsuntersuchung im 3.-10. Lebenstag. Sie kann bis zum 3.-14. Lebenstag nachgeholt werden; danach entfällt der Anspruch."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "days": 2
+        },
+        "to": {
+          "days": 9
+        },
+        "toleranceTo": {
+          "days": 13
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "u3",
+      "title": {
+        "en": "U3",
+        "de": "U3"
+      },
+      "description": {
+        "en": "Check-up in the 4th to 5th week of life. It can be caught up until the 3rd to 8th week of life; after that the statutory entitlement lapses.",
+        "de": "Früherkennungsuntersuchung im 4.-5. Lebenswoche. Sie kann bis zum 3.-8. Lebenswoche nachgeholt werden; danach entfällt der Anspruch."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "weeks": 3
+        },
+        "to": {
+          "weeks": 5,
+          "days": -1
+        },
+        "toleranceTo": {
+          "weeks": 8,
+          "days": -1
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "u4",
+      "title": {
+        "en": "U4",
+        "de": "U4"
+      },
+      "description": {
+        "en": "Check-up in the 3rd to 4th month of life. It can be caught up until the 2nd to 4½th month of life; after that the statutory entitlement lapses.",
+        "de": "Früherkennungsuntersuchung im 3.-4. Lebensmonat. Sie kann bis zum 2.-4 ½ Lebensmonat nachgeholt werden; danach entfällt der Anspruch."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 2
+        },
+        "to": {
+          "months": 4,
+          "days": -1
+        },
+        "toleranceTo": {
+          "months": 4,
+          "days": 15
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "u5",
+      "title": {
+        "en": "U5",
+        "de": "U5"
+      },
+      "description": {
+        "en": "Check-up in the 6th to 7th month of life. It can be caught up until the 5th to 8th month of life; after that the statutory entitlement lapses.",
+        "de": "Früherkennungsuntersuchung im 6.-7. Lebensmonat. Sie kann bis zum 5.-8. Lebensmonat nachgeholt werden; danach entfällt der Anspruch."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 5
+        },
+        "to": {
+          "months": 7,
+          "days": -1
+        },
+        "toleranceTo": {
+          "months": 8,
+          "days": -1
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "u6",
+      "title": {
+        "en": "U6",
+        "de": "U6"
+      },
+      "description": {
+        "en": "Check-up in the 10th to 12th month of life. It can be caught up until the 9th to 14th month of life; after that the statutory entitlement lapses.",
+        "de": "Früherkennungsuntersuchung im 10.-12. Lebensmonat. Sie kann bis zum 9.-14. Lebensmonat nachgeholt werden; danach entfällt der Anspruch."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 9
+        },
+        "to": {
+          "months": 12,
+          "days": -1
+        },
+        "toleranceTo": {
+          "months": 14,
+          "days": -1
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "u7",
+      "title": {
+        "en": "U7",
+        "de": "U7"
+      },
+      "description": {
+        "en": "Check-up in the 21st to 24th month of life. It can be caught up until the 20th to 27th month of life; after that the statutory entitlement lapses.",
+        "de": "Früherkennungsuntersuchung im 21.-24. Lebensmonat. Sie kann bis zum 20.-27. Lebensmonat nachgeholt werden; danach entfällt der Anspruch."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 20
+        },
+        "to": {
+          "months": 24,
+          "days": -1
+        },
+        "toleranceTo": {
+          "months": 27,
+          "days": -1
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "u7a",
+      "title": {
+        "en": "U7a",
+        "de": "U7a"
+      },
+      "description": {
+        "en": "Check-up in the 34th to 36th month of life. It can be caught up until the 33rd to 38th month of life; after that the statutory entitlement lapses.",
+        "de": "Früherkennungsuntersuchung im 34.-36. Lebensmonat. Sie kann bis zum 33.-38. Lebensmonat nachgeholt werden; danach entfällt der Anspruch."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 33
+        },
+        "to": {
+          "months": 36,
+          "days": -1
+        },
+        "toleranceTo": {
+          "months": 38,
+          "days": -1
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "u8",
+      "title": {
+        "en": "U8",
+        "de": "U8"
+      },
+      "description": {
+        "en": "Check-up in the 46th to 48th month of life. It can be caught up until the 43rd to 50th month of life; after that the statutory entitlement lapses.",
+        "de": "Früherkennungsuntersuchung im 46.-48. Lebensmonat. Sie kann bis zum 43.-50. Lebensmonat nachgeholt werden; danach entfällt der Anspruch."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 45
+        },
+        "to": {
+          "months": 48,
+          "days": -1
+        },
+        "toleranceTo": {
+          "months": 50,
+          "days": -1
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "u9",
+      "title": {
+        "en": "U9",
+        "de": "U9"
+      },
+      "description": {
+        "en": "Check-up in the 60th to 64th month of life. It can be caught up until the 58th to 66th month of life; after that the statutory entitlement lapses.",
+        "de": "Früherkennungsuntersuchung im 60.-64. Lebensmonat. Sie kann bis zum 58.-66. Lebensmonat nachgeholt werden; danach entfällt der Anspruch."
+      },
+      "source": "gba-kinder-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "months": 59
+        },
+        "to": {
+          "months": 64,
+          "days": -1
+        },
+        "toleranceTo": {
+          "months": 66,
+          "days": -1
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "j1",
+      "title": {
+        "en": "J1",
+        "de": "J1"
+      },
+      "description": {
+        "en": "Adolescent health examination, between the 13th and the 14th birthday. The entitlement includes twelve months before and twelve months after that window; past the 15th birthday it lapses.",
+        "de": "Jugendgesundheitsuntersuchung zwischen dem vollendeten 13. und dem vollendeten 14. Lebensjahr. Die Anspruchsberechtigung schließt je zwölf Monate davor und danach ein; nach dem vollendeten 15. Lebensjahr entfällt sie."
+      },
+      "source": "gba-jug-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "years": 13
+        },
+        "to": {
+          "years": 14
+        },
+        "toleranceTo": {
+          "years": 15
+        },
+        "hardDeadline": true
+      }
+    },
+    {
+      "id": "u10",
+      "title": {
+        "en": "U10",
+        "de": "U10"
+      },
+      "description": {
+        "en": "Additional examination at ages 7 and 8, developed by the association of paediatricians to close the gap between the U9 and the J1. Not a standard statutory benefit: most but not all insurers cover it, so check with yours.",
+        "de": "Zusätzliche Untersuchung im Alter von 7 und 8 Jahren, vom Berufsverband der Kinder- und Jugendärzte entwickelt, um die Lücke zwischen U9 und J1 zu schließen. Keine Regelleistung: die meisten, aber nicht alle Kassen übernehmen sie - bitte bei der eigenen Kasse nachfragen."
+      },
+      "source": "bvkj-u10-u11-j2",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "years": 7
+        },
+        "to": {
+          "years": 9,
+          "days": -1
+        }
+      },
+      "statutory": false
+    },
+    {
+      "id": "u11",
+      "title": {
+        "en": "U11",
+        "de": "U11"
+      },
+      "description": {
+        "en": "Additional examination at ages 9 and 10, developed by the association of paediatricians to close the gap between the U9 and the J1. Not a standard statutory benefit: most but not all insurers cover it, so check with yours.",
+        "de": "Zusätzliche Untersuchung im Alter von 9 und 10 Jahren, vom Berufsverband der Kinder- und Jugendärzte entwickelt, um die Lücke zwischen U9 und J1 zu schließen. Keine Regelleistung: die meisten, aber nicht alle Kassen übernehmen sie - bitte bei der eigenen Kasse nachfragen."
+      },
+      "source": "bvkj-u10-u11-j2",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "years": 9
+        },
+        "to": {
+          "years": 11,
+          "days": -1
+        }
+      },
+      "statutory": false
+    },
+    {
+      "id": "j2",
+      "title": {
+        "en": "J2",
+        "de": "J2"
+      },
+      "description": {
+        "en": "Additional examination at ages 16 and 17, developed by the association of paediatricians to close the gap between the U9 and the J1. Not a standard statutory benefit: most but not all insurers cover it, so check with yours.",
+        "de": "Zusätzliche Untersuchung im Alter von 16 und 17 Jahren, vom Berufsverband der Kinder- und Jugendärzte entwickelt, um die Lücke zwischen U9 und J1 zu schließen. Keine Regelleistung: die meisten, aber nicht alle Kassen übernehmen sie - bitte bei der eigenen Kasse nachfragen."
+      },
+      "source": "bvkj-u10-u11-j2",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "years": 16
+        },
+        "to": {
+          "years": 18,
+          "days": -1
+        }
+      },
+      "statutory": false
+    }
+  ]
+}

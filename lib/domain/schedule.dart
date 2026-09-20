@@ -64,11 +64,19 @@ final class AgeWindow extends Schedule {
   }
 
   final AgeOffset from;
+
+  /// The end of the window the appointment is meant to happen in. Past it the
+  /// appointment is late but can still be caught up, up to [toleranceTo].
   final AgeOffset to;
 
   /// The last age at which the appointment can still be caught up. For the
   /// children's check-ups this is an exclusion deadline, not a suggestion: once
   /// it passes the statutory entitlement is gone.
+  ///
+  /// Where a guideline also allows an *earlier* start than the recommended
+  /// window, that is deliberately not modelled: the app's job is to get people
+  /// into the recommended window, and the earlier option belongs in the rule
+  /// text rather than in the reminder.
   final AgeOffset? toleranceTo;
 
   final bool hardDeadline;

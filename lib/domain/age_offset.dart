@@ -10,6 +10,7 @@ class AgeOffset {
     this.weeks = 0,
     this.days = 0,
     this.hours = 0,
+    this.minutes = 0,
   });
 
   factory AgeOffset.fromJson(Map<String, Object?> json) {
@@ -20,7 +21,7 @@ class AgeOffset {
       throw FormatException('"$key" must be a whole number, got $value');
     }
 
-    const known = {'years', 'months', 'weeks', 'days', 'hours'};
+    const known = {'years', 'months', 'weeks', 'days', 'hours', 'minutes'};
     final unknown = json.keys.toSet().difference(known);
     if (unknown.isNotEmpty) {
       throw FormatException('unknown age unit(s): ${unknown.join(', ')}');
@@ -32,6 +33,7 @@ class AgeOffset {
       weeks: read('weeks'),
       days: read('days'),
       hours: read('hours'),
+      minutes: read('minutes'),
     );
   }
 
@@ -40,14 +42,22 @@ class AgeOffset {
   final int weeks;
   final int days;
   final int hours;
+  final int minutes;
 
   bool get isZero =>
-      years == 0 && months == 0 && weeks == 0 && days == 0 && hours == 0;
+      years == 0 &&
+      months == 0 &&
+      weeks == 0 &&
+      days == 0 &&
+      hours == 0 &&
+      minutes == 0;
 
   DateTime applyTo(DateTime birth) {
     final totalMonths = years * 12 + months;
     final shifted = _addMonths(birth, totalMonths);
-    return shifted.add(Duration(days: weeks * 7 + days, hours: hours));
+    return shifted.add(
+      Duration(days: weeks * 7 + days, hours: hours, minutes: minutes),
+    );
   }
 
   static DateTime _addMonths(DateTime from, int months) {
@@ -83,10 +93,11 @@ class AgeOffset {
       other.months == months &&
       other.weeks == weeks &&
       other.days == days &&
-      other.hours == hours;
+      other.hours == hours &&
+      other.minutes == minutes;
 
   @override
-  int get hashCode => Object.hash(years, months, weeks, days, hours);
+  int get hashCode => Object.hash(years, months, weeks, days, hours, minutes);
 
   @override
   String toString() {
@@ -96,6 +107,7 @@ class AgeOffset {
       if (weeks != 0) '${weeks}w',
       if (days != 0) '${days}d',
       if (hours != 0) '${hours}h',
+      if (minutes != 0) '${minutes}min',
     ];
     return parts.isEmpty ? 'AgeOffset(0)' : 'AgeOffset(${parts.join(' ')})';
   }
