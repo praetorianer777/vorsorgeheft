@@ -71,7 +71,7 @@ telemetry. There is no account and no operator who could see anything.
 
 ## Building
 
-Requires a Flutter SDK (stable, ≥ 3.24) with Dart ≥ 3.5.
+Requires a Flutter SDK on the stable channel with Dart ≥ 3.10.
 
 ```bash
 flutter pub get

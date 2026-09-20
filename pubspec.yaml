@@ -6,8 +6,8 @@ publish_to: none
 version: 0.1.0+1
 
 environment:
-  sdk: ^3.5.0
-  flutter: ">=3.24.0"
+  # 3.10 is the floor for dot-shorthand syntax, which the Flutter templates emit.
+  sdk: ^3.10.0
 
 dependencies:
   flutter:
@@ -17,31 +17,31 @@ dependencies:
 
   # Persistence
   drift: ^2.20.0
-  sqlite3_flutter_libs: ^0.5.24
+  sqlite3: ^3.0.0
   path_provider: ^2.1.4
   path: ^1.9.0
 
   # Reminders
-  flutter_local_notifications: ^17.2.3
-  timezone: ^0.9.4
-  permission_handler: ^11.3.1
+  flutter_local_notifications: ^22.3.1
+  timezone: ^0.11.1
+  permission_handler: ^13.0.2
 
   # Export / sharing
-  share_plus: ^10.0.2
+  share_plus: ^13.3.0
 
   # Sync
   cryptography: ^2.7.0          # X25519, HKDF, AES-GCM
-  mobile_scanner: ^5.2.3        # scan QR codes
+  mobile_scanner: ^7.4.2        # scan QR codes
   qr_flutter: ^4.1.0            # render QR codes
   multicast_dns: ^0.3.2+7       # peer discovery on the LAN
 
   # State
-  flutter_riverpod: ^2.5.1
+  flutter_riverpod: ^3.4.3
 
   # Misc
   collection: ^1.18.0
   url_launcher: ^6.3.0
-  intl: ^0.19.0
+  intl: ^0.20.3
   uuid: ^4.5.1
 
 dev_dependencies:
@@ -49,7 +49,7 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^6.0.0
   drift_dev: ^2.20.0
   build_runner: ^2.4.12
 

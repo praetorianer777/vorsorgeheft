@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "appTitle": "Vorsorgereminder",
+  "@appTitle": {
+    "description": "The application name, shown in the app bar and the task switcher"
+  },
+  "disclaimerShort": "Not medical advice. Entitlements vary by insurer.",
+  "@disclaimerShort": {
+    "description": "One-line disclaimer shown beneath the timeline"
+  }
+}
