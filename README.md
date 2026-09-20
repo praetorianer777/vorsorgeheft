@@ -76,8 +76,12 @@ Requires a Flutter SDK on the stable channel with Dart ≥ 3.10.
 ```bash
 flutter pub get
 flutter run                  # debug build on an attached device
+flutter run -d linux         # development target, for looking at the app quickly
 flutter build apk --release  # release APK
 ```
+
+The `linux/` target exists so the app can be run and driven on a development
+machine without an emulator. It is not shipped and is not built in CI.
 
 ## Testing
 
@@ -86,8 +90,13 @@ flutter build apk --release  # release APK
 | Everything | `./run-tests.sh` | The single entry point. The branch-guard hook runs it before every push, and `ci.yml` has no other step. |
 | Shell | `./tests/test-release.sh`, `./.claude/hooks/tests/branch-guard-test.sh` | Release script and branch guard, offline and without Flutter |
 | Format & analysis | `dart format --set-exit-if-changed .`, `flutter analyze --fatal-infos` | |
-| Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, ICS writer, oplog merge |
-| Integration | `ANDROID_E2E=1 ./run-tests.sh` | The app on an emulator or device; runs nightly in CI |
+| Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, data layer, UI flows |
+| End-to-end | `flutter test` | The specs in `integration_test/specs.dart`, run headless so they gate every push |
+| End-to-end on a device | `ANDROID_E2E=1 ./run-tests.sh` | The same specs on an emulator or device, where platform channels and the real asset bundle are in play; runs nightly in CI |
+
+The end-to-end specs are written once and run under two bindings. A spec that
+only ever ran on the emulator would be written and then left to rot, because
+nobody waits four minutes for an emulator before pushing.
 
 ## Continuous integration
 

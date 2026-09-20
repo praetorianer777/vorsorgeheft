@@ -1,5 +1,5 @@
 {
-  "_conversion": "German guidelines count periods as 'Lebenstag/-woche/-monat', where the first one begins at birth: the 10th month of life is the month between ages 9 and 10 months. Ages here are therefore the guideline number minus one for a window's start, and the guideline number minus one day for its end. 'from' and 'to' are the recommended window; 'toleranceTo' is the last date the appointment can still be caught up.",
+  "_conversion": "German guidelines count periods as 'Lebenstag/-woche/-monat', where the first one begins at birth: the 10th month of life is the month between ages 9 and 10 months. Ages here are therefore the guideline number minus one for a window's start, and the guideline number minus one day for its end. 'from' and 'to' are the recommended window; 'toleranceTo' is the last date the appointment can still be caught up. Every rule is capped at 18 because § 1 of the Kinder-Richtlinie grants the entitlement only until the 18th birthday; without that cap an adult's timeline fills with childhood check-ups that lapsed decades ago.",
   "catalogId": "children",
   "catalogVersion": "2026.09",
   "name": {
@@ -52,6 +52,11 @@
         "to": {
           "minutes": 30
         }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -72,6 +77,11 @@
         },
         "to": {
           "hours": 72
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
         }
       }
     },
@@ -97,6 +107,11 @@
         "toleranceTo": {
           "weeks": 4
         }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -118,6 +133,11 @@
         },
         "toleranceTo": {
           "days": 13
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
         }
       }
     },
@@ -142,6 +162,11 @@
         },
         "toleranceTo": {
           "days": 13
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
         }
       }
     },
@@ -168,6 +193,11 @@
           "days": 13
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -195,6 +225,11 @@
           "days": -1
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -222,6 +257,11 @@
           "days": 15
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -249,6 +289,11 @@
           "days": -1
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -276,6 +321,11 @@
           "days": -1
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -303,6 +353,11 @@
           "days": -1
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -330,6 +385,11 @@
           "days": -1
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -357,6 +417,11 @@
           "days": -1
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -384,6 +449,11 @@
           "days": -1
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -409,6 +479,11 @@
           "years": 15
         },
         "hardDeadline": true
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
       }
     },
     {
@@ -432,7 +507,12 @@
           "days": -1
         }
       },
-      "statutory": false
+      "statutory": false,
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
     },
     {
       "id": "u11",
@@ -455,7 +535,12 @@
           "days": -1
         }
       },
-      "statutory": false
+      "statutory": false,
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
     },
     {
       "id": "j2",
@@ -478,7 +563,12 @@
           "days": -1
         }
       },
-      "statutory": false
+      "statutory": false,
+      "eligibility": {
+        "maxAge": {
+          "years": 18
+        }
+      }
     }
   ]
 }

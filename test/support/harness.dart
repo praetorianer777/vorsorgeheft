@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,17 +10,8 @@ import 'package:vorsorgereminder/data/database_provider.dart';
 import 'package:vorsorgereminder/domain/person.dart';
 import 'package:vorsorgereminder/l10n/locale_notifier.dart';
 
-/// Reads the catalogs from the repository rather than from a bundled asset, so
-/// what the tests exercise is the file that actually ships.
-///
-/// The read is synchronous on purpose: a widget test runs on a fake clock, and
-/// a real file read would complete on the real event loop, which pumping
-/// frames never advances.
-class DiskAssetBundle extends CachingAssetBundle {
-  @override
-  Future<ByteData> load(String key) async =>
-      ByteData.view(File(key).readAsBytesSync().buffer);
-}
+import '../../integration_test/helpers/app_harness.dart'
+    show SynchronousAssetBundle;
 
 /// Today, pinned. Nothing in a test may read the wall clock, or the suite
 /// starts failing on its own as the calendar moves.
@@ -76,7 +64,7 @@ void appTest(
           databaseProvider.overrideWithValue(database),
           clockProvider.overrideWithValue(() => today ?? pinnedToday),
           catalogRepositoryProvider.overrideWithValue(
-            CatalogRepository(bundle: DiskAssetBundle()),
+            CatalogRepository(bundle: SynchronousAssetBundle()),
           ),
           localeProvider.overrideWith(() => _FixedLocale(locale)),
         ],
