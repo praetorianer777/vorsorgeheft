@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../app/providers.dart';
 import '../domain/occurrence.dart';
 import '../l10n/app_localizations.dart';
+import 'export_action.dart';
 import 'formatting.dart';
 import 'occurrence_detail_screen.dart';
 import 'person_form_screen.dart';
@@ -42,6 +43,7 @@ class TimelineScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(person.name),
         actions: [
+          ExportButton(personId: person.id, personName: person.name),
           IconButton(
             key: const Key('edit-person'),
             icon: const Icon(Icons.edit_outlined),

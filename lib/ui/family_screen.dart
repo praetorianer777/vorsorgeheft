@@ -6,6 +6,7 @@ import '../app/providers.dart';
 import '../domain/person.dart';
 import '../l10n/app_localizations.dart';
 import '../notifications/permission_state.dart';
+import 'export_action.dart';
 import 'formatting.dart';
 import 'person_form_screen.dart';
 import 'sources_screen.dart';
@@ -23,6 +24,7 @@ class FamilyScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.familyTitle),
         actions: [
+          const ExportButton(),
           IconButton(
             icon: const Icon(Icons.info_outline),
             tooltip: l10n.sourcesTitle,

@@ -57,6 +57,18 @@ Services that are **not** statutory (U10, U11, J2, professional tooth cleaning) 
 "depends on your insurer" in the app. `catalog-watch.yml` checks nightly whether one of the source
 documents has changed and files an issue if so.
 
+## Calendar export
+
+Every appointment can be exported as an `.ics` file, for one person or for the whole family, and
+handed to any calendar or mail client. Events are all-day and cover the window the appointment
+falls in; the exclusion deadline, the source and the link to the guideline are in the description,
+and alarms mirror the in-app reminders.
+
+Each event keeps a stable UID across exports, so importing a newer file **updates** the events
+instead of adding a second copy of each. An appointment that has been recorded or has lapsed since
+the last export is written out as a cancellation, because an import can only add and update - an
+event that was simply left out would stay in the calendar forever.
+
 ## Device sync
 
 Both devices exchange public keys once via QR code and derive a shared key from them

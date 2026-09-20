@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,9 +11,11 @@ import 'package:vorsorgereminder/data/database.dart';
 import 'package:vorsorgereminder/data/database_provider.dart';
 import 'package:vorsorgereminder/sync/replicated_store.dart';
 import 'package:vorsorgereminder/domain/person.dart';
+import 'package:vorsorgereminder/export/ics_export_service.dart';
 import 'package:vorsorgereminder/l10n/locale_notifier.dart';
 
 import 'recording_gateway.dart';
+import 'recording_share.dart';
 import 'synchronous_assets.dart';
 
 /// Today, pinned. Nothing in a test may read the wall clock, or the suite
@@ -53,12 +57,17 @@ void appTest(
   DateTime? today,
   Locale? locale,
   RecordingGateway? gateway,
+  RecordingShareGateway? share,
 }) {
   testWidgets(description, (tester) async {
     // A widget test must never reach the platform notification plugin: there
     // is no platform under it, and what is worth asserting here is which
     // reminders were planned, not how a phone draws them.
     final activeGateway = gateway ?? RecordingGateway();
+    final activeShare = share ?? RecordingShareGateway();
+    final bundle = SynchronousAssetBundle();
+    final exportDirectory = Directory.systemTemp.createTempSync('vorsorge-ics');
+    addTearDown(() => exportDirectory.deleteSync(recursive: true));
     final database = openInMemoryDatabase();
     final store = await ReplicatedStore.open(
       database,
@@ -77,7 +86,18 @@ void appTest(
           notificationGatewayProvider.overrideWithValue(activeGateway),
           clockProvider.overrideWithValue(() => today ?? pinnedToday),
           catalogRepositoryProvider.overrideWithValue(
-            CatalogRepository(bundle: SynchronousAssetBundle()),
+            CatalogRepository(bundle: bundle),
+          ),
+          // path_provider has no platform under a test binding, so the export
+          // writes into a directory the test owns.
+          icsExportServiceProvider.overrideWith(
+            (ref) => IcsExportService(
+              database: database,
+              catalogs: CatalogRepository(bundle: bundle),
+              share: activeShare,
+              clock: () => today ?? pinnedToday,
+              directory: () async => exportDirectory,
+            ),
           ),
           localeProvider.overrideWith(() => _FixedLocale(locale)),
         ],

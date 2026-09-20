@@ -61,6 +61,26 @@
   "reminderWindowOpensBody": "Der Zeitraum beginnt am {date}.",
   "reminderDeadlineTitle": "{person}: {appointment} läuft bald ab",
   "reminderDeadlineBody": "Der Anspruch endet am {date}. Danach wird die Untersuchung nicht mehr übernommen.",
+  "exportCalendar": "Als Kalenderdatei exportieren",
+  "exportCalendarFamily": "Vorsorge \u2013 Familie",
+  "exportCalendarPerson": "Vorsorge \u2013 {name}",
+  "@exportCalendarPerson": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "exportDeadlineLine": "Sp\u00e4testens bis {date} nachholen, danach entf\u00e4llt der Anspruch.",
+  "@exportDeadlineLine": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMMd"
+      }
+    }
+  },
+  "exportFailed": "Die Kalenderdatei konnte nicht erstellt werden.",
   "notificationsTitle": "Erinnerungen",
   "notificationsDenied": "Benachrichtigungen sind für diese App ausgeschaltet. Schalte sie in den Systemeinstellungen ein, um erinnert zu werden.",
   "notificationsEnable": "Benachrichtigungen erlauben"

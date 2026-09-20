@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,10 +9,12 @@ import 'package:vorsorgereminder/data/catalog_repository.dart';
 import 'package:vorsorgereminder/data/database.dart';
 import 'package:vorsorgereminder/data/database_provider.dart';
 import 'package:vorsorgereminder/domain/person.dart';
+import 'package:vorsorgereminder/export/ics_export_service.dart';
 import 'package:vorsorgereminder/sync/replicated_store.dart';
 import 'package:vorsorgereminder/l10n/locale_notifier.dart';
 
 import '../../test/support/recording_gateway.dart';
+import '../../test/support/recording_share.dart';
 import '../fixtures/family.dart';
 
 /// How the specs reach the catalogs.
@@ -33,10 +37,14 @@ Future<AppDatabase> launchApp(
   DateTime? today,
   Locale locale = const Locale('en'),
   RecordingGateway? gateway,
+  RecordingShareGateway? share,
 }) async {
   // A spec asserts on which reminders were planned, not on how a platform
   // renders them, and the emulator makes exactly that assertion slow.
   final activeGateway = gateway ?? RecordingGateway();
+  final activeShare = share ?? RecordingShareGateway();
+  final exportDirectory = Directory.systemTemp.createTempSync('vorsorge-ics');
+  addTearDown(() => exportDirectory.deleteSync(recursive: true));
   final database = openInMemoryDatabase();
   final store = await ReplicatedStore.open(
     database,
@@ -60,6 +68,20 @@ Future<AppDatabase> launchApp(
             CatalogRepository(bundle: specAssetBundle),
           ),
         clockProvider.overrideWithValue(() => today ?? pinnedToday),
+        // A share sheet would need a person to dismiss it, and path_provider
+        // points at the device's own cache; both are replaced so the spec can
+        // read the file that was produced.
+        icsExportServiceProvider.overrideWith(
+          (ref) => IcsExportService(
+            database: database,
+            catalogs: specAssetBundle == null
+                ? const CatalogRepository()
+                : CatalogRepository(bundle: specAssetBundle),
+            share: activeShare,
+            clock: () => today ?? pinnedToday,
+            directory: () async => exportDirectory,
+          ),
+        ),
         localeProvider.overrideWith(() => _FixedLocale(locale)),
       ],
       child: const VorsorgereminderApp(),

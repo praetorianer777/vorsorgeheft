@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../test/support/recording_share.dart';
 import 'app_harness.dart';
 
 /// Page objects, so a spec reads as behaviour rather than as widget finders.
@@ -26,6 +27,9 @@ class FamilyPage {
     await settle(tester);
     return TimelinePage(tester);
   }
+
+  Future<void> exportCalendar(RecordingShareGateway share) =>
+      tapExport(tester, share);
 
   Future<SourcesPage> openSources() async {
     await tester.tap(find.byIcon(Icons.info_outline));
@@ -85,6 +89,9 @@ class TimelinePage {
   Future<void> scrollToAppointment(String title) =>
       scrollTo(tester, find.text(title));
 
+  Future<void> exportCalendar(RecordingShareGateway share) =>
+      tapExport(tester, share);
+
   Future<void> back() async {
     await tester.pageBack();
     await settle(tester);
@@ -134,4 +141,23 @@ class SourcesPage {
   Finder sourceNamed(String fragment) => find.textContaining(fragment);
 
   Future<void> scrollToDisclaimer() => scrollTo(tester, disclaimer);
+}
+
+/// Exports and waits for the file to actually be written.
+///
+/// Writing it is real I/O, which a pumped frame does not advance: under the
+/// headless binding the clock is fake, and only `runAsync` lets the event loop
+/// deliver the completion.
+Future<void> tapExport(WidgetTester tester, RecordingShareGateway share) async {
+  final before = share.shared.length;
+  // The tap itself happens inside runAsync: under the headless binding the
+  // continuations of the export would otherwise be queued on the fake clock,
+  // which nothing advances while the real file is being written.
+  await tester.runAsync(() async {
+    await tester.tap(find.byKey(const Key('export-ics')));
+    for (var i = 0; i < 200 && share.shared.length == before; i++) {
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+    }
+  });
+  await settle(tester);
 }
