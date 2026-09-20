@@ -9,6 +9,10 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- Every change is recorded so two phones can be brought to the same state
+  later without a server or an account. Edits made on both devices while apart
+  are merged field by field, so renaming a child on one phone and recording an
+  appointment on the other no longer costs one of the two.
 - Keep a profile per family member and see their appointments on one timeline,
   grouped into what needs doing now, what is coming up, what is settled and
   what can no longer be had. Each appointment names the guideline it comes from

@@ -7,11 +7,19 @@ import '../domain/completion.dart';
 import '../domain/occurrence.dart';
 import '../domain/person.dart';
 import '../domain/schedule_engine.dart';
+import '../sync/replicated_store.dart';
 
 /// Overridden at startup with the opened database, and in tests with an
 /// in-memory one.
 final databaseProvider = Provider<AppDatabase>(
   (ref) => throw UnimplementedError('databaseProvider must be overridden'),
+);
+
+/// Every write goes through here. Overridden at startup alongside the
+/// database, so that a local edit and one arriving from the other parent's
+/// phone take the same path.
+final storeProvider = Provider<ReplicatedStore>(
+  (ref) => throw UnimplementedError('storeProvider must be overridden'),
 );
 
 final catalogRepositoryProvider = Provider<CatalogRepository>(

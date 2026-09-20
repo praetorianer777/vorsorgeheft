@@ -62,7 +62,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
       sex: _sex,
       notes: _notes.text.trim().isEmpty ? null : _notes.text.trim(),
     );
-    await ref.read(databaseProvider).upsertPerson(person);
+    await ref.read(storeProvider).savePerson(person);
     if (mounted) Navigator.of(context).pop();
   }
 
