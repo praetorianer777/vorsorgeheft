@@ -88,6 +88,16 @@ password-encrypted file instead.
 The app stores data locally only, needs no network access beyond the LAN sync, and sends no
 telemetry. There is no account and no operator who could see anything.
 
+## Trying it out
+
+Every push to `main` builds an installable APK. Open the latest run of the **APK** workflow under
+[Actions](../../actions/workflows/apk.yml) and download the artifact at the bottom of the page;
+the job summary carries its SHA256.
+
+That APK is **debug-signed**, which is what makes it installable without a keystore. It is meant
+for trying the app out, not for keeping: Android refuses to update an app when the signature
+changes, so it has to be uninstalled before a properly signed release can take its place.
+
 ## Building
 
 Requires a Flutter SDK on the stable channel with Dart ≥ 3.10.
