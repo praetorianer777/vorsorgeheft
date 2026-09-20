@@ -162,6 +162,26 @@
       }
     }
   },
+  "exportCalendar": "Export as calendar file",
+  "exportCalendarFamily": "Preventive care \u2013 family",
+  "exportCalendarPerson": "Preventive care \u2013 {name}",
+  "@exportCalendarPerson": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "exportDeadlineLine": "Catch up by {date}; after that the entitlement lapses.",
+  "@exportDeadlineLine": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMMd"
+      }
+    }
+  },
+  "exportFailed": "The calendar file could not be created.",
   "notificationsTitle": "Reminders",
   "notificationsDenied": "Notifications are switched off for this app. Turn them on in the system settings to be reminded.",
   "notificationsEnable": "Allow notifications"

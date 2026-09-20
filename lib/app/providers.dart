@@ -8,6 +8,8 @@ import '../domain/completion.dart';
 import '../domain/occurrence.dart';
 import '../domain/person.dart';
 import '../domain/schedule_engine.dart';
+import '../export/ics_export_service.dart';
+import '../export/share_gateway.dart';
 import '../l10n/locale_notifier.dart';
 import '../notifications/local_notification_gateway.dart';
 import '../notifications/notification_gateway.dart';
@@ -42,6 +44,21 @@ final reminderServiceProvider = Provider<ReminderService>(
         ref.read(localeProvider) ??
         WidgetsBinding.instance.platformDispatcher.locale,
     clock: () => ref.watch(clockProvider)().toLocal(),
+  ),
+);
+
+/// The platform share sheet. Overridden in tests with one that keeps the
+/// file instead of handing it to a chooser that does not exist there.
+final shareGatewayProvider = Provider<ShareGateway>(
+  (ref) => const PlatformShareGateway(),
+);
+
+final icsExportServiceProvider = Provider<IcsExportService>(
+  (ref) => IcsExportService(
+    database: ref.watch(databaseProvider),
+    catalogs: ref.watch(catalogRepositoryProvider),
+    share: ref.watch(shareGatewayProvider),
+    clock: () => ref.watch(clockProvider)(),
   ),
 );
 

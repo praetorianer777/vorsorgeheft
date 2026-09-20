@@ -1,0 +1,646 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//vorsorgereminder//Vorsorgereminder//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Preventive care – Mila
+X-WR-CALDESC:Not medical advice. Entitlements vary between insurers\; ask y
+ our doctor's office when in doubt.
+BEGIN:VEVENT
+UID:infant-hearing-screening@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20260904
+SUMMARY:Mila: Newborn hearing screening
+DESCRIPTION:Measured for each ear\, to be done by the third day of life. If
+  it did not happen before discharge it takes place at the U2 at the latest
+ .\nSource: G-BA guideline on early detection of illness in children · as 
+ of 2026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Newborn hearing screening
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Newborn hearing screening
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Newborn hearing screening
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u1@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20260902
+SUMMARY:Mila: U1
+DESCRIPTION:Examination immediately after birth\, within the first 30 minut
+ es.\nSource: G-BA guideline on early detection of illness in children · a
+ s of 2026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U1
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U1
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U1
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-pulse-oximetry@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20260902
+DTEND;VALUE=DATE:20260904
+SUMMARY:Mila: Pulse oximetry screening
+DESCRIPTION:Screening for critical congenital heart defects\, on the second
+  day of life\, between 24 and 48 hours. In exceptional cases from the four
+ th hour of life and until the U2 at the latest.\nSource: G-BA guideline on
+  early detection of illness in children · as of 2026-09-20\nhttps://www.g
+ -ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Pulse oximetry screening
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Pulse oximetry screening
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Pulse oximetry screening
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-cf-screening@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20260902
+DTEND;VALUE=DATE:20260905
+SUMMARY:Mila: Cystic fibrosis screening
+DESCRIPTION:Taken from the same blood sample as the extended newborn screen
+ ing. It can be caught up within the first four weeks of life.\nSource: G-B
+ A guideline on early detection of illness in children · as of 2026-09-20\
+ nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Cystic fibrosis screening
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Cystic fibrosis screening
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Cystic fibrosis screening
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-newborn-screening@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20260902
+DTEND;VALUE=DATE:20260905
+SUMMARY:Mila: Extended newborn screening
+DESCRIPTION:Blood sample screening for metabolic\, hormone and other congen
+ ital disorders. Taken no earlier than 36 and no later than 72 hours of lif
+ e\; 48 to 72 hours is optimal. A sample missed in this window must be take
+ n without delay.\nSource: G-BA guideline on early detection of illness in 
+ children · as of 2026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Extended newborn screening
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Extended newborn screening
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: Extended newborn screening
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u3@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20261006
+SUMMARY:Mila: U3
+DESCRIPTION:Check-up in the 4th to 5th week of life. It can be caught up un
+ til the 3rd to 8th week of life\; after that the statutory entitlement lap
+ ses.\nCatch up by 2026-10-26\; after that the entitlement lapses.\nSource:
+  G-BA guideline on early detection of illness in children · as of 2026-09
+ -20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U3
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U3
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U3
+TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2026-10-26\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20260926T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2026-10-26\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20261019T080000Z
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u4@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20270101
+SUMMARY:Mila: U4
+DESCRIPTION:Check-up in the 3rd to 4th month of life. It can be caught up u
+ ntil the 2nd to 4½th month of life\; after that the statutory entitlement
+  lapses.\nCatch up by 2027-01-16\; after that the entitlement lapses.\nSou
+ rce: G-BA guideline on early detection of illness in children · as of 202
+ 6-09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U4
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U4
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U4
+TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2027-01-16\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20261217T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2027-01-16\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20270109T080000Z
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u5@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270401
+SUMMARY:Mila: U5
+DESCRIPTION:Check-up in the 6th to 7th month of life. It can be caught up u
+ ntil the 5th to 8th month of life\; after that the statutory entitlement l
+ apses.\nCatch up by 2027-04-30\; after that the entitlement lapses.\nSourc
+ e: G-BA guideline on early detection of illness in children · as of 2026-
+ 09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U5
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U5
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U5
+TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2027-04-30\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20270331T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2027-04-30\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20270423T080000Z
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u6@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270901
+SUMMARY:Mila: U6
+DESCRIPTION:Check-up in the 10th to 12th month of life. It can be caught up
+  until the 9th to 14th month of life\; after that the statutory entitlemen
+ t lapses.\nCatch up by 2027-10-31\; after that the entitlement lapses.\nSo
+ urce: G-BA guideline on early detection of illness in children · as of 20
+ 26-09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U6
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U6
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U6
+TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2027-10-31\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20271001T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2027-10-31\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20271024T080000Z
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u7@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20280501
+DTEND;VALUE=DATE:20280901
+SUMMARY:Mila: U7
+DESCRIPTION:Check-up in the 21st to 24th month of life. It can be caught up
+  until the 20th to 27th month of life\; after that the statutory entitleme
+ nt lapses.\nCatch up by 2028-11-30\; after that the entitlement lapses.\nS
+ ource: G-BA guideline on early detection of illness in children · as of 2
+ 026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U7
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U7
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U7
+TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2028-11-30\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20281031T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2028-11-30\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20281123T080000Z
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u7a@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20290601
+DTEND;VALUE=DATE:20290901
+SUMMARY:Mila: U7a
+DESCRIPTION:Check-up in the 34th to 36th month of life. It can be caught up
+  until the 33rd to 38th month of life\; after that the statutory entitleme
+ nt lapses.\nCatch up by 2029-10-31\; after that the entitlement lapses.\nS
+ ource: G-BA guideline on early detection of illness in children · as of 2
+ 026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U7a
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U7a
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U7a
+TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2029-10-31\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20291001T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2029-10-31\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20291024T080000Z
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u8@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20300601
+DTEND;VALUE=DATE:20300901
+SUMMARY:Mila: U8
+DESCRIPTION:Check-up in the 46th to 48th month of life. It can be caught up
+  until the 43rd to 50th month of life\; after that the statutory entitleme
+ nt lapses.\nCatch up by 2030-10-31\; after that the entitlement lapses.\nS
+ ource: G-BA guideline on early detection of illness in children · as of 2
+ 026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U8
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U8
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U8
+TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2030-10-31\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20301001T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2030-10-31\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20301024T080000Z
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u9@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20310801
+DTEND;VALUE=DATE:20320101
+SUMMARY:Mila: U9
+DESCRIPTION:Check-up in the 60th to 64th month of life. It can be caught up
+  until the 58th to 66th month of life\; after that the statutory entitleme
+ nt lapses.\nCatch up by 2032-02-29\; after that the entitlement lapses.\nS
+ ource: G-BA guideline on early detection of illness in children · as of 2
+ 026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/15/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U9
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U9
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U9
+TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2032-02-29\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20320130T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2032-02-29\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20320222T080000Z
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u10@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20330901
+DTEND;VALUE=DATE:20350901
+SUMMARY:Mila: U10
+DESCRIPTION:Additional examination at ages 7 and 8\, developed by the assoc
+ iation of paediatricians to close the gap between the U9 and the J1. Not a
+  standard statutory benefit: most but not all insurers cover it\, so check
+  with yours.\nDepends on your insurer\nSource: BZgA on U10\, U11 and J2 ·
+  as of 2026-09-20\nhttps://www.kindergesundheit-info.de/themen/faq/gehoere
+ n-u10-u11-und-j2-auch-zu-den-normalen-frueherkennungsuntersuchungen/
+CATEGORIES:children
+URL:https://www.kindergesundheit-info.de/themen/faq/gehoeren-u10-u11-und-j2
+ -auch-zu-den-normalen-frueherkennungsuntersuchungen/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U10
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U10
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U10
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-u11@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20350901
+DTEND;VALUE=DATE:20370901
+SUMMARY:Mila: U11
+DESCRIPTION:Additional examination at ages 9 and 10\, developed by the asso
+ ciation of paediatricians to close the gap between the U9 and the J1. Not 
+ a standard statutory benefit: most but not all insurers cover it\, so chec
+ k with yours.\nDepends on your insurer\nSource: BZgA on U10\, U11 and J2 
+ · as of 2026-09-20\nhttps://www.kindergesundheit-info.de/themen/faq/gehoe
+ ren-u10-u11-und-j2-auch-zu-den-normalen-frueherkennungsuntersuchungen/
+CATEGORIES:children
+URL:https://www.kindergesundheit-info.de/themen/faq/gehoeren-u10-u11-und-j2
+ -auch-zu-den-normalen-frueherkennungsuntersuchungen/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U11
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U11
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: U11
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-j1@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20390901
+DTEND;VALUE=DATE:20400902
+SUMMARY:Mila: J1
+DESCRIPTION:Adolescent health examination\, between the 13th and the 14th b
+ irthday. The entitlement includes twelve months before and twelve months a
+ fter that window\; past the 15th birthday it lapses.\nCatch up by 2041-09-
+ 01\; after that the entitlement lapses.\nSource: G-BA guideline on the ado
+ lescent health examination · as of 2026-09-20\nhttps://www.g-ba.de/richtl
+ inien/14/
+CATEGORIES:children
+URL:https://www.g-ba.de/richtlinien/14/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: J1
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: J1
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: J1
+TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2041-09-01\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20410802T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2041-09-01\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20410825T080000Z
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:infant-j2@vorsorgereminder
+DTSTAMP:20260920T120000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20420901
+DTEND;VALUE=DATE:20440901
+SUMMARY:Mila: J2
+DESCRIPTION:Additional examination at ages 16 and 17\, developed by the ass
+ ociation of paediatricians to close the gap between the U9 and the J1. Not
+  a standard statutory benefit: most but not all insurers cover it\, so che
+ ck with yours.\nDepends on your insurer\nSource: BZgA on U10\, U11 and J2 
+ · as of 2026-09-20\nhttps://www.kindergesundheit-info.de/themen/faq/gehoe
+ ren-u10-u11-und-j2-auch-zu-den-normalen-frueherkennungsuntersuchungen/
+CATEGORIES:children
+URL:https://www.kindergesundheit-info.de/themen/faq/gehoeren-u10-u11-und-j2
+ -auch-zu-den-normalen-frueherkennungsuntersuchungen/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: J2
+TRIGGER:-P30D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: J2
+TRIGGER:-P14D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mila: J2
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -3,6 +3,7 @@ import 'package:vorsorgereminder/domain/completion.dart';
 import 'package:vorsorgereminder/notifications/reminder.dart';
 
 import '../test/support/recording_gateway.dart';
+import '../test/support/recording_share.dart';
 
 import 'fixtures/family.dart';
 import 'helpers/app_harness.dart';
@@ -220,6 +221,57 @@ void registerAppSpecs() {
       deadlineWarnings.every((s) => s.$3.contains('no longer covered')),
       isTrue,
     );
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('the schedule exports as a calendar a second import matches', (
+    tester,
+  ) async {
+    final share = RecordingShareGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.infant, Family.schoolAge],
+      share: share,
+    );
+
+    await FamilyPage(tester).exportCalendar(share);
+    final first = share.lastContent;
+
+    expect(first, startsWith('BEGIN:VCALENDAR'));
+    expect(first, contains('SUMMARY:Mila: U6'));
+    expect(first, contains('SUMMARY:Jonas: U10'));
+
+    final uids = RegExp(
+      'UID:(.+)',
+    ).allMatches(first).map((m) => m.group(1)).toList();
+    expect(uids, isNotEmpty);
+    expect(uids.toSet().length, uids.length);
+
+    // The point of stable uids: re-exporting produces the same events, so a
+    // calendar updates them instead of ending up with two of each.
+    await FamilyPage(tester).exportCalendar(share);
+    expect(share.lastContent, first);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('a single person exports only their own appointments', (
+    tester,
+  ) async {
+    final share = RecordingShareGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.infant, Family.schoolAge],
+      share: share,
+    );
+
+    final timeline = await FamilyPage(tester).open('Jonas');
+    await timeline.exportCalendar(share);
+
+    expect(share.lastContent, contains('SUMMARY:Jonas:'));
+    expect(share.lastContent, isNot(contains('SUMMARY:Mila:')));
+    expect(share.lastFile.path, endsWith('vorsorge-jonas.ics'));
 
     await shutDown(tester, db);
   });
