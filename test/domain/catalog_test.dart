@@ -209,7 +209,10 @@ void main() {
   });
 
   test('invalid JSON is reported as such', () {
-    expect(() => Catalog.parse('{not json'), throwsCatalogError('invalid JSON'));
+    expect(
+      () => Catalog.parse('{not json'),
+      throwsCatalogError('invalid JSON'),
+    );
   });
 
   test('parse accepts the same document as fromJson', () {

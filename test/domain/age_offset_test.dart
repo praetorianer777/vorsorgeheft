@@ -83,10 +83,7 @@ void main() {
     });
 
     test('rejects a non-integer value', () {
-      expect(
-        () => AgeOffset.fromJson({'months': 1.5}),
-        throwsFormatException,
-      );
+      expect(() => AgeOffset.fromJson({'months': 1.5}), throwsFormatException);
     });
   });
 }

@@ -316,9 +316,7 @@ void main() {
         ],
         horizon: const Duration(days: 1),
       );
-      final done = occurrences.where(
-        (o) => o.status == OccurrenceStatus.done,
-      );
+      final done = occurrences.where((o) => o.status == OccurrenceStatus.done);
       expect(done, hasLength(1));
       final next = occurrences.firstWhere((o) => o.isOpen);
       expect(next.windowStart, DateTime.utc(2028, 2, 10));

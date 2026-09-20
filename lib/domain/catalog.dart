@@ -43,7 +43,10 @@ class Catalog {
   factory Catalog.fromJson(Map<String, Object?> json) {
     final id = json['catalogId'];
     if (id is! String || id.isEmpty) {
-      throw const CatalogFormatException('<unnamed>', '"catalogId" is required');
+      throw const CatalogFormatException(
+        '<unnamed>',
+        '"catalogId" is required',
+      );
     }
     try {
       final version = json['catalogVersion'];
@@ -69,11 +72,7 @@ class Catalog {
       }
       final rules = [
         for (final rule in rawRules)
-          Rule.fromJson(
-            (rule as Map).cast(),
-            catalogId: id,
-            sources: sources,
-          ),
+          Rule.fromJson((rule as Map).cast(), catalogId: id, sources: sources),
       ];
       final ids = rules.map((r) => r.id).toSet();
       if (ids.length != rules.length) {

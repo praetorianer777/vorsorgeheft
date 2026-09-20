@@ -329,9 +329,7 @@ List<Occurrence> _booster({
   var due = anchor == null ? fromAge!.applyTo(birth) : every.applyTo(anchor);
   var emitted = 0;
   while (emitted == 0 || !due.isAfter(generateUntil)) {
-    occurrences.add(
-      make(windowStart: due, instanceId: _instanceId(due)),
-    );
+    occurrences.add(make(windowStart: due, instanceId: _instanceId(due)));
     emitted++;
     due = every.applyTo(due);
   }

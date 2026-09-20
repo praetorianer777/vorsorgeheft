@@ -14,10 +14,12 @@ if ! command -v flutter >/dev/null 2>&1; then
 fi
 
 echo "🎨 Formatting"
-# Only tracked files: the localisation sources and drift tables generate Dart
-# that is gitignored, and formatting a build artifact fails the gate for
-# something nobody can fix by hand.
-git ls-files '*.dart' | xargs -r dart format --output=none --set-exit-if-changed
+# Everything git would keep, which is tracked files plus new ones that are not
+# ignored. Listing only tracked files let a brand-new file pass the local gate
+# and fail in CI the moment it was committed. Ignored files stay out because
+# the localisation sources and drift tables generate Dart nobody edits by hand.
+git ls-files --cached --others --exclude-standard -- '*.dart' \
+  | xargs -r dart format --output=none --set-exit-if-changed
 
 echo "🔍 Analyzer"
 flutter analyze --fatal-infos
