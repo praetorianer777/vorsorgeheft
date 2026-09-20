@@ -61,6 +61,11 @@ jobs:
           PROPS
           echo "signed=true" >> "$GITHUB_OUTPUT"
 
+      # The drift tables and the localisations are generated, and generated
+      # code is not in the repo. Without this the build fails on a fresh
+      # checkout with a wall of missing types.
+      - run: dart run build_runner build --delete-conflicting-outputs
+
       - run: flutter build apk --release --split-per-abi
 
       - name: Collect artifacts and checksums

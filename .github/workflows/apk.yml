@@ -46,6 +46,11 @@ jobs:
       # One fat APK rather than --split-per-abi: this is for installing by hand
       # from a phone browser, where picking the right ABI is a way to end up
       # with an APK that will not install.
+      # The drift tables and the localisations are generated, and generated
+      # code is not in the repo. Without this the build fails on a fresh
+      # checkout with a wall of missing types.
+      - run: dart run build_runner build --delete-conflicting-outputs
+
       - run: flutter build apk --release
 
       - name: Name the file after the commit it came from
