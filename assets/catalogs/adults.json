@@ -1,0 +1,356 @@
+{
+  "_conversion": "German law says 'ab Vollendung des 35. Lebensjahres', which is the 35th birthday, and 'bis zum Ende des 35. Lebensjahres', which is the same day. Ages here are therefore plain birthdays. Intervals are modelled from the date an appointment was actually recorded rather than from a fixed grid, which is how the guidelines read them: the check-up is barred 'in den auf das Untersuchungsjahr folgenden zwei Kalenderjahren'. The lung cancer screening (KFE-RL § 38) is deliberately absent: it is only for heavy smokers aged 50 to 75, and the app does not ask about smoking. The colonoscopy and the stool test are alternatives to each other, which is stated in their text rather than modelled, because only the person and their practice can make that choice.",
+  "catalogId": "adults",
+  "catalogVersion": "2026.09",
+  "name": {
+    "en": "Adult screening",
+    "de": "Erwachsenenvorsorge"
+  },
+  "sources": {
+    "gba-gu-rl": {
+      "name": {
+        "en": "G-BA guideline on health examinations for the early detection of illness",
+        "de": "G-BA Gesundheitsuntersuchungs-Richtlinie"
+      },
+      "url": "https://www.g-ba.de/richtlinien/10/",
+      "document": "Fassung vom 19. Dezember 2019, zuletzt geändert am 20. November 2020, in Kraft getreten am 12. Februar 2021, Teil B",
+      "asOf": "2026-09-20"
+    },
+    "gba-kfe-rl": {
+      "name": {
+        "en": "G-BA guideline on the early detection of cancer",
+        "de": "G-BA Krebsfrüherkennungs-Richtlinie"
+      },
+      "url": "https://www.g-ba.de/richtlinien/17/",
+      "document": "Fassung vom 18. Dezember 2025, in Kraft getreten am 12. März 2026, §§ 1, 2, 6, 10, 25 und 29",
+      "asOf": "2026-09-20"
+    },
+    "gba-okfe-rl": {
+      "name": {
+        "en": "G-BA guideline on organised cancer screening programmes",
+        "de": "G-BA Richtlinie für organisierte Krebsfrüherkennungsprogramme"
+      },
+      "url": "https://www.g-ba.de/richtlinien/104/",
+      "document": "Fassung vom 15. Mai 2025, in Kraft getreten am 22. Juli 2025, Teil II § 3 und Teil III § 3",
+      "asOf": "2026-09-20"
+    },
+    "gba-chlamydien": {
+      "name": {
+        "en": "G-BA on the chlamydia test for women up to 25",
+        "de": "G-BA zum Chlamydien-Test für Frauen bis 25 Jahre"
+      },
+      "url": "https://www.g-ba.de/themen/methodenbewertung/erwachsene/chlamydien-test/",
+      "asOf": "2026-09-20"
+    }
+  },
+  "rules": [
+    {
+      "id": "checkup-young",
+      "title": {
+        "en": "Check-up (once before 35)",
+        "de": "Check-up (einmalig vor 35)"
+      },
+      "description": {
+        "en": "One general health examination between the 18th and the 35th birthday.",
+        "de": "Eine allgemeine Gesundheitsuntersuchung zwischen dem 18. und dem 35. Geburtstag."
+      },
+      "source": "gba-gu-rl",
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "years": 18
+        },
+        "to": {
+          "years": 35
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 35
+        }
+      }
+    },
+    {
+      "id": "checkup",
+      "title": {
+        "en": "Check-up",
+        "de": "Check-up"
+      },
+      "description": {
+        "en": "General health examination every three years from 35, including a review of your vaccination status.",
+        "de": "Allgemeine Gesundheitsuntersuchung alle drei Jahre ab 35, einschließlich einer Überprüfung des Impfstatus."
+      },
+      "source": "gba-gu-rl",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 35
+        },
+        "every": {
+          "years": 3
+        }
+      }
+    },
+    {
+      "id": "hepatitis-screening",
+      "title": {
+        "en": "Hepatitis B and C screening",
+        "de": "Hepatitis-B- und -C-Screening"
+      },
+      "description": {
+        "en": "A one-off blood test for hepatitis B and C from 35, taken together with a check-up.",
+        "de": "Einmaliger Bluttest auf Hepatitis B und C ab 35, im Rahmen einer Gesundheitsuntersuchung."
+      },
+      "source": "gba-gu-rl",
+      "schedule": {
+        "type": "onceFromAge",
+        "from": {
+          "years": 35
+        }
+      }
+    },
+    {
+      "id": "aortic-aneurysm",
+      "title": {
+        "en": "Abdominal aortic ultrasound",
+        "de": "Ultraschall der Bauchaorta"
+      },
+      "description": {
+        "en": "A one-off ultrasound screening for an abdominal aortic aneurysm, for men from 65.",
+        "de": "Einmaliges Ultraschall-Screening auf ein Bauchaortenaneurysma, für Männer ab 65."
+      },
+      "source": "gba-gu-rl",
+      "schedule": {
+        "type": "onceFromAge",
+        "from": {
+          "years": 65
+        }
+      },
+      "eligibility": {
+        "sex": "male"
+      }
+    },
+    {
+      "id": "skin-cancer",
+      "title": {
+        "en": "Skin cancer screening",
+        "de": "Hautkrebs-Screening"
+      },
+      "description": {
+        "en": "A full-body skin examination every two years from 35. Best combined with the check-up.",
+        "de": "Ganzkörperinspektion der Haut alle zwei Jahre ab 35. Am besten zusammen mit dem Check-up."
+      },
+      "source": "gba-kfe-rl",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 35
+        },
+        "every": {
+          "years": 2
+        }
+      }
+    },
+    {
+      "id": "cervical-cytology",
+      "title": {
+        "en": "Cervical screening (cytology)",
+        "de": "Zervix-Screening (Zytologie)"
+      },
+      "description": {
+        "en": "An annual cytology-based cervical screening for women aged 20 to 34.",
+        "de": "Jährliches zytologiebasiertes Zervixkarzinom-Screening für Frauen von 20 bis 34 Jahren."
+      },
+      "source": "gba-okfe-rl",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 20
+        },
+        "every": {
+          "years": 1
+        },
+        "until": {
+          "years": 34
+        }
+      },
+      "eligibility": {
+        "sex": "female",
+        "maxAge": {
+          "years": 35
+        }
+      }
+    },
+    {
+      "id": "cervical-cotest",
+      "title": {
+        "en": "Cervical screening (co-test)",
+        "de": "Zervix-Screening (Kombinationstest)"
+      },
+      "description": {
+        "en": "From 35, cytology and an HPV test together, every three years.",
+        "de": "Ab 35 alle drei Jahre ein kombiniertes Screening aus Zytologie und HPV-Test."
+      },
+      "source": "gba-okfe-rl",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 35
+        },
+        "every": {
+          "years": 3
+        }
+      },
+      "eligibility": {
+        "sex": "female"
+      }
+    },
+    {
+      "id": "gynaecological-exam",
+      "title": {
+        "en": "Gynaecological cancer examination",
+        "de": "Gynäkologische Krebsfrüherkennung"
+      },
+      "description": {
+        "en": "An annual clinical examination of the genital region from 20, and of the breasts as well from 30.",
+        "de": "Jährliche klinische Untersuchung der Genitalregion ab 20, ab 30 zusätzlich der Brust."
+      },
+      "source": "gba-kfe-rl",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 20
+        },
+        "every": {
+          "years": 1
+        }
+      },
+      "eligibility": {
+        "sex": "female"
+      }
+    },
+    {
+      "id": "mammography",
+      "title": {
+        "en": "Mammography screening",
+        "de": "Mammographie-Screening"
+      },
+      "description": {
+        "en": "Mammography every two years for women from 50 up to 75, within the national screening programme.",
+        "de": "Mammographie alle zwei Jahre für Frauen ab 50 bis 75, im Rahmen des Screening-Programms."
+      },
+      "source": "gba-kfe-rl",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 50
+        },
+        "every": {
+          "years": 2
+        },
+        "until": {
+          "years": 75
+        }
+      },
+      "eligibility": {
+        "sex": "female",
+        "maxAge": {
+          "years": 76
+        }
+      }
+    },
+    {
+      "id": "prostate-exam",
+      "title": {
+        "en": "Prostate and genital examination",
+        "de": "Prostata- und Genitaluntersuchung"
+      },
+      "description": {
+        "en": "An annual clinical examination of the prostate and the external genitals, for men from 45.",
+        "de": "Jährliche klinische Untersuchung von Prostata und äußerem Genitale, für Männer ab 45."
+      },
+      "source": "gba-kfe-rl",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 45
+        },
+        "every": {
+          "years": 1
+        }
+      },
+      "eligibility": {
+        "sex": "male"
+      }
+    },
+    {
+      "id": "colorectal-stool-test",
+      "title": {
+        "en": "Colorectal stool test",
+        "de": "Darmkrebs-Stuhltest"
+      },
+      "description": {
+        "en": "A test for occult blood in the stool every two years from 50. An alternative to colonoscopy.",
+        "de": "Test auf verborgenes Blut im Stuhl alle zwei Jahre ab 50. Alternative zur Darmspiegelung."
+      },
+      "source": "gba-okfe-rl",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 50
+        },
+        "every": {
+          "years": 2
+        }
+      }
+    },
+    {
+      "id": "colonoscopy",
+      "title": {
+        "en": "Screening colonoscopy",
+        "de": "Vorsorge-Darmspiegelung"
+      },
+      "description": {
+        "en": "A colonoscopy from 50, as an alternative to the stool test. At most two, ten years apart; one from 65 counts as the second.",
+        "de": "Darmspiegelung ab 50, alternativ zum Stuhltest. Höchstens zwei im Abstand von zehn Jahren; eine ab 65 gilt als zweite."
+      },
+      "source": "gba-okfe-rl",
+      "schedule": {
+        "type": "onceFromAge",
+        "from": {
+          "years": 50
+        }
+      }
+    },
+    {
+      "id": "chlamydia",
+      "title": {
+        "en": "Chlamydia test",
+        "de": "Chlamydien-Test"
+      },
+      "description": {
+        "en": "An annual urine test for chlamydia, for women until their 25th birthday. The guideline sets no lower age limit; the app shows it from 16.",
+        "de": "Jährlicher Urintest auf Chlamydien, für Frauen bis zum 25. Geburtstag. Die Richtlinie nennt keine Untergrenze; die App zeigt ihn ab 16."
+      },
+      "source": "gba-chlamydien",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "years": 16
+        },
+        "every": {
+          "years": 1
+        },
+        "until": {
+          "years": 24
+        }
+      },
+      "eligibility": {
+        "sex": "female",
+        "maxAge": {
+          "years": 25
+        }
+      }
+    }
+  ]
+}

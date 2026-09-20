@@ -276,15 +276,53 @@ void registerAppSpecs() {
     await shutDown(tester, db);
   });
 
+  testWidgets('each sex sees the screenings it is entitled to', (tester) async {
+    final db = await launchApp(
+      tester,
+      people: [Family.mother, Family.father],
+      today: DateTime.utc(2036, 9, 20),
+    );
+
+    final sara = await FamilyPage(tester).open('Sara');
+    await sara.scrollToAppointment('Mammography screening');
+    expect(find.text('Mammography screening'), findsOneWidget);
+    expect(find.text('Prostate and genital examination'), findsNothing);
+    await sara.back();
+
+    final tim = await FamilyPage(tester).open('Tim');
+    await tim.scrollToAppointment('Prostate and genital examination');
+    expect(find.text('Prostate and genital examination'), findsOneWidget);
+    expect(find.text('Mammography screening'), findsNothing);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('an unrecorded sex shows both sets as only possibly applying', (
+    tester,
+  ) async {
+    // Hiding them would silently drop an entitlement; showing them as plainly
+    // due would send someone to book something they cannot have.
+    final db = await launchApp(tester, people: [Family.unstated]);
+    final timeline = await FamilyPage(tester).open('Kim');
+
+    await timeline.scrollToAppointment('Prostate and genital examination');
+    expect(find.text('May apply'), findsWidgets);
+
+    await shutDown(tester, db);
+  });
+
   testWidgets("an adult gets none of the children's check-ups", (tester) async {
     // Tim was born on a leap day in 1960, so this also exercises the date
     // arithmetic against a real platform rather than only the unit tests.
     final db = await launchApp(tester, people: [Family.father]);
     final timeline = await FamilyPage(tester).open('Tim');
 
-    expect(timeline.needsAttention, findsNothing);
-    expect(timeline.noLongerAvailable, findsNothing);
     expect(find.text('U1'), findsNothing);
+    expect(find.text('J1'), findsNothing);
+    expect(timeline.noLongerAvailable, findsNothing);
+    // What a 66-year-old does get: the screenings his age entitles him to.
+    await timeline.scrollToAppointment('Abdominal aortic ultrasound');
+    expect(find.text('Abdominal aortic ultrasound'), findsOneWidget);
 
     await shutDown(tester, db);
   });

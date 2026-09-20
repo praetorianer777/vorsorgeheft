@@ -10,7 +10,12 @@ import '../domain/catalog.dart';
 class CatalogRepository {
   const CatalogRepository({AssetBundle? bundle}) : _bundle = bundle;
 
-  static const assetPaths = ['assets/catalogs/children.json'];
+  static const assetPaths = [
+    'assets/catalogs/children.json',
+    'assets/catalogs/vaccinations.json',
+    'assets/catalogs/dental.json',
+    'assets/catalogs/adults.json',
+  ];
 
   final AssetBundle? _bundle;
 

@@ -356,7 +356,24 @@ void main() {
         horizon: const Duration(days: 1),
       );
       final next = occurrences.firstWhere((o) => o.isOpen);
-      expect(next.windowStart, DateTime.utc(2020, 6, 1));
+      // Three years after the skip would be 2028. The interval still runs off
+      // the original grid, so the one running now is the 2026 repeat.
+      expect(next.windowStart, DateTime.utc(2026, 6, 1));
+      expect(next.windowStart, isNot(DateTime.utc(2028, 2, 10)));
+    });
+
+    test('only the repeat that is running is generated', () {
+      // Somebody who turned 35 twenty years ago and recorded nothing has one
+      // check-up they can still have: this one. Listing every missed repeat
+      // since would bury it under appointments nobody can make any more.
+      final occurrences = run(
+        catalogs: catalogs,
+        person: personBornOn(DateTime.utc(1970, 6, 1)),
+        today: DateTime.utc(2026, 9, 20),
+        horizon: const Duration(days: 1),
+      );
+      expect(occurrences.first.windowStart, DateTime.utc(2026, 6, 1));
+      expect(occurrences.first.status, OccurrenceStatus.due);
     });
 
     test('repeats of one rule get distinct keys', () {
@@ -385,10 +402,33 @@ void main() {
           },
         ]),
         person: personBornOn(DateTime.utc(1950, 1, 1)),
+        today: DateTime.utc(2024, 6, 1),
+        horizon: const Duration(days: 3650),
+      );
+      expect(occurrences, hasLength(1));
+      expect(occurrences.last.windowStart, DateTime.utc(2024, 1, 1));
+    });
+
+    test('a capped series that has fully elapsed leaves nothing behind', () {
+      // The last two-yearly screening this person could have had ran until
+      // January 2026. After that it is not overdue, it is gone.
+      final occurrences = run(
+        catalogs: catalogOf([
+          {
+            'id': 'mammo',
+            'schedule': {
+              'type': 'recurring',
+              'from': {'years': 50},
+              'every': {'years': 2},
+              'until': {'years': 75},
+            },
+          },
+        ]),
+        person: personBornOn(DateTime.utc(1950, 1, 1)),
         today: DateTime.utc(2026, 9, 20),
         horizon: const Duration(days: 3650),
       );
-      expect(occurrences.last.windowStart, DateTime.utc(2024, 1, 1));
+      expect(occurrences, isEmpty);
     });
   });
 

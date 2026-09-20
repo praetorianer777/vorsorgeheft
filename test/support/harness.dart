@@ -34,11 +34,12 @@ Future<void> settle(WidgetTester tester) async {
 /// A ListView only builds what is on screen, so anything further down a
 /// timeline has to be scrolled to before it can be found.
 Future<void> scrollTo(WidgetTester tester, Finder finder) async {
-  await tester.dragUntilVisible(
-    finder,
-    find.byType(Scrollable).last,
-    const Offset(0, -220),
-  );
+  // Not dragUntilVisible: it resolves the target to exactly one widget, and a
+  // timeline can legitimately show the same section heading or status twice.
+  for (var i = 0; i < 40 && finder.evaluate().isEmpty; i++) {
+    await tester.drag(find.byType(Scrollable).last, const Offset(0, -400));
+    await settle(tester);
+  }
   await settle(tester);
 }
 

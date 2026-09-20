@@ -39,5 +39,13 @@ class Family {
     sex: Sex.male,
   );
 
+  /// An adult whose sex is not recorded, so that the specs can check what a
+  /// timeline does with an entitlement that might or might not apply.
+  static final unstated = Person(
+    id: 'unstated',
+    name: 'Kim',
+    dateOfBirth: DateTime.utc(1974, 3, 3),
+  );
+
   static final all = [infant, schoolAge, mother, father];
 }
