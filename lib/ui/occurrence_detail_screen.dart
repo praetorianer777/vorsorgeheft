@@ -149,7 +149,7 @@ class _Actions extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
-    final db = ref.watch(databaseProvider);
+    final store = ref.watch(storeProvider);
     final settled =
         occurrence.status == OccurrenceStatus.done ||
         occurrence.status == OccurrenceStatus.skipped;
@@ -157,7 +157,7 @@ class _Actions extends ConsumerWidget {
     if (settled) {
       return OutlinedButton.icon(
         key: const Key('undo-record'),
-        onPressed: () => db.clearCompletion(
+        onPressed: () => store.clearCompletion(
           personId: occurrence.personId,
           ruleId: occurrence.rule.id,
           doseId: occurrence.doseId,
@@ -179,7 +179,7 @@ class _Actions extends ConsumerWidget {
               lastDate: ref.read(clockProvider)(),
             );
       if (picked == null) return;
-      await db.recordCompletion(
+      await store.recordCompletion(
         Completion(
           personId: occurrence.personId,
           ruleId: occurrence.rule.id,

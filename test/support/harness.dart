@@ -7,6 +7,7 @@ import 'package:vorsorgereminder/app/providers.dart';
 import 'package:vorsorgereminder/data/catalog_repository.dart';
 import 'package:vorsorgereminder/data/database.dart';
 import 'package:vorsorgereminder/data/database_provider.dart';
+import 'package:vorsorgereminder/sync/replicated_store.dart';
 import 'package:vorsorgereminder/domain/person.dart';
 import 'package:vorsorgereminder/l10n/locale_notifier.dart';
 
@@ -54,14 +55,20 @@ void appTest(
 }) {
   testWidgets(description, (tester) async {
     final database = openInMemoryDatabase();
+    final store = await ReplicatedStore.open(
+      database,
+      nodeId: 'test-node',
+      clock: () => today ?? pinnedToday,
+    );
     for (final person in people) {
-      await database.upsertPerson(person);
+      await store.savePerson(person);
     }
 
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
           databaseProvider.overrideWithValue(database),
+          storeProvider.overrideWithValue(store),
           clockProvider.overrideWithValue(() => today ?? pinnedToday),
           catalogRepositoryProvider.overrideWithValue(
             CatalogRepository(bundle: SynchronousAssetBundle()),

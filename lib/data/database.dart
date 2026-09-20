@@ -2,6 +2,8 @@ import 'package:drift/drift.dart';
 
 import '../domain/completion.dart' as domain;
 import '../domain/person.dart' as domain;
+import '../sync/change.dart';
+import '../sync/hlc.dart';
 
 part 'database.g.dart';
 
@@ -54,7 +56,31 @@ class Settings extends Table {
   Set<Column<Object>> get primaryKey => {key};
 }
 
-@DriftDatabase(tables: [Persons, Completions, Settings])
+/// The replicated state: one row per record field, holding the winning value
+/// and the timestamp it was written at.
+///
+/// This is the source of truth that syncs. The persons and completions tables
+/// are a projection of it, kept only so the rest of the app can read typed
+/// rows without knowing replication exists.
+@DataClassName('ChangeRow')
+class Changes extends Table {
+  TextColumn get entity => text()();
+  TextColumn get entityId => text()();
+  TextColumn get field => text()();
+
+  /// The hybrid logical clock, in its sortable encoding, so a peer's delta is
+  /// a plain string comparison on an indexed column.
+  TextColumn get hlc => text()();
+
+  /// JSON, so a value can be a string, a number, a bool or null without the
+  /// column having to know which.
+  TextColumn get value => text()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {entity, entityId, field};
+}
+
+@DriftDatabase(tables: [Persons, Completions, Settings, Changes])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
@@ -144,6 +170,69 @@ class AppDatabase extends _$AppDatabase {
           ))
           .go();
 
+  Future<List<Change>> changesSince(Hlc watermark) async {
+    final rows =
+        await (select(changes)
+              ..where((c) => c.hlc.isBiggerThanValue(watermark.toString()))
+              ..orderBy([(c) => OrderingTerm(expression: c.hlc)]))
+            .get();
+    return rows.map(_toChange).toList();
+  }
+
+  Future<List<Change>> changesFor(String entity, String entityId) async {
+    final rows =
+        await (select(changes)..where(
+              (c) => c.entity.equals(entity) & c.entityId.equals(entityId),
+            ))
+            .get();
+    return rows.map(_toChange).toList();
+  }
+
+  Future<Hlc?> latestHlc() async {
+    final row =
+        await (select(changes)
+              ..orderBy([
+                (c) => OrderingTerm(expression: c.hlc, mode: OrderingMode.desc),
+              ])
+              ..limit(1))
+            .getSingleOrNull();
+    return row == null ? null : Hlc.parse(row.hlc);
+  }
+
+  /// Writes the changes that beat what is already stored, and returns them.
+  ///
+  /// The comparison happens here rather than in Dart so that a concurrent
+  /// write cannot slip between reading the current value and deciding.
+  Future<List<Change>> applyChanges(Iterable<Change> incoming) =>
+      transaction(() async {
+        final applied = <Change>[];
+        for (final change in incoming) {
+          final existing =
+              await (select(changes)..where(
+                    (c) =>
+                        c.entity.equals(change.entity) &
+                        c.entityId.equals(change.entityId) &
+                        c.field.equals(change.field),
+                  ))
+                  .getSingleOrNull();
+
+          if (existing != null && change.hlc <= Hlc.parse(existing.hlc)) {
+            continue;
+          }
+          await into(changes).insertOnConflictUpdate(
+            ChangesCompanion.insert(
+              entity: change.entity,
+              entityId: change.entityId,
+              field: change.field,
+              hlc: change.hlc.toString(),
+              value: change.encodeValue(),
+            ),
+          );
+          applied.add(change);
+        }
+        return applied;
+      });
+
   Future<String?> settingValue(String key) async {
     final row = await (select(
       settings,
@@ -155,6 +244,14 @@ class AppDatabase extends _$AppDatabase {
     settings,
   ).insertOnConflictUpdate(SettingsCompanion.insert(key: key, value: value));
 }
+
+Change _toChange(ChangeRow row) => Change(
+  entity: row.entity,
+  entityId: row.entityId,
+  field: row.field,
+  hlc: Hlc.parse(row.hlc),
+  value: Change.decodeValue(row.value),
+);
 
 domain.Person _toPerson(PersonRow row) => domain.Person(
   id: row.id,
