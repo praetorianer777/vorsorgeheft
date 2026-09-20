@@ -9,6 +9,9 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- Reminders before an appointment's window opens, and escalating warnings
+  before an entitlement lapses. In German and English, at nine in the morning
+  local time.
 - Every change is recorded so two phones can be brought to the same state
   later without a server or an account. Edits made on both devices while apart
   are merged field by field, so renaming a child on one phone and recording an

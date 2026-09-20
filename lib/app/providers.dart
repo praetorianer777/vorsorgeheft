@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/catalog_repository.dart';
@@ -7,6 +8,10 @@ import '../domain/completion.dart';
 import '../domain/occurrence.dart';
 import '../domain/person.dart';
 import '../domain/schedule_engine.dart';
+import '../l10n/locale_notifier.dart';
+import '../notifications/local_notification_gateway.dart';
+import '../notifications/notification_gateway.dart';
+import '../notifications/reminder_service.dart';
 import '../sync/replicated_store.dart';
 
 /// Overridden at startup with the opened database, and in tests with an
@@ -20,6 +25,24 @@ final databaseProvider = Provider<AppDatabase>(
 /// phone take the same path.
 final storeProvider = Provider<ReplicatedStore>(
   (ref) => throw UnimplementedError('storeProvider must be overridden'),
+);
+
+/// The platform notification service. Overridden in tests with one that
+/// records what it was asked to do.
+final notificationGatewayProvider = Provider<NotificationGateway>(
+  (ref) => LocalNotificationGateway(),
+);
+
+final reminderServiceProvider = Provider<ReminderService>(
+  (ref) => ReminderService(
+    database: ref.watch(databaseProvider),
+    gateway: ref.watch(notificationGatewayProvider),
+    catalogs: ref.watch(catalogRepositoryProvider),
+    locale: () =>
+        ref.read(localeProvider) ??
+        WidgetsBinding.instance.platformDispatcher.locale,
+    clock: () => ref.watch(clockProvider)().toLocal(),
+  ),
 );
 
 final catalogRepositoryProvider = Provider<CatalogRepository>(

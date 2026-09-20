@@ -16,6 +16,7 @@ the date of birth, and reminds you in time.
 - 📤 **ICS export** — into any calendar or mail client, with stable UIDs instead of duplicates
 - 🔄 **Two devices, one state** — QR pairing, then encrypted sync over your WLAN
 - 📚 **Sourced** — every appointment names its source and its as-of date, right in the app
+- 🔔 **Reminders** — 30, 14 and 3 days before a window opens, and again before an entitlement lapses
 - 🌍 **Bilingual** — the app speaks German and English
 
 > **Status:** under development. There is no release yet.
