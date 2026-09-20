@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../l10n/app_localizations.dart';
 import '../l10n/locale_notifier.dart';
+import '../notifications/reminder_sync.dart';
 import '../ui/family_screen.dart';
 
 class VorsorgereminderApp extends ConsumerWidget {
@@ -19,6 +20,6 @@ class VorsorgereminderApp extends ConsumerWidget {
       colorSchemeSeed: const Color(0xFF2E7D6F),
       brightness: Brightness.dark,
     ),
-    home: const FamilyScreen(),
+    home: const ReminderSync(child: FamilyScreen()),
   );
 }

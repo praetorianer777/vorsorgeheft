@@ -1,5 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgereminder/domain/completion.dart';
+import 'package:vorsorgereminder/notifications/reminder.dart';
+
+import '../test/support/recording_gateway.dart';
 
 import 'fixtures/family.dart';
 import 'helpers/app_harness.dart';
@@ -155,6 +158,68 @@ void registerAppSpecs() {
     await sources.scrollToDisclaimer();
     expect(sources.disclaimer, findsOneWidget);
     expect(sources.privacy, findsOneWidget);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('a family gets reminders, within the platform limit', (
+    tester,
+  ) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(tester, people: Family.all, gateway: gateway);
+
+    expect(gateway.initialized, isTrue);
+    expect(gateway.permissionAsked, isTrue);
+    expect(gateway.pending, isNotEmpty);
+    // iOS keeps only the 64 notifications that fire soonest and drops the rest
+    // without saying so, which is why the app schedules a rolling window.
+    expect(gateway.pending.length, lessThanOrEqualTo(20));
+    expect(gateway.pending.every((r) => r.fireAt.isAfter(pinnedToday)), isTrue);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('recording an appointment takes its reminders with it', (
+    tester,
+  ) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.infant],
+      gateway: gateway,
+    );
+
+    final before = gateway.pending.where((r) => r.ruleId == 'u3').length;
+    expect(before, greaterThan(0));
+
+    final timeline = await FamilyPage(tester).open('Mila');
+    final appointment = await timeline.open('U3');
+    await appointment.markDone();
+
+    expect(gateway.pending.where((r) => r.ruleId == 'u3'), isEmpty);
+    expect(gateway.cancelAllCount, greaterThan(1));
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('a lapsing entitlement is warned about more urgently', (
+    tester,
+  ) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.infant],
+      gateway: gateway,
+    );
+
+    final deadlineWarnings = gateway.scheduled.where(
+      (s) => s.$1.kind == ReminderKind.deadlineApproaching,
+    );
+    expect(deadlineWarnings, isNotEmpty);
+    expect(
+      deadlineWarnings.every((s) => s.$3.contains('no longer covered')),
+      isTrue,
+    );
 
     await shutDown(tester, db);
   });

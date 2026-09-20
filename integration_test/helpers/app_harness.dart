@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,8 +7,10 @@ import 'package:vorsorgereminder/data/catalog_repository.dart';
 import 'package:vorsorgereminder/data/database.dart';
 import 'package:vorsorgereminder/data/database_provider.dart';
 import 'package:vorsorgereminder/domain/person.dart';
+import 'package:vorsorgereminder/sync/replicated_store.dart';
 import 'package:vorsorgereminder/l10n/locale_notifier.dart';
 
+import '../../test/support/recording_gateway.dart';
 import '../fixtures/family.dart';
 
 /// How the specs reach the catalogs.
@@ -21,21 +20,6 @@ import '../fixtures/family.dart';
 /// and a real asset read completes on the real event loop, which pumping
 /// frames never advances.
 AssetBundle? specAssetBundle;
-
-/// Reads a catalog straight off disk, completing before it is awaited.
-///
-/// Deliberately not a CachingAssetBundle: a cached Future is created inside one
-/// test's fake-async zone and awaited inside the next one's, where it never
-/// completes. Reading the file again per test costs nothing and avoids that.
-class SynchronousAssetBundle extends AssetBundle {
-  @override
-  Future<ByteData> load(String key) async =>
-      ByteData.view(File(key).readAsBytesSync().buffer);
-
-  @override
-  Future<String> loadString(String key, {bool cache = true}) async =>
-      File(key).readAsStringSync();
-}
 
 /// Boots the real app against a throwaway database and a fixed clock.
 ///
@@ -48,16 +32,29 @@ Future<AppDatabase> launchApp(
   List<Person> people = const [],
   DateTime? today,
   Locale locale = const Locale('en'),
+  RecordingGateway? gateway,
 }) async {
+  // A spec asserts on which reminders were planned, not on how a platform
+  // renders them, and the emulator makes exactly that assertion slow.
+  final activeGateway = gateway ?? RecordingGateway();
   final database = openInMemoryDatabase();
+  final store = await ReplicatedStore.open(
+    database,
+    nodeId: 'spec-node',
+    clock: () => today ?? pinnedToday,
+  );
+  // Seeding through the store rather than the tables, so a spec exercises the
+  // same path a real edit takes.
   for (final person in people) {
-    await database.upsertPerson(person);
+    await store.savePerson(person);
   }
 
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
         databaseProvider.overrideWithValue(database),
+        storeProvider.overrideWithValue(store),
+        notificationGatewayProvider.overrideWithValue(activeGateway),
         if (specAssetBundle != null)
           catalogRepositoryProvider.overrideWithValue(
             CatalogRepository(bundle: specAssetBundle),

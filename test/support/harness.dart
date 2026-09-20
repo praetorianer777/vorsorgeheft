@@ -11,8 +11,8 @@ import 'package:vorsorgereminder/sync/replicated_store.dart';
 import 'package:vorsorgereminder/domain/person.dart';
 import 'package:vorsorgereminder/l10n/locale_notifier.dart';
 
-import '../../integration_test/helpers/app_harness.dart'
-    show SynchronousAssetBundle;
+import 'recording_gateway.dart';
+import 'synchronous_assets.dart';
 
 /// Today, pinned. Nothing in a test may read the wall clock, or the suite
 /// starts failing on its own as the calendar moves.
@@ -52,8 +52,13 @@ void appTest(
   List<Person> people = const [],
   DateTime? today,
   Locale? locale,
+  RecordingGateway? gateway,
 }) {
   testWidgets(description, (tester) async {
+    // A widget test must never reach the platform notification plugin: there
+    // is no platform under it, and what is worth asserting here is which
+    // reminders were planned, not how a phone draws them.
+    final activeGateway = gateway ?? RecordingGateway();
     final database = openInMemoryDatabase();
     final store = await ReplicatedStore.open(
       database,
@@ -69,6 +74,7 @@ void appTest(
         overrides: [
           databaseProvider.overrideWithValue(database),
           storeProvider.overrideWithValue(store),
+          notificationGatewayProvider.overrideWithValue(activeGateway),
           clockProvider.overrideWithValue(() => today ?? pinnedToday),
           catalogRepositoryProvider.overrideWithValue(
             CatalogRepository(bundle: SynchronousAssetBundle()),

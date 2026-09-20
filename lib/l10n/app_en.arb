@@ -121,5 +121,48 @@
         "type": "int"
       }
     }
-  }
+  },
+  "reminderWindowOpensTitle": "{person}: {appointment} is coming up",
+  "@reminderWindowOpensTitle": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      },
+      "appointment": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderWindowOpensBody": "The window opens on {date}.",
+  "@reminderWindowOpensBody": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMMd"
+      }
+    }
+  },
+  "reminderDeadlineTitle": "{person}: {appointment} is about to lapse",
+  "@reminderDeadlineTitle": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      },
+      "appointment": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDeadlineBody": "The entitlement ends on {date}. After that it is no longer covered.",
+  "@reminderDeadlineBody": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMMd"
+      }
+    }
+  },
+  "notificationsTitle": "Reminders",
+  "notificationsDenied": "Notifications are switched off for this app. Turn them on in the system settings to be reminded.",
+  "notificationsEnable": "Allow notifications"
 }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app/providers.dart';
 import '../domain/person.dart';
 import '../l10n/app_localizations.dart';
+import '../notifications/permission_state.dart';
 import 'formatting.dart';
 import 'person_form_screen.dart';
 import 'sources_screen.dart';
@@ -38,19 +40,47 @@ class FamilyScreen extends ConsumerWidget {
         icon: const Icon(Icons.person_add_outlined),
         label: Text(l10n.addPerson),
       ),
-      body: persons.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Center(child: Text('$error')),
-        data: (people) => people.isEmpty
-            ? _Empty(l10n: l10n)
-            : ListView.builder(
-                padding: const EdgeInsets.only(bottom: 88),
-                itemCount: people.length,
-                itemBuilder: (context, i) => _PersonTile(person: people[i]),
-              ),
+      body: Column(
+        children: [
+          if (ref.watch(notificationPermissionProvider) == false)
+            MaterialBanner(
+              key: const Key('notifications-denied'),
+              content: Text(l10n.notificationsDenied),
+              leading: const Icon(Icons.notifications_off_outlined),
+              actions: [
+                TextButton(
+                  onPressed: () => openAppSettings(),
+                  child: Text(l10n.notificationsEnable),
+                ),
+              ],
+            ),
+          Expanded(
+            child: _Family(persons: persons, l10n: l10n),
+          ),
+        ],
       ),
     );
   }
+}
+
+class _Family extends StatelessWidget {
+  const _Family({required this.persons, required this.l10n});
+
+  final AsyncValue<List<Person>> persons;
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) => persons.when(
+    loading: () => const Center(child: CircularProgressIndicator()),
+    error: (error, _) => Center(child: Text('$error')),
+    data: (people) => people.isEmpty
+        ? _Empty(l10n: l10n)
+        : ListView.builder(
+            padding: const EdgeInsets.only(bottom: 88),
+            itemCount: people.length,
+            itemBuilder: (context, i) => _PersonTile(person: people[i]),
+          ),
+  );
 }
 
 class _Empty extends StatelessWidget {

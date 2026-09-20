@@ -56,5 +56,12 @@
   "languageSystem": "Systemsprache",
   "ageYears": "{years, plural, =1{1 Jahr alt} other{{years} Jahre alt}}",
   "ageMonths": "{months, plural, =1{1 Monat alt} other{{months} Monate alt}}",
-  "ageDays": "{days, plural, =1{1 Tag alt} other{{days} Tage alt}}"
+  "ageDays": "{days, plural, =1{1 Tag alt} other{{days} Tage alt}}",
+  "reminderWindowOpensTitle": "{person}: {appointment} steht an",
+  "reminderWindowOpensBody": "Der Zeitraum beginnt am {date}.",
+  "reminderDeadlineTitle": "{person}: {appointment} läuft bald ab",
+  "reminderDeadlineBody": "Der Anspruch endet am {date}. Danach wird die Untersuchung nicht mehr übernommen.",
+  "notificationsTitle": "Erinnerungen",
+  "notificationsDenied": "Benachrichtigungen sind für diese App ausgeschaltet. Schalte sie in den Systemeinstellungen ein, um erinnert zu werden.",
+  "notificationsEnable": "Benachrichtigungen erlauben"
 }
