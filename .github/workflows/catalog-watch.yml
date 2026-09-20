@@ -1,0 +1,72 @@
+# The catalogs are maintained by hand from the primary sources; nothing here
+# parses a medical guideline. This job only answers "has the source document
+# changed since we last read it" and opens an issue if so, because a silently
+# outdated STIKO calendar is the one failure mode that actually harms users.
+# It never runs on PRs: an outage at the G-BA must not turn a PR red.
+name: Catalog watch
+
+on:
+  schedule:
+    - cron: "43 4 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: catalog-watch
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare source documents against the recorded fingerprints
+        id: check
+        run: |
+          changed=""
+          {
+            echo "| Source | Status |"
+            echo "|---|---|"
+          } >> "$GITHUB_STEP_SUMMARY"
+          while read -r id name url want; do
+            got="$(curl -fsSL --retry 3 --max-time 120 "$url" | sha256sum | cut -d' ' -f1)" || {
+              echo "| $name | ⚠️ unreachable |" >> "$GITHUB_STEP_SUMMARY"; continue; }
+            if [[ -z "$want" ]]; then
+              echo "| $name | 🆕 \`$got\` (record it in tools/catalog-sources.json) |" >> "$GITHUB_STEP_SUMMARY"
+            elif [[ "$want" == "$got" ]]; then
+              echo "| $name | ✅ unchanged |" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "| $name | ❗ changed: \`$got\` |" >> "$GITHUB_STEP_SUMMARY"
+              changed+="- **$name** ($url)"$'\n'"  - expected \`$want\`, found \`$got\`"$'\n'
+            fi
+          done < <(jq -r '.sources[] | [.id, .name, .url, .sha256] | @tsv' tools/catalog-sources.json)
+          {
+            echo "changed<<END"
+            echo "$changed"
+            echo "END"
+          } >> "$GITHUB_OUTPUT"
+
+      # One open issue at a time: a guideline that changed yesterday is still
+      # the same piece of work today, and a nightly job must not file it again
+      # every morning.
+      - name: File an issue if a source changed
+        if: steps.check.outputs.changed != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHANGED: ${{ steps.check.outputs.changed }}
+        run: |
+          existing="$(gh issue list --state open --label catalog-source --limit 1 --json number --jq '.[0].number')"
+          body="The following primary sources have changed. Review the affected catalog in \`assets/catalogs/\`, update its \`asOf\` date, and record the new fingerprint in \`tools/catalog-sources.json\`.
+
+          $CHANGED"
+          if [[ -n "$existing" ]]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh label create catalog-source --color D93F0B --description "A guideline source document has changed" 2>/dev/null || true
+            gh issue create --title "A catalog source document has changed" --label catalog-source --body "$body"
+          fi

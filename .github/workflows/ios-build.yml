@@ -1,0 +1,29 @@
+# iOS is not distributed yet, but it must stay compilable or the first attempt
+# to ship it turns into an archaeology project. A macOS runner is slow and
+# expensive, so this runs nightly rather than on every PR.
+name: iOS build
+
+on:
+  schedule:
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ios-build
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter build ios --no-codesign
