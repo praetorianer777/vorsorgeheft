@@ -76,11 +76,11 @@ class BundleService {
   }
 
   /// Opens the chosen file under [password] and applies what it carries.
-  /// Returns how many changes took effect, or null when no file was chosen.
-  Future<int?> import({required String password}) async {
+  /// Null when no file was chosen.
+  Future<MergeResult?> import({required String password}) async {
     final bytes = await _picker.pick();
     if (bytes == null) return null;
     final contents = await SyncBundle.open(bytes, password);
-    return (await _store.merge(contents.changes)).length;
+    return _store.merge(contents.changes, from: contents.nodeId);
   }
 }

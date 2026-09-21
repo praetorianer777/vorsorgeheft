@@ -38,6 +38,12 @@ class FamilyPage {
   }
 
   Finder get supportPrompt => find.byKey(const Key('support-prompt'));
+  Finder get syncNotices => find.byKey(const Key('sync-notices'));
+
+  Future<void> dismissSyncNotices() async {
+    await tester.tap(find.byKey(const Key('sync-notices-dismiss')));
+    await settle(tester);
+  }
 
   Future<void> dismissSupportPrompt() async {
     await tester.tap(find.byKey(const Key('support-prompt-dismiss')));
@@ -154,6 +160,18 @@ class AppointmentPage {
   Future<void> markDone() async {
     await tester.tap(find.byKey(const Key('mark-done')));
     await settle(tester);
+    await tester.tap(find.text('OK'));
+    await settle(tester);
+  }
+
+  /// Records the appointment on a given day, through the date picker's
+  /// keyboard mode, in the format of the pinned English locale.
+  Future<void> markDoneOn(String mmddyyyy) async {
+    await tester.tap(find.byKey(const Key('mark-done')));
+    await settle(tester);
+    await tester.tap(find.byIcon(Icons.edit_outlined));
+    await settle(tester);
+    await tester.enterText(find.byType(TextField).last, mmddyyyy);
     await tester.tap(find.text('OK'));
     await settle(tester);
   }
@@ -307,6 +325,7 @@ class SyncPage {
     required String password,
   }) async {
     final before = share.shared.length;
+    await scrollTo(tester, find.byKey(const Key('export-bundle')));
     await tester.tap(find.byKey(const Key('export-bundle')));
     await settle(tester);
     await tester.enterText(find.byKey(const Key('bundle-password')), password);
@@ -329,6 +348,7 @@ class SyncPage {
     required String password,
   }) async {
     sync.picker.nextFile = bytes;
+    await scrollTo(tester, find.byKey(const Key('import-bundle')));
     await tester.tap(find.byKey(const Key('import-bundle')));
     await settle(tester);
     await tester.enterText(find.byKey(const Key('bundle-password')), password);

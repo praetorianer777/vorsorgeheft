@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'change.dart';
 import 'hlc.dart';
+import 'overwrite_notice.dart';
 import 'pairing.dart';
 import 'replicated_store.dart';
 import 'session_cipher.dart';
@@ -59,11 +60,15 @@ class SyncResult {
     required this.peerNodeId,
     required this.received,
     required this.sent,
+    this.overwritten = const [],
   });
 
   final String peerNodeId;
   final int received;
   final int sent;
+
+  /// Appointments this device had recorded that the peer's entries replaced.
+  final List<OverwriteNotice> overwritten;
 
   bool get nothingNew => received == 0 && sent == 0;
 }
@@ -228,8 +233,9 @@ class SyncEngine {
       return _finish(
         SyncResult(
           peerNodeId: peerNodeId,
-          received: received,
+          received: received.applied.length,
           sent: ours.$1.length,
+          overwritten: received.overwritten,
         ),
       );
     } finally {
@@ -287,8 +293,9 @@ class SyncEngine {
     _finish(
       SyncResult(
         peerNodeId: peerNodeId,
-        received: received,
+        received: received.applied.length,
         sent: ours.$1.length,
+        overwritten: received.overwritten,
       ),
     );
   }
@@ -308,20 +315,23 @@ class SyncEngine {
     );
   }
 
-  Future<int> _apply(String peerNodeId, Map<String, Object?> message) async {
+  Future<MergeResult> _apply(
+    String peerNodeId,
+    Map<String, Object?> message,
+  ) async {
     final raw = message['changes'];
     if (raw is! List) throw const SyncProtocolException('changes missing');
     final changes = [
       for (final json in raw) Change.fromJson((json as Map).cast()),
     ];
-    final applied = await _store.merge(changes);
+    final result = await _store.merge(changes, from: peerNodeId);
     final latest = message['latest'];
     await _registry.recordSync(
       peerNodeId,
       watermark: latest is String ? Hlc.parse(latest) : Hlc.zero(peerNodeId),
       at: _clock(),
     );
-    return applied.length;
+    return result;
   }
 
   SyncResult _finish(SyncResult result) {

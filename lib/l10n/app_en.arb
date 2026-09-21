@@ -263,6 +263,55 @@
   "confirm": "OK",
   "syncTitle": "Sync",
   "syncIntro": "Pair this phone with the other parent's once. After that, a sync exchanges what each of you has recorded, directly between the two phones. Nothing is sent anywhere else.",
+  "syncConflictRule": "If you both record the same appointment, the later entry counts. The phone whose entry was replaced says so on its family screen.",
+  "syncNoticesTitle": "The other phone had different entries",
+  "syncNoticeReplaced": "{title} for {name}: your entry ({previous}) was replaced by {current} from {device}.",
+  "@syncNoticeReplaced": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      },
+      "previous": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      },
+      "device": {
+        "type": "String"
+      }
+    }
+  },
+  "syncNoticeRemoved": "{title} for {name}: your entry ({previous}) was removed on {device}.",
+  "@syncNoticeRemoved": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      },
+      "previous": {
+        "type": "String"
+      },
+      "device": {
+        "type": "String"
+      }
+    }
+  },
+  "syncNoticeSkipped": "skipped on {date}",
+  "@syncNoticeSkipped": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "syncNoticeOtherPhone": "the other phone",
+  "syncNoticeImportedFile": "the imported file",
   "syncShowCode": "Show my code",
   "syncScanCode": "Scan a code",
   "syncScanHint": "Point the camera at the code on the other phone.",
@@ -338,6 +387,7 @@
   },
   "syncRemoveDeviceBody": "You can pair again at any time.",
   "bundleSection": "Without a shared network",
+  "bundleHotspot": "No shared Wi-Fi? Open a hotspot on one phone and join it with the other; that counts as the same network. Otherwise:",
   "bundleIntro": "Export an encrypted file, send it to the other phone in any way you like, and import it there with the same password.",
   "bundleExport": "Export encrypted file",
   "bundleImport": "Import encrypted file",
