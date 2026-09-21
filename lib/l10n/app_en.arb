@@ -461,6 +461,8 @@
   "supportPromptDismiss": "No thanks",
   "supportLink": "Support the development",
   "supportLinkHint": "Opens the sponsor page on GitHub",
+  "reportProblem": "Report a problem",
+  "reportProblemHint": "Opens a prefilled issue on GitHub with app version and OS. Nothing is sent until you do it yourself.",
   "remainingDays": "{days, plural, =1{1 day left} other{{days} days left}}",
   "@remainingDays": {
     "placeholders": {

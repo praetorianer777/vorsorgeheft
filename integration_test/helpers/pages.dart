@@ -218,7 +218,18 @@ class SettingsPage {
 
   Finder get title => find.text('Settings');
   Finder get germanTitle => find.text('Einstellungen');
-  Finder get version => find.textContaining('Version ');
+  Finder get version => find.textContaining(RegExp('^Version '));
+
+  /// The version sits at the end of the list, below the fold on a phone.
+  Future<void> scrollToVersion() async {
+    await tester.scrollUntilVisible(version, 200);
+    await settle(tester);
+  }
+
+  Future<void> scrollToReportProblem() async {
+    await tester.scrollUntilVisible(reportProblem, 200);
+    await settle(tester);
+  }
 
   Future<void> chooseGerman() => _choose('language-de');
   Future<void> chooseEnglish() => _choose('language-en');
@@ -230,6 +241,7 @@ class SettingsPage {
   }
 
   Finder get supportLink => find.byKey(const Key('support-link'));
+  Finder get reportProblem => find.byKey(const Key('report-problem'));
 
   Future<HowItWorksPage> openHowItWorks() async {
     await scrollTo(tester, find.byKey(const Key('open-how-it-works')));
