@@ -15,6 +15,12 @@ and the versioning [Semantic Versioning](https://semver.org/).
   The sync screen states the rule up front and suggests a hotspot when there
   is no shared Wi-Fi.
 
+### Bug fixes
+
+- The dental examinations Z1 to Z6 lapse with their age span, as the U
+  check-ups do: a child added later finds the ones that are over under "No
+  longer available" instead of an "Overdue" that never clears.
+
 ### Other
 
 - A bundle written in 2026 lives in the repo and every later version has to

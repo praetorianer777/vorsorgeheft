@@ -1,5 +1,5 @@
 {
-  "_conversion": "German guidelines count periods as 'Lebensmonat', where the first one begins at birth: the 34th month of life starts at the age of 33 months. The windows below are therefore the guideline's numbers minus one. The guideline's own boundaries line up when read this way - Teil B ends 'zum vollendeten 33. Lebensmonat' and Teil C begins 'ab dem 34. Lebensmonat', which is the same day. The fluoride varnish entitlement (twice per calendar half-year, FU-RL §§ 6 and 10) is deliberately not a reminder of its own: four notifications a year for something that happens at the same appointment is noise, so it is named in the examinations it accompanies instead.",
+  "_conversion": "German guidelines count periods as 'Lebensmonat', where the first one begins at birth: the 34th month of life starts at the age of 33 months. The windows below are therefore the guideline's numbers minus one. The guideline's own boundaries line up when read this way - Teil B ends 'zum vollendeten 33. Lebensmonat' and Teil C begins 'ab dem 34. Lebensmonat', which is the same day. Each examination is granted once within its span and the guideline names no catch-up period, so the span's end is a hard deadline: past it the entitlement is gone, and an entry that stays 'overdue' for years is noise. Teil C actually grants three FU2 anywhere between the 34th and the 72nd month, at least twelve months apart, but the split into Z4, Z5 and Z6 keeps the same deadlines: after the 48th month only two more fit before the 72nd, so the first slot is lost, and the second after the 60th. The fluoride varnish entitlement (twice per calendar half-year, FU-RL §§ 6 and 10) is deliberately not a reminder of its own: four notifications a year for something that happens at the same appointment is noise, so it is named in the examinations it accompanies instead.",
   "catalogId": "dental",
   "catalogVersion": "2026.09",
   "name": {
@@ -54,7 +54,11 @@
         },
         "to": {
           "months": 9
-        }
+        },
+        "toleranceTo": {
+          "months": 9
+        },
+        "hardDeadline": true
       },
       "eligibility": {
         "maxAge": {
@@ -80,7 +84,11 @@
         },
         "to": {
           "months": 20
-        }
+        },
+        "toleranceTo": {
+          "months": 20
+        },
+        "hardDeadline": true
       },
       "eligibility": {
         "maxAge": {
@@ -106,7 +114,11 @@
         },
         "to": {
           "months": 33
-        }
+        },
+        "toleranceTo": {
+          "months": 33
+        },
+        "hardDeadline": true
       },
       "eligibility": {
         "maxAge": {
@@ -132,7 +144,11 @@
         },
         "to": {
           "months": 48
-        }
+        },
+        "toleranceTo": {
+          "months": 48
+        },
+        "hardDeadline": true
       },
       "eligibility": {
         "maxAge": {
@@ -158,7 +174,11 @@
         },
         "to": {
           "months": 60
-        }
+        },
+        "toleranceTo": {
+          "months": 60
+        },
+        "hardDeadline": true
       },
       "eligibility": {
         "maxAge": {
@@ -184,7 +204,11 @@
         },
         "to": {
           "months": 72
-        }
+        },
+        "toleranceTo": {
+          "months": 72
+        },
+        "hardDeadline": true
       },
       "eligibility": {
         "maxAge": {

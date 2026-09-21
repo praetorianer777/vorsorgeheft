@@ -451,6 +451,27 @@ void registerAppSpecs() {
     await shutDown(tester, db);
   });
 
+  testWidgets(
+    'dental examinations whose span has passed are no longer offered',
+    (tester) async {
+      final db = await launchApp(tester, people: [Family.preschooler]);
+      final timeline = await FamilyPage(tester).open('Lena');
+
+      expect(timeline.needsAttention, findsOneWidget);
+      await timeline.scrollToAppointment('Z4');
+      expect(timeline.status('Z4', 'Due'), findsOneWidget);
+
+      await scrollTo(tester, timeline.noLongerAvailable);
+      for (final title in ['Z1', 'Z2', 'Z3']) {
+        await timeline.scrollToAppointment(title);
+        expect(timeline.status(title, 'Expired'), findsOneWidget);
+      }
+      expect(find.text('Overdue'), findsNothing);
+
+      await shutDown(tester, db);
+    },
+  );
+
   testWidgets("an adult gets none of the children's check-ups", (tester) async {
     // Tim was born on a leap day in 1960, so this also exercises the date
     // arithmetic against a real platform rather than only the unit tests.

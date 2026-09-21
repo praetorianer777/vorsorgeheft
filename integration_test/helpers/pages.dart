@@ -110,6 +110,14 @@ class TimelinePage {
   Finder get settled => find.text('Done and skipped');
   Finder get noLongerAvailable => find.text('No longer available');
 
+  /// The status word inside the tile titled [title], so that a spec can tell
+  /// a Z1 that has lapsed from a Z4 that is still open without reading the
+  /// whole list.
+  Finder status(String title, String label) => find.descendant(
+    of: find.ancestor(of: find.text(title), matching: find.byType(ListTile)),
+    matching: find.text(label),
+  );
+
   Future<AppointmentPage> open(String title) async {
     await scrollTo(tester, find.text(title));
     await tester.tap(find.text(title).first);
