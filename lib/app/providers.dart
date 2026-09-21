@@ -128,6 +128,12 @@ final personsProvider = StreamProvider<List<Person>>(
   (ref) => ref.watch(databaseProvider).watchPersons(),
 );
 
+/// Null until the family has been given a name.
+final familyNameProvider = StreamProvider<String?>(
+  (ref) =>
+      ref.watch(databaseProvider).watchFamilyName(ReplicatedStore.familyId),
+);
+
 final completionsProvider = StreamProvider<List<Completion>>(
   (ref) => ref.watch(databaseProvider).watchCompletions(),
 );

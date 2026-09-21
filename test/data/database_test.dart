@@ -198,7 +198,7 @@ void main() {
     });
   });
 
-  test('a version 1 database opens and gains the peers table', () async {
+  test('a version 1 database opens and gains the later tables', () async {
     // The schema exactly as drift created it for version 1, with data in it,
     // so the test fails if the migration ever recreates a table.
     final raw = sqlite3.openInMemory()
@@ -232,9 +232,11 @@ void main() {
       Peer(nodeId: 'bob', deviceName: 'Bob', sharedKey: List.filled(32, 1)),
     );
     expect((await migrated.allPeers()).single.nodeId, 'bob');
+    await migrated.upsertFamily('family', 'Familie Meier');
+    expect(await migrated.familyName('family'), 'Familie Meier');
     expect(
       (await migrated.customSelect('PRAGMA user_version').getSingle()).data,
-      {'user_version': 2},
+      {'user_version': 3},
     );
   });
 }

@@ -16,6 +16,17 @@ class FamilyPage {
 
   Finder get emptyState => find.text('No one here yet');
   Finder personNamed(String name) => find.text(name);
+  Finder get defaultTitle => find.text('Family');
+  Finder titled(String name) => find.text(name);
+
+  /// Through the pencil, the same way the title itself opens the dialog.
+  Future<void> rename(String name) async {
+    await tester.tap(find.byKey(const Key('edit-family-name')));
+    await settle(tester);
+    await tester.enterText(find.byKey(const Key('family-name')), name);
+    await tester.tap(find.byKey(const Key('family-name-ok')));
+    await settle(tester);
+  }
 
   Future<PersonFormPage> addPerson() async {
     await tester.tap(find.byKey(const Key('add-person')));

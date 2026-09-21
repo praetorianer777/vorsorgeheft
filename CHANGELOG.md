@@ -9,6 +9,9 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- The family can be given a name. It heads the start screen instead of
+  "Family", reaches the other parent's phone with the next sync, and names the
+  family's calendar export and the encrypted file.
 - A "Report a problem" tile in settings opens a GitHub issue prefilled with
   app version, OS and language. Nothing leaves the phone until the person
   sends it.

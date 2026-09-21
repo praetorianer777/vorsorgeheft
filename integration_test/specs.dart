@@ -529,6 +529,61 @@ void registerAppSpecs() {
     await shutDown(tester, db);
   });
 
+  testWidgets('the family name survives a restart and heads the exports', (
+    tester,
+  ) async {
+    final share = RecordingShareGateway();
+    final db = await launchApp(tester, people: [Family.infant], share: share);
+    final family = FamilyPage(tester);
+    expect(family.defaultTitle, findsOneWidget);
+
+    await family.rename('Familie Meier');
+    expect(family.titled('Familie Meier'), findsOneWidget);
+    expect(family.defaultTitle, findsNothing);
+
+    await family.exportCalendar(share);
+    expect(share.lastContent, contains('X-WR-CALNAME:Familie Meier'));
+    expect(share.shared.last.$2, 'Familie Meier');
+    final sync = await family.openSync();
+    await sync.exportBundle(share, password: 'correct horse');
+    expect(share.shared.last.$2, 'Familie Meier');
+    await sync.back();
+
+    await detach(tester);
+    await launchApp(tester, database: db, share: share);
+    expect(family.titled('Familie Meier'), findsOneWidget);
+
+    await family.rename('');
+    expect(family.defaultTitle, findsOneWidget);
+    await family.exportCalendar(share);
+    expect(share.shared.last.$2, 'Preventive care – family');
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('the family name reaches the other phone', (tester) async {
+    final wire = LoopbackNetwork();
+    final mum = SyncFixture(network: wire);
+    final dad = SyncFixture(network: wire);
+
+    final mumsDb = await launchApp(tester, sync: mum, nodeId: 'mum');
+    await FamilyPage(tester).rename('Haus Sonnenschein');
+    final code = await (await FamilyPage(tester).openSync()).showMyCode();
+    await detach(tester);
+    await mum.stayReachable();
+
+    final dadsDb = await launchApp(tester, sync: dad, nodeId: 'dad');
+    expect(FamilyPage(tester).defaultTitle, findsOneWidget);
+    final sync = await FamilyPage(tester).openSync();
+    await sync.scanCode(dad, code);
+    await sync.syncNow('mum');
+    await sync.back();
+    expect(FamilyPage(tester).titled('Haus Sonnenschein'), findsOneWidget);
+
+    await shutDown(tester, dadsDb);
+    await mumsDb.close();
+  });
+
   testWidgets('two phones pair over a code and end up with the same family', (
     tester,
   ) async {
