@@ -7,6 +7,16 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Other
+
+- Tests now pin down what the suite left open: catalog invariants over every
+  shipped catalog, the horizon and booster edge cases of the schedule engine,
+  what a third phone does and does not receive, undo against a re-record, a
+  peer removed and paired again, the reminder window topping up, a renamed
+  person's calendar export, and end-to-end passes in German, through the
+  edit form, over a school-age child's timeline, and against a file that is
+  not a bundle.
+
 ## [0.2.1] - 2026-09-21
 
 ### Bug fixes

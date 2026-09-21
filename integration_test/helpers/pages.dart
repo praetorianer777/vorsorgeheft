@@ -120,6 +120,14 @@ class TimelinePage {
   Finder get comingUp => find.text('Coming up');
   Finder get settled => find.text('Done and skipped');
   Finder get noLongerAvailable => find.text('No longer available');
+  Finder get germanNeedsAttention => find.text('Jetzt dran');
+  Finder get germanComingUp => find.text('Demnächst');
+
+  Future<PersonFormPage> edit() async {
+    await tester.tap(find.byKey(const Key('edit-person')));
+    await settle(tester);
+    return PersonFormPage(tester);
+  }
 
   /// The status word inside the tile titled [title], so that a spec can tell
   /// a Z1 that has lapsed from a Z4 that is still open without reading the
@@ -160,8 +168,10 @@ class TimelinePage {
       .map((t) => (t.title as Text).data ?? '')
       .toList();
 
+  /// Not `pageBack`: it looks the back button up by its English tooltip,
+  /// and the German pass walks back through this screen too.
   Future<void> back() async {
-    await tester.pageBack();
+    await tester.tap(find.byType(BackButton));
     await settle(tester);
   }
 }
@@ -175,6 +185,9 @@ class AppointmentPage {
   Finder statusText(String label) => find.text(label);
   Finder get source => find.textContaining('Source:');
   Finder get catchUpBy => find.text('Catch up by');
+  Finder get germanSource => find.textContaining('Quelle:');
+  Finder get germanCatchUpBy => find.text('Nachholbar bis');
+  Finder get germanMarkDone => find.text('Als erledigt erfassen');
 
   Future<void> markDone() async {
     await tester.tap(find.byKey(const Key('mark-done')));
@@ -206,7 +219,7 @@ class AppointmentPage {
   }
 
   Future<void> back() async {
-    await tester.pageBack();
+    await tester.tap(find.byType(BackButton));
     await settle(tester);
   }
 }
@@ -331,6 +344,8 @@ class SourcesPage {
 
   Finder get disclaimer => find.text('This is not medical advice');
   Finder get privacy => find.text('Your data stays here');
+  Finder get germanTitle => find.text('Quellen & Rechtliches');
+  Finder get germanDisclaimer => find.text('Keine ärztliche Beratung');
   Finder sourceNamed(String fragment) => find.textContaining(fragment);
 
   Future<void> scrollToDisclaimer() => scrollTo(tester, disclaimer);
@@ -354,6 +369,7 @@ class SyncPage {
       find.text('That is not a pairing code of this app.');
   Finder get wrongPassword =>
       find.text('Wrong password, or the file was altered.');
+  Finder get notABundle => find.text('That is not a file this app exported.');
   Finder get addressPrompt => find.byKey(const Key('peer-address'));
   Finder unreachable(String name) =>
       find.text('$name could not be found on the network.');

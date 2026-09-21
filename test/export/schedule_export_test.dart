@@ -109,6 +109,35 @@ void main() {
     expect(second.content, contains('STATUS:CANCELLED'));
   });
 
+  test('a renamed person raises every sequence and keeps every uid', () {
+    // The name is in every summary, so a calendar has to be told about all
+    // of the events; the uids stay, or it would add a second set.
+    final first = exportFor();
+    final renamed = Person(
+      id: _mila.id,
+      name: 'Mila Vogel',
+      dateOfBirth: _mila.dateOfBirth,
+    );
+    final second = buildIcsExport(
+      people: [renamed],
+      occurrences: computeOccurrences(
+        person: renamed,
+        catalogs: CatalogSet([childrenCatalog()]),
+        completions: const [],
+        today: _today,
+      ),
+      locale: 'en',
+      stamp: _stamp,
+      texts: _texts,
+      previous: first.records,
+    );
+
+    expect(second.records.keys.toSet(), first.records.keys.toSet());
+    expect(second.records.values.map((r) => r.sequence), everyElement(1));
+    expect(second.content, contains('SUMMARY:Mila Vogel: U6'));
+    expect(second.content, isNot(contains('SUMMARY:Mila: U6')));
+  });
+
   test('an appointment never exported is not exported as a cancellation', () {
     // Nothing has been shared yet, so a lapsed entitlement is not in anyone's
     // calendar and writing a cancellation for it would be noise.

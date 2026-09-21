@@ -650,6 +650,173 @@ void main() {
     });
   });
 
+  group('what the horizon cuts off', () {
+    final yearly = catalogOf([
+      {
+        'id': 'yearly',
+        'schedule': {
+          'type': 'recurring',
+          'from': {'years': 35},
+          'every': {'years': 1},
+        },
+      },
+    ]);
+
+    test('every repeat inside the horizon is generated, none beyond', () {
+      final occurrences = run(
+        catalogs: yearly,
+        person: personBornOn(DateTime.utc(1985, 6, 1)),
+        today: DateTime.utc(2026, 9, 20),
+        horizon: const Duration(days: 730),
+      );
+      expect(occurrences.map((o) => o.windowStart), [
+        DateTime.utc(2026, 6, 1),
+        DateTime.utc(2027, 6, 1),
+        DateTime.utc(2028, 6, 1),
+      ]);
+    });
+
+    test('a booster repeats inside the horizon the same way', () {
+      final occurrences = run(
+        catalogs: catalogOf([
+          {
+            'id': 'td-booster',
+            'schedule': {
+              'type': 'booster',
+              'every': {'years': 10},
+              'fromAge': {'years': 18},
+            },
+          },
+        ]),
+        person: personBornOn(DateTime.utc(2000, 5, 5)),
+        today: DateTime.utc(2026, 9, 20),
+        horizon: const Duration(days: 730),
+      );
+      expect(occurrences.map((o) => o.windowStart), [
+        DateTime.utc(2018, 5, 5),
+        DateTime.utc(2028, 5, 5),
+      ]);
+    });
+  });
+
+  group('history that does not fit the catalog', () {
+    test('a completion for a rule no catalog knows is ignored', () {
+      // A rule can be dropped from a catalog after somebody recorded it: the
+      // entry stays in their history and must not break the schedule.
+      final occurrences = run(
+        catalogs: catalogOf([u6()]),
+        person: personBornOn(birth),
+        today: DateTime.utc(2026, 1, 1),
+        completions: [
+          Completion(
+            personId: 'p1',
+            ruleId: 'retired-rule',
+            completedOn: DateTime.utc(2025, 12, 20),
+          ),
+        ],
+      );
+      expect(occurrences.map((o) => o.rule.id), ['u6']);
+      expect(occurrences.single.status, OccurrenceStatus.due);
+    });
+
+    test('a skipped dose leaves the next one provisional', () {
+      // Skipping records a decision, not a date the gap could count from.
+      final occurrences = run(
+        catalogs: catalogOf([
+          {
+            'id': 'sixfold',
+            'schedule': {
+              'type': 'series',
+              'doses': [
+                {
+                  'id': '1',
+                  'from': {'months': 2},
+                },
+                {
+                  'id': '2',
+                  'from': {'months': 4},
+                  'minIntervalFromPrevious': {'months': 2},
+                },
+              ],
+            },
+          },
+        ]),
+        person: personBornOn(DateTime.utc(2026, 1, 10)),
+        today: DateTime.utc(2026, 4, 1),
+        completions: [
+          Completion(
+            personId: 'p1',
+            ruleId: 'sixfold',
+            doseId: '1',
+            completedOn: DateTime.utc(2026, 3, 1),
+            skipped: true,
+          ),
+        ],
+      );
+      final second = occurrences.firstWhere((o) => o.instanceId == '2');
+      expect(second.provisional, isTrue);
+      expect(second.windowStart, DateTime.utc(2026, 5, 10));
+    });
+
+    test('a booster counts from the later of its own and the primary', () {
+      // The childhood series was entered years after the adult had already
+      // had a booster: the shot actually given last is what the ten years
+      // run from, whichever rule it was recorded under.
+      final catalogs = catalogOf([
+        {
+          'id': 'td-primary',
+          'schedule': {
+            'type': 'series',
+            'doses': [
+              {
+                'id': '1',
+                'from': {'years': 5},
+              },
+            ],
+          },
+        },
+        {
+          'id': 'td-booster',
+          'schedule': {
+            'type': 'booster',
+            'after': 'td-primary',
+            'every': {'years': 10},
+          },
+        },
+      ]);
+      Completion done(String ruleId, DateTime on, {String? doseId}) =>
+          Completion(
+            personId: 'p1',
+            ruleId: ruleId,
+            doseId: doseId,
+            completedOn: on,
+          );
+
+      DateTime nextBoosterWith(List<Completion> history) => run(
+        catalogs: catalogs,
+        person: personBornOn(DateTime.utc(1990, 1, 1)),
+        today: DateTime.utc(2026, 9, 20),
+        completions: history,
+        horizon: const Duration(days: 1),
+      ).firstWhere((o) => o.rule.id == 'td-booster' && o.isOpen).windowStart;
+
+      expect(
+        nextBoosterWith([
+          done('td-booster', DateTime.utc(2012, 6, 1)),
+          done('td-primary', DateTime.utc(2015, 4, 3), doseId: '1'),
+        ]),
+        DateTime.utc(2025, 4, 3),
+      );
+      expect(
+        nextBoosterWith([
+          done('td-primary', DateTime.utc(2015, 4, 3), doseId: '1'),
+          done('td-booster', DateTime.utc(2020, 6, 1)),
+        ]),
+        DateTime.utc(2030, 6, 1),
+      );
+    });
+  });
+
   test('occurrences come back in due order', () {
     final occurrences = run(
       catalogs: catalogOf([

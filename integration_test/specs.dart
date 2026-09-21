@@ -569,6 +569,118 @@ void registerAppSpecs() {
     await shutDown(tester, db);
   });
 
+  testWidgets(
+    'the app reads in German from the family list to the small print',
+    (tester) async {
+      final db = await launchApp(
+        tester,
+        people: [Family.infant],
+        locale: const Locale('de'),
+      );
+      final family = FamilyPage(tester);
+      expect(family.titled('Familie'), findsOneWidget);
+
+      final timeline = await family.open('Mila');
+      expect(timeline.germanNeedsAttention, findsOneWidget);
+      await scrollTo(tester, timeline.germanComingUp);
+      expect(timeline.germanComingUp, findsWidgets);
+
+      final appointment = await timeline.open('U3');
+      expect(appointment.germanSource, findsOneWidget);
+      expect(appointment.germanCatchUpBy, findsOneWidget);
+      expect(appointment.germanMarkDone, findsOneWidget);
+      await appointment.back();
+      await timeline.back();
+
+      final settings = await family.openSettings();
+      expect(settings.germanTitle, findsOneWidget);
+      final how = await settings.openHowItWorks();
+      expect(how.germanTitle, findsOneWidget);
+      final sources = await how.openSources();
+      expect(sources.germanTitle, findsOneWidget);
+      await scrollTo(tester, sources.germanDisclaimer);
+      expect(sources.germanDisclaimer, findsOneWidget);
+
+      await shutDown(tester, db);
+    },
+  );
+
+  testWidgets('editing a person moves their schedule and reminders along', (
+    tester,
+  ) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.infant],
+      gateway: gateway,
+    );
+    final family = FamilyPage(tester);
+    final timeline = await family.open('Mila');
+
+    // Eight days old instead of nineteen: the U2 is back inside its window.
+    final form = await timeline.edit();
+    await form.enterName('Mila Vogel');
+    await form.pickDateOfBirth('09/12/2026');
+    await form.save();
+
+    expect(find.text('Mila Vogel'), findsOneWidget);
+    await timeline.scrollToAppointment('U2');
+    expect(timeline.status('U2', 'Due'), findsOneWidget);
+    expect(find.text('Expired'), findsNothing);
+    expect(gateway.titles, isNotEmpty);
+    expect(gateway.titles.every((t) => t.contains('Mila Vogel')), isTrue);
+
+    await timeline.back();
+    expect(family.personNamed('Mila Vogel'), findsOneWidget);
+    expect(family.personNamed('Mila'), findsNothing);
+    final stored = (await db.personById('infant'))!;
+    expect(stored.dateOfBirth, DateTime.utc(2026, 9, 12));
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('a school-age child sees what is ahead and what has lapsed', (
+    tester,
+  ) async {
+    // Jonas is eight: the U10 is running, the U11 and J1 lie ahead, and the
+    // U9 lapsed a couple of years ago. Nothing is settled yet.
+    final db = await launchApp(tester, people: [Family.schoolAge]);
+    final timeline = await FamilyPage(tester).open('Jonas');
+
+    expect(timeline.needsAttention, findsOneWidget);
+    expect(timeline.status('U10', 'Due'), findsOneWidget);
+    await scrollTo(tester, timeline.comingUp);
+    for (final title in ['U11', 'J1']) {
+      await timeline.scrollToAppointment(title);
+      expect(timeline.status(title, 'Upcoming'), findsOneWidget);
+    }
+    await scrollTo(tester, timeline.noLongerAvailable);
+    await timeline.scrollToAppointment('U9');
+    expect(timeline.status('U9', 'Expired'), findsOneWidget);
+    expect(timeline.settled, findsNothing);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('a file that is not a bundle is refused, not misread', (
+    tester,
+  ) async {
+    final dad = SyncFixture();
+    final db = await launchApp(tester, sync: dad, nodeId: 'dad');
+    final sync = await FamilyPage(tester).openSync();
+    final notABundle = 'BEGIN:VCALENDAR'.codeUnits;
+
+    await sync.importBundle(dad, notABundle, password: 'correct horse');
+    expect(sync.notABundle, findsOneWidget);
+
+    await sync.receiveFromPhone(dad, notABundle, code: '123456');
+    expect(sync.notABundle, findsWidgets);
+    await sync.back();
+    expect(FamilyPage(tester).emptyState, findsOneWidget);
+
+    await shutDown(tester, db);
+  });
+
   testWidgets('the family name survives a restart and heads the exports', (
     tester,
   ) async {
