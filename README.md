@@ -35,6 +35,9 @@ neither calendar export nor device-to-device sync, and ships bundled with sponso
 Signed APKs will appear under [Releases](https://github.com/praetorianer777/vorsorgeheft/releases).
 iOS is built and tested, but not distributed yet.
 
+The privacy policy for the store listings lives in [`docs/`](docs/) and is published at
+<https://praetorianer777.github.io/vorsorgeheft/>.
+
 ## Catalogs and sources
 
 The catalogs live as versioned JSON files in [`assets/catalogs/`](assets/catalogs/). Every rule
