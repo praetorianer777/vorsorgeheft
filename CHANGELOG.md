@@ -7,13 +7,10 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-### Bug fixes
-
-- The stored language is restored on start by a read nobody waits for; when
-  it landed after the app's state was already torn down it threw into
-  whatever ran next. It is now dropped instead.
-
 ### Features
+
+- An icon of its own, a calendar leaf with a check mark in the app's green,
+  on Android (adaptive) and iOS, in place of the Flutter default.
 
 - A "How this app works" screen in settings explains, in plain words, where
   the appointments come from with the source documents linked, how the dates
@@ -27,6 +24,10 @@ and the versioning [Semantic Versioning](https://semver.org/).
   is no shared Wi-Fi.
 
 ### Bug fixes
+
+- The stored language is restored on start by a read nobody waits for; when
+  it landed after the app's state was already torn down it threw into
+  whatever ran next. It is now dropped instead.
 
 - The dental examinations Z1 to Z6 lapse with their age span, as the U
   check-ups do: a child added later finds the ones that are over under "No
