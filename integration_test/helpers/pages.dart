@@ -16,6 +16,17 @@ class FamilyPage {
 
   Finder get emptyState => find.text('No one here yet');
   Finder personNamed(String name) => find.text(name);
+  Finder get defaultTitle => find.text('Family');
+  Finder titled(String name) => find.text(name);
+
+  /// Through the pencil, the same way the title itself opens the dialog.
+  Future<void> rename(String name) async {
+    await tester.tap(find.byKey(const Key('edit-family-name')));
+    await settle(tester);
+    await tester.enterText(find.byKey(const Key('family-name')), name);
+    await tester.tap(find.byKey(const Key('family-name-ok')));
+    await settle(tester);
+  }
 
   Future<PersonFormPage> addPerson() async {
     await tester.tap(find.byKey(const Key('add-person')));
@@ -207,7 +218,18 @@ class SettingsPage {
 
   Finder get title => find.text('Settings');
   Finder get germanTitle => find.text('Einstellungen');
-  Finder get version => find.textContaining('Version ');
+  Finder get version => find.textContaining(RegExp('^Version '));
+
+  /// The version sits at the end of the list, below the fold on a phone.
+  Future<void> scrollToVersion() async {
+    await tester.scrollUntilVisible(version, 200);
+    await settle(tester);
+  }
+
+  Future<void> scrollToReportProblem() async {
+    await tester.scrollUntilVisible(reportProblem, 200);
+    await settle(tester);
+  }
 
   Future<void> chooseGerman() => _choose('language-de');
   Future<void> chooseEnglish() => _choose('language-en');
@@ -219,6 +241,7 @@ class SettingsPage {
   }
 
   Finder get supportLink => find.byKey(const Key('support-link'));
+  Finder get reportProblem => find.byKey(const Key('report-problem'));
 
   Future<HowItWorksPage> openHowItWorks() async {
     await scrollTo(tester, find.byKey(const Key('open-how-it-works')));

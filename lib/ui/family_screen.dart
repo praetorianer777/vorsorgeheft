@@ -23,11 +23,22 @@ class FamilyScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final persons = ref.watch(personsProvider);
+    final familyName = ref.watch(familyNameProvider).value;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.familyTitle),
+        title: GestureDetector(
+          key: const Key('family-title'),
+          onTap: () => _editFamilyName(context, ref, familyName),
+          child: Text(familyName ?? l10n.familyTitle),
+        ),
         actions: [
+          IconButton(
+            key: const Key('edit-family-name'),
+            icon: const Icon(Icons.edit_outlined),
+            tooltip: l10n.familyNameEdit,
+            onPressed: () => _editFamilyName(context, ref, familyName),
+          ),
           IconButton(
             key: const Key('open-sync'),
             icon: const Icon(Icons.sync),
@@ -102,6 +113,53 @@ class FamilyScreen extends ConsumerWidget {
       ),
     );
   }
+}
+
+Future<void> _editFamilyName(
+  BuildContext context,
+  WidgetRef ref,
+  String? current,
+) async {
+  final l10n = AppLocalizations.of(context);
+  final controller = TextEditingController(text: current ?? '');
+  final name = await showDialog<String>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text(l10n.familyNameEdit),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextField(
+            key: const Key('family-name'),
+            controller: controller,
+            autofocus: true,
+            textCapitalization: TextCapitalization.words,
+            decoration: InputDecoration(labelText: l10n.familyNameHint),
+            onSubmitted: (value) => Navigator.of(context).pop(value),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            l10n.familyNameHelp,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(l10n.cancel),
+        ),
+        FilledButton(
+          key: const Key('family-name-ok'),
+          onPressed: () => Navigator.of(context).pop(controller.text),
+          child: Text(l10n.confirm),
+        ),
+      ],
+    ),
+  );
+  if (name == null) return;
+  await ref.read(storeProvider).saveFamilyName(name);
 }
 
 class _Family extends StatelessWidget {

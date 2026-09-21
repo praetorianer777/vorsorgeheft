@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../app/providers.dart';
 import '../export/schedule_export.dart';
 import '../l10n/app_localizations.dart';
+import '../sync/replicated_store.dart';
 
 /// Exports the schedule and offers the file for sharing.
 ///
@@ -24,11 +25,14 @@ Future<void> exportSchedule(
   final l10n = AppLocalizations.of(context);
   final locale = Localizations.localeOf(context).languageCode;
   final messenger = ScaffoldMessenger.of(context);
-  final name = personName == null
-      ? l10n.exportCalendarFamily
-      : l10n.exportCalendarPerson(personName);
 
   try {
+    final familyName = await ref
+        .read(databaseProvider)
+        .familyName(ReplicatedStore.familyId);
+    final name = personName != null
+        ? l10n.exportCalendarPerson(personName)
+        : familyName ?? l10n.exportCalendarFamily;
     final service = ref.read(icsExportServiceProvider);
     final file = await service.export(
       personId: personId,

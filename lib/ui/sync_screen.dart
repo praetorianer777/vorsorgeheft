@@ -167,9 +167,15 @@ class SyncScreen extends ConsumerWidget {
     final password = await _askPassword(context, l10n.bundleExport);
     if (password == null) return;
     try {
+      final familyName = await ref
+          .read(databaseProvider)
+          .familyName(ReplicatedStore.familyId);
       await ref
           .read(bundleServiceProvider)
-          .export(password: password, subject: l10n.bundleSubject);
+          .export(
+            password: password,
+            subject: familyName ?? l10n.bundleSubject,
+          );
     } on Object {
       _notify(messenger, l10n.bundleFailed);
     }

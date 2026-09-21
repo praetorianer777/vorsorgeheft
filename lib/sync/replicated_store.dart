@@ -21,6 +21,10 @@ class ReplicatedStore {
 
   static const personEntity = 'person';
   static const completionEntity = 'completion';
+  static const familyEntity = 'family';
+
+  /// There is one family per database, so its record has a fixed id.
+  static const familyId = 'family';
   static const nodeIdSettingKey = 'node-id';
 
   /// Device-local, like the locale: the other phone must not be told about
@@ -93,6 +97,11 @@ class ReplicatedStore {
   }) => _write(completionEntity, completionId(personId, ruleId, doseId), {
     Change.deletedField: true,
   });
+
+  /// A blank name clears it. The record stays rather than being deleted, so
+  /// a name written later on either phone still wins by timestamp.
+  Future<void> saveFamilyName(String name) =>
+      _write(familyEntity, familyId, {'name': name.trim()});
 
   static String completionId(String personId, String ruleId, String? doseId) =>
       '$personId|$ruleId|${doseId ?? ''}';
@@ -244,6 +253,13 @@ class ReplicatedStore {
           await _deleteCompletion(entityId);
         } else {
           await _db.recordCompletion(_completionFrom(fields));
+        }
+      } else if (entity == familyEntity) {
+        final name = fields?['name'] as String? ?? '';
+        if (name.isEmpty) {
+          await _db.deleteFamily(entityId);
+        } else {
+          await _db.upsertFamily(entityId, name);
         }
       }
     }

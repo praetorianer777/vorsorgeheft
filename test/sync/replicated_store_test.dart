@@ -130,6 +130,21 @@ void main() {
       expect(await alice.db.allCompletions(), isEmpty);
     });
 
+    test('the family name projects to its row', () async {
+      await alice.store.saveFamilyName('  Familie Meier ');
+      expect(await alice.db.familyName('family'), 'Familie Meier');
+      final change = (await alice.db.changesFor('family', 'family')).single;
+      expect(change.field, 'name');
+      expect(change.value, 'Familie Meier');
+    });
+
+    test('a blank name clears it but keeps the record', () async {
+      await alice.store.saveFamilyName('Familie Meier');
+      await alice.store.saveFamilyName('   ');
+      expect(await alice.db.familyName('family'), isNull);
+      expect(await alice.db.changesFor('family', 'family'), hasLength(1));
+    });
+
     test('timestamps never repeat, even within one millisecond', () async {
       await alice.store.savePerson(anna);
       await alice.store.savePerson(
@@ -238,6 +253,26 @@ void main() {
         expect(
           (await replica.db.personById('anna'))!.name,
           'From Bob',
+          reason: replica.name,
+        );
+      }
+    });
+
+    test('the family name reaches the other, and the later one wins', () async {
+      await alice.store.saveFamilyName('Familie Meier');
+      await exchange(alice, bob);
+      expect(await bob.db.familyName('family'), 'Familie Meier');
+
+      alice.advance(const Duration(minutes: 1));
+      await alice.store.saveFamilyName('Haus Sonnenschein');
+      bob.advance(const Duration(minutes: 5));
+      await bob.store.saveFamilyName('');
+      await exchange(alice, bob);
+
+      for (final replica in [alice, bob]) {
+        expect(
+          await replica.db.familyName('family'),
+          isNull,
           reason: replica.name,
         );
       }

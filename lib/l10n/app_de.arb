@@ -2,6 +2,9 @@
   "@@locale": "de",
   "appTitle": "Vorsorgereminder",
   "familyTitle": "Familie",
+  "familyNameEdit": "Familie benennen",
+  "familyNameHint": "Name der Familie",
+  "familyNameHelp": "Steht hier und auf dem Handy des anderen Elternteils als Titel. Leer lassen, um zu „Familie“ zurückzukehren.",
   "familyEmptyTitle": "Noch niemand angelegt",
   "familyEmptyBody": "Lege ein Familienmitglied an, dann wird aus dem Geburtsdatum berechnet, was wann fällig ist.",
   "addPerson": "Person hinzufügen",
@@ -245,6 +248,8 @@
   "supportPromptDismiss": "Nein danke",
   "supportLink": "Entwicklung unterstützen",
   "supportLinkHint": "Öffnet die Sponsor-Seite auf GitHub",
+  "reportProblem": "Problem melden",
+  "reportProblemHint": "Öffnet einen vorausgefüllten Issue auf GitHub mit App-Version und System. Gesendet wird erst, wenn du es selbst tust.",
   "remainingDays": "{days, plural, =1{noch 1 Tag} other{noch {days} Tage}}",
   "@remainingDays": {
     "placeholders": {

@@ -14,6 +14,12 @@ and the versioning [Semantic Versioning](https://semver.org/).
   phone" opens it with that code. The `.vorsorge` file type is registered
   on Android and iOS so a received file opens the app. The password export
   stays for backups that are kept.
+- The family can be given a name. It heads the start screen instead of
+  "Family", reaches the other parent's phone with the next sync, and names the
+  family's calendar export and the encrypted file.
+- A "Report a problem" tile in settings opens a GitHub issue prefilled with
+  app version, OS and language. Nothing leaves the phone until the person
+  sends it.
 - A phone that was never given a name introduces itself to the other one by
   its model, such as "Pixel 8" or "iPhone 15", instead of both showing up as
   "My phone". The pairing dialog says that the name is what the other phone

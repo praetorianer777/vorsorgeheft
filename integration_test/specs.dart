@@ -347,10 +347,13 @@ void registerAppSpecs() {
     final db = await launchApp(tester, people: [Family.infant], locale: null);
     final settings = await FamilyPage(tester).openSettings();
     expect(settings.title, findsOneWidget);
-    expect(settings.version, findsOneWidget);
 
     await settings.chooseGerman();
     expect(settings.germanTitle, findsOneWidget);
+    // Checked after the language switch: the version sits at the end of a
+    // list that has grown past the fold, and the radios scroll out with it.
+    await settings.scrollToVersion();
+    expect(settings.version, findsOneWidget);
     await settings.back();
     expect(find.text('Familie'), findsOneWidget);
     expect(find.text('Family'), findsNothing);
@@ -415,6 +418,18 @@ void registerAppSpecs() {
     // The link itself stays where it can always be found.
     final settings = await family.openSettings();
     expect(settings.supportLink, findsOneWidget);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('a problem can be reported from settings', (tester) async {
+    // url_launcher opens nothing under test, so the spec stops at the tile;
+    // what the tile opens is pinned down by test/support/problem_report_test.
+    final db = await launchApp(tester, people: [Family.infant]);
+    final settings = await FamilyPage(tester).openSettings();
+    await settings.scrollToReportProblem();
+    expect(settings.reportProblem, findsOneWidget);
+    expect(find.text('Report a problem'), findsOneWidget);
 
     await shutDown(tester, db);
   });
@@ -512,6 +527,61 @@ void registerAppSpecs() {
     expect(find.text('Abdominal aortic ultrasound'), findsOneWidget);
 
     await shutDown(tester, db);
+  });
+
+  testWidgets('the family name survives a restart and heads the exports', (
+    tester,
+  ) async {
+    final share = RecordingShareGateway();
+    final db = await launchApp(tester, people: [Family.infant], share: share);
+    final family = FamilyPage(tester);
+    expect(family.defaultTitle, findsOneWidget);
+
+    await family.rename('Familie Meier');
+    expect(family.titled('Familie Meier'), findsOneWidget);
+    expect(family.defaultTitle, findsNothing);
+
+    await family.exportCalendar(share);
+    expect(share.lastContent, contains('X-WR-CALNAME:Familie Meier'));
+    expect(share.shared.last.$2, 'Familie Meier');
+    final sync = await family.openSync();
+    await sync.exportBundle(share, password: 'correct horse');
+    expect(share.shared.last.$2, 'Familie Meier');
+    await sync.back();
+
+    await detach(tester);
+    await launchApp(tester, database: db, share: share);
+    expect(family.titled('Familie Meier'), findsOneWidget);
+
+    await family.rename('');
+    expect(family.defaultTitle, findsOneWidget);
+    await family.exportCalendar(share);
+    expect(share.shared.last.$2, 'Preventive care – family');
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('the family name reaches the other phone', (tester) async {
+    final wire = LoopbackNetwork();
+    final mum = SyncFixture(network: wire);
+    final dad = SyncFixture(network: wire);
+
+    final mumsDb = await launchApp(tester, sync: mum, nodeId: 'mum');
+    await FamilyPage(tester).rename('Haus Sonnenschein');
+    final code = await (await FamilyPage(tester).openSync()).showMyCode();
+    await detach(tester);
+    await mum.stayReachable();
+
+    final dadsDb = await launchApp(tester, sync: dad, nodeId: 'dad');
+    expect(FamilyPage(tester).defaultTitle, findsOneWidget);
+    final sync = await FamilyPage(tester).openSync();
+    await sync.scanCode(dad, code);
+    await sync.syncNow('mum');
+    await sync.back();
+    expect(FamilyPage(tester).titled('Haus Sonnenschein'), findsOneWidget);
+
+    await shutDown(tester, dadsDb);
+    await mumsDb.close();
   });
 
   testWidgets('two phones pair over a code and end up with the same family', (
