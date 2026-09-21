@@ -144,6 +144,32 @@ void registerAppSpecs() {
     await shutDown(tester, db);
   });
 
+  testWidgets('the app explains itself, with the source documents linked', (
+    tester,
+  ) async {
+    final db = await launchApp(tester);
+    final settings = await FamilyPage(tester).openSettings();
+    final how = await settings.openHowItWorks();
+    expect(how.title, findsOneWidget);
+
+    expect(how.section('Where the appointments come from'), findsOneWidget);
+    expect(how.sourceLink('https://www.g-ba.de/richtlinien/15/'), findsWidgets);
+    await how.reveal(how.legendOverdue);
+    expect(how.legendOverdue, findsOneWidget);
+    await how.reveal(how.reminders);
+    expect(how.reminders, findsOneWidget);
+    await how.reveal(how.section('When a guideline changes'));
+    expect(how.section('When a guideline changes'), findsOneWidget);
+
+    final sources = await how.openSources();
+    expect(
+      sources.sourceNamed('G-BA guideline on early detection'),
+      findsWidgets,
+    );
+
+    await shutDown(tester, db);
+  });
+
   testWidgets('the sources screen carries every citation and the disclaimer', (
     tester,
   ) async {

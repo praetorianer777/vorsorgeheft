@@ -9,6 +9,11 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- A "How this app works" screen in settings explains, in plain words, where
+  the appointments come from with the source documents linked, how the dates
+  are worked out from the date of birth, what each status symbol means, when
+  reminders fire, where the data lives and what happens when a guideline
+  changes.
 - When both phones recorded the same appointment, the later entry wins as
   before, but the phone whose entry was replaced now says so on its family
   screen until dismissed, naming the appointment, both dates and the device.
