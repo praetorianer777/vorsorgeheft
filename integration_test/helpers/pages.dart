@@ -106,6 +106,26 @@ class PersonFormPage {
     await settle(tester);
   }
 
+  Finder get deleteButton => find.byKey(const Key('delete-person'));
+
+  Future<void> delete() async {
+    // The button is built just below the fold, so scrollTo stops short of it.
+    await tester.ensureVisible(deleteButton);
+    await settle(tester);
+    await tester.tap(deleteButton);
+    await settle(tester);
+  }
+
+  Future<void> confirmDelete() async {
+    await tester.tap(find.byKey(const Key('confirm-delete-person')));
+    await settle(tester);
+  }
+
+  Future<void> cancelDelete() async {
+    await tester.tap(find.text('Cancel'));
+    await settle(tester);
+  }
+
   Finder get nameError => find.text('Please enter a name');
   Finder get dateError => find.text('Please pick a date of birth');
 }

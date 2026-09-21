@@ -66,6 +66,34 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
     if (mounted) Navigator.of(context).pop();
   }
 
+  Future<void> _delete() async {
+    final l10n = AppLocalizations.of(context);
+    final person = widget.existing!;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.deletePersonTitle(person.name)),
+        content: Text(l10n.deletePersonBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(l10n.cancel),
+          ),
+          FilledButton(
+            key: const Key('confirm-delete-person'),
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(l10n.delete),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+    await ref.read(storeProvider).deletePerson(person.id);
+    // Back to the family list: the timeline underneath belongs to a person
+    // who no longer exists.
+    if (mounted) Navigator.of(context).popUntil((route) => route.isFirst);
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -151,6 +179,18 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
               onPressed: _save,
               child: Text(l10n.save),
             ),
+            if (widget.existing != null) ...[
+              const SizedBox(height: 32),
+              OutlinedButton.icon(
+                key: const Key('delete-person'),
+                onPressed: _delete,
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.error,
+                ),
+                icon: const Icon(Icons.delete_outline),
+                label: Text(l10n.delete),
+              ),
+            ],
           ],
         ),
       ),

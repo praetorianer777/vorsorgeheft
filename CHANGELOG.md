@@ -7,6 +7,12 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Bug fixes
+
+- A person can be deleted again, from the edit form, after a confirmation.
+  Their recorded appointments and reminders go with them, and the deletion
+  reaches the other phone with the next sync.
+
 ### Other
 
 - Tests now pin down what the suite left open: catalog invariants over every
