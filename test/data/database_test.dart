@@ -1,8 +1,12 @@
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sqlite3/sqlite3.dart';
 import 'package:vorsorgereminder/data/database.dart';
 import 'package:vorsorgereminder/data/database_provider.dart';
 import 'package:vorsorgereminder/domain/completion.dart';
 import 'package:vorsorgereminder/domain/person.dart';
+import 'package:vorsorgereminder/sync/hlc.dart';
+import 'package:vorsorgereminder/sync/sync_protocol.dart';
 
 void main() {
   late AppDatabase db;
@@ -143,5 +147,94 @@ void main() {
     await db.putSetting('locale', 'de');
     await db.putSetting('locale', 'en');
     expect(await db.settingValue('locale'), 'en');
+  });
+
+  group('peers', () {
+    final bob = Peer(
+      nodeId: 'bob',
+      deviceName: "Bob's phone",
+      sharedKey: List<int>.generate(32, (i) => i),
+    );
+
+    test('a peer round-trips with its key', () async {
+      await db.savePeer(bob);
+      final stored = await db.peer('bob');
+      expect(stored!.deviceName, "Bob's phone");
+      expect(stored.sharedKey, bob.sharedKey);
+      expect(stored.lastSyncHlc, isNull);
+      expect(stored.lastSyncAt, isNull);
+    });
+
+    test('recording an exchange moves the mark and the time', () async {
+      await db.savePeer(bob);
+      final mark = Hlc(millis: 5000, counter: 1, nodeId: 'bob');
+      await db.recordSync(
+        'bob',
+        watermark: mark,
+        at: DateTime.utc(2026, 9, 20, 8),
+      );
+      final stored = await db.peer('bob');
+      expect(stored!.lastSyncHlc, mark);
+      expect(stored.lastSyncAt, DateTime.utc(2026, 9, 20, 8));
+    });
+
+    test('removing a peer forgets it', () async {
+      await db.savePeer(bob);
+      await db.removePeer('bob');
+      expect(await db.peer('bob'), isNull);
+      expect(await db.allPeers(), isEmpty);
+    });
+
+    test('the private key round-trips', () async {
+      expect(await db.privateKey(), isNull);
+      await db.putPrivateKey(List<int>.generate(32, (i) => 255 - i));
+      expect(await db.privateKey(), List<int>.generate(32, (i) => 255 - i));
+    });
+
+    test('neither peers nor the private key enter the change log', () async {
+      await db.savePeer(bob);
+      await db.putPrivateKey(List<int>.filled(32, 7));
+      expect(await db.changesSince(Hlc.zero('')), isEmpty);
+    });
+  });
+
+  test('a version 1 database opens and gains the peers table', () async {
+    // The schema exactly as drift created it for version 1, with data in it,
+    // so the test fails if the migration ever recreates a table.
+    final raw = sqlite3.openInMemory()
+      ..execute('''
+        CREATE TABLE persons (id TEXT NOT NULL, name TEXT NOT NULL,
+          date_of_birth TEXT NOT NULL, sex INTEGER NOT NULL, notes TEXT NULL,
+          PRIMARY KEY (id));
+        CREATE TABLE completions (
+          person_id TEXT NOT NULL REFERENCES persons (id) ON DELETE CASCADE,
+          rule_id TEXT NOT NULL, dose_id TEXT NOT NULL DEFAULT '',
+          completed_on TEXT NOT NULL,
+          skipped INTEGER NOT NULL DEFAULT 0 CHECK (skipped IN (0, 1)),
+          note TEXT NULL, PRIMARY KEY (person_id, rule_id, dose_id));
+        CREATE TABLE settings (key TEXT NOT NULL, value TEXT NOT NULL,
+          PRIMARY KEY (key));
+        CREATE TABLE changes (entity TEXT NOT NULL, entity_id TEXT NOT NULL,
+          field TEXT NOT NULL, hlc TEXT NOT NULL, value TEXT NOT NULL,
+          PRIMARY KEY (entity, entity_id, field));
+        INSERT INTO persons VALUES ('anna', 'Anna', '2026-01-15T00:00:00.000Z',
+          1, NULL);
+        INSERT INTO settings VALUES ('locale', 'de');
+        PRAGMA user_version = 1;
+      ''');
+
+    final migrated = AppDatabase(NativeDatabase.opened(raw));
+    addTearDown(migrated.close);
+
+    expect((await migrated.allPersons()).single.name, 'Anna');
+    expect(await migrated.settingValue('locale'), 'de');
+    await migrated.savePeer(
+      Peer(nodeId: 'bob', deviceName: 'Bob', sharedKey: List.filled(32, 1)),
+    );
+    expect((await migrated.allPeers()).single.nodeId, 'bob');
+    expect(
+      (await migrated.customSelect('PRAGMA user_version').getSingle()).data,
+      {'user_version': 2},
+    );
   });
 }
