@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'change.dart';
+import 'device_info.dart';
 import 'hlc.dart';
 import 'overwrite_notice.dart';
 import 'pairing.dart';
@@ -116,16 +117,19 @@ class SyncEngine {
     required PeerRegistry registry,
     required SyncTransport transport,
     required DateTime Function() clock,
+    DeviceInfo deviceInfo = const FixedDeviceInfo(null),
     this.pairingWindow = const Duration(minutes: 5),
   }) : _store = store,
        _registry = registry,
        _transport = transport,
-       _clock = clock;
+       _clock = clock,
+       _deviceInfo = deviceInfo;
 
   final ReplicatedStore _store;
   final PeerRegistry _registry;
   final SyncTransport _transport;
   final DateTime Function() _clock;
+  final DeviceInfo _deviceInfo;
 
   /// How long after showing the pairing code an unknown device may pair.
   final Duration pairingWindow;
@@ -145,19 +149,25 @@ class SyncEngine {
 
   Future<void> stop() => _transport.stop();
 
-  Future<String> deviceName() async => await _registry.deviceName() ?? 'Phone';
+  /// The name the other phone sees: the one chosen here, else the model of
+  /// this device, so that two untouched phones do not both call themselves
+  /// the same thing.
+  Future<String> deviceName() async =>
+      await _registry.deviceName() ?? await _deviceInfo.model() ?? 'Phone';
 
   Future<void> rename(String name) => _registry.putDeviceName(name);
 
   /// The code to show the other phone. Showing it opens the window in which
   /// a device that scanned it may connect and pair.
   ///
-  /// [defaultName] becomes this device's name if none was chosen yet; the
-  /// screen passes a localised one, since the name is what the other parent
-  /// sees.
+  /// [defaultName] becomes this device's name if none was chosen yet and the
+  /// platform has no model to offer; the screen passes a localised one, since
+  /// the name is what the other parent sees.
   Future<PairingPayload> pairingPayload({String? defaultName}) async {
     final identity = await _identityOrGenerate();
-    if (defaultName != null && await _registry.deviceName() == null) {
+    if (defaultName != null &&
+        await _registry.deviceName() == null &&
+        await _deviceInfo.model() == null) {
       await _registry.putDeviceName(defaultName);
     }
     _pairingUntil = _clock().add(pairingWindow);
