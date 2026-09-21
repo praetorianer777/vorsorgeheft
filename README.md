@@ -171,7 +171,7 @@ at night.
 | `ios-build.yml` | nightly | `flutter build ios --no-codesign` — keeps iOS compiling |
 | `android-e2e.yml` | nightly | integration tests on the emulator |
 | `ios-e2e.yml` | nightly | the same integration tests on an iOS simulator |
-| `catalog-watch.yml` | nightly | checks whether a guideline source has changed |
+| `catalog-watch.yml` | nightly | extracts the text of every guideline source, keeps it under `tools/catalog-sources/`, and files an issue with the diff when one changed |
 
 ## Releasing
 
