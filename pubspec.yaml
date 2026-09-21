@@ -55,9 +55,21 @@ dev_dependencies:
   meta: ^1.19.0
   drift_dev: ^2.20.0
   build_runner: ^2.4.12
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
   generate: true          # builds AppLocalizations from lib/l10n/*.arb
   assets:
     - assets/catalogs/
+
+# The launcher icon is drawn once as SVG in assets/icon and rendered to the
+# platform sizes with `dart run flutter_launcher_icons`; the generated PNGs
+# under android/ and ios/ are committed so a checkout builds without it.
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/icon/icon.png
+  adaptive_icon_background: "#2E7D6F"
+  adaptive_icon_foreground: assets/icon/foreground.png
+  remove_alpha_ios: true

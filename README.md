@@ -1,4 +1,4 @@
-# 🩺 Vorsorgereminder
+# <img src="assets/icon/icon.png" width="40" align="top" alt=""> Vorsorgereminder
 
 Preventive-care appointments in Germany come with fixed time windows — and for children's
 check-ups those windows are **hard deadlines**: a U6 caught up after the 14th month of life is no

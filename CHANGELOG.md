@@ -13,6 +13,9 @@ and the versioning [Semantic Versioning](https://semver.org/).
   its model, such as "Pixel 8" or "iPhone 15", instead of both showing up as
   "My phone". The pairing dialog says that the name is what the other phone
   will see.
+- An icon of its own, a calendar leaf with a check mark in the app's green,
+  on Android (adaptive) and iOS, in place of the Flutter default.
+
 - A "How this app works" screen in settings explains, in plain words, where
   the appointments come from with the source documents linked, how the dates
   are worked out from the date of birth, what each status symbol means, when
