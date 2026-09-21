@@ -10,6 +10,7 @@ set -euo pipefail
 
 PUBSPEC="pubspec.yaml"
 GRADLE="android/app/build.gradle.kts"
+VERSION_DART="lib/app/version.dart"
 CHANGELOG_FILE="CHANGELOG.md"
 
 DRY_RUN=0
@@ -369,8 +370,12 @@ sed -i "s|^version: .*|version: ${VERSION}+${BUILD}|" "${PUBSPEC}"
 # Both files are written in the same run so they cannot drift apart: Gradle
 # carries literal values rather than reading them back out of pubspec.yaml.
 sed -i "s|^\( *\)versionCode = .*|\1versionCode = ${BUILD}|; s|^\( *\)versionName = .*|\1versionName = \"${VERSION}\"|" "${GRADLE}"
+# The settings screen prints a constant rather than asking the platform; it
+# is rewritten here too, or a release shows the version before it (#63).
+sed -i "s|^const appVersion = .*|const appVersion = '${VERSION}';|" "${VERSION_DART}"
 echo "   ✅ ${PUBSPEC}"
 echo "   ✅ ${GRADLE}"
+echo "   ✅ ${VERSION_DART}"
 
 # The APK is deliberately not built here: release.yml builds and signs it from
 # the tag. A locally built one would never be byte-identical to the published
@@ -381,7 +386,7 @@ echo ""
 echo "📝 Committing..."
 # Only the files this release rewrote — "git add -A" would sweep whatever else
 # is in the working tree into the release commit.
-git add "${PUBSPEC}" "${GRADLE}" "${CHANGELOG_FILE}"
+git add "${PUBSPEC}" "${GRADLE}" "${VERSION_DART}" "${CHANGELOG_FILE}"
 # The notes are multi-line, so they belong in the body — the subject has to
 # stay one short line.
 git commit -q -m "release: ${TAG}" -m "$(cat "${NOTES_FILE}")"
