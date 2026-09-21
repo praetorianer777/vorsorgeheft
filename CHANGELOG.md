@@ -7,6 +7,21 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-09-21
+
+### Features
+
+- set apart what starts more than five years ahead (a15ddda)
+- name the dose in the title of a vaccination series (253b2d4)
+- rename the app to Vorsorgeheft (175ca9a)
+- show the family on the app icon (a14b343)
+- complete the date separators while a date is typed (1f4dded)
+
+### Other
+
+- publish a privacy policy page for the store listing (464921c)
+- build the Play Store app bundle in the release workflow (5778d08)
+
 ## [0.3.0] - 2026-09-21
 
 ### Features
