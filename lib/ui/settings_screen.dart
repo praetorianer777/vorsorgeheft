@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../app/version.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/locale_notifier.dart';
+import '../support/support_prompt.dart';
 import 'sources_screen.dart';
 
 /// What belongs to this device rather than to the family.
@@ -64,6 +66,17 @@ class SettingsScreen extends ConsumerWidget {
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => const SourcesScreen()),
+            ),
+          ),
+          ListTile(
+            key: const Key('support-link'),
+            leading: const Icon(Icons.favorite_outline),
+            title: Text(l10n.supportLink),
+            subtitle: Text(l10n.supportLinkHint),
+            trailing: const Icon(Icons.open_in_new),
+            onTap: () => launchUrl(
+              Uri.parse(supportUrl),
+              mode: LaunchMode.externalApplication,
             ),
           ),
           ListTile(

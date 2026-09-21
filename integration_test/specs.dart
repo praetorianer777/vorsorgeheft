@@ -357,6 +357,41 @@ void registerAppSpecs() {
     await shutDown(tester, german);
   });
 
+  testWidgets('the support prompt appears once, after three appointments', (
+    tester,
+  ) async {
+    final db = await launchApp(tester, people: [Family.infant]);
+    final family = FamilyPage(tester);
+    expect(family.supportPrompt, findsNothing);
+
+    // Recorded from the timeline, the way a parent does it, so the count the
+    // prompt reacts to is the one the rest of the app produces.
+    for (final title in ['U3', 'U4', 'U5']) {
+      final timeline = await family.open('Mila');
+      final appointment = await timeline.open(title);
+      await appointment.markDone();
+      await appointment.back();
+      await timeline.back();
+      expect(
+        family.supportPrompt,
+        title == 'U5' ? findsOneWidget : findsNothing,
+        reason: 'after $title',
+      );
+    }
+
+    await family.dismissSupportPrompt();
+    expect(family.supportPrompt, findsNothing);
+
+    await detach(tester);
+    await launchApp(tester, database: db);
+    expect(family.supportPrompt, findsNothing);
+    // The link itself stays where it can always be found.
+    final settings = await family.openSettings();
+    expect(settings.supportLink, findsOneWidget);
+
+    await shutDown(tester, db);
+  });
+
   testWidgets("an adult gets none of the children's check-ups", (tester) async {
     // Tim was born on a leap day in 1960, so this also exercises the date
     // arithmetic against a real platform rather than only the unit tests.

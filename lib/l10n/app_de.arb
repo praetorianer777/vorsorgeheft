@@ -74,8 +74,8 @@
   "reminderDeadlineTitle": "{person}: {appointment} läuft bald ab",
   "reminderDeadlineBody": "Der Anspruch endet am {date}. Danach wird die Untersuchung nicht mehr übernommen.",
   "exportCalendar": "Als Kalenderdatei exportieren",
-  "exportCalendarFamily": "Vorsorge \u2013 Familie",
-  "exportCalendarPerson": "Vorsorge \u2013 {name}",
+  "exportCalendarFamily": "Vorsorge – Familie",
+  "exportCalendarPerson": "Vorsorge – {name}",
   "@exportCalendarPerson": {
     "placeholders": {
       "name": {
@@ -83,7 +83,7 @@
       }
     }
   },
-  "exportDeadlineLine": "Sp\u00e4testens bis {date} nachholen, danach entf\u00e4llt der Anspruch.",
+  "exportDeadlineLine": "Spätestens bis {date} nachholen, danach entfällt der Anspruch.",
   "@exportDeadlineLine": {
     "placeholders": {
       "date": {
@@ -95,5 +95,17 @@
   "exportFailed": "Die Kalenderdatei konnte nicht erstellt werden.",
   "notificationsTitle": "Erinnerungen",
   "notificationsDenied": "Benachrichtigungen sind für diese App ausgeschaltet. Schalte sie in den Systemeinstellungen ein, um erinnert zu werden.",
-  "notificationsEnable": "Benachrichtigungen erlauben"
+  "notificationsEnable": "Benachrichtigungen erlauben",
+  "supportPromptBody": "Diese App hat dich an {count} Termine erinnert. Sie kostet nichts und sammelt nichts. Wenn du magst, unterstütze die Entwicklung.",
+  "@supportPromptBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "supportPromptOpen": "Unterstützen",
+  "supportPromptDismiss": "Nein danke",
+  "supportLink": "Entwicklung unterstützen",
+  "supportLinkHint": "Öffnet die Sponsor-Seite auf GitHub"
 }
