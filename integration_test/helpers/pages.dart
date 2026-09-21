@@ -268,6 +268,19 @@ class SyncPage {
   Finder imported(int count) =>
       find.text(count == 1 ? '1 change imported.' : '$count changes imported.');
 
+  /// The name this phone offers the other one, read off the pairing dialog.
+  Future<String> myName() async {
+    await tester.tap(find.byKey(const Key('show-my-code')));
+    await settle(tester);
+    final name = tester
+        .widget<TextField>(find.byKey(const Key('device-name')))
+        .controller!
+        .text;
+    await tester.tap(find.byKey(const Key('close-my-code')));
+    await settle(tester);
+    return name;
+  }
+
   /// Opens the pairing dialog and returns the code the QR image carries,
   /// which is what the other phone's camera would read.
   Future<String> showMyCode({String? deviceName}) async {

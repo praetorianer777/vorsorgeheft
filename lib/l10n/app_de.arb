@@ -109,7 +109,7 @@
   "syncShowCode": "Meinen Code zeigen",
   "syncScanCode": "Code scannen",
   "syncScanHint": "Richte die Kamera auf den Code auf dem anderen Telefon.",
-  "syncMyCodeHint": "Lass das andere Telefon diesen Code scannen und starte den Abgleich von dort.",
+  "syncMyCodeHint": "Lass das andere Telefon diesen Code scannen und starte den Abgleich von dort. Es zeigt dieses Telefon unter dem Namen oben an.",
   "syncDeviceName": "Name dieses Telefons",
   "syncDefaultDeviceName": "Mein Telefon",
   "syncAddressLabel": "Adresse dieses Telefons: {address}",

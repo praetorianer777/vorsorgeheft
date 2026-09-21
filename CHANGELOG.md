@@ -9,6 +9,10 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- A phone that was never given a name introduces itself to the other one by
+  its model, such as "Pixel 8" or "iPhone 15", instead of both showing up as
+  "My phone". The pairing dialog says that the name is what the other phone
+  will see.
 - When both phones recorded the same appointment, the later entry wins as
   before, but the phone whose entry was replaced now says so on its family
   screen until dismissed, naming the appointment, both dates and the device.
