@@ -9,6 +9,10 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- A phone that was never given a name introduces itself to the other one by
+  its model, such as "Pixel 8" or "iPhone 15", instead of both showing up as
+  "My phone". The pairing dialog says that the name is what the other phone
+  will see.
 - An icon of its own, a calendar leaf with a check mark in the app's green,
   on Android (adaptive) and iOS, in place of the Flutter default.
 

@@ -15,6 +15,7 @@ import '../notifications/local_notification_gateway.dart';
 import '../notifications/notification_gateway.dart';
 import '../notifications/reminder_service.dart';
 import '../sync/bundle_service.dart';
+import '../sync/device_info.dart';
 import '../sync/lan_transport.dart';
 import '../sync/replicated_store.dart';
 import '../sync/sync_protocol.dart';
@@ -71,12 +72,19 @@ final icsExportServiceProvider = Provider<IcsExportService>(
 /// transport, so two app instances can pair and sync inside one test.
 final syncTransportProvider = Provider<SyncTransport>((ref) => LanTransport());
 
+/// What the phone calls itself until it is named. Overridden in tests with a
+/// fixed model, so two launches can be two different phones.
+final deviceInfoProvider = Provider<DeviceInfo>(
+  (ref) => const PlatformDeviceInfo(),
+);
+
 final syncEngineProvider = Provider<SyncEngine>(
   (ref) => SyncEngine(
     store: ref.watch(storeProvider),
     registry: ref.watch(databaseProvider),
     transport: ref.watch(syncTransportProvider),
     clock: ref.watch(clockProvider),
+    deviceInfo: ref.watch(deviceInfoProvider),
   ),
 );
 

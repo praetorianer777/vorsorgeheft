@@ -34,6 +34,7 @@ dependencies:
   mobile_scanner: ^7.4.2        # scan QR codes
   qr_flutter: ^4.1.0            # render QR codes
   multicast_dns: ^0.3.2+7       # peer discovery on the LAN
+  device_info_plus: ^13.2.0     # the model name the other phone sees
 
   # State
   flutter_riverpod: ^3.4.3

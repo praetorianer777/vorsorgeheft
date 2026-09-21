@@ -3,6 +3,7 @@ import 'package:vorsorgereminder/data/database.dart';
 import 'package:vorsorgereminder/data/database_provider.dart';
 import 'package:vorsorgereminder/domain/completion.dart';
 import 'package:vorsorgereminder/domain/person.dart';
+import 'package:vorsorgereminder/sync/device_info.dart';
 import 'package:vorsorgereminder/sync/hlc.dart';
 import 'package:vorsorgereminder/sync/replicated_store.dart';
 import 'package:vorsorgereminder/sync/sync_protocol.dart';
@@ -12,7 +13,11 @@ import 'package:vorsorgereminder/sync/sync_transport.dart';
 class Device {
   Device._(this.name, this.db, this.store, this.engine, this._clock);
 
-  static Future<Device> open(String name, LoopbackNetwork network) async {
+  static Future<Device> open(
+    String name,
+    LoopbackNetwork network, {
+    String? model,
+  }) async {
     final db = openInMemoryDatabase();
     final clock = _Clock(DateTime.utc(2026, 9, 20));
     final store = await ReplicatedStore.open(
@@ -25,6 +30,7 @@ class Device {
       registry: db,
       transport: LoopbackTransport(network),
       clock: clock.read,
+      deviceInfo: FixedDeviceInfo(model),
     );
     await engine.start();
     return Device._(name, db, store, engine, clock);
@@ -95,6 +101,38 @@ void main() {
       expect(stored!.deviceName, 'Phone');
       expect(stored.sharedKey, hasLength(32));
       expect(await alice.db.peer('bob'), isNull);
+    });
+
+    test('an unnamed phone goes by its model', () async {
+      final pixel = await Device.open('pixel', network, model: 'Pixel 8');
+      addTearDown(pixel.close);
+
+      expect(await pixel.engine.deviceName(), 'Pixel 8');
+      final code = (await pixel.engine.pairingPayload(
+        defaultName: 'My phone',
+      )).encode();
+      await bob.engine.pairWith(code);
+      expect((await bob.db.peer('pixel'))!.deviceName, 'Pixel 8');
+      expect(await pixel.db.deviceName(), isNull);
+    });
+
+    test('a chosen name wins over the model', () async {
+      final pixel = await Device.open('pixel', network, model: 'Pixel 8');
+      addTearDown(pixel.close);
+      await pixel.engine.rename("Mum's phone");
+
+      final code = (await pixel.engine.pairingPayload()).encode();
+      await bob.engine.pairWith(code);
+      expect((await bob.db.peer('pixel'))!.deviceName, "Mum's phone");
+    });
+
+    test('without a model the localised default is kept', () async {
+      final code = (await alice.engine.pairingPayload(
+        defaultName: 'My phone',
+      )).encode();
+      await bob.engine.pairWith(code);
+      expect((await bob.db.peer('alice'))!.deviceName, 'My phone');
+      expect(await alice.db.deviceName(), 'My phone');
     });
 
     test(
