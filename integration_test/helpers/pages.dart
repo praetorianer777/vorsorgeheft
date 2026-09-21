@@ -29,8 +29,13 @@ class FamilyPage {
     return TimelinePage(tester);
   }
 
-  Future<void> exportCalendar(RecordingShareGateway share) =>
-      tapExport(tester, share);
+  /// The family export lives in settings, with a label next to it: a share
+  /// icon on the start screen reads as "share the app".
+  Future<void> exportCalendar(RecordingShareGateway share) async {
+    final settings = await openSettings();
+    await tapExport(tester, share, const Key('export-ics'));
+    await settings.back();
+  }
 
   Finder get supportPrompt => find.byKey(const Key('support-prompt'));
 
@@ -46,9 +51,8 @@ class FamilyPage {
   }
 
   Future<SourcesPage> openSources() async {
-    await tester.tap(find.byIcon(Icons.info_outline));
-    await settle(tester);
-    return SourcesPage(tester);
+    final settings = await openSettings();
+    return settings.openSources();
   }
 
   Future<SyncPage> openSync() async {
@@ -111,7 +115,25 @@ class TimelinePage {
       scrollTo(tester, find.text(title));
 
   Future<void> exportCalendar(RecordingShareGateway share) =>
-      tapExport(tester, share);
+      tapExport(tester, share, const Key('export-person-ics'));
+
+  Finder get clinicOffer => find.byKey(const Key('clinic-offer'));
+
+  Future<void> acceptClinicOffer() async {
+    await tester.tap(find.byKey(const Key('clinic-offer-accept')));
+    await settle(tester);
+  }
+
+  Future<void> dismissClinicOffer() async {
+    await tester.tap(find.byKey(const Key('clinic-offer-dismiss')));
+    await settle(tester);
+  }
+
+  /// The titles in the order they are on screen right now.
+  List<String> visibleTitles() => tester
+      .widgetList<ListTile>(find.byType(ListTile))
+      .map((t) => (t.title as Text).data ?? '')
+      .toList();
 
   Future<void> back() async {
     await tester.pageBack();
@@ -329,13 +351,17 @@ class SyncPage {
 /// Writing it is real I/O, which a pumped frame does not advance: under the
 /// headless binding the clock is fake, and only `runAsync` lets the event loop
 /// deliver the completion.
-Future<void> tapExport(WidgetTester tester, RecordingShareGateway share) async {
+Future<void> tapExport(
+  WidgetTester tester,
+  RecordingShareGateway share,
+  Key button,
+) async {
   final before = share.shared.length;
   // The tap itself happens inside runAsync: under the headless binding the
   // continuations of the export would otherwise be queued on the fake clock,
   // which nothing advances while the real file is being written.
   await tester.runAsync(() async {
-    await tester.tap(find.byKey(const Key('export-ics')));
+    await tester.tap(find.byKey(button));
     for (var i = 0; i < 200 && share.shared.length == before; i++) {
       await Future<void>.delayed(const Duration(milliseconds: 10));
     }

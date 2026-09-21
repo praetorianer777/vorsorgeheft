@@ -393,6 +393,64 @@ void registerAppSpecs() {
     await shutDown(tester, db);
   });
 
+  testWidgets('a newborn added late is offered the clinic examinations', (
+    tester,
+  ) async {
+    final db = await launchApp(tester, people: [Family.infant]);
+    final timeline = await FamilyPage(tester).open('Mila');
+    expect(timeline.clinicOffer, findsOneWidget);
+
+    await timeline.acceptClinicOffer();
+    expect(timeline.clinicOffer, findsNothing);
+    final recorded = (await db.allCompletions()).map((c) => c.ruleId).toSet();
+    expect(
+      recorded,
+      containsAll(['u1', 'hearing-screening', 'pulse-oximetry']),
+    );
+    // The RSV protection is still open, but nothing is overdue any more.
+    expect(find.text('Overdue'), findsNothing);
+
+    await detach(tester);
+    await launchApp(tester, database: db);
+    await FamilyPage(tester).open('Mila');
+    expect(timeline.clinicOffer, findsNothing);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('declining the clinic offer keeps it away', (tester) async {
+    final db = await launchApp(tester, people: [Family.infant]);
+    final timeline = await FamilyPage(tester).open('Mila');
+    await timeline.dismissClinicOffer();
+    expect(timeline.clinicOffer, findsNothing);
+    expect(await db.allCompletions(), isEmpty);
+
+    await detach(tester);
+    await launchApp(tester, database: db);
+    await FamilyPage(tester).open('Mila');
+    expect(timeline.clinicOffer, findsNothing);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('what needs attention is ordered by urgency', (tester) async {
+    // Mila's newborn examinations are overdue; the RSV protection is merely
+    // open. Overdue leads, so the U1 comes before it.
+    final db = await launchApp(tester, people: [Family.infant]);
+    final timeline = await FamilyPage(tester).open('Mila');
+    await timeline.dismissClinicOffer();
+
+    final titles = timeline.visibleTitles();
+    expect(titles.first, isNot('RSV protection (infant)'));
+    expect(
+      titles.indexOf('U1'),
+      lessThan(titles.indexOf('RSV protection (infant)')),
+    );
+    expect(find.textContaining('20 years ago'), findsNothing);
+
+    await shutDown(tester, db);
+  });
+
   testWidgets("an adult gets none of the children's check-ups", (tester) async {
     // Tim was born on a leap day in 1960, so this also exercises the date
     // arithmetic against a real platform rather than only the unit tests.

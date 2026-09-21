@@ -202,5 +202,58 @@
   "supportPromptOpen": "Unterstützen",
   "supportPromptDismiss": "Nein danke",
   "supportLink": "Entwicklung unterstützen",
-  "supportLinkHint": "Öffnet die Sponsor-Seite auf GitHub"
+  "supportLinkHint": "Öffnet die Sponsor-Seite auf GitHub",
+  "remainingDays": "{days, plural, =1{noch 1 Tag} other{noch {days} Tage}}",
+  "@remainingDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingWeeks": "{weeks, plural, =1{noch 1 Woche} other{noch {weeks} Wochen}}",
+  "@remainingWeeks": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingMonths": "{months, plural, =1{noch 1 Monat} other{noch {months} Monate}}",
+  "@remainingMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingYears": "{years, plural, =1{noch 1 Jahr} other{noch {years} Jahre}}",
+  "@remainingYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingToday": "letzter Tag heute",
+  "pickDate": "Datum wählen",
+  "clinicOfferBody": "Die Untersuchungen der ersten Lebenstage finden meist in der Geburtsklinik statt. Für {name} als erledigt eintragen?",
+  "@clinicOfferBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "clinicOfferAccept": "Alle als erledigt eintragen",
+  "clinicOfferDismiss": "Jetzt nicht",
+  "openSince": "Möglich seit {date}",
+  "@openSince": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMd"
+      }
+    }
+  }
 }

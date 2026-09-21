@@ -1,3 +1,4 @@
+import '../domain/occurrence.dart';
 import '../l10n/app_localizations.dart';
 
 /// How far away a date is, in the coarsest unit that still says something.
@@ -39,4 +40,46 @@ String formatRelativeDate(
 DateTime _dateOnly(DateTime value) {
   final utc = value.toUtc();
   return DateTime.utc(utc.year, utc.month, utc.day);
+}
+
+/// The distance that is worth acting on for one appointment, or null when
+/// there is none.
+///
+/// The date an entitlement *opened* is what the timeline used to show, and for
+/// a screening that opened twenty years ago that number helps nobody. What a
+/// parent needs is how long until the window opens, how long is left to use
+/// it, or how long it has been missed - and nothing at all for an entitlement
+/// that stays open indefinitely.
+String? formatTimelineDistance(
+  AppLocalizations l10n,
+  Occurrence occurrence,
+  DateTime today,
+) {
+  switch (occurrence.status) {
+    case OccurrenceStatus.upcoming:
+      return formatRelativeDate(l10n, occurrence.windowStart, today);
+    case OccurrenceStatus.due:
+      final end = occurrence.windowEnd;
+      return end == null ? null : formatRemaining(l10n, end, today);
+    case OccurrenceStatus.overdue:
+      final deadline = occurrence.deadline;
+      if (deadline != null) return formatRemaining(l10n, deadline, today);
+      final end = occurrence.windowEnd;
+      return end == null ? null : formatRelativeDate(l10n, end, today);
+    case OccurrenceStatus.expired:
+    case OccurrenceStatus.done:
+    case OccurrenceStatus.skipped:
+      return null;
+  }
+}
+
+/// "3 weeks left" until [until], in the same coarse units as the relative
+/// dates.
+String formatRemaining(AppLocalizations l10n, DateTime until, DateTime today) {
+  final days = _dateOnly(until).difference(_dateOnly(today)).inDays;
+  if (days <= 0) return l10n.remainingToday;
+  if (days < 14) return l10n.remainingDays(days);
+  if (days < 60) return l10n.remainingWeeks((days / 7).round());
+  if (days < 365) return l10n.remainingMonths((days / 30).round());
+  return l10n.remainingYears((days / 365).round());
 }

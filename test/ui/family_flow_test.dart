@@ -67,10 +67,10 @@ void main() {
     (tester, db) async {
       await openTimeline(tester);
 
-      // At nineteen days old the clinic screenings are late, the U3 has not
-      // opened yet, and the U2 is past its exclusion deadline.
+      // At nineteen days old the U1 is late, the U3 has not opened yet, and
+      // the U2 is past its exclusion deadline.
       expect(find.text('Needs attention'), findsOneWidget);
-      expect(find.text('Newborn hearing screening'), findsOneWidget);
+      expect(find.text('U1'), findsOneWidget);
 
       await scrollTo(tester, find.text('U3'));
       expect(find.text('U3'), findsOneWidget);
@@ -144,7 +144,9 @@ void main() {
     tester,
     db,
   ) async {
-    await tester.tap(find.byIcon(Icons.info_outline));
+    await tester.tap(find.byKey(const Key('open-settings')));
+    await settle(tester);
+    await tester.tap(find.byKey(const Key('open-sources')));
     await settle(tester);
 
     expect(
