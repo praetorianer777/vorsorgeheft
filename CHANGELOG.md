@@ -15,6 +15,11 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- "Send to the other phone" seals the family under a six-digit code, shows
+  the code and hands the file to the share sheet; "Receive from the other
+  phone" opens it with that code. The `.vorsorge` file type is registered
+  on Android and iOS so a received file opens the app. The password export
+  stays for backups that are kept.
 - A "How this app works" screen in settings explains, in plain words, where
   the appointments come from with the source documents linked, how the dates
   are worked out from the date of birth, what each status symbol means, when

@@ -48,6 +48,32 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <!-- A received .vorsorge file opens the app. Messengers and file
+                 managers hand the file over as application/octet-stream, and
+                 a content: URI often carries no file name at all, so the mime
+                 type is matched on its own; the path patterns cover the file:
+                 and named-content cases, with the dots before the extension
+                 spelled out because a pattern's .* stops at the first dot. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="application/octet-stream"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:host="*"/>
+                <data android:mimeType="*/*"/>
+                <data android:pathPattern=".*\\.vorsorge"/>
+                <data android:pathPattern=".*\\..*\\.vorsorge"/>
+                <data android:pathPattern=".*\\..*\\..*\\.vorsorge"/>
+            </intent-filter>
         </activity>
         <!-- Reschedules the pending reminders after a reboot or an app
              update, both of which clear the alarm manager. -->
