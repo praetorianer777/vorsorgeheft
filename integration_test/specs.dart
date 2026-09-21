@@ -610,4 +610,116 @@ void registerAppSpecs() {
       await shutDown(tester, dadsDb);
     },
   );
+
+  testWidgets('a booster recorded today is due on the phone of ten years on', (
+    tester,
+  ) async {
+    // The Td booster is the longest-lived fact the app holds: recorded now,
+    // needed in ten years, on a phone that does not exist yet. The file is
+    // what carries it, so this spec is the file's round trip through time.
+    final share = RecordingShareGateway();
+    final oldPhone = SyncFixture();
+    final oldDb = await launchApp(
+      tester,
+      people: [Family.mother],
+      share: share,
+      sync: oldPhone,
+      nodeId: 'old-phone',
+    );
+    final timeline = await FamilyPage(tester).open('Sara');
+    final booster = await timeline.open('Tetanus and diphtheria booster');
+    await booster.markDoneOn('03/15/2026');
+    // Recording a booster replaces its occurrence with the next one, and the
+    // detail page of the one just recorded has nothing left to show.
+    await booster.back();
+    await timeline.back();
+    var sync = await FamilyPage(tester).openSync();
+    await sync.exportBundle(share, password: 'correct horse');
+    final file = share.lastFile.readAsBytesSync();
+    await shutDown(tester, oldDb);
+
+    final newPhone = SyncFixture();
+    final newDb = await launchApp(
+      tester,
+      today: DateTime.utc(2036, 10, 1),
+      sync: newPhone,
+      nodeId: 'new-phone',
+    );
+    sync = await FamilyPage(tester).openSync();
+    await sync.importBundle(newPhone, file, password: 'correct horse');
+    expect(FamilyPage(tester).syncNotices, findsNothing);
+    await sync.back();
+
+    final later = await FamilyPage(tester).open('Sara');
+    expect(later.needsAttention, findsOneWidget);
+    await later.scrollToAppointment('Tetanus and diphtheria booster');
+    expect(later.appointmentDates('Mar 15, 2036'), findsOneWidget);
+
+    await shutDown(tester, newDb);
+  });
+
+  testWidgets('the phone whose entry lost is told what replaced it', (
+    tester,
+  ) async {
+    final wire = LoopbackNetwork();
+    final mum = SyncFixture(network: wire);
+    final dad = SyncFixture(network: wire);
+
+    final mumsDb = await launchApp(
+      tester,
+      people: [Family.infant],
+      sync: mum,
+      nodeId: 'mum',
+    );
+    var timeline = await FamilyPage(tester).open('Mila');
+    var appointment = await timeline.open('U3');
+    await appointment.markDone();
+    await appointment.back();
+    await timeline.back();
+    var sync = await FamilyPage(tester).openSync();
+    final code = await sync.showMyCode();
+    await detach(tester);
+    await mum.stayReachable();
+
+    // Dad records the same U3 a day later, with a different date.
+    final dadsDb = await launchApp(
+      tester,
+      people: [Family.infant],
+      today: pinnedToday.add(const Duration(days: 1)),
+      sync: dad,
+      nodeId: 'dad',
+    );
+    timeline = await FamilyPage(tester).open('Mila');
+    appointment = await timeline.open('U3');
+    await appointment.markDone();
+    await appointment.back();
+    await timeline.back();
+    sync = await FamilyPage(tester).openSync();
+    await sync.scanCode(dad, code);
+    await sync.syncNow('mum');
+    await sync.back();
+    // The later entry won, so Dad has nothing to be told.
+    expect(FamilyPage(tester).syncNotices, findsNothing);
+    await detach(tester);
+
+    await launchApp(tester, sync: mum, nodeId: 'mum', database: mumsDb);
+    final family = FamilyPage(tester);
+    expect(family.syncNotices, findsOneWidget);
+    expect(
+      find.text(
+        'U3 for Mila: your entry (Sep 20, 2026) was replaced by Sep 21, 2026 '
+        'from Phone.',
+      ),
+      findsOneWidget,
+    );
+    await family.dismissSyncNotices();
+    expect(family.syncNotices, findsNothing);
+    await detach(tester);
+
+    await launchApp(tester, sync: mum, nodeId: 'mum', database: mumsDb);
+    expect(FamilyPage(tester).syncNotices, findsNothing);
+
+    await shutDown(tester, mumsDb);
+    await dadsDb.close();
+  });
 }

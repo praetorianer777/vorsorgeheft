@@ -80,8 +80,14 @@ event that was simply left out would stay in the calendar forever.
 Both devices exchange public keys once via QR code and derive a shared key from them
 (X25519 → HKDF); the private half never leaves the device. After that they find each other over
 mDNS on the same WLAN and exchange only the changes since the last sync, encrypted with
-AES-256-GCM. There is no server and no account. Without a shared WLAN, you export a
-password-encrypted file instead.
+AES-256-GCM. There is no server and no account. Without a shared WLAN, a hotspot on one phone
+does, or you export a password-encrypted file instead. The same file moves the family to a new
+phone, on either platform: `test/sync/golden/` holds one written in 2026 that every later version
+has to open.
+
+Conflicts are resolved per field, so a child renamed on one phone and an appointment recorded on
+the other both survive. If both phones record the *same* appointment, the later entry wins, and
+the phone whose entry was replaced says so on its family screen until dismissed.
 
 ## Privacy
 
@@ -138,6 +144,7 @@ at night.
 | `release.yml` | tag `v*` | builds and signs the APKs and publishes them idempotently as a release |
 | `ios-build.yml` | nightly | `flutter build ios --no-codesign` — keeps iOS compiling |
 | `android-e2e.yml` | nightly | integration tests on the emulator |
+| `ios-e2e.yml` | nightly | the same integration tests on an iOS simulator |
 | `catalog-watch.yml` | nightly | checks whether a guideline source has changed |
 
 ## Releasing

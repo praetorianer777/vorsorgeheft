@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:uuid/uuid.dart';
 
 import '../data/database.dart';
@@ -5,6 +6,7 @@ import '../domain/completion.dart';
 import '../domain/person.dart';
 import 'change.dart';
 import 'hlc.dart';
+import 'overwrite_notice.dart';
 
 /// Every write the app makes, recorded as replicated changes.
 ///
@@ -20,6 +22,10 @@ class ReplicatedStore {
   static const personEntity = 'person';
   static const completionEntity = 'completion';
   static const nodeIdSettingKey = 'node-id';
+
+  /// Device-local, like the locale: the other phone must not be told about
+  /// notices that are about what happened on this one.
+  static const noticesSettingKey = 'sync.notices';
 
   final AppDatabase _db;
   final DateTime Function() _clock;
@@ -91,20 +97,102 @@ class ReplicatedStore {
   static String completionId(String personId, String ruleId, String? doseId) =>
       '$personId|$ruleId|${doseId ?? ''}';
 
-  /// Applies changes that came from a peer.
+  /// Applies changes that came from another device.
   ///
   /// The local clock moves past every timestamp seen, so anything written
   /// afterwards sorts after what the peer sent, even if this device's wall
   /// clock is behind theirs.
-  Future<List<Change>> merge(Iterable<Change> incoming) async {
+  ///
+  /// [from] names the device the changes came from, for the notices about
+  /// appointments this device had recorded differently.
+  Future<MergeResult> merge(Iterable<Change> incoming, {String? from}) async {
     final changes = incoming.toList();
     for (final change in changes) {
       _hlc = (_hlc ?? Hlc.zero(nodeId)).receive(change.hlc, _clock());
     }
+    final before = await _ownCompletions(changes);
     final applied = await _db.applyChanges(changes);
     await _project(applied);
-    return applied;
+    final overwritten = await _overwritten(before, applied, from);
+    if (overwritten.isNotEmpty) await _remember(overwritten);
+    return MergeResult(applied: applied, overwritten: overwritten);
   }
+
+  /// The completions the incoming changes touch, as this device recorded
+  /// them: only those whose winning date was written here count as "yours",
+  /// because that is the entry the parent holding this phone remembers making.
+  Future<Map<String, Map<String, Object?>>> _ownCompletions(
+    List<Change> incoming,
+  ) async {
+    final ids = <String>{
+      for (final c in incoming)
+        if (c.entity == completionEntity) c.entityId,
+    };
+    final own = <String, Map<String, Object?>>{};
+    for (final id in ids) {
+      final changes = await _db.changesFor(completionEntity, id);
+      final fields = ChangeSet(changes).record(completionEntity, id);
+      if (fields == null) continue;
+      final date = changes.firstWhereOrNull((c) => c.field == 'completedOn');
+      if (date?.hlc.nodeId == nodeId) own[id] = fields;
+    }
+    return own;
+  }
+
+  Future<List<OverwriteNotice>> _overwritten(
+    Map<String, Map<String, Object?>> before,
+    List<Change> applied,
+    String? from,
+  ) async {
+    final notices = <OverwriteNotice>[];
+    final touched = <String>{
+      for (final c in applied)
+        if (c.entity == completionEntity && c.hlc.nodeId != nodeId) c.entityId,
+    };
+    for (final id in touched) {
+      final previous = before[id];
+      if (previous == null) continue;
+      final current = ChangeSet(
+        await _db.changesFor(completionEntity, id),
+      ).record(completionEntity, id);
+      final previousDate = previous['completedOn'] as String;
+      final currentDate = current?['completedOn'] as String?;
+      final previousSkipped = previous['skipped'] == true;
+      final currentSkipped = current?['skipped'] == true;
+      if (currentDate == previousDate && currentSkipped == previousSkipped) {
+        continue;
+      }
+      final parts = id.split('|');
+      notices.add(
+        OverwriteNotice(
+          personId: parts[0],
+          ruleId: parts[1],
+          doseId: parts.length > 2 && parts[2].isNotEmpty ? parts[2] : null,
+          previousDate: DateTime.parse(previousDate),
+          previousSkipped: previousSkipped,
+          currentDate: currentDate == null ? null : DateTime.parse(currentDate),
+          currentSkipped: currentSkipped,
+          fromNodeId: from ?? '',
+        ),
+      );
+    }
+    return notices;
+  }
+
+  Future<void> _remember(List<OverwriteNotice> notices) async {
+    final stored = OverwriteNotice.decodeList(
+      await _db.settingValue(noticesSettingKey),
+    );
+    await _db.putSetting(
+      noticesSettingKey,
+      OverwriteNotice.encodeList([...stored, ...notices]),
+    );
+  }
+
+  Stream<List<OverwriteNotice>> watchNotices() =>
+      _db.watchSetting(noticesSettingKey).map(OverwriteNotice.decodeList);
+
+  Future<void> clearNotices() => _db.putSetting(noticesSettingKey, '');
 
   Future<List<Change>> changesSince(Hlc watermark) =>
       _db.changesSince(watermark);
@@ -191,4 +279,13 @@ class ReplicatedStore {
     skipped: fields['skipped'] == true,
     note: fields['note'] as String?,
   );
+}
+
+/// What a merge did: the changes that took effect, and the appointments this
+/// device had recorded that now read differently because of them.
+class MergeResult {
+  const MergeResult({required this.applied, required this.overwritten});
+
+  final List<Change> applied;
+  final List<OverwriteNotice> overwritten;
 }

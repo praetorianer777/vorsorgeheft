@@ -4,6 +4,7 @@ import 'package:vorsorgereminder/data/database_provider.dart';
 import 'package:vorsorgereminder/domain/completion.dart';
 import 'package:vorsorgereminder/domain/person.dart';
 import 'package:vorsorgereminder/sync/hlc.dart';
+import 'package:vorsorgereminder/sync/overwrite_notice.dart';
 import 'package:vorsorgereminder/sync/replicated_store.dart';
 
 /// A device: its own database, its own node id, its own clock.
@@ -33,8 +34,11 @@ class Replica {
   /// Sends everything this replica knows to [other], the way a full sync
   /// would. Sending everything rather than a delta is deliberate here: a
   /// merge that is only correct for deltas is not correct.
-  Future<void> sendAllTo(Replica other) async {
-    await other.store.merge(await store.changesSince(Hlc.zero(name)));
+  Future<MergeResult> sendAllTo(Replica other) async {
+    return other.store.merge(
+      await store.changesSince(Hlc.zero(name)),
+      from: name,
+    );
   }
 }
 
@@ -292,10 +296,10 @@ void main() {
     test('syncing twice changes nothing the second time', () async {
       await alice.store.savePerson(anna);
       await exchange(alice, bob);
-      final applied = await bob.store.merge(
+      final result = await bob.store.merge(
         await alice.store.changesSince(Hlc.zero('alice')),
       );
-      expect(applied, isEmpty);
+      expect(result.applied, isEmpty);
     });
 
     test('a delta carries only what the peer has not seen', () async {
@@ -355,6 +359,124 @@ void main() {
       await exchange(alice, slowBob);
 
       expect((await alice.db.personById('anna'))!.name, 'From Bob');
+    });
+  });
+
+  group('the same appointment recorded on both phones', () {
+    late Replica bob;
+
+    // Both phones know Anna before either records anything for her, the way
+    // they would after the first sync.
+    setUp(() async {
+      bob = await Replica.open('bob');
+      await alice.store.savePerson(anna);
+      await exchange(alice, bob);
+    });
+    tearDown(() => bob.close());
+
+    Completion u6({required DateTime on, bool skipped = false}) => Completion(
+      personId: 'anna',
+      ruleId: 'u6',
+      completedOn: on,
+      skipped: skipped,
+    );
+
+    Future<List<OverwriteNotice>> notices(Replica replica) =>
+        replica.store.watchNotices().first;
+
+    test('the phone whose entry lost is told, the other one is not', () async {
+      await alice.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 3)));
+      bob.advance(const Duration(hours: 1));
+      await bob.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 4)));
+
+      final atBob = await alice.sendAllTo(bob);
+      final atAlice = await bob.sendAllTo(alice);
+
+      expect(atBob.overwritten, isEmpty);
+      expect(await notices(bob), isEmpty);
+
+      final notice = atAlice.overwritten.single;
+      expect(notice.personId, 'anna');
+      expect(notice.ruleId, 'u6');
+      expect(notice.previousDate, DateTime.utc(2027, 3, 3));
+      expect(notice.currentDate, DateTime.utc(2027, 3, 4));
+      expect(notice.fromNodeId, 'bob');
+      expect(
+        (await alice.db.allCompletions()).single.completedOn,
+        DateTime.utc(2027, 3, 4),
+      );
+      expect((await notices(alice)).single.currentDate, notice.currentDate);
+    });
+
+    test('the same date on both phones is no conflict', () async {
+      await alice.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 3)));
+      bob.advance(const Duration(hours: 1));
+      await bob.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 3)));
+
+      final atAlice = await bob.sendAllTo(alice);
+      expect(atAlice.overwritten, isEmpty);
+      expect(await notices(alice), isEmpty);
+    });
+
+    test('an undo on the other phone is reported as removed', () async {
+      await alice.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 3)));
+      await exchange(alice, bob);
+      bob.advance(const Duration(hours: 1));
+      await bob.store.clearCompletion(personId: 'anna', ruleId: 'u6');
+
+      final atAlice = await bob.sendAllTo(alice);
+      final notice = atAlice.overwritten.single;
+      expect(notice.removed, isTrue);
+      expect(notice.previousDate, DateTime.utc(2027, 3, 3));
+      expect(await alice.db.allCompletions(), isEmpty);
+    });
+
+    test('a switch from done to skipped is reported too', () async {
+      await alice.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 3)));
+      bob.advance(const Duration(hours: 1));
+      await bob.store.recordCompletion(
+        u6(on: DateTime.utc(2027, 3, 3), skipped: true),
+      );
+
+      final atAlice = await bob.sendAllTo(alice);
+      final notice = atAlice.overwritten.single;
+      expect(notice.previousSkipped, isFalse);
+      expect(notice.currentSkipped, isTrue);
+    });
+
+    test("an entry the other phone made is theirs to change", () async {
+      // Alice never recorded the U6 herself; Bob did, and Bob corrects it.
+      // Only an entry this phone made counts as "yours".
+      await bob.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 3)));
+      await exchange(alice, bob);
+      bob.advance(const Duration(hours: 1));
+      await bob.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 5)));
+
+      final atAlice = await bob.sendAllTo(alice);
+      expect(atAlice.overwritten, isEmpty);
+    });
+
+    test('a renamed child is an edit, not a conflict', () async {
+      bob.advance(const Duration(hours: 1));
+      await bob.store.savePerson(
+        Person(id: 'anna', name: 'Anna B.', dateOfBirth: anna.dateOfBirth),
+      );
+
+      final atAlice = await bob.sendAllTo(alice);
+      expect(atAlice.overwritten, isEmpty);
+    });
+
+    test('notices accumulate until cleared, and survive a restart', () async {
+      await alice.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 3)));
+      bob.advance(const Duration(hours: 1));
+      await bob.store.recordCompletion(u6(on: DateTime.utc(2027, 3, 4)));
+      await bob.sendAllTo(alice);
+
+      final reopened = await ReplicatedStore.open(alice.db, nodeId: 'alice');
+      expect(await reopened.watchNotices().first, hasLength(1));
+
+      await reopened.clearNotices();
+      expect(await reopened.watchNotices().first, isEmpty);
     });
   });
 }
