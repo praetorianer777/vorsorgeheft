@@ -627,6 +627,54 @@ void registerAppSpecs() {
     await dadsDb.close();
   });
 
+  testWidgets('two untouched phones list each other by model', (tester) async {
+    final wire = LoopbackNetwork();
+    final pixel = SyncFixture(network: wire);
+    final iphone = SyncFixture(network: wire);
+
+    final pixelsDb = await launchApp(
+      tester,
+      sync: pixel,
+      nodeId: 'pixel',
+      deviceModel: 'Pixel 8',
+    );
+    var sync = await FamilyPage(tester).openSync();
+    expect(await sync.myName(), 'Pixel 8');
+    final code = await sync.showMyCode();
+    await detach(tester);
+    await pixel.stayReachable();
+
+    final iphonesDb = await launchApp(
+      tester,
+      sync: iphone,
+      nodeId: 'iphone',
+      deviceModel: 'iPhone 15',
+    );
+    sync = await FamilyPage(tester).openSync();
+    await sync.scanCode(iphone, code);
+    expect(sync.pairedWith('Pixel 8'), findsOneWidget);
+    await sync.syncNow('pixel');
+    expect(sync.deviceNamed('Pixel 8'), findsOneWidget);
+    expect(sync.deviceNamed('iPhone 15'), findsNothing);
+    expect(sync.deviceNamed('My phone'), findsNothing);
+    await detach(tester);
+
+    await launchApp(
+      tester,
+      sync: pixel,
+      nodeId: 'pixel',
+      database: pixelsDb,
+      deviceModel: 'Pixel 8',
+    );
+    sync = await FamilyPage(tester).openSync();
+    expect(sync.deviceNamed('iPhone 15'), findsOneWidget);
+    expect(sync.deviceNamed('Pixel 8'), findsNothing);
+    expect(sync.deviceNamed('My phone'), findsNothing);
+
+    await shutDown(tester, pixelsDb);
+    await iphonesDb.close();
+  });
+
   testWidgets('a phone that cannot be found can be given an address', (
     tester,
   ) async {

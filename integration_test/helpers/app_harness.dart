@@ -11,6 +11,7 @@ import 'package:vorsorgereminder/data/database_provider.dart';
 import 'package:vorsorgereminder/domain/person.dart';
 import 'package:vorsorgereminder/export/ics_export_service.dart';
 import 'package:vorsorgereminder/sync/bundle_service.dart';
+import 'package:vorsorgereminder/sync/device_info.dart';
 import 'package:vorsorgereminder/sync/replicated_store.dart';
 import 'package:vorsorgereminder/sync/sync_protocol.dart';
 import 'package:vorsorgereminder/sync/sync_transport.dart';
@@ -71,6 +72,7 @@ Future<AppDatabase> launchApp(
   AppDatabase? database,
   SyncFixture? sync,
   String nodeId = 'spec-node',
+  String? deviceModel,
 }) async {
   // A spec asserts on which reminders were planned, not on how a platform
   // renders them, and the emulator makes exactly that assertion slow.
@@ -90,6 +92,9 @@ Future<AppDatabase> launchApp(
     registry: db,
     transport: LoopbackTransport(activeSync.network),
     clock: () => today ?? pinnedToday,
+    // Null stands for a platform that has no model to offer, which is the
+    // path that ends in the localised default.
+    deviceInfo: FixedDeviceInfo(deviceModel),
   );
   activeSync.engine = engine;
   // Seeding through the store rather than the tables, so a spec exercises the

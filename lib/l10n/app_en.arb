@@ -359,7 +359,7 @@
   "syncShowCode": "Show my code",
   "syncScanCode": "Scan a code",
   "syncScanHint": "Point the camera at the code on the other phone.",
-  "syncMyCodeHint": "Let the other phone scan this code, then start the sync from there.",
+  "syncMyCodeHint": "Let the other phone scan this code, then start the sync from there. It will list this phone under the name above.",
   "syncDeviceName": "Name of this phone",
   "syncDefaultDeviceName": "My phone",
   "syncAddressLabel": "Address of this phone: {address}",

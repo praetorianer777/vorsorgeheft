@@ -44,13 +44,23 @@ jobs:
       # checkout with a wall of missing types.
       - run: dart run build_runner build --delete-conflicting-outputs
 
+      # Built before the emulator boots so it can be installed and granted
+      # POST_NOTIFICATIONS ahead of the tests. `flutter test` installs its own
+      # build over it with `adb install -r`, which keeps the runtime
+      # permissions of the same package; asking for the permission from inside
+      # the test would open a dialog nobody is there to answer.
+      - run: flutter build apk --debug
+
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 33
           target: google_apis
           arch: x86_64
           profile: pixel_5
-          script: flutter test integration_test/
+          script: |
+            adb install -t -r build/app/outputs/flutter-apk/app-debug.apk
+            adb shell pm grant de.vorsorgereminder.vorsorgereminder android.permission.POST_NOTIFICATIONS
+            flutter test integration_test/
 
       - uses: actions/upload-artifact@v4
         if: always()
