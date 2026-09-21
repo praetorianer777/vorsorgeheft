@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgereminder/domain/completion.dart';
@@ -10,6 +11,7 @@ import '../test/support/recording_share.dart';
 import 'fixtures/family.dart';
 import 'helpers/app_harness.dart';
 import 'helpers/pages.dart';
+import 'helpers/patched_assets.dart';
 
 /// Every end-to-end spec, registered rather than run.
 ///
@@ -1085,5 +1087,53 @@ void registerAppSpecs() {
 
     await shutDown(tester, mumsDb);
     await dadsDb.close();
+  });
+
+  testWidgets('an update that changed a catalog is announced once', (
+    tester,
+  ) async {
+    final db = await launchApp(tester, people: [Family.infant]);
+    expect(FamilyPage(tester).catalogUpdate, findsNothing);
+    await detach(tester);
+
+    // The next launch is the app after an update: the dental catalog comes
+    // with a new edition and a note about it.
+    final shipped = specAssetBundle;
+    specAssetBundle = PatchedAssetBundle(
+      shipped ?? rootBundle,
+      path: 'assets/catalogs/dental.json',
+      patch: (catalog) => {
+        ...catalog,
+        'catalogVersion': '2027.01',
+        '_changes': [
+          ...catalog['_changes'] as List,
+          {
+            'version': '2027.01',
+            'en': 'The adult check-up is now twice a year.',
+            'de': 'Die Erwachsenen-Kontrolle gibt es jetzt zweimal im Jahr.',
+          },
+        ],
+      },
+    );
+    addTearDown(() => specAssetBundle = shipped);
+
+    await launchApp(tester, database: db);
+    final family = FamilyPage(tester);
+    expect(family.catalogUpdate, findsOneWidget);
+    expect(
+      find.text(
+        'Dental check-ups, edition 2027.01: The adult check-up is now twice a '
+        'year.',
+      ),
+      findsOneWidget,
+    );
+    await family.dismissCatalogUpdate();
+    expect(family.catalogUpdate, findsNothing);
+    await detach(tester);
+
+    await launchApp(tester, database: db);
+    expect(FamilyPage(tester).catalogUpdate, findsNothing);
+
+    await shutDown(tester, db);
   });
 }

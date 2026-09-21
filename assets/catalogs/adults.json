@@ -2,6 +2,13 @@
   "_conversion": "German law says 'ab Vollendung des 35. Lebensjahres', which is the 35th birthday, and 'bis zum Ende des 35. Lebensjahres', which is the same day. Ages here are therefore plain birthdays. Intervals are modelled from the date an appointment was actually recorded rather than from a fixed grid, which is how the guidelines read them: the check-up is barred 'in den auf das Untersuchungsjahr folgenden zwei Kalenderjahren'. The lung cancer screening (KFE-RL § 38) is deliberately absent: it is only for heavy smokers aged 50 to 75, and the app does not ask about smoking. The colonoscopy and the stool test are alternatives to each other, which is stated in their text rather than modelled, because only the person and their practice can make that choice.",
   "catalogId": "adults",
   "catalogVersion": "2026.09",
+  "_changes": [
+    {
+      "version": "2026.09",
+      "en": "First edition: the general check-up, hepatitis screening, aortic aneurysm screening and the cancer screening programmes.",
+      "de": "Erste Ausgabe: der Gesundheits-Check-up, das Hepatitis-Screening, das Aneurysma-Screening und die Krebsfrüherkennungsprogramme."
+    }
+  ],
   "name": {
     "en": "Adult screening",
     "de": "Erwachsenenvorsorge"

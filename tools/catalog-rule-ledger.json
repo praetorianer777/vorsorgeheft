@@ -1,0 +1,71 @@
+{
+  "_note": "Every rule id, with its dose ids, that any shipped catalog has ever carried. Recorded appointments are keyed by these ids, so an id is never renamed or removed: retire a rule with retiredOn instead, and add every new id here. test/domain/catalog_rule_ledger_test.dart holds the catalogs to this file.",
+  "catalogs": {
+    "children": {
+      "u1": [],
+      "newborn-screening": [],
+      "cf-screening": [],
+      "hearing-screening": [],
+      "pulse-oximetry": [],
+      "u2": [],
+      "u3": [],
+      "u4": [],
+      "u5": [],
+      "u6": [],
+      "u7": [],
+      "u7a": [],
+      "u8": [],
+      "u9": [],
+      "j1": [],
+      "u10": [],
+      "u11": [],
+      "j2": []
+    },
+    "vaccinations": {
+      "rsv-infant": [],
+      "rotavirus": ["g1", "g2", "g3"],
+      "six-in-one": ["g1", "g2", "g3"],
+      "pneumococcal-infant": ["g1", "g2", "g3"],
+      "meningococcal-b": ["g1", "g2", "g3"],
+      "mmr": ["g1", "g2"],
+      "varicella": ["g1", "g2"],
+      "tdap-booster-preschool": [],
+      "tdap-ipv-booster-teen": [],
+      "hpv": ["g1", "g2"],
+      "meningococcal-acwy": [],
+      "td-booster": [],
+      "measles-adult": [],
+      "herpes-zoster": ["g1", "g2"],
+      "pneumococcal-adult": [],
+      "influenza": [],
+      "covid": [],
+      "rsv-adult": []
+    },
+    "dental": {
+      "z1": [],
+      "z2": [],
+      "z3": [],
+      "z4": [],
+      "z5": [],
+      "z6": [],
+      "ip-6-11": [],
+      "ip-12-17": [],
+      "dental-checkup-adult": []
+    },
+    "adults": {
+      "checkup-young": [],
+      "checkup": [],
+      "hepatitis-screening": [],
+      "aortic-aneurysm": [],
+      "skin-cancer": [],
+      "cervical-cytology": [],
+      "cervical-cotest": [],
+      "gynaecological-exam": [],
+      "mammography": [],
+      "prostate-exam": [],
+      "colorectal-stool-test": [],
+      "colonoscopy": [],
+      "chlamydia": []
+    }
+  }
+}

@@ -367,6 +367,21 @@
       }
     }
   },
+  "catalogUpdateTitle": "The guidelines in this app were updated",
+  "catalogUpdateLine": "{name}, edition {version}: {note}",
+  "@catalogUpdateLine": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      },
+      "note": {
+        "type": "String"
+      }
+    }
+  },
   "syncNoticeOtherPhone": "the other phone",
   "syncNoticeImportedFile": "the imported file",
   "syncShowCode": "Show my code",

@@ -2,6 +2,13 @@
   "_conversion": "The calendar lists tetanus, diphtheria, pertussis, Hib, polio and hepatitis B as six rows given at the same three appointments, because one six-in-one vaccine covers them. They are one rule here: six reminders for one appointment would be six chances to ignore it. Ages are the calendar's own columns; a dose also carries the minimum interval to the one before it, which is what makes a late dose move the ones after it instead of silently going out of date. Only standard immunisations (S) are modelled. Indication-based vaccinations depend on illness, occupation, pregnancy or travel, none of which the app knows about, and a reminder for one would be wrong for almost everyone who saw it.",
   "catalogId": "vaccinations",
   "catalogVersion": "2026.09",
+  "_changes": [
+    {
+      "version": "2026.09",
+      "en": "First edition: the STIKO calendar 2026 with the standard immunisations from infant to adult, minimum intervals and boosters.",
+      "de": "Erste Ausgabe: der STIKO-Impfkalender 2026 mit den Standardimpfungen vom Säugling bis zum Erwachsenen, Mindestabständen und Auffrischungen."
+    }
+  ],
   "name": {
     "en": "Vaccinations",
     "de": "Impfungen"

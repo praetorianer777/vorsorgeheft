@@ -50,6 +50,12 @@ class FamilyPage {
 
   Finder get supportPrompt => find.byKey(const Key('support-prompt'));
   Finder get syncNotices => find.byKey(const Key('sync-notices'));
+  Finder get catalogUpdate => find.byKey(const Key('catalog-update'));
+
+  Future<void> dismissCatalogUpdate() async {
+    await tester.tap(find.byKey(const Key('catalog-update-dismiss')));
+    await settle(tester);
+  }
 
   Future<void> dismissSyncNotices() async {
     await tester.tap(find.byKey(const Key('sync-notices-dismiss')));

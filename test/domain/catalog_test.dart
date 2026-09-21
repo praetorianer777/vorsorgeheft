@@ -219,4 +219,76 @@ void main() {
     final catalog = Catalog.parse(jsonEncode(catalogWith()));
     expect(catalog.rules.single.id, 'u6');
   });
+
+  group('retiredOn', () {
+    test('is parsed as a UTC date', () {
+      final json = catalogWith();
+      ((json['rules'] as List).single as Map)['retiredOn'] = '2027-01-01';
+      expect(
+        Catalog.fromJson(json).rules.single.retiredOn,
+        DateTime.utc(2027, 1, 1),
+      );
+    });
+
+    test('is absent by default', () {
+      expect(Catalog.fromJson(catalogWith()).rules.single.retiredOn, isNull);
+    });
+
+    test('must be a plain ISO date, naming the rule', () {
+      for (final bad in ['01.01.2027', '2027-1-1', 20270101, '2027-02-30']) {
+        final json = catalogWith();
+        ((json['rules'] as List).single as Map)['retiredOn'] = bad;
+        expect(
+          () => Catalog.fromJson(json),
+          throwsCatalogError('rule "u6": "retiredOn"'),
+          reason: '$bad',
+        );
+      }
+    });
+  });
+
+  group('_changes', () {
+    test('are read oldest first, and the current edition is the latest', () {
+      final json = catalogWith();
+      json['_changes'] = [
+        {'version': '2026.06', 'en': 'First edition.', 'de': 'Erste Ausgabe.'},
+        {'version': '2026.09', 'en': 'U7a added.', 'de': 'U7a ergänzt.'},
+      ];
+      final catalog = Catalog.fromJson(json);
+      expect(catalog.changes.map((c) => c.version), ['2026.06', '2026.09']);
+      expect(catalog.latestChange?.note('de'), 'U7a ergänzt.');
+    });
+
+    test('fall back to the last note when none names the edition', () {
+      final json = catalogWith();
+      json['_changes'] = [
+        {'version': '2026.06', 'en': 'First edition.', 'de': 'Erste Ausgabe.'},
+      ];
+      expect(Catalog.fromJson(json).latestChange?.version, '2026.06');
+    });
+
+    test('are optional', () {
+      final catalog = Catalog.fromJson(catalogWith());
+      expect(catalog.changes, isEmpty);
+      expect(catalog.latestChange, isNull);
+    });
+
+    test('need a version and both languages', () {
+      final json = catalogWith();
+      json['_changes'] = [
+        {'en': 'First edition.', 'de': 'Erste Ausgabe.'},
+      ];
+      expect(
+        () => Catalog.fromJson(json),
+        throwsCatalogError('"_changes" entry needs a "version"'),
+      );
+      json['_changes'] = [
+        {'version': '2026.09', 'en': 'First edition.'},
+      ];
+      expect(
+        () => Catalog.fromJson(json),
+        throwsCatalogError('"_changes" entry for "2026.09": missing "de"'),
+      );
+    });
+  });
 }

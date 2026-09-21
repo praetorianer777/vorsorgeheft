@@ -63,6 +63,17 @@ Services that are **not** statutory (U10, U11, J2, professional tooth cleaning) 
 "depends on your insurer" in the app. `catalog-watch.yml` checks nightly whether one of the source
 documents has changed and files an issue if so.
 
+### Changing a catalog
+
+Recorded appointments are keyed by rule id and dose id, so **never rename or remove a rule or a
+dose**: renaming orphans every entry recorded under the old id, and removing makes them unreadable.
+A rule that a guideline drops stays in the catalog with `"retiredOn": "<yyyy-mm-dd>"` — nothing new
+is planned from that date on, and what was recorded still shows as done. Every id that ever shipped
+is listed in [`tools/catalog-rule-ledger.json`](tools/catalog-rule-ledger.json); a test fails when
+one disappears from a catalog, and when a catalog carries an id the ledger does not know, so a new
+rule is added to both. With every change, bump `catalogVersion` and add an entry to the catalog's
+`_changes` list — that note is what the app shows the family after the update.
+
 ## Calendar export
 
 Every appointment can be exported as an `.ics` file, for one person or for the whole family, and
