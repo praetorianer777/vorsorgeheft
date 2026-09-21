@@ -62,10 +62,8 @@ void main() {
     await tester.enterText(find.byKey(const Key('person-name')), 'Anna');
     await tester.tap(find.byKey(const Key('pick-date-of-birth')));
     await settle(tester);
-    await tester.tap(find.byIcon(Icons.edit_outlined));
-    await settle(tester);
-    await tester.enterText(find.byType(TextField).last, '09/01/2026');
-    await tester.tap(find.text('OK'));
+    await tester.enterText(find.byKey(const Key('date-input')), '09012026');
+    await tester.tap(find.byKey(const Key('date-input-ok')));
     await settle(tester);
 
     await saveForm(tester);

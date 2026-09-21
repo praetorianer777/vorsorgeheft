@@ -6,6 +6,7 @@ import '../app/providers.dart';
 import '../domain/completion.dart';
 import '../domain/occurrence.dart';
 import '../l10n/app_localizations.dart';
+import 'date_input.dart';
 import 'formatting.dart';
 
 class OccurrenceDetailScreen extends ConsumerWidget {
@@ -170,7 +171,7 @@ class _Actions extends ConsumerWidget {
     Future<void> record({required bool skipped}) async {
       final picked = skipped
           ? ref.read(clockProvider)()
-          : await showDatePicker(
+          : await showDateInputDialog(
               context: context,
               initialDate: _initialDate(ref),
               firstDate: occurrence.windowStart.subtract(
