@@ -39,6 +39,11 @@ jobs:
 
       - run: flutter pub get
 
+      # The drift tables and the localisations are generated, and generated
+      # code is not in the repo. Without this the build fails on a fresh
+      # checkout with a wall of missing types.
+      - run: dart run build_runner build --delete-conflicting-outputs
+
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 33

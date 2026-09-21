@@ -6,7 +6,9 @@ plugins {
 
 android {
     namespace = "de.vorsorgereminder.vorsorgereminder"
-    compileSdk = flutter.compileSdkVersion
+    // permission_handler's Android side is built against API 37 and refuses
+    // to be compiled into an app targeting less, whatever Flutter's default is.
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
