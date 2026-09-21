@@ -15,6 +15,11 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Other
 
+- The nightly catalog watch now keeps the text of every source document and
+  files the diff when one changes, so the person maintaining a catalog reads
+  the changed paragraphs instead of the whole guideline. Fingerprints are
+  gone; the text is the memory.
+
 - Tests now pin down what the suite left open: catalog invariants over every
   shipped catalog, the horizon and booster edge cases of the schedule engine,
   what a third phone does and does not receive, undo against a re-record, a

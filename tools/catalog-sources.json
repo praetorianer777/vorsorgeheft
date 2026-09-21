@@ -1,53 +1,45 @@
 {
-  "_comment": "Primary sources of the preventive-care catalogs. sha256 is the fingerprint of the document as last reviewed; catalog-watch.yml reports any deviation as an issue. An empty sha256 means: record it on the next run.",
+  "_comment": "Primary sources of the preventive-care catalogs. catalog-watch.yml extracts each document's text nightly, keeps the last known text under tools/catalog-sources/<id>.txt, and opens an issue with the diff when it changes.",
   "sources": [
     {
       "id": "gba-kinder-rl",
       "name": "G-BA Kinder-Richtlinie (consolidated version in force 2026-01-01)",
-      "url": "https://www.g-ba.de/downloads/62-492-3998/Kinder-RL_2025-05-15_iK-2026-01-01.pdf",
-      "sha256": ""
+      "url": "https://www.g-ba.de/downloads/62-492-3998/Kinder-RL_2025-05-15_iK-2026-01-01.pdf"
     },
     {
       "id": "gba-jug-rl",
       "name": "G-BA Jugendgesundheitsuntersuchungs-Richtlinie (J1)",
-      "url": "https://www.g-ba.de/downloads/62-492-1270/RL-JUG_2016-07-21_iK-2017-01-01.pdf",
-      "sha256": ""
+      "url": "https://www.g-ba.de/downloads/62-492-1270/RL-JUG_2016-07-21_iK-2017-01-01.pdf"
     },
     {
       "id": "stiko-impfkalender",
       "name": "STIKO-Empfehlungen und Impfkalender (Epid. Bull. 4/2026)",
-      "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile",
-      "sha256": ""
+      "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile"
     },
     {
       "id": "gba-zahn-frueherkennung",
       "name": "G-BA Früherkennungsuntersuchungen auf Zahn-, Mund- und Kieferkrankheiten (FU-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-3994/FU-RL-2025-05-15_iK_2026-01-01.pdf",
-      "sha256": ""
+      "url": "https://www.g-ba.de/downloads/62-492-3994/FU-RL-2025-05-15_iK_2026-01-01.pdf"
     },
     {
       "id": "gba-gesundheitsuntersuchung",
       "name": "G-BA Gesundheitsuntersuchungs-Richtlinie (GU-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-2383/GU-RL_2020-11-20_iK-2021-02-12.pdf",
-      "sha256": ""
+      "url": "https://www.g-ba.de/downloads/62-492-2383/GU-RL_2020-11-20_iK-2021-02-12.pdf"
     },
     {
       "id": "gba-krebsfrueherkennung",
       "name": "G-BA Krebsfrüherkennungs-Richtlinie (KFE-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-4074/KFE-RL_2025-12-18_iK-2026-03-12.pdf",
-      "sha256": ""
+      "url": "https://www.g-ba.de/downloads/62-492-4074/KFE-RL_2025-12-18_iK-2026-03-12.pdf"
     },
     {
       "id": "gba-okfe-rl",
       "name": "G-BA Richtlinie für organisierte Krebsfrüherkennungsprogramme (oKFE-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-3860/oKFE-RL-2025-05-15-iK-2025-07-22.pdf",
-      "sha256": ""
+      "url": "https://www.g-ba.de/downloads/62-492-3860/oKFE-RL-2025-05-15-iK-2025-07-22.pdf"
     },
     {
       "id": "gba-ip-rl",
       "name": "G-BA Individualprophylaxe-Richtlinien (IP-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-10/2003-06-04_IP-RL.pdf",
-      "sha256": ""
+      "url": "https://www.g-ba.de/downloads/62-492-10/2003-06-04_IP-RL.pdf"
     }
   ]
 }
