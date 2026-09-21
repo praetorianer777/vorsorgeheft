@@ -7,6 +7,7 @@ import '../l10n/app_localizations.dart';
 import '../l10n/locale_notifier.dart';
 import '../support/support_prompt.dart';
 import 'export_action.dart';
+import 'how_it_works_screen.dart';
 import 'sources_screen.dart';
 import 'sync_screen.dart';
 
@@ -70,6 +71,15 @@ class SettingsScreen extends ConsumerWidget {
             onTap: () => Navigator.of(
               context,
             ).push(MaterialPageRoute<void>(builder: (_) => const SyncScreen())),
+          ),
+          ListTile(
+            key: const Key('open-how-it-works'),
+            leading: const Icon(Icons.help_outline),
+            title: Text(l10n.howTitle),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(builder: (_) => const HowItWorksScreen()),
+            ),
           ),
           ListTile(
             key: const Key('open-sources'),

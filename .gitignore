@@ -38,5 +38,7 @@ release-notes-*.md
 # agent worktrees
 .claude/worktrees/
 
-# Rendered by tool/screenshots, for looking at, not for keeping
+# Rendered by tool/screenshots, for looking at, not for keeping; the failures
+# folder is what the golden comparison writes when a run does not match.
 tool/screenshots/out/
+tool/screenshots/failures/

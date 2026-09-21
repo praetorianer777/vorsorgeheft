@@ -59,4 +59,15 @@ void main() {
 
     expect(await database.changesFor('setting', localeSettingKey), isEmpty);
   });
+
+  test('a restore that lands after the container is gone is dropped', () async {
+    await database.putSetting(localeSettingKey, 'de');
+    final container = restart();
+    container.read(localeProvider);
+    container.dispose();
+    // The read started in build is still in flight; let it complete.
+    for (var i = 0; i < 10; i++) {
+      await Future<void>.delayed(Duration.zero);
+    }
+  });
 }
