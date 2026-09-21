@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/sync/pairing.dart';
+import 'package:vorsorgeheft/sync/pairing.dart';
 
 void main() {
   test('the pairing code round-trips', () async {

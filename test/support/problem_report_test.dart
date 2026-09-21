@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/support/problem_report.dart';
+import 'package:vorsorgeheft/support/problem_report.dart';
 
 void main() {
   final url = problemReportUrl(
@@ -12,7 +12,7 @@ void main() {
   test('the report opens the new-issue form of the repository', () {
     expect(url.scheme, 'https');
     expect(url.host, 'github.com');
-    expect(url.path, '/praetorianer777/vorsorgereminder/issues/new');
+    expect(url.path, '/praetorianer777/vorsorgeheft/issues/new');
   });
 
   test('title and body carry version, OS and language', () {

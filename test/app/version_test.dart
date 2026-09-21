@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/app/version.dart';
+import 'package:vorsorgeheft/app/version.dart';
 
 void main() {
   test('the version in settings is the one the app is built with', () {

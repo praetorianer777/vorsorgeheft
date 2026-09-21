@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/domain/catalog.dart';
-import 'package:vorsorgereminder/domain/schedule.dart';
+import 'package:vorsorgeheft/domain/catalog.dart';
+import 'package:vorsorgeheft/domain/schedule.dart';
 
 const _source = {
   'name': {'en': 'G-BA children guideline', 'de': 'G-BA Kinder-Richtlinie'},

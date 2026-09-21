@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/l10n/app_localizations.dart';
-import 'package:vorsorgereminder/ui/relative_time.dart';
+import 'package:vorsorgeheft/l10n/app_localizations.dart';
+import 'package:vorsorgeheft/ui/relative_time.dart';
 
 void main() {
   final today = DateTime.utc(2026, 9, 20);

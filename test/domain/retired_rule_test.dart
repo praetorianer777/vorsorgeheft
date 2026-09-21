@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/domain/catalog.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/domain/occurrence.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/domain/schedule_engine.dart';
+import 'package:vorsorgeheft/domain/catalog.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/occurrence.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/domain/schedule_engine.dart';
 
 /// A retired rule keeps its id so that what was recorded under it stays
 /// readable, and stops producing anything new from its retirement date on.

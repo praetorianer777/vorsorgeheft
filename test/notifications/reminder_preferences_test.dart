@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/notifications/reminder.dart';
-import 'package:vorsorgereminder/notifications/reminder_preferences.dart';
+import 'package:vorsorgeheft/notifications/reminder.dart';
+import 'package:vorsorgeheft/notifications/reminder_preferences.dart';
 
 void main() {
   test('the defaults are the planner defaults', () {

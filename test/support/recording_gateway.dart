@@ -1,5 +1,5 @@
-import 'package:vorsorgereminder/notifications/notification_gateway.dart';
-import 'package:vorsorgereminder/notifications/reminder.dart';
+import 'package:vorsorgeheft/notifications/notification_gateway.dart';
+import 'package:vorsorgeheft/notifications/reminder.dart';
 
 /// A notification service that remembers what it was asked to do.
 ///

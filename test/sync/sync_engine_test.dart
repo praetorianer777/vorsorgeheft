@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/data/database.dart';
-import 'package:vorsorgereminder/data/database_provider.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/sync/device_info.dart';
-import 'package:vorsorgereminder/sync/hlc.dart';
-import 'package:vorsorgereminder/sync/replicated_store.dart';
-import 'package:vorsorgereminder/sync/sync_protocol.dart';
-import 'package:vorsorgereminder/sync/sync_transport.dart';
+import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/data/database_provider.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/sync/device_info.dart';
+import 'package:vorsorgeheft/sync/hlc.dart';
+import 'package:vorsorgeheft/sync/replicated_store.dart';
+import 'package:vorsorgeheft/sync/sync_protocol.dart';
+import 'package:vorsorgeheft/sync/sync_transport.dart';
 
 /// A phone: its own database, store, engine and clock, on the shared wire.
 class Device {

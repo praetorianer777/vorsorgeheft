@@ -1,4 +1,4 @@
-import 'package:vorsorgereminder/domain/person.dart';
+import 'package:vorsorgeheft/domain/person.dart';
 
 /// Today, pinned for every integration run.
 ///

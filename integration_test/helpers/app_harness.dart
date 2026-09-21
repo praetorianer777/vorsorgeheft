@@ -3,19 +3,19 @@ import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/app/app.dart';
-import 'package:vorsorgereminder/app/providers.dart';
-import 'package:vorsorgereminder/data/catalog_repository.dart';
-import 'package:vorsorgereminder/data/database.dart';
-import 'package:vorsorgereminder/data/database_provider.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/export/ics_export_service.dart';
-import 'package:vorsorgereminder/sync/bundle_service.dart';
-import 'package:vorsorgereminder/sync/device_info.dart';
-import 'package:vorsorgereminder/sync/replicated_store.dart';
-import 'package:vorsorgereminder/sync/sync_protocol.dart';
-import 'package:vorsorgereminder/sync/sync_transport.dart';
-import 'package:vorsorgereminder/l10n/locale_notifier.dart';
+import 'package:vorsorgeheft/app/app.dart';
+import 'package:vorsorgeheft/app/providers.dart';
+import 'package:vorsorgeheft/data/catalog_repository.dart';
+import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/data/database_provider.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/export/ics_export_service.dart';
+import 'package:vorsorgeheft/sync/bundle_service.dart';
+import 'package:vorsorgeheft/sync/device_info.dart';
+import 'package:vorsorgeheft/sync/replicated_store.dart';
+import 'package:vorsorgeheft/sync/sync_protocol.dart';
+import 'package:vorsorgeheft/sync/sync_transport.dart';
+import 'package:vorsorgeheft/l10n/locale_notifier.dart';
 
 import '../../test/support/fake_sync.dart';
 import '../../test/support/recording_gateway.dart';
@@ -145,7 +145,7 @@ Future<AppDatabase> launchApp(
           ),
         ),
       ],
-      child: const VorsorgereminderApp(),
+      child: const VorsorgeheftApp(),
     ),
   );
   await settle(tester);

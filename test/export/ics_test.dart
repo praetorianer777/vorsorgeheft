@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/export/ics.dart';
+import 'package:vorsorgeheft/export/ics.dart';
 
 void main() {
   IcsEvent event({

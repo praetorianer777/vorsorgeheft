@@ -57,7 +57,7 @@ jobs:
         id: name
         run: |
           version="$(sed -n 's/^version: *\([0-9.+]*\).*/\1/p' pubspec.yaml)"
-          name="vorsorgereminder-${version}-${GITHUB_SHA::7}-debugsigned"
+          name="vorsorgeheft-${version}-${GITHUB_SHA::7}-debugsigned"
           cp build/app/outputs/flutter-apk/app-release.apk "$name.apk"
           echo "name=$name" >> "$GITHUB_OUTPUT"
           {

@@ -16,7 +16,7 @@ Future<void> main() async {
         databaseProvider.overrideWithValue(database),
         storeProvider.overrideWithValue(store),
       ],
-      child: const VorsorgereminderApp(),
+      child: const VorsorgeheftApp(),
     ),
   );
 }

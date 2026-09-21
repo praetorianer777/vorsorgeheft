@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:vorsorgereminder/sync/bundle_service.dart';
-import 'package:vorsorgereminder/ui/qr_scanner.dart';
+import 'package:vorsorgeheft/sync/bundle_service.dart';
+import 'package:vorsorgeheft/ui/qr_scanner.dart';
 
 /// A scanner that answers with whatever the test put in front of it.
 ///

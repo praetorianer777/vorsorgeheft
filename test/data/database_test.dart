@@ -1,12 +1,12 @@
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sqlite3/sqlite3.dart';
-import 'package:vorsorgereminder/data/database.dart';
-import 'package:vorsorgereminder/data/database_provider.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/sync/hlc.dart';
-import 'package:vorsorgereminder/sync/sync_protocol.dart';
+import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/data/database_provider.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/sync/hlc.dart';
+import 'package:vorsorgeheft/sync/sync_protocol.dart';
 
 void main() {
   late AppDatabase db;

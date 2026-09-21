@@ -1,13 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/app/providers.dart';
-import 'package:vorsorgereminder/data/database.dart';
-import 'package:vorsorgereminder/data/database_provider.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/support/support_prompt.dart';
-import 'package:vorsorgereminder/support/support_prompt_notifier.dart';
-import 'package:vorsorgereminder/sync/replicated_store.dart';
+import 'package:vorsorgeheft/app/providers.dart';
+import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/data/database_provider.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/support/support_prompt.dart';
+import 'package:vorsorgeheft/support/support_prompt_notifier.dart';
+import 'package:vorsorgeheft/sync/replicated_store.dart';
 
 void main() {
   late AppDatabase database;

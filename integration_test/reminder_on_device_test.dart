@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:vorsorgereminder/notifications/local_notification_gateway.dart';
-import 'package:vorsorgereminder/notifications/reminder.dart';
+import 'package:vorsorgeheft/notifications/local_notification_gateway.dart';
+import 'package:vorsorgeheft/notifications/reminder.dart';
 
 /// Proof that a scheduled reminder is actually posted by the platform.
 ///
@@ -88,7 +88,7 @@ void main() {
       );
       await gateway.schedule(
         reminder,
-        title: 'Vorsorgereminder device proof',
+        title: 'Vorsorgeheft device proof',
         body: 'Scheduled by reminder_on_device_test',
         channelName: 'Appointments',
       );
@@ -110,7 +110,7 @@ void main() {
         reason: 'the reminder was scheduled but never posted',
       );
       final shown = posted.firstWhere((n) => n.id == reminder.id);
-      expect(shown.title, 'Vorsorgereminder device proof');
+      expect(shown.title, 'Vorsorgeheft device proof');
       expect(shown.body, 'Scheduled by reminder_on_device_test');
 
       await gateway.cancelAll();

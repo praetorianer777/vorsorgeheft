@@ -30,7 +30,7 @@ build_pristine() { # target tagged
     mkdir -p "${dir}/android/app" "${dir}/lib/app"
     cp "${SRC}/release.sh" "${dir}/release.sh"
     printf "const appVersion = '0.1.0';\n" > "${dir}/lib/app/version.dart"
-    printf 'name: vorsorgereminder\nversion: 0.1.0+1\n' > "${dir}/pubspec.yaml"
+    printf 'name: vorsorgeheft\nversion: 0.1.0+1\n' > "${dir}/pubspec.yaml"
     cat > "${dir}/android/app/build.gradle.kts" <<'EOF'
 android {
     defaultConfig {
@@ -329,7 +329,7 @@ expect_release --dry-run && {
         pass "the dry run wrote no notes file"
     fi
     check "the dry run prints the version it would release" \
-        "$(grep -c 'Dry run — Vorsorgereminder v0.2.0' "${W}/out.log")" "1"
+        "$(grep -c 'Dry run — Vorsorgeheft v0.2.0' "${W}/out.log")" "1"
     check "the dry run prints the notes it would write" \
         "$(grep -c 'add a reminder setting' "${W}/out.log")" "1"
 }

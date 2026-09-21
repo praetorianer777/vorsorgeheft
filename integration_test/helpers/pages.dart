@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/ui/sync_screen.dart';
+import 'package:vorsorgeheft/ui/sync_screen.dart';
 
 import '../../test/support/recording_share.dart';
 import 'app_harness.dart';

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/domain/age_offset.dart';
-import 'package:vorsorgereminder/domain/occurrence.dart';
-import 'package:vorsorgereminder/domain/rule.dart';
-import 'package:vorsorgereminder/domain/schedule.dart';
-import 'package:vorsorgereminder/domain/source_ref.dart';
-import 'package:vorsorgereminder/domain/localized_text.dart';
-import 'package:vorsorgereminder/l10n/app_localizations.dart';
-import 'package:vorsorgereminder/ui/relative_time.dart';
-import 'package:vorsorgereminder/ui/timeline_screen.dart';
+import 'package:vorsorgeheft/domain/age_offset.dart';
+import 'package:vorsorgeheft/domain/occurrence.dart';
+import 'package:vorsorgeheft/domain/rule.dart';
+import 'package:vorsorgeheft/domain/schedule.dart';
+import 'package:vorsorgeheft/domain/source_ref.dart';
+import 'package:vorsorgeheft/domain/localized_text.dart';
+import 'package:vorsorgeheft/l10n/app_localizations.dart';
+import 'package:vorsorgeheft/ui/relative_time.dart';
+import 'package:vorsorgeheft/ui/timeline_screen.dart';
 
 final _today = DateTime.utc(2026, 9, 20);
 

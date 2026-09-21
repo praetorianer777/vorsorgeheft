@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:cryptography/cryptography.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/sync/session_cipher.dart';
+import 'package:vorsorgeheft/sync/session_cipher.dart';
 
 void main() {
   final key = SecretKeyData.random(length: 32).bytes;

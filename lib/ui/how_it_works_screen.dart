@@ -10,7 +10,7 @@ import 'formatting.dart';
 import 'sources_screen.dart';
 import 'timeline_screen.dart';
 
-const repositoryUrl = 'https://github.com/praetorianer777/vorsorgereminder';
+const repositoryUrl = 'https://github.com/praetorianer777/vorsorgeheft';
 
 /// The app explained to someone who has never heard of the G-BA.
 ///
