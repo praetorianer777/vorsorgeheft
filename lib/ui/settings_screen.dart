@@ -6,6 +6,7 @@ import '../app/version.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/locale_notifier.dart';
 import '../support/support_prompt.dart';
+import 'export_action.dart';
 import 'sources_screen.dart';
 import 'sync_screen.dart';
 
@@ -60,6 +61,7 @@ class SettingsScreen extends ConsumerWidget {
             ),
           ),
           const Divider(),
+          const ExportTile(),
           ListTile(
             key: const Key('settings-open-sync'),
             leading: const Icon(Icons.sync),

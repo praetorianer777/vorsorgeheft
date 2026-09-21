@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../app/providers.dart';
 import '../domain/occurrence.dart';
 import '../l10n/app_localizations.dart';
+import 'clinic_offer.dart';
 import 'export_action.dart';
 import 'formatting.dart';
 import 'occurrence_detail_screen.dart';
@@ -24,6 +25,25 @@ TimelineSection sectionOf(OccurrenceStatus status) => switch (status) {
   OccurrenceStatus.done || OccurrenceStatus.skipped => TimelineSection.settled,
   OccurrenceStatus.expired => TimelineSection.expired,
 };
+
+/// Orders what needs attention by urgency rather than by when it opened:
+/// overdue before due, and within each the entry that lapses first at the
+/// top. An entitlement that never closes goes last, because there is no day
+/// on which it becomes too late.
+int compareUrgency(Occurrence a, Occurrence b) {
+  final overdueFirst =
+      (b.status == OccurrenceStatus.overdue ? 1 : 0) -
+      (a.status == OccurrenceStatus.overdue ? 1 : 0);
+  if (overdueFirst != 0) return overdueFirst;
+  final endA = a.deadline ?? a.windowEnd;
+  final endB = b.deadline ?? b.windowEnd;
+  if (endA == null && endB == null) {
+    return a.windowStart.compareTo(b.windowStart);
+  }
+  if (endA == null) return 1;
+  if (endB == null) return -1;
+  return endA.compareTo(endB);
+}
 
 class TimelineScreen extends ConsumerWidget {
   const TimelineScreen({required this.personId, super.key});
@@ -60,15 +80,25 @@ class TimelineScreen extends ConsumerWidget {
       body: timeline.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, _) => Center(child: Text('$error')),
-        data: (occurrences) => _Timeline(occurrences: occurrences),
+        data: (occurrences) => _Timeline(
+          personId: person.id,
+          personName: person.name,
+          occurrences: occurrences,
+        ),
       ),
     );
   }
 }
 
 class _Timeline extends StatelessWidget {
-  const _Timeline({required this.occurrences});
+  const _Timeline({
+    required this.personId,
+    required this.personName,
+    required this.occurrences,
+  });
 
+  final String personId;
+  final String personName;
   final List<Occurrence> occurrences;
 
   @override
@@ -80,20 +110,32 @@ class _Timeline extends StatelessWidget {
           .putIfAbsent(sectionOf(occurrence.status), () => [])
           .add(occurrence);
     }
+    grouped[TimelineSection.needsAttention]?.sort(compareUrgency);
 
-    final children = <Widget>[];
+    final children = <Widget>[
+      ClinicOfferCard(
+        personId: personId,
+        personName: personName,
+        timeline: occurrences,
+      ),
+    ];
     for (final section in TimelineSection.values) {
       final items = grouped[section];
       if (items == null || items.isEmpty) continue;
       children.add(
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
-          child: Text(switch (section) {
-            TimelineSection.needsAttention => l10n.sectionNeedsAttention,
-            TimelineSection.comingUp => l10n.sectionComingUp,
-            TimelineSection.settled => l10n.sectionSettled,
-            TimelineSection.expired => l10n.sectionExpired,
-          }, style: Theme.of(context).textTheme.titleSmall),
+          padding: const EdgeInsets.fromLTRB(16, 24, 16, 4),
+          child: Text(
+            switch (section) {
+              TimelineSection.needsAttention => l10n.sectionNeedsAttention,
+              TimelineSection.comingUp => l10n.sectionComingUp,
+              TimelineSection.settled => l10n.sectionSettled,
+              TimelineSection.expired => l10n.sectionExpired,
+            },
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
         ),
       );
       children.addAll(items.map((o) => _OccurrenceTile(occurrence: o)));
@@ -106,10 +148,35 @@ class _Timeline extends StatelessWidget {
   }
 }
 
+/// A glyph per status, so the state of an entry reads while scrolling and
+/// not only once the small coloured word underneath is in focus.
+IconData statusIcon(OccurrenceStatus status) => switch (status) {
+  OccurrenceStatus.overdue => Icons.error_outline,
+  OccurrenceStatus.due => Icons.circle_outlined,
+  OccurrenceStatus.upcoming => Icons.schedule_outlined,
+  OccurrenceStatus.done => Icons.check_circle_outline,
+  OccurrenceStatus.skipped => Icons.remove_circle_outline,
+  OccurrenceStatus.expired => Icons.block_outlined,
+};
+
 class _OccurrenceTile extends ConsumerWidget {
   const _OccurrenceTile({required this.occurrence});
 
   final Occurrence occurrence;
+
+  /// The day an entitlement without an end opened is not a date to act on,
+  /// so it is worded as the start of something still available rather than
+  /// shown bare, where it reads as an appointment twenty years missed.
+  String _dates(BuildContext context, AppLocalizations l10n) {
+    if (occurrence.completedOn != null) {
+      return l10n.completedOnLabel(occurrence.completedOn!);
+    }
+    if (occurrence.windowEnd == null &&
+        occurrence.status == OccurrenceStatus.due) {
+      return l10n.openSince(occurrence.windowStart);
+    }
+    return formatRange(context, occurrence.windowStart, occurrence.windowEnd);
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -117,37 +184,41 @@ class _OccurrenceTile extends ConsumerWidget {
     final today = ref.watch(clockProvider)();
     final locale = Localizations.localeOf(context).languageCode;
     final scheme = Theme.of(context).colorScheme;
-    final labels = <String>[
-      statusLabel(l10n, occurrence.status),
+    final color = statusColor(scheme, occurrence.status);
+    final distance = formatTimelineDistance(l10n, occurrence, today);
+    final secondary = <String>[
+      ?distance,
       if (!occurrence.rule.statutory) l10n.notStatutory,
       if (occurrence.applicability == Applicability.possible) l10n.mayApply,
     ];
+    final labelStyle = Theme.of(context).textTheme.labelMedium;
 
     return ListTile(
       key: Key('occurrence-${occurrence.key}'),
+      leading: Padding(
+        padding: const EdgeInsets.only(top: 4),
+        child: Icon(statusIcon(occurrence.status), color: color),
+      ),
       title: Text(occurrence.rule.title(locale)),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            occurrence.completedOn != null
-                ? l10n.completedOnLabel(occurrence.completedOn!)
-                : '${formatRange(context, occurrence.windowStart, occurrence.windowEnd)}'
-                      ' \u00b7 '
-                      '${formatRelativeDate(l10n, occurrence.windowStart, today)}',
-          ),
-          const SizedBox(height: 4),
+          Text(_dates(context, l10n)),
+          const SizedBox(height: 2),
           Wrap(
-            spacing: 6,
+            spacing: 8,
             children: [
-              for (final label in labels)
+              Text(
+                statusLabel(l10n, occurrence.status),
+                style: labelStyle?.copyWith(
+                  color: color,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              for (final label in secondary)
                 Text(
                   label,
-                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: label == labels.first
-                        ? statusColor(scheme, occurrence.status)
-                        : scheme.onSurfaceVariant,
-                  ),
+                  style: labelStyle?.copyWith(color: scheme.onSurfaceVariant),
                 ),
             ],
           ),

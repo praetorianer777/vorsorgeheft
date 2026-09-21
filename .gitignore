@@ -37,3 +37,6 @@ release-notes-*.md
 
 # agent worktrees
 .claude/worktrees/
+
+# Rendered by tool/screenshots, for looking at, not for keeping
+tool/screenshots/out/

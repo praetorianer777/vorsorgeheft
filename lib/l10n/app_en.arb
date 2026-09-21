@@ -366,5 +366,58 @@
   "supportPromptOpen": "Support",
   "supportPromptDismiss": "No thanks",
   "supportLink": "Support the development",
-  "supportLinkHint": "Opens the sponsor page on GitHub"
+  "supportLinkHint": "Opens the sponsor page on GitHub",
+  "remainingDays": "{days, plural, =1{1 day left} other{{days} days left}}",
+  "@remainingDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingWeeks": "{weeks, plural, =1{1 week left} other{{weeks} weeks left}}",
+  "@remainingWeeks": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingMonths": "{months, plural, =1{1 month left} other{{months} months left}}",
+  "@remainingMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingYears": "{years, plural, =1{1 year left} other{{years} years left}}",
+  "@remainingYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingToday": "last day today",
+  "pickDate": "Pick a date",
+  "clinicOfferBody": "The examinations of the first days of life usually take place in the maternity clinic. Record them as done for {name}?",
+  "@clinicOfferBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "clinicOfferAccept": "Record all as done",
+  "clinicOfferDismiss": "Not now",
+  "openSince": "Open since {date}",
+  "@openSince": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMd"
+      }
+    }
+  }
 }

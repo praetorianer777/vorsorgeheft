@@ -111,7 +111,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
                   TextButton(
                     key: const Key('pick-date-of-birth'),
                     onPressed: _pickDate,
-                    child: Text(l10n.dateOfBirth),
+                    child: Text(l10n.pickDate),
                   ),
                 ],
               ),
@@ -120,6 +120,9 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
             Text(l10n.sexLabel, style: Theme.of(context).textTheme.labelLarge),
             const SizedBox(height: 4),
             SegmentedButton<Sex>(
+              // Three labels plus a check mark do not fit a phone's width, and
+              // the selected segment is already filled.
+              showSelectedIcon: false,
               segments: [
                 ButtonSegment(value: Sex.female, label: Text(l10n.sexFemale)),
                 ButtonSegment(value: Sex.male, label: Text(l10n.sexMale)),

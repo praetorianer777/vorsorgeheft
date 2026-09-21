@@ -9,6 +9,10 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- A newborn added after the first days is offered to record the clinic
+  examinations in one go, and the timeline says what to do next - how long is
+  left, how long until a window opens - instead of when an entitlement opened.
+  Overdue leads the list; each entry carries a status glyph.
 - A one-time support prompt after the third recorded appointment, dismissible
   for good, plus a permanent link to the sponsor page in settings.
 - Reminders before an appointment's window opens, and escalating warnings

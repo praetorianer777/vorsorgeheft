@@ -9,11 +9,9 @@ import '../l10n/app_localizations.dart';
 import '../notifications/permission_state.dart';
 import '../support/support_prompt.dart';
 import '../support/support_prompt_notifier.dart';
-import 'export_action.dart';
 import 'formatting.dart';
 import 'person_form_screen.dart';
 import 'settings_screen.dart';
-import 'sources_screen.dart';
 import 'sync_screen.dart';
 import 'timeline_screen.dart';
 
@@ -29,7 +27,6 @@ class FamilyScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.familyTitle),
         actions: [
-          const ExportButton(),
           IconButton(
             key: const Key('open-sync'),
             icon: const Icon(Icons.sync),
@@ -37,13 +34,6 @@ class FamilyScreen extends ConsumerWidget {
             onPressed: () => Navigator.of(
               context,
             ).push(MaterialPageRoute<void>(builder: (_) => const SyncScreen())),
-          ),
-          IconButton(
-            icon: const Icon(Icons.info_outline),
-            tooltip: l10n.sourcesTitle,
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => const SourcesScreen()),
-            ),
           ),
           IconButton(
             key: const Key('open-settings'),

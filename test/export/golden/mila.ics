@@ -7,37 +7,6 @@ X-WR-CALNAME:Preventive care – Mila
 X-WR-CALDESC:Not medical advice. Entitlements vary between insurers\; ask y
  our doctor's office when in doubt.
 BEGIN:VEVENT
-UID:infant-hearing-screening@vorsorgereminder
-DTSTAMP:20260920T120000Z
-SEQUENCE:0
-DTSTART;VALUE=DATE:20260901
-DTEND;VALUE=DATE:20260904
-SUMMARY:Mila: Newborn hearing screening
-DESCRIPTION:Measured for each ear\, to be done by the third day of life. If
-  it did not happen before discharge it takes place at the U2 at the latest
- .\nSource: G-BA guideline on early detection of illness in children · as 
- of 2026-09-20\nhttps://www.g-ba.de/richtlinien/15/
-CATEGORIES:children
-URL:https://www.g-ba.de/richtlinien/15/
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Mila: Newborn hearing screening
-TRIGGER:-P30D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Mila: Newborn hearing screening
-TRIGGER:-P14D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Mila: Newborn hearing screening
-TRIGGER:-P3D
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:infant-u1@vorsorgereminder
 DTSTAMP:20260920T120000Z
 SEQUENCE:0
@@ -69,38 +38,6 @@ TRIGGER:-P3D
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:infant-pulse-oximetry@vorsorgereminder
-DTSTAMP:20260920T120000Z
-SEQUENCE:0
-DTSTART;VALUE=DATE:20260902
-DTEND;VALUE=DATE:20260904
-SUMMARY:Mila: Pulse oximetry screening
-DESCRIPTION:Screening for critical congenital heart defects\, on the second
-  day of life\, between 24 and 48 hours. In exceptional cases from the four
- th hour of life and until the U2 at the latest.\nSource: G-BA guideline on
-  early detection of illness in children · as of 2026-09-20\nhttps://www.g
- -ba.de/richtlinien/15/
-CATEGORIES:children
-URL:https://www.g-ba.de/richtlinien/15/
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Mila: Pulse oximetry screening
-TRIGGER:-P30D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Mila: Pulse oximetry screening
-TRIGGER:-P14D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Mila: Pulse oximetry screening
-TRIGGER:-P3D
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:infant-cf-screening@vorsorgereminder
 DTSTAMP:20260920T120000Z
 SEQUENCE:0
@@ -108,9 +45,10 @@ DTSTART;VALUE=DATE:20260902
 DTEND;VALUE=DATE:20260905
 SUMMARY:Mila: Cystic fibrosis screening
 DESCRIPTION:Taken from the same blood sample as the extended newborn screen
- ing. It can be caught up within the first four weeks of life.\nSource: G-B
- A guideline on early detection of illness in children · as of 2026-09-20\
- nhttps://www.g-ba.de/richtlinien/15/
+ ing. It can be caught up within the first four weeks of life.\nCatch up by
+  2026-09-29\; after that the entitlement lapses.\nSource: G-BA guideline o
+ n early detection of illness in children · as of 2026-09-20\nhttps://www.
+ g-ba.de/richtlinien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -129,6 +67,16 @@ BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Mila: Cystic fibrosis screening
 TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2026-09-29\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20260830T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2026-09-29\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20260922T080000Z
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
