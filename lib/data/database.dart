@@ -22,6 +22,10 @@ class Persons extends Table {
   IntColumn get sex => intEnum<domain.Sex>()();
   TextColumn get notes => text().nullable()();
 
+  /// The switched-on optional rules as a comma-separated list of rule ids,
+  /// null when there are none. See [encodeOptionalRules].
+  TextColumn get optionalRules => text().nullable()();
+
   @override
   Set<Column<Object>> get primaryKey => {id};
 }
@@ -133,11 +137,11 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
   DriftDatabaseOptions get options =>
       const DriftDatabaseOptions(storeDateTimeAsText: true);
 
-  /// Bumped for the peers table in #10 and the families table in #46. An
-  /// older database gains the tables in [migration]; everything it already
-  /// holds stays as it is.
+  /// Bumped for the peers table in #10, the families table in #46 and the
+  /// optional vaccinations in #70. An older database gains the tables and
+  /// the column in [migration]; everything it already holds stays as it is.
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   /// SQLite enforces foreign keys only when asked to, and without this a
   /// deleted person leaves their recorded appointments behind.
@@ -147,6 +151,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
     onUpgrade: (m, from, to) async {
       if (from < 2) await m.createTable(peers);
       if (from < 3) await m.createTable(families);
+      if (from < 4) await m.addColumn(persons, persons.optionalRules);
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
@@ -181,6 +186,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
           dateOfBirth: person.dateOfBirth,
           sex: person.sex,
           notes: Value(person.notes),
+          optionalRules: Value(encodeOptionalRules(person.optionalRules)),
         ),
       );
 
@@ -409,7 +415,22 @@ domain.Person _toPerson(PersonRow row) => domain.Person(
   dateOfBirth: row.dateOfBirth,
   sex: row.sex,
   notes: row.notes,
+  optionalRules: decodeOptionalRules(row.optionalRules),
 );
+
+/// Rule ids are lowercase ASCII with hyphens, so a comma-separated list is
+/// unambiguous and reads the same in the change log and in the column. Sorted,
+/// so the same choice always encodes to the same string and a sync does not
+/// see a change where there is none; empty becomes null.
+String? encodeOptionalRules(Set<String> ruleIds) =>
+    ruleIds.isEmpty ? null : (ruleIds.toList()..sort()).join(',');
+
+Set<String> decodeOptionalRules(String? encoded) => encoded == null
+    ? const {}
+    : {
+        for (final id in encoded.split(','))
+          if (id.isNotEmpty) id,
+      };
 
 domain.Completion _toCompletion(CompletionRow row) => domain.Completion(
   personId: row.personId,

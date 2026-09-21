@@ -4,6 +4,8 @@ import 'package:uuid/uuid.dart';
 
 import '../app/providers.dart';
 import '../domain/person.dart';
+import '../domain/rule.dart';
+import '../domain/schedule_engine.dart';
 import '../l10n/app_localizations.dart';
 import 'formatting.dart';
 
@@ -26,6 +28,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
   );
   late DateTime? _dateOfBirth = widget.existing?.dateOfBirth;
   late Sex _sex = widget.existing?.sex ?? Sex.notStated;
+  late final Set<String> _optionalRules = {...?widget.existing?.optionalRules};
   bool _dateTouched = false;
 
   @override
@@ -61,6 +64,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
       dateOfBirth: _dateOfBirth!,
       sex: _sex,
       notes: _notes.text.trim().isEmpty ? null : _notes.text.trim(),
+      optionalRules: _optionalRules,
     );
     await ref.read(storeProvider).savePerson(person);
     if (mounted) Navigator.of(context).pop();
@@ -173,6 +177,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
                 border: const OutlineInputBorder(),
               ),
             ),
+            ..._optionalVaccinations(context, l10n),
             const SizedBox(height: 24),
             FilledButton(
               key: const Key('save-person'),
@@ -194,6 +199,69 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  /// One switch per optional rule the person could be meant for. A rule for
+  /// the other sex is left out rather than shown off, since it could never
+  /// apply; with the sex unstated every rule is offered.
+  List<Widget> _optionalVaccinations(
+    BuildContext context,
+    AppLocalizations l10n,
+  ) {
+    final catalogs = ref.watch(catalogsProvider).value;
+    if (catalogs == null) return const [];
+    final rules = switchableRules(catalogs).where((rule) {
+      final sex = rule.eligibility.sex;
+      return sex == null || _sex == Sex.notStated || _sex == sex;
+    }).toList();
+    if (rules.isEmpty) return const [];
+
+    final theme = Theme.of(context);
+    return [
+      const SizedBox(height: 24),
+      Text(l10n.optionalVaccinationsTitle, style: theme.textTheme.titleMedium),
+      const SizedBox(height: 4),
+      Text(l10n.optionalVaccinationsHelp, style: theme.textTheme.bodySmall),
+      const SizedBox(height: 8),
+      for (final rule in rules) _optionalSwitch(context, l10n, rule),
+    ];
+  }
+
+  Widget _optionalSwitch(
+    BuildContext context,
+    AppLocalizations l10n,
+    Rule rule,
+  ) {
+    final locale = Localizations.localeOf(context).languageCode;
+    final theme = Theme.of(context);
+    return SwitchListTile(
+      key: Key('optional-${rule.id}'),
+      contentPadding: EdgeInsets.zero,
+      value: _optionalRules.contains(rule.id),
+      onChanged: (on) => setState(() {
+        on ? _optionalRules.add(rule.id) : _optionalRules.remove(rule.id);
+      }),
+      title: Text(rule.title(locale)),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(rule.description(locale)),
+          const SizedBox(height: 4),
+          Text(
+            l10n.sourceLabel(rule.source.name(locale), rule.source.asOf),
+            style: theme.textTheme.bodySmall,
+          ),
+          if (!rule.statutory)
+            Text(
+              l10n.notStatutory,
+              style: theme.textTheme.labelMedium?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+        ],
+      ),
+      isThreeLine: true,
     );
   }
 

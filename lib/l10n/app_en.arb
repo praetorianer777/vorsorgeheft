@@ -20,6 +20,8 @@
   "sexFemale": "Female",
   "sexNotStated": "Not stated",
   "notes": "Notes",
+  "optionalVaccinationsTitle": "Optional vaccinations",
+  "optionalVaccinationsHelp": "Vaccinations the STIKO recommends only for some people, depending on illness, pregnancy, region or occupation. Switch on what applies, and the appointments and reminders follow.",
   "save": "Save",
   "cancel": "Cancel",
   "delete": "Delete",

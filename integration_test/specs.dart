@@ -676,6 +676,76 @@ void registerAppSpecs() {
     await shutDown(tester, db);
   });
 
+  testWidgets('an optional vaccination is off until switched on', (
+    tester,
+  ) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.mother],
+      gateway: gateway,
+    );
+    final timeline = await FamilyPage(tester).open('Sara');
+    expect(find.text('Flu vaccination (under 60)'), findsNothing);
+    expect(
+      gateway.pending.where((r) => r.ruleId == 'influenza-under-60'),
+      isEmpty,
+    );
+
+    var form = await timeline.edit();
+    await form.revealOptionalVaccinations();
+    expect(form.optionalVaccinations, findsOneWidget);
+    await form.toggleOptional('influenza-under-60');
+    await form.save();
+
+    await timeline.scrollToAppointment('Flu vaccination (under 60)');
+    expect(
+      timeline.status('Flu vaccination (under 60)', 'Due'),
+      findsOneWidget,
+    );
+    expect(find.text('Depends on your insurer'), findsWidgets);
+    expect(
+      gateway.pending.where((r) => r.ruleId == 'influenza-under-60'),
+      isNotEmpty,
+    );
+    expect((await db.personById('mother'))!.optionalRules, {
+      'influenza-under-60',
+    });
+
+    form = await timeline.edit();
+    await form.toggleOptional('influenza-under-60');
+    await form.save();
+    expect(find.text('Flu vaccination (under 60)'), findsNothing);
+    expect(
+      gateway.pending.where((r) => r.ruleId == 'influenza-under-60'),
+      isEmpty,
+    );
+    expect((await db.personById('mother'))!.optionalRules, isEmpty);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('the pregnancy vaccination is offered to women only', (
+    tester,
+  ) async {
+    final db = await launchApp(tester, people: [Family.mother, Family.father]);
+    final family = FamilyPage(tester);
+
+    var timeline = await family.open('Sara');
+    var form = await timeline.edit();
+    expect(await form.optionalSwitches(), contains('pertussis-pregnancy'));
+    await form.save();
+    await timeline.back();
+
+    timeline = await family.open('Tim');
+    form = await timeline.edit();
+    final offered = await form.optionalSwitches();
+    expect(offered, isNot(contains('pertussis-pregnancy')));
+    expect(offered, contains('tbe'));
+
+    await shutDown(tester, db);
+  });
+
   testWidgets('a school-age child sees what is ahead and what has lapsed', (
     tester,
   ) async {
@@ -773,6 +843,42 @@ void registerAppSpecs() {
     await mumsDb.close();
   });
 
+  testWidgets('an optional vaccination switched on reaches the other phone', (
+    tester,
+  ) async {
+    final wire = LoopbackNetwork();
+    final mum = SyncFixture(network: wire);
+    final dad = SyncFixture(network: wire);
+
+    final mumsDb = await launchApp(
+      tester,
+      people: [Family.mother],
+      sync: mum,
+      nodeId: 'mum',
+    );
+    var timeline = await FamilyPage(tester).open('Sara');
+    final form = await timeline.edit();
+    await form.toggleOptional('tbe');
+    await form.save();
+    await timeline.back();
+    final code = await (await FamilyPage(tester).openSync()).showMyCode();
+    await detach(tester);
+    await mum.stayReachable();
+
+    final dadsDb = await launchApp(tester, sync: dad, nodeId: 'dad');
+    final sync = await FamilyPage(tester).openSync();
+    await sync.scanCode(dad, code);
+    await sync.syncNow('mum');
+    await sync.back();
+    timeline = await FamilyPage(tester).open('Sara');
+    await timeline.scrollToAppointment('TBE vaccination (risk areas)');
+    expect(find.text('TBE vaccination (risk areas)'), findsWidgets);
+    expect((await dadsDb.personById('mother'))!.optionalRules, {'tbe'});
+
+    await shutDown(tester, dadsDb);
+    await mumsDb.close();
+  });
+
   testWidgets('two phones pair over a code and end up with the same family', (
     tester,
   ) async {
@@ -809,7 +915,7 @@ void registerAppSpecs() {
     expect(sync.neverSynced, findsOneWidget);
 
     await sync.syncNow('mum');
-    expect(sync.synced(received: 4, sent: 4), findsOneWidget);
+    expect(sync.synced(received: 5, sent: 5), findsOneWidget);
     expect(sync.lastSynced, findsOneWidget);
 
     await sync.syncNow('mum');
@@ -931,7 +1037,7 @@ void registerAppSpecs() {
       expect(FamilyPage(tester).personNamed('Mila'), findsNothing);
 
       await sync.importBundle(dad, file, password: 'correct horse');
-      expect(sync.imported(4), findsOneWidget);
+      expect(sync.imported(5), findsOneWidget);
       await sync.back();
       expect(FamilyPage(tester).personNamed('Mila'), findsOneWidget);
 
@@ -968,7 +1074,7 @@ void registerAppSpecs() {
     expect(FamilyPage(tester).personNamed('Mila'), findsNothing);
 
     await sync.receiveFromPhone(dad, file, code: code);
-    expect(sync.imported(4), findsOneWidget);
+    expect(sync.imported(5), findsOneWidget);
     await sync.back();
     expect(FamilyPage(tester).personNamed('Mila'), findsOneWidget);
 

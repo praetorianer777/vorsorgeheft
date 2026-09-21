@@ -648,6 +648,142 @@ void main() {
         isEmpty,
       );
     });
+
+    test('changes to the later interval once a booster has been given', () {
+      // TBE: three years after the series, then every five. The first
+      // booster counts from the series; every one after it counts from the
+      // booster before, whether that one was recorded or merely generated.
+      final catalogs = catalogOf([
+        {
+          'id': 'tbe',
+          'schedule': {
+            'type': 'series',
+            'doses': [
+              {
+                'id': '1',
+                'from': {'years': 1},
+              },
+            ],
+          },
+        },
+        {
+          'id': 'tbe-booster',
+          'schedule': {
+            'type': 'booster',
+            'after': 'tbe',
+            'every': {'years': 3},
+            'thenEvery': {'years': 5},
+          },
+        },
+      ]);
+      final person = personBornOn(DateTime.utc(1990, 1, 1));
+      final today = DateTime.utc(2026, 9, 20);
+      final series = Completion(
+        personId: 'p1',
+        ruleId: 'tbe',
+        doseId: '1',
+        completedOn: DateTime.utc(2025, 4, 3),
+      );
+
+      final afterSeries = run(
+        catalogs: catalogs,
+        person: person,
+        today: today,
+        completions: [series],
+        horizon: const Duration(days: 4000),
+      ).where((o) => o.rule.id == 'tbe-booster').map((o) => o.windowStart);
+      expect(afterSeries, [DateTime.utc(2028, 4, 3), DateTime.utc(2033, 4, 3)]);
+
+      final afterBooster = run(
+        catalogs: catalogs,
+        person: person,
+        today: today,
+        completions: [
+          series,
+          Completion(
+            personId: 'p1',
+            ruleId: 'tbe-booster',
+            completedOn: DateTime.utc(2026, 6, 1),
+          ),
+        ],
+        horizon: const Duration(days: 1),
+      ).where((o) => o.rule.id == 'tbe-booster' && o.isOpen).single;
+      expect(afterBooster.windowStart, DateTime.utc(2031, 6, 1));
+    });
+  });
+
+  group('optional rules', () {
+    final catalogs = catalogOf([
+      {
+        'id': 'flu',
+        'optional': true,
+        'schedule': {
+          'type': 'recurring',
+          'from': {'years': 18},
+          'every': {'years': 1},
+        },
+      },
+      {
+        'id': 'tbe',
+        'optional': true,
+        'schedule': {
+          'type': 'series',
+          'doses': [
+            {
+              'id': '1',
+              'from': {'years': 1},
+            },
+          ],
+        },
+      },
+      {
+        'id': 'tbe-booster',
+        'optional': true,
+        'schedule': {
+          'type': 'booster',
+          'after': 'tbe',
+          'every': {'years': 3},
+          'fromAge': {'years': 4},
+        },
+      },
+      u6(),
+    ]);
+    final today = DateTime.utc(2026, 9, 20);
+    Set<String> rulesFor(Person person) => run(
+      catalogs: catalogs,
+      person: person,
+      today: today,
+    ).map((o) => o.rule.id).toSet();
+
+    test('stay off the timeline until switched on', () {
+      expect(rulesFor(personBornOn(DateTime.utc(1990, 1, 1))), {'u6'});
+    });
+
+    test('appear once the person has switched them on', () {
+      final person = Person(
+        id: 'p1',
+        name: 'Test',
+        dateOfBirth: DateTime.utc(1990, 1, 1),
+        optionalRules: const {'flu'},
+      );
+      expect(rulesFor(person), {'u6', 'flu'});
+    });
+
+    test('a booster follows the switch of the series it refreshes', () {
+      // Nobody wants a booster for a series they never had, and nobody who
+      // had the series wants a second switch for its booster.
+      final person = Person(
+        id: 'p1',
+        name: 'Test',
+        dateOfBirth: DateTime.utc(1990, 1, 1),
+        optionalRules: const {'tbe'},
+      );
+      expect(rulesFor(person), {'u6', 'tbe', 'tbe-booster'});
+    });
+
+    test('the switches on offer are the rules, not their boosters', () {
+      expect(switchableRules(catalogs).map((r) => r.id), ['flu', 'tbe']);
+    });
   });
 
   group('what the horizon cuts off', () {

@@ -200,8 +200,8 @@ void main() {
 
       final result = await bob.engine.syncWith('alice');
 
-      expect(result.received, 4);
-      expect(result.sent, 4);
+      expect(result.received, 5);
+      expect(result.sent, 5);
       expect((await alice.db.allPersons()).map((p) => p.id), ['anna', 'mila']);
       expect((await bob.db.allPersons()).map((p) => p.id), ['anna', 'mila']);
     });
@@ -384,7 +384,7 @@ void main() {
       alice.advance(const Duration(minutes: 1));
       await alice.store.savePerson(mila);
       final later = await bob.engine.syncWith('alice');
-      expect(later.received, 4);
+      expect(later.received, 5);
       expect((await bob.db.allPersons()).map((p) => p.id), ['anna', 'mila']);
     });
   });

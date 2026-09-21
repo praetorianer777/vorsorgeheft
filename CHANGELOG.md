@@ -7,6 +7,15 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Features
+
+- Optional vaccinations: the flu and COVID-19 vaccinations before the
+  standard age, TBE for risk areas with its boosters, whooping cough in
+  pregnancy, and the HPV and meningococcal B catch-ups can be switched on
+  per person in the edit form, each with the STIKO's reason and its source.
+  Off by default; switched on, they appear on the timeline and in the
+  reminders, and the choice reaches the other phone.
+
 ### Bug fixes
 
 - A person can be deleted again, from the edit form, after a confirmation.

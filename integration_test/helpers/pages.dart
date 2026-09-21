@@ -101,17 +101,34 @@ class PersonFormPage {
     await settle(tester);
   }
 
+  /// The optional vaccinations push the button below the fold, and the form
+  /// only builds what is on screen. A save the form refuses leaves it open,
+  /// scrolled to the bottom, so the top is brought back for the errors.
   Future<void> save() async {
+    await _reveal(find.byKey(const Key('save-person')));
     await tester.tap(find.byKey(const Key('save-person')));
+    await settle(tester);
+    if (find.byKey(const Key('save-person')).evaluate().isNotEmpty) {
+      await tester.drag(find.byType(ListView), const Offset(0, 4000));
+      await settle(tester);
+    }
+  }
+
+  /// Not [scrollTo]: the notes field is a Scrollable of its own, and
+  /// `find.byType(Scrollable).last` would drag inside it instead of the form.
+  Future<void> _reveal(Finder finder) async {
+    await tester.dragUntilVisible(
+      finder,
+      find.byType(ListView),
+      const Offset(0, -300),
+    );
     await settle(tester);
   }
 
   Finder get deleteButton => find.byKey(const Key('delete-person'));
 
   Future<void> delete() async {
-    // The button is built just below the fold, so scrollTo stops short of it.
-    await tester.ensureVisible(deleteButton);
-    await settle(tester);
+    await _reveal(deleteButton);
     await tester.tap(deleteButton);
     await settle(tester);
   }
@@ -128,6 +145,47 @@ class PersonFormPage {
 
   Finder get nameError => find.text('Please enter a name');
   Finder get dateError => find.text('Please pick a date of birth');
+
+  Finder get optionalVaccinations => find.text('Optional vaccinations');
+  Finder optionalSwitch(String ruleId) => find.byKey(Key('optional-$ruleId'));
+
+  Future<void> toggleOptional(String ruleId) async {
+    await _reveal(optionalSwitch(ruleId));
+    await tester.tap(optionalSwitch(ruleId));
+    await settle(tester);
+  }
+
+  Future<void> revealOptionalVaccinations() => _reveal(optionalVaccinations);
+
+  /// The rule ids of every switch on the form, top to bottom. Walked rather
+  /// than found in one go, since the list only builds what is on screen and
+  /// "no switch for this rule" would otherwise be true of any rule below the
+  /// fold.
+  Future<List<String>> optionalSwitches() async {
+    final seen = <String>[];
+    void collect() {
+      for (final tile in tester.widgetList<SwitchListTile>(
+        find.byType(SwitchListTile),
+      )) {
+        final id = (tile.key! as ValueKey<String>).value.substring(
+          'optional-'.length,
+        );
+        if (!seen.contains(id)) seen.add(id);
+      }
+    }
+
+    collect();
+    for (
+      var i = 0;
+      i < 40 && find.byKey(const Key('save-person')).evaluate().isEmpty;
+      i++
+    ) {
+      await tester.drag(find.byType(ListView), const Offset(0, -300));
+      await settle(tester);
+      collect();
+    }
+    return seen;
+  }
 }
 
 class TimelinePage {

@@ -69,6 +69,7 @@ class ReplicatedStore {
     'dateOfBirth': person.dateOfBirth.toIso8601String(),
     'sex': person.sex.name,
     'notes': person.notes,
+    'optionalRules': encodeOptionalRules(person.optionalRules),
   });
 
   Future<void> deletePerson(String id) =>
@@ -283,6 +284,7 @@ class ReplicatedStore {
       orElse: () => Sex.notStated,
     ),
     notes: fields['notes'] as String?,
+    optionalRules: decodeOptionalRules(fields['optionalRules'] as String?),
   );
 
   Completion _completionFrom(Map<String, Object?> fields) => Completion(

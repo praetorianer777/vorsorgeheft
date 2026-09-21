@@ -19,6 +19,18 @@ void main() {
     await settle(tester);
   }
 
+  /// The optional vaccinations push the save button below the fold.
+  Future<void> saveForm(WidgetTester tester) async {
+    await tester.dragUntilVisible(
+      find.byKey(const Key('save-person')),
+      find.byType(ListView),
+      const Offset(0, -300),
+    );
+    await settle(tester);
+    await tester.tap(find.byKey(const Key('save-person')));
+    await settle(tester);
+  }
+
   appTest('an empty family says what to do next', (tester, db) async {
     expect(find.text('No one here yet'), findsOneWidget);
     expect(find.byKey(const Key('add-person')), findsOneWidget);
@@ -30,7 +42,10 @@ void main() {
   ) async {
     await tester.tap(find.byKey(const Key('add-person')));
     await settle(tester);
-    await tester.tap(find.byKey(const Key('save-person')));
+    await saveForm(tester);
+    // The refused save leaves the form scrolled to its button; the errors
+    // are back at the top.
+    await tester.drag(find.byType(ListView), const Offset(0, 4000));
     await settle(tester);
 
     expect(find.text('Please enter a name'), findsOneWidget);
@@ -53,8 +68,7 @@ void main() {
     await tester.tap(find.text('OK'));
     await settle(tester);
 
-    await tester.tap(find.byKey(const Key('save-person')));
-    await settle(tester);
+    await saveForm(tester);
 
     expect(find.text('Anna'), findsOneWidget);
     expect(find.text('19 days old'), findsOneWidget);

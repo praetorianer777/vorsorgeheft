@@ -1,7 +1,7 @@
 {
-  "_conversion": "The calendar lists tetanus, diphtheria, pertussis, Hib, polio and hepatitis B as six rows given at the same three appointments, because one six-in-one vaccine covers them. They are one rule here: six reminders for one appointment would be six chances to ignore it. Ages are the calendar's own columns; a dose also carries the minimum interval to the one before it, which is what makes a late dose move the ones after it instead of silently going out of date. Only standard immunisations (S) are modelled. Indication-based vaccinations depend on illness, occupation, pregnancy or travel, none of which the app knows about, and a reminder for one would be wrong for almost everyone who saw it.",
+  "_conversion": "The calendar lists tetanus, diphtheria, pertussis, Hib, polio and hepatitis B as six rows given at the same three appointments, because one six-in-one vaccine covers them. They are one rule here: six reminders for one appointment would be six chances to ignore it. Ages are the calendar's own columns; a dose also carries the minimum interval to the one before it, which is what makes a late dose move the ones after it instead of silently going out of date. Standard immunisations (S) are modelled as they are. Indication-based vaccinations (I) depend on illness, occupation, pregnancy or travel, none of which the app knows about, and a reminder for one would be wrong for almost everyone who saw it; the ones a family is likely to ask about carry `optional: true`, are never generated until switched on for a person, and say in their description who the STIKO means them for. A booster whose `after` names an optional series takes that series' switch. `thenEvery` is the interval once a booster has been given, where it differs from the first one.",
   "catalogId": "vaccinations",
-  "catalogVersion": "2026.09",
+  "catalogVersion": "2026.09.1",
   "name": {
     "en": "Vaccinations",
     "de": "Impfungen"
@@ -585,6 +585,267 @@
         "type": "onceFromAge",
         "from": {
           "years": 75
+        }
+      }
+    },
+    {
+      "id": "influenza-under-60",
+      "optional": true,
+      "statutory": false,
+      "title": {
+        "en": "Flu vaccination (under 60)",
+        "de": "Grippeimpfung (unter 60)"
+      },
+      "description": {
+        "en": "One dose every autumn or winter, before the age at which everyone is offered it. The STIKO recommends it for people with a chronic illness, in pregnancy, for residents of care homes, for those who live with someone at risk and for health-care workers. Many insurers pay for anyone who asks.",
+        "de": "Eine Impfung jeden Herbst oder Winter, schon vor dem Alter, ab dem sie allen empfohlen wird. Die STIKO empfiehlt sie bei chronischen Krankheiten, in der Schwangerschaft, für Bewohner von Pflegeheimen, für Haushaltskontakte von Risikopersonen und für medizinisches Personal. Viele Kassen zahlen sie auf Wunsch für alle."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "months": 6
+        },
+        "every": {
+          "years": 1
+        },
+        "until": {
+          "years": 60
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 60
+        }
+      }
+    },
+    {
+      "id": "covid-under-75",
+      "optional": true,
+      "statutory": false,
+      "title": {
+        "en": "COVID-19 booster (under 75)",
+        "de": "COVID-19-Auffrischung (unter 75)"
+      },
+      "description": {
+        "en": "One dose each autumn, before the age at which everyone is offered it. The STIKO recommends it for people with a chronic illness, for residents of care homes, for medical and nursing staff and for those who live with someone at risk; since July 2026 nobody else under 75 is offered it as a matter of course.",
+        "de": "Eine Impfung jeden Herbst, schon vor dem Alter, ab dem sie allen empfohlen wird. Die STIKO empfiehlt sie bei chronischen Krankheiten, für Bewohner von Pflegeheimen, für medizinisches und pflegerisches Personal und für Haushaltskontakte von Risikopersonen; seit Juli 2026 wird sie sonst niemandem unter 75 mehr grundsätzlich angeboten."
+      },
+      "source": "stiko-updates",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "months": 6
+        },
+        "every": {
+          "years": 1
+        },
+        "until": {
+          "years": 75
+        }
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 75
+        }
+      }
+    },
+    {
+      "id": "tbe",
+      "optional": true,
+      "title": {
+        "en": "TBE vaccination (risk areas)",
+        "de": "FSME-Impfung (Risikogebiete)"
+      },
+      "description": {
+        "en": "For people who live in or travel to a tick-borne encephalitis risk area and spend time outdoors there. Three doses from the first birthday: the second one to three months after the first, the third five to twelve months after the second, depending on the vaccine. Travel vaccinations are paid by some insurers only.",
+        "de": "Für alle, die in einem FSME-Risikogebiet wohnen oder dorthin reisen und sich dort im Freien aufhalten. Drei Dosen ab dem ersten Geburtstag: die zweite ein bis drei Monate nach der ersten, die dritte je nach Impfstoff fünf bis zwölf Monate nach der zweiten. Reiseimpfungen zahlen nur manche Kassen."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "years": 1
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "years": 1,
+              "months": 1
+            },
+            "minIntervalFromPrevious": {
+              "months": 1
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "years": 1,
+              "months": 6
+            },
+            "minIntervalFromPrevious": {
+              "months": 5
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "minAge": {
+          "years": 1
+        }
+      }
+    },
+    {
+      "id": "tbe-booster",
+      "optional": true,
+      "title": {
+        "en": "TBE booster",
+        "de": "FSME-Auffrischung"
+      },
+      "description": {
+        "en": "The first booster three years after the series, then every five years while the exposure lasts. From 50 or 60, depending on the vaccine, the interval goes back to three years. Comes with the TBE vaccination switch.",
+        "de": "Die erste Auffrischung drei Jahre nach der Grundimmunisierung, danach alle fünf Jahre, solange das Risiko besteht. Ab 50 bzw. 60, je nach Impfstoff, wieder alle drei Jahre. Gehört zum Schalter der FSME-Impfung."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "years": 3
+        },
+        "thenEvery": {
+          "years": 5
+        },
+        "after": "tbe"
+      }
+    },
+    {
+      "id": "pertussis-pregnancy",
+      "optional": true,
+      "title": {
+        "en": "Whooping cough in pregnancy",
+        "de": "Keuchhusten in der Schwangerschaft"
+      },
+      "description": {
+        "en": "For pregnant women: one Tdap dose at the start of the third trimester, from week 28, or earlier when a premature birth is likely. It is given in every pregnancy, whatever the last vaccination date. Recorded here once; record it again for the next pregnancy.",
+        "de": "Für Schwangere: eine Tdap-Impfung zu Beginn des dritten Trimesters, ab der 28. Woche, bei drohender Frühgeburt früher. Sie wird in jeder Schwangerschaft gegeben, unabhängig von der letzten Impfung. Hier einmal erfasst; für die nächste Schwangerschaft erneut eintragen."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "onceFromAge",
+        "from": {
+          "years": 18
+        }
+      },
+      "eligibility": {
+        "sex": "female",
+        "minAge": {
+          "years": 18
+        }
+      }
+    },
+    {
+      "id": "hpv-catch-up",
+      "optional": true,
+      "statutory": false,
+      "title": {
+        "en": "HPV catch-up (18 to 26)",
+        "de": "HPV-Nachholimpfung (18 bis 26)"
+      },
+      "description": {
+        "en": "For women and men who missed the vaccination as teenagers. The STIKO's catch-up ends at 17; beyond that it names no age limit, and many insurers pay until the 27th birthday. Started at 15 or later it takes three doses: the second one to two months after the first, the third six months after the first.",
+        "de": "Für Frauen und Männer, die die Impfung als Jugendliche versäumt haben. Die Nachholempfehlung der STIKO endet mit 17; darüber hinaus nennt sie keine Altersgrenze, und viele Kassen zahlen bis zum 27. Geburtstag. Ab 15 begonnen sind drei Dosen nötig: die zweite ein bis zwei Monate nach der ersten, die dritte sechs Monate nach der ersten."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "years": 18
+            },
+            "to": {
+              "years": 27
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "years": 18,
+              "months": 1
+            },
+            "to": {
+              "years": 27
+            },
+            "minIntervalFromPrevious": {
+              "months": 1
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "years": 18,
+              "months": 6
+            },
+            "to": {
+              "years": 27
+            },
+            "minIntervalFromPrevious": {
+              "months": 4
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "minAge": {
+          "years": 18
+        },
+        "maxAge": {
+          "years": 27
+        }
+      }
+    },
+    {
+      "id": "meningococcal-b-catch-up",
+      "optional": true,
+      "statutory": false,
+      "title": {
+        "en": "Meningococcal B (from 5)",
+        "de": "Meningokokken B (ab 5)"
+      },
+      "description": {
+        "en": "For children and adults past the age the standard series is caught up to, where a doctor sees a reason: an immune deficiency, a missing spleen, laboratory work with meningococci, or a stay in a country with many cases. Two doses, one to six months apart depending on the vaccine.",
+        "de": "Für Kinder und Erwachsene jenseits des Alters, bis zu dem die Standardimpfung nachgeholt wird, wenn ein ärztlicher Grund vorliegt: Immunschwäche, fehlende Milz, Laborarbeit mit Meningokokken oder ein Aufenthalt in einem Land mit vielen Fällen. Zwei Dosen im Abstand von ein bis sechs Monaten, je nach Impfstoff."
+      },
+      "source": "stiko-2026",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "years": 5
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "years": 5,
+              "months": 1
+            },
+            "minIntervalFromPrevious": {
+              "months": 1
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "minAge": {
+          "years": 5
         }
       }
     }
