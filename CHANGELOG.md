@@ -8,7 +8,6 @@ and the versioning [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Features
-
 - "Send to the other phone" seals the family under a six-digit code, shows
   the code and hands the file to the share sheet; "Receive from the other
   phone" opens it with that code. The `.vorsorge` file type is registered
@@ -26,7 +25,6 @@ and the versioning [Semantic Versioning](https://semver.org/).
   will see.
 - An icon of its own, a calendar leaf with a check mark in the app's green,
   on Android (adaptive) and iOS, in place of the Flutter default.
-
 - A "How this app works" screen in settings explains, in plain words, where
   the appointments come from with the source documents linked, how the dates
   are worked out from the date of birth, what each status symbol means, when
@@ -39,17 +37,19 @@ and the versioning [Semantic Versioning](https://semver.org/).
   is no shared Wi-Fi.
 
 ### Bug fixes
-
 - The stored language is restored on start by a read nobody waits for; when
   it landed after the app's state was already torn down it threw into
   whatever ran next. It is now dropped instead.
-
 - The dental examinations Z1 to Z6 lapse with their age span, as the U
   check-ups do: a child added later finds the ones that are over under "No
   longer available" instead of an "Overdue" that never clears.
 
 ### Other
-
+- Every schema version ever shipped is recorded, and a test migrates each
+  one to the current schema and checks the result against a fresh install;
+  another fills a database the way v0.1.0 did and finds everything intact
+  after the upgrade. The test gate refuses a changed table without a new
+  schema dump, so a forgotten migration cannot ship.
 - A bundle written in 2026 lives in the repo and every later version has to
   open it, so a family recorded today reaches the phone of ten years on. The
   end-to-end specs also run nightly on an iOS simulator.

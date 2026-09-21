@@ -129,8 +129,18 @@ machine without an emulator. It is not shipped and is not built in CI.
 | Format & analysis | `dart format --set-exit-if-changed .`, `flutter analyze --fatal-infos` | |
 | Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, data layer, UI flows |
 | End-to-end | `flutter test` | The specs in `integration_test/specs.dart`, run headless so they gate every push |
+| Schema upgrades | `flutter test test/data/migration_test.dart` | Every schema version ever shipped (`drift_schemas/`) migrates to the current one and matches a fresh install; what v0.1.0 wrote survives the upgrade |
 | End-to-end on a device | `ANDROID_E2E=1 ./run-tests.sh` | The same specs on an emulator or device, where platform channels and the real asset bundle are in play; runs nightly in CI |
 | Reminder on a device | `flutter test integration_test/reminder_on_device_test.dart -d <device>` | Schedules a reminder through the real notification plugin and reads it back from the shade; device only, part of the nightly run |
+
+When a table changes, bump `schemaVersion`, write the migration in `lib/data/database.dart`, then
+record the new schema and regenerate the test classes; `run-tests.sh` refuses a `database.dart`
+whose dump differs from the newest file under `drift_schemas/`:
+
+```bash
+dart run drift_dev schema dump lib/data/database.dart drift_schemas/
+dart run drift_dev schema generate drift_schemas/ test/data/generated/ --data-classes --companions
+```
 
 The end-to-end specs are written once and run under two bindings. A spec that
 only ever ran on the emulator would be written and then left to rot, because

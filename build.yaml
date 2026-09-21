@@ -1,0 +1,10 @@
+# The app stores dates as ISO-8601 text (see DriftDatabaseOptions in
+# lib/data/database.dart); the schema dumps under drift_schemas/ have to say
+# the same, or the migration tests compare against INTEGER date columns that
+# no phone has ever had.
+targets:
+  $default:
+    builders:
+      drift_dev:
+        options:
+          store_date_time_values_as_text: true
