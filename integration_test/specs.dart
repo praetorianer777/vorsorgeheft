@@ -48,6 +48,10 @@ void registerAppSpecs() {
     expect(timeline.needsAttention, findsOneWidget);
     await timeline.scrollToAppointment('U6');
     expect(find.text('U6'), findsOneWidget);
+    // The J1 at twelve is not "coming up" for a newborn.
+    await scrollTo(tester, timeline.farAhead);
+    await timeline.scrollToAppointment('J1');
+    expect(timeline.status('J1', 'Upcoming'), findsOneWidget);
 
     await shutDown(tester, db);
   });

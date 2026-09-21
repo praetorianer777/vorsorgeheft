@@ -42,6 +42,7 @@
   "statusSkipped": "Skipped",
   "sectionNeedsAttention": "Needs attention",
   "sectionComingUp": "Coming up",
+  "sectionFarAhead": "Further ahead",
   "sectionSettled": "Done and skipped",
   "sectionExpired": "No longer available",
   "notStatutory": "Depends on your insurer",

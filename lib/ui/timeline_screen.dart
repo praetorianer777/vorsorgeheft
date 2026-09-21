@@ -11,20 +11,33 @@ import 'occurrence_detail_screen.dart';
 import 'person_form_screen.dart';
 import 'relative_time.dart';
 
-/// The four groups a timeline is split into.
+/// The five groups a timeline is split into.
 ///
 /// What costs something if ignored comes first; what is already settled sinks
 /// to the bottom, and what can no longer be had is last but still visible,
 /// because a lapsed entitlement is something a parent should be able to find.
-enum TimelineSection { needsAttention, comingUp, settled, expired }
+/// What opens more than [farAheadAfter] from today is set apart from what is
+/// coming up, so next year's check-up is not listed beside the colonoscopy in
+/// twenty years.
+enum TimelineSection { needsAttention, comingUp, farAhead, settled, expired }
 
-TimelineSection sectionOf(OccurrenceStatus status) => switch (status) {
-  OccurrenceStatus.due ||
-  OccurrenceStatus.overdue => TimelineSection.needsAttention,
-  OccurrenceStatus.upcoming => TimelineSection.comingUp,
-  OccurrenceStatus.done || OccurrenceStatus.skipped => TimelineSection.settled,
-  OccurrenceStatus.expired => TimelineSection.expired,
-};
+/// The distance at which an upcoming appointment stops being "coming up".
+const farAheadAfter = 5;
+
+TimelineSection sectionOf(Occurrence occurrence, DateTime today) =>
+    switch (occurrence.status) {
+      OccurrenceStatus.due ||
+      OccurrenceStatus.overdue => TimelineSection.needsAttention,
+      OccurrenceStatus.upcoming =>
+        occurrence.windowStart.isAfter(
+              DateTime.utc(today.year + farAheadAfter, today.month, today.day),
+            )
+            ? TimelineSection.farAhead
+            : TimelineSection.comingUp,
+      OccurrenceStatus.done ||
+      OccurrenceStatus.skipped => TimelineSection.settled,
+      OccurrenceStatus.expired => TimelineSection.expired,
+    };
 
 /// Orders what needs attention by urgency rather than by when it opened:
 /// overdue before due, and within each the entry that lapses first at the
@@ -84,6 +97,7 @@ class TimelineScreen extends ConsumerWidget {
           personId: person.id,
           personName: person.name,
           occurrences: occurrences,
+          today: ref.watch(clockProvider)(),
         ),
       ),
     );
@@ -95,11 +109,13 @@ class _Timeline extends StatelessWidget {
     required this.personId,
     required this.personName,
     required this.occurrences,
+    required this.today,
   });
 
   final String personId;
   final String personName;
   final List<Occurrence> occurrences;
+  final DateTime today;
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +123,7 @@ class _Timeline extends StatelessWidget {
     final grouped = <TimelineSection, List<Occurrence>>{};
     for (final occurrence in occurrences) {
       grouped
-          .putIfAbsent(sectionOf(occurrence.status), () => [])
+          .putIfAbsent(sectionOf(occurrence, today), () => [])
           .add(occurrence);
     }
     grouped[TimelineSection.needsAttention]?.sort(compareUrgency);
@@ -129,6 +145,7 @@ class _Timeline extends StatelessWidget {
             switch (section) {
               TimelineSection.needsAttention => l10n.sectionNeedsAttention,
               TimelineSection.comingUp => l10n.sectionComingUp,
+              TimelineSection.farAhead => l10n.sectionFarAhead,
               TimelineSection.settled => l10n.sectionSettled,
               TimelineSection.expired => l10n.sectionExpired,
             },
