@@ -8,6 +8,7 @@ import 'export_action.dart';
 import 'formatting.dart';
 import 'occurrence_detail_screen.dart';
 import 'person_form_screen.dart';
+import 'relative_time.dart';
 
 /// The four groups a timeline is split into.
 ///
@@ -105,14 +106,15 @@ class _Timeline extends StatelessWidget {
   }
 }
 
-class _OccurrenceTile extends StatelessWidget {
+class _OccurrenceTile extends ConsumerWidget {
   const _OccurrenceTile({required this.occurrence});
 
   final Occurrence occurrence;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
+    final today = ref.watch(clockProvider)();
     final locale = Localizations.localeOf(context).languageCode;
     final scheme = Theme.of(context).colorScheme;
     final labels = <String>[
@@ -130,11 +132,9 @@ class _OccurrenceTile extends StatelessWidget {
           Text(
             occurrence.completedOn != null
                 ? l10n.completedOnLabel(occurrence.completedOn!)
-                : formatRange(
-                    context,
-                    occurrence.windowStart,
-                    occurrence.windowEnd,
-                  ),
+                : '${formatRange(context, occurrence.windowStart, occurrence.windowEnd)}'
+                      ' \u00b7 '
+                      '${formatRelativeDate(l10n, occurrence.windowStart, today)}',
           ),
           const SizedBox(height: 4),
           Wrap(

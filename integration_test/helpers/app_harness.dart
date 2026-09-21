@@ -35,9 +35,10 @@ Future<AppDatabase> launchApp(
   WidgetTester tester, {
   List<Person> people = const [],
   DateTime? today,
-  Locale locale = const Locale('en'),
+  Locale? locale = const Locale('en'),
   RecordingGateway? gateway,
   RecordingShareGateway? share,
+  AppDatabase? database,
 }) async {
   // A spec asserts on which reminders were planned, not on how a platform
   // renders them, and the emulator makes exactly that assertion slow.
@@ -45,9 +46,9 @@ Future<AppDatabase> launchApp(
   final activeShare = share ?? RecordingShareGateway();
   final exportDirectory = Directory.systemTemp.createTempSync('vorsorge-ics');
   addTearDown(() => exportDirectory.deleteSync(recursive: true));
-  final database = openInMemoryDatabase();
+  final db = database ?? openInMemoryDatabase();
   final store = await ReplicatedStore.open(
-    database,
+    db,
     nodeId: 'spec-node',
     clock: () => today ?? pinnedToday,
   );
@@ -60,7 +61,7 @@ Future<AppDatabase> launchApp(
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
-        databaseProvider.overrideWithValue(database),
+        databaseProvider.overrideWithValue(db),
         storeProvider.overrideWithValue(store),
         notificationGatewayProvider.overrideWithValue(activeGateway),
         if (specAssetBundle != null)
@@ -73,7 +74,7 @@ Future<AppDatabase> launchApp(
         // read the file that was produced.
         icsExportServiceProvider.overrideWith(
           (ref) => IcsExportService(
-            database: database,
+            database: db,
             catalogs: specAssetBundle == null
                 ? const CatalogRepository()
                 : CatalogRepository(bundle: specAssetBundle),
@@ -82,13 +83,21 @@ Future<AppDatabase> launchApp(
             directory: () async => exportDirectory,
           ),
         ),
-        localeProvider.overrideWith(() => _FixedLocale(locale)),
+        if (locale != null)
+          localeProvider.overrideWith(() => _FixedLocale(locale)),
       ],
       child: const VorsorgereminderApp(),
     ),
   );
   await settle(tester);
-  return database;
+  return db;
+}
+
+/// Tears the widget tree down but leaves the database open, so a spec can
+/// launch again against it and see what a restart restores.
+Future<void> detach(WidgetTester tester) async {
+  await tester.pumpWidget(const SizedBox.shrink());
+  await tester.pump(const Duration(seconds: 1));
 }
 
 /// Shuts the app down while the test body is still running.

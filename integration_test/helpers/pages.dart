@@ -31,6 +31,12 @@ class FamilyPage {
   Future<void> exportCalendar(RecordingShareGateway share) =>
       tapExport(tester, share);
 
+  Future<SettingsPage> openSettings() async {
+    await tester.tap(find.byKey(const Key('open-settings')));
+    await settle(tester);
+    return SettingsPage(tester);
+  }
+
   Future<SourcesPage> openSources() async {
     await tester.tap(find.byIcon(Icons.info_outline));
     await settle(tester);
@@ -75,6 +81,7 @@ class TimelinePage {
   final WidgetTester tester;
 
   Finder get needsAttention => find.text('Needs attention');
+  Finder appointmentDates(String fragment) => find.textContaining(fragment);
   Finder get comingUp => find.text('Coming up');
   Finder get settled => find.text('Done and skipped');
   Finder get noLongerAvailable => find.text('No longer available');
@@ -127,6 +134,38 @@ class AppointmentPage {
 
   Future<void> back() async {
     await tester.pageBack();
+    await settle(tester);
+  }
+}
+
+class SettingsPage {
+  const SettingsPage(this.tester);
+
+  final WidgetTester tester;
+
+  Finder get title => find.text('Settings');
+  Finder get germanTitle => find.text('Einstellungen');
+  Finder get version => find.textContaining('Version ');
+
+  Future<void> chooseGerman() => _choose('language-de');
+  Future<void> chooseEnglish() => _choose('language-en');
+  Future<void> chooseSystemLanguage() => _choose('language-system');
+
+  Future<void> _choose(String key) async {
+    await tester.tap(find.byKey(Key(key)));
+    await settle(tester);
+  }
+
+  Future<SourcesPage> openSources() async {
+    await tester.tap(find.byKey(const Key('open-sources')));
+    await settle(tester);
+    return SourcesPage(tester);
+  }
+
+  /// Not `pageBack`: it looks the back button up by its English tooltip, and
+  /// this is the one screen that can change the language under itself.
+  Future<void> back() async {
+    await tester.tap(find.byType(BackButton));
     await settle(tester);
   }
 }

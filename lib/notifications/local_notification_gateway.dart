@@ -72,6 +72,7 @@ class LocalNotificationGateway implements NotificationGateway {
     PlannedReminder reminder, {
     required String title,
     required String body,
+    required String channelName,
   }) => _plugin.zonedSchedule(
     id: reminder.id,
     title: title,
@@ -87,7 +88,7 @@ class LocalNotificationGateway implements NotificationGateway {
     notificationDetails: NotificationDetails(
       android: AndroidNotificationDetails(
         _channelId,
-        'Appointments',
+        channelName,
         importance: reminder.kind == ReminderKind.deadlineApproaching
             ? Importance.high
             : Importance.defaultImportance,

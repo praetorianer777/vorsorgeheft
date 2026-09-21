@@ -145,6 +145,9 @@ void main() {
     expect(gateway.titles.any((t) => t.contains('steht an')), isTrue);
     expect(gateway.titles.any((t) => t.contains('läuft bald ab')), isTrue);
     expect(gateway.bodies.any((b) => b.contains('Zeitraum beginnt')), isTrue);
+    // Android shows the channel name in its own settings, so it is localised
+    // like everything else the notification carries.
+    expect(gateway.channelNames, everyElement('Erinnerungen'));
   });
 
   group('permissions', () {

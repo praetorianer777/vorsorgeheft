@@ -98,6 +98,81 @@
   "settingsTitle": "Settings",
   "languageLabel": "Language",
   "languageSystem": "System language",
+  "languageGerman": "Deutsch",
+  "languageEnglish": "English",
+  "appVersion": "Version {version}",
+  "@appVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeToday": "today",
+  "relativeInDays": "{days, plural, =1{tomorrow} other{in {days} days}}",
+  "@relativeInDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeInWeeks": "{weeks, plural, =1{in 1 week} other{in {weeks} weeks}}",
+  "@relativeInWeeks": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeInMonths": "{months, plural, =1{in 1 month} other{in {months} months}}",
+  "@relativeInMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeInYears": "{years, plural, =1{in 1 year} other{in {years} years}}",
+  "@relativeInYears": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeDaysAgo": "{days, plural, =1{yesterday} other{{days} days ago}}",
+  "@relativeDaysAgo": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeWeeksAgo": "{weeks, plural, =1{1 week ago} other{{weeks} weeks ago}}",
+  "@relativeWeeksAgo": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeMonthsAgo": "{months, plural, =1{1 month ago} other{{months} months ago}}",
+  "@relativeMonthsAgo": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeYearsAgo": "{years, plural, =1{1 year ago} other{{years} years ago}}",
+  "@relativeYearsAgo": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
   "ageYears": "{years, plural, =1{1 year old} other{{years} years old}}",
   "@ageYears": {
     "placeholders": {

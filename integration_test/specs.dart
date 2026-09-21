@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgereminder/domain/completion.dart';
 import 'package:vorsorgereminder/notifications/reminder.dart';
@@ -309,6 +310,51 @@ void registerAppSpecs() {
     expect(find.text('May apply'), findsWidgets);
 
     await shutDown(tester, db);
+  });
+
+  testWidgets('the language chosen in settings survives a restart', (
+    tester,
+  ) async {
+    // No pinned locale here: this is the one spec that has to see the real
+    // notifier read its override back out of the database.
+    final db = await launchApp(tester, people: [Family.infant], locale: null);
+    final settings = await FamilyPage(tester).openSettings();
+    expect(settings.title, findsOneWidget);
+    expect(settings.version, findsOneWidget);
+
+    await settings.chooseGerman();
+    expect(settings.germanTitle, findsOneWidget);
+    await settings.back();
+    expect(find.text('Familie'), findsOneWidget);
+    expect(find.text('Family'), findsNothing);
+
+    await detach(tester);
+    await launchApp(tester, locale: null, database: db);
+    expect(find.text('Familie'), findsOneWidget);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('the timeline reads its dates in the chosen language', (
+    tester,
+  ) async {
+    final english = await launchApp(tester, people: [Family.infant]);
+    final englishTimeline = await FamilyPage(tester).open('Mila');
+    await englishTimeline.scrollToAppointment('U3');
+    expect(englishTimeline.appointmentDates('Sep 22, 2026'), findsWidgets);
+    expect(englishTimeline.appointmentDates('in 2 days'), findsWidgets);
+    await shutDown(tester, english);
+
+    final german = await launchApp(
+      tester,
+      people: [Family.infant],
+      locale: const Locale('de'),
+    );
+    final germanTimeline = await FamilyPage(tester).open('Mila');
+    await germanTimeline.scrollToAppointment('U3');
+    expect(germanTimeline.appointmentDates('22. Sept. 2026'), findsWidgets);
+    expect(germanTimeline.appointmentDates('in 2 Tagen'), findsWidgets);
+    await shutDown(tester, german);
   });
 
   testWidgets("an adult gets none of the children's check-ups", (tester) async {

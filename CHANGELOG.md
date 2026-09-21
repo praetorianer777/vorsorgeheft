@@ -21,7 +21,12 @@ and the versioning [Semantic Versioning](https://semver.org/).
   what can no longer be had. Each appointment names the guideline it comes from
   and the date that guideline was last reviewed.
 - Record an appointment as done or deliberately skipped, and undo it.
-- German and English throughout.
+- German and English throughout, following the system language unless a
+  language is picked in the new settings screen; that choice stays on the
+  device it was made on. Dates and distances in time read in the chosen
+  language, so a window opens "in 3 Wochen" or "in 3 weeks". The German
+  designations U6, J1, Td and the rest are kept in the English text and
+  explained where they are shown.
 - Children's check-ups U1 to U9 and the J1, with the exclusion deadlines past
   which the entitlement lapses, plus the newborn, hearing, pulse-oximetry and
   cystic-fibrosis screenings. U10, U11 and J2 are included but flagged as

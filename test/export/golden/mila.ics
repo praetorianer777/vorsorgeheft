@@ -44,9 +44,10 @@ SEQUENCE:0
 DTSTART;VALUE=DATE:20260901
 DTEND;VALUE=DATE:20260902
 SUMMARY:Mila: U1
-DESCRIPTION:Examination immediately after birth\, within the first 30 minut
- es.\nSource: G-BA guideline on early detection of illness in children · a
- s of 2026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+DESCRIPTION:The first of the statutory children's check-ups (U-series)\, im
+ mediately after birth\, within the first 30 minutes.\nSource: G-BA guideli
+ ne on early detection of illness in children · as of 2026-09-20\nhttps://
+ www.g-ba.de/richtlinien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -169,11 +170,12 @@ SEQUENCE:0
 DTSTART;VALUE=DATE:20260922
 DTEND;VALUE=DATE:20261006
 SUMMARY:Mila: U3
-DESCRIPTION:Check-up in the 4th to 5th week of life. It can be caught up un
- til the 3rd to 8th week of life\; after that the statutory entitlement lap
- ses.\nCatch up by 2026-10-26\; after that the entitlement lapses.\nSource:
-  G-BA guideline on early detection of illness in children · as of 2026-09
- -20\nhttps://www.g-ba.de/richtlinien/15/
+DESCRIPTION:The third of the statutory children's check-ups (U-series)\, in
+  the 4th to 5th week of life. It can be caught up until the 3rd to 8th wee
+ k of life\; after that the statutory entitlement lapses.\nCatch up by 2026
+ -10-26\; after that the entitlement lapses.\nSource: G-BA guideline on ear
+ ly detection of illness in children · as of 2026-09-20\nhttps://www.g-ba.
+ de/richtlinien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -211,11 +213,12 @@ SEQUENCE:0
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20270101
 SUMMARY:Mila: U4
-DESCRIPTION:Check-up in the 3rd to 4th month of life. It can be caught up u
- ntil the 2nd to 4½th month of life\; after that the statutory entitlement
-  lapses.\nCatch up by 2027-01-16\; after that the entitlement lapses.\nSou
- rce: G-BA guideline on early detection of illness in children · as of 202
- 6-09-20\nhttps://www.g-ba.de/richtlinien/15/
+DESCRIPTION:The fourth of the statutory children's check-ups (U-series)\, i
+ n the 3rd to 4th month of life. It can be caught up until the 2nd to 4½th
+  month of life\; after that the statutory entitlement lapses.\nCatch up by
+  2027-01-16\; after that the entitlement lapses.\nSource: G-BA guideline o
+ n early detection of illness in children · as of 2026-09-20\nhttps://www.
+ g-ba.de/richtlinien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -253,11 +256,12 @@ SEQUENCE:0
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270401
 SUMMARY:Mila: U5
-DESCRIPTION:Check-up in the 6th to 7th month of life. It can be caught up u
- ntil the 5th to 8th month of life\; after that the statutory entitlement l
- apses.\nCatch up by 2027-04-30\; after that the entitlement lapses.\nSourc
- e: G-BA guideline on early detection of illness in children · as of 2026-
- 09-20\nhttps://www.g-ba.de/richtlinien/15/
+DESCRIPTION:The fifth of the statutory children's check-ups (U-series)\, in
+  the 6th to 7th month of life. It can be caught up until the 5th to 8th mo
+ nth of life\; after that the statutory entitlement lapses.\nCatch up by 20
+ 27-04-30\; after that the entitlement lapses.\nSource: G-BA guideline on e
+ arly detection of illness in children · as of 2026-09-20\nhttps://www.g-b
+ a.de/richtlinien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -295,11 +299,12 @@ SEQUENCE:0
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270901
 SUMMARY:Mila: U6
-DESCRIPTION:Check-up in the 10th to 12th month of life. It can be caught up
-  until the 9th to 14th month of life\; after that the statutory entitlemen
- t lapses.\nCatch up by 2027-10-31\; after that the entitlement lapses.\nSo
- urce: G-BA guideline on early detection of illness in children · as of 20
- 26-09-20\nhttps://www.g-ba.de/richtlinien/15/
+DESCRIPTION:The sixth of the statutory children's check-ups (U-series)\, in
+  the 10th to 12th month of life. It can be caught up until the 9th to 14th
+  month of life\; after that the statutory entitlement lapses.\nCatch up by
+  2027-10-31\; after that the entitlement lapses.\nSource: G-BA guideline o
+ n early detection of illness in children · as of 2026-09-20\nhttps://www.
+ g-ba.de/richtlinien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -337,11 +342,12 @@ SEQUENCE:0
 DTSTART;VALUE=DATE:20280501
 DTEND;VALUE=DATE:20280901
 SUMMARY:Mila: U7
-DESCRIPTION:Check-up in the 21st to 24th month of life. It can be caught up
-  until the 20th to 27th month of life\; after that the statutory entitleme
- nt lapses.\nCatch up by 2028-11-30\; after that the entitlement lapses.\nS
- ource: G-BA guideline on early detection of illness in children · as of 2
- 026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+DESCRIPTION:The seventh of the statutory children's check-ups (U-series)\, 
+ in the 21st to 24th month of life. It can be caught up until the 20th to 2
+ 7th month of life\; after that the statutory entitlement lapses.\nCatch up
+  by 2028-11-30\; after that the entitlement lapses.\nSource: G-BA guidelin
+ e on early detection of illness in children · as of 2026-09-20\nhttps://w
+ ww.g-ba.de/richtlinien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -379,11 +385,12 @@ SEQUENCE:0
 DTSTART;VALUE=DATE:20290601
 DTEND;VALUE=DATE:20290901
 SUMMARY:Mila: U7a
-DESCRIPTION:Check-up in the 34th to 36th month of life. It can be caught up
-  until the 33rd to 38th month of life\; after that the statutory entitleme
- nt lapses.\nCatch up by 2029-10-31\; after that the entitlement lapses.\nS
- ource: G-BA guideline on early detection of illness in children · as of 2
- 026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+DESCRIPTION:An extra check-up between the U7 and the U8\, in the 34th to 36
+ th month of life. It can be caught up until the 33rd to 38th month of life
+ \; after that the statutory entitlement lapses.\nCatch up by 2029-10-31\; 
+ after that the entitlement lapses.\nSource: G-BA guideline on early detect
+ ion of illness in children · as of 2026-09-20\nhttps://www.g-ba.de/richtl
+ inien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -421,11 +428,12 @@ SEQUENCE:0
 DTSTART;VALUE=DATE:20300601
 DTEND;VALUE=DATE:20300901
 SUMMARY:Mila: U8
-DESCRIPTION:Check-up in the 46th to 48th month of life. It can be caught up
-  until the 43rd to 50th month of life\; after that the statutory entitleme
- nt lapses.\nCatch up by 2030-10-31\; after that the entitlement lapses.\nS
- ource: G-BA guideline on early detection of illness in children · as of 2
- 026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+DESCRIPTION:The eighth of the statutory children's check-ups (U-series)\, i
+ n the 46th to 48th month of life. It can be caught up until the 43rd to 50
+ th month of life\; after that the statutory entitlement lapses.\nCatch up 
+ by 2030-10-31\; after that the entitlement lapses.\nSource: G-BA guideline
+  on early detection of illness in children · as of 2026-09-20\nhttps://ww
+ w.g-ba.de/richtlinien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -463,11 +471,12 @@ SEQUENCE:0
 DTSTART;VALUE=DATE:20310801
 DTEND;VALUE=DATE:20320101
 SUMMARY:Mila: U9
-DESCRIPTION:Check-up in the 60th to 64th month of life. It can be caught up
-  until the 58th to 66th month of life\; after that the statutory entitleme
- nt lapses.\nCatch up by 2032-02-29\; after that the entitlement lapses.\nS
- ource: G-BA guideline on early detection of illness in children · as of 2
- 026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+DESCRIPTION:The ninth of the statutory children's check-ups (U-series)\, in
+  the 60th to 64th month of life. It can be caught up until the 58th to 66t
+ h month of life\; after that the statutory entitlement lapses.\nCatch up b
+ y 2032-02-29\; after that the entitlement lapses.\nSource: G-BA guideline 
+ on early detection of illness in children · as of 2026-09-20\nhttps://www
+ .g-ba.de/richtlinien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
