@@ -46,6 +46,10 @@ abstract class SyncTransport {
   /// Opens a channel to the peer [nodeId], found through discovery or, when
   /// discovery is unavailable, at [address].
   Future<SyncChannel> connect(String nodeId, {String? address});
+
+  /// Where this device can be reached when discovery does not work, in the
+  /// form [connect] accepts as [address]; null when there is no such thing.
+  Future<String?> localAddress();
 }
 
 /// The wire every [LoopbackTransport] of one test is plugged into.
@@ -74,6 +78,9 @@ class LoopbackTransport implements SyncTransport {
   Future<void> stop() async {
     if (_nodeId != null) _network._listeners.remove(_nodeId);
   }
+
+  @override
+  Future<String?> localAddress() async => null;
 
   @override
   Future<SyncChannel> connect(String nodeId, {String? address}) async {

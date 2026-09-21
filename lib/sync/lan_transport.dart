@@ -27,8 +27,9 @@ class LanTransport implements SyncTransport {
   ServerSocket? _server;
   _MdnsResponder? _responder;
 
-  /// Where this device can be reached, for the manual path: `host:port` of
-  /// the first non-loopback IPv4 interface, or null when not listening.
+  /// `host:port` of the first non-loopback IPv4 interface, or null when not
+  /// listening.
+  @override
   Future<String?> localAddress() async {
     final server = _server;
     if (server == null) return null;
@@ -57,10 +58,15 @@ class LanTransport implements SyncTransport {
         port: server.port,
         addresses: await _localAddresses(),
       );
-    } on SocketException {
+    } on IOException {
       // Multicast is not available here; the manual address path remains.
+    } on OSError {
+      // Same, reported by joinMulticast rather than by the bind.
     }
   }
+
+  /// The port this device accepts connections on, or null when not listening.
+  int? get port => _server?.port;
 
   @override
   Future<void> stop() async {
@@ -120,7 +126,9 @@ class LanTransport implements SyncTransport {
         }
       }
       return null;
-    } on SocketException {
+    } on IOException {
+      return null;
+    } on OSError {
       return null;
     } finally {
       client.stop();
@@ -195,6 +203,7 @@ class _SocketChannel implements SyncChannel {
       _frames.add(Uint8List.sublistView(bytes, 4, 4 + length));
       _buffer.clear();
       _buffer.add(Uint8List.sublistView(bytes, 4 + length));
+      _wake();
     }
   }
 
