@@ -1,8 +1,10 @@
 # The catalogs are maintained by hand from the primary sources; nothing here
 # parses a medical guideline. This job only answers "has the source document
-# changed since we last read it" and opens an issue if so, because a silently
-# outdated STIKO calendar is the one failure mode that actually harms users.
-# It never runs on PRs: an outage at the G-BA must not turn a PR red.
+# changed since we last read it", and when it has, it puts the changed lines
+# into an issue so the person maintaining the catalog reads a diff rather than
+# a 40-page PDF. The last known text of every source is committed under
+# tools/catalog-sources/ after each run. It never runs on PRs: an outage at
+# the G-BA must not turn a PR red.
 name: Catalog watch
 
 on:
@@ -15,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 jobs:
@@ -25,55 +27,48 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compare source documents against the recorded fingerprints
+      - name: Install the text extractors
+        run: sudo apt-get install -y --no-install-recommends poppler-utils file
+
+      - name: Compare source documents against the last known text
         id: check
         run: |
-          changed=""
-          {
-            echo "| Source | Status |"
-            echo "|---|---|"
-          } >> "$GITHUB_STEP_SUMMARY"
-          # Names carry spaces, so the fields are split on the tabs jq emits
-          # and nothing else. The download goes to a file first: in a pipe the
-          # exit status is sha256sum's, and a failed fetch hashes the empty
-          # string instead of being reported.
-          while IFS=$'\t' read -r id name url want; do
-            body="$(mktemp)"
-            if ! curl -fsSL --retry 3 --max-time 120 -o "$body" "$url" || [[ ! -s "$body" ]]; then
-              echo "| $name | ⚠️ unreachable |" >> "$GITHUB_STEP_SUMMARY"; continue
-            fi
-            got="$(sha256sum "$body" | cut -d' ' -f1)"
-            if [[ -z "$want" ]]; then
-              echo "| $name | 🆕 \`$got\` (record it in tools/catalog-sources.json) |" >> "$GITHUB_STEP_SUMMARY"
-            elif [[ "$want" == "$got" ]]; then
-              echo "| $name | ✅ unchanged |" >> "$GITHUB_STEP_SUMMARY"
-            else
-              echo "| $name | ❗ changed: \`$got\` |" >> "$GITHUB_STEP_SUMMARY"
-              changed+="- **$name** ($url)"$'\n'"  - expected \`$want\`, found \`$got\`"$'\n'
-            fi
-          done < <(jq -r '.sources[] | [.id, .name, .url, .sha256] | @tsv' tools/catalog-sources.json)
-          {
-            echo "changed<<END"
-            echo "$changed"
-            echo "END"
-          } >> "$GITHUB_OUTPUT"
+          tools/catalog-watch.sh watch
+          cat watch/summary.md >> "$GITHUB_STEP_SUMMARY"
+          echo "changed=$([[ -s watch/changed.md ]] && echo true || echo false)" >> "$GITHUB_OUTPUT"
 
       # One open issue at a time: a guideline that changed yesterday is still
       # the same piece of work today, and a nightly job must not file it again
       # every morning.
       - name: File an issue if a source changed
-        if: steps.check.outputs.changed != ''
+        if: steps.check.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-          CHANGED: ${{ steps.check.outputs.changed }}
         run: |
           existing="$(gh issue list --state open --label catalog-source --limit 1 --json number --jq '.[0].number')"
-          body="The following primary sources have changed. Review the affected catalog in \`assets/catalogs/\`, update its \`asOf\` date, and record the new fingerprint in \`tools/catalog-sources.json\`.
-
-          $CHANGED"
+          {
+            echo "A primary source has changed. Read the diff, review the affected catalog in \`assets/catalogs/\`, update its \`asOf\` date and version, and add a \`_changes\` note. The full new text is in \`tools/catalog-sources/\` on the default branch."
+            echo
+            cat watch/changed.md
+          } > issue.md
           if [[ -n "$existing" ]]; then
-            gh issue comment "$existing" --body "$body"
+            gh issue comment "$existing" --body-file issue.md
           else
             gh label create catalog-source --color D93F0B --description "A guideline source document has changed" 2>/dev/null || true
-            gh issue create --title "A catalog source document has changed" --label catalog-source --body "$body"
+            gh issue create --title "A catalog source document has changed" --label catalog-source --body-file issue.md
           fi
+
+      # The snapshots land on the default branch rather than on a PR: they
+      # are the job's memory, and a PR nobody merges would make the same
+      # change ring every night.
+      - name: Record the new text
+        run: |
+          git add tools/catalog-sources
+          if git diff --cached --quiet; then
+            echo "no snapshot changed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: record the catalog source texts as of $(date -u +%Y-%m-%d) [skip ci]"
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"

@@ -12,6 +12,7 @@ import '../support/support_prompt_notifier.dart';
 import 'formatting.dart';
 import 'person_form_screen.dart';
 import 'settings_screen.dart';
+import 'catalog_update_notice.dart';
 import 'sync_notices.dart';
 import 'sync_screen.dart';
 import 'timeline_screen.dart';
@@ -80,6 +81,7 @@ class FamilyScreen extends ConsumerWidget {
               ],
             ),
           const SyncNoticesBanner(),
+          const CatalogUpdateBanner(),
           if (ref.watch(supportPromptDueProvider))
             MaterialBanner(
               key: const Key('support-prompt'),

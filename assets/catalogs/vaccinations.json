@@ -2,6 +2,18 @@
   "_conversion": "The calendar lists tetanus, diphtheria, pertussis, Hib, polio and hepatitis B as six rows given at the same three appointments, because one six-in-one vaccine covers them. They are one rule here: six reminders for one appointment would be six chances to ignore it. Ages are the calendar's own columns; a dose also carries the minimum interval to the one before it, which is what makes a late dose move the ones after it instead of silently going out of date. Standard immunisations (S) are modelled as they are. Indication-based vaccinations (I) depend on illness, occupation, pregnancy or travel, none of which the app knows about, and a reminder for one would be wrong for almost everyone who saw it; the ones a family is likely to ask about carry `optional: true`, are never generated until switched on for a person, and say in their description who the STIKO means them for. A booster whose `after` names an optional series takes that series' switch. `thenEvery` is the interval once a booster has been given, where it differs from the first one.",
   "catalogId": "vaccinations",
   "catalogVersion": "2026.09.1",
+  "_changes": [
+    {
+      "version": "2026.09.1",
+      "en": "Optional vaccinations a person can switch on: influenza and COVID-19 below the standard age, TBE for risk areas, pertussis in pregnancy, HPV and meningococcal B catch-up.",
+      "de": "Optionale Impfungen, die pro Person zugeschaltet werden: Grippe und COVID-19 unterhalb des Standardalters, FSME für Risikogebiete, Keuchhusten in der Schwangerschaft, HPV- und Meningokokken-B-Nachholung."
+    },
+    {
+      "version": "2026.09",
+      "en": "First edition: the STIKO calendar 2026 with the standard immunisations from infant to adult, minimum intervals and boosters.",
+      "de": "Erste Ausgabe: der STIKO-Impfkalender 2026 mit den Standardimpfungen vom Säugling bis zum Erwachsenen, Mindestabständen und Auffrischungen."
+    }
+  ],
   "name": {
     "en": "Vaccinations",
     "de": "Impfungen"

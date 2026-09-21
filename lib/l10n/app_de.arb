@@ -138,6 +138,8 @@
   "syncNoticeReplaced": "{title} für {name}: dein Eintrag ({previous}) wurde durch {current} von {device} ersetzt.",
   "syncNoticeRemoved": "{title} für {name}: dein Eintrag ({previous}) wurde auf {device} entfernt.",
   "syncNoticeSkipped": "übersprungen am {date}",
+  "catalogUpdateTitle": "Die Richtlinien in dieser App wurden aktualisiert",
+  "catalogUpdateLine": "{name}, Ausgabe {version}: {note}",
   "syncNoticeOtherPhone": "dem anderen Telefon",
   "syncNoticeImportedFile": "der importierten Datei",
   "syncShowCode": "Meinen Code zeigen",

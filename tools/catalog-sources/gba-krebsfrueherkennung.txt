@@ -1,0 +1,2526 @@
+Richtlinie
+des Gemeinsamen Bundesausschusses
+über die Früherkennung von Krebserkrankungen
+
+(Krebsfrüherkennungs-Richtlinie/KFE-RL)
+
+in der Fassung vom 18. Juni 2009
+veröffentlicht im Bundesanzeiger 2009, Nr. 148a
+in Kraft getreten am 3. Oktober 2009
+
+zuletzt geändert am 18. Dezember 2025
+veröffentlicht im Bundesanzeiger BAnz AT 11.03.2026 B4
+in Kraft getreten am 12. März 2026
+Inhaltsverzeichnis
+A.     Allgemeines ...................................................................................................................... 4
+       §1           Grundlagen und Ziele .................................................................................................. 4
+       §2           Untersuchungsintervalle ............................................................................................. 4
+       §3           Folgerung aus den Ergebnissen und Beratungen der Untersuchten .......................... 5
+       §4           Beratungspflicht nach Maßgabe der Chroniker-Richtlinie .......................................... 5
+B.     Früherkennungsmaßnahmen, die nur bei Frauen durchgeführt werden .............................. 6
+
+I.     Übersicht über die Leistungen................................................................................. 6
+       §5           Leistungen ................................................................................................................... 6
+
+II.    Klinische Untersuchungen....................................................................................... 6
+       §6           Klinische Untersuchungen ........................................................................................... 6
+       §7           unbesetzt ..................................................................................................................... 6
+       §8           Dokumentation der klinischen Untersuchung ............................................................ 6
+
+III.   Früherkennung von Brustkrebs durch Mammographie-Screening............................ 7
+       §9           Grundlagen und Ziele des Mammographie-Screenings .............................................. 7
+       § 10         Anspruchsvoraussetzungen......................................................................................... 7
+       § 11         Strukturelle und organisatorische Voraussetzungen .................................................. 7
+       § 12         Inhalte des Früherkennungsprogramms ..................................................................... 9
+       § 13         Einladung ..................................................................................................................... 9
+       § 14         Information und Aufklärung ...................................................................................... 10
+       § 15         Anamnese und Erstellung der Screening Mammographieaufnahmen ..................... 11
+       § 16         Befundung der Screening Mammographieaufnahmen............................................. 11
+       § 17         Abklärungsdiagnostik ................................................................................................ 11
+       § 18         Erteilung des Versorgungsauftrages ......................................................................... 12
+       § 19         Qualifikation der teilnehmenden Ärztinnen, Ärzte und Fachkräfte.......................... 13
+       § 20         Qualitätssicherung beim Mammographie-Screening ............................................... 14
+       § 21         Dokumentationen beim Mammographie-Screening ................................................ 15
+       § 22         Zertifizierung ............................................................................................................. 15
+       § 23         Evaluation des Mammographie-Screenings .............................................................. 16
+       § 23         a [nicht belegt] .......................................................................................................... 19
+       § 23         b Übergangsregelungen ............................................................................................ 19
+C.     Früherkennungsmaßnahmen, die nur bei Männern durchgeführt werden ........................ 20
+       § 24         Leistungen ................................................................................................................. 20
+       § 25         Klinische Untersuchungen ......................................................................................... 20
+       § 26         Dokumentation der klinischen Untersuchung .......................................................... 20
+D.     Früherkennungsmaßnahmen, die bei Frauen und Männern durchgeführt werden ............ 21
+
+I.     Übersicht über die Leistungen............................................................................... 21
+       § 27         Leistungen ................................................................................................................. 21
+
+                                                                                                                                                   2
+II.    Früherkennungsuntersuchungen auf Hautkrebs .................................................... 21
+       § 28      Grundlagen und Ziele der Früherkennung auf Hautkrebs ........................................ 21
+       § 29      Lebensalter, Untersuchungsinhalte .......................................................................... 21
+       § 30      Bestandteile der Früherkennungsuntersuchung auf Hautkrebs ............................... 21
+       § 31      Berechtigte Ärztinnen und Ärzte ............................................................................... 22
+       § 32      Qualifikation .............................................................................................................. 23
+       § 33      Empfehlungen zur Qualitätssicherung ...................................................................... 23
+       § 34      Dokumentation der Früherkennungsuntersuchungen auf Hautkrebs ...................... 23
+       § 35      Evaluation der Früherkennungsuntersuchungen auf Hautkrebs .............................. 25
+       § 36      Anpassung ................................................................................................................. 25
+
+III.   Früherkennungsuntersuchung auf Lungenkrebs .................................................... 26
+       § 37      Ziele und Grundlagen der Früherkennung auf Lungenkrebs .................................... 26
+       § 38      Anspruchsvoraussetzungen....................................................................................... 26
+       § 39      Inhalte der Früherkennungsuntersuchung auf Lungenkrebs .................................... 26
+       § 40      Information................................................................................................................ 27
+       § 41      Anforderungen an die Untersuchung mittels Niedrigdosis-Computertomographie 27
+       § 42      Befundung ................................................................................................................. 27
+       § 43      Qualifikation der teilnehmenden Ärztinnen und Ärzte ............................................. 28
+       § 44      Dokumentation.......................................................................................................... 29
+       § 45      Qualitätssicherung..................................................................................................... 30
+       § 46      Evaluation .................................................................................................................. 30
+
+Anlage I         Versicherteninformation zur Lungenkrebsfrüherkennung ........................ 31
+
+Anlage II        [nicht belegt] .......................................................................................... 42
+
+Anlage III       [nicht belegt] .......................................................................................... 42
+
+Anlage IV        a Muster- Einladungsschreiben............................................................... 43
+
+Anlage IV        b Entscheidungshilfe zur Einladung der Frau gemäß § 14 Absatz 1 ........... 47
+
+Anlage IV        c Mammographie-Screening Ausweitung des Programms für Frauen
+                 zwischen 70 und 75 Jahren ...................................................................... 58
+
+Anlage V         Inhalte des standardisierten Fragebogens zur Anamnese gemäß § 15
+                 Absatz 1 .................................................................................................. 59
+
+Anlage VI        Inhalte der Dokumentation gemäß § 21 .................................................. 60
+
+                                                                                                                                               3
+A.        Allgemeines
+
+§1        Grundlagen und Ziele
+(1)   Diese Richtlinie bestimmt auf Grundlage des § 92 Absatz 1 Satz 2 Nummer 3, Absatz 4
+und § 25 Absatz 4 oder § 25 Absatz 4a des Fünften Buches Sozialgesetzbuch (SGB V) das
+Nähere über die ärztlichen Maßnahmen zur Früherkennung von Krebserkrankungen nach §
+25 Absatz 2 und 3 SGB V.
+(2)  Die nach den Abschnitten B, C und D dieser Richtlinie durchzuführenden ärztlichen
+Maßnahmen dienen
+
+     a)      bei Frauen
+             der Früherkennung von Krebserkrankungen des Genitales ab dem Alter von 20
+             Jahren sowie zusätzlich der Brust ab dem Alter von 30 Jahren, sowie zusätzlich der
+             Früherkennung von Krebserkrankungen der Brust (Mammographie-Screening) im
+             Alter zwischen 50 und 75 Jahren. Daneben sind Maßnahmen bei Frauen zur
+             Früherkennung von Krebserkrankungen des Genitales ab dem Alter von 20 Jahren
+             sowie zusätzlich der Brust ab dem Alter von 30 Jahren in der Richtlinie für
+             organisierte Krebsfrüherkennungsprogramme (oKFE-RL) geregelt.
+     b)      bei Männern
+             der Früherkennung von Krebserkrankungen der Prostata und des äußeren Genitales
+             ab dem Alter von 45 Jahren.
+     c)      bei Frauen und Männern
+             der Früherkennung von Krebserkrankungen der Haut ab dem Alter von 35 Jahren
+             sowie der Früherkennung von Lungenkrebs ab dem vollendeten 50. Lebensjahr bis
+             vor Vollendung des 76. Lebensjahres.
+(2a) Daneben sind Maßnahmen bei Männern und Frauen zur Früherkennung von
+Krebserkrankungen des Rektums und des übrigen Dickdarms ab dem Alter von 50 Jahren in
+der Richtlinie für organisierte Krebsfrüherkennungsprogramme (oKFE-RL) geregelt.
+(3)   Die Maßnahmen der Früherkennung sollen mögliche Gefahren für die Gesundheit der
+Anspruchsberechtigten dadurch abwenden, dass aufgefundene Verdachtsfälle eingehend
+diagnostiziert und erforderlichenfalls rechtzeitig behandelt werden können.
+(4)    Untersuchungen nach dieser Richtlinie sollen diejenigen Ärztinnen und Ärzte
+durchführen, welche die vorgesehenen Leistungen auf Grund ihrer Kenntnisse und
+Erfahrungen erbringen können, nach der ärztlichen Berufsordnung dazu berechtigt sind und
+über die erforderlichen Einrichtungen verfügen.
+(5)   Die bei diesen Maßnahmen mitwirkenden Ärztinnen und Ärzte haben darauf
+hinzuwirken, dass für sie tätig werdende Vertreterinnen und Vertreter diese Richtlinie kennen
+und beachten.
+
+§2        Untersuchungsintervalle
+1Der Anspruch auf Früherkennung besteht nach der ersten Inanspruchnahme – soweit nicht
+
+in den folgenden Abschnitten oder Anlagen der Richtlinie Abweichendes bestimmt ist –
+jährlich. 2Er kann ab Beginn des jeweiligen Kalenderjahres wahrgenommen werden; dies gilt
+entsprechend, wenn mehrjährige, nicht aber, wenn mehrmonatige Intervalle festgelegt sind.
+
+                                                                                             4
+§3   Folgerung aus den Ergebnissen und Beratungen der Untersuchten
+Ergeben die Untersuchungen das Vorliegen oder den Verdacht auf das Vorliegen einer
+Krankheit, so soll die Ärztin oder der Arzt dafür Sorge tragen, dass diese Fälle im Rahmen der
+Krankenbehandlung einer weitergehenden, gezielten Diagnostik und ggf. Therapie zugeführt
+werden.
+
+§4   Beratungspflicht nach Maßgabe der Chroniker-Richtlinie
+1Nach § 4 Absatz 1 der Richtlinie des Gemeinsamen Bundesausschusses zur Umsetzung der
+
+Regelungen in § 62 SGB V für schwerwiegend chronisch Erkrankte („Chroniker-Richtlinie“) sind
+Ärztinnen und Ärzte, die eine der in der Chroniker-Richtlinie in § 4 Absatz 2 genannten
+Früherkennungsuntersuchungen durchführen, nach Maßgabe der Chroniker-Richtlinie
+verpflichtet, nach dem 1. April 1987 geborene weibliche und nach dem 1. April 1962 geborene
+männliche Versicherte jeweils einmal zeitnah nach Erreichen des Anspruchsalters, längstens
+jedoch in einem Zeitraum von zwei Jahren nach Erreichen des Anspruchsalters, gestützt auf
+Merkblätter zu beraten. 2Die Inhalte der Merkblätter werden als Anlage zu dieser Richtlinie
+beschlossen.
+
+                                                                                            5
+B.         Früherkennungsmaßnahmen, die nur bei Frauen durchgeführt werden
+
+I.         Übersicht über die Leistungen
+
+§5         Leistungen
+
+      a)      Die Maßnahmen zur Früherkennung von Krebserkrankungen des Genitales und der
+              Brust bei Frauen umfassen klinische Untersuchungen
+      b)      die Früherkennung von Brustkrebs durch Mammographie-Screening (§§ 9 bis 23)
+
+II.        Klinische Untersuchungen
+
+§6         Klinische Untersuchungen
+(1)    Klinische Untersuchungen umfassen in Abhängigkeit vom Lebensalter der Versicherten
+folgende Leistungen:
+
+      a)      Ab dem Alter von 20 Jahren
+                   gezielte Anamnese
+                   Inspektion der genitalen Hautregion
+                   bimanuelle gynäkologische Untersuchung
+                   Spiegeleinstellung der Portio
+                   Befundmitteilung mit anschließender diesbezüglicher Beratung
+
+      b)      Zusätzlich ab dem Alter von 30 Jahren
+                   Abtasten der Brustdrüsen und der regionären Lymphknoten einschließlich der
+                   Anleitung zur regelmäßigen Selbstuntersuchung
+                   Inspektion der entsprechenden Hautregion
+(2)    Wird eine klinische Untersuchung nach der Richtlinie für organisierte
+Krebsfrüherkennungsprogramme (oKFE-RL) in Anspruch genommen, besteht in dem
+Kalenderjahr, in dem die Untersuchung erfolgt ist, kein Anspruch auf eine solche nach der
+Krebsfrüherkennungs-Richtlinie (KFE-RL).
+
+§7         unbesetzt
+
+§8         Dokumentation der klinischen Untersuchung
+Die anamnestischen Angaben sowie die Ergebnisse der klinischen Untersuchungen werden
+von der Ärztin oder dem Arzt in der Patientenakte dokumentiert.
+
+                                                                                            6
+III.   Früherkennung von Brustkrebs durch Mammographie-Screening
+
+§9     Grundlagen und Ziele des Mammographie-Screenings
+
+(1) 1Ziel der Früherkennung von Brustkrebs durch Mammographie-Screening ist
+die deutliche Senkung der Brustkrebssterblichkeit in der anspruchsberechtigten
+Bevölkerungsgruppe. 2Gleichzeitig ist eine Minimierung der Belastungen, die mit einem
+Mammographie-Screening verbunden sein können, zu gewährleisten.
+
+(2) Diese Ziele sind nur dann erreichbar, wenn die bundesweit geltenden
+Maßnahmen zur Qualitätssicherung und zum Qualitätsmanagement durchgeführt werden,
+welche sämtliche Schritte der Versorgungskette (Einladung und Information der Frauen,
+Erstellung und Befundung von Screening-Mammographieaufnahmen, ggf. notwendige
+Abklärungsdiagnostik und Überleitung in die Therapie) sowie die Struktur-, Prozess- und
+Ergebnisqualität hinsichtlich der an der Leistungserbringung beteiligten Personen und
+organisatorischen Strukturen umfassen.
+
+(3) 1Die Inhalte der bevölkerungsbezogenen Maßnahmen zur Früherkennung von
+Brustkrebs durch Mammographie-Screening in der vertragsärztlichen Versorgung werden
+durch Abschnitt B III und die bundesmantelvertraglichen Regelungen einschließlich der Anlage
+9.2, die unter anderem auf der Grundlage der einschlägigen Europäischen Leitlinien zur
+Qualitätssicherung von Krebsfrüherkennungsprogrammen entwickelt wurden und werden,
+bestimmt. 2Grundlagen des Programms zur Früherkennung von Brustkrebs durch
+Mammographie-Screening (Früherkennungsprogramm) sind insbesondere die Vorschriften
+der Brustkrebs-Früherkennungs-Verordnung, die im Folgenden aufgeführten Bestimmungen
+und die bundesmantelvertraglichen Regelungen.
+
+§ 10 Anspruchsvoraussetzungen
+(1)    1Frauen haben grundsätzlich alle 24 Monate, erstmalig ab dem Alter von 50 Jahren und
+
+in der Folge frühestens 22 Monate nach der jeweils vorangegangenen Teilnahme und
+höchstens bis zum Alter von 75 Jahren, Anspruch auf Leistungen im Rahmen des
+Früherkennungsprogramms zur Früherkennung von Krebserkrankungen der Brust. 2Der
+Anspruch auf Leistungen nach § 6 Absatz 1 Buchst. b) (klinische Untersuchungen) bleibt
+unberührt.
+(2)    Der Anspruch auf Leistungen zur Früherkennung von Brustkrebs besteht nur, wenn sie
+innerhalb des Früherkennungsprogramms nach diesem Abschnitt (B III) erbracht werden.
+(3)    Frauen, die sich aufgrund einer Brustkrebserkrankung in ärztlicher Behandlung oder
+Nachbehandlung befinden oder bei denen aufgrund von vorliegenden typischen Symptomen
+ein begründeter Verdacht auf eine Brustkrebserkrankung besteht, haben Anspruch auf die
+notwendige ärztliche Betreuung und Behandlung innerhalb der kurativen Versorgung.
+(4)    Wurde nach Angabe der Frau innerhalb der letzten 12 Monate vor dem Zeitpunkt des
+Leistungsanspruchs nach Absatz 1 bereits aus anderen Gründen eine Mammographie
+durchgeführt, besteht der Anspruch auf Leistungen nach diesem Abschnitt (B III) frühestens
+12 Monate nach Durchführung dieser Mammographie.
+
+§ 11 Strukturelle und organisatorische Voraussetzungen
+(1)    Das Früherkennungsprogramm ist in regionale Versorgungsprogramme gegliedert, die
+den Gebietsgrenzen der Kassenärztlichen Vereinigungen im Sinne des § 77 Absatz 1 SGB V
+entsprechen sollen.
+
+                                                                                          7
+(2)    1Das regionale Versorgungsprogramm ist von der Kassenärztlichen Vereinigung im
+
+Einvernehmen mit den Landesverbänden der Krankenkassen und dem Verband der
+Ersatzkassen in einzelne Screening-Einheiten nach Absatz 3 zu unterteilen. 2Eine Screening-
+Einheit soll einen Einzugsbereich von 800.000 bis 1 Mio. Einwohnende umfassen. 3In
+begründeten Fällen (z. B. in Gebieten mit geringer Einwohnerdichte) kann von dem in Satz 2
+festgelegten Einzugsbereich abgewichen werden. 4Die Festlegung und Unterteilung des
+regionalen Versorgungsprogramms ist von der Kassenärztlichen Vereinigung in geeigneter
+Weise zu veröffentlichen.
+(3)     1Eine Screening-Einheit besteht aus einer oder mehreren Mammographie-Einheiten,
+
+in der die Screening-Mammographieaufnahmen erstellt werden, sowie einer oder mehreren
+Einheiten zur Abklärungsdiagnostik, in der die Abklärungsuntersuchungen im Rahmen des
+Früherkennungsprogramms durchgeführt werden. 2Das Nähere zu Praxisausstattung,
+Praxisorganisation und apparativer Ausstattung dieser Einheiten bestimmen insbesondere
+Abschnitte G und H der Anlage 9.2 BMV-Ä mit Stand vom 1. Juli 2024.
+(4)     1Eine Screening-Einheit wird von einer Programmverantwortlichen Ärztin oder von
+
+einem Programmverantwortlichen Arzt geleitet, die oder der die Voraussetzungen nach § 18
+erfüllt. 2Die Programmverantwortliche Ärztin oder der Programmverantwortliche Arzt
+übernimmt den Versorgungsauftrag, der die notwendige ärztliche Behandlung und Betreuung
+der Frauen einschließlich Aufklärung und Information sowie die übergreifende
+Versorgungsorganisation und -steuerung umfasst. 3Der Versorgungsauftrag kann auch von
+zwei oder drei Programmverantwortlichen Ärztinnen oder Ärzten, die in einer
+Berufsausübungsgemeinschaft         tätig    sind,    übernommen        werden.     4Die
+
+Programmverantwortliche Ärztin oder der Programmverantwortliche Arzt kooperiert zur
+Erfüllung des Versorgungsauftrages mit anderen an der vertragsärztlichen Versorgung
+teilnehmenden Ärztinnen und Ärzten.
+(5)    1Die auf der Grundlage landesrechtlicher Bestimmungen errichtete andere öffentliche
+
+Stelle im Sinne des Bundesmeldegesetzes (Zentrale Stelle) lädt zur Teilnahme am
+Früherkennungsprogramm ein. 2Die Kassenärztliche Vereinigung und die Landesverbände der
+Krankenkassen und die Verbände der Ersatzkassen auf Landesebene errichten die Zentrale
+Stelle in Abstimmung mit den zuständigen Landesbehörden unter Berücksichtigung
+landesrechtlicher Bestimmungen. 3Soweit erforderlich kann eine weitere Zentrale Stelle in
+einem Land errichtet werden.
+(6)    1Die Kassenärztliche Bundesvereinigung und die Spitzenverbände der Krankenkassen
+
+errichten eine gemeinsame Einrichtung, Mammographie in der ambulanten vertragsärztlichen
+Versorgung (Kooperationsgemeinschaft). 2Die Kooperationsgemeinschaft organisiert,
+koordiniert und überwacht die Durchführung der Maßnahmen im Rahmen des
+Früherkennungsprogramms gemäß § 22.
+(7)    1Die Kooperationsgemeinschaft soll regionale Untergliederungen (Referenzzentren)
+
+bilden. 2Jede Screening-Einheit ist einem Referenzzentrum zugeordnet. 3Es sollen vier bis
+maximal sechs Referenzzentren gebildet werden. 4Dabei ist auf eine gleichmäßige Auslastung
+zu achten. 5Die Aufgaben eines Referenzzentrums beinhalten insbesondere die externe
+Überwachung der Qualitätssicherung, die Fortbildung, Betreuung und Beratung von am
+Früherkennungsprogramm teilnehmenden Ärztinnen und Ärzten und radiologischen
+Fachkräften und den Betrieb einer Screening-Einheit. 6Die Leiterin oder der Leiter des
+Referenzzentrums ist Programmverantwortliche Ärztin oder Programmverantwortlicher Arzt
+der vom Referenzzentrum betriebenen Screening-Einheit.
+
+                                                                                         8
+§ 12 Inhalte des Früherkennungsprogramms
+Die Früherkennung von Brustkrebs im Rahmen des Früherkennungsprogramms umfasst
+folgende in den §§ 13 bis 17 näher geregelte Leistungen:
+              Einladung (§13)
+              Information und Aufklärung (§14)
+              Anamnese und Erstellung der Screening-Mammographieaufnahmen (§15)
+              Befundung der Screening-Mammographieaufnahmen und (§16)
+              Abklärungsdiagnostik (§17)
+
+§ 13 Einladung
+(1)    1Jede Frau im Alter zwischen 50 und 75 Jahren soll von der Zentralen Stelle zeitnah mit
+
+Erreichen des Anspruchsalters und anschließend zwischen 22 und 26 Monaten nach der
+letzten Teilnahme oder im Falle der Nichtteilnahme nach der letzten Einladung, persönlich
+und schriftlich unter Angabe von Untersuchungsort und -termin zur Teilnahme eingeladen
+werden. 2Weiteren Einladungen kann in Textform widersprochen werden; in den Einladungen
+ist   auf     dieses   Widerspruchsrecht     hinzuweisen.      3Wenn      eine     Frau    am
+Früherkennungsprogramm teilnehmen will, wird von der Zentralen Stelle geprüft, ob eine
+Einladung erfolgen kann. 4Meldet sich die Frau bei der Screening-Einheit, werden ihre
+personenbezogenen Daten von der Screening-Einheit an die zuständige Zentrale Stelle zur
+Prüfung der Anspruchsberechtigung weitergeleitet.
+(2)    1Grundsätzlich soll zur Screening-Mammographie die in der Einladung genannte
+
+Mammographie-Einheit aufgesucht werden. 2Mit der Einladung ist die Frau darauf
+hinzuweisen, dass der im Einladungsschreiben angegebene Untersuchungsort und -termin nur
+durch die Zentrale Stelle verlegt werden kann.
+(3)    1Für die Einladung verwendet die Zentrale Stelle Daten der Melderegister. 2Der von
+
+den Melderegistern übermittelte Datensatz soll Vornamen, Familienname, frühere
+Familiennamen einschließlich Geburtsname, Geburtsdatum, Geburtsort und Anschrift
+beinhalten. 3Die Übermittlung der Daten an die Zentrale Stelle richtet sich nach den
+Vorschriften der §§ 34, 36 Absatz 1, 38 des Bundesmeldegesetzes und den hierzu ergangenen
+bundes- oder landesrechtlichen Bestimmungen.
+(4)    1Die Zentrale Stelle weist jeder Frau gemäß Absatz 1 eine eindeutige, lebenslang
+
+geltende Screening-Identifikationsnummer zu, die aus dem übermittelten Datensatz gebildet
+wird und von der Zentralen Stelle ohne erneuten Zugang zu den Meldedaten nicht
+reidentifiziert werden kann, und bildet den Kontrollnummernsatz (nachfolgend
+Kontrollnummer genannt) nach § 23. 2Aus dem Vor- und Familiennamen und der Anschrift der
+Frauen wird eine Einladungsliste erstellt, in der auch die Screening-Identifikationsnummern
+aufgeführt sind. 3Danach werden alle aus den Melderegistern übermittelten Daten umgehend
+gelöscht.
+(5)    1Die Zentrale Stelle legt Ort und Termin der Untersuchung auf Grundlage der Angaben
+
+der Screening-Einheit zu ihren Kapazitäten fest. 2Die Screening-Einheit erhält von der
+Zentralen Stelle eine Liste mit Namen und Screening-Identifikationsnummern der Frauen
+sowie Ort und Termin, zu dem sie eingeladen wurden. 3In diese Liste trägt die Screening-
+Einheit ein, ob die eingeladenen Frauen teilgenommen haben, und sendet diese Liste
+spätestens nach 4 Wochen an die Zentrale Stelle zurück. 4Die Zentrale Stelle veranlasst, dass
+Frauen, die nicht teilgenommen haben und Einladungen nicht widersprochen haben, zu einem
+zweiten Termin eingeladen werden.
+(6)    1Bei der Screening-Einheit sind die von der Zentralen Stelle zur Verfügung gestellten
+
+personenbezogenen Daten nach Rückgabe der Listen an die Zentrale Stelle zu löschen. 2Die
+Zentrale Stelle löscht die personenbezogenen Daten der Einladungsliste einschließlich die der
+
+                                                                                            9
+Nichtteilnehmerinnen und leitet die Angaben zur Teilnahme in anonymisierter Form zur
+Evaluation des Einladungswesens an das Referenzzentrum weiter. 3Die Zentrale Stelle
+speichert die Screening-Identifikationsnummer, die Kontrollnummer, den vorgeschlagenen
+sowie – falls davon abweichend – den wahrgenommenen Termin und den Ort der
+Untersuchung.
+(7)     1Personenbezogene Daten aus den Melderegistern von Frauen, die wegen eines
+
+Ausschlusskriteriums oder wegen einer innerhalb der letzten zwei Jahre erfolgten Einladung
+bis zur erneuten Entstehung des Anspruchs auf ein Mammographie-Screening nicht
+eingeladen werden oder Frauen, die einer Einladung widersprochen haben, werden von der
+Zentralen Stelle unmittelbar nach Übermittlung gelöscht. 2Mit der Screening-
+Identifikationsnummer und der Kontrollnummer werden die Geltungsdauer eines eventuellen
+Ausschlusses und der in der jeweiligen Einladung vorgeschlagene sowie – falls davon
+abweichend – der wahrgenommene Termin und Ort der Untersuchung gespeichert.
+(8)    Das Nähere zur Übermittlung von Daten im Rahmen der Einladung ist in Anhang 9 der
+Anlage 9.2 BMV-Ä festgelegt.
+
+§ 14 Information und Aufklärung
+(1)    1Die Frau erhält von der Zentralen Stelle zusammen mit dem Einladungsschreiben
+
+(Muster siehe Anlage IVa) eine Entscheidungshilfe (siehe Anlage IVb). 2Durch das
+Einladungsschreiben und die Entscheidungshilfe soll die Frau in geeigneter Weise über
+Hintergründe, Ziele, Inhalte und Vorgehensweise des Früherkennungsprogramms auf
+Brustkrebs nach Abschnitt B III schriftlich informiert werden. 3Der zuständige Unterausschuss
+des Gemeinsamen Bundesausschusses ist berechtigt, Änderungen am Einladungsschreiben
+und der Entscheidungshilfe vorzunehmen, deren Notwendigkeit sich aus der praktischen
+Anwendung ergibt, soweit das Einladungsschreiben und die Entscheidungshilfe nicht in ihren
+wesentlichen Inhalten verändert werden.
+(2)    Mit der Einladung ist die Frau über die Möglichkeit der Inanspruchnahme eines
+mündlichen Beratungs- und Aufklärungsgesprächs mit einer Ärztin oder einem Arzt, die oder
+der die erforderliche Fachkunde im Strahlenschutz besitzt, zu informieren, wie auch über die
+Möglichkeit, auf dieses Gespräch zu verzichten.
+(3)    Die Programmverantwortliche Ärztin oder der Programmverantwortliche Arzt hat
+sicherzustellen, dass die Frauen in den Räumlichkeiten der Mammographie-Einheit auch über
+die weiteren Untersuchungen zur Früherkennung von Krebserkrankungen nach den
+Krebsfrüherkennungs-Richtlinien schriftlich informiert werden.
+
+                                                                                          10
+§ 15 Anamnese und Erstellung der Screening Mammographieaufnahmen
+(1)    Vor Erstellung der Screening-Mammographieaufnahmen hat die Frau anhand eines
+standardisierten Fragebogens (Muster siehe Anlage V) schriftlich Angaben zur Anamnese zu
+machen.
+(2)     1Die Screening-Mammographieaufnahmen sind durch eine radiologische Fachkraft
+
+unter verantwortlicher Leitung der Programmverantwortlichen Ärztin oder des
+Programmverantwortlichen Arztes zu erstellen. 2Es wird eine Röntgenuntersuchung beider
+Mammae in zwei Ebenen (Cranio-caudal, Medio-lateral-oblique) durchgeführt. 3Die fachlichen
+Qualifikationen der radiologischen Fachkraft und der Programmverantwortlichen Ärztin oder
+des Programmverantwortlichen Arztes haben den Anforderungen nach den §§ 18 und 19 zu
+entsprechen.
+(3)    1Die Räumlichkeiten der Mammographie-Einheit dürfen zu den in den Einladungen
+
+genannten Zeiten ausschließlich für die Erstellung von Screening-Mammographieaufnahmen
+benutzt werden. 2Insbesondere dürfen zu diesen Zeiten keine klinischen Untersuchungen
+nach § 6 Absatz 1 Buchstabe b oder kurative Leistungen bei einem begründeten Verdacht auf
+eine maligne Erkrankung der Brust angeboten werden.
+
+§ 16 Befundung der Screening Mammographieaufnahmen
+(1)     1Die   Screening-Mammographieaufnahmen werden auf Veranlassung der
+Programmverantwortlichen Ärztin oder des Programmverantwortlichen Arztes durch zwei
+Ärztinnen oder Ärzte unabhängig voneinander befundet, d. h. die Befundung erfolgt ohne
+Kenntnis des jeweils anderen Befundes sowie räumlich oder zeitlich getrennt. 2Die Ärztinnen
+und Ärzte sind verpflichtet, insbesondere bei abweichenden Befundungen der Screening-
+Mammographieaufnahmen sowie im Rahmen der Abklärungsdiagnostik konsiliarisch
+zusammenzuwirken. 3Im Falle abweichender Befundungen ist die abschließende Beurteilung
+in einer Konsensuskonferenz von beiden befundenden Ärztinnen oder Ärzten gemeinsam mit
+der Programmverantwortlichen Ärztin oder dem Programmverantwortlichen Arzt unter
+Verantwortung der Programmverantwortlichen Ärztin oder des Programmverantwortlichen
+Arztes festzulegen. 4Die fachliche Qualifikation der befundenden Ärztin oder des befundenden
+Arztes hat den Anforderungen nach § 19 zu entsprechen.
+(2)    Voraufnahmen, die bei der vorangegangenen Untersuchung zur Früherkennung von
+Brustkrebs erstellt worden sind, sind bei der Befundung einzubeziehen.
+(3)    1Die abschließende Beurteilung der Screening-Mammographie wird der Frau unter der
+
+Verantwortung der Programmverantwortlichen Ärztin oder des Programmverantwortlichen
+Arztes in geeigneter Form in der Regel innerhalb von sieben Werktagen nach Erstellung der
+Screening-Mammographieaufnahmen übermittelt. 2Besteht kein Verdacht auf eine maligne
+Erkrankung, erfolgt die Mitteilung schriftlich.
+
+§ 17 Abklärungsdiagnostik
+(1)     1Ergibt sich aus dem abschließenden Ergebnis der Screening-Mammographie der
+
+Verdacht auf eine maligne Erkrankung, ist die Frau bei der Mitteilung nach § 16 Absatz 3 zur
+diagnostischen Abklärung einzuladen. 2Der Zeitraum zwischen der Mitteilung des Verdachts
+und dem angebotenen Termin zur diagnostischen Abklärung soll eine Woche nicht
+überschreiten. 3Die Programmverantwortliche Ärztin oder der Programmverantwortliche Arzt
+klärt die Frau über die Notwendigkeit einer weiteren Abklärung auf und führt im Anschluss die
+erforderliche Diagnostik durch (z. B. klinische Untersuchung, weitergehende
+mammographische Untersuchungen, Ultraschalldiagnostik, Stanzbiopsie). 4Teilschritte der
+Abklärungsdiagnostik (z. B. Stanzbiopsie unter Röntgenkontrolle) können veranlasst werden;
+histopathologische Untersuchungen müssen veranlasst werden.
+
+                                                                                          11
+(2)    Die Ergebnisse der Abklärungsdiagnostik werden in einer präoperativen Fallkonferenz
+mindestens von der Programmverantwortlichen Ärztin oder dem Programmverantwortlichen
+Arzt und der Pathologin oder dem Pathologen, die oder der die histopathologische
+Beurteilung der Präparate vorgenommen hat, unter Verantwortung der
+Programmverantwortlichen Ärztin oder des Programmverantwortlichen Arztes beurteilt.
+(3)    1Die Programmverantwortliche Ärztin oder der Programmverantwortliche Arzt teilt
+
+der Frau das Ergebnis der Abklärungsdiagnostik in der vereinbarten Form mit. 2Der Zeitraum
+zwischen dem Beginn der diagnostischen Abklärung und der Mitteilung des Ergebnisses soll
+eine Woche nicht überschreiten. 3Bestätigt sich der Verdacht auf eine maligne Erkrankung,
+veranlasst die Programmverantwortliche Ärztin oder der Programmverantwortliche Arzt in
+Abstimmung mit der Frau die Überleitung in die Therapie.
+
+§ 18 Erteilung des Versorgungsauftrages
+
+(1)      Für die Versorgung der Frauen wird ein Versorgungsauftrag festgelegt, der
+      a)   die Kooperation mit der Zentralen Stelle der Kassenärztlichen Vereinigung der
+           Kooperationsgemeinschaft und dem Referenzzentrum,
+      b) die Überprüfung des Anspruchs der Frau auf Teilnahme am Früherkennungs-
+           programm vor Erstellung der Screening-Mammographieaufnahmen,
+      c)   die Erstellung der Screening-Mammographieaufnahmen,
+      d) die Organisation und Durchführung der Befundung der Screening-Mammographie-
+           aufnahmen,
+      e) die Durchführung der Konsensuskonferenz,
+      f)   die Durchführung der Abklärungsdiagnostik,
+      g)   die Durchführung der multidisziplinären Fallkonferenzen,
+      h) die ergänzende ärztliche Aufklärung und
+      i)   die Organisation und die Durchführung von Qualitätssicherungsmaßnahmen
+           beinhaltet
+(2)     1Die Übernahme des Versorgungsauftrages durch die Programmverantwortliche Ärztin
+
+oder den Programmverantwortlichen Arzt bedarf der Genehmigung. 2Voraussetzung für die
+Erteilung und den Erhalt der Genehmigung ist auch die fachliche ärztliche Qualifikation gemäß
+Absatz 6. 3Die Genehmigung wird durch die zuständige Kassenärztliche Vereinigung im
+Einvernehmen mit den Landesverbänden der Krankenkassen und den Verbänden der
+Ersatzkassen auf Landesebene erteilt. 4Bei der Übernahme des Versorgungsauftrages durch
+zwei oder drei Ärztinnen oder Ärzte im Rahmen einer Berufsausübungsgemeinschaft benötigt
+jede Ärztin und jeder Arzt, die oder der der Berufsausübungsgemeinschaft angehört, eine
+Genehmigung.
+(3)     1Die zuständige Kassenärztliche Vereinigung schreibt den Versorgungsauftrag in den
+
+für ihre amtlichen Bekanntmachungen vorgesehenen Blättern aus. 2In der Ausschreibung sind
+die personellen und sachlichen Anforderungen zu benennen. 3Die Kassenärztliche Vereinigung
+berücksichtigt bei der Auswahl der Bewerberin oder des Bewerbers vollständig und
+fristgerecht eingereichte Konzepte zur Organisation des Versorgungsauftrages, die erkennen
+lassen, dass sich die Anforderungen an ein Mammographie-Screening gemäß Abschnitt B III
+innerhalb des vorgegebenen Zeitraumes verwirklichen und im Routinebetrieb
+aufrechterhalten lassen.
+(4)      Das Konzept zur Organisation des Versorgungsauftrages muss detaillierte Angaben zu
+      a)  den persönlichen Voraussetzungen der Bewerberin oder des Bewerbers,
+      b) der Verfügbarkeit und den Qualifikationen der im Rahmen des Versorgungsauftrages
+          kooperierenden Ärztinnen und Ärzte und radiologischen Fachkräfte und
+
+                                                                                          12
+   c)    den sachlichen Voraussetzungen, insbesondere baulichen Maßnahmen, mobilen
+         Mammographieeinrichtungen und apparativer Ausstattung
+beinhalten.
+(5)    1Unter mehreren sich Bewerbenden, die an dem Ausschreibungsverfahren
+
+teilnehmen, hat die Kassenärztliche Vereinigung die Programmverantwortliche Ärztin oder
+den Programmverantwortlichen Arzt nach pflichtgemäßem Ermessen auszuwählen. 2Für diese
+Auswahl sind die persönliche Qualifikation der Bewerberin oder des Bewerbers, die
+Verfügbarkeit und Qualifikationen der kooperierenden Ärztinnen und Ärzte sowie ihrer oder
+seiner Mitarbeiterinnen und Mitarbeiter in der Screening-Einheit, die apparative und sonstige
+Praxisausstattung, die Praxisorganisation sowie die geeignete räumliche Zuordnung für die
+Versorgung der Frauen maßgeblich. 3Bei mehreren gleich geeigneten Bewerberinnen und
+Bewerbern, die einen Versorgungsauftrag übernehmen wollen, entscheidet die bestmögliche
+räumliche Zuordnung für die Versorgung der Frauen.
+(6)    1Die fachliche Qualifikation der Programmverantwortlichen Ärztin oder des
+
+Programmverantwortlichen Arztes setzt u. a. voraus, dass sie oder er zum Führen der
+Gebietsbezeichnung 'Diagnostische Radiologie' oder 'Frauenheilkunde und Geburtshilfe'
+berechtigt ist und insbesondere die spezifische fachliche Qualifikation für die Erstellung und
+Befundung von Screening-Mammographieaufnahmen nachgewiesen hat. 2Regelmäßig sind
+hierzu die Befundungen der Screening-Mammographieaufnahmen von mindestens 5.000
+Frauen innerhalb eines Jahres (Routine) zu belegen. 3Näheres zur fachlichen Qualifikation der
+Programmverantwortlichen Ärztin oder des Programmverantwortlichen Arztes ist in § 24
+Absatz 1 und 3, §§ 26 und § 27 Absatz 1 und 2 der Anlage 9.2 BMV-Ä mit Stand vom 1. Juli
+2024 festgelegt.
+(7)     1Die Genehmigung zur Übernahme des Versorgungsauftrages ist mit der Auflage zu
+
+erteilen, dass die personellen und sachlichen Voraussetzungen zur Organisation des
+Versorgungsauftrages innerhalb eines Zeitraums von neun Monaten nach Erteilung der
+Genehmigung und vor Beginn der Übernahme des Versorgungsauftrages erfüllt und
+nachgewiesen werden. 2Vor dem Beginn der Übernahme des Versorgungsauftrages ist auch
+die Zertifizierung durch die Kooperationsgemeinschaft nach § 22 nachzuweisen. 3Beruht das
+Nichterfüllen der Voraussetzungen auf Gründen, die die Genehmigungsinhaberin oder der
+Genehmigungsinhaber selber nicht zu vertreten hat, verlängert sich die Frist zur Erfüllung der
+Genehmigungsvoraussetzung auf Antrag um einen weiteren Monat. 4Die Genehmigung ist
+ferner mit der Auflage zu erteilen, dass die Ärztin oder der Arzt die Anforderung an die
+Leistungserbringung nach Abschnitt B III erfüllt und an den festgelegten Qualitätssicherungs-
+maßnahmen zur Leistungserbringung sowie den regelmäßigen Rezertifizierungen gemäß § 22
+erfolgreich teilnimmt. 5Werden die Auflagen nicht erfüllt, ist die Genehmigung zu widerrufen.
+(8)    Voraussetzungen für die Bewerbung und Einzelheiten des Verfahrens sind in den §§ 4,
+4a und 5 der Anlage 9.2 BMV-Ä mit Stand vom 1. Juli 2024 geregelt.
+
+§ 19 Qualifikation der teilnehmenden Ärztinnen, Ärzte und Fachkräfte
+(1)    1Ärztinnen und Ärzte, die auf Veranlassung der Programmverantwortlichen Ärztin oder
+
+des Programmverantwortlichen Arztes Leistungen erbringen, bedürfen der Genehmigung
+durch die Kassenärztliche Vereinigung. 2Die Genehmigung setzt voraus, dass die in den
+Absätzen 2 und 3 festgelegten Voraussetzungen an die fachliche Qualifikation erfüllt sowie
+gegenüber der Kassenärztlichen Vereinigung nachgewiesen wurden. 3Die Zahl der Ärztinnen
+und Ärzte, die eine Genehmigung erhalten, ist zu begrenzen, damit eine ausreichend hohe
+Mindestanzahl von Untersuchungen (Routine) zur Sicherung der fachlichen Qualifikation und
+der Qualität der Untersuchungen erreicht wird. 4Die Auswahl der kooperierenden Ärztinnen
+und Ärzte erfolgt nach pflichtgemäßem Ermessen durch die Kassenärztliche Vereinigung.
+5Dabei sind die Einbindung der kooperierenden Ärztinnen und Ärzte in das Konzept zur
+
+Organisation des Versorgungsauftrages nach § 18 und die Interessen der
+
+                                                                                           13
+Programmverantwortlichen Ärztin oder des Programmverantwortlichen Arztes zu
+berücksichtigen. 6Die Genehmigungen sind mit der Auflage zu erteilen, dass die Leistungen in
+festgelegten Screening-Einheiten erbracht werden und die Qualitätssicherungsmaßnahmen
+nach § 20 erfüllt werden. 7Bis zum Erreichen der Routine oder um einen möglicherweise nur
+vorübergehend erhöhten Versorgungsbedarf zu decken, können befristete Genehmigungen
+erteilt werden.
+(2)    1Die fachliche Qualifikation für Ärztinnen und Ärzte, die auf Veranlassung der
+
+Programmverantwortlichen Ärztin oder des Programmverantwortlichen Arztes Screening-
+Mammographieaufnahmen befunden, setzt u. a. voraus, dass diese regelmäßig die Screening-
+Mammographieaufnahmen von mindestens 5.000 Frauen innerhalb eines Jahres (Routine)
+befunden. 2In besonderen Fällen gilt diese Anforderung auch dann als erfüllt, wenn die
+Befundungen der Screening-Mammographieaufnahmen von mindestens 3.000 Frauen
+innerhalb eines Jahres unter Supervision durch die Programmverantwortliche Ärztin oder den
+Programmverantwortlichen Arzt nachgewiesen werden.
+(3)    Die fachlichen Qualifikationen für Ärztinnen und Ärzte, die Screening-
+Mammographieaufnahmen auf Veranlassung befunden, sind in § 25, für Ärzte, die veranlasste
+Leistungen im Rahmen der Abklärungsdiagnostik erbringen, in § 27 Absatz 3 und 4 und § 28,
+für Ärztinnen und Ärzte, die zur Teilnahme an der postoperativen Fallkonferenz ermächtigt
+werden, in § 29 und für die radiologischen Fachkräfte in § 24 Absatz 2 der Anlage 9.2 BMV-Ä
+mit Stand vom 1. Juli 2024 im Einzelnen festgelegt.
+
+§ 20 Qualitätssicherung beim Mammographie-Screening
+(1)     1Ärztinnen und Ärzte, die Leistungen im Rahmen des Früherkennungsprogramms
+
+ausführen und abrechnen, sind zur Aufrechterhaltung und Weiterentwicklung ihrer fachlichen
+Qualifikation verpflichtet, regelmäßig an Maßnahmen zur Qualitätssicherung nach den
+Absätzen 2 bis 5 teilzunehmen. 2Die Qualitätssicherungsmaßnahmen werden auf der Basis
+von anonymisierten, bezogen auf die Teilnehmerin, und aggregierten Daten durchgeführt,
+sofern es sich nicht um interne Qualitätssicherungsmaßnahmen innerhalb einer Screening-
+Einheit handelt.
+(2)    1Zur   Überprüfung der diagnostischen Bildqualität fordert die zuständige
+Kassenärztliche     Vereinigung       in    jährlichen   Abständen     alle     Screening-
+Mammographieaufnahmen zu 20 von ihr auf der Grundlage der Abrechnungsunterlagen
+ausgewählten Fällen sowie eine Aufstellung aller im Kalenderjahr wegen mangelhafter
+Bildqualität wiederholten Aufnahmen von der Programmverantwortlichen Ärztin oder vom
+Programmverantwortlichen Arzt an. 2Die Kassenärztliche Vereinigung übermittelt die
+Screening-Mammographieaufnahmen in anonymisierter Form, bezogen auf die Teilnehmerin,
+an das Referenzzentrum zur Beurteilung. 3Bei gravierenden Mängeln der Bildqualität im Sinne
+des Anhangs 3 der Anlage 9.2 BMV-Ä ist die Überprüfung zu wiederholen. 4Werden erneut
+gravierende Mängel festgestellt, ist die Genehmigung zu widerrufen.
+(3)    1Befundende Ärztinnen und Ärzte haben grundsätzlich in jährlichen Abständen eine
+
+von der Kooperationsgemeinschaft zusammengestellte Fallsammlung von anonymisierten
+Screening-Mammographieaufnahmen zu beurteilen. 2Bei gravierenden Mängeln ist die
+Beurteilung einer Fallsammlung zu wiederholen. 3Werden erneut gravierende Mängel
+festgestellt, ist die Genehmigung zu widerrufen.
+(4)     Befundende Ärztinnen und Ärzte erhalten von der Programmverantwortlichen Ärztin
+oder vom Programmverantwortlichen Arzt halbjährlich eine Übersicht über die Anteile ihrer
+falsch-positiven und falsch-negativen Befunde, bezogen auf das endgültige Ergebnis der
+Screening-Untersuchung bei Abschluss des Screening-Falles in Konsensuskonferenz,
+Abklärungsdiagnostik oder multidisziplinären Fallkonferenz in Abständen von sechs Monaten
+auch im Vergleich zu anderen Ärzten vom Programmverantwortlichen Arzt mitgeteilt.
+
+                                                                                         14
+(5)     1Die Programmverantwortliche Ärztin oder der Programmverantwortliche Arzt berät
+
+in postoperativen Fallkonferenzen mit der Pathologin oder dem Pathologen, die oder der die
+histopathologische Beurteilung der Präparate vorgenommen hat, und nach Möglichkeit mit
+der Operateurin oder dem Operateur, die oder der die Frau operiert hat, insbesondere die
+Fälle, in denen nach der Operation das Ergebnis der präoperativen Fallkonferenz nicht
+bestätigt wurde. 2Die Dokumentation der Konferenzen ist dem Referenzzentrum zu
+übersenden. 3An Stelle von personenbezogenen Daten der Teilnehmerin ist ausschließlich
+deren Screening-Identifikationsnummer anzugeben.
+
+§ 21 Dokumentationen beim Mammographie-Screening
+(1)    1Die im Rahmen des Früherkennungsprogramms durchgeführten Untersuchungen sind
+
+auf standardisierten Dokumentationsbögen zu dokumentieren. 2Die Inhalte der Bögen sind in
+Anlage VI festgelegt. 3Der zuständige Unterausschuss des Gemeinsamen Bundesausschusses
+ist berechtigt, Änderungen an Anlage VI vorzunehmen, deren Notwendigkeit sich aus der
+praktischen Anwendung ergibt, soweit ihr wesentlicher Inhalt nicht verändert wird.
+(2)    Die Abrechnung der Leistungen setzt eine vollständige und standardisierte
+Dokumentation der jeweiligen Untersuchungen sowie im Fall von Brustkrebserkrankungen die
+gegebenenfalls nach landesrechtlichen Bestimmungen vorgeschriebenen Meldungen an das
+zuständige Krebsregister voraus.
+
+§ 22 Zertifizierung
+(1)    1Die Kooperationsgemeinschaft überprüft im Auftrag der Kassenärztlichen Vereinigung
+
+die Screening-Einheiten einschließlich der beteiligten Personen und organisatorischen
+Strukturen hinsichtlich der Struktur-, Prozess- und Ergebnisqualität. 2Die Überprüfung erfolgt
+nach Erteilung der Genehmigung und vor dem Beginn der Übernahme des
+Versorgungsauftrages gemäß Absatz 2 (Zertifizierung) sowie in regelmäßigen Abständen nach
+dem Beginn der Übernahme des Versorgungsauftrages gemäß Absatz 3 (Rezertifizierung).
+(2)    1Die Zertifizierung hat sicherzustellen, dass ausreichende Vorkehrungen für die
+
+Qualitätssicherung im Rahmen der gesamten Versorgungskette vor dem Beginn der
+Übernahme des Versorgungsauftrages getroffen werden. 2Die Zertifizierung erfolgt nach
+Überprüfung der Realisierung des Konzepts zur Organisation des Versorgungsauftrages sowie
+nach Überprüfung der Erfüllung der Anforderungen nach Abschnitt B III und Anlage 9.2 BMV-
+Ä auf der Grundlage des Votums des von der Kassenärztlichen Bundesvereinigung und den
+Spitzenverbänden der Krankenkassen gebildeten Beirates der Kooperationsgemeinschaft.
+3Die Überprüfung erfolgt durch die Kooperationsgemeinschaft nach Aktenlage, durch
+
+Anhörung der Programmverantwortlichen Ärztin oder des Programmverantwortlichen Arztes
+bzw. der Programmverantwortlichen Ärztinnen und Ärzte. 4Die Überprüfung kann durch
+Besichtigungen vor Ort erfolgen.
+(3)    1Die     Rezertifizierung hat sicherzustellen, dass die vorgeschriebenen
+Qualitätssicherungsmaßnahmen eingehalten werden und Qualitätsprobleme bereits im
+Entstehen erkannt und beseitigt werden. 2Die erstmalige Rezertifizierung einer Screening-
+Einheit erfolgt 6 Monate nach dem Beginn der Übernahme des Versorgungsauftrages. 3In
+regelmäßigen Abständen von 30 Monaten nach dem Beginn der Übernahme des
+Versorgungsauftrages führt die Kooperationsgemeinschaft eine weitere Rezertifizierung
+durch. 4Die Rezertifizierung erfolgt nach Überprüfung der Erfüllung der Anforderungen nach
+Abschnitt B III und Anlage 9.2 BMV-Ä sowie nach Auswertung der von der Screening-Einheit
+an das Referenzzentrum übermittelten anonymisierten und aggregierten Daten im Rahmen
+der Qualitätssicherungsmaßnahmen. 5Grundlage der Rezertifizierung ist das Votum des
+Beirates der Kooperationsgemeinschaft. 6Die Überprüfung erfolgt durch die
+Kooperationsgemeinschaft nach Aktenlage, durch Anhörung der Programmverantwortlichen
+
+                                                                                           15
+Ärztin oder des Programmverantwortlichen Arztes bzw. der Programmverantwortlichen
+Ärztinnen und Ärzte und durch Besichtigungen vor Ort.
+(4)    1Das Nähere zur Durchführung der Zertifizierung und Rezertifizierung unter
+
+Berücksichtigung der Leistungsindikatoren mit Soll- und Grenzwerten auf Grundlage unter
+anderem der ‚European guidelines for quality assurance in mammography screening’, Third
+Edition, bestimmt die Kooperationsgemeinschaft in Protokollen, die nach Genehmigung durch
+den Beirat der Kooperationsgemeinschaft veröffentlicht werden. 2Hierin werden
+Anforderungen an die Zertifizierung und Rezertifizierung festgelegt.
+(5)      Ergibt die Überprüfung nach Absatz 2 oder 3
+      a)   keine Mängel, die eine umfassende und vollständige Erfüllung des
+           Versorgungsauftrages gefährden, wird die Screening-Einheit durch die
+           Kooperationsgemeinschaft zertifiziert bzw. rezertifiziert.
+      b) Mängel, welche die Erfüllung des Versorgungsauftrages nicht in erheblichem
+           Ausmaß gefährden, wird die Screening-Einheit unter Auflagen, die durch die
+           Kooperationsgemeinschaft festgelegt werden, zertifiziert bzw. rezertifiziert.
+      c)   gravierende Mängel, welche die Erfüllung des Versorgungsauftrages in erheblichem
+           Ausmaß gefährden, ist die Zertifizierung bzw. Rezertifizierung der Screening-Einheit
+           durch die Kooperationsgemeinschaft zu verweigern.
+(6)    1Über das Ergebnis der Überprüfung nach Absatz 2 oder 3 stellt die
+
+Kooperationsgemeinschaft ein Zeugnis aus. 2Bei Erteilung der Zertifizierung bzw.
+Rezertifizierung sind etwaige Auflagen zu dokumentieren.
+
+§ 23 Evaluation des Mammographie-Screenings
+(1)    1Zur Prozess- und Ergebnisevaluation wird das Früherkennungsprogramm quer- und
+
+längsschnittlich dahingehend überprüft, inwieweit die angestrebten Ziele erreicht werden
+konnten. 2Hierzu werden, bezogen auf die jeweiligen Screening-Einheiten sowie bundesweit
+und im Rahmen der landesrechtlichen Bestimmungen unter Einbeziehung von Daten des
+zuständigen bevölkerungsbezogenen Krebsregisters, insbesondere ausgewertet:
+      1. Einladungsquote,
+      2. Teilnahmequote,
+      3. Sterblichkeit an Brustkrebs (Mortalität) in der Zielbevölkerung,
+      4. Brustkrebsentdeckungsrate im Früherkennungsprogramm,
+      5. Stadienverteilung         der       entdeckten          Mammakarzinome       im
+          Früherkennungsprogramm,
+      6. Brustkrebsneuerkrankungsrate (Inzidenz) in der Zielbevölkerung,
+      7. Stadienverteilung der Mammakarzinome in der Zielbevölkerung,
+      8. Positive Vorhersagewerte der Untersuchungsschritte,
+      9. Intervallkarzinome im Früherkennungsprogramm und deren Kategorisierung und
+          Stadienverteilung,
+      10. Anteil der zur Abklärungsdiagnostik eingeladenen Frauen,
+      11. Anteil der Karzinome, die vor der Operation durch Stanzbiopsie oder
+          Vakuumbiopsie gesichert wurden.
+
+3Für die Evaluation der Nummern 1 bis 8 und 10 bis 11 werden nur anonymisierte und
+
+aggregierte Daten verwendet. 4Für die Evaluation nach Nummer 9 gelten die Vorgaben der
+Absätze 4 bis 11.
+
+                                                                                            16
+(2)    Durch die nachfolgenden Regelungen werden auch die Voraussetzungen geschaffen,
+dass das Früherkennungsprogramm in seinem gesundheitlichen Nutzen überprüft werden
+kann.
+(3)    1Die Zentrale Stelle leitet die auf die jeweiligen Screening-Einheiten bezogenen
+
+Angaben zur Bestimmung von Absatz 1 Satz 2 Nummer 1 und Nummer 2 in anonymisierter
+Form an das Referenzzentrum weiter. 2Die Programmverantwortliche Ärztin oder der
+Programmverantwortliche Arzt übermittelt dem Referenzzentrum in Abständen von drei
+Monaten anonymisierte, bezogen auf die Teilnehmerin, und aggregierte Daten zur
+Bestimmung von Absatz 1 Satz 2 Nummer 4, 5, 8, 10 und 11. 3Zur Evaluation des
+Früherkennungsprogramms werden die Daten nach Satz 1 und 2 vom Referenzzentrum
+geprüft und ausgewertet und der Kooperationsgemeinschaft in anonymisierter und
+aggregierter Form zur Verfügung gestellt. 4Zur Bestimmung der Parameter nach Absatz 1 Satz
+2 Nummer 3, 6 und 7 erhält die Kooperationsgemeinschaft jährlich von den Krebsregistern
+Daten in anonymisierter und aggregierter Form. 5Die Kooperationsgemeinschaft prüft und
+wertet die Daten aus und leitet die Ergebnisse und jeweiligen regionalen Daten an die
+Referenzzentren weiter.
+(4)     1Zur Feststellung des Anteils der Intervallkarzinome (§ 22 Absatz 4 der
+
+Krebsfrüherkennungs-Richtlinie in Verbindung mit Anhang 10 der Anlage 9.2 BMV-Ä) sowie
+davon der Anteil falsch-negativer Diagnosen (§ 23 Absatz 1 Satz 2 Nummer 9) und zum Zweck
+der Evaluation nach Absatz 2 ist ein regelmäßiger – in der Regel jährlicher – pseudonymisierter
+Abgleich mit den Daten des jeweiligen epidemiologischen Krebsregisters erforderlich. 2Für
+diesen Abgleich werden in der Zentralen Stelle schon bei der Einladung für alle Frauen
+Kontrollnummern nach dem gleichen Programm gebildet, das von dem Krebsregister für jeden
+dort gemeldeten Fall genutzt wird. 3Gemäß den landesrechtlichen Bestimmungen ist hierfür
+das Programm zur Generierung von Kontrollnummern der Krebsregister durch die Zentrale
+Stelle zu nutzen. 4Die Zentrale Stelle speichert die Kontrollnummern zusammen mit den
+Screening-Identifikationsnummern.
+(5)    1Die   Screening-Einheit generiert zum Zwecke des Abgleichs mit dem
+epidemiologischen Krebsregister für jede Frau, die in den letzten 10 Jahren mindestens einmal
+am Screening teilgenommen hat, eine zufallsgenerierte eindeutige Kommunikationsnummer,
+welche den Datenabgleich und die Datenflüsse zwischen den epidemiologischen
+Krebsregistern, den Screening-Einheiten, den Zentralen Stellen und den Referenzzentren
+ermöglicht. 2Die Kommunikationsnummer wird im Rahmen und für die Dauer eines
+Krebsregisterabgleichs in den jeweiligen Institutionen gespeichert und verwendet. 3Sie enthält
+keine personenbezogenen Daten und wird nach Abschluss des Abgleichs mit den
+epidemiologischen Krebsregistern dort gelöscht. 4Die Screening-Einheit übermittelt für alle
+Teilnehmerinnen der letzten 10 Jahre die Kommunikationsnummer zusammen mit der
+Screening-Identifikationsnummer an die Zentrale Stelle.
+(6)     1Die Zentrale Stelle ermittelt zu den durch die Screening-Einheit übermittelten
+
+Screening-Identifikationsnummern die gespeicherten Kontrollnummern. 2Anschließend
+übermittelt die Zentrale Stelle diese Kontrollnummern zusammen mit der dazugehörigen
+Kommunikationsnummer an das zuständige epidemiologische Krebsregister. 3Nach
+Übermittlung der Daten an das zuständige epidemiologische Krebsregister wird die
+Kommunikationsnummer in der Zentralen Stelle gelöscht. 4Die Screening-Einheit übermittelt
+zeitgleich die gemäß den landesrechtlichen Bestimmungen erforderlichen Angaben zur Person
+(in der Regel Postleitzahl, Wohnort, Geburtsmonat und Geburtsjahr), die Datumsangaben
+(Monat und Jahr) der bisher durchgeführten Screeninguntersuchungen und das jeweilige
+Screening-Ergebnis (Brustkrebs im Screening diagnostiziert Ja/Nein bzw. Abbruch der
+Untersuchung) zusammen mit der Kommunikationsnummer zur Erfüllung der Aufgaben nach
+den Absätzen 7, 8 und 12 an das zuständige epidemiologische Krebsregister. 5Die
+übermittelten Daten sind nach Erfüllung der Aufgaben nach den Absätzen 7, 8 und 12,
+spätestens jedoch 6 Monate nach Übermittlung durch die Screening-Einheit, beim
+
+                                                                                            17
+epidemiologischen Krebsregister zu löschen, es sei denn, dass landesrechtliche Regelungen
+eine andere Aufbewahrungsfrist vorsehen.
+(7)    Das epidemiologische Krebsregister führt für Zwecke der Identifikation von
+Intervallkarzinomen und der Evaluation der Auswirkungen des Mammographie-Screenings die
+übermittelten Daten anhand der Kommunikationsnummer zusammen und gleicht diese im
+Rahmen der landesrechtlichen Bestimmungen mit den dort gespeicherten Kontrollnummern
+und Angaben zur Person ab.
+(8)    1Zur   Evaluation der Intervallkarzinome übermittelt das Krebsregister die
+Kommunikationsnummer, die Screening-Einheit, das Diagnosedatum sowie Angaben zum
+Tumor (Seite, Diagnose, pathologischer Befund, Grading, TNM-Stadium) derjenigen
+Brustkrebsfälle, die nicht im Rahmen des Mammographie-Screenings diagnostiziert wurden
+und die Angabe, ob der Fall als Intervallkarzinom klassifiziert wurde, an das zuständige
+Referenzzentrum. 2Die Daten werden vor der Übermittlung vom epidemiologischen
+Krebsregister pseudonymisiert, indem außer der Zuordnung zur Kommunikationsnummer die
+personenbezogenen Daten (Postleitzahl, Wohnort, Geburtsmonat und Geburtsjahr) entfernt
+werden. 3Danach wird im Krebsregister die Kommunikationsnummer gelöscht.
+(9)    1Die Screening-Einheit übermittelt auf Anforderung des Referenzzentrums für die vom
+
+Krebsregister an das zuständige Referenzzentrum zurück gemeldeten Intervallkarzinomfälle
+die standardisierte Dokumentation gemäß § 21 Absatz 1, inklusive der Screening-
+Mammographien und den Ergebnissen der gegebenenfalls durchgeführten Fallkonferenzen,
+an das Referenzzentrum. 2Alle Daten werden vor der Übermittlung von der Screening-Einheit
+pseudonymisiert, indem außer der Zuordnung zur Kommunikationsnummer alle
+personenbezogenen Daten entfernt werden. 3Sofern landesrechtliche Bestimmungen
+entsprechende Regelungen enthalten, übermittelt das epidemiologische Krebsregister
+zusammen mit der Kommunikationsnummer, dem Diagnosedatum und den Angaben zum
+Tumor auch den Namen und die Anschrift der Ärztin oder des Arztes an das Referenzzentrum,
+der oder die im Rahmen der Behandlung ein Intervallkarzinom an das Krebsregister gemeldet
+hat (meldende Ärztin oder Arzt). 4Das Referenzzentrum leitet den Namen und die Anschrift
+der meldenden Ärztin oder des meldenden Arztes an die jeweilige Screening-Einheit weiter.
+5Für eine weitergehende Bewertung der Intervallkarzinome fordert die Screening-Einheit
+
+gemäß den landesrechtlichen Bestimmungen die diagnostischen Unterlagen einschließlich der
+Mammographien über die meldende Ärztin oder den meldenden Arzt an und leitet diese in
+pseudonymisierter Form an das zuständige Referenzzentrum weiter.
+(10) 1Die       ärztlichen   Unterlagen    werden      durch   ein    vom      Beirat    der
+Kooperationsgemeinschaft       bestelltes   Sachverständigengremium      hinsichtlich    der
+Kategorisierung des Intervallkarzinoms auf den Fall bezogen aufgearbeitet. 2Dabei sollen die
+Intervallkarzinome nach den Kategorien ‚echtes Intervallkarzinom‘, ‚radiologisch okkult‘,
+‚minimale Anzeichen‘, ‚falsch-negativ‘ und ‚unklassifizierbar‘ eingeteilt werden. 3Zur
+Evaluation des Früherkennungsprogramms werden der Kooperationsgemeinschaft die
+Ergebnisse der Aufarbeitung der Intervallkarzinome in anonymisierter und aggregierter Form
+von den Referenzzentren zur Verfügung gestellt.
+(11) 1Das Referenzzentrum meldet der Screening-Einheit für ihre Fälle zurück, ob es sich um
+ein Intervallkarzinom handelt und in welche Kategorie dieses eingeteilt wurde. 2Danach
+werden die Kommunikationsnummern in der Screening-Einheit und im Referenzzentrum
+gelöscht.
+(12) 1Zur Evaluation der Auswirkungen des Mammographie-Screenings nach Absatz 2
+übermittelt das epidemiologische Krebsregister nach landesrechtlichen Vorgaben die
+erforderlichen Daten nach den Absätzen 6 und 7 an eine evaluierende Stelle. 2Die Daten sind
+vor der Übermittlung durch das epidemiologische Krebsregister zu anonymisieren.
+
+                                                                                         18
+(13) 1Die Kooperationsgemeinschaft legt die jährlichen Auswertungen, bezogen auf die
+Screening-Einheiten sowie bundesweit, zur Evaluation des Programms dem Gemeinsamen
+Bundesausschuss 2 Jahre nach dem Ende des Evaluationszeitraumes vor. 2Dieser prüft die
+Ergebnisse und entscheidet, ob weitere Auswertungen zur Evaluation sowie Änderungen des
+Früherkennungsprogramms notwendig sind. 3Die Auswertung zur Evaluation des Programms
+wird jährlich veröffentlicht.
+
+§ 23 a [nicht belegt]
+
+§ 23 b Übergangsregelungen
+1Die in Abschnitt B III Früherkennung von Brustkrebs durch Mammographie-Screening § 13
+
+Absatz 1 Satz 1, § 20 Absatz 4 und Absatz 5 Satz 2, § 23 Absatz 1 sowie Absatz 3 geregelten
+Vorgaben werden für Frauen ab dem Alter von 70 Jahren ausgesetzt. 2Die Beurteilung der
+Übersichten, Dokumentationen und Auswertungen gemäß § 20 Absatz 4 und Absatz 5 Satz 2,
+§ 22 Absatz 3 Satz 4 und Absatz 4 erfolgt unter Berücksichtigung von Satz 1. 3Zeitabstände und
+Abfolge der Vorgaben zur Erlangung der fachlichen Qualifikation gemäß § 18 Absatz 6 Satz 3,
+§ 19 Absatz 3 in Verbindung mit § 5 Absatz 5 Buchstabe e Satz 2 und Absatz 7, § 24 Absatz 2
+Buchstabe b Satz 2, Buchstabe c Satz 2, Buchstabe d Satz 4, § 25 Absatz 2 Buchstabe b Satz 2,
+Buchstabe c Satz 2, Buchstabe e, § 27 Absatz 3 Buchstabe b Satz 2 der Anlage 9.2 BMV-Ä mit
+Stand vom 1. Juli 2024 werden vorübergehend ausgesetzt. 4Die Programmverantwortliche
+Ärztin oder der Programmverantwortliche Arzt hat sicherzustellen, dass insbesondere Frauen
+zwischen 70 und 75 auf ein Informationsschreiben (siehe Anlage IVc) über die Ausweitung des
+Mammographie-Screening-Programms für diese Altersgruppe zugreifen können. 5Die
+Übergangsregelungen in Satz 1 und 4 bezogen auf das Einladungswesen nach § 13 Absatz 1
+Satz 1 sind nicht anwendbar, sobald die Meldedaten aufgrund der landesrechtlichen
+Regelungen für die regelmäßige Einladung der Frauen an die Zentrale Stelle übermittelt
+werden, die Zertifizierung der für das Einladungswesen notwendigen Software durch die
+Kassenärztliche Bundesvereinigung erfolgt ist und die Software in der Zentralen Stelle und den
+jeweiligen Screening-Einheiten einsatzbereit ist. 6§ 20 Absatz 4 und § 20 Absatz 5 Satz 2 sowie
+§ 23 Absatz 1 und 3 sind anzuwenden, sobald die Zertifizierung der für die ärztliche
+Dokumentation notwendigen Software durch die Kassenärztliche Bundesvereinigung erfolgt
+ist und die Software in den nach dieser Richtlinie bestimmten Stellen einsatzbereit ist.
+
+                                                                                            19
+C.   Früherkennungsmaßnahmen, die nur bei Männern durchgeführt werden
+
+§ 24 Leistungen
+Die Maßnahmen zur Früherkennung von Krebserkrankungen, die nur bei Männern
+durchgeführt werden, umfassen klinische Untersuchungen nach Maßgabe des § 25.
+
+§ 25 Klinische Untersuchungen
+Die klinischen Untersuchungen umfassen bei Männern folgende Leistungen:
+               Gezielte Anamnese,
+               Inspektion und Palpation des äußeren Genitales einschließlich der
+               entsprechenden Hautareale,
+               Abtasten der Prostata vom After aus,
+               Palpation regionärer Lymphknoten,
+               Befundmitteilung mit anschließender diesbezüglicher Beratung.
+
+§ 26 Dokumentation der klinischen Untersuchung
+Die anamnestischen Angaben sowie die Ergebnisse der klinischen Untersuchungen werden
+von der Ärztin oder dem Arzt in der Patientenakte dokumentiert.
+
+                                                                                 20
+D.         Früherkennungsmaßnahmen, die bei Frauen und Männern durchgeführt werden
+
+I.         Übersicht über die Leistungen
+
+§ 27 Leistungen
+Die Maßnahmen zur Früherkennung von Krebserkrankungen, die sowohl bei Frauen als auch
+bei Männern durchgeführt werden, umfassen
+      a)      Früherkennungsuntersuchungen auf Hautkrebs (§§ 28 bis 36),
+      b)      Früherkennungsuntersuchungen auf kolorektales Karzinom (geregelt in der oKFE-
+              RL),
+      c)      Früherkennungsuntersuchung auf Lungenkrebs (§§ 37 bis 46).
+
+II.        Früherkennungsuntersuchungen auf Hautkrebs
+
+§ 28 Grundlagen und Ziele der Früherkennung auf Hautkrebs
+1Ziel der Früherkennungsuntersuchung aufHautkrebs ist die frühzeitige Entdeckung des
+Malignen Melanoms, des Basalzellkarzinoms sowie des Spinozellulären Karzinoms. 2Die
+Untersuchung soll wenn möglich in Verbindung mit der Gesundheitsuntersuchung
+durchgeführt werden.
+
+§ 29 Lebensalter, Untersuchungsinhalte
+(1)    Versicherte haben ab dem Alter von 35 Jahren jedes zweite Jahr Anspruch auf
+vertragsärztliche Maßnahmen zur Früherkennung von Hautkrebs nach Maßgabe der
+folgenden Bestimmungen.
+(2)    Eine erneute Früherkennungsuntersuchung auf Hautkrebs ist jeweils erst nach Ablauf
+des auf die vorangegangene Untersuchung folgenden Kalenderjahres möglich.
+
+§ 30 Bestandteile der Früherkennungsuntersuchung auf Hautkrebs
+(1)      Zur Untersuchung gehören:
+      1. die gezielte Anamnese,
+      2. die visuelle, gemäß § 32 zertifiziertem Fortbildungsprogramm standardisierte
+         Ganzkörperinspektion der gesamten Haut einschließlich des behaarten Kopfes sowie
+         aller Intertrigines,
+      3. die Befundmitteilung mit diesbezüglicher Beratung und
+      4. die Dokumentation.
+(2)     1Ergibt sich aus der visuellen Inspektion der Haut durch eine Ärztin oder einen Arzt
+
+gemäß § 31 Satz 2 Nummer 1 der Verdacht auf das Vorliegen einer der Zielerkrankungen, so
+erfolgt die weitere Abklärung bei einer Fachärztin oder einem Facharzt für Haut- und
+Geschlechtskrankheiten gemäß § 31 Satz 2 Nummer 2. 2Diese oder dieser führt – sofern es
+sich nicht um die Erstuntersucherin oder den Erstuntersucher handelt – erneut eine visuelle
+Ganzkörperinspektion durch, überprüft insbesondere die auffälligen Befunde der
+Voruntersuchung und veranlasst ggf. die histopathologische Untersuchung zur
+Diagnosesicherung.
+(3)   Die histopathologische Beurteilung kann nur durch Pathologinnen und Pathologen
+sowie durch Dermatologinnen und Dermatologen mit Zusatzweiterbildung in
+Dermatohistologie entsprechend den Vorgaben der jeweiligen Weiterbildungsordnung
+
+                                                                                              21
+erfolgen; ab Inkrafttreten der diesbezüglichen Qualitätssicherungsvereinbarungen gemäß
+§ 135 Absatz 2 SGB V müssen die dort festgelegten Anforderungen erfüllt sein.
+
+§ 31 Berechtigte Ärztinnen und Ärzte
+1Die Leistung „Früherkennungsuntersuchung auf Hautkrebs" darf nur von im Rahmen der
+
+vertragsärztlichen Versorgung tätigen Ärztinnen und Ärzten erbracht werden, welche eine
+entsprechende Genehmigung der zuständigen Kassenärztlichen Vereinigung (KV) vorweisen
+können. 2Unter Voraussetzung der Qualifikation nach § 32 kann eine Genehmigung für
+    1. Fachärztinnen und Fachärzte für Allgemeinmedizin, hausärztlich tätige Internistinnen
+        und Internisten, Praktische Ärztinnen und Ärzte und Ärztinnen und Ärzte ohne
+        Gebietsbezeichnung und
+    2. Fachärztinnen und Fachärzte für Haut- und Geschlechtskrankheiten
+erteilt werden.
+
+                                                                                        22
+§ 32 Qualifikation
+1Obligatorische   Voraussetzung für die Genehmigung durch die zuständige KV zur
+Durchführung und Abrechnung der Früherkennungsuntersuchung auf Hautkrebs ist der
+Nachweis der erfolgreichen Teilnahme an einem von der KV zertifizierten achtstündigen
+Fortbildungsprogramm. 2Der Kurs hat insbesondere folgende Inhalte zu behandeln:
+   1. potenzieller Nutzen und Schaden von Früherkennungsmaßnahmen, Kriterien zur
+        Beurteilung von Früherkennungsmaßnahmen
+   2. Programm der Krebsfrüherkennungsuntersuchung, Gesundheitsuntersuchung und
+        frühzeitige Sensibilisierung des Patienten
+   3. Maßnahmen zur Ansprache der Versicherten
+   4. Ätiologie des Hautkrebs, Krankheitsbilder, Häufigkeit, Risikofaktoren oder –gruppe,
+        Anamnese, standardisierte visuelle Ganzkörperinspektion, Blickdiagnostik
+   5. Ablauf der Früherkennungsuntersuchung auf Hautkrebs
+   6. Vorstellung und Diskussion von Fallbeispielen
+   7. Dokumentationsmaßnahmen
+   8. interdisziplinäre Zusammenarbeit
+
+§ 33 Empfehlungen zur Qualitätssicherung
+1Ergänzend     zur    Einführung    des    Hautkrebs-Screenings wird   zeitnah  eine
+Qualitätssicherungsvereinbarung für die histopathologische Untersuchung gemäß § 135
+Absatz 2 SGB V beschlossen. 2Diese beinhaltet u. a. folgende Anforderung für die
+histopathologisch tätigen Ärztinnen und Ärzte:
+      1. Nachweis einer bestimmten Mindestzahl durchgeführter Befundungen,
+      2. Teilnahme an Fallkonferenzen,
+      3. Nachweis einer bestimmten jährlichen Mindestzahl an Befundungen von
+          dermatologischen Präparaten,
+      4. standardisierter Befundbericht.
+
+§ 34 Dokumentation der Früherkennungsuntersuchungen auf Hautkrebs
+(1)     1Die im Rahmen des Früherkennungsprogramms durchgeführte Untersuchung und
+
+eventuelle Abklärungsdiagnostik ist zu dokumentieren. 2Dazu gehören bei der
+Erstuntersuchung durch eine Ärztin oder einen Arzt gemäß § 31 Satz 2 Nummer 1 Vermerke
+über folgende Punkte:
+    1. Arztnummer
+    2. Patienteninformationen
+        2.1. Alter und Geschlecht der oder des Versicherten
+    3. Verdachtsdiagnose:
+        3.1. Verdachtsdiagnose (ja/nein)
+        3.2. Angabe der Verdachtsdiagnose differenziert nach Hautkrebsarten:
+                3.2.1. Malignes Melanom
+                3.2.2. Basalzellkarzinom
+                3.2.3. Spinozelluläres Karzinom
+                3.2.4. anderer Hautkrebs
+                3.2.5. sonstiger dermatologisch abklärungsbedürftiger Befund
+        3.3. Screening-Teilnehmer wird an einen Dermatologen überwiesen (ja/nein)
+    4. Teilnahme im Zusammenhang mit der Gesundheitsuntersuchung
+3Bei einer Erstuntersuchung oder Abklärung durch eine Ärztin oder einen Arzt gemäß § 31 Satz
+
+2 Nummer 2 sind folgende Punkte zu dokumentieren:
+
+                                                                                         23
+    1. Arztnummer
+    2. Patienteninformationen
+        2.1. Alter und Geschlecht der oder des Versicherten
+    3. Überweisung
+3.1. Patient kommt auf Überweisung (ja/nein)
+3.2. überweisender Arzt hat HKS durchgeführt (ja/nein)
+3.3. Angabe über die Verdachtsdiagnose des überweisenden Arztes liegt vor (ja/nein)
+3.4. Angabe der Verdachtsdiagnosen des überweisenden Arztes
+        3.4.1. Malignes Melanom
+        3.4.2. Basalzellkarzinom
+        3.4.3. Spinozelluläres Karzinom
+        3.4.4. Anderer Hautkrebs
+    4. Verdachtsdiagnose des untersuchenden Dermatologen
+4.1. Verdachtsdiagnose (ja/nein)
+4.2. Angabe der Verdachtsdiagnose differenziert nach den Hautkrebsarten
+        4.2.1. Malignes Melanom
+        4.2.2. Basalzellkarzinom
+        4.2.3. Spinozelluläres Karzinom
+        4.2.4. Anderer Hautkrebs
+        4.2.5. Sonstiger, mit Biopsie abklärungsbedürftiger Befund
+    5. Biopsie zu Verdachtsdiagnose entnommen oder Exzision durchgeführt (ja/nein)
+5.1. Falls ja: Anzahl der entnommenen Biopsien/Exzisionen
+5.2. Falls nein:
+        5.2.1. anderweitige Therapie oder Diagnostik vorgenommen bzw. eingeleitet (ja/nein)
+        5.2.2. derzeit keine weitere Therapie/Diagnostik (ja/nein)
+    6. Jeweils schwerster histopathologischer Befund (je Entität)
+6.1. Malignes Melanom (ja/nein)
+6.2. Malignes Melanom – Klassifikation
+                 • Melanoma in situ
+                 • Invasives Melanom
+6.3. Malignes Melanom – Tumordicke (Breslow) A
+                 • ≤ 1 mm
+                 • 1,01-2 mm
+                 • 2,01-4 mm
+                 • > 4 mm
+6.4. Basalzellkarzinom (ja/nein)
+6.5. Basalzellkarzinom horizontaler Tumordurchmesser (klinisch)
+                 • Angabe in mm
+6.6. Basalzellkarzinom vertikaler Tumordurchmesser (histologisch)
+                 • Angabe in mm
+6.7. Spinozelluläres Karzinom (ja/nein)
+6.8. Spinozelluläres Karzinom – Klassifikation
+                 • Karzinoma in situ
+                 • Invasives Karzinom
+6.9. Spinozelluläres Karzinom-Grading
+                 • G X/1/2/3/4
+6.10. Anderer Hautkrebs (ja/nein)
+6.11. atypischer Nävuszellnävus (ja/nein)
+
+                                                                                        24
+6.12. junkitonaler, compound, dermaler atypischer Nävuszellnävus (ja/nein)
+6.13. Aktinische Keratose (ja/nein)
+6.14. Andere hier nicht relevante Hautveränderungen (ja/nein)
+(2)    Die vollständige Dokumentation ist Voraussetzung für die Abrechnung der
+Früherkennungsmaßnahme.
+(3)     Zur Datenerfassung darf nur eine von der KBV zertifizierte Software Verwendung
+finden.
+(4)     1Die elektronischen Dokumentationen werden als Datensätze an die jeweils zuständige
+
+KV übermittelt. 2Sie werden zum Zweck der Evaluation von den Kassenärztlichen
+Vereinigungen gesammelt und der für die Evaluation bestimmten Stelle zur Verfügung
+gestellt.
+
+§ 35 Evaluation der Früherkennungsuntersuchungen auf Hautkrebs
+(1)    1Die Maßnahme zur „Früherkennungsuntersuchung auf Hautkrebs" wird hinsichtlich
+
+Qualität und Zielerreichung durch regelmäßige Auswertung der Dokumentation evaluiert.
+2Dabei verständigen sich die KBV und der Spitzenverband Bund der Krankenkassen über Art
+
+und Umfang der Evaluation und die Veröffentlichung. 3Zielparameter für die Evaluation sind
+insbesondere:
+    a)   Teilnahmeraten differenziert nach Arztgruppen, Alter, Geschlecht
+    b) gleichzeitige Inanspruchnahme der Gesundheitsuntersuchung bei Hausärzten
+    c)   Anzahl der Verdachtsdiagnosen differenziert nach Arztgruppen
+    d) Anzahl der bestätigten Diagnosen bei Dermatologen
+    e) Anzahl der falsch positiven Befunde
+    f)   Entdeckungsrate (Anzahl der entdeckten Hautkrebse und der histopathologischen
+         Befunde/Teilnehmer)
+    g)   Auswertung differenziert nach KV-Bereichen.
+(2)     1Zur Beantwortung weiterer spezifischer Fragen sollen Sonderstudien (z. B. zur
+
+Ermittlung der Anzahl der falsch-negativen Befunde, Vorverlegung des Diagnosezeitpunktes)
+durchgeführt werden. 2Falls erforderlich werden hierzu die Daten aus der
+Routinedokumentation unter Beachtung datenschutzrechtlicher Vorgaben zur Verfügung
+gestellt.
+
+§ 36 Anpassung
+Spätestens fünf Jahre nach Inkrafttreten der Richtlinienänderung soll der Gemeinsame
+Bundesausschuss den Erfolg des Hautkrebs-Screenings prüfen und erforderliche Änderungen
+beschließen.
+
+                                                                                        25
+III.   Früherkennungsuntersuchung auf Lungenkrebs
+
+§ 37 Ziele und Grundlagen der Früherkennung auf Lungenkrebs
+(1)    Ziel der Früherkennungsuntersuchung auf Lungenkrebs ist die frühzeitige Entdeckung
+von Lungenkarzinomen bei Personen mit erhöhtem Lungenkrebsrisiko aufgrund von
+derzeitigem oder ehemaligem starken Zigarettenkonsum und damit eine deutliche Senkung
+der Lungenkrebssterblichkeit. Dabei ist eine Minimierung der Belastungen, die mit einer
+Früherkennungsuntersuchung auf Lungenkrebs verbunden sein können, zu gewährleisten.
+(2)    Rechtliche Grundlage der Früherkennungsuntersuchung auf Lungenkrebs bildet die
+Verordnung über die Zulässigkeit der Anwendung der Niedrigdosis-Computertomographie zur
+Früherkennung von Lungenkrebs bei rauchenden Personen (Lungenkrebs-Früherkennungs-
+Verordnung – LuKrFrühErkV) in der jeweils geltenden Fassung. Insbesondere deren Vorgaben
+sowie die Vorgaben des Strahlenschutzgesetzes und der Strahlenschutzverordnung sind bei
+der Umsetzung dieser Regelungen dieses Abschnitts zu beachten.
+
+§ 38 Anspruchsvoraussetzungen
+(1)     Versicherte Personen, die das 50., aber noch nicht das 76. Lebensjahr vollendet haben,
+mit einem Zigarettenkonsum im Sinne des § 2 Absatz 1 Nummer 3 Buchstabe a in Verbindung
+mit § 1 Absatz 2 LuKrFrühErkV, haben grundsätzlich alle 12 Monate Anspruch auf Leistungen
+im Rahmen der Früherkennung auf Lungenkrebs in der vertragsärztlichen Versorgung nach
+Maßgabe der LuKrFrühErkV und diesem Abschnitt. Bei einem kontrollbedürftigen Befund
+gemäß § 1 Absatz 4 LuKrFrühErkV im Rahmen einer vorangegangenen Früherkennung auf
+Lungenkrebs nach diesem Abschnitt ist abweichend von Satz 1 eine Untersuchung zur
+Lungenkrebsfrüherkennung vor Ablauf von 12 Monaten gemäß § 2 Absatz 2 LuKrFrühErkV
+zulässig.
+(2)    Erfolgte innerhalb der letzten 12 Monate zum Zeitpunkt der geplanten
+Früherkennungsuntersuchung mittels Niedrigdosis-Computertomographie bereits aus
+anderen Gründen eine Untersuchung der Lunge mittels Computertomographie und ist diese
+Voraufnahme qualitativ zur Befundung im Hinblick auf ein Lungenkarzinom geeignet, besteht
+der Anspruch auf Leistungen nach diesem Abschnitt frühestens 12 Monate nach Durchführung
+dieser Computertomographie.
+(3)    Versicherte, die sich aufgrund einer Lungenkrebserkrankung in ärztlicher Behandlung
+oder Nachbehandlung befinden oder bei denen aufgrund von Vorliegen typischer Symptome
+ein konkreter Verdacht auf eine Lungenkrebserkrankung besteht, haben Anspruch auf die
+notwendige ärztliche Betreuung und Behandlung innerhalb der kurativen Versorgung.
+
+§ 39 Inhalte der Früherkennungsuntersuchung auf Lungenkrebs
+Zu den Inhalten der Früherkennungsuntersuchung auf Lungenkrebs gehören:
+    1. Erhebung der relevanten anamnestischen Daten und Erstellung eines Berichts gemäß
+       § 2 Absatz 1 Nummer 3 LuKrFrühErkV, aus dem das Vorliegen des Zigarettenkonsums
+       der versicherten Person gemäß § 2 Absatz 1 Nummer 3 Buchstabe a in Verbindung mit
+       § 1 Absatz 2 LuKrFrühErkV sowie das Vorliegen des medizinischen Eignungsprofils der
+       versicherten Person gemäß § 2 Absatz 1 Nummer 3 Buchstabe b LuKrFrühErkV
+       hervorgeht. Der Bericht wird der versicherten Person zur Verfügung gestellt.
+    2. Information der versicherten Person gemäß § 40,
+    3. Prüfung der Zulässigkeitsvoraussetzungen und rechtfertigende Indikationsstellung
+       gemäß § 41 Absatz 1,
+    4. Aufklärung gemäß § 41 Absatz 2 und Erstellung der Computertomographieaufnahme
+       mittels Niedrigdosis-Computertomographie gemäß § 41 Absatz 3 und
+
+                                                                                           26
+   5. Befundung der Computertomographieaufnahme gemäß § 42.
+
+§ 40 Information
+Die versicherte Person ist von der Ärztin oder dem Arzt gemäß § 43 Absatz 2, der oder die die
+Maßnahmen nach § 39 Nummer 1 durchführt, in einem mündlichen Gespräch und durch
+Aushändigung von Informationen in Textform nach Anlage I zu informieren. Die Information
+umfasst auch die verschiedenen Möglichkeiten zur Tabakentwöhnung. Die Ärztin oder der
+Arzt gemäß Satz 1 bestätigt im Bericht gemäß § 39 Nummer 1 die erfolgte Information zur
+Vorlage bei der ärztlichen Person gemäß § 41 Absatz 1.
+
+§ 41 Anforderungen an die Untersuchung mittels Niedrigdosis-Computertomographie
+(1)     Voraussetzung für die Durchführung der Untersuchung mittels Niedrigdosis-
+Computertomographie ist, dass eine Ärztin oder ein Arzt gemäß § 43 Absatz 5 (Erstbefunder)
+die Zulässigkeitsvoraussetzungen gemäß § 2 LuKrFrühErkV geprüft und die rechtfertigende
+Indikation gemäß § 83 Absatz 3 StrlSchG für die Untersuchung zur Lungenkrebsfrüherkennung
+bei der versicherten Person unter Berücksichtigung des Berichts gemäß § 2 Absatz 1
+Nummer 3 LuKrFrühErkV gestellt hat (vergleiche § 3 LuKrFrühErkV). Vor der Erstellung der
+Niedrigdosis-Computertomographieaufnahme haben die entsprechenden Aufnahmen und
+die dazugehörigen Befunde der letzten oder – soweit erfolgt – der letzten beiden
+vorangegangenen Lungenkrebsfrüherkennungsuntersuchungen vorzuliegen, es sei denn, dies
+ist im Einzelfall nicht möglich oder erfordert einen unverhältnismäßigen Aufwand. Es gilt § 4
+Absatz 2 LuKrFrühErkV.
+(2)  Ein Erstbefunder hat die versicherte Person vor Anwendung der Niedrigdosis-
+Computertomographie aufzuklären.
+(3)    Für die Durchführung der Untersuchung mittels Niedrigdosis-Computertomographie
+zur Früherkennung von Lungenkrebs gelten die Vorgaben der §§ 4 bis 6 LuKrFrühErkV sowie
+der Anlage zu dieser Verordnung.
+
+§ 42 Befundung
+(1)    Die Computertomographieaufnahmen werden zunächst gemäß § 5 Absatz 1
+LuKrFrühErkV durch einen Erstbefunder befundet. Bei einem kontrollbedürftigen oder
+abklärungsbedürftigen Befund im Sinne des § 1 Absatz 4 oder 5 LuKrFrühErkV des
+Erstbefunders hat eine weitere Ärztin oder ein weiterer Arzt gemäß § 43 Absatz 3
+(Zweitbefunder) die Computertomographieaufnahme unabhängig vom Erstbefunder gemäß
+§ 5 Absatz 2 LuKrFrühErkV zu befunden. Anschließend haben der Erst- und Zweitbefunder
+gemeinsam die Computertomographieaufnahme gemäß § 5 Absatz 3 LuKrFrühErkV zu
+beurteilen. Für die Verarbeitung der Daten für die unabhängige Zweitbefundung und die
+abschließende gemeinsame Beurteilung sollen elektronische Kommunikations- und
+Informationstechnologien eingesetzt werden. Diese haben den erforderlichen
+Sicherheitsstandards zu entsprechen.
+(2)    Das Ergebnis der Lungenkrebsfrüherkennungsuntersuchung soll durch den
+Erstbefunder innerhalb von 14 Tagen nach Erstellung der Niedrigdosis-
+Computertomographieaufnahme der versicherten Person als strukturierter Befundbericht
+übermittelt werden. Bei Einwilligung der versicherten Person übermittelt der Erstbefunder
+auch dem Arzt oder der Ärztin gemäß § 43 Absatz 2, der oder die die Maßnahmen nach § 39
+Nummer      1    und     Nummer       2    durchgeführt    hat,     das   Ergebnis    der
+Lungenkrebsfrüherkennungsuntersuchung als strukturierten Befundbericht.
+(3)    Ist das Ergebnis der gemeinsamen Beurteilung der Lungenkrebsfrüherkennungs-
+untersuchung
+
+                                                                                          27
+   1. ein kontrollbedürftiger Befund, ist der versicherten Person mit dem Ergebnis der
+      Lungenkrebsfrüherkennungsuntersuchung eine Empfehlung für den Zeitpunkt der
+      nächsten Untersuchung zur Lungenkrebsfrüherkennung zu übermitteln,
+   2. ein abklärungsbedürftiger Befund, sind dieser und die weiteren notwendigen
+      Maßnahmen zur Abklärung mit der versicherten Person zu besprechen und die
+      notwendigen Maßnahmen unverzüglich einzuleiten.
+
+§ 43 Qualifikation der teilnehmenden Ärztinnen und Ärzte
+(1)    Die Anforderungen an die Ärztinnen und Ärzte für die einzelnen Maßnahmen zur
+Früherkennung von Lungenkrebs ergeben sich aus §§ 2, 5 und 6 LuKrFrühErkV und den
+folgenden Absätzen.
+(2)    Die Maßnahmen gemäß § 39 Nummer 1 und gemäß § 39 Nummer 2 dürfen nur durch
+Ärztinnen und Ärzte durchgeführt werden, die an der vertragsärztlichen Versorgung
+teilnehmen und die in § 6 Absatz 3 LuKrFrühErkV festgelegten Voraussetzungen erfüllen.
+Die Fortbildung gemäß § 6 Absatz 3 Nummer 3 LuKrFrühErkV muss gemäß den Vorgaben der
+Bundesärztekammer von einer Landesärztekammer anerkannt sein und aus mindestens
+folgenden Kursinhalten bestehen:
+    1. Grundlagen und Organisation der Früherkennungsuntersuchung von Lungenkrebs
+    2. Maßnahmen zur Ansprache der versicherten Person und Prüfung der
+       Zulässigkeitsvoraussetzungen
+    3. Grundlegendes Wissen zu dem potentiellen Nutzen und Schaden der
+       Früherkennungsuntersuchung auf Lungenkrebs
+    4. Kenntnisse der Befundklassifikation nach Lung-RADS bei Niedrigdosis-
+       Computertomographie
+    5. Weiteres Vorgehen und Befundmitteilung
+Die Ärztin oder der Arzt gibt zusammen mit dem Bericht gemäß § 39 Nummer 1 eine
+Selbsterklärung ab, dass sie oder er die in § 6 Absatz 3 LuKrFrühErkV festgelegten
+Voraussetzungen erfüllt.
+(3)    Ärztinnen und Ärzte, die als Zweitbefunder im Rahmen der Untersuchung zur
+Lungenkrebsfrüherkennung Computertomographieaufnahmen gemäß § 39 Nummer 5
+befunden, bedürfen hierfür einer Genehmigung der zuständigen Kassenärztlichen
+Vereinigung. Die Genehmigung setzt voraus, dass
+    1. die in § 6 Absatz 2 LuKrFrühErkV in Verbindung mit § 43 Absatz 6 festgelegten
+       Voraussetzungen an die fachliche Qualifikation erfüllt sind und
+    2. die Ärztin oder der Arzt an einer Einrichtung tätig ist, die auf die Untersuchung und
+       Behandlung von Lungenkrebs gemäß § 43 Absatz 4 spezialisiert ist.
+Die Voraussetzungen nach Nummer 1 und 2 sind für die Erteilung der Genehmigung
+gegenüber der Kassenärztlichen Vereinigung nachzuweisen. Die Genehmigung ist mit der
+Auflage zu erteilen, dass die Voraussetzungen gemäß § 6 Absatz 2 Satz 2 Nummer 1
+LuKrFrühErkV innerhalb eines Zeitraums von einem Jahr nach Erteilung der Genehmigung und
+die Voraussetzungen gemäß § 6 Absatz 2 Satz 2 Nummer 2 LuKrFrühErkV innerhalb jedes
+folgenden Jahres durch die Ärztin oder den Arzt erfüllt und unverzüglich nachgewiesen
+werden. Die Tätigkeit von in einem Krankenhaus tätigen Ärztinnen und Ärzten als
+Zweitbefunder setzt neben der Genehmigung der Kassenärztlichen Vereinigung die Befugnis
+zur Teilnahme an der vertragsärztlichen Versorgung voraus.
+(4)      Eine auf die Untersuchung und Behandlung von Lungenkrebs spezialisierte Einrichtung
+ist ein nach § 108 SGB V zugelassenes Krankenhaus, das gemäß der Mindestmengenregelung
+des Gemeinsamen Bundesausschusses für „Thoraxchirurgische Behandlung des
+
+                                                                                         28
+Lungenkarzinoms bei Erwachsenen“ nach § 136b Absatz 1 Satz 1 Nummer 2 SGB V oder nach
+§ 136b Absatz 5a Satz 1 SGB V Leistungen bei Patientinnen und Patienten mit Lungenkrebs
+bewirken darf.
+(5)    Die Maßnahmen gemäß § 39 Nummer 3 bis 4 sowie die Befundung als Erstbefunder
+nach § 39 Nummer 5 dürfen nur von Ärztinnen und Ärzten durchgeführt werden, die über eine
+Genehmigung als Erstbefunder der zuständigen Kassenärztlichen Vereinigung verfügen. Die
+Genehmigung setzt voraus, dass
+    1. die in § 6 Absatz 1 Satz 1 LuKrFrühErkV in Verbindung mit § 43 Absatz 6 dieser Richtlinie
+       festgelegten Voraussetzungen an die fachliche Qualifikation erfüllt sind und
+    2. mindestens eine Kooperationsvereinbarung mit mindestens einem Zweitbefunder
+       gemäß § 43 Absatz 3 besteht, mit dem der Erstbefunder zukünftig für die Erfüllung der
+       Aufgaben im Rahmen dieser Richtlinie zusammenarbeiten wird.
+Die Voraussetzungen nach Nummer 1 und 2 sind für die Erteilung der Genehmigung
+gegenüber der Kassenärztlichen Vereinigung nachzuweisen. Die Genehmigung ist mit der
+Auflage zu erteilen, dass die Voraussetzungen gemäß § 6 Absatz 1 Satz 2 Nummer 1
+LuKrFrühErkV innerhalb eines Zeitraums von einem Jahr nach Erteilung der Genehmigung und
+die Voraussetzungen gemäß § 6 Absatz 1 Satz 2 Nummer 2 LuKrFrühErkV innerhalb jedes
+folgenden Jahres durch die Ärztin oder den Arzt erfüllt und unverzüglich nachgewiesen
+werden.
+(6)    Die für die Erteilung der Genehmigung für Erstbefunder nach Absatz 5 und
+Zweitbefunder nach Absatz 3 vorausgesetzte Fortbildung zum Erwerb von Wissen im Bereich
+der Untersuchung zur Lungenkrebsfrüherkennung gemäß § 6 Absatz 1 Satz 1 Nummer 3,
+Absatz 2 Nummer 1 LuKrFrühErkV muss gemäß den Vorgaben der Bundesärztekammer von
+einer Landesärztekammer anerkannt sein und aus mindestens folgenden Kursinhalten
+bestehen:
+    1. Grundlagen und Organisation der Früherkennungsuntersuchung von Lungenkrebs
+    2. Vertieftes Wissen zu dem potentiellen Nutzen und Schaden der Früherkennungs-
+       untersuchung auf Lungenkrebs
+    3. Prüfung der Zulässigkeitsvoraussetzungen und der rechtfertigenden Indikation
+    4. Durchführung und Befundung der Niedrigdosis-Computertomographie
+    5. Weiteres Vorgehen und Befundmitteilung
+(7)     Bei Nichteinhaltung der Anforderungen gemäß § 6 Absatz 1 Satz 2 Nummer 1 und 2
+sowie Absatz 2 Satz 2 Nummer 1 und 2 LuKrFrühErkV gilt § 6 Absatz 1 Satz 3 und 4 und Absatz 2
+Satz 3 LuKrFrühErkV. Die entsprechende Fortbildung muss gemäß den Vorgaben der
+Bundesärztekammer von einer Landesärztekammer anerkannt sein und die Anforderungen
+nach den Sätzen 3 bis 5 dieses Absatzes erfüllen. Die Fortbildung muss die Befundung und
+Dokumentation von mindestens 50 Niedrigdosis-Computertomographieaufnahmen, die das
+radiologische Entscheidungsspektrum der Lungenkrebsfrüherkennung abbilden, beinhalten.
+Die Befundung muss hierbei zunächst ohne und dann unter Nutzung einer Software zur
+computerassistieren Detektion erfolgen. Soweit bei der Beurteilung der Niedrigdosis-
+Computertomographieaufnahmen im Rahmen der Fortbildung die Sensitivität und Spezifität
+jeweils mindestens 90 % betragen hat, gilt die Teilnahme an der Fortbildung als erfolgreich.
+
+§ 44 Dokumentation
+Der Erstbefunder dokumentiert in der Patientenakte die Durchführung der Niedrigdosis-
+Computertomographie, seine Befundung und im Falle einer Zweitbefundung auch diesen
+Befund sowie das Ergebnis der gemeinsamen Beurteilung der Lungenkrebsfrüherkennungs-
+untersuchung mit der Empfehlung für das weitere Vorgehen. Die Erstbefunder sind
+verpflichtet, die Ergebnisse der gemeinsamen Beurteilung der Lungenkrebsfrüherkennung
+
+                                                                                             29
+mittels folgender Angaben in Quartalsberichten zusammenzustellen und der zuständigen
+Kassenärztlichen Vereinigung zu übermitteln:
+   1. Anzahl untersuchter Personen
+   2. Anzahl kontrollbedürftiger Befunde
+   3. Anzahl abklärungsbedürftiger Befunde.
+Die Quartalsberichte werden von den Kassenärztlichen Vereinigungen einrichtungs-
+pseudonymisiert dem G-BA zur Auswertung und Bearbeitung zur Verfügung gestellt. Diese
+Quartalsberichte sind Voraussetzung für die Abrechnung der Niedrigdosis-Computer-
+tomographien.
+
+§ 45 Qualitätssicherung
+Die Anforderungen an den Computertomographen, den Befundarbeitsplatz und an die
+Software zur computerassistierten Detektion der Untersuchung mittels Niedrigdosis-
+Computertomographie richten sich nach den Vorgaben der §§ 1 Absatz 3, 4 und 5
+LuKrFrühErkV sowie der Anlage zu dieser Verordnung. Die Anforderungen an das Personal
+richten sich nach § 6 LuKrFrühErkV sowie § 43 dieser Richtlinie.
+
+§ 46 Evaluation
+(1)    Die Kassenärztlichen Vereinigungen übermitteln kalenderjährlich zum 30. April des
+Folgejahres an die Kassenärztliche Bundesvereinigung jeweils die Anzahl der abgerechneten
+Leistungen zur Lungenkrebsfrüherkennung und jeweils die Anzahl der Ärzte, die diese
+Leistungen erbringen. Die Kassenärztliche Bundesvereinigung übermittelt die Daten bis zum
+30. Juni an die Geschäftsstelle des G-BA.
+(2)    Bis spätestens zum Ablauf des Jahres 2028 wird der G-BA die regulatorischen und
+strukturellen Voraussetzungen für ein Monitoring zur Qualitätssicherung der Lungenkrebs-
+früherkennung schaffen.
+
+                                                                                      30
+Anlage I      Versicherteninformation zur Lungenkrebsfrüherkennung
+
+[Hier erscheint in dem Druckerzeugnis der Versicherteninformation gemäß Anlage I ein
+Deckblattpiktogramm.]
+
+Lungenkrebs-Früherkennung für Raucherinnen und Raucher
+Informationen zum Angebot der gesetzlichen Krankenversicherung
+
+Lungenkrebs-Früherkennung
+Angebot der gesetzlichen Krankenversicherung – Versicherteninformation für Raucherinnen
+und Raucher
+
+Wenn Sie stark Zigaretten rauchen oder geraucht haben und zwischen 50 und 75 Jahre alt
+sind, haben Sie grundsätzlich alle 12 Monate die Möglichkeit, an einer Niedrigdosis-Computer-
+Tomografie (Niedrigdosis-CT) zur Früherkennung von Lungenkrebs teilzunehmen. Die Kosten
+übernimmt Ihre Krankenkasse. Ob Sie das Angebot annehmen oder nicht, entscheiden Sie
+selbst.
+Ihre Teilnahme ist freiwillig. Es hat keine Folgen für Ihre Krankenversicherung, wenn Sie sich
+nicht untersuchen lassen möchten: Auch wenn Sie sich gegen eine Früherkennung
+entscheiden und später an Lungenkrebs erkranken sollten, übernimmt Ihre Krankenkasse
+selbstverständlich die Behandlungskosten.
+Diese Versicherteninformation soll Sie dabei unterstützen, die Vor- und Nachteile abzuwägen
+und für sich eine gute Entscheidung zu treffen.
+
+Sie hat vier Schwerpunkte:
+•   Informationen zum Ablauf der Untersuchung
+•   mögliche Ergebnisse der Lungenkrebs-Früherkennung
+•   Vor- und Nachteile der Teilnahme
+•   Unterstützung Ihrer Entscheidung
+
+Am Ende dieser Versicherteninformation finden Sie Hinweise zu weiteren Informationen.
+
+Warum wird eine Früherkennung angeboten?
+Lungenkrebs gehört zu den häufigsten Krebserkrankungen in Deutschland. Er wird meist im
+höheren Alter festgestellt: bei Frauen im Mittel mit 69 Jahren, bei Männern mit 70 Jahren. Der
+stärkste Risikofaktor für Lungenkrebs ist das Rauchen.
+Das Ziel der Früherkennung mit einer Niedrigdosis-CT ist es, Lungenkrebs schon im frühen
+Stadium zu erkennen – also bevor er zu Beschwerden führt. Dann sind die Behandlungs- und
+Heilungschancen besser. Aktiven und ehemaligen starken Raucherinnen und Rauchern wird
+daher eine Früherkennung angeboten.
+
+                                                                                           31
+Allerdings hat die Früherkennung auch Nachteile: Sie kann zum Beispiel zu unnötigen
+Untersuchungen und Behandlungen führen, die auch psychisch belastend sein können.
+
+Wie groß ist der Einfluss des Rauchens?
+Rauchen ist die Ursache von mehr als 85 % der Lungenkrebserkrankungen. Entscheidend ist
+vor allem, wie lange Sie geraucht haben. Ihr Risiko für Lungenkrebs ist umso höher,
+•   je früher Sie mit dem Rauchen begonnen haben,
+•   je länger Sie geraucht haben und
+•   je mehr Zigaretten Sie täglich geraucht haben.
+
+Für wen kommt die Früherkennung infrage?
+Da sie mit einer Strahlenbelastung einhergeht, kommt die Lungenkrebs-Früherkennung mit
+einer Niedrigdosis-CT nur für Personen infrage, die ein erhöhtes Lungenkrebsrisiko haben.
+Das Bundesministerium für Umwelt, Naturschutz, nukleare Sicherheit und Verbraucherschutz
+(BMUV) hat in einer Verordnung festgelegt, dass nur folgende Personen an der Früherkennung
+teilnehmen können:
+•   Alter: Sie sind zwischen 50 und 75 Jahre alt
+•   starker Zigarettenkonsum: Sie rauchen aktuell oder haben früher stark geraucht,
+    mindestens 25 Jahre mit einem Konsum von 15 Packungsjahren. Rauchpausen innerhalb
+    dieser Zeit dürfen nicht länger als 10 Jahre gewesen sein.
+•   Gesundheitszustand, der eine Teilnahme an der Lungenkrebs-Früherkennung zulässt.
+
+Was sind Packungsjahre?
+Packungsjahre geben an, wie viel jemand im Laufe seines Lebens geraucht hat. Sie werden
+berechnet aus:
+•   der Anzahl der Jahre, die Sie insgesamt geraucht haben,
+multipliziert mit
+•   der Anzahl der Packungen, die Sie im Durchschnitt pro Tag geraucht haben. Dabei wird
+    davon ausgegangen, dass eine Packung 20 Zigaretten enthält.
+
+Ein einfaches Beispiel:
+Wenn Sie 30 Jahre lang durchschnittlich eine halbe Packung (10 Zigaretten am Tag) geraucht
+haben, ergibt das 15 Packungsjahre.
+Das folgende kleine Formular hilft Ihnen, Ihre Packungsjahre abzuschätzen:
+[Hier schließt sich in dem Druckerzeugnis zur Versicherteninformation eine Abbildung zur
+Berechnung der Packungsjahre auf Basis der Multiplikation der Antworten auf die Fragen „Wie
+viele Jahre habe ich insgesamt geraucht?“ und „Wie viele Packungen habe ich pro Tag
+geraucht?“ an.]
+
+                                                                                        32
+        Die Früherkennung kann das Risiko für Lungenkrebs nicht senken – mit dem Rauchen
+        aufzuhören hingegen schon.
+        Den meisten Menschen fällt der Rauchstopp schwer. Es gibt aber Unterstützung und
+        Behandlungen, die die Erfolgschancen erhöhen.
+        Dazu zählen z. B.:
+            - Beratungsangebote
+            - Rezeptfreie Medikamente
+            - Medikamente auf Rezept
+            - Digitale Gesundheitsanwendungen, kurz: DiGA
+            - Nichtraucherkurse und Entwöhnungsprogramme
+        Gut zu wissen: Einige Unterstützungsangebote und Medikamente werden von der
+        Krankenkasse bezuschusst oder auch vollständig bezahlt.
+        Über die Möglichkeiten der Kostenübernahme informieren Sie sich am besten bei Ihrer
+        eigenen Krankenkasse.
+        Sprechen Sie Ihre Ärztin oder Ihren Arzt darauf an, wenn Sie Hilfe benötigen, mit dem
+        Rauchen aufzuhören.
+
+Ablauf der Untersuchung
+Wo findet die Untersuchung statt?
+Die Früherkennung darf nur von Fachpraxen und -kliniken angeboten werden, deren
+Ärztinnen und Ärzte besondere Qualifikationen erfüllen. Diese müssen zum Beispiel
+nachweisen, dass sie die nötige Weiterbildung und Erfahrung besitzen.
+Wenn Sie sich für die Untersuchung interessieren, wenden Sie sich zuerst an eine
+allgemeinmedizinische oder internistische Praxis, die sich an der Lungenkrebs-Früherkennung
+beteiligt.
+Wenn Sie die Untersuchung in Anspruch nehmen wollen, prüft die Praxis zum einen, ob die
+Voraussetzungen (z. B. Alter, Packungsjahre) erfüllt sind. Zum anderen wird auch Ihr
+Gesundheitszustand beurteilt. Sie erhalten Informationen zum Ablauf der Lungenkrebs-
+Früherkennung, zum möglichen Nutzen und zu den möglichen Risiken sowie zum weiteren
+Vorgehen bei auffälligen Befunden.
+Die Ergebnisse werden in einem Bericht zusammengefasst. Wenn Sie alle Voraussetzungen
+zur Teilnahme erfüllen, erhalten Sie eine Überweisung.
+Anschließend können Sie einen Termin bei einer radiologischen Praxis oder Klinik vereinbaren,
+die eine Genehmigung zur Durchführung der Niedrigdosis-CT zur Früherkennung von
+Lungenkrebs hat. Dort legen Sie den Bericht mit der Überweisung vor. Vor der Niedrigdosis-
+CT findet ein ärztliches Aufklärungsgespräch statt. Sie können Fragen stellen und erhalten
+Informationen zum weiteren Ablauf der Untersuchung.
+
+Wann und wie oft ist eine Niedrigdosis-CT möglich?
+Für die Früherkennung von Lungenkrebs kann grundsätzlich alle 12 Monate eine CT-
+Untersuchung gemacht werden.
+Vorher wird geprüft, ob die Lunge in den letzten 12 Monaten aus anderen Gründen mittels CT
+untersucht wurde. Wenn diese Bilder für die Früherkennung von Lungenkrebs geeignet sind,
+findet keine neue CT-Untersuchung statt.
+
+                                                                                           33
+[Hier schließt sich in dem Druckerzeugnis zur Versicherteninformation eine Abbildung zur
+Durchführung einer CT an.]
+
+Was geschieht bei einer Niedrigdosis-CT?
+Bei einer Niedrigdosis-CT werden mithilfe von Röntgenstrahlen Schnittbilder der Lunge
+erstellt. So können auch kleine Auffälligkeiten sichtbar gemacht werden.
+Die Untersuchung ist schmerzfrei, dauert nur wenige Minuten und findet im Liegen statt.
+Die Radiologin oder der Radiologe beurteilt die Niedrigdosis-CT-Bilder und prüft sie auf
+Auffälligkeiten. Dabei kommen auch spezielle Computerprogramme zum Einsatz. Auffällige
+Befunde werden durch eine weitere Spezialistin oder einen Spezialisten begutachtet.
+
+Mögliche Ergebnisse
+Die Radiologin oder der Radiologe wird Ihnen und – bei Vorliegen Ihrer Einwilligung – Ihrer
+behandelnden Ärztin oder Ihrem behandelnden Arzt in der Regel innerhalb von 14 Tagen nach
+der Untersuchung das Ergebnis übermitteln.
+
+Was passiert, wenn keine Auffälligkeit gefunden wird?
+Den meisten Personen wird mitgeteilt, dass keine Auffälligkeiten gefunden wurden. In diesen
+Fällen kann die Untersuchung frühestens nach zwölf Monaten wiederholt werden.
+
+Wie geht es nach einem auffälligen Befund weiter?
+Wenn auf einer Aufnahme der Lunge eine Auffälligkeit gefunden wird, lässt sich manchmal
+bereits erkennen, dass die Veränderung höchstwahrscheinlich gutartig ist. Solche Befunde
+werden dann „kontrollbedürftig“ genannt: Dann wird innerhalb der nächsten zwölf Monate
+ein weiteres Niedrigdosis-CT-Bild gemacht. Die Radiologin oder der Radiologe empfiehlt Ihnen
+in Abstimmung mit einer weiteren Spezialistin oder einem Spezialisten, wann die Aufnahme
+angefertigt werden sollte.
+Bei „abklärungsbedürftigen“ Befunden, die mit hoher Wahrscheinlichkeit auf Lungenkrebs
+hinweisen, bespricht die Radiologin oder der Radiologe die weiteren Schritte persönlich mit
+Ihnen und es werden die notwendigen Maßnahmen umgehend eingeleitet.
+In einer spezialisierten Praxis oder Klinik finden dann weitere Untersuchungen statt, wie
+beispielsweise eine Gewebeentnahme (Biopsie) aus der Lunge. Bei einer Biopsie sind
+verschiedene Komplikationen wie Nachblutungen oder Fieber möglich.
+Im Anschluss werden die Befunde dieser Untersuchungen von einem Team aus Fachärztinnen
+und Fachärzten beraten. Das Ergebnis wird Ihnen zeitnah mitgeteilt.
+
+Was bedeutet es, wenn Lungenkrebs festgestellt wird?
+Die Heilungschancen hängen vor allem davon ab, um welche Art von Tumor es sich handelt
+und wie weit die Erkrankung fortgeschritten ist.
+In einem frühen Stadium wird der Tumor in der Regel operativ entfernt oder lokal bestrahlt.
+Je nach Stadium kommen zusätzlich Medikamente zum Einsatz. Welche Behandlung im
+Einzelfall geeignet ist, hängt auch von anderen Faktoren ab – etwa der Art des Tumors, dem
+allgemeinen gesundheitlichen Zustand und möglichen weiteren Erkrankungen.
+
+                                                                                          34
+Die Untersuchung in Zahlen
+Wenn 1.000 aktive und ehemalige starke Raucherinnen und Raucher zum ersten Mal an der
+Lungenkrebs-Früherkennung teilnehmen, sind in etwa diese Ergebnisse zu erwarten:
+[Hier schließt sich in dem Druckerzeugnis der Versicherteninformation eine Abbildung in Form
+eines Flussdiagramms an. Darin werden folgende Häufigkeiten angegeben: 1.000 Personen
+erhalten eine Niedrigdosis-CT, davon haben etwa 780 Personen ein unauffälliges Ergebnis und
+etwa 220 Personen einen auffälligen Befund und werden erneut untersucht. Bei etwa 194 der
+etwa 220 Personen mit auffälligem Befund wird der Befund nach einer erneuten Untersuchung,
+in der Regel einer Niedrigdosis-CT, als unauffällig eingestuft. Bei den weiteren etwa 26
+Personen mit auffälligem Befund wird Gewebe entnommen und von diesen haben etwa 14
+Personen keinen Lungenkrebs. Etwa 12 der etwa 26 Personen mit einer Gewebeentnahme
+erhalten die Diagnose Lungenkrebs. Von den 1.000 untersuchten Personen können die 988
+Personen, die entweder in der erneuten Untersuchung oder nach der Gewebeentnahme einen
+unauffälligen Befund haben, 12 Monate später an einem weiteren Screening teilnehmen.]
+Diese Zahlen sind Schätzungen. Sie basieren auf den Ergebnissen einer deutschen Studie. Im
+Laufe des Früherkennungsprogramms kann man bis zu 26 Mal an der Untersuchung
+teilnehmen. In jeder dieser Untersuchungen kann es zu einem auffälligen Befund kommen.
+
+Vor- und Nachteile der Teilnahme
+Welche Vor- und Nachteile kann ich von der Früherkennung erwarten?
+Mehrere Studien haben untersucht, was aktive und ehemalige starke Raucherinnen und
+Raucher erwarten können, wenn sie regelmäßig an der Früherkennungsuntersuchung
+teilnehmen. Anhand dieser Studien lassen sich wichtige Vor- und Nachteile abschätzen.
+Ein wichtiger Vorteil: bessere Heilungschancen. Mit der Niedrigdosis-CT kann Lungenkrebs
+bereits in einem frühen Stadium entdeckt und somit erfolgreicher behandelt werden. Dadurch
+sinkt das Risiko, an Lungenkrebs zu sterben.
+Wichtige Nachteile: Risiko von falsch-positiven Befunden und von Überdiagnosen.
+
+Was ist ein „falsch-positiver“ Befund?
+Die Niedrigdosis-CT kann gelegentlich falschen Alarm auslösen (sogenannter falsch-positiver
+Befund). Das bedeutet: In der Niedrigdosis-CT zeigt sich ein abklärungsbedürftiger Befund –
+bei weiteren Untersuchungen, wie einer Biopsie, stellt sich aber heraus, dass keine
+Krebserkrankung vorliegt. Solche „falsch-positiven“ Befunde kommen bei etwa 14 von 1.000
+Personen vor. Die zusätzlichen Untersuchungen wären dann im Rückblick nicht nötig gewesen.
+
+Was sind Überdiagnosen?
+Bei einem Teil der Raucherinnen und Raucher wird Lungenkrebs diagnostiziert, der ohne
+Früherkennung nie aufgefallen wäre. Ein Grund: Es gibt kleine Tumoren, die langsam oder gar
+nicht wachsen. Manche Menschen sterben an anderen Ursachen, bevor sich ein Tumor
+bemerkbar machen kann.
+Die Diagnosen solcher Tumoren werden Überdiagnosen genannt, weil sie zeitlebens keine
+Probleme verursacht hätten. Ob ein entdeckter Tumor weiterwächst, können Ärztinnen und
+Ärzte jedoch nicht sicher vorhersagen und raten in der Regel zur Behandlung.
+Überdiagnosen führen daher zu Behandlungen, die unnötig sind (sogenannte Übertherapien).
+Überdiagnosen sind etwas anderes als abklärungsbedürftige Befunde im CT-Bild, die sich bei
+
+                                                                                         35
+weiteren Untersuchungen schließlich doch als harmlos herausstellen (falsch-positive
+Befunde).
+Überdiagnosen können bei allen Früherkennungsuntersuchungen auftreten.
+
+In Zahlen: Heilungschancen
+Dieser Abschnitt fasst zusammen, welche Heilungschancen aktive und ehemalige starke
+Raucherinnen und Raucher im Alter von 50 bis 75 Jahren in den nächsten 10 Jahren etwa
+erwarten können, wenn sie regelmäßig an der Lungenkrebs-Früherkennung teilnehmen.
+Rauchende Männer haben ein höheres Lungenkrebsrisiko als rauchende Frauen, deshalb fällt
+der mögliche Nutzen der Früherkennung für sie etwas größer aus.
+
+    Wenn                            Wie viele Frauen
+    1.000 Frauen                    sterben an Lungenkrebs?
+    an der Früherkennung ...
+    … nicht teilnehmen              24
+    … teilnehmen                    19
+                                    Es werden
+    Das heißt:                      5 von 1.000 Frauen
+                                    vor dem Tod durch
+                                    Lungenkrebs bewahrt.
+
+    Wenn                            Wie viele Männer
+    1.000 Männer                    sterben an Lungenkrebs?
+    an der Früherkennung ...
+    … nicht teilnehmen              29
+    … teilnehmen                    23
+                                    Es werden
+    Das heißt:                      6 von 1.000 Männern
+                                    vor dem Tod durch
+                                    Lungenkrebs bewahrt.
+
+                                                                                     36
+In Zahlen: Risiko für Überdiagnosen
+Dieser Abschnitt fasst zusammen, wie viele aktive und ehemalige starke Raucherinnen und
+Raucher im Alter von 50 bis 75 Jahren in etwa eine Überdiagnose erhalten, wenn sie
+regelmäßig an der Lungenkrebs-Früherkennung teilnehmen. Hier gibt es keinen Unterschied
+zwischen Frauen und Männern: Sie haben das gleiche Risiko für eine Überdiagnose.
+
+     Wenn 1.000 Personen               Wie viele Personen erhalten
+     an der Früherkennung ...          eine Lungenkrebsdiagnose?
+     … nicht teilnehmen                41
+     … teilnehmen                      48
+                                       Es erhalten
+     Das heißt:                        etwa 7 von 1.000 Personen
+                                       eine Überdiagnose.
+
+Überdiagnosen: ein Beispiel
+Stellen Sie sich einen Mann namens Franz vor. Er ist 65 Jahre alt, raucht und hat einen langsam
+wachsenden Tumor in der Lunge. Ohne Früherkennung würde dieser Tumor unentdeckt
+bleiben. Franz stirbt mit 69 Jahren, allerdings nicht an dem Lungenkrebs, sondern an einer
+Herzerkrankung. Die Früherkennung hätte seine Lebenserwartung nicht verändert, aber zu
+unnötigen Behandlungen geführt.
+[Hier schließt sich in dem Druckerzeugnis der Versicherteninformation eine Abbildung zu o.a.
+Beispiel einer Überdiagnose in Form eines Flussdiagramms an. Darin wird folgendes
+beschrieben: Franz entscheidet sich, an der Früherkennung teilzunehmen, dabei wird sein
+Lungenkrebs festgestellt und behandelt. Entscheidet sich Franz, an der Früherkennung nicht
+teilzunehmen, fällt der Lungenkrebs im Laufe des Lebens nicht auf, da er kaum wächst. In
+beiden Fällen stirbt Franz mit 69 an einer Herzerkrankung.]
+
+Wie hoch ist die Strahlendosis?
+Die Strahlendosis bei einer Niedrigdosis-CT ist deutlich kleiner als bei einer herkömmlichen
+CT. Sie ist so niedrig, dass sie normalerweise keine gesundheitlichen Folgen hat. In sehr
+seltenen Fällen kann sie jedoch zur Entstehung von Krebs beitragen.
+Fachleute schätzen, dass nach 25 Jahren mit einer jährlichen Teilnahme an der Untersuchung
+durch die Strahlenbelastung folgende zusätzliche Krebsfälle auftreten könnten:
+•   weniger als 3 von 1.000 Frauen
+•   etwa 1 von 1.000 Männern
+
+Die Grenzen der Früherkennung
+Eine regelmäßige Teilnahme an der Früherkennung kann nicht verhindern, dass Lungenkrebs
+entsteht. Sie soll Krebs aber früh genug finden.
+Die Niedrigdosis-CT kann nicht alle Tumoren entdecken. Manche Tumoren werden übersehen
+(sogenannter falsch-negativer Befund) oder entwickeln sich schnell wenige Monate nach
+einem Untersuchungstermin. Deshalb ist es wichtig, sich auch zwischen den Untersuchungen
+an eine Ärztin oder einen Arzt zu wenden, wenn in der Zeit nach einer Niedrigdosis-CT
+Beschwerden auffallen, wie etwa:
+•   Husten (ohne Erkältung) oder Veränderung eines chronischen Hustens
+
+                                                                                            37
+•   unbeabsichtigter Gewichtsverlust
+•   Luftnot (Atemnot)
+•   Aushusten von Blut
+
+Was passiert mit Ihren persönlichen Daten?
+Der Umgang mit Ihren persönlichen Daten unterliegt den Bestimmungen des Datenschutzes.
+Für Ärztinnen, Ärzte und das gesamte Personal gilt die Schweigepflicht.
+Um die Früherkennungsuntersuchung stetig zu verbessern, werden die Ergebnisse der
+Untersuchungen von allen untersuchten Versicherten gesammelt und regelmäßig zentral
+ausgewertet. Hierzu übermittelt die Radiologin oder der Radiologe die Anzahl der
+untersuchten Personen und die Häufigkeiten von kontrollbedürftigen und
+abklärungsbedürftigen Befunden an die zuständige Kassenärztliche Vereinigung.
+
+Unterstützung Ihrer Entscheidung
+Die folgenden Seiten sollen Ihnen bei der Entscheidung helfen, ob Sie an der Früherkennung
+teilnehmen möchten oder nicht.
+
+Zusammenfassung der Vor- und Nachteile
+Die Tabelle fasst die wesentlichen Vor- und Nachteile der Lungenkrebs-Früherkennung für
+aktive und ehemals starke Raucherinnen und Raucher im Alter von 50 bis 75 Jahren
+zusammen.
+
+                           keine Früherkennung        Früherkennung mit Niedrigdosis-CT
+     Wie viele Personen    Innerhalb von 10 Jahren    Innerhalb von 10 Jahren
+     sterben an            sterben an Lungenkrebs:    sterben an Lungenkrebs:
+     Lungenkrebs?          • 24 von 1.000 Frauen      • 19 von 1.000 Frauen
+                           • 29 von 1.000 Männern     • 23 von 1.000 Männern
+     Wie hoch ist das      Kein Risiko.               Es erhalten etwa 1 bis 15 von 1.000 Personen
+     Risiko für unnötige                              unnötige Eingriffe durch Fehlalarme.
+     Gewebe-
+     entnahmen?
+     Wie hoch ist das      Kein Risiko.               Es erhalten etwa 7 von 1.000 Personen eine
+     Risiko für                                       Krebsdiagnose, die sie ohne Früherkennung
+     Überdiagnosen?                                   nicht erhalten hätten.
+     Wie hoch ist das      Kein Risiko.               Bei      einer     regelmäßigen      jährlichen
+     Krebsrisiko durch                                Früherkennung beträgt das Risiko einer
+     die Strahlendosis?                               Krebserkrankung:
+                                                      • weniger als 3 von 1.000 Frauen
+                                                      • etwa 1 von 1.000 Männern
+
+                                                                                          38
+Kommt die Früherkennung für Sie infrage?
+Hier können Sie selbst die Vor- und Nachteile der Teilnahme einschätzen. Kreuzen Sie in der
+Tabelle an, welche Option Sie sich vorstellen können, und tragen Sie ein, was für Sie dafür und
+dagegen spricht.
+[In dem Druckerzeugnis zur Versicherteninformation ist in der ersten Spalte der nachfolgenden
+Tabelle in den Zeilen 2 und 3 jeweils ein Kreis zum Ankreuzen unter dem Text abgebildet.]
+
+ Was kommt für             Was spricht für mich dafür?      Was spricht für mich dagegen?
+ mich infrage?
+ keine Früherkennung
+
+ Früherkennung mit
+ Niedrigdosis-CT
+
+Wie weit sind Sie mit Ihrer Entscheidung?
+Hier können Sie eintragen, wie weit Sie mit Ihrer Entscheidung sind. Markieren Sie den Stand
+Ihrer Entscheidung auf der Skala von 0 bis 10.
+[Hier schließt sich in dem Druckerzeugnis der Versicherteninformation eine Abbildung zu dem
+Stand der Entscheidung in Form einer Likert-Skala von 0 „Ich bin noch unentschieden.“ bis 10
+„Ich habe für mich eine Entscheidung getroffen.“ als horizontaler Strahl an. Die
+Antwortmöglichkeiten von 0 bis 10 sind durch Kreise auf dem Strahl abgebildet.]
+
+Wo gibt es weitere Informationen?
+Wenn Sie noch unentschieden sind und weitere Unterstützung brauchen, finden Sie auf den
+folgenden Internetseiten weitere Informationen von anderen Organisationen.
+[In dem Druckerzeugnis zur Versicherteninformation ist in der ersten Spalte der nachfolgenden
+Tabelle jeweils der QR-Code zu der in der jeweiligen Zeile angegebenen Internetseite
+abgebildet.]
+
+                                Zum Thema Lungenkrebs
+                                auf den Internetseiten
+                                www.gesundheitsinformation.de
+                                www.krebsinformationsdienst.de
+                                unter dem Stichwort „Lungenkrebs“
+
+                                Zum Thema Zigarettenkonsum / Berechnung
+                                Packungsjahre
+                                auf der Internetseite
+                                www.gesundheitsinformation.de
+                                unter dem Stichwort „Packungsjahre“
+
+                                                                                            39
+                               Zum Thema Raucherentwöhnung
+                               auf der Internetseite
+                               www.gesundheitsinformation.de
+                               unter dem Stichwort „Raucherentwöhnung“
+
+                               Hilfe bei der Suche nach Kursen zur
+                               Raucherentwöhnung:
+                               portal.zentrale-pruefstelle-
+                               praevention.de/portfolio/gkv-sv/suche
+
+                               Zum Thema Rauchstopp auf der Internetseite
+                               www.rauchfrei-info.de
+
+                               Zum Thema Patientenberatungsstellen und
+                               Selbsthilfegruppen
+                               auf der Internetseite
+                               www.gesundheitsinformation.de
+                               unter Stichwörtern „Selbsthilfegruppen“ und
+                               „Beratungsstellen“
+
+                               Hilfe bei der Suche nach einer Arztpraxis:
+                               gesund.bund.de
+
+Hilfe für das ärztliche Gespräch
+Haben Sie noch Fragen? Sie haben das Recht auf eine persönliche Aufklärung vor der
+Untersuchung durch eine Ärztin oder einen Arzt.
+Notieren Sie sich Ihre Fragen oder auch Ihre eigenen Überlegungen für das Gespräch und
+nehmen Sie diese Versicherteninformation mit. Alles, was Sie zur Früherkennung bewegt oder
+in Sorge versetzt, können Sie dort ansprechen.
+Hier können Sie eigene Fragen notieren:
+
+                                                                                       40
+Quellen
+Institut für Qualität und Wirtschaftlichkeit im Gesundheitswesen (IQWiG). Erstellung einer
+Versicherteninformation zum Lungenkrebsscreening mittels Niedrigdosis-
+Computertomografie; Rapid Report, 2025: www.iqwig.de/projekte/p24-02.html
+
+Stand
+
+Dezember 2025
+
+Die Versicherteninformation Lungenkrebs-Früherkennung für Raucherinnen und Raucher –
+Informationen zum Angebot der gesetzlichen Krankenversicherung ist eine Anlage der
+Krebsfrüherkennungs-Richtlinie des Gemeinsamen Bundesausschusses (G-BA).
+
+Herausgeber
+
+Gemeinsamer Bundesausschuss
+
+                                                                                             41
+Anlage II    [nicht belegt]
+
+Anlage III   [nicht belegt]
+
+                              42
+Anlage IV a Muster- Einladungsschreiben
+
+„Musterzentrale Stelle · Straße · 00000 Ort
+                                                         Ihr Zeichen: XXXXXX
+                                                         Telefon: 0123 / 45678
+                                                         Telefax: 0123 / 45679
+Erika Mustermann
+                                                         E-Mail: musterzentralestelle@mkk.de
+Musterstr. xx
+                                                         Datum: 07.01.2016
+01X01 Musterstadt
+
+Früherkennung von Brustkrebs:
+Angebot einer Untersuchung im Rahmen des Mammographie-Screening-Programms
+Sehr geehrte Frau <Titel> <Nachname>,
+in Deutschland haben Frauen im Alter zwischen 50 und 75 Jahren die Möglichkeit, alle zwei
+Jahre am Mammographie-Screening-Programm zur Früherkennung von Brustkrebs
+teilzunehmen. Ziel ist es, durch eine frühe Entdeckung Brustkrebs besser behandeln zu können
+und die Sterblichkeit an Brustkrebs zu senken.
+Als „Zentrale Stelle“ haben wir den Auftrag, Sie darüber zu informieren und zu den
+Mammographie-Untersuchungen einzuladen.
+Gerne schlagen wir Ihnen folgenden Termin für eine Mammographie-Untersuchung vor:
+<Datum> um <Uhrzeit>
+<Mammographie-Einheit>
+<Straße> in <Postleitzahl> <Ort>
+<Platzhalter für Wegbeschreibung zum Mammobil>
+Falls Sie einen anderen Termin wünschen, Fragen haben oder absagen möchten, können Sie
+sich unter <Kontaktangaben durch die Zentrale Stelle> an uns wenden.
+Wichtig ist: Die Teilnahme am Mammographie-Screening ist freiwillig. Die Mammographie hat
+wie alle Früherkennungsuntersuchungen Vor- und Nachteile. Dieser Einladung ist eine
+Broschüre beigefügt, die Sie bei Ihrer persönlichen Entscheidung für oder gegen eine
+Teilnahme unterstützen soll. Weitere Informationen finden Sie auch im Internet unter
+https://www.g-ba.de/entscheidungshilfe-mammographie.de.
+Sie haben das Recht auf eine persönliche Aufklärung durch eine Ärztin oder einen Arzt des
+Mammographie-Screening-Programms. In diesem Gespräch können Sie sich die Vor- und
+Nachteile ausführlich erklären und offene Fragen beantworten lassen. Bei der
+Mammographie-Untersuchung selbst sind in der Regel keine Ärztinnen oder Ärzte anwesend.
+Wenn Sie ein solches Gespräch wünschen, müssen Sie hierfür vor der Untersuchung einen
+eigenen Termin vereinbaren. Bitte wenden Sie sich dazu an uns als Zentrale Stelle.
+Sie können auch ohne Aufklärungsgespräch an der Früherkennungs-Untersuchung
+teilnehmen. In diesem Fall bringen Sie bitte die <beigefügte> <umseitige> Erklärung zum
+Verzicht auf das Aufklärungsgespräch unterschrieben mit.
+Weitere Informationen zu Teilnahme oder Absage stehen auf der Rückseite dieses Schreibens.
+Mit freundlichen Grüßen
+[-------- Ende erste Seite ----------]
+
+                                                                                               43
+44
+Wenn Sie nicht teilnehmen möchten:
+Sie haben alle zwei Jahre einen Anspruch auf dieses Angebot. Wenn Sie diesmal nicht
+teilnehmen möchten, schreiben wir Sie in zwei Jahren erneut an.
+Wenn Sie keine weitere Einladung erhalten möchten, teilen Sie uns das bitte per
+<Kontaktangaben durch die Zentrale Stelle, die in Textform möglich sind> mit. Sollten Sie Ihre
+Entscheidung später ändern, informieren Sie uns bitte. Dann senden wir Ihnen eine erneute
+Einladung zu.
+Falls Sie nicht teilnehmen, sind damit keine Nachteile in Bezug auf Krankenversicherung und -
+versorgung für Sie verbunden. Auch falls Sie irgendwann einmal an Brustkrebs erkranken
+sollten, übernimmt Ihre Krankenkasse selbstverständlich die Behandlungskosten.
+Informationen zur Teilnahme, bitte vorab beachten
+Die Kosten der Untersuchung werden von Ihrer gesetzlichen Krankenkasse übernommen. Eine
+Überweisung ist nicht notwendig. Wenn Sie privat versichert sind, klären Sie die
+Kostenübernahme bitte vorab mit Ihrer Versicherung.
+Das Mammographie-Screening ist für Frauen gedacht, die keine Anzeichen für eine
+Erkrankung der Brust haben.
+Wenn Sie innerhalb der letzten 22 Monate bereits an einer Mammographie-Screening-
+Untersuchung teilgenommen oder innerhalb der letzten 12 Monate aus anderen Gründen
+(z.B. nach einer Brustkrebserkrankung) eine Mammographie erhalten haben, teilen Sie uns
+dies bitte vorab mit.
+Wenn Sie Hilfe benötigen oder auf einen Rollstuhl angewiesen sind, wenden Sie sich bitte
+vorab an uns, als Zentrale Stelle.
+Am Tag der Untersuchung bitte beachten
+Bringen Sie bitte Ihre Versichertenkarte, dieses Einladungsschreiben <und den ausgefüllten
+Fragebogen> mit. Falls Sie kein Aufklärungsgespräch möchten, auch die unterschriebene
+Verzichtserklärung.
+Bitte verwenden Sie am Tag der Untersuchung keinen Puder, kein Deo und keine Creme im
+Brust- und Achselbereich, da dies die Röntgenbilder beeinträchtigen kann.
+Das Ergebnis der Untersuchung
+Mithilfe der Mammographie wird nach Auffälligkeiten gesucht, die auf Brustkrebs hinweisen.
+Sie werden in der Regel innerhalb von sieben Werktagen von der Mammographie-Einheit
+informiert, ob solche Auffälligkeiten gefunden wurden oder nicht. Werden Auffälligkeiten
+festgestellt, bedeutet dies nicht, dass es sich um Brustkrebs handeln muss. Meist kann der
+Verdacht entkräftet werden. Es sind jedoch weitere Untersuchungen notwendig. Dazu
+erhalten Sie dann eine erneute Einladung.
+Datenschutz
+Ihre Adresse wurde uns entsprechend den gesetzlichen Vorgaben zum Datenschutz von Ihrer
+Gemeinde übermittelt. Der Schutz Ihrer Daten ist zu jeder Zeit sichergestellt. Ihre
+Untersuchungsergebnisse liegen nur in der Mammographie-Einheit vor und unterliegen der
+ärztlichen Schweigepflicht. Weitere Informationen zur Nutzung Ihrer Daten finden Sie in der
+beiliegenden Broschüre.
+
+                                                                                           45
+--------------------------------------------------------------------------------------------------------------
+Erklärung zum Verzicht auf das Aufklärungsgespräch:
+Ich bin durch die der Einladung beigefügten Unterlagen über die wesentlichen Vor- und
+Nachteile des Mammographie-Screening-Programms informiert und verzichte auf mein Recht
+auf ein zusätzliches persönliches Aufklärungsgespräch durch eine Ärztin oder einen Arzt des
+Programms vor der Untersuchung.
+
+__________________________________________________________________________
+Name, Vorname, geboren am
+
+__________________________________________________________________________
+Datum, Unterschrift
+
+                                                                                                                  46
+Anlage IV b Entscheidungshilfe zur Einladung der Frau gemäß § 14 Absatz 1
+
+SIE HABEN DIE MÖGLICHKEIT, AN EINER KOSTENLOSEN MAMMOGRAPHIE-UNTERSUCHUNG
+ZUR FRÜHERKENNUNG VON BRUSTKREBS TEILZUNEHMEN. OB SIE DAS ANGEBOT ANNEHMEN
+ODER NICHT, ENTSCHEIDEN SIE SELBST.
+DIESE ENTSCHEIDUNGSHILFE SOLL SIE DABEI UNTERSTÜTZEN, DIE VOR- UND NACHTEILE
+ABZUWÄGEN UND FÜR SICH EINE GUTE ENTSCHEIDUNG ZU TREFFEN.
+Sie hat vier Schwerpunkte:
+              •   Informationen zum Ablauf der Untersuchung und zu Brustkrebs
+              •   Mögliche Ergebnisse der Mammographie-Früherkennung
+              •   Vor- und Nachteile der Teilnahme
+              •   Unterstützung Ihrer Entscheidung
+
+WARUM WIRD MIR EINE MAMMOGRAPHIE ANGEBOTEN?
+
+Wenn Sie zwischen 50 und 75 Jahre alt sind, haben Sie alle zwei Jahre Anspruch auf eine
+Mammographie-Untersuchung zur Früherkennung von Brustkrebs. Ziel ist es, Brustkrebs
+möglichst früh zu erkennen, um ihn besser behandeln zu können und die Heilungschancen zu
+erhöhen. Allerdings hat die Früherkennungs-Untersuchung auch Nachteile: Sie kann zum
+Beispiel zu unnötigen Behandlungen führen.
+Die Kosten werden von den Krankenkassen übernommen. Sind Sie privat versichert, klären Sie
+die Kostenübernahme bitte vorab mit Ihrer Versicherung.
+Diese Untersuchung wird auch Mammographie-Screening genannt. Screening bedeutet, dass
+allen Menschen zum Beispiel einer Altersgruppe eine bestimmte Untersuchung angeboten
+wird.
+Bei der Mammographie wird die Brust geröntgt. Um eine hohe Qualität der Untersuchung zu
+sichern, findet sie nur in spezialisierten Einrichtungen statt, die zum deutschen
+Mammographie-Screening-Programm gehören.
+Wichtig zu wissen: Die Mammographie kann nicht verhindern, dass Brustkrebs entsteht.
+Sie haben das Recht auf eine persönliche Aufklärung durch eine Ärztin oder einen Arzt des
+Mammographie-Screening-Programms. Dazu müssen Sie vor der Untersuchung einen eigenen
+Termin über die Zentrale Stelle vereinbaren. Den Kontakt finden Sie im Einladungsschreiben.
+Bei der Mammographie selbst sind in der Regel keine Ärztinnen oder Ärzte anwesend.
+
+WAS GESCHIEHT, WENN ICH NICHT TEILNEHME?
+
+Wenn Sie sich nicht untersuchen lassen möchten, werden Sie nach zwei Jahren erneut
+eingeladen – es sei denn, Sie lehnen künftige Einladungen ab. Für Ihre Krankenversicherung
+hat dies keine Folgen. Sollten Sie irgendwann einmal an Brustkrebs erkranken, übernimmt Ihre
+Krankenkasse selbstverständlich die Behandlungskosten.
+
+                                                                                         47
+WANN IST EINE MAMMOGRAPHIE MÖGLICH?
+Ein Untersuchungstermin ist frühestens 22 Monate nach der letzten Früherkennungs-
+Mammographie möglich. Eine Früherkennungs-Mammographie ist nicht möglich, wenn
+innerhalb der letzten 12 Monate bereits eine Mammographie aus anderen Gründen als zur
+Früherkennung durchgeführt wurde.
+WAS GESCHIEHT BEI DER MAMMOGRAPHIE?
+Die Untersuchung wird in dafür vorgesehenen Räumen einer Praxis oder Klinik in Ihrer Region
+angeboten, manchmal auch in speziell ausgerüsteten Fahrzeugen. Diese Einrichtungen
+werden „Screening-Einheiten“ genannt.
+Die Untersuchung wird von einer radiologischen Fachkraft betreut. Sie macht von jeder Brust
+zwei Röntgenaufnahmen aus unterschiedlichen Richtungen. Dafür wird die Brust zwischen
+zwei Platten gedrückt. Das kann unangenehm oder schmerzhaft sein, schadet der Brust aber
+nicht. Je flacher die Brust gedrückt wird, desto weniger Röntgenstrahlung ist nötig und desto
+aussagekräftiger ist die Aufnahme.
+Die Mammographie-Aufnahmen werden in den folgenden Tagen sorgfältig ausgewertet. Zwei
+Fachärztinnen oder Fachärzte suchen unabhängig voneinander die Aufnahmen nach
+Veränderungen ab.
+Auffällige Befunde werden durch eine weitere Spezialistin oder einen Spezialisten
+begutachtet.
+Ein Brief mit dem Ergebnis wird in der Regel innerhalb von sieben Werktagen nach der
+Untersuchung zugesandt. Die meisten Frauen erhalten einen unauffälligen Befund.
+Wichtig ist: Auch wenn der Befund auffällig sein sollte, bedeutet das noch lange nicht, dass
+Brustkrebs gefunden wurde.
+WIE GEHT ES NACH EINEM AUFFÄLLIGEN BEFUND WEITER?
+Allein aufgrund der Röntgenbilder können auch Spezialistinnen und Spezialisten nicht immer
+sicher entscheiden, ob eine Auffälligkeit gut - oder bösartig ist. Es ist daher nötig, den Befund
+weiter untersuchen zu lassen.
+Dazu lädt die verantwortliche Ärztin oder der verantwortliche Arzt die Frau erneut ein. Bei der
+nächsten Untersuchung wird die Brust mit Ultraschall untersucht oder erneut geröntgt. Oft
+lässt sich so bereits ein Krebsverdacht ausschließen.
+Wenn das nicht möglich ist, wird die Entnahme einer Gewebeprobe (Biopsie) aus der Brust
+empfohlen. Dies geschieht unter lokaler Betäubung mit einer Hohlnadel. Das Gewebe wird
+anschließend unter dem Mikroskop begutachtet. Im Anschluss werden die Befunde dieser
+Untersuchungen von einem Team aus Fachärztinnen und Fachärzten beraten. Das Ergebnis
+wird in der Regel innerhalb einer Woche mitgeteilt. In etwa der Hälfte der Fälle stellt sich
+heraus, dass es kein Brustkrebs ist.
+WAS BEDEUTET ES, WENN BRUSTKREBS FESTGESTELLT WIRD?
+Eine Brustkrebsdiagnose ist erstmal ein Schock. Die Heilungschancen können jedoch sehr gut
+sein. Sie hängen vor allem davon ab, wie weit der Krebs fortgeschritten ist.
+Den meisten Frauen wird eine Operation empfohlen. Dabei werden in der Regel der Tumor
+und das umliegende Gewebe entfernt, seltener die gesamte Brust. Weitere
+Behandlungsmöglichkeiten sind Bestrahlung, Hormon- und Chemotherapie. Welche
+Behandlung infrage kommt, hängt auch von der genauen Diagnose ab.
+
+                                                                                              48
+WAS IST BRUSTKREBS?
+Brustkrebs kann entstehen, wenn sich Zellen krankhaft verändern und unkontrolliert zu teilen
+beginnen. Krebszellen können in gesundes Gewebe eindringen und Absiedlungen bilden,
+sogenannte Metastasen.
+Brustkrebs ist so vielfältig wie kaum eine andere Krebsart. Oft ist Brustkrebs heilbar. Er kann
+sich langsam entwickeln und keine Metastasen bilden. Er kann aber auch schnell wachsen und
+sich im Körper ausbreiten.
+WIE HÄUFIG IST BRUSTKREBS?
+Die Häufigkeit von Brustkrebs ist vor allem abhängig vom Alter. Insgesamt sterben etwa 35
+von 1000 Frauen an Brustkrebs. Die folgende Tabelle soll das Risiko verdeutlichen: Sie zeigt,
+wie viele von 1000 Frauen im angegebenen Alter in den nächsten 10 Jahren an Brustkrebs
+erkranken und wie viele daran sterben:
+
+                                Wie viele Frauen
+                                                     Wie viele Frauen sterben
+                               bekommen in den
+                    Alter                               in den nächsten 10
+                               nächsten 10 Jahren
+                                                      Jahren an Brustkrebs?
+                                  Brustkrebs?
+                     50                25                       4
+                    Jahre           von 1000                von 1000
+                     60                36                       7
+                    Jahre           von 1000                von 1000
+                     70                34                      10
+                    Jahre           von 1000                von 1000
+
+Insgesamt sterben etwa 35 von 1 000 Frauen an Brustkrebs.
+Das Brustkrebsrisiko hängt auch von anderen Faktoren ab. Manche Frauen haben eine
+familiäre Vorbelastung. Hat oder hatte die Mutter oder Schwester einer Frau Brustkrebs,
+verdoppelt sich ihr Risiko. Wenn eine entferntere Verwandte erkrankt ist, ist das eigene Risiko
+dagegen kaum erhöht. Auch eine hohe Brustdichte kann eine Rolle spielen. Andere
+Risikofaktoren, wie zum Beispiel Kinderlosigkeit oder Ernährung, haben nur eine geringe
+Bedeutung.
+DIE UNTERSUCHUNG IN ZAHLEN: WELCHE ERGEBNISSE SIND ZU ERWARTEN?
+Stellen Sie sich 1000 Frauen vor, die in der nächsten Woche am Mammographie-Screening-
+Programm teilnehmen. Dann sind in etwa diese Untersuchungsergebnisse zu erwarten:
+     •    Etwa 970 von 1000 Frauen erhalten nach der Untersuchung einen unauffälligen
+          Befund. Das bedeutet für viele Frauen eine Erleichterung.
+     •    Etwa 30 von 1000 Frauen erhalten einen auffälligen Befund und einen Termin für
+          weitere Untersuchungen.
+     •    Bei 24 der 30 Frauen mit auffälligem Befund stellt sich nach weiteren
+          Untersuchungen heraus, dass sie keinen Brustkrebs haben. Die Nachricht, dass bei
+          einer Mammographie eine Auffälligkeit gefunden wurde, macht oft Angst. Die Zeit
+          bis zum endgültigen Ergebnis wird von den meisten Frauen als sehr belastend
+          erlebt. Auch wenn sich ein Verdacht nicht bestätigt, kann diese Erfahrung
+          nachwirken.
+     •    Bei 6 der 30 Frauen mit auffälligem Befund bestätigt sich der Verdacht. Sie erhalten
+          die Diagnose Brustkrebs. Diese Frauen bekommen von der Ärztin oder dem Arzt der
+          Mammographie-Screening-Einheit einen eigenen Termin, um das weitere Vorgehen
+          zu besprechen. Natürlich ist es auch möglich, sich an die eigene Frauenarztpraxis zu
+          wenden.
+
+                                                                                            49
+Nach der Untersuchung: Bei etwa 2 von 1000 Frauen wird innerhalb der 2 Jahre bis zur
+nächsten Einladung Brustkrebs festgestellt. Meistens handelt es sich um Krebs, der erst nach
+der letzten Untersuchung herangewachsen ist. Zudem können trotz aller Sorgfalt Tumore in
+der Mammographie übersehen werden. Dies ist aber selten.
+
+AUF EINEN BLICK: WAS GESCHIEHT, WENN 1000 FRAUEN UNTERSUCHT WERDEN?
+
+WELCHE FORMEN VON BRUSTKREBS WERDEN FESTGESTELLT?
+Bei etwa 5 von 6 Frauen mit Brustkrebsdiagnose wird ein invasiver Tumor festgestellt. Ohne
+Behandlung breitet sich ein solcher Krebs oft im Körper aus.
+Bei etwa 1 von 6 Frauen mit Brustkrebsdiagnose wird durch die Mammographie eine
+Veränderung der Brust gefunden, die Duktales Carcinoma in Situ (DCIS) genannt wird. Bei
+dieser Diagnose haben sich Zellen in den Milchgängen der Brust verändert. Sie liegen nur
+innerhalb der Milchgänge und haben sich nicht in anderes Gewebe ausgebreitet. Bei einem
+Teil der Frauen bleibt das DCIS harmlos, bei anderen entwickelt es sich zu einem invasiven
+
+                                                                                         50
+Tumor weiter. Da sich bei keiner Frau vorhersagen lässt, ob das DCIS harmlos bleibt, wird in
+der Regel zur Behandlung geraten.
+REGELMÄSSIGE TEILNAHME: WELCHE VOR- UND NACHTEILE KANN ICH ERWARTEN?
+Mehrere Studien haben untersucht, was Frauen langfristig erwarten können, wenn sie
+regelmäßig an der Mammographie teilnehmen. Anhand dieser Studien lassen sich wichtige
+Vor- und Nachteile abschätzen.
+Ein wichtiger Vorteil: Bessere Heilungschancen. Die Mammographie kann Brustkrebs im
+Frühstadium entdecken. Dadurch sinkt das Risiko, an Brustkrebs zu sterben.
+Ein wichtiger Nachteil: Risiko von Überdiagnosen. Die Mammographie kann zu
+Brustkrebsdiagnosen führen, die ohne Untersuchung nie gestellt worden wären. Diese haben
+unnötige Behandlungen zur Folge.
+WAS SIND ÜBERDIAGNOSEN?
+Bei einem Teil der Frauen wird Brustkrebs diagnostiziert, der ohne Früherkennungs-
+Untersuchung nie aufgefallen wäre. Ein Grund: Es gibt kleine Tumore, die langsam oder gar
+nicht wachsen. Manche Frauen sterben an anderen Ursachen, bevor sich ein Tumor
+bemerkbar machen kann. Die Diagnosen solcher Tumore werden Überdiagnosen genannt,
+weil sie zeitlebens keine Probleme verursacht hätten. Ob ein entdeckter Tumor weiter wächst,
+können Ärztinnen und Ärzte jedoch nicht sicher vorhersagen und raten in der Regel zur
+Behandlung.
+Überdiagnosen führen daher zu Operationen oder Bestrahlungen, die unnötig sind.
+Überdiagnosen sind etwas anderes als Auffälligkeiten im Röntgenbild, die sich bei weiteren
+Untersuchungen schließlich doch als harmlos herausstellen (siehe Seite 8). Überdiagnosen
+können bei allen Früherkennungs-Untersuchungen auftreten.
+ÜBERDIAGNOSEN: EIN BEISPIEL
+Stellen Sie sich eine Frau namens Andrea vor. Sie ist 65 Jahre alt und hat einen kleinen, sehr
+langsam wachsenden Tumor in der Brust. Ohne Früherkennung erfährt sie dies nicht. Sie stirbt
+mit 77 Jahren, allerdings nicht an Brustkrebs. Die Früherkennung hätte ihre Lebenserwartung
+nicht verändert, aber zu unnötigen Behandlungen geführt.
+
+                                                                                           51
+IN ZAHLEN: HEILUNGSCHANCEN
+Diese Seite fasst zusammen, welche Heilungschancen Frauen in etwa erwarten können, wenn
+sie 25 Jahre lang regelmäßig am Mammographie-Screening-Programm teilnehmen.
+
+                                                                                    52
+IN ZAHLEN: RISIKO VON ÜBERDIAGNOSEN
+Diese Seite fasst zusammen, wie viele Frauen in etwa eine Überdiagnose erhalten, wenn sie
+25 Jahre lang regelmäßig am Mammographie-Screening-Programm teilnehmen.
+
+                                                                                      53
+WIE HOCH IST DIE STRAHLENDOSIS?
+Bei der Mammographie werden Röntgenstrahlen eingesetzt. Die Strahlendosis ist so niedrig,
+dass sie normalerweise keine Folgen hat. Dennoch ist nicht ausgeschlossen, dass die
+regelmäßigen Röntgenuntersuchungen über einen Zeitraum von 25 Jahren bei weniger als 1
+von 1000 Frauen zur Entstehung von Brustkrebs beitragen können.
+GIBT ES ALTERNATIVEN ZUM MAMMOGRAPHIE-FRÜHERKENNUNGS-PROGRAMM?
+Manchen Frauen werden andere Angebote zur Früherkennung von Brustkrebs gemacht, wie
+Ultraschalluntersuchungen der Brust oder eine Magnetresonanztomografie (MRT). Ob diese
+Untersuchungen wie die Mammographie das Risiko verringern, an Brustkrebs zu sterben, ist
+jedoch unklar. Diese Untersuchungen können häufiger als die Mammographie zu
+Überdiagnosen führen und zu auffälligen Befunden, die sich als harmlos herausstellen.
+Die Mammographie darf zur Früherkennung nur im Rahmen des deutschen Programms
+eingesetzt werden, für das strenge Vorschriften zur Sicherung der Qualität gelten. Außerhalb
+des Programms dienen Mammographien dazu, auf andere Weise entdeckte Veränderungen
+der Brust zu untersuchen. Diese Mammographien unterliegen nicht denselben
+Qualitätsanforderungen. Zum Beispiel müssen die Röntgenbilder nicht von zwei Fachärztinnen
+oder Fachärzten ausgewertet werden.
+DIE GRENZEN DER FRÜHERKENNUNG
+Eine regelmäßige Teilnahme an der Mammographie kann nicht verhindern, dass Brustkrebs
+entsteht. Sie soll Krebs aber früh genug finden.
+Die Mammographie kann nicht alle Tumore entdecken. Manche entwickeln sich wenige
+Monate nach einem Untersuchungstermin. Deshalb ist es wichtig, sich direkt an eine Ärztin
+oder einen Arzt zu wenden, wenn in der Zeit bis zur nächsten Mammographie Veränderungen
+in der Brust auffallen, wie etwa
+    •   tastbare Knoten, Dellen oder Verhärtungen der Haut,
+    •   sichtbare Verformungen, Hautveränderungen oder Einziehungen der Brustwarze,
+    •   Blutungen oder andere Absonderungen aus der Brustwarze.
+WAS PASSIERT MIT DEN PERSÖNLICHEN DATEN?
+Der Umgang mit persönlichen Daten unterliegt den deutschen Datenschutzgesetzen. Alle
+Daten werden im Mammographie-Screening-Programm genauso vertraulich behandelt wie in
+einer normalen Arztpraxis. Die Ärztinnen, Ärzte und das gesamte Personal unterliegen der
+Schweigepflicht.
+Die Ergebnisse der Untersuchungen werden regelmäßig zentral ausgewertet. Das ist wichtig,
+um die Qualität des Programms überwachen zu können. Für diese Auswertungen werden
+persönliche Daten wie Name oder Adresse nicht benötigt und nicht weitergegeben. Die
+Auswertungen können also nicht auf eine einzelne Frau hinweisen.
+Verantwortlich für den Umgang mit persönlichen Daten ist die Zentrale Stelle. Den Kontakt
+finden Sie im Einladungsschreiben.
+
+                                                                                         54
+MÖCHTE    ICH   AM      MAMMOGRAPHIE-SCREENING-PROGRAMM                   TEILNEHMEN?
+UNTERSTÜTZUNG FÜR IHRE ENTSCHEIDUNG
+Frauen bewerten die Vor- und Nachteile der Mammographie für sich unterschiedlich. Manche
+möchten die Früherkennung nutzen, da für sie die Vorteile überwiegen. Andere entscheiden
+sich dagegen, weil die Nachteile für sie schwerer wiegen.
+Die folgende Tabelle fasst noch einmal wesentliche Aussagen zum Mammographie-Screening-
+Programm zusammen. Wenn Sie möchten, können Sie damit abwägen, was für oder gegen
+Ihre Teilnahme spricht - oder vielleicht auch keine große Bedeutung hat. Sie können die
+Tabelle auch mit einer Ärztin oder einem Arzt besprechen.
+
+                                                                                     55
+WENN ICH AN DER NÄCHSTEN UNTERSUCHUNG TEILNEHME: WAS KANN ICH
+ERWARTEN?
+                                                           Spricht für    Spricht für   Ich bin mir        Spielt für
+                                                              mich           mich        unsicher           meine
+                                                               für          gegen                        Entscheidung
+                                                               die            die                            keine
+                                                           Teilnahme      Teilnahme                          Rolle
+Erleichterung durch unauffällige Befunde: Von 1000
+Frauen, die zu einer Mammographie gehen, erhalten etwa
+970 die Nachricht, dass keine Auffälligkeit gefunden                                                      
+wurde.
+
+Belastung durch auffällige Befunde: Von 1000 Frauen, die
+zu einer Mammographie gehen, erhalten etwa 24 einen                                                       
+Verdachtsbefund, der sich dann als harmlos herausstellt.
+Schmerzen: Die Mammographie-Untersuchung kann
+unangenehm sein und wehtun.                                                                               
+
+WENN ICH 25 JAHRE LANG REGELMÄSSIG TEILNEHME: WAS KANN ICH ERWARTEN?
+
+Heilungschancen: Von 1000 Frauen, die 25 Jahre
+regelmäßig an der Mammographie teilnehmen, werden                                                         
+etwa 3 bis 8 vor dem Tod durch Brustkrebs bewahrt.
+Risiko von Überdiagnosen: Von 1000 Frauen, die 25 Jahre
+regelmäßig an der Mammographie teilnehmen, erhalten
+etwa 11 bis 15 eine Überdiagnose und unnötige                                                             
+Behandlungen.
+Strahlendosis: Die Röntgendosis einer Mammographie ist
+niedrig. Dennoch ist nicht ausgeschlossen, dass
+regelmäßige Untersuchungen über 25 Jahre bei weniger                                                      
+als 1 von 1000 Frauen zur Entstehung von Brustkrebs
+beitragen können.
+
+WAS IST MIR NOCH WICHTIG? WAS IST FÜR MEINE ENTSCHEIDUNG AUSSCHLAGGEBEND?
+
+WOZU NEIGE ICH?
+
+                                                                                
+                                                                                                          
+                             Ich nehme                                     Ich nehme
+    Ich nehme                                                                                         Ich nehme
+                         dieses Mal teil. In         Ich bin noch        dieses Mal nicht
+    alle 2 Jahre                                                                                       gar nicht
+                              2 Jahren                 unsicher.         teil. In 2 Jahren
+        teil.                                                                                             teil.
+                           entscheide ich                                 entscheide ich
+                                neu.                                            neu.
+
+                                                                                                              56
+HILFE FÜR DAS ÄRZTLICHE GESPRÄCH
+Haben Sie noch Fragen? Sie haben das Recht auf eine persönliche Aufklärung vor der
+Untersuchung durch eine Ärztin oder einen Arzt des Mammographie-Screening-Programms.
+Wenden Sie sich dazu an Ihre Zentrale Stelle. Den Kontakt finden Sie im Einladungsschreiben.
+Notieren Sie sich Ihre Fragen oder auch Ihre eigenen Überlegungen für das Gespräch und
+nehmen Sie diese Entscheidungshilfe mit. Alles, was Sie zur Früherkennung bewegt oder in
+Sorge versetzt, können Sie dort ansprechen.
+Sie können offene Fragen auch mit Ihrer Frauenärztin / Ihrem Frauenarzt oder Ihrer Hausärztin
+/ Ihrem Hausarzt besprechen.
+HIER KÖNNEN SIE EIGENE FRAGEN NOTIEREN:
+
+QUELLEN
+Institut für Qualität und Wirtschaftlichkeit            im Gesundheitswesen (IQWiG).
+Einladungsschreiben      und Entscheidungshilfe          zum  Mammographie-Screening:
+Abschlussbericht;
+Auftrag P14- 03. 16.09.2016.
+
+Institut für Qualität und Wirtschaftlichkeit im Gesundheitswesen (IQWiG). Überprüfung der
+Altersgrenzen im Mammographie-Screening-Programm. Abschlussbericht; Auftrag S21-01.
+16.08.2022.
+
+Institut für Qualität und Wirtschaftlichkeit im Gesundheitswesen (IQWiG). Mehrstufige
+Überprüfung und Überarbeitung der Informationsmaterialien zum Mammographie-
+Screening-Programm. Rapid Report; Auftrag P22-03. 27.09.2024.
+
+                                                                                          57
+Anlage IV   c Mammographie-Screening Ausweitung des Programms für Frauen
+   zwischen 70 und 75 Jahren
+
+Das Mammographie-Screening-Programm zur Früherkennung von Brustkrebs wurde Ende
+2023 ausgeweitet: Bisher konnten Frauen zwischen 50 und 69 Jahren alle zwei Jahre
+teilnehmen. Nun ist eine Teilnahme bis zum Alter von 75 Jahren möglich.
+
+ÄNDERN SICH DIE VOR- UND NACHTEILE DES SCREENINGS BEI EINER LÄNGEREN TEILNAHME?
+
+Das lässt sich auf Basis der bisherigen Studien nur grob abschätzen: Danach ändert sich wenig
+an den Vor- und Nachteilen. Das gilt für Frauen, die bis zum Alter von 69 Jahren regelmäßig
+teilgenommen haben und danach bis zu 3 weitere Röntgen-Untersuchungen nutzen.
+
+     •   Ein wichtiger Vorteil sind bessere Heilungschancen: Die Mammographie kann
+         Brustkrebs im Frühstadium entdecken. Durch eine frühere Behandlung sinkt das
+         Risiko, an Brustkrebs zu sterben.
+
+     •   Ein wichtiger Nachteil sind Überdiagnosen: Die Mammographie kann zu unnötigen
+         Brustkrebs-Diagnosen führen. Diese können unnötige Behandlungen wie
+         Operationen und Bestrahlungen zur Folge haben.
+
+WERDE ICH JETZT AUCH IM ALTER ZWISCHEN 70 UND 75 EINGELADEN?
+
+Noch nicht. Die Ausweitung betrifft etwa 2,5 Millionen Frauen und braucht etwas Zeit. Bis
+Frauen ab 70 Jahren routinemäßig Termine für eine Mammographie-Untersuchung
+angeboten werden können, sind umfangreiche Vorbereitungen nötig.
+
+Solange diese Anpassungen laufen, können sich interessierte Frauen im Alter zwischen 70 und
+75 Jahren ab dem 1. Juli 2024 selbst für einen Termin anmelden.
+
+Ein Untersuchungstermin ist frühestens 22 Monate nach der letzten Früherkennungs-
+Mammographie möglich. Eine Früherkennungs-Mammographie ist nicht möglich, wenn
+innerhalb der letzten 12 Monate bereits eine Mammographie aus anderen Gründen als zur
+Früherkennung durchgeführt wurde.
+
+WO ERHALTE ICH WEITERE INFORMATIONEN?
+
+In einer Entscheidungshilfe sind
+      • das Programm zur Früherkennung,
+      • der Ablauf der Untersuchung und
+      • die Vor- und Nachteile der Früherkennung
+beschrieben. Sie können die Entscheidungshilfe über diesen QR-Code abrufen.
+Nähere Informationen zur Terminabsprache erhalten Sie bei den Zentralen Stellen oder in den
+Screening-Einheiten.
+Kontakt-Adressen finden Sie auf der Webseite www.g-ba.de/mammographie-screening-
+70plus und unter diesem QR-Code.
+Quellen: IQWiG. Überprüfung der Altersgrenzen im Mammografie-Screeningprogramm.
+S21-01 (2021)
+
+                                                                                          58
+Anlage V   Inhalte des standardisierten Fragebogens zur Anamnese gemäß § 15 Absatz 1
+
+Der standardisierte Fragebogen zur Anamnese gemäß § 15 Absatz 1 muss insbesondere
+beinhalten:
+   1. Angaben zur Person
+      (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum, Geburtsort, Wohnort,
+      Krankenkasse, Screening-Identifikationsnummer)
+   2. Angaben zu behandelnden Ärzten
+            Name und Adresse des Hausarztes
+            Name und Adresse des Frauenarztes
+   3. Angaben zu früheren Mammographieaufnahmen
+            Datum der Anfertigung (vor / nach 12 Monaten)
+            Name und Adresse des Arztes
+   4. Angaben zu früheren Brusterkrankungen
+            Diagnose Brustkrebs (Kalenderjahr)
+            Brustoperation
+            Datum der Operation (Kalenderjahr)
+            Entfernung der Brust
+            Vorhandensein von Brustimplantaten
+            Brustverkleinerung
+   5. Gegenwärtige Brustbeschwerden
+            Tastbare Knoten
+            Dellen oder Verhärtungen der Haut
+            Äußerlich sichtbare Verformungen
+            Hautveränderungen oder Einziehungen der Brustwarze
+            Blutungen oder andere flüssige Absonderungen aus der Brustwarze
+            Andere
+
+                                                                                  59
+Anlage VI      Inhalte der Dokumentation gemäß § 21
+
+1.   Screening-Mammographieaufnahmen
+1.1 Erstellung der Screening-Mammographieaufnahmen
+Die Erstellung der Screening-Mammographieaufnahmen ist wie folgt zu dokumentieren:
+     1. Angaben zur Person
+        (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum, Geburtsort, Wohnort,
+        Krankenkasse, Screening-Identifikationsnummer)
+     2. Vertragsarztnummer
+     3. Name der radiologischen Fachkraft
+     4. Datum der Screening-Mammographie
+     5. Voraufnahmen hinzugezogen / nicht hinzugezogen; wenn nicht hinzugezogen,
+        Begründung
+     6. Klinische Auffälligkeiten
+                Keine Auffälligkeiten
+                Auffälligkeiten (einschließlich Lokalisation nach vorgegebenem Schema)
+                    –   Narbe
+                    –   Zustand nach Mastektomie
+                    –   Muttermal(e)/Warze(n)
+                     – Sonstige
+     7. Anzahl der erstellten Aufnahmen
+                Medio-lateral-oblique und Cranio-caudal
+                Bildwiederholung wegen Einschränkungen bei der diagnostischen Bildqualität
+                angezeigt
+                Bildwiederholung wegen Einschränkungen bei der diagnostischen Bildqualität
+                durchgeführt
+                Zusatzaufnahmen aus anatomischen Gründen angezeigt
+                Zusatzaufnahmen aus anatomischen Gründen durchgeführt
+     8. Abbruch der Untersuchung durch die Frau (einschließlich Begründung)
+     9. Technische Aufnahmebedingungen (Röhrenspannung, Werte nach Nummer 1.8
+        Anhang 6 der Anlage 9.2 BMV-Ä)
+1.2 Befundung der Screening-Mammographieaufnahmen
+Die Befundung der Screening-Mammographieaufnahmen ist wie folgt zu dokumentieren:
+     1. Angaben zur Person
+        (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum, Geburtsort, Wohnort,
+        Krankenkasse, Screening-Identifikationsnummer)
+     2. Vertragsarztnummer
+     3. Datum der Screening-Mammographie
+     4. Voraufnahmen hinzugezogen / nicht hinzugezogen; wenn nicht hinzugezogen,
+        Begründung
+     5. Befundung der Mammographieaufnahmen
+               Unauffällig, kein Abklärungsbedarf
+                  –    Normalbefund
+                  –    Gutartige Läsion
+               Auffällig und Abklärungsbedarf
+
+                                                                                       60
+                  –   Läsion unklar, eher benigne
+                  –   Läsion unklar, eher maligne
+                  –   Läsion sicher maligne
+                  –   Klinisch    auffällig    während Erstellung    der     Screening-
+                      Mammographieaufnahmen (lt. Angabe der radiologischen Fachkraft)
+     6. Art der Läsion
+               Verdichtung
+               Mikrokalk
+               Architekturstörung
+     7. Lokalisation des abklärungsbedürftigen Befunds (nach vorgegebenem Schema)
+     8. Ggf. Feststellung von Einschränkungen bei der diagnostischen Bildqualität
+     9. Ggf. Empfehlung zur Wiederholung von Screening-Mammographieaufnahmen
+        aufgrund von Einschränkungen der diagnostischen Bildqualität
+2.   Abklärungsdiagnostik
+2.1 Klinische Untersuchung
+Die klinische Untersuchung im Rahmen der Abklärungsdiagnostik ist wie folgt zu
+dokumentieren:
+     1. Angaben zur Person
+        (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum, Geburtsort, Wohnort,
+        Krankenkasse, Screening-Identifikationsnummer)
+     2. Vertragsarztnummer
+     3. Ggf.: klinische Untersuchung nicht notwendig
+     4. Ggf.: klinische Untersuchung empfohlen, von Teilnehmerin abgelehnt
+     5. Datum der klinischen Untersuchung
+     6. Beurteilung der klinischen Untersuchung
+                Mammographischer Befund tastbar / nicht tastbar
+                Auffälligkeiten
+                     –  Verfärbung
+                     –  Peau d'Orange
+                     –  Sekretion
+                     –  Regionale Lymphknoten auffällig / nicht auffällig
+2.2 Mammographische Untersuchung
+Die differenzierte Beurteilung der Screening-Mammographieaufnahmen einschließlich der
+ggf. zusätzlichen Röntgenuntersuchungen ist wie folgt zu dokumentieren:
+     1. Angaben zur Person
+        (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum, Geburtsort, Wohnort,
+        Krankenkasse, Screening-Identifikationsnummer)
+     2. Vertragsarztnummer
+     3. Ggf.: zusätzliche Röntgenuntersuchungen nicht notwendig
+     4. Ggf.: zusätzliche Röntgenuntersuchungen empfohlen, von Teilnehmerin abgelehnt
+     5. Datum der Screening-Mammographie, ggf. zusätzlichen Röntgenuntersuchungen
+     6. Wiederholung von Screening-Mammographieaufnahmen wegen Einschränkungen in
+        der diagnostischen Bildqualität
+     7. Mammographische Zusatzprojektion
+                Medio-lateral
+
+                                                                                    61
+              Erweitert Cranio-caudal
+              Zielaufnahme in Kompressionstechnik
+              Vergrößerungsaufnahme
+              Andere
+   8. Art der Läsion
+          8.1.        Verdichtung
+                  –   Keine Verdichtung
+                  –   Verdichtung gut / schlecht abgegrenzt
+                  –   Strahlige Verdichtung
+                  –   Ausdehnung der Verdichtung
+          8.2.        Mikrokalk
+                  –   Kein Mikrokalk
+                  –   Feingranulär, überwiegend rund
+                  –   Grobgranulär, überwiegend pleomorph
+                  –   Überwiegend linear verzweigt
+                  –   Verkalkung auf Drüsengänge ausgerichtet
+                  –   Verkalkung nicht auf Drüsengänge ausgerichtet
+                  –   Ausdehnung der Verkalkung
+          8.3.        Architekturstörung
+                  –   Asymmetrie
+                  –   Andere
+          8.4.        Anderes
+   9. Befundung
+              Normalbefund
+              Gutartige Läsion
+              Läsion unklar, eher benigne
+              Läsion unklar, eher maligne
+              Läsion sicher maligne
+   10. Lokalisation des Befundes (nach vorgegebenem Schema)
+2.3 Ultraschalldiagnostische Untersuchung
+Die ultraschalldiagnostische Untersuchung im Rahmen der Abklärungsdiagnostik ist wie folgt
+zu dokumentieren:
+   1. Angaben zur Person
+      (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum, Geburtsort, Wohnort,
+      Krankenkasse, Screening-Identifikationsnummer)
+   2. Vertragsarztnummer
+   3. Ggf.: ultraschalldiagnostische Untersuchung nicht notwendig
+   4. Ggf.: ultraschalldiagnostische Untersuchung empfohlen, von Teilnehmerin abgelehnt
+   5. Datum der ultraschalldiagnostischen Untersuchung
+   6. Befundung
+              Normalbefund
+              Herdbefund mit gutartigen Charakteristika
+                  –   Zyste
+                  –   Solide
+              Auffälligkeit von unklarer Dignität
+              Malignitätsverdächtiger Befund
+              Maligner Befund
+
+                                                                                       62
+   7. Ausdehnung des Befundes
+   8. Lokalisation des Befundes (nach vorgegebenem Schema)
+2.4 Beurteilung der bisherigen Untersuchungen und Indikationsstellungen zur Biopsie
+Die Beurteilung der bisherigen bildgebenden und ggf. klinischen Untersuchungen sowie die
+Indikationsstellung zur Biopsie sind wie folgt zu dokumentieren:
+   1. Angaben zur Person
+      (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum, Geburtsort, Wohnort,
+      Krankenkasse, Screening-Identifikationsnummer)
+   2. Vertragsarztnummer
+   3. Verbleib im Screening
+   4. Zusätzliche Kontrolluntersuchung (in Monaten)
+   5. Notwendigkeit einer Biopsie
+              Stanzbiopsie unter Ultraschallkontrolle
+              Stanzbiopsie unter Röntgenkontrolle
+              Offene Biopsie
+              Sonstige Biopsie
+   6. Falls maligne
+              Klinische Stadieneinteilung (TNM)
+              Größe der Haupt- (größter Herd) und Gesamtläsion (in mm)
+2.5 Biopsien
+Die Biopsie im Rahmen der Abklärungsdiagnostik ist wie folgt zu dokumentieren:
+   1. Angaben zur Person
+      (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum, Geburtsort, Wohnort,
+      Krankenkasse, Screening-Identifikationsnummer)
+   2. Vertragsarztnummer
+   3. Ggf.: Biopsie empfohlen, von Teilnehmerin abgelehnt
+   4. Datum der Biopsie
+   5. Medikation
+              Blutverdünnende Medikamente (ja / nein)
+              Allergien (ja / nein)
+   6. Art der Biopsie
+              Stanzbiopsie unter Ultraschallkontrolle
+              Stanzbiopsie unter Röntgenkontrolle
+              Offene Biopsie
+              Sonstige Biopsie
+   7. Durchführung
+              Nadeldurchmesser
+              Anzahl der Stanzen
+              Bei Vakuum-Biopsie: Clip eingelegt
+              Bei Mikrokalk:
+                  –   Präparateradiographie durchgeführt
+                  –   Mikrokalk in jeweiliger Stanze
+   8. Repräsentativität des Präparates
+              Repräsentativ
+              Fraglich / nicht repräsentativ
+   9. Ggf. Nachuntersuchungen
+
+                                                                                      63
+             Hautverfärbung
+             Sonographie
+                –  Ggf. Hämatom (in mm)
+                –  Anderes
+2.6 Histopathologische Beurteilung im Rahmen der Abklärungsdiagnostik
+Die histopathologische Beurteilung der im Rahmen der Abklärungsdiagnostik gewonnenen
+Präparate ist wie folgt zu dokumentieren:
+   1. Angaben zur Person (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum,
+       Geburtsort, Wohnort, Krankenkasse, Screening-Identifikationsnummer)
+   2. Datum der histologischen Untersuchung
+   3. Arztnummer (LANR)
+   4. Lokalisation
+   5. Anzahl der Stanz- oder Vakuumzylinder
+   6. Nachweis von Verkalkungen in der Präparateradiographie
+   7. Histologische Verkalkung (Auftreten, Art, Bezug zur histologischen Läsion)
+   8. Histopathologische Diagnose
+   9. Bei Brustkrebsdiagnose zusätzlich:
+              Histologisches Grading
+              Histologischer Typ
+              Hormonrezeptor-Expression, HER-2-Status (nur bei invasivem Karzinom)
+   10. Untersuchung regionärer Lymphknoten (falls durchgeführt)
+   11. Histologische Beurteilung nach B-Klassifikation
+   12. Besonderheiten
+2.7 Histopathologische Beurteilung eines Operationspräparates
+Die histopathologische Beurteilung der im Rahmen einer Operation gewonnenen Präparate
+ist wie folgt zu dokumentieren:
+   1. Angaben zur Person (Vorname, Familienname, ggf. Geburtsname, Geburtsdatum,
+       Geburtsort, Wohnort, Krankenkasse, Screening-Identifikationsnummer)
+   2. Datum der histologischen Untersuchung
+   3. Arztnummer (LANR) oder bei Nicht-Vorliegen einer LANR Name des untersuchenden
+       Pathologen
+   4. Lokalisation
+   5. Art der Probe (Art der OP)
+   6. Nachweis von Verkalkungen in der Präparateradiographie
+   7. Histologische Verkalkung (Auftreten, Art, Bezug zur histologischen Läsion)
+   8. Histopathologische Diagnose
+   9. Bei Brustkrebsdiagnose zusätzlich:
+              Größe
+              Histologisches Grading
+              Histologischer Typ
+              Hormonrezeptor-Expression, HER-2-Status (nur bei invasivem Karzinom)
+              Tumorformel nach TNM-Klassifikation
+   10. Untersuchung der regionären Lymphknoten (Anzahl und Art der untersuchten
+       Lymphknoten, Anzahl und Art der positiven Lymphknoten)
+   11. Abschließende histologische Beurteilung
+   12. Besonderheiten
+
+                                                                                  64

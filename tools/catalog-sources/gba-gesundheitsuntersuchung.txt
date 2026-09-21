@@ -1,0 +1,596 @@
+Richtlinie
+des Gemeinsamen Bundesausschusses
+über die Gesundheitsuntersuchungen zur
+Früherkennung von Krankheiten
+
+(Gesundheitsuntersuchungs-Richtlinie)
+
+in der Fassung vom 19. Dezember 2019
+veröffentlicht im Bundesanzeiger BAnz AT 06.03.2020 B2
+in Kraft getreten am 7. März 2020
+
+zuletzt geändert am 20. November 2020
+veröffentlicht im Bundesanzeiger (BAnz AT 11.02.2021 B1)
+in Kraft getreten am 12. Februar 2021
+Inhalt
+
+A.       Allgemeiner Teil ..................................................................................................... 4
+
+         §1        Geltungsbereich .................................................................................................... 4
+         §2        Ziele ....................................................................................................................... 4
+         §3        Anspruchsberechtigung ........................................................................................ 4
+
+B.       Besonderer Teil ...................................................................................................... 4
+
+I.       Allgemeine Gesundheitsuntersuchung .................................................................... 5
+
+         §1        Ziel ......................................................................................................................... 5
+         §2        Anspruchsberechtigung ........................................................................................ 5
+         §3        Inhalt der allgemeinen Gesundheitsuntersuchung .............................................. 5
+         §4        Dokumentation ..................................................................................................... 6
+         §5        Qualitätssicherung ................................................................................................ 6
+         §6        Evaluation.............................................................................................................. 6
+
+II.      Ultraschallscreening auf Bauchaortenaneurysmen .................................................. 7
+
+         §1        Ziel ......................................................................................................................... 7
+         §2        Anspruchsberechtigung ........................................................................................ 7
+         §3        Aufklärung ............................................................................................................. 7
+         §4        Untersuchungsmethode ....................................................................................... 7
+         §5        Qualitätssicherung ................................................................................................ 7
+         §6        Evaluation.............................................................................................................. 7
+
+III. Screening auf Hepatitis-B- und Hepatitis-C-Virusinfektion ............................................ 9
+
+         § 1 Ziel ............................................................................................................................. 9
+         § 2 Anspruchsberechtigung............................................................................................. 9
+         § 3 Aufklärung ................................................................................................................. 9
+         § 4 Untersuchungsmethode ............................................................................................ 9
+         § 5 Qualitätssicherung..................................................................................................... 9
+         § 6 Evaluation .................................................................................................................. 9
+         § 7 Übergangsregelung ................................................................................................... 9
+
+                   Inhalte der allgemeinen Gesundheitsuntersuchung ..................................... 11
+
+1.       Anamnese ............................................................................................................ 11
+
+2
+2.   Klinische Untersuchung ........................................................................................ 11
+
+3.   Labor 12
+
+4.   Risikoadaptierte ärztliche Beratung und Aufklärung.............................................. 12
+
+5.   Ergebnisse der allgemeinen Gesundheitsuntersuchung ......................................... 13
+
+             Angaben des Vordrucks „Präventionsempfehlung“ ...................................... 14
+
+             Versicherteninformation nach Teil B Abschnitt II § 3 (Ultraschallscreening auf
+             Bauchaortenaneurysmen) ........................................................................... 15
+
+                                                                                                                     3
+A.    Allgemeiner Teil
+
+§1    Geltungsbereich
+1Diese Richtlinie bestimmt auf Grundlage des § 92 Absatz 1 Satz 2 Nummer 3 und Absatz 4 in
+
+Verbindung mit § 25 Absatz 4 Satz 2 des Fünften Buches Sozialgesetzbuch (SGB V) das Nähere
+über die den gesetzlichen Erfordernissen des § 25 Absatz 1 und 3 SGB V entsprechenden
+ärztlichen         Gesundheitsuntersuchungen;        ausgenommen            sind       die
+Krebsfrüherkennungsuntersuchungen einschließlich der organisierten Krebsfrüh-
+erkennungsprogramme. 2Soweit im Besonderen Teil der Richtlinie nichts Abweichendes
+geregelt ist, finden die Bestimmungen des Allgemeinen Teils Anwendung.
+
+§2    Ziele
+1Die nach dieser Richtlinie durchzuführenden ärztlichen Maßnahmen bei Versicherten, die das
+
+18. Lebensjahr vollendet haben, dienen der Erfassung und Bewertung gesundheitlicher
+Risiken und Belastungen und der Früherkennung bevölkerungsmedizinisch bedeutsamer
+Krankheiten sowie einer darauf abgestimmten präventionsorientierten Beratung. 2Die
+ärztlichen Maßnahmen sollen mögliche Gefahren für die Gesundheit der
+Anspruchsberechtigten dadurch abwenden, dass aufgefundene Verdachtsfälle eingehend
+diagnostiziert, erkannte Krankheiten rechtzeitig einer Behandlung zugeführt und Änderungen
+gesundheitsschädigender Verhaltensweisen frühzeitig bewirkt werden.
+
+§3    Anspruchsberechtigung
+1Versicherte haben Anspruch auf eine allgemeine Gesundheitsuntersuchung und auf
+krankheitsspezifische Gesundheitsuntersuchungen unter den im Besonderen Teil genannten
+Voraussetzungen. 2Die ärztlichen Gesundheitsuntersuchungen sollen – soweit möglich und im
+Besonderen Teil nicht abweichend geregelt – gemeinsam sowie im Zusammenhang mit
+Untersuchungen zur Früherkennung von Krebserkrankungen angeboten werden.
+
+B.    Besonderer Teil
+
+1Indiesem Teil werden für die einzelnen ärztlichen Gesundheitsuntersuchungen jeweils
+konkrete Bestimmungen getroffen. 2Es sind Inhalt, Art und Umfang sowie Häufigkeit geregelt
+sowohl für die allgemeine Gesundheitsuntersuchung als auch für die krankheitsspezifischen
+Gesundheitsuntersuchungen zur Früherkennung bevölkerungsmedizinisch bedeutsamer
+Krankheiten.
+
+4
+I.     Allgemeine Gesundheitsuntersuchung
+
+§1     Ziel
+
+Die allgemeine Gesundheitsuntersuchung dient den im Allgemeinen Teil in § 2 genannten
+Zielen einschließlich einer Überprüfung des Impfstatus.
+
+§2     Anspruchsberechtigung
+1Versicherte haben ab Vollendung des 18. Lebensjahres bis zum Ende des 35. Lebensjahres
+
+einmalig Anspruch auf eine allgemeine Gesundheitsuntersuchung. 2Versicherte haben ab
+Vollendung des 35. Lebensjahres alle drei Jahre Anspruch auf eine allgemeine
+Gesundheitsuntersuchung. 3Wird eine allgemeine Gesundheitsuntersuchung durchgeführt, ist
+in den auf das Untersuchungsjahr folgenden zwei Kalenderjahren keine allgemeine
+Gesundheitsuntersuchung durchzuführen.
+
+§3     Inhalt der allgemeinen Gesundheitsuntersuchung
+
+Die allgemeine Gesundheitsuntersuchung nach diesem Abschnitt umfasst folgende
+Leistungen, die in der Anlage 1 konkretisiert werden:
+1. Anamnese
+     Erhebung der Eigen-, Familien- und Sozialanamnese, insbesondere Erfassung des
+     Risikoprofils
+2. Klinische Untersuchung
+     Untersuchung zur Erhebung des vollständigen Status (Ganzkörperstatus)
+3. Laboratoriumsuntersuchungen
+     a) Untersuchungen aus dem Blut (einschließlich Blutentnahme)
+     b) Untersuchungen aus dem Urin (Harnstreifentest)
+4. Impfstatus
+     Überprüfung des Impfstatus
+5. Beratung
+     1Nach Abschluss der in den Nummern 1 bis 4 genannten Maßnahmen hat die Ärztin oder
+
+     der Arzt die versicherte Person über das Ergebnis der durchgeführten allgemeinen
+     Gesundheitsuntersuchung zu informieren und mit ihr die möglichen Auswirkungen im
+     Hinblick auf die weitere Lebensgestaltung zu erörtern. 2Dabei soll die Ärztin oder der Arzt
+     auf der Grundlage der Anamnese und der erhobenen Befunde insbesondere das
+     individuelle Risikoprofil der versicherten Person ansprechen und diese auf Möglichkeiten
+     und Hilfen zur Vermeidung und zum Abbau gesundheitsschädigender Verhaltensweisen
+     (z. B. auf entsprechende Gesundheitsförderungsangebote der Krankenkassen) hinweisen.
+     3Die Ärztin oder der Arzt soll durch motivierende Gesprächsführung die individuellen
+
+     gesundheitsbezogenen Änderungspotenziale der versicherten Person identifizieren, um
+     darauf aufbauend geeignete, abgestimmte Schritte zur Verhaltensänderung zu erörtern.
+     4Sofern dies medizinisch angezeigt ist, stellt die Ärztin oder der Arzt eine
+
+     Präventionsempfehlung (gemäß Anlage 2) für Leistungen zur verhaltensbezogenen
+     Prävention nach § 20 Absatz 5 SGB V aus. 5In Abhängigkeit vom Impfstatus soll eine
+
+                                                                                              5
+     Motivierung zur Nachimpfung erfolgen. 6Die versicherte Person soll auf das Angebot der
+     in Betracht kommenden krankheitsspezifischen Gesundheitsuntersuchungen hingewiesen
+     werden. 7Die versicherte Person soll ferner auf das Angebot bestehender
+     Krebsfrüherkennungs-Untersuchungen hingewiesen und über mögliche Risiken auf
+     Grundlage der in der Anamnese erfragten familiären Krebsbelastungen aufgeklärt werden.
+6. Folgerung aus den Ergebnissen der allgemeinen Gesundheitsuntersuchung
+     Ergeben die aufgeführten Untersuchungen das Vorliegen oder den Verdacht auf das
+     Vorliegen einer Krankheit, so soll die Ärztin oder der Arzt dafür Sorge tragen, dass diese
+     Fälle im Rahmen der Krankenbehandlung einer weitergehenden, gezielten Diagnostik und
+     ggf. Therapie zugeführt werden.
+
+§4     Dokumentation
+
+(1) Die Ergebnisse der Anamnese und der Untersuchungen werden ebenso wie die aufgrund
+der allgemeinen Gesundheitsuntersuchung veranlassten oder empfohlenen Maßnahmen den
+Inhalten der Anlage 1 entsprechend dokumentiert.
+(2) 1Für die Präventionsempfehlung wird eine ärztliche Bescheinigung ausgestellt. 2Die
+Präventionsempfehlung erfolgt auf dem zwischen den Partnern der Bundesmantelverträge
+vereinbarten Vordruck gemäß den Inhalten nach Anlage 2.
+
+§5     Qualitätssicherung
+
+Untersuchungen nach diesem Abschnitt sollen diejenigen Ärztinnen und Ärzte durchführen,
+welche zur Erbringung der vorgesehenen Leistungen aufgrund ihrer Kenntnisse und
+Erfahrungen innerhalb ihrer Gebietsgrenzen berechtigt und nach der jeweils für sie geltenden
+Weiterbildungsordnung befähigt sind (Allgemeinärztinnen und –ärzte, Internistinnen und
+Internisten, Ärztinnen und Ärzte ohne Gebietsbezeichnung).
+
+§6     Evaluation
+
+Der Gemeinsame Bundesauschuss beabsichtigt, eine unabhängige wissenschaftliche
+Organisation mit der Evaluation der allgemeinen Gesundheitsuntersuchung zu beauftragen.
+
+6
+II.    Ultraschallscreening auf Bauchaortenaneurysmen
+
+§1     Ziel
+
+Das nach diesem Abschnitt durchzuführende Screening dient der Früherkennung von
+Bauchaortenaneurysmen bei dem in § 2 genannten Personenkreis.
+
+§2     Anspruchsberechtigung
+
+Männliche Versicherte ab Vollendung des 65. Lebensjahres haben einmalig Anspruch auf
+Teilnahme am Screening auf Bauchaortenaneurysmen.
+
+§3     Aufklärung
+1Die ärztliche Aufklärung zum Screening auf Bauchaortenaneurysmen erfolgt anhand der
+
+Versicherteninformation (siehe Anlage 3). 2Im Rahmen des ärztlichen Aufklärungsgesprächs
+ist dem Anspruchsberechtigten die Versicherteninformation auszuhändigen.
+
+§4     Untersuchungsmethode
+
+(1) Das    Screening auf Bauchaortenaneurysmen erfolgt mittels                 abdomineller
+Ultraschalluntersuchung gemäß den Vorgaben des § 5 dieses Abschnitts.
+(2) Die Messung erfolgt orthograd am größten Durchmesser der Bauchaorta infrarenal nach
+der LELE-Methode.
+(3) Das Screeningergebnis gilt als auffällig, wenn ein Bauchaortendurchmesser von 2,5 cm
+oder größer gemessen wurde.
+(4) Die Verlaufskontrollen und weitere Diagnostik nach Feststellung eines auffälligen
+Befundes im Sinne des Absatz 3 erfolgen im Rahmen der Krankenbehandlung nach § 27 SGB V.
+
+§5     Qualitätssicherung
+1Die  Durchführung der Untersuchung erfordert eine Genehmigung zur Ausführung und
+Abrechnung       der      Ultraschalldiagnostik   gemäß     der       Vereinbarung    von
+Qualitätssicherungsmaßnahmen nach § 135 Absatz 2 SGB V zur Ultraschalldiagnostik
+(Ultraschall-Vereinbarung) in der Fassung vom 1. Oktober 2019. 2Die fachliche Befähigung
+muss entweder für den Anwendungsbereich 7.1 (Abdomen, Retroperitoneum einschließlich
+Niere, transkutan) oder den Anwendungsbereich 20.10 (Duplexverfahren – abdominelle und
+retroperitoneale Gefäße sowie Mediastinum) gemäß Anlage I der Ultraschall-Vereinbarung
+oder im Fall des Erwerbs der fachlichen Befähigung durch Ultraschall-Kurse gemäß den
+Anlagen I und II der Ultraschall-Vereinbarung nachgewiesen sein. 3Als Anforderungen an die
+apparative Ausstattung gelten die Vorgaben der Anlage III der Ultraschall-Vereinbarung für
+die Anwendungsklasse 7.1 (Abdomen, Retroperitoneum einschließlich Niere, transkutan) oder
+die Anwendungsklasse 20.9 (Gefäße des Abdomens, Retroperitoneums und Mediastinum,
+Duplex).
+
+§6     Evaluation
+
+(1) 1Der Gemeinsame Bundesausschuss beauftragt erstmals im September 2023 eine
+unabhängige wissenschaftliche Institution mit der Erstellung eines Berichts zum Screening auf
+Bauchaortenaneurysmen. 2Im Bericht sollen zudem, insbesondere auf der Grundlage von
+
+                                                                                           7
+Krankenhausdiagnose- sowie Todesursachenstatistik, die Mengenentwicklung elektiver
+Operationen und Notfalloperationen sowie die Entwicklung der Aneurysma-assoziierten
+Mortalität betrachtet werden.
+(2) Die Teilnahmezahlen sind von den Kassenärztlichen Vereinigungen anhand der Anzahl der
+abgerechneten Screeninguntersuchungen kalenderjährlich zum 1. März an den Gemeinsamen
+Bundesausschuss zu übermitteln.
+
+8
+III. Screening auf Hepatitis-B- und Hepatitis-C-Virusinfektion
+
+§ 1 Ziel
+
+Das nach diesem Abschnitt durchzuführende Screening dient der Früherkennung einer
+Hepatitis-B- und Hepatitis-C-Virusinfektion, um die Betroffenen soweit erforderlich einer
+gezielten Behandlung zuzuführen und damit die Ausbildung von Leberschäden und weiteren
+Folgeschäden zu verhindern.
+
+§ 2 Anspruchsberechtigung
+
+Versicherte, die das 35. Lebensjahr vollendet haben, haben im Rahmen der Inanspruchnahme
+einer allgemeinen Gesundheitsuntersuchung einmalig Anspruch auf ein Screening auf
+Hepatitis-B-Virusinfektion und einmalig Anspruch auf ein Screening auf Hepatitis-C-
+Virusinfektion.
+
+§ 3 Aufklärung
+
+Im Zusammenhang mit dem Screening erfolgt eine Information des oder der
+Anspruchsberechtigten über Risiken für eine Hepatitis-B- und Hepatitis-C-Virusinfektion.
+
+§ 4 Untersuchungsmethode
+
+(1) Das Screening auf eine Hepatitis-B-Virusinfektion erfolgt mittels Untersuchung aus dem
+Blut als Untersuchung auf HBs-Ag. Bei positivem (reaktivem) Ergebnis der HBs-Ag-
+Untersuchung erfolgt anschließend eine Untersuchung auf HBV-DNA aus derselben
+Blutentnahme.
+(2) Das Screening auf eine Hepatitis-C-Virusinfektion erfolgt mittels Untersuchung aus dem
+Blut als Untersuchung auf HCV-Antikörper. Bei positivem (reaktivem) Ergebnis der HCV-
+Antikörper-Untersuchung erfolgt anschließend eine Untersuchung auf HCV-RNA aus
+derselben Blutentnahme.
+
+§ 5 Qualitätssicherung
+
+(1) Abschnitt B Kapitel I § 5 gilt entsprechend.
+(2) Die Laboruntersuchungen nach § 4 dürfen nur von Ärztinnen und Ärzten durchgeführt
+werden, die eine Genehmigung gemäß der Vereinbarung von Qualitätssicherungsmaßnahmen
+nach § 135 Absatz 2 SGB V zur Erbringung von speziellen Untersuchungen der
+Laboratoriumsmedizin (Qualitätssicherungsvereinbarung Spezial-Labor) in der Fassung vom 1.
+April 2018 zur Ausführung und Abrechnung dieser Leistung besitzen.
+
+§ 6 Evaluation
+
+Eine Evaluation des Screenings auf Hepatitis-B- und Hepatitis-C-Virusinfektion erfolgt im
+Rahmen der beabsichtigten Evaluation der allgemeinen Gesundheitsuntersuchung nach
+Abschnitt B Kapitel I § 6.
+
+§ 7 Übergangsregelung
+
+Haben Versicherte, die das 35. Lebensjahr vollendet haben, im Zeitraum von weniger als drei
+Jahren vor dem 12. Februar 2021 eine allgemeine Gesundheitsuntersuchung in Anspruch
+
+                                                                                         9
+genommen, können diese in dem Zeitraum bis zum Entstehen ihres nächsten Anspruchs auf
+eine allgemeine Gesundheitsuntersuchung ihren jeweils einmaligen Anspruch auf ein
+Screening auf Hepatitis-B-Virusinfektion und auf ein Screening auf Hepatitis-C-Virusinfektion
+abweichend von § 2 unabhängig von der Inanspruchnahme einer allgemeinen
+Gesundheitsuntersuchung geltend machen.
+
+10
+              Inhalte der allgemeinen Gesundheitsuntersuchung
+
+1. Anamnese
+
+  - Wurde früher bereits eine allgemeine Gesundheitsuntersuchung durchgeführt?
+  - Impfstatus
+
+  Eigen- und Familienanamnese
+  - Hypertonie
+  - koronare Herzkrankheit
+  - sonstige arterielle Verschlusskrankheit
+  - Diabetes mellitus
+  - Hyperlipidämie
+  - Nierenkrankheiten
+  - Lungenkrankheiten
+  - Onkologische Krankheiten
+    unter besonderer Berücksichtigung einer familiären Belastung z. B. durch Brust-,
+    Darmkrebs und malignes Melanom
+  - Sonstige Krankheiten
+  - Persönliche Risikofaktoren
+     - Adipositas
+     - Nikotinabusus
+     - Alkoholabusus
+     - Bewegungsmangel
+     - dauerhafte emotionale Belastungsfaktoren
+     - kardiovaskuläres Risiko unter Verwendung von Risikoscores, sofern aufgrund der
+       Anamnese entsprechende Anhaltspunkte vorliegen
+
+2. Klinische Untersuchung
+
+  (krankhafte Veränderungen [ohne interkurrente Befunde])
+  - Brustkorb (Inspektion)
+  - Herzauskultation
+  - Lungenauskultation
+  - Abdomenpalpation (einschließlich Nierenlager)
+  - Fußpulse
+  - Karotisauskultation
+
+                                                                                  11
+     - Bewegungsapparat
+     - Haut
+     - Sinnesorgane
+     - Nervensystem
+     - Psyche
+     - Gewicht
+     - Größe
+     - Blutdruck (systolisch / diastolisch)
+
+3. Labor
+
+     - Versicherte ab Vollendung des 18. Lebensjahres bis zum Ende des 35. Lebensjahres:
+       Untersuchungen aus dem Blut (einschließlich Blutentnahme) bei entsprechendem
+       Risikoprofil, z. B. positiver Familienanamnese, Adipositas oder Bluthochdruck:
+       - Lipidprofil (Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin, Triglyceride)
+       - Nüchternplasmaglucose
+     - Versicherte ab Vollendung des 35. Lebensjahres:
+       a) Untersuchungen aus dem Blut (einschließlich Blutentnahme):
+            - Lipidprofil (Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin, Triglyceride)
+            - Nüchternplasmaglucose
+       b) Untersuchungen aus dem Urin:
+            - Eiweiß, Glucose, Erythrozyten, Leukozyten und Nitrit (Harnstreifentest)
+
+4. Risikoadaptierte ärztliche Beratung und Aufklärung
+
+     über
+     - Wahrscheinlichkeit für        ein      kardiovaskuläres   Ereignis   und   entsprechende
+       Managementstrategien
+     - Nikotinkonsum
+     - Alkohol- und Drogenkonsum
+     - Ernährungsverhalten
+     - Bewegungsverhalten
+     - Dauerhafte emotionale Belastungsfaktoren
+     - Familiär bedingte Risiken, insbesondere zu onkologischen Erkrankungen
+     - Impfstatus
+
+12
+5. Ergebnisse der allgemeinen Gesundheitsuntersuchung
+
+Die Ergebnisse der Anamneseerhebung, die Untersuchungsergebnisse, neue Diagnosen/Ver-
+dachtsdiagnosen, veranlasste Maßnahmen, das Ausstellen von Präventionsempfehlungen
+sowie durchgeführte Beratungen sind zu dokumentieren.
+
+                                                                                  13
+                Angaben des Vordrucks „Präventionsempfehlung“
+
+Der zwischen den Partnern der Bundesmantelverträge vereinbarte Vordruck enthält folgende
+Angaben:
+     - Krankenkasse bzw. Kostenträger
+     - Name, Vorname der versicherten Person
+     - geboren am
+     - Kostenträgerkennung
+     - Versichertennummer
+     - Status
+     - Betriebsstättennummer
+     - Arztnummer
+     - Datum
+
+Von der Ärztin oder dem Arzt auszufüllen:
+     - Empfehlung zur verhaltensbezogenen Primärprävention gemäß § 20 Absatz 5 SGB V aus
+       dem Handlungsfeld
+       - Bewegungsgewohnheiten
+       - Ernährung
+       - Stressmanagement
+       - Suchtmittelkonsum
+       - Sonstiges
+     - Bitte informieren Sie sich bei Ihrer Krankenkasse über die geprüften und anerkannten
+       Präventionsangebote und die Fördervoraussetzungen.
+     - Hinweis der behandelnden Ärztin oder des behandelnden Arztes (z. B. Kontraindikation,
+       Konkretisierung zur Präventionsempfehlung)
+     - Vertragsarztstempel und Unterschrift
+
+14
+                Versicherteninformation nach Teil B Abschnitt II § 3
+                (Ultraschallscreening auf Bauchaortenaneurysmen)
+
+Informationen zum Ultraschall-Screening auf Aneurysmen der Bauchaorta
+Warum wird Männern eine Untersuchung der Bauchschlagader angeboten?
+
+Lieber Leser,
+gesetzlich versicherten Männern ab einem Alter von 65 Jahren wird eine Ultraschall-
+Untersuchung der Bauchschlagader angeboten.
+Die Teilnahme an dieser Früherkennungs-Untersuchung ist einmal möglich. Sie ist freiwillig
+und kostenlos.
+Diese Broschüre informiert darüber,
+         •      warum die Untersuchung angeboten wird,
+         •      wie sie abläuft und
+         •      welche Folgen sich ergeben können.
+Diese Informationen sollen Sie dabei unterstützen, die Vor- und Nachteile einer Teilnahme
+abzuwägen und für sich eine gute Entscheidung zu treffen.
+Warum wird die Untersuchung angeboten?
+Die Bauchschlagader ist das größte Blutgefäß in der Bauchhöhle. Sie wird auch Bauchaorta
+genannt. Manchmal dehnt sie sich an einer Stelle deutlich und bildet eine Ausbuchtung. Wenn
+die Ausbuchtung 3 cm oder größer ist, spricht man von einem Aneurysma. Die meisten
+Aneurysmen verursachen keinerlei Beschwerden und bleiben deshalb unbemerkt.
+Männer über 65 Jahren entwickeln häufiger ein Aneurysma als andere Menschen. Außerdem
+macht insbesondere Rauchen ein Aneurysma wahrscheinlicher. Weitere Risikofaktoren sind
+Bluthochdruck und erhöhte Blutfette.
+Wenn sich die Bauchschlagader sehr stark dehnt, kann sie in seltenen Fällen ohne Vorwarnung
+reißen. Dann fließt viel Blut in den Bauchraum. Das ist ein Notfall und lebensbedrohlich.
+Die Ultraschall-Untersuchung dient dazu, große Aneurysmen zu entdecken, sodass sie
+vorbeugend operiert werden können. So soll ein Riss verhindert werden. Bei kleineren
+Ausbuchtungen wird regelmäßig kontrolliert, ob sie wachsen.
+Allerdings hat die frühe Erkennung auch Nachteile: Es werden auch Aneurysmen entdeckt, die
+nie gesundheitliche Probleme bereitet hätten. Wenn ein Mann weiß, dass er ein Aneurysma
+hat, kann das für ihn sehr belastend sein.
+[Hier schließt sich in dem Druckerzeugnis der Versicherteninformation eine Abbildung zur
+Anatomie des Bauchaortenaneurysmas an.]
+
+Welche Ergebnisse liefert die Untersuchung?
+
+Bei der Früherkennung wird der Durchmesser der Bauchschlagader mit einem Ultraschallgerät
+gemessen. Vom Ergebnis dieser Untersuchung hängt das weitere Vorgehen ab.
+Wenn sich 1000 Männer ab 65 Jahren untersuchen lassen, ist mit folgenden Ergebnissen zu
+rechnen:
+
+                                                                                        15
+         •    Etwa 980 von 1000 Männern haben kein Aneurysma: Der Durchmesser ihrer
+              Bauchschlagader ist kleiner als 3 cm.
+         •    Etwa 18 von 1000 Männern haben ein kleines bis mittleres Aneurysma: Bei
+              einem Durchmesser zwischen 3 und 5,4 cm empfehlen Fachleute, die
+              Bauchschlagader regelmäßig per Ultraschall zu kontrollieren. Wenn sie sich
+              weiter dehnt, kann später ein operativer Eingriff sinnvoll sein.
+         •    Etwa 2 von 1000 Männern haben ein großes Aneurysma: Bei einem
+              Durchmesser ab 5,5 cm ist das Risiko für einen Riss vergleichsweise hoch. Dann
+              wird meist ein operativer Eingriff empfohlen.
+Auch eine Ausbuchtung unter 3 cm kann sich später zu einem Aneurysma entwickeln,
+besonders bei Männern mit Risikofaktoren wie Rauchen und Bluthochdruck oder einem
+Aneurysma in der Familie. Bei ihnen kann eine spätere Kontrolluntersuchung bereits ab einem
+Durchmesser von 2,5 cm sinnvoll sein.
+Die nebenstehende Grafik zeigt die Ergebnisse der Untersuchung noch einmal.
+
+Was passiert, wenn 1000 Männer ab 65 Jahren zur Früherkennung gehen?
+
+[Hier schließt sich in dem Druckerzeugnis der Versicherteninformation unter der Überschrift
+„Was passiert, wenn 1000 Männer ab 65 Jahren zur Früherkennung gehen?“ eine Abbildung in
+Form eines Flussdiagramms an. Darin werden folgende Häufigkeiten angegeben: 1000 Männer
+gehen zum Bauch-Ultraschall, davon haben etwa 980 Männer kein Aneurysma und etwa 20
+Männer haben ein Aneurysma. Von den 20 Männern mit Aneurysma werden etwa 18 Männer
+regelmäßig untersucht und eventuell später operiert und etwa 2 Männer werden
+wahrscheinlich bald operiert.]
+
+Welche Vorteile hat die Untersuchung?
+
+Vor allem bei einem großen Aneurysma besteht die Gefahr, dass es unerwartet reißt. Das kann
+tödlich sein.
+Studien haben untersucht, wie viele Risse und Tode langfristig vermieden werden können,
+wenn man ein Aneurysma frühzeitig entdeckt. Die folgende Schätzung zeigt, was man in den
+13 Jahren nach der Ultraschall­Untersuchung ungefähr erwarten kann:
+
+Von 1000 Männern ab 65 Jahren ...
+
+                           ... reißt ein Aneurysma    ...sterben an einem Aneurysma
+ Ohne Früherkennung        bei etwa 7                 etwa 6
+ Mit Früherkennung         bei etwa 4                 etwa 3
+ Das heißt:
+ Von 1000       Männern … etwa 3 vor einem Riss …etwa 3 vor dem Tod durch ein
+ werden…                bewahrt                 Aneurysma bewahrt
+
+Welche Nachteile hat die Untersuchung?
+
+Ein Teil der Aneurysmen, die bei der Untersuchung gefunden werden, wäre ohne
+Früherkennung niemals aufgefallen. Sie wären nicht gerissen, Kontrolluntersuchungen oder
+16
+operative Eingriffe wären nicht erforderlich gewesen. Leider lassen sich solche harmlosen
+Aneurysmen nicht sicher von gefährlichen unterscheiden.
+Nach Schätzungen bleibt etwa die Hälfte der entdeckten Aneurysmen harmlos. Es sind vor
+allem kleine Aneurysmen, die niemals aufgefallen wären. Das bedeutet:
+Etwa 20 von 1000 Männern, die an der Untersuchung teilnehmen, erfahren von einem
+Aneurysma. Bei etwa 10 von ihnen hätte das Aneurysma aber keine Probleme bereitet.
+
+Was ändert sich, wenn man von einem Aneurysma weiß?
+
+Die Diagnose kann unterschiedliche und auch widersprüchliche Gefühle auslösen. Manche
+Männer sind froh, dass ihr Aneurysma erkannt wurde – die Kontrolluntersuchungen geben
+ihnen ein Gefühl der Sicherheit.
+Andere Männer hätten im Nachhinein lieber nicht von dem Aneurysma erfahren. Denn dieses
+Wissen kann Angst auslösen und verunsichern.
+Viele Männer leben fortan in dem Bewusstsein, dass ihr Leben gefährdet ist. Beschwerden wie
+Bauchschmerzen können beängstigend sein. Außerdem schränken viele Männer aus Sorge vor
+einem Riss ihren Alltag ein. Sie werden vorsichtiger und meiden körperliche Belastungen.
+
+Was geschieht bei einem operativen Eingriff?
+
+Bei einer vorbeugenden Operation gibt es zwei Möglichkeiten:
+         •   Das Aneurysma wird entfernt und durch ein künstliches Gefäßstück ersetzt. Für
+             diese Operation ist ein Bauchschnitt erforderlich.
+         •   In das Aneurysma wird ein Röhrchen eingesetzt. Für diesen Eingriff ist ein kleiner
+             Schnitt in der Leiste erforderlich. Über diesen Schnitt wird das Röhrchen mit
+             einem Katheter eingeführt und bis zum Aneurysma vorgeschoben.
+Beide Eingriffe können Leben retten. Sie können aber auch zu schwerwiegenden
+Komplikationen führen, beispielsweise einem Herzinfarkt, Schlaganfall oder einer
+Lungenentzündung.
+Deshalb muss individuell beurteilt werden, ob die Gefahr, die von einem Aneurysma ausgeht,
+einen operativen Eingriff rechtfertigt. Die Entscheidung dafür oder dagegen hängt auch von
+dem Gesundheitszustand eines Mannes ab und davon, wie er selbst die Vor­ und Nachteile
+eines Eingriffs einschätzt.
+
+Was passiert, wenn man nicht an der Früherkennung teilnimmt?
+
+Sie können selbst entscheiden, ob und in welchem Alter Sie die Untersuchung in Anspruch
+nehmen. Wenn Sie sich gegen die Früherkennung entscheiden, hat dies für Ihren
+Versicherungsschutz keine Folgen: Auch, wenn später zufällig bei anderen Untersuchungen
+ein Aneurysma festgestellt wird, übernimmt Ihre Krankenkasse selbstverständlich die
+Behandlungskosten.
+
+Die wichtigsten Informationen:
+
+                                                                                            17
+         •   Wenn ein Aneurysma reißt, ist dies lebensbedrohlich. Die Früherkennung
+             verringert das Risiko, dass ein Aneurysma reißt und man stirbt.
+         •   Früh erkannte Aneurysmen werden häufiger operiert. Ein Eingriff kann Leben
+             retten, aber auch schwerwiegende Komplikationen mit sich bringen.
+         •   Manche Aneurysmen hätten nie Probleme bereitet.
+         •   Das Wissen um ein Aneurysma kann Sorgen bereiten und die Lebensqualität
+             beeinträchtigen.
+
+Ob Sie an der Früherkennung teilnehmen oder nicht, ist Ihre ganz persönliche Entscheidung.
+Sie zu treffen, kann schwerfallen. Sie müssen sich nicht sofort entscheiden, sondern können
+sich die Zeit nehmen, die Sie brauchen.
+
+Platz für Ihre Fragen
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+
+Stand:
+
+Dezember 2019
+Die Versicherteninformation ist eine Anlage der Gesundheitsuntersuchungs-Richtlinie des
+Gemeinsamen Bundesausschusses (G-BA).
+
+Herausgeber:
+
+Gemeinsamer Bundesausschuss
+Der G-BA ist ein Gremium der gemeinsamen Selbstverwaltung von Ärztinnen und Ärzten,
+Zahnärztinnen und Zahnärzten, Psychotherapeutinnen und Psychotherapeuten,
+Krankenhäusern und Krankenkassen in Deutschland, in dem seit 2004 auch
+Patientenvertreterinnen und Patientenvertreter aktiv mitwirken.
+www.g-ba.de
+
+18

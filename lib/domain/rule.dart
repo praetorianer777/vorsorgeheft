@@ -57,6 +57,7 @@ class Rule {
     this.eligibility = const Eligibility(),
     this.statutory = true,
     this.optional = false,
+    this.retiredOn,
   });
 
   factory Rule.fromJson(
@@ -94,10 +95,25 @@ class Rule {
             : Eligibility.fromJson((eligibility as Map).cast()),
         statutory: json['statutory'] != false,
         optional: json['optional'] == true,
+        retiredOn: _retiredOn(json['retiredOn']),
       );
     } on FormatException catch (e) {
       throw FormatException('rule "$id": ${e.message}');
     }
+  }
+
+  static final _isoDate = RegExp(r'^\d{4}-\d{2}-\d{2}$');
+
+  static DateTime? _retiredOn(Object? value) {
+    if (value == null) return null;
+    if (value is! String || !_isoDate.hasMatch(value)) {
+      throw const FormatException('"retiredOn" must be a date, yyyy-mm-dd');
+    }
+    final date = DateTime.tryParse('${value}T00:00:00Z');
+    if (date == null || date.toIso8601String().substring(0, 10) != value) {
+      throw FormatException('"retiredOn" is not a valid date: "$value"');
+    }
+    return date;
   }
 
   final String id;
@@ -117,6 +133,13 @@ class Rule {
   /// risk area or a pregnancy. Never generated unless a person has switched
   /// the rule on; see [Person.optionalRules].
   final bool optional;
+
+  /// The date from which the guideline no longer grants this entitlement.
+  ///
+  /// A rule is retired rather than removed: recorded appointments are keyed
+  /// by its id and have to stay readable. From this date on nothing new is
+  /// planned; what was recorded still shows as done.
+  final DateTime? retiredOn;
 
   @override
   String toString() => 'Rule($catalogId/$id)';

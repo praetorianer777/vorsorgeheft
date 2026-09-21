@@ -235,8 +235,14 @@ Iterable<Occurrence> _forRule({
   };
 
   final minAge = rule.eligibility.minAge?.applyTo(birth);
-  if (minAge == null) return generated;
-  return generated.where((o) => !o.windowStart.isBefore(minAge));
+  final retiredOn = rule.retiredOn;
+  return generated.where(
+    (o) =>
+        (minAge == null || !o.windowStart.isBefore(minAge)) &&
+        (retiredOn == null ||
+            o.completedOn != null ||
+            o.windowStart.isBefore(retiredOn)),
+  );
 }
 
 typedef _Make =
