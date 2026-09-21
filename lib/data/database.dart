@@ -106,7 +106,23 @@ class Peers extends Table {
   Set<Column<Object>> get primaryKey => {nodeId};
 }
 
-@DriftDatabase(tables: [Persons, Completions, Settings, Changes, Peers])
+/// The family's name, projected from the change log like [Persons].
+///
+/// A table of its own rather than a row in [Settings], because settings are
+/// device-local and the name is the one thing on the start screen both parents
+/// are meant to read the same way.
+@DataClassName('FamilyRow')
+class Families extends Table {
+  TextColumn get id => text()();
+  TextColumn get name => text()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {id};
+}
+
+@DriftDatabase(
+  tables: [Persons, Completions, Settings, Changes, Peers, Families],
+)
 class AppDatabase extends _$AppDatabase implements PeerRegistry {
   AppDatabase(super.executor);
 
@@ -117,10 +133,11 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
   DriftDatabaseOptions get options =>
       const DriftDatabaseOptions(storeDateTimeAsText: true);
 
-  /// Bumped for the peers table in #10. A database from version 1 gains the
-  /// table in [migration]; everything it already holds stays as it is.
+  /// Bumped for the peers table in #10 and the families table in #46. An
+  /// older database gains the tables in [migration]; everything it already
+  /// holds stays as it is.
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   /// SQLite enforces foreign keys only when asked to, and without this a
   /// deleted person leaves their recorded appointments behind.
@@ -129,6 +146,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
     onCreate: (m) => m.createAll(),
     onUpgrade: (m, from, to) async {
       if (from < 2) await m.createTable(peers);
+      if (from < 3) await m.createTable(families);
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
@@ -200,6 +218,24 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
                 c.doseId.equals(doseId ?? ''),
           ))
           .go();
+
+  Stream<String?> watchFamilyName(String id) => (select(
+    families,
+  )..where((f) => f.id.equals(id))).watchSingleOrNull().map((row) => row?.name);
+
+  Future<String?> familyName(String id) async {
+    final row = await (select(
+      families,
+    )..where((f) => f.id.equals(id))).getSingleOrNull();
+    return row?.name;
+  }
+
+  Future<void> upsertFamily(String id, String name) => into(
+    families,
+  ).insertOnConflictUpdate(FamiliesCompanion.insert(id: id, name: name));
+
+  Future<void> deleteFamily(String id) =>
+      (delete(families)..where((f) => f.id.equals(id))).go();
 
   Future<List<Change>> changesSince(Hlc watermark) async {
     final rows =

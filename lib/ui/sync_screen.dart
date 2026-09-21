@@ -5,6 +5,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 import '../app/providers.dart';
 import '../l10n/app_localizations.dart';
 import '../sync/bundle.dart';
+import '../sync/replicated_store.dart';
 import '../sync/sync_protocol.dart';
 import '../sync/sync_transport.dart';
 
@@ -119,9 +120,15 @@ class SyncScreen extends ConsumerWidget {
     final password = await _askPassword(context, l10n.bundleExport);
     if (password == null) return;
     try {
+      final familyName = await ref
+          .read(databaseProvider)
+          .familyName(ReplicatedStore.familyId);
       await ref
           .read(bundleServiceProvider)
-          .export(password: password, subject: l10n.bundleSubject);
+          .export(
+            password: password,
+            subject: familyName ?? l10n.bundleSubject,
+          );
     } on Object {
       _notify(messenger, l10n.bundleFailed);
     }

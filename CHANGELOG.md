@@ -9,6 +9,9 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- The family can be given a name. It heads the start screen instead of
+  "Family", reaches the other parent's phone with the next sync, and names the
+  family's calendar export and the encrypted file.
 - When both phones recorded the same appointment, the later entry wins as
   before, but the phone whose entry was replaced now says so on its family
   screen until dismissed, naming the appointment, both dates and the device.
