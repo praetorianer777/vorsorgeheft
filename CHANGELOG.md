@@ -7,6 +7,12 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Bug fixes
+
+- The stored language is restored on start by a read nobody waits for; when
+  it landed after the app's state was already torn down it threw into
+  whatever ran next. It is now dropped instead.
+
 ### Features
 
 - A "How this app works" screen in settings explains, in plain words, where
