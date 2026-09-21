@@ -12,6 +12,13 @@ and the versioning [Semantic Versioning](https://semver.org/).
 - A "Report a problem" tile in settings opens a GitHub issue prefilled with
   app version, OS and language. Nothing leaves the phone until the person
   sends it.
+- A phone that was never given a name introduces itself to the other one by
+  its model, such as "Pixel 8" or "iPhone 15", instead of both showing up as
+  "My phone". The pairing dialog says that the name is what the other phone
+  will see.
+- An icon of its own, a calendar leaf with a check mark in the app's green,
+  on Android (adaptive) and iOS, in place of the Flutter default.
+
 - A "How this app works" screen in settings explains, in plain words, where
   the appointments come from with the source documents linked, how the dates
   are worked out from the date of birth, what each status symbol means, when
@@ -38,6 +45,9 @@ and the versioning [Semantic Versioning](https://semver.org/).
 - A bundle written in 2026 lives in the repo and every later version has to
   open it, so a family recorded today reaches the phone of ten years on. The
   end-to-end specs also run nightly on an iOS simulator.
+- A device-only test schedules a reminder through the real notification
+  plugin and reads it back from the shade, so the nightly emulator run proves
+  a reminder is actually posted, not just planned.
 
 ## [0.1.0] - 2026-09-21
 
