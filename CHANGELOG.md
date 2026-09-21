@@ -7,6 +7,14 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Features
+
+- A "How this app works" screen in settings explains, in plain words, where
+  the appointments come from with the source documents linked, how the dates
+  are worked out from the date of birth, what each status symbol means, when
+  reminders fire, where the data lives and what happens when a guideline
+  changes.
+
 ## [0.1.0] - 2026-09-21
 
 ### Features

@@ -90,6 +90,9 @@ void main() {
     await _shot(tester, '05-settings');
     await tester.tap(find.byKey(const Key('open-sources')));
     await _shot(tester, '06-sources');
+    await _back(tester);
+    await tester.tap(find.byKey(const Key('open-how-it-works')));
+    await _shot(tester, '11-how-it-works');
   });
 
   appTest('empty and form', (tester, db) async {

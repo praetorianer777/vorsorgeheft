@@ -95,6 +95,47 @@
   "disclaimerBody": "The information here is taken from the guidelines listed above, as of the dates given, and comes without warranty. Entitlements change and vary between insurers. When in doubt, ask your doctor's office or your health insurer.",
   "privacyTitle": "Your data stays here",
   "privacyBody": "Everything is stored on this device. There is no account, no server and no analytics.",
+  "howTitle": "How this app works",
+  "howOriginTitle": "Where the appointments come from",
+  "howOriginBody": "The check-ups and vaccinations your health insurance covers are laid down in public documents. The Federal Joint Committee (G-BA) writes the guidelines for check-ups, and the Standing Committee on Vaccination (STIKO) at the Robert Koch Institute publishes the vaccination calendar. This app carries those documents as tables, typed in by hand and reviewed on the dates shown. Nothing is made up, and nothing is fetched from the internet.",
+  "howSourceReviewed": "reviewed {date}",
+  "@howSourceReviewed": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMd"
+      }
+    }
+  },
+  "howComputeTitle": "How the dates are worked out",
+  "howComputeBody": "Every appointment has an age window in its guideline, the U6 for example between 10 and 12 months. The app takes a person's date of birth and works all the windows out from there. Nothing is stored ahead of time: whenever you record an appointment or a guideline changes, everything is worked out afresh. A vaccination that takes several doses counts from the dose before, and a booster counts from the last one you recorded.",
+  "howStatusTitle": "What the symbols mean",
+  "howStatusUpcoming": "The window has not opened yet.",
+  "howStatusDue": "Can be done now.",
+  "howStatusOverdue": "The window has closed, but it can still be caught up.",
+  "howStatusExpired": "The deadline has passed; the insurer no longer covers it.",
+  "howStatusDone": "Recorded as done, on the date you gave.",
+  "howStatusSkipped": "Deliberately left out. It stays visible, but does not remind you.",
+  "howLabelNotStatutory": "Not a statutory benefit. Many insurers pay for it anyway; ask yours.",
+  "howLabelMayApply": "Depends on the sex, which is not recorded for this person.",
+  "howRemindersTitle": "Reminders",
+  "howRemindersBody": "The phone reminds you {before} days before a window opens, and again {deadline} days before a deadline after which the entitlement lapses. The calendar export carries the same reminders, so a calendar you import it into rings as well.",
+  "@howRemindersBody": {
+    "placeholders": {
+      "before": {
+        "type": "String"
+      },
+      "deadline": {
+        "type": "String"
+      }
+    }
+  },
+  "howDataTitle": "Your data",
+  "howDataBody": "Everything stays on this phone. There is no account and no server, and nothing is sent anywhere. Two phones can be paired with a QR code and then exchange their entries directly with each other, encrypted, over the same Wi-Fi or as an encrypted file. Delete the app and the data goes with it, so export a file now and then.",
+  "howChangesTitle": "When a guideline changes",
+  "howChangesBody": "The guidelines change once or twice a year. The project watches the documents above, updates its tables by hand, and ships the change with the next version of the app; the review dates tell you how current the tables are. The app is open source: every table can be read and checked.",
+  "howOpenRepository": "View the source code",
+  "howOpenSources": "All sources and the legal notes",
   "settingsTitle": "Settings",
   "languageLabel": "Language",
   "languageSystem": "System language",
