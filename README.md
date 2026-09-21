@@ -128,10 +128,24 @@ machine without an emulator. It is not shipped and is not built in CI.
 | Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, data layer, UI flows |
 | End-to-end | `flutter test` | The specs in `integration_test/specs.dart`, run headless so they gate every push |
 | End-to-end on a device | `ANDROID_E2E=1 ./run-tests.sh` | The same specs on an emulator or device, where platform channels and the real asset bundle are in play; runs nightly in CI |
+| Reminder on a device | `flutter test integration_test/reminder_on_device_test.dart -d <device>` | Schedules a reminder through the real notification plugin and reads it back from the shade; device only, part of the nightly run |
 
 The end-to-end specs are written once and run under two bindings. A spec that
 only ever ran on the emulator would be written and then left to rot, because
 nobody waits four minutes for an emulator before pushing.
+
+The reminder test is the one exception: it exists to prove that the platform
+posts a notification at all, which no headless binding can show. It needs
+notification permission granted beforehand, because asking from inside the
+test opens a system dialog nobody answers. On an Android device or emulator
+grant it once with
+
+```bash
+adb shell pm grant de.vorsorgereminder.vorsorgereminder android.permission.POST_NOTIFICATIONS
+```
+
+after the app has been installed. On an iOS simulator the test asks for
+provisional permission, which iOS grants without a prompt.
 
 ## Continuous integration
 

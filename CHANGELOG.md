@@ -37,6 +37,9 @@ and the versioning [Semantic Versioning](https://semver.org/).
 - A bundle written in 2026 lives in the repo and every later version has to
   open it, so a family recorded today reaches the phone of ten years on. The
   end-to-end specs also run nightly on an iOS simulator.
+- A device-only test schedules a reminder through the real notification
+  plugin and reads it back from the shade, so the nightly emulator run proves
+  a reminder is actually posted, not just planned.
 
 ## [0.1.0] - 2026-09-21
 
