@@ -347,11 +347,13 @@ void registerAppSpecs() {
     final db = await launchApp(tester, people: [Family.infant], locale: null);
     final settings = await FamilyPage(tester).openSettings();
     expect(settings.title, findsOneWidget);
-    await settings.scrollToVersion();
-    expect(settings.version, findsOneWidget);
 
     await settings.chooseGerman();
     expect(settings.germanTitle, findsOneWidget);
+    // Checked after the language switch: the version sits at the end of a
+    // list that has grown past the fold, and the radios scroll out with it.
+    await settings.scrollToVersion();
+    expect(settings.version, findsOneWidget);
     await settings.back();
     expect(find.text('Familie'), findsOneWidget);
     expect(find.text('Family'), findsNothing);

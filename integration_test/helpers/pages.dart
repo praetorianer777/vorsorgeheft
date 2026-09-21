@@ -207,7 +207,7 @@ class SettingsPage {
 
   Finder get title => find.text('Settings');
   Finder get germanTitle => find.text('Einstellungen');
-  Finder get version => find.textContaining('Version ');
+  Finder get version => find.textContaining(RegExp('^Version '));
 
   /// The version sits at the end of the list, below the fold on a phone.
   Future<void> scrollToVersion() async {
