@@ -17,6 +17,33 @@ class CatalogFormatException implements Exception {
   String toString() => 'CatalogFormatException($catalogId): $message';
 }
 
+/// What one edition of a catalog changed, in the words the app shows after an
+/// update brought that edition along.
+class CatalogChange {
+  const CatalogChange({required this.version, required this.note});
+
+  factory CatalogChange.fromJson(Map<String, Object?> json) {
+    final version = json['version'];
+    if (version is! String || version.isEmpty) {
+      throw const FormatException('every "_changes" entry needs a "version"');
+    }
+    try {
+      return CatalogChange(
+        version: version,
+        note: LocalizedText.fromJson({
+          for (final entry in json.entries)
+            if (entry.key != 'version') entry.key: entry.value,
+        }),
+      );
+    } on FormatException catch (e) {
+      throw FormatException('"_changes" entry for "$version": ${e.message}');
+    }
+  }
+
+  final String version;
+  final LocalizedText note;
+}
+
 /// One versioned set of rules, such as the children's check-ups.
 class Catalog {
   const Catalog({
@@ -25,6 +52,7 @@ class Catalog {
     required this.name,
     required this.sources,
     required this.rules,
+    this.changes = const [],
   });
 
   factory Catalog.parse(String source) {
@@ -79,12 +107,22 @@ class Catalog {
         throw const FormatException('rule ids must be unique within a catalog');
       }
 
+      final rawChanges = json['_changes'];
+      if (rawChanges != null && rawChanges is! List) {
+        throw const FormatException('"_changes" must be a list');
+      }
+      final changes = [
+        for (final change in rawChanges as List? ?? const [])
+          CatalogChange.fromJson((change as Map).cast()),
+      ];
+
       return Catalog(
         id: id,
         version: version,
         name: LocalizedText.fromJson(json['name']),
         sources: Map.unmodifiable(sources),
         rules: List.unmodifiable(rules),
+        changes: List.unmodifiable(changes),
       );
     } on FormatException catch (e) {
       throw CatalogFormatException(id, e.message);
@@ -100,6 +138,18 @@ class Catalog {
   final LocalizedText name;
   final Map<String, SourceRef> sources;
   final List<Rule> rules;
+
+  /// One note per edition, oldest first, from the catalog's `_changes` list.
+  final List<CatalogChange> changes;
+
+  /// The note that describes this edition: the entry for [version], or the
+  /// last one written when no entry names it.
+  CatalogChange? get latestChange {
+    for (final change in changes.reversed) {
+      if (change.version == version) return change;
+    }
+    return changes.lastOrNull;
+  }
 
   Rule? ruleById(String id) {
     for (final rule in rules) {

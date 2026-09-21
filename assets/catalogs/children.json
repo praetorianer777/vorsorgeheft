@@ -2,6 +2,13 @@
   "_conversion": "German guidelines count periods as 'Lebenstag/-woche/-monat', where the first one begins at birth: the 10th month of life is the month between ages 9 and 10 months. Ages here are therefore the guideline number minus one for a window's start, and the guideline number minus one day for its end. 'from' and 'to' are the recommended window; 'toleranceTo' is the last date the appointment can still be caught up. Every rule is capped at 18 because § 1 of the Kinder-Richtlinie grants the entitlement only until the 18th birthday; without that cap an adult's timeline fills with childhood check-ups that lapsed decades ago. The hearing, pulse-oximetry and cystic-fibrosis screenings end with the U2 or the fourth week of life ('spaetestens bis zur U2', 'innerhalb der ersten vier Lebenswochen'), so they carry that date as a hard deadline: past it they are not late, they are a different examination, and an entry that stays 'overdue' for years is noise. The U1 and the extended newborn screening have no such bound in the text and keep none here.",
   "catalogId": "children",
   "catalogVersion": "2026.09",
+  "_changes": [
+    {
+      "version": "2026.09",
+      "en": "First edition: U1 to U9, J1 and the newborn screenings, with time windows and exclusion deadlines from the Kinder-Richtlinie as of May 2025.",
+      "de": "Erste Ausgabe: U1 bis U9, J1 und die Neugeborenen-Screenings, mit Zeitfenstern und Ausschlussfristen aus der Kinder-Richtlinie, Stand Mai 2025."
+    }
+  ],
   "name": {
     "en": "Children's check-ups",
     "de": "Kindervorsorge"

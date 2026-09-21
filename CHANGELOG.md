@@ -27,6 +27,11 @@ and the versioning [Semantic Versioning](https://semver.org/).
   person's calendar export, and end-to-end passes in German, through the
   edit form, over a school-age child's timeline, and against a file that is
   not a bundle.
+- Catalog rules can no longer be renamed or removed by accident: a ledger of
+  every id that ever shipped is enforced by a test, a rule a guideline drops
+  is retired with `retiredOn` and keeps its recorded appointments readable,
+  and after an update the family screen says once which catalog changed and
+  what the new edition brought.
 
 ## [0.2.1] - 2026-09-21
 
