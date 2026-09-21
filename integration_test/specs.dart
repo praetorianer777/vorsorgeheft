@@ -270,6 +270,43 @@ void registerAppSpecs() {
     await shutDown(tester, db);
   });
 
+  testWidgets('deleting a person takes their appointments and reminders', (
+    tester,
+  ) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.infant, Family.mother],
+      gateway: gateway,
+    );
+    expect(gateway.pending.any((r) => r.personId == 'infant'), isTrue);
+
+    final timeline = await FamilyPage(tester).open('Mila');
+    var form = await timeline.edit();
+    await form.delete();
+    expect(find.text('Delete Mila?'), findsOneWidget);
+    await form.cancelDelete();
+    expect(form.deleteButton, findsOneWidget);
+    await form.delete();
+    await form.confirmDelete();
+
+    final family = FamilyPage(tester);
+    expect(family.personNamed('Mila'), findsNothing);
+    expect(family.personNamed('Sara'), findsOneWidget);
+    expect((await db.allPersons()).map((p) => p.name), ['Sara']);
+    expect(gateway.pending.any((r) => r.personId == 'infant'), isFalse);
+    expect(gateway.pending, isNotEmpty);
+
+    await detach(tester);
+    await launchApp(tester, gateway: gateway, database: db);
+    expect(FamilyPage(tester).personNamed('Mila'), findsNothing);
+    // A new person is not the old one: the form has no delete before saving.
+    form = await FamilyPage(tester).addPerson();
+    expect(form.deleteButton, findsNothing);
+
+    await shutDown(tester, db);
+  });
+
   testWidgets('a lapsing entitlement is warned about more urgently', (
     tester,
   ) async {
