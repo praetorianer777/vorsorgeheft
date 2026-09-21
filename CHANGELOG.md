@@ -7,6 +7,8 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-09-21
+
 ### Features
 
 - A newborn added after the first days is offered to record the clinic
