@@ -7,6 +7,20 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Features
+
+- When both phones recorded the same appointment, the later entry wins as
+  before, but the phone whose entry was replaced now says so on its family
+  screen until dismissed, naming the appointment, both dates and the device.
+  The sync screen states the rule up front and suggests a hotspot when there
+  is no shared Wi-Fi.
+
+### Other
+
+- A bundle written in 2026 lives in the repo and every later version has to
+  open it, so a family recorded today reaches the phone of ten years on. The
+  end-to-end specs also run nightly on an iOS simulator.
+
 ## [0.1.0] - 2026-09-21
 
 ### Features

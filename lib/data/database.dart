@@ -275,6 +275,11 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
     settings,
   ).insertOnConflictUpdate(SettingsCompanion.insert(key: key, value: value));
 
+  Stream<String?> watchSetting(String key) =>
+      (select(settings)..where((s) => s.key.equals(key)))
+          .watchSingleOrNull()
+          .map((row) => row?.value);
+
   static const privateKeySettingKey = 'sync.private-key';
   static const deviceNameSettingKey = 'sync.device-name';
 

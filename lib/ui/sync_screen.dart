@@ -24,7 +24,7 @@ class SyncScreen extends ConsumerWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Text(l10n.syncIntro),
+            child: Text('${l10n.syncIntro}\n\n${l10n.syncConflictRule}'),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -62,7 +62,7 @@ class SyncScreen extends ConsumerWidget {
           _Heading(l10n.bundleSection),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-            child: Text(l10n.bundleIntro),
+            child: Text('${l10n.bundleHotspot}\n\n${l10n.bundleIntro}'),
           ),
           ListTile(
             key: const Key('export-bundle'),
@@ -133,11 +133,11 @@ class SyncScreen extends ConsumerWidget {
     final password = await _askPassword(context, l10n.bundleImport);
     if (password == null) return;
     try {
-      final count = await ref
+      final result = await ref
           .read(bundleServiceProvider)
           .import(password: password);
-      if (count == null) return;
-      _notify(messenger, l10n.bundleImported(count));
+      if (result == null) return;
+      _notify(messenger, l10n.bundleImported(result.applied.length));
     } on WrongPasswordException {
       _notify(messenger, l10n.bundleWrongPassword);
     } on BundleFormatException {
