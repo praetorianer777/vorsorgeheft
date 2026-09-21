@@ -7,6 +7,8 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-21
+
 ### Features
 
 - Optional vaccinations: the flu and COVID-19 vaccinations before the
