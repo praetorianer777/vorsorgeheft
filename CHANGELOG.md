@@ -12,11 +12,26 @@ and the versioning [Semantic Versioning](https://semver.org/).
 - The family can be given a name. It heads the start screen instead of
   "Family", reaches the other parent's phone with the next sync, and names the
   family's calendar export and the encrypted file.
+- A "How this app works" screen in settings explains, in plain words, where
+  the appointments come from with the source documents linked, how the dates
+  are worked out from the date of birth, what each status symbol means, when
+  reminders fire, where the data lives and what happens when a guideline
+  changes.
 - When both phones recorded the same appointment, the later entry wins as
   before, but the phone whose entry was replaced now says so on its family
   screen until dismissed, naming the appointment, both dates and the device.
   The sync screen states the rule up front and suggests a hotspot when there
   is no shared Wi-Fi.
+
+### Bug fixes
+
+- The stored language is restored on start by a read nobody waits for; when
+  it landed after the app's state was already torn down it threw into
+  whatever ran next. It is now dropped instead.
+
+- The dental examinations Z1 to Z6 lapse with their age span, as the U
+  check-ups do: a child added later finds the ones that are over under "No
+  longer available" instead of an "Overdue" that never clears.
 
 ### Other
 

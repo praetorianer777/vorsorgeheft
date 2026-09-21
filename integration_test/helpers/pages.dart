@@ -121,6 +121,14 @@ class TimelinePage {
   Finder get settled => find.text('Done and skipped');
   Finder get noLongerAvailable => find.text('No longer available');
 
+  /// The status word inside the tile titled [title], so that a spec can tell
+  /// a Z1 that has lapsed from a Z4 that is still open without reading the
+  /// whole list.
+  Finder status(String title, String label) => find.descendant(
+    of: find.ancestor(of: find.text(title), matching: find.byType(ListTile)),
+    matching: find.text(label),
+  );
+
   Future<AppointmentPage> open(String title) async {
     await scrollTo(tester, find.text(title));
     await tester.tap(find.text(title).first);
@@ -223,6 +231,13 @@ class SettingsPage {
 
   Finder get supportLink => find.byKey(const Key('support-link'));
 
+  Future<HowItWorksPage> openHowItWorks() async {
+    await scrollTo(tester, find.byKey(const Key('open-how-it-works')));
+    await tester.tap(find.byKey(const Key('open-how-it-works')));
+    await settle(tester);
+    return HowItWorksPage(tester);
+  }
+
   Future<SourcesPage> openSources() async {
     await tester.tap(find.byKey(const Key('open-sources')));
     await settle(tester);
@@ -240,6 +255,28 @@ class SettingsPage {
   Future<void> back() async {
     await tester.tap(find.byType(BackButton));
     await settle(tester);
+  }
+}
+
+class HowItWorksPage {
+  const HowItWorksPage(this.tester);
+
+  final WidgetTester tester;
+
+  Finder get title => find.text('How this app works');
+  Finder get germanTitle => find.text('So funktioniert die App');
+  Finder section(String title) => find.text(title);
+  Finder sourceLink(String url) => find.textContaining(url);
+  Finder get legendOverdue => find.textContaining('Overdue: ');
+  Finder get reminders => find.textContaining('30, 14, 3 days before');
+
+  Future<void> reveal(Finder finder) => scrollTo(tester, finder);
+
+  Future<SourcesPage> openSources() async {
+    await scrollTo(tester, find.byKey(const Key('how-open-sources')));
+    await tester.tap(find.byKey(const Key('how-open-sources')));
+    await settle(tester);
+    return SourcesPage(tester);
   }
 }
 

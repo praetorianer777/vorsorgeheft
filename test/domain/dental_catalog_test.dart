@@ -37,6 +37,31 @@ void main() {
     }
   });
 
+  test('a lapsed examination expires instead of staying overdue', () {
+    // Born 2022-10-10, so 47 months old on the pinned today: Z1 to Z3 are
+    // over, Z4 is still open until the 48th month.
+    final nearlyFour = Person(
+      id: 'p5',
+      name: 'Kind',
+      dateOfBirth: DateTime.utc(2022, 10, 10),
+    );
+    final byId = {
+      for (final o in scheduleFor(nearlyFour, DateTime.utc(2026, 9, 20)))
+        o.rule.id: o,
+    };
+
+    for (final id in ['z1', 'z2', 'z3']) {
+      expect(byId[id]!.status, OccurrenceStatus.expired, reason: id);
+    }
+    expect(byId['z4']!.status, OccurrenceStatus.due);
+    expect(byId['z4']!.deadline, byId['z4']!.windowEnd);
+    expect(byId['z5']!.status, OccurrenceStatus.upcoming);
+    expect(
+      byId.values.map((o) => o.status),
+      isNot(contains(OccurrenceStatus.overdue)),
+    );
+  });
+
   test('the dental examinations stop at six', () {
     final sevenYearOld = Person(
       id: 'p2',

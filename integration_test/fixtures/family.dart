@@ -8,7 +8,8 @@ import 'package:vorsorgereminder/domain/person.dart';
 final pinnedToday = DateTime.utc(2026, 9, 20);
 
 /// A family that puts every state of the timeline on screen at once: an infant
-/// with appointments already lapsed, a school-age child in the gap the
+/// with appointments already lapsed, a preschooler whose dental examinations
+/// have partly lapsed, a school-age child in the gap the
 /// non-statutory examinations fill, and two adults far enough apart in age that
 /// their entitlements differ.
 class Family {
@@ -16,6 +17,15 @@ class Family {
     id: 'infant',
     name: 'Mila',
     dateOfBirth: DateTime.utc(2026, 9, 1),
+  );
+
+  /// Old enough for the first three dental examinations to have lapsed, and
+  /// still inside the fourth's window.
+  static final preschooler = Person(
+    id: 'preschooler',
+    name: 'Lena',
+    dateOfBirth: DateTime.utc(2022, 10, 10),
+    sex: Sex.female,
   );
 
   static final schoolAge = Person(
