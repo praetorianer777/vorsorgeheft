@@ -291,6 +291,104 @@ void main() {
     });
   });
 
+  group('a third phone', () {
+    late Device carol;
+
+    setUp(() async {
+      carol = await Device.open('carol', network);
+      await pair(alice, bob);
+      await pair(bob, carol);
+    });
+    tearDown(() => carol.close());
+
+    test('hears only what the phone it talks to wrote itself', () async {
+      // An exchange carries a device's own changes, never what it received
+      // from someone else. Two parents are two phones, and echoing changes
+      // back is what would make every repeat sync carry something. With a
+      // third phone that means Carol never learns of Anna through Bob.
+      await alice.store.savePerson(anna);
+      await bob.engine.syncWith('alice');
+      expect(await bob.db.personById('anna'), isNotNull);
+
+      final result = await carol.engine.syncWith('bob');
+      expect(result.received, 0);
+      expect(await carol.db.personById('anna'), isNull);
+
+      await bob.store.savePerson(mila);
+      await carol.engine.syncWith('bob');
+      expect((await carol.db.allPersons()).map((p) => p.id), ['mila']);
+    });
+  });
+
+  group('one phone changes its mind', () {
+    Completion u6(DateTime on) =>
+        Completion(personId: 'anna', ruleId: 'u6', completedOn: on);
+
+    setUp(() async {
+      await pair(alice, bob);
+      await alice.store.savePerson(anna);
+      await alice.store.recordCompletion(u6(DateTime.utc(2026, 11, 2)));
+      await bob.engine.syncWith('alice');
+    });
+
+    test('a re-record on the other phone beats an earlier undo', () async {
+      alice.advance(const Duration(minutes: 1));
+      await alice.store.clearCompletion(personId: 'anna', ruleId: 'u6');
+      bob.advance(const Duration(minutes: 5));
+      await bob.store.recordCompletion(u6(DateTime.utc(2026, 11, 3)));
+
+      await bob.engine.syncWith('alice');
+
+      for (final device in [alice, bob]) {
+        final stored = await device.db.allCompletions();
+        expect(stored, hasLength(1), reason: device.name);
+        expect(
+          stored.single.completedOn,
+          DateTime.utc(2026, 11, 3),
+          reason: device.name,
+        );
+      }
+    });
+
+    test('a later undo beats a re-record on the other phone', () async {
+      bob.advance(const Duration(minutes: 1));
+      await bob.store.recordCompletion(u6(DateTime.utc(2026, 11, 3)));
+      alice.advance(const Duration(minutes: 5));
+      await alice.store.clearCompletion(personId: 'anna', ruleId: 'u6');
+
+      await bob.engine.syncWith('alice');
+
+      for (final device in [alice, bob]) {
+        expect(await device.db.allCompletions(), isEmpty, reason: device.name);
+      }
+    });
+  });
+
+  group('removing a peer', () {
+    test('pairing again picks up where it left off, without doubles', () async {
+      await pair(alice, bob);
+      await alice.store.savePerson(anna);
+      await bob.engine.syncWith('alice');
+
+      await bob.db.removePeer('alice');
+      await expectLater(
+        bob.engine.syncWith('alice'),
+        throwsA(isA<UnknownPeerException>()),
+      );
+
+      await pair(alice, bob);
+      final again = await bob.engine.syncWith('alice');
+      expect(again.nothingNew, isTrue);
+      expect((await bob.db.allPersons()).map((p) => p.id), ['anna']);
+
+      alice.advance(const Duration(minutes: 1));
+      await alice.store.savePerson(mila);
+      final later = await bob.engine.syncWith('alice');
+      expect(later.received, 4);
+      expect((await bob.db.allPersons()).map((p) => p.id), ['anna', 'mila']);
+    });
+  });
+
   group('what never travels', () {
     test('neither the peers nor the private key are in a change set', () async {
       await pair(alice, bob);

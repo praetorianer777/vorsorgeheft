@@ -71,6 +71,37 @@ void main() {
     expect(gateway.pending.length, lessThanOrEqualTo(20));
   });
 
+  test('the rolling window tops up once the soonest have fired', () async {
+    await store.savePerson(newborn);
+    var clock = now;
+    final service = ReminderService(
+      database: db,
+      gateway: gateway,
+      catalogs: CatalogRepository(bundle: SynchronousAssetBundle()),
+      locale: () => const Locale('en'),
+      clock: () => clock,
+      settings: () => const ReminderSettings(),
+    );
+    final first = await service.reschedule();
+    expect(first, hasLength(20));
+
+    // Past the tenth reminder, the ones that have fired make room for as
+    // many later ones, which the first plan had no room for.
+    clock = first[9].fireAt.add(const Duration(minutes: 1));
+    final second = await service.reschedule();
+    final fired = first.where((r) => !r.fireAt.isAfter(clock)).toList();
+    final kept = first.where((r) => r.fireAt.isAfter(clock)).map((r) => r.id);
+
+    expect(fired, hasLength(greaterThanOrEqualTo(10)));
+    expect(second, hasLength(20));
+    expect(second.every((r) => r.fireAt.isAfter(clock)), isTrue);
+    final firstIds = first.map((r) => r.id).toSet();
+    final secondIds = second.map((r) => r.id).toSet();
+    expect(secondIds, containsAll(kept));
+    expect(secondIds.difference(firstIds), hasLength(fired.length));
+    expect(gateway.pending.map((r) => r.id), second.map((r) => r.id));
+  });
+
   test('rescheduling replaces rather than adds', () async {
     await store.savePerson(newborn);
     final service = serviceWith();
