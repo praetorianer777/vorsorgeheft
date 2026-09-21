@@ -39,7 +39,14 @@
       "pneumococcal-adult": [],
       "influenza": [],
       "covid": [],
-      "rsv-adult": []
+      "rsv-adult": [],
+      "influenza-under-60": [],
+      "covid-under-75": [],
+      "tbe": ["g1", "g2", "g3"],
+      "tbe-booster": [],
+      "pertussis-pregnancy": [],
+      "hpv-catch-up": ["g1", "g2", "g3"],
+      "meningococcal-b-catch-up": ["g1", "g2"]
     },
     "dental": {
       "z1": [],

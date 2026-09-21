@@ -13,6 +13,7 @@ class Person {
     required this.dateOfBirth,
     this.sex = Sex.notStated,
     this.notes,
+    this.optionalRules = const {},
   });
 
   final String id;
@@ -25,6 +26,10 @@ class Person {
 
   final Sex sex;
   final String? notes;
+
+  /// The ids of the optional rules switched on for this person. Everything
+  /// else marked optional in a catalog stays off their timeline.
+  final Set<String> optionalRules;
 
   DateTime get birthInstant => dateOfBirth;
 

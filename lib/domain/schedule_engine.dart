@@ -29,6 +29,7 @@ List<Occurrence> computeOccurrences({
   final occurrences = <Occurrence>[];
 
   for (final rule in catalogs.rules) {
+    if (!isSwitchedOn(rule, person: person, catalogs: catalogs)) continue;
     final applicability = _applicability(rule, person);
     if (applicability == null) continue;
     occurrences.addAll(
@@ -45,6 +46,41 @@ List<Occurrence> computeOccurrences({
 
   occurrences.sort((a, b) => a.windowStart.compareTo(b.windowStart));
   return List.unmodifiable(occurrences);
+}
+
+/// Whether [rule] is on [person]'s timeline at all.
+///
+/// A standard rule always is. An optional one is only when the person has
+/// switched it on, and a booster follows the switch of the series it
+/// refreshes: nobody wants a booster reminder for a series they never had,
+/// and nobody who had the series wants to switch its booster on separately.
+bool isSwitchedOn(
+  Rule rule, {
+  required Person person,
+  required CatalogSet catalogs,
+}) {
+  if (!rule.optional) return true;
+  if (person.optionalRules.contains(rule.id)) return true;
+  final schedule = rule.schedule;
+  if (schedule is! Booster || schedule.after == null) return false;
+  final primary = catalogs.ruleById(schedule.after!);
+  return primary != null &&
+      primary.id != rule.id &&
+      isSwitchedOn(primary, person: person, catalogs: catalogs);
+}
+
+/// The optional rules a person can switch on, one switch each. A booster that
+/// follows an optional series is not listed, because it takes that series'
+/// switch.
+List<Rule> switchableRules(CatalogSet catalogs) => [
+  for (final rule in catalogs.rules)
+    if (rule.optional && !_followsOptionalSeries(rule, catalogs)) rule,
+];
+
+bool _followsOptionalSeries(Rule rule, CatalogSet catalogs) {
+  final schedule = rule.schedule;
+  if (schedule is! Booster || schedule.after == null) return false;
+  return catalogs.ruleById(schedule.after!)?.optional ?? false;
 }
 
 /// The completions for one person, indexed the way the engine looks them up.
@@ -70,18 +106,24 @@ class _History {
   }
 
   /// The last time this rule was actually carried out, ignoring deliberate
-  /// skips: a skipped booster does not restart the interval.
+  /// skips: a skipped booster does not restart the interval. For a series
+  /// that is the latest dose given, whichever dose it was.
   DateTime? lastDone(String ruleId) {
     for (final completion in forKey(ruleId).reversed) {
       if (!completion.skipped) return completion.completedOn;
     }
+    DateTime? latest;
     for (final entry in _byKey.entries) {
       if (!entry.key.startsWith('$ruleId#')) continue;
       for (final completion in entry.value.reversed) {
-        if (!completion.skipped) return completion.completedOn;
+        if (completion.skipped) continue;
+        if (latest == null || completion.completedOn.isAfter(latest)) {
+          latest = completion.completedOn;
+        }
+        break;
       }
     }
-    return null;
+    return latest;
   }
 }
 
@@ -177,17 +219,19 @@ Iterable<Occurrence> _forRule({
       make: make,
     ),
 
-    Booster(:final every, :final after, :final fromAge) => _booster(
-      rule: rule,
-      birth: birth,
-      every: every,
-      afterRuleId: after ?? rule.id,
-      fromAge: fromAge,
-      history: history,
-      today: today,
-      generateUntil: generateUntil,
-      make: make,
-    ),
+    Booster(:final every, :final after, :final fromAge, :final thenEvery) =>
+      _booster(
+        rule: rule,
+        birth: birth,
+        every: every,
+        thenEvery: thenEvery ?? every,
+        afterRuleId: after ?? rule.id,
+        fromAge: fromAge,
+        history: history,
+        today: today,
+        generateUntil: generateUntil,
+        make: make,
+      ),
   };
 
   final minAge = rule.eligibility.minAge?.applyTo(birth);
@@ -317,10 +361,15 @@ List<Occurrence> _series({
 /// primary series it refreshes, whichever is later. With nothing recorded it
 /// falls back to an age, and with neither it produces nothing rather than
 /// guessing.
+///
+/// [every] is the interval after the primary series or the age fallback;
+/// [thenEvery] the one after a booster, and between the repeats generated
+/// ahead, since each of those assumes the one before it was given.
 List<Occurrence> _booster({
   required Rule rule,
   required DateTime birth,
   required AgeOffset every,
+  required AgeOffset thenEvery,
   required String afterRuleId,
   required AgeOffset? fromAge,
   required _History history,
@@ -350,17 +399,15 @@ List<Occurrence> _booster({
     );
   }
 
-  var due = _currentRepeat(
-    anchor == null ? fromAge!.applyTo(birth) : every.applyTo(anchor),
-    every,
-    today,
-    null,
-  );
+  final first = anchor == null
+      ? fromAge!.applyTo(birth)
+      : (own == null ? every : thenEvery).applyTo(anchor);
+  var due = _currentRepeat(first, thenEvery, today, null);
   var emitted = 0;
   while (emitted == 0 || !due.isAfter(generateUntil)) {
     occurrences.add(make(windowStart: due, instanceId: _instanceId(due)));
     emitted++;
-    due = every.applyTo(due);
+    due = thenEvery.applyTo(due);
   }
 
   return occurrences;

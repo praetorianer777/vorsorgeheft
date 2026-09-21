@@ -173,7 +173,12 @@ final class Series extends Schedule {
 /// A booster that falls due a fixed interval after the last dose of another
 /// rule, such as the tetanus and diphtheria refresher every ten years.
 final class Booster extends Schedule {
-  const Booster({required this.every, this.after, this.fromAge});
+  const Booster({
+    required this.every,
+    this.after,
+    this.fromAge,
+    this.thenEvery,
+  });
 
   factory Booster.fromJson(Map<String, Object?> json) {
     final after = json['after'];
@@ -184,9 +189,12 @@ final class Booster extends Schedule {
       every: Schedule._offset(json, 'every'),
       after: after as String?,
       fromAge: Schedule._optionalOffset(json, 'fromAge'),
+      thenEvery: Schedule._optionalOffset(json, 'thenEvery'),
     );
   }
 
+  /// The interval from the primary series to the first booster, and between
+  /// boosters unless [thenEvery] says otherwise.
   final AgeOffset every;
 
   /// The rule whose last completion the interval counts from. Null means this
@@ -196,4 +204,9 @@ final class Booster extends Schedule {
   /// The earliest age the booster can fall due, for someone with nothing
   /// recorded yet.
   final AgeOffset? fromAge;
+
+  /// The interval once a booster has been given, where that differs from the
+  /// first one: the TBE vaccination is refreshed three years after the series
+  /// and every five years after that.
+  final AgeOffset? thenEvery;
 }

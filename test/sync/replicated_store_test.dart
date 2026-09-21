@@ -87,7 +87,24 @@ void main() {
         'dateOfBirth',
         'sex',
         'notes',
+        'optionalRules',
       });
+    });
+
+    test('the optional rules a person switched on round-trip', () async {
+      await alice.store.savePerson(
+        Person(
+          id: 'anna',
+          name: 'Anna',
+          dateOfBirth: DateTime.utc(1990, 1, 15),
+          optionalRules: const {'tbe', 'influenza-under-60'},
+        ),
+      );
+      final stored = await alice.db.personById('anna');
+      expect(stored!.optionalRules, {'influenza-under-60', 'tbe'});
+
+      await alice.store.savePerson(anna);
+      expect((await alice.db.personById('anna'))!.optionalRules, isEmpty);
     });
 
     test('a deleted person leaves the projection but not the log', () async {

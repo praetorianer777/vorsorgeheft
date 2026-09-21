@@ -17,7 +17,7 @@ void main() {
 
   setUpAll(() => verifier = SchemaVerifier(GeneratedHelper()));
 
-  const current = 3;
+  const current = 4;
 
   for (final from in GeneratedHelper.versions.where((v) => v < current)) {
     test('a version $from database migrates to the current schema', () async {
@@ -67,6 +67,7 @@ void main() {
     expect(people.map((p) => p.name), ['Sara', 'Mila']);
     expect(people.first.dateOfBirth, DateTime.utc(1988, 6, 30));
     expect(people.first.notes, 'allergic to penicillin');
+    expect(people.first.optionalRules, isEmpty);
     expect(people.last.dateOfBirth, DateTime.utc(2026, 9, 1));
 
     final completions = await db.allCompletions();

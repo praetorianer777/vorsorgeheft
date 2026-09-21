@@ -54,6 +54,7 @@ void main() {
     final rule = catalog.rules.single;
     expect(rule.title('de'), 'U6');
     expect(rule.statutory, isTrue);
+    expect(rule.optional, isFalse);
     expect(rule.source.url, startsWith('https://'));
     expect(rule.source.asOf, DateTime.utc(2026, 9, 20));
 

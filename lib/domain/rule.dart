@@ -56,6 +56,7 @@ class Rule {
     required this.source,
     this.eligibility = const Eligibility(),
     this.statutory = true,
+    this.optional = false,
     this.retiredOn,
   });
 
@@ -93,6 +94,7 @@ class Rule {
             ? const Eligibility()
             : Eligibility.fromJson((eligibility as Map).cast()),
         statutory: json['statutory'] != false,
+        optional: json['optional'] == true,
         retiredOn: _retiredOn(json['retiredOn']),
       );
     } on FormatException catch (e) {
@@ -126,6 +128,11 @@ class Rule {
   /// the insurer, such as U10, U11 and J2. Shown as such in the app so nobody
   /// arrives at a practice expecting it to be covered.
   final bool statutory;
+
+  /// True for vaccinations whose indication the app cannot know, such as a
+  /// risk area or a pregnancy. Never generated unless a person has switched
+  /// the rule on; see [Person.optionalRules].
+  final bool optional;
 
   /// The date from which the guideline no longer grants this entitlement.
   ///

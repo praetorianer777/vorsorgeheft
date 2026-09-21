@@ -234,9 +234,20 @@ void main() {
     expect((await migrated.allPeers()).single.nodeId, 'bob');
     await migrated.upsertFamily('family', 'Familie Meier');
     expect(await migrated.familyName('family'), 'Familie Meier');
+    await migrated.upsertPerson(
+      Person(
+        id: 'anna',
+        name: 'Anna',
+        dateOfBirth: DateTime.utc(2026, 1, 15),
+        optionalRules: const {'influenza-under-60'},
+      ),
+    );
+    expect((await migrated.allPersons()).single.optionalRules, {
+      'influenza-under-60',
+    });
     expect(
       (await migrated.customSelect('PRAGMA user_version').getSingle()).data,
-      {'user_version': 3},
+      {'user_version': 4},
     );
   });
 }

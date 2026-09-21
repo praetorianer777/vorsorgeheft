@@ -147,6 +147,130 @@ void main() {
     );
   });
 
+  group('optional vaccinations', () {
+    final adult = Person(
+      id: 'a',
+      name: 'Erwachsen',
+      dateOfBirth: DateTime.utc(1990, 5, 5),
+      sex: Sex.female,
+    );
+    final today = DateTime.utc(2026, 9, 20);
+
+    test('are the indication vaccinations, each with a switch', () {
+      expect(catalogs.rules.where((r) => r.optional).map((r) => r.id).toSet(), {
+        'influenza-under-60',
+        'covid-under-75',
+        'tbe',
+        'tbe-booster',
+        'pertussis-pregnancy',
+        'hpv-catch-up',
+        'meningococcal-b-catch-up',
+      });
+      expect(switchableRules(catalogs).map((r) => r.id), [
+        'influenza-under-60',
+        'covid-under-75',
+        'tbe',
+        'pertussis-pregnancy',
+        'hpv-catch-up',
+        'meningococcal-b-catch-up',
+      ]);
+    });
+
+    test('an adult under sixty sees no flu vaccination unless asked', () {
+      final ids = scheduleFor(
+        person: adult,
+        today: today,
+      ).map((o) => o.rule.id).toSet();
+      expect(ids, isNot(contains('influenza-under-60')));
+    });
+
+    test('the flu vaccination under sixty runs yearly until sixty', () {
+      final flu = scheduleFor(
+        person: Person(
+          id: 'a',
+          name: 'Erwachsen',
+          dateOfBirth: adult.dateOfBirth,
+          optionalRules: const {'influenza-under-60'},
+        ),
+        today: today,
+      ).where((o) => o.rule.id == 'influenza-under-60').toList();
+      // Yearly from six months of age, so the season running now started
+      // on the birthday-plus-six-months before today.
+      expect(flu.first.windowStart, DateTime.utc(2025, 11, 5));
+      expect(flu.first.status, OccurrenceStatus.due);
+      expect(flu.first.rule.statutory, isFalse);
+
+      // At sixty the standard rule takes over; the switch adds nothing.
+      final sixty = scheduleFor(
+        person: Person(
+          id: 's',
+          name: 'Sechzig',
+          dateOfBirth: DateTime.utc(1966, 4, 1),
+          optionalRules: const {'influenza-under-60'},
+        ),
+        today: today,
+      ).map((o) => o.rule.id).toSet();
+      expect(sixty, contains('influenza'));
+      expect(sixty, isNot(contains('influenza-under-60')));
+    });
+
+    test('the TBE switch brings the booster with it', () {
+      // The booster counts from the last dose of the series, not the first.
+      final tbe = scheduleFor(
+        person: Person(
+          id: 'a',
+          name: 'Erwachsen',
+          dateOfBirth: adult.dateOfBirth,
+          optionalRules: const {'tbe'},
+        ),
+        today: today,
+        completions: [
+          for (final (dose, on) in [
+            ('g1', DateTime.utc(2024, 3, 1)),
+            ('g2', DateTime.utc(2024, 4, 15)),
+            ('g3', DateTime.utc(2025, 1, 10)),
+          ])
+            Completion(
+              personId: 'a',
+              ruleId: 'tbe',
+              doseId: dose,
+              completedOn: on,
+            ),
+        ],
+      );
+      final boosters = tbe
+          .where((o) => o.rule.id == 'tbe-booster')
+          .map((o) => o.windowStart)
+          .toList();
+      expect(boosters, [DateTime.utc(2028, 1, 10)]);
+    });
+
+    test('the pregnancy pertussis dose is offered to women only', () {
+      final male = Person(
+        id: 'm',
+        name: 'Mann',
+        dateOfBirth: adult.dateOfBirth,
+        sex: Sex.male,
+        optionalRules: const {'pertussis-pregnancy'},
+      );
+      expect(
+        scheduleFor(person: male, today: today).map((o) => o.rule.id),
+        isNot(contains('pertussis-pregnancy')),
+      );
+      final female = Person(
+        id: 'f',
+        name: 'Frau',
+        dateOfBirth: adult.dateOfBirth,
+        sex: Sex.female,
+        optionalRules: const {'pertussis-pregnancy'},
+      );
+      expect(
+        scheduleFor(person: female, today: today).map((o) => o.rule.id),
+        contains('pertussis-pregnancy'),
+      );
+    });
+  });
+
   test('the shingles vaccination opens at sixty, not before', () {
     final sixty = Person(
       id: 's',

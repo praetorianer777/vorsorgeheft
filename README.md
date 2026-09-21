@@ -48,16 +48,19 @@ present it in German or English.
 | Catalog | Contents | Source |
 |---|---|---|
 | Children's check-ups | U1–U9 incl. U7a and J1, with time windows **and** tolerance limits; newborn, hearing, pulse-oximetry and cystic-fibrosis screening | [G-BA Kinder-Richtlinie][gba-kinder] |
-| Vaccinations | Vaccination calendar: standard immunisations from infant to adult, minimum intervals, boosters | [STIKO recommendations][stiko] |
+| Vaccinations | Vaccination calendar: standard immunisations from infant to adult, minimum intervals, boosters; optional indication vaccinations a person can switch on | [STIKO recommendations][stiko] |
 | Dental care | Z1–Z6 for the first six years, individual prophylaxis from 6 to 17, one adult check-up per calendar year | [G-BA FU-Richtlinie][gba-zahn], [IP-Richtlinie][gba-ip], [§ 55 SGB V][sgb55] |
 | Adult check-up | Once between 18 and 34, then every three years from 35; hepatitis B/C screening; abdominal aortic aneurysm | [G-BA Gesundheitsuntersuchungs-Richtlinie][gba-gu] |
 | Cancer screening | Skin from 35, cervical from 20, mammography 50–75, prostate from 45, chlamydia to 25 | [G-BA Krebsfrüherkennungs-Richtlinie][gba-kfe] |
 | Organised programmes | Cervical co-test from 35 and colorectal screening from 50, which moved into their own guideline | [G-BA oKFE-Richtlinie][gba-okfe] |
 
-Two things are deliberately missing. The lung cancer screening is only for heavy smokers, and the
-app does not ask about smoking; indication-based vaccinations depend on illness, occupation,
-pregnancy or travel, none of which the app knows. A reminder for either would be wrong for almost
-everyone who saw it.
+Two things are deliberately not shown to everyone. The lung cancer screening is only for heavy
+smokers, and the app does not ask about smoking, so it is missing. Indication-based vaccinations
+depend on illness, occupation, pregnancy or travel, none of which the app knows, and a reminder for
+one would be wrong for almost everyone who saw it; the ones families ask about (flu and COVID-19
+before the standard age, TBE for risk areas, whooping cough in pregnancy, HPV and meningococcal B
+catch-up) are in the catalog as optional rules, off until switched on in the person's form, where
+each says who the STIKO means it for.
 
 Services that are **not** statutory (U10, U11, J2, professional tooth cleaning) are labelled
 "depends on your insurer" in the app. `catalog-watch.yml` checks nightly whether one of the source
