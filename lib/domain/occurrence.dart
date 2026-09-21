@@ -77,6 +77,21 @@ class Occurrence {
   /// recomputation can find again.
   String? get doseId => rule.schedule is Series ? instanceId : null;
 
+  /// The 1-based position of this dose in its series, so the three doses of
+  /// a vaccination do not read as the same appointment three times. Null
+  /// outside a series.
+  int? get doseNumber {
+    final schedule = rule.schedule;
+    if (schedule is! Series || instanceId == null) return null;
+    final index = schedule.doses.indexWhere((dose) => dose.id == instanceId);
+    return index < 0 ? null : index + 1;
+  }
+
+  int? get doseCount {
+    final schedule = rule.schedule;
+    return schedule is Series ? schedule.doses.length : null;
+  }
+
   /// Stable across recomputation, and the basis of the ICS UID, so re-importing
   /// an export updates an event instead of duplicating it.
   String get key => instanceId == null

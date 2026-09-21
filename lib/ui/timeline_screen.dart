@@ -199,7 +199,7 @@ class _OccurrenceTile extends ConsumerWidget {
         padding: const EdgeInsets.only(top: 4),
         child: Icon(statusIcon(occurrence.status), color: color),
       ),
-      title: Text(occurrence.rule.title(locale)),
+      title: Text(occurrenceTitle(l10n, locale, occurrence)),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -7,6 +7,7 @@ import '../domain/occurrence.dart';
 import '../domain/person.dart';
 import '../domain/schedule_engine.dart';
 import '../l10n/app_localizations.dart';
+import '../ui/formatting.dart';
 import 'notification_gateway.dart';
 import 'reminder.dart';
 
@@ -105,7 +106,7 @@ class ReminderService {
     for (final reminder in plan) {
       final occurrence = byKey[reminder.occurrenceKey]!;
       final name = people[reminder.personId]?.name ?? '';
-      final appointment = occurrence.rule.title(language);
+      final appointment = occurrenceTitle(l10n, language, occurrence);
 
       await _gateway.schedule(
         reminder,

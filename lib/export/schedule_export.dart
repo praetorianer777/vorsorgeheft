@@ -16,6 +16,7 @@ class IcsTexts {
     required this.source,
     required this.notStatutory,
     required this.deadline,
+    required this.dose,
   });
 
   final String calendarName;
@@ -23,6 +24,9 @@ class IcsTexts {
   final String Function(String name, DateTime asOf) source;
   final String notStatutory;
   final String Function(DateTime date) deadline;
+
+  /// The title of one dose of a series, e.g. "TBE vaccination · dose 1 of 3".
+  final String Function(String title, int number, int total) dose;
 }
 
 /// What a previous export wrote for one event, so the next one can tell an
@@ -130,9 +134,12 @@ IcsEvent _event(
     rule.source.url,
   ].join('\n');
 
-  final summary = personName.isEmpty
+  final number = occurrence.doseNumber;
+  final total = occurrence.doseCount;
+  final title = number == null || total == null || total < 2
       ? rule.title(locale)
-      : '$personName: ${rule.title(locale)}';
+      : texts.dose(rule.title(locale), number, total);
+  final summary = personName.isEmpty ? title : '$personName: $title';
 
   final end = occurrence.windowEnd ?? occurrence.windowStart;
 
