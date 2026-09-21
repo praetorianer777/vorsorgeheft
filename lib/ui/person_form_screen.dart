@@ -7,6 +7,7 @@ import '../domain/person.dart';
 import '../domain/rule.dart';
 import '../domain/schedule_engine.dart';
 import '../l10n/app_localizations.dart';
+import 'date_input.dart';
 import 'formatting.dart';
 
 class PersonFormScreen extends ConsumerStatefulWidget {
@@ -40,9 +41,9 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
 
   Future<void> _pickDate() async {
     final today = ref.read(clockProvider)();
-    final picked = await showDatePicker(
+    final picked = await showDateInputDialog(
       context: context,
-      initialDate: _dateOfBirth ?? today,
+      initialDate: _dateOfBirth,
       firstDate: DateTime.utc(today.year - 120),
       lastDate: today,
     );

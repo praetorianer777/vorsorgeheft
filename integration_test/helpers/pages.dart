@@ -95,15 +95,13 @@ class PersonFormPage {
     await settle(tester);
   }
 
-  /// Drives the real date picker in its keyboard-input mode. The format is the
-  /// one the pinned English locale uses.
+  /// Types the date into the date dialog, in the order of the pinned English
+  /// locale; the separators are the dialog's own.
   Future<void> pickDateOfBirth(String mmddyyyy) async {
     await tester.tap(find.byKey(const Key('pick-date-of-birth')));
     await settle(tester);
-    await tester.tap(find.byIcon(Icons.edit_outlined));
-    await settle(tester);
-    await tester.enterText(find.byType(TextField).last, mmddyyyy);
-    await tester.tap(find.text('OK'));
+    await tester.enterText(find.byKey(const Key('date-input')), mmddyyyy);
+    await tester.tap(find.byKey(const Key('date-input-ok')));
     await settle(tester);
   }
 
@@ -280,15 +278,13 @@ class AppointmentPage {
     await settle(tester);
   }
 
-  /// Records the appointment on a given day, through the date picker's
-  /// keyboard mode, in the format of the pinned English locale.
+  /// Records the appointment on a given day, typed into the date dialog in
+  /// the order of the pinned English locale.
   Future<void> markDoneOn(String mmddyyyy) async {
     await tester.tap(find.byKey(const Key('mark-done')));
     await settle(tester);
-    await tester.tap(find.byIcon(Icons.edit_outlined));
-    await settle(tester);
-    await tester.enterText(find.byType(TextField).last, mmddyyyy);
-    await tester.tap(find.text('OK'));
+    await tester.enterText(find.byKey(const Key('date-input')), mmddyyyy);
+    await tester.tap(find.byKey(const Key('date-input-ok')));
     await settle(tester);
   }
 
