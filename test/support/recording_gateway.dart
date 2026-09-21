@@ -13,6 +13,7 @@ class RecordingGateway implements NotificationGateway {
   final bool exactAllowed;
 
   final List<(PlannedReminder, String, String)> scheduled = [];
+  final List<String> channelNames = [];
   int cancelAllCount = 0;
   bool initialized = false;
   bool permissionAsked = false;
@@ -44,7 +45,11 @@ class RecordingGateway implements NotificationGateway {
     PlannedReminder reminder, {
     required String title,
     required String body,
-  }) async => scheduled.add((reminder, title, body));
+    required String channelName,
+  }) async {
+    channelNames.add(channelName);
+    scheduled.add((reminder, title, body));
+  }
 
   @override
   Future<List<int>> pendingIds() async => pending.map((r) => r.id).toList();

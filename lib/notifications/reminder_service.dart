@@ -111,6 +111,7 @@ class ReminderService {
         body: reminder.kind == ReminderKind.deadlineApproaching
             ? l10n.reminderDeadlineBody(occurrence.deadline!)
             : l10n.reminderWindowOpensBody(occurrence.windowStart),
+        channelName: l10n.notificationsTitle,
       );
     }
     return plan;

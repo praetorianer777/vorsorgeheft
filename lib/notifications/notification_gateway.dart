@@ -20,10 +20,13 @@ abstract class NotificationGateway {
 
   Future<void> cancelAll();
 
+  /// [channelName] is what Android shows in its own notification settings,
+  /// so it is passed in localised rather than baked into the gateway.
   Future<void> schedule(
     PlannedReminder reminder, {
     required String title,
     required String body,
+    required String channelName,
   });
 
   Future<List<int>> pendingIds();

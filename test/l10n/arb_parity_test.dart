@@ -46,7 +46,10 @@ void main() {
   });
 
   test('placeholders match across locales', () {
-    final placeholder = RegExp(r'\{(\w+)');
+    // A plural branch label is written the same way a placeholder is, so the
+    // pattern refuses a brace that follows a word: `=1{tomorrow}` and
+    // `other{...}` are syntax, `{days}` is a value.
+    final placeholder = RegExp(r'(?<![\w=])\{(\w+)[,}]');
     final en = arb('en');
     final de = arb('de');
     for (final key in messageKeys(en)) {
@@ -62,6 +65,44 @@ void main() {
             .toSet(),
         reason: key,
       );
+    }
+  });
+
+  test('a placeholder declared in the template keeps its type and format', () {
+    final en = arb('en');
+    final de = arb('de');
+    for (final key in messageKeys(en)) {
+      final declared = de['@$key'];
+      if (declared == null) continue;
+      expect(declared, en['@$key'], reason: key);
+    }
+  });
+
+  /// The app name and the two language names read the same in both languages,
+  /// and "Name" happens to be the German word as well. Everything else that is
+  /// identical is a translation nobody got round to.
+  const sameInBothLanguages = {
+    'appTitle',
+    'personName',
+    'languageGerman',
+    'languageEnglish',
+    'appVersion',
+  };
+
+  test('no message is left in English in the German file', () {
+    final en = arb('en');
+    final de = arb('de');
+    for (final key in messageKeys(en)) {
+      if (key == '@@locale' || sameInBothLanguages.contains(key)) continue;
+      expect(de[key], isNot(en[key]), reason: key);
+    }
+  });
+
+  test('every proper noun on the exception list is really identical', () {
+    final en = arb('en');
+    final de = arb('de');
+    for (final key in sameInBothLanguages) {
+      expect(de[key], en[key], reason: key);
     }
   });
 }
