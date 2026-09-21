@@ -14,6 +14,9 @@ class RecordingShareGateway implements ShareGateway {
   String get lastContent => lastFile.readAsStringSync();
 
   @override
-  Future<void> shareFile(File file, {required String subject}) async =>
-      shared.add((file, subject));
+  Future<void> shareFile(
+    File file, {
+    required String subject,
+    String mimeType = 'text/calendar',
+  }) async => shared.add((file, subject));
 }

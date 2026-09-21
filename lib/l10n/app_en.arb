@@ -260,6 +260,101 @@
   "notificationsTitle": "Reminders",
   "notificationsDenied": "Notifications are switched off for this app. Turn them on in the system settings to be reminded.",
   "notificationsEnable": "Allow notifications",
+  "confirm": "OK",
+  "syncTitle": "Sync",
+  "syncIntro": "Pair this phone with the other parent's once. After that, a sync exchanges what each of you has recorded, directly between the two phones. Nothing is sent anywhere else.",
+  "syncShowCode": "Show my code",
+  "syncScanCode": "Scan a code",
+  "syncScanHint": "Point the camera at the code on the other phone.",
+  "syncMyCodeHint": "Let the other phone scan this code, then start the sync from there.",
+  "syncDeviceName": "Name of this phone",
+  "syncDefaultDeviceName": "My phone",
+  "syncAddressLabel": "Address of this phone: {address}",
+  "@syncAddressLabel": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "syncDevices": "Paired devices",
+  "syncNoDevices": "No device paired yet",
+  "syncNow": "Sync now",
+  "syncNever": "Never synced",
+  "syncLastSync": "Last synced {date} at {time}",
+  "@syncLastSync": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMd"
+      },
+      "time": {
+        "type": "DateTime",
+        "format": "jm"
+      }
+    }
+  },
+  "syncDone": "Received {received} and sent {sent} changes.",
+  "@syncDone": {
+    "placeholders": {
+      "received": {
+        "type": "int"
+      },
+      "sent": {
+        "type": "int"
+      }
+    }
+  },
+  "syncNothingNew": "Nothing to send, nothing new.",
+  "syncPaired": "Paired with {name}.",
+  "@syncPaired": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "syncCodeInvalid": "That is not a pairing code of this app.",
+  "syncUnreachable": "{name} could not be found on the network.",
+  "@syncUnreachable": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "syncEnterAddress": "Enter the address shown under \"Show my code\" on the other phone.",
+  "syncAddressHint": "192.168.1.20:4321",
+  "syncConnect": "Connect",
+  "syncNotAccepted": "The other phone is not showing its code. Open \"Show my code\" there and try again.",
+  "syncFailed": "The sync did not complete.",
+  "syncRemoveDevice": "Remove {name}?",
+  "@syncRemoveDevice": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "syncRemoveDeviceBody": "You can pair again at any time.",
+  "bundleSection": "Without a shared network",
+  "bundleIntro": "Export an encrypted file, send it to the other phone in any way you like, and import it there with the same password.",
+  "bundleExport": "Export encrypted file",
+  "bundleImport": "Import encrypted file",
+  "bundlePassword": "Password",
+  "bundlePasswordMissing": "Please enter a password",
+  "bundleSubject": "Preventive care – encrypted data",
+  "bundleImported": "{count, plural, =0{Nothing new in that file.} =1{1 change imported.} other{{count} changes imported.}}",
+  "@bundleImported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bundleWrongPassword": "Wrong password, or the file was altered.",
+  "bundleInvalid": "That is not a file this app exported.",
+  "bundleFailed": "The file could not be created.",
   "supportPromptBody": "This app has reminded you about {count} appointments. It costs nothing and collects nothing. If you like, support its development.",
   "@supportPromptBody": {
     "placeholders": {

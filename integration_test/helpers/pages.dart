@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:vorsorgereminder/ui/sync_screen.dart';
 
 import '../../test/support/recording_share.dart';
 import 'app_harness.dart';
@@ -48,6 +49,12 @@ class FamilyPage {
     await tester.tap(find.byIcon(Icons.info_outline));
     await settle(tester);
     return SourcesPage(tester);
+  }
+
+  Future<SyncPage> openSync() async {
+    await tester.tap(find.byKey(const Key('open-sync')));
+    await settle(tester);
+    return SyncPage(tester);
   }
 }
 
@@ -171,6 +178,12 @@ class SettingsPage {
     return SourcesPage(tester);
   }
 
+  Future<SyncPage> openSync() async {
+    await tester.tap(find.byKey(const Key('settings-open-sync')));
+    await settle(tester);
+    return SyncPage(tester);
+  }
+
   /// Not `pageBack`: it looks the back button up by its English tooltip, and
   /// this is the one screen that can change the language under itself.
   Future<void> back() async {
@@ -189,6 +202,126 @@ class SourcesPage {
   Finder sourceNamed(String fragment) => find.textContaining(fragment);
 
   Future<void> scrollToDisclaimer() => scrollTo(tester, disclaimer);
+}
+
+class SyncPage {
+  const SyncPage(this.tester);
+
+  final WidgetTester tester;
+
+  Finder get title => find.text('Sync');
+  Finder get noDevices => find.byKey(const Key('no-peers'));
+  Finder deviceNamed(String name) => find.text(name);
+  Finder get neverSynced => find.text('Never synced');
+  Finder get lastSynced => find.textContaining('Last synced');
+  Finder get nothingNew => find.text('Nothing to send, nothing new.');
+  Finder synced({required int received, required int sent}) =>
+      find.text('Received $received and sent $sent changes.');
+  Finder pairedWith(String name) => find.text('Paired with $name.');
+  Finder get invalidCode =>
+      find.text('That is not a pairing code of this app.');
+  Finder get wrongPassword =>
+      find.text('Wrong password, or the file was altered.');
+  Finder get addressPrompt => find.byKey(const Key('peer-address'));
+  Finder unreachable(String name) =>
+      find.text('$name could not be found on the network.');
+  Finder imported(int count) =>
+      find.text(count == 1 ? '1 change imported.' : '$count changes imported.');
+
+  /// Opens the pairing dialog and returns the code the QR image carries,
+  /// which is what the other phone's camera would read.
+  Future<String> showMyCode({String? deviceName}) async {
+    await tester.tap(find.byKey(const Key('show-my-code')));
+    await settle(tester);
+    if (deviceName != null) {
+      await tester.enterText(find.byKey(const Key('device-name')), deviceName);
+      await settle(tester);
+      // The name is part of the code, so the dialog is opened once more to
+      // read the code that carries it.
+      await tester.tap(find.byKey(const Key('close-my-code')));
+      await settle(tester);
+      await tester.tap(find.byKey(const Key('show-my-code')));
+      await settle(tester);
+    }
+    final code = tester
+        .widget<PairingCodeImage>(find.byKey(const Key('pairing-code')))
+        .code;
+    await tester.tap(find.byKey(const Key('close-my-code')));
+    await settle(tester);
+    return code;
+  }
+
+  /// Scans whatever the fixture's camera has been handed.
+  Future<void> scanCode(SyncFixture sync, String code) async {
+    sync.scanner.nextCode = code;
+    await tester.tap(find.byKey(const Key('scan-code')));
+    await settle(tester);
+  }
+
+  Future<void> syncNow(String peerNodeId) async {
+    await tester.tap(find.byKey(Key('sync-now-$peerNodeId')));
+    await settle(tester);
+    await settle(tester);
+  }
+
+  Future<void> enterAddress(String address) async {
+    await tester.enterText(addressPrompt, address);
+    await tester.tap(find.byKey(const Key('connect')));
+    await settle(tester);
+    await settle(tester);
+  }
+
+  Future<void> removeDevice(String peerNodeId) async {
+    await tester.tap(find.byKey(Key('remove-peer-$peerNodeId')));
+    await settle(tester);
+    await tester.tap(find.byKey(const Key('confirm-remove-peer')));
+    await settle(tester);
+  }
+
+  /// Exports and waits for the file to actually be written, the same way
+  /// [tapExport] does for the calendar.
+  Future<void> exportBundle(
+    RecordingShareGateway share, {
+    required String password,
+  }) async {
+    final before = share.shared.length;
+    await tester.tap(find.byKey(const Key('export-bundle')));
+    await settle(tester);
+    await tester.enterText(find.byKey(const Key('bundle-password')), password);
+    // Unlike the calendar export, the confirmation pops a dialog, and that
+    // needs frames before the export even starts; the frames are pumped from
+    // inside runAsync so the file write that follows can complete too.
+    await tester.runAsync(() async {
+      await tester.tap(find.byKey(const Key('bundle-confirm')));
+      for (var i = 0; i < 500 && share.shared.length == before; i++) {
+        await tester.pump(const Duration(milliseconds: 16));
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+      }
+    });
+    await settle(tester);
+  }
+
+  Future<void> importBundle(
+    SyncFixture sync,
+    List<int> bytes, {
+    required String password,
+  }) async {
+    sync.picker.nextFile = bytes;
+    await tester.tap(find.byKey(const Key('import-bundle')));
+    await settle(tester);
+    await tester.enterText(find.byKey(const Key('bundle-password')), password);
+    await tester.tap(find.byKey(const Key('bundle-confirm')));
+    // Stretching the password pauses every couple of thousand rounds to let
+    // the UI breathe, and each pause is a timer the pumped clock has to pass.
+    for (var i = 0; i < 4; i++) {
+      await settle(tester);
+    }
+  }
+
+  Future<void> back() async {
+    await tester.pageBack();
+    await settle(tester);
+  }
 }
 
 /// Exports and waits for the file to actually be written.

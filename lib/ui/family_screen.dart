@@ -14,6 +14,7 @@ import 'formatting.dart';
 import 'person_form_screen.dart';
 import 'settings_screen.dart';
 import 'sources_screen.dart';
+import 'sync_screen.dart';
 import 'timeline_screen.dart';
 
 class FamilyScreen extends ConsumerWidget {
@@ -29,6 +30,14 @@ class FamilyScreen extends ConsumerWidget {
         title: Text(l10n.familyTitle),
         actions: [
           const ExportButton(),
+          IconButton(
+            key: const Key('open-sync'),
+            icon: const Icon(Icons.sync),
+            tooltip: l10n.syncTitle,
+            onPressed: () => Navigator.of(
+              context,
+            ).push(MaterialPageRoute<void>(builder: (_) => const SyncScreen())),
+          ),
           IconButton(
             icon: const Icon(Icons.info_outline),
             tooltip: l10n.sourcesTitle,

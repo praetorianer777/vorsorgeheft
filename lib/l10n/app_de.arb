@@ -96,6 +96,101 @@
   "notificationsTitle": "Erinnerungen",
   "notificationsDenied": "Benachrichtigungen sind für diese App ausgeschaltet. Schalte sie in den Systemeinstellungen ein, um erinnert zu werden.",
   "notificationsEnable": "Benachrichtigungen erlauben",
+  "confirm": "OK",
+  "syncTitle": "Abgleich",
+  "syncIntro": "Kopple dieses Telefon einmal mit dem des anderen Elternteils. Danach tauscht ein Abgleich aus, was jeder von euch eingetragen hat, direkt zwischen den beiden Telefonen. Nichts wird woandershin gesendet.",
+  "syncShowCode": "Meinen Code zeigen",
+  "syncScanCode": "Code scannen",
+  "syncScanHint": "Richte die Kamera auf den Code auf dem anderen Telefon.",
+  "syncMyCodeHint": "Lass das andere Telefon diesen Code scannen und starte den Abgleich von dort.",
+  "syncDeviceName": "Name dieses Telefons",
+  "syncDefaultDeviceName": "Mein Telefon",
+  "syncAddressLabel": "Adresse dieses Telefons: {address}",
+  "@syncAddressLabel": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "syncDevices": "Gekoppelte Geräte",
+  "syncNoDevices": "Noch kein Gerät gekoppelt",
+  "syncNow": "Jetzt abgleichen",
+  "syncNever": "Noch nie abgeglichen",
+  "syncLastSync": "Zuletzt abgeglichen am {date} um {time}",
+  "@syncLastSync": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMd"
+      },
+      "time": {
+        "type": "DateTime",
+        "format": "jm"
+      }
+    }
+  },
+  "syncDone": "{received} Änderungen empfangen, {sent} gesendet.",
+  "@syncDone": {
+    "placeholders": {
+      "received": {
+        "type": "int"
+      },
+      "sent": {
+        "type": "int"
+      }
+    }
+  },
+  "syncNothingNew": "Nichts zu senden, nichts Neues.",
+  "syncPaired": "Mit {name} gekoppelt.",
+  "@syncPaired": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "syncCodeInvalid": "Das ist kein Kopplungscode dieser App.",
+  "syncUnreachable": "{name} wurde im Netzwerk nicht gefunden.",
+  "@syncUnreachable": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "syncEnterAddress": "Gib die Adresse ein, die auf dem anderen Telefon unter „Meinen Code zeigen“ steht.",
+  "syncAddressHint": "192.168.1.20:4321",
+  "syncConnect": "Verbinden",
+  "syncNotAccepted": "Das andere Telefon zeigt seinen Code gerade nicht. Öffne dort „Meinen Code zeigen“ und versuche es erneut.",
+  "syncFailed": "Der Abgleich ist fehlgeschlagen.",
+  "syncRemoveDevice": "{name} entfernen?",
+  "@syncRemoveDevice": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "syncRemoveDeviceBody": "Du kannst jederzeit neu koppeln.",
+  "bundleSection": "Ohne gemeinsames Netzwerk",
+  "bundleIntro": "Exportiere eine verschlüsselte Datei, schicke sie auf beliebigem Weg an das andere Telefon und importiere sie dort mit demselben Passwort.",
+  "bundleExport": "Verschlüsselte Datei exportieren",
+  "bundleImport": "Verschlüsselte Datei importieren",
+  "bundlePassword": "Passwort",
+  "bundlePasswordMissing": "Bitte ein Passwort eingeben",
+  "bundleSubject": "Vorsorge – verschlüsselte Daten",
+  "bundleImported": "{count, plural, =0{Nichts Neues in dieser Datei.} =1{1 Änderung importiert.} other{{count} Änderungen importiert.}}",
+  "@bundleImported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bundleWrongPassword": "Falsches Passwort, oder die Datei wurde verändert.",
+  "bundleInvalid": "Das ist keine Datei, die diese App exportiert hat.",
+  "bundleFailed": "Die Datei konnte nicht erstellt werden.",
   "supportPromptBody": "Diese App hat dich an {count} Termine erinnert. Sie kostet nichts und sammelt nichts. Wenn du magst, unterstütze die Entwicklung.",
   "@supportPromptBody": {
     "placeholders": {

@@ -79,14 +79,17 @@ void main() {
   });
 
   /// The app name and the two language names read the same in both languages,
-  /// and "Name" happens to be the German word as well. Everything else that is
-  /// identical is a translation nobody got round to.
+  /// "Name" and "OK" happen to be German as well, and an example address is
+  /// an address. Everything else that is identical is a translation nobody
+  /// got round to.
   const sameInBothLanguages = {
     'appTitle',
     'personName',
     'languageGerman',
     'languageEnglish',
     'appVersion',
+    'confirm',
+    'syncAddressHint',
   };
 
   test('no message is left in English in the German file', () {

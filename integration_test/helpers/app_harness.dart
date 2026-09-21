@@ -10,9 +10,13 @@ import 'package:vorsorgereminder/data/database.dart';
 import 'package:vorsorgereminder/data/database_provider.dart';
 import 'package:vorsorgereminder/domain/person.dart';
 import 'package:vorsorgereminder/export/ics_export_service.dart';
+import 'package:vorsorgereminder/sync/bundle_service.dart';
 import 'package:vorsorgereminder/sync/replicated_store.dart';
+import 'package:vorsorgereminder/sync/sync_protocol.dart';
+import 'package:vorsorgereminder/sync/sync_transport.dart';
 import 'package:vorsorgereminder/l10n/locale_notifier.dart';
 
+import '../../test/support/fake_sync.dart';
 import '../../test/support/recording_gateway.dart';
 import '../../test/support/recording_share.dart';
 import '../fixtures/family.dart';
@@ -24,6 +28,32 @@ import '../fixtures/family.dart';
 /// and a real asset read completes on the real event loop, which pumping
 /// frames never advances.
 AssetBundle? specAssetBundle;
+
+/// What one app instance of a spec is plugged into: the wire the other
+/// instance is on, the camera and the file chooser.
+///
+/// Two instances of the app cannot run side by side under one tester, so a
+/// spec that needs two phones launches them one after the other against
+/// their own databases. The wire outlives a launch, which is what lets the
+/// first phone stay reachable while the second one is on screen.
+class SyncFixture {
+  SyncFixture({LoopbackNetwork? network})
+    : network = network ?? LoopbackNetwork();
+
+  final LoopbackNetwork network;
+  final scanner = FakeQrScanner();
+  final picker = FakeBundlePicker();
+
+  /// The engine of the most recent launch on this fixture.
+  SyncEngine? engine;
+
+  /// Puts a detached phone back on the wire.
+  ///
+  /// Detaching disposes the widget tree, which stops the engine the way
+  /// closing the app would. The phone a spec put down is still switched on,
+  /// though, and has to stay reachable for the one now on screen.
+  Future<void> stayReachable() => engine!.start();
+}
 
 /// Boots the real app against a throwaway database and a fixed clock.
 ///
@@ -39,19 +69,29 @@ Future<AppDatabase> launchApp(
   RecordingGateway? gateway,
   RecordingShareGateway? share,
   AppDatabase? database,
+  SyncFixture? sync,
+  String nodeId = 'spec-node',
 }) async {
   // A spec asserts on which reminders were planned, not on how a platform
   // renders them, and the emulator makes exactly that assertion slow.
   final activeGateway = gateway ?? RecordingGateway();
   final activeShare = share ?? RecordingShareGateway();
+  final activeSync = sync ?? SyncFixture();
   final exportDirectory = Directory.systemTemp.createTempSync('vorsorge-ics');
   addTearDown(() => exportDirectory.deleteSync(recursive: true));
   final db = database ?? openInMemoryDatabase();
   final store = await ReplicatedStore.open(
     db,
-    nodeId: 'spec-node',
+    nodeId: nodeId,
     clock: () => today ?? pinnedToday,
   );
+  final engine = SyncEngine(
+    store: store,
+    registry: db,
+    transport: LoopbackTransport(activeSync.network),
+    clock: () => today ?? pinnedToday,
+  );
+  activeSync.engine = engine;
   // Seeding through the store rather than the tables, so a spec exercises the
   // same path a real edit takes.
   for (final person in people) {
@@ -85,6 +125,20 @@ Future<AppDatabase> launchApp(
         ),
         if (locale != null)
           localeProvider.overrideWith(() => _FixedLocale(locale)),
+        // No sockets, no camera and no file chooser under a test: the other
+        // phone is on an in-memory wire, and both pickers answer with what the
+        // spec put in front of them.
+        syncEngineProvider.overrideWithValue(engine),
+        qrScannerProvider.overrideWithValue(activeSync.scanner),
+        bundlePickerProvider.overrideWithValue(activeSync.picker),
+        bundleServiceProvider.overrideWith(
+          (ref) => BundleService(
+            store: store,
+            share: activeShare,
+            picker: activeSync.picker,
+            directory: () async => exportDirectory,
+          ),
+        ),
       ],
       child: const VorsorgereminderApp(),
     ),

@@ -14,7 +14,12 @@ import '../l10n/locale_notifier.dart';
 import '../notifications/local_notification_gateway.dart';
 import '../notifications/notification_gateway.dart';
 import '../notifications/reminder_service.dart';
+import '../sync/bundle_service.dart';
+import '../sync/lan_transport.dart';
 import '../sync/replicated_store.dart';
+import '../sync/sync_protocol.dart';
+import '../sync/sync_transport.dart';
+import '../ui/qr_scanner.dart';
 
 /// Overridden at startup with the opened database, and in tests with an
 /// in-memory one.
@@ -60,6 +65,40 @@ final icsExportServiceProvider = Provider<IcsExportService>(
     share: ref.watch(shareGatewayProvider),
     clock: () => ref.watch(clockProvider)(),
   ),
+);
+
+/// How the other phone is reached. Overridden in tests with a loopback
+/// transport, so two app instances can pair and sync inside one test.
+final syncTransportProvider = Provider<SyncTransport>((ref) => LanTransport());
+
+final syncEngineProvider = Provider<SyncEngine>(
+  (ref) => SyncEngine(
+    store: ref.watch(storeProvider),
+    registry: ref.watch(databaseProvider),
+    transport: ref.watch(syncTransportProvider),
+    clock: ref.watch(clockProvider),
+  ),
+);
+
+/// The camera. Overridden in tests with one that answers with a given code.
+final qrScannerProvider = Provider<QrScanner>((ref) => const CameraQrScanner());
+
+/// The file chooser. Overridden in tests with one that answers with given
+/// bytes.
+final bundlePickerProvider = Provider<BundlePicker>(
+  (ref) => const PlatformBundlePicker(),
+);
+
+final bundleServiceProvider = Provider<BundleService>(
+  (ref) => BundleService(
+    store: ref.watch(storeProvider),
+    share: ref.watch(shareGatewayProvider),
+    picker: ref.watch(bundlePickerProvider),
+  ),
+);
+
+final peersProvider = StreamProvider<List<Peer>>(
+  (ref) => ref.watch(databaseProvider).watchPeers(),
 );
 
 final catalogRepositoryProvider = Provider<CatalogRepository>(

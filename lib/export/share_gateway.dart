@@ -8,17 +8,25 @@ import 'package:share_plus/share_plus.dart';
 /// there is no share sheet under a widget test, and what matters there is the
 /// file, not the chooser.
 abstract class ShareGateway {
-  Future<void> shareFile(File file, {required String subject});
+  Future<void> shareFile(
+    File file, {
+    required String subject,
+    String mimeType = 'text/calendar',
+  });
 }
 
 class PlatformShareGateway implements ShareGateway {
   const PlatformShareGateway();
 
   @override
-  Future<void> shareFile(File file, {required String subject}) async {
+  Future<void> shareFile(
+    File file, {
+    required String subject,
+    String mimeType = 'text/calendar',
+  }) async {
     await SharePlus.instance.share(
       ShareParams(
-        files: [XFile(file.path, mimeType: 'text/calendar')],
+        files: [XFile(file.path, mimeType: mimeType)],
         subject: subject,
         title: subject,
       ),

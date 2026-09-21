@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:drift/drift.dart';
 
 import '../domain/completion.dart' as domain;
 import '../domain/person.dart' as domain;
 import '../sync/change.dart';
 import '../sync/hlc.dart';
+import '../sync/sync_protocol.dart';
 
 part 'database.g.dart';
 
@@ -80,8 +83,31 @@ class Changes extends Table {
   Set<Column<Object>> get primaryKey => {entity, entityId, field};
 }
 
-@DriftDatabase(tables: [Persons, Completions, Settings, Changes])
-class AppDatabase extends _$AppDatabase {
+/// The devices this one is paired with.
+///
+/// Device-local like [Settings]: a peer is a fact about this phone, and the
+/// other phone keeps its own row for us. The shared key is stored as it is,
+/// which is as protected as the rest of the database on the same device;
+/// encrypting it at rest would need a platform keystore and is out of scope.
+@DataClassName('PeerRow')
+class Peers extends Table {
+  TextColumn get nodeId => text()();
+  TextColumn get deviceName => text()();
+
+  /// Base64 of the 32-byte AES key both phones derived from the pairing.
+  TextColumn get sharedKey => text()();
+
+  /// The peer's high-water mark as of the last exchange, in the sortable
+  /// encoding, or null before the first one.
+  TextColumn get lastSyncHlc => text().nullable()();
+  DateTimeColumn get lastSyncAt => dateTime().nullable()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {nodeId};
+}
+
+@DriftDatabase(tables: [Persons, Completions, Settings, Changes, Peers])
+class AppDatabase extends _$AppDatabase implements PeerRegistry {
   AppDatabase(super.executor);
 
   /// Dates are stored as ISO-8601 text rather than unix seconds, which is what
@@ -91,14 +117,19 @@ class AppDatabase extends _$AppDatabase {
   DriftDatabaseOptions get options =>
       const DriftDatabaseOptions(storeDateTimeAsText: true);
 
+  /// Bumped for the peers table in #10. A database from version 1 gains the
+  /// table in [migration]; everything it already holds stays as it is.
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
   /// SQLite enforces foreign keys only when asked to, and without this a
   /// deleted person leaves their recorded appointments behind.
   @override
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (m) => m.createAll(),
+    onUpgrade: (m, from, to) async {
+      if (from < 2) await m.createTable(peers);
+    },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
     },
@@ -243,7 +274,85 @@ class AppDatabase extends _$AppDatabase {
   Future<void> putSetting(String key, String value) => into(
     settings,
   ).insertOnConflictUpdate(SettingsCompanion.insert(key: key, value: value));
+
+  static const privateKeySettingKey = 'sync.private-key';
+  static const deviceNameSettingKey = 'sync.device-name';
+
+  Stream<List<Peer>> watchPeers() =>
+      (select(peers)..orderBy([(p) => OrderingTerm(expression: p.deviceName)]))
+          .watch()
+          .map((rows) => rows.map(_toPeer).toList());
+
+  @override
+  Future<List<Peer>> allPeers() async =>
+      (await (select(
+            peers,
+          )..orderBy([(p) => OrderingTerm(expression: p.deviceName)])).get())
+          .map(_toPeer)
+          .toList();
+
+  @override
+  Future<Peer?> peer(String nodeId) async {
+    final row = await (select(
+      peers,
+    )..where((p) => p.nodeId.equals(nodeId))).getSingleOrNull();
+    return row == null ? null : _toPeer(row);
+  }
+
+  @override
+  Future<void> savePeer(Peer peer) => into(peers).insertOnConflictUpdate(
+    PeersCompanion.insert(
+      nodeId: peer.nodeId,
+      deviceName: peer.deviceName,
+      sharedKey: base64.encode(peer.sharedKey),
+      lastSyncHlc: Value(peer.lastSyncHlc?.toString()),
+      lastSyncAt: Value(peer.lastSyncAt),
+    ),
+  );
+
+  @override
+  Future<void> removePeer(String nodeId) =>
+      (delete(peers)..where((p) => p.nodeId.equals(nodeId))).go();
+
+  @override
+  Future<void> recordSync(
+    String nodeId, {
+    required Hlc watermark,
+    required DateTime at,
+  }) => (update(peers)..where((p) => p.nodeId.equals(nodeId))).write(
+    PeersCompanion(
+      lastSyncHlc: Value(watermark.toString()),
+      lastSyncAt: Value(at),
+    ),
+  );
+
+  /// The X25519 private key. It is written once, read on every start and
+  /// never sent anywhere; the pairing code carries only the public half.
+  @override
+  Future<List<int>?> privateKey() async {
+    final stored = await settingValue(privateKeySettingKey);
+    return stored == null ? null : base64.decode(stored);
+  }
+
+  @override
+  Future<void> putPrivateKey(List<int> key) =>
+      putSetting(privateKeySettingKey, base64.encode(key));
+
+  @override
+  Future<String?> deviceName() => settingValue(deviceNameSettingKey);
+
+  @override
+  Future<void> putDeviceName(String name) =>
+      putSetting(deviceNameSettingKey, name);
 }
+
+Peer _toPeer(PeerRow row) => Peer(
+  nodeId: row.nodeId,
+  deviceName: row.deviceName,
+  sharedKey: base64.decode(row.sharedKey),
+  lastSyncHlc: row.lastSyncHlc == null ? null : Hlc.parse(row.lastSyncHlc!),
+  lastSyncAt: row.lastSyncAt,
+);
 
 Change _toChange(ChangeRow row) => Change(
   entity: row.entity,
