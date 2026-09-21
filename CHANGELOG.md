@@ -7,6 +7,12 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Bug fixes
+
+- The stored language is restored on start by a read nobody waits for; when
+  it landed after the app's state was already torn down it threw into
+  whatever ran next. It is now dropped instead.
+
 ### Features
 
 - An icon of its own, a calendar leaf with a check mark in the app's green,
@@ -24,6 +30,12 @@ and the versioning [Semantic Versioning](https://semver.org/).
   screen until dismissed, naming the appointment, both dates and the device.
   The sync screen states the rule up front and suggests a hotspot when there
   is no shared Wi-Fi.
+
+### Bug fixes
+
+- The dental examinations Z1 to Z6 lapse with their age span, as the U
+  check-ups do: a child added later finds the ones that are over under "No
+  longer available" instead of an "Overdue" that never clears.
 
 ### Other
 
