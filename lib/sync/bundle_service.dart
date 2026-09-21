@@ -78,8 +78,21 @@ class BundleService {
   /// Opens the chosen file under [password] and applies what it carries.
   /// Null when no file was chosen.
   Future<MergeResult?> import({required String password}) async {
-    final bytes = await _picker.pick();
+    final bytes = await pick();
     if (bytes == null) return null;
+    return importBytes(bytes, password: password);
+  }
+
+  /// The chosen file's bytes, or null when the person backed out. Separate
+  /// from [importBytes] so a screen can ask for the file before it asks for
+  /// the password, and so a file handed over by the platform skips the
+  /// chooser altogether.
+  Future<List<int>?> pick() => _picker.pick();
+
+  Future<MergeResult> importBytes(
+    List<int> bytes, {
+    required String password,
+  }) async {
     final contents = await SyncBundle.open(bytes, password);
     return _store.merge(contents.changes, from: contents.nodeId);
   }

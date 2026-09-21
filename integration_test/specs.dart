@@ -750,6 +750,42 @@ void registerAppSpecs() {
     },
   );
 
+  testWidgets('a six-digit code carries the family to the other phone', (
+    tester,
+  ) async {
+    final share = RecordingShareGateway();
+    final mum = SyncFixture();
+    final mumsDb = await launchApp(
+      tester,
+      people: [Family.infant],
+      share: share,
+      sync: mum,
+      nodeId: 'mum',
+    );
+    var sync = await FamilyPage(tester).openSync();
+    final code = await sync.sendToPhone(share);
+    expect(code, matches(RegExp(r'^\d{6}$')));
+    final file = share.lastFile.readAsBytesSync();
+    expect(share.lastFile.path, endsWith('.vorsorge'));
+    expect(String.fromCharCodes(file), isNot(contains('Mila')));
+    await shutDown(tester, mumsDb);
+
+    final dad = SyncFixture();
+    final dadsDb = await launchApp(tester, sync: dad, nodeId: 'dad');
+    sync = await FamilyPage(tester).openSync();
+    final wrongCode = code == '000000' ? '000001' : '000000';
+    await sync.receiveFromPhone(dad, file, code: wrongCode);
+    expect(sync.wrongPassword, findsOneWidget);
+    expect(FamilyPage(tester).personNamed('Mila'), findsNothing);
+
+    await sync.receiveFromPhone(dad, file, code: code);
+    expect(sync.imported(4), findsOneWidget);
+    await sync.back();
+    expect(FamilyPage(tester).personNamed('Mila'), findsOneWidget);
+
+    await shutDown(tester, dadsDb);
+  });
+
   testWidgets('a booster recorded today is due on the phone of ten years on', (
     tester,
   ) async {

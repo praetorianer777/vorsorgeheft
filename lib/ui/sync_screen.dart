@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -8,6 +9,7 @@ import '../sync/bundle.dart';
 import '../sync/replicated_store.dart';
 import '../sync/sync_protocol.dart';
 import '../sync/sync_transport.dart';
+import '../sync/transfer_code.dart';
 
 /// Pairing, the paired devices, and the file fallback.
 class SyncScreen extends ConsumerWidget {
@@ -66,15 +68,31 @@ class SyncScreen extends ConsumerWidget {
             child: Text('${l10n.bundleHotspot}\n\n${l10n.bundleIntro}'),
           ),
           ListTile(
+            key: const Key('send-to-phone'),
+            leading: const Icon(Icons.send_to_mobile_outlined),
+            title: Text(l10n.bundleSend),
+            subtitle: Text(l10n.bundleSendSubtitle),
+            onTap: () => _sendToPhone(context, ref),
+          ),
+          ListTile(
+            key: const Key('receive-from-phone'),
+            leading: const Icon(Icons.install_mobile_outlined),
+            title: Text(l10n.bundleReceive),
+            subtitle: Text(l10n.bundleReceiveSubtitle),
+            onTap: () => _receiveFromPhone(context, ref),
+          ),
+          ListTile(
             key: const Key('export-bundle'),
             leading: const Icon(Icons.upload_file_outlined),
             title: Text(l10n.bundleExport),
+            subtitle: Text(l10n.bundleExportSubtitle),
             onTap: () => _exportBundle(context, ref),
           ),
           ListTile(
             key: const Key('import-bundle'),
             leading: const Icon(Icons.file_open_outlined),
             title: Text(l10n.bundleImport),
+            subtitle: Text(l10n.bundleImportSubtitle),
             onTap: () => _importBundle(context, ref),
           ),
         ],
@@ -114,6 +132,35 @@ class SyncScreen extends ConsumerWidget {
     }
   }
 
+  /// The code is on screen before the file is sealed: sealing takes a
+  /// moment, and the share sheet that follows covers the app, so this is the
+  /// only time the person sees what to type on the other phone.
+  Future<void> _sendToPhone(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context);
+    final code = TransferCode.generate();
+    final sending = ref
+        .read(bundleServiceProvider)
+        .export(password: code, subject: l10n.bundleSubject);
+    await showDialog<void>(
+      context: context,
+      builder: (_) => _TransferCodeDialog(code: code, sending: sending),
+    );
+  }
+
+  Future<void> _receiveFromPhone(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    final service = ref.read(bundleServiceProvider);
+    final bytes = await service.pick();
+    if (bytes == null || !context.mounted) return;
+    final code = await showDialog<String>(
+      context: context,
+      builder: (_) => const _TransferCodeInputDialog(),
+    );
+    if (code == null) return;
+    await _apply(messenger, l10n, service.importBytes(bytes, password: code));
+  }
+
   Future<void> _exportBundle(BuildContext context, WidgetRef ref) async {
     final l10n = AppLocalizations.of(context);
     final messenger = ScaffoldMessenger.of(context);
@@ -139,10 +186,20 @@ class SyncScreen extends ConsumerWidget {
     final messenger = ScaffoldMessenger.of(context);
     final password = await _askPassword(context, l10n.bundleImport);
     if (password == null) return;
+    await _apply(
+      messenger,
+      l10n,
+      ref.read(bundleServiceProvider).import(password: password),
+    );
+  }
+
+  Future<void> _apply(
+    ScaffoldMessengerState messenger,
+    AppLocalizations l10n,
+    Future<MergeResult?> importing,
+  ) async {
     try {
-      final result = await ref
-          .read(bundleServiceProvider)
-          .import(password: password);
+      final result = await importing;
       if (result == null) return;
       _notify(messenger, l10n.bundleImported(result.applied.length));
     } on WrongPasswordException {
@@ -442,6 +499,126 @@ class _PasswordDialogState extends State<_PasswordDialog> {
         ),
         FilledButton(
           key: const Key('bundle-confirm'),
+          onPressed: _submit,
+          child: Text(l10n.confirm),
+        ),
+      ],
+    );
+  }
+}
+
+class _TransferCodeDialog extends StatelessWidget {
+  const _TransferCodeDialog({required this.code, required this.sending});
+
+  final String code;
+  final Future<void> sending;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    return AlertDialog(
+      title: Text(l10n.transferCodeTitle),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            code,
+            key: const Key('transfer-code'),
+            textAlign: TextAlign.center,
+            style: theme.textTheme.displayMedium?.copyWith(
+              fontFeatures: const [FontFeature.tabularFigures()],
+              letterSpacing: 8,
+            ),
+          ),
+          const SizedBox(height: 16),
+          FutureBuilder<void>(
+            future: sending,
+            builder: (context, snapshot) => switch (snapshot.connectionState) {
+              ConnectionState.done when snapshot.hasError => Text(
+                l10n.bundleFailed,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: theme.colorScheme.error),
+              ),
+              ConnectionState.done => Text(
+                l10n.transferCodeHint,
+                textAlign: TextAlign.center,
+              ),
+              _ => Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const LinearProgressIndicator(),
+                  const SizedBox(height: 12),
+                  Text(l10n.transferCodePreparing),
+                ],
+              ),
+            },
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          key: const Key('close-transfer-code'),
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(l10n.confirm),
+        ),
+      ],
+    );
+  }
+}
+
+class _TransferCodeInputDialog extends StatefulWidget {
+  const _TransferCodeInputDialog();
+
+  @override
+  State<_TransferCodeInputDialog> createState() =>
+      _TransferCodeInputDialogState();
+}
+
+class _TransferCodeInputDialogState extends State<_TransferCodeInputDialog> {
+  final _code = TextEditingController();
+  var _malformed = false;
+
+  @override
+  void dispose() {
+    _code.dispose();
+    super.dispose();
+  }
+
+  void _submit() {
+    final value = _code.text.trim();
+    if (!TransferCode.isWellFormed(value)) {
+      setState(() => _malformed = true);
+      return;
+    }
+    Navigator.of(context).pop(value);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return AlertDialog(
+      title: Text(l10n.bundleReceive),
+      content: TextField(
+        key: const Key('transfer-code-input'),
+        controller: _code,
+        autofocus: true,
+        keyboardType: TextInputType.number,
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+        maxLength: TransferCode.length,
+        onSubmitted: (_) => _submit(),
+        decoration: InputDecoration(
+          labelText: l10n.transferCodeEnter,
+          errorText: _malformed ? l10n.transferCodeMissing : null,
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(l10n.cancel),
+        ),
+        FilledButton(
+          key: const Key('transfer-code-confirm'),
           onPressed: _submit,
           child: Text(l10n.confirm),
         ),

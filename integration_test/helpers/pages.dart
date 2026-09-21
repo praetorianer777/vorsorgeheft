@@ -415,6 +415,42 @@ class SyncPage {
     await settle(tester);
   }
 
+  /// Sends and returns the code the dialog shows, which is what the person
+  /// would read out to the other parent. The file is written while the
+  /// dialog is up, so the wait is the same as [exportBundle]'s.
+  Future<String> sendToPhone(RecordingShareGateway share) async {
+    final before = share.shared.length;
+    await scrollTo(tester, find.byKey(const Key('send-to-phone')));
+    await tester.runAsync(() async {
+      await tester.tap(find.byKey(const Key('send-to-phone')));
+      for (var i = 0; i < 500 && share.shared.length == before; i++) {
+        await tester.pump(const Duration(milliseconds: 16));
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+      }
+    });
+    await settle(tester);
+    final code = tester.widget<Text>(find.byKey(const Key('transfer-code')));
+    await tester.tap(find.byKey(const Key('close-transfer-code')));
+    await settle(tester);
+    return code.data!;
+  }
+
+  Future<void> receiveFromPhone(
+    SyncFixture sync,
+    List<int> bytes, {
+    required String code,
+  }) async {
+    sync.picker.nextFile = bytes;
+    await scrollTo(tester, find.byKey(const Key('receive-from-phone')));
+    await tester.tap(find.byKey(const Key('receive-from-phone')));
+    await settle(tester);
+    await tester.enterText(find.byKey(const Key('transfer-code-input')), code);
+    await tester.tap(find.byKey(const Key('transfer-code-confirm')));
+    for (var i = 0; i < 4; i++) {
+      await settle(tester);
+    }
+  }
+
   Future<void> importBundle(
     SyncFixture sync,
     List<int> bytes, {

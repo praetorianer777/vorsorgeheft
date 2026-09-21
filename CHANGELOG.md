@@ -9,6 +9,11 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- "Send to the other phone" seals the family under a six-digit code, shows
+  the code and hands the file to the share sheet; "Receive from the other
+  phone" opens it with that code. The `.vorsorge` file type is registered
+  on Android and iOS so a received file opens the app. The password export
+  stays for backups that are kept.
 - The family can be given a name. It heads the start screen instead of
   "Family", reaches the other parent's phone with the next sync, and names the
   family's calendar export and the encrypted file.
