@@ -140,6 +140,63 @@ at night.
 | `android-e2e.yml` | nightly | integration tests on the emulator |
 | `catalog-watch.yml` | nightly | checks whether a guideline source has changed |
 
+## Releasing
+
+```bash
+./release.sh --dry-run   # what would be released, without writing anything
+./release.sh             # version, changelog, notes, release commit and tag
+git push origin main --follow-tags
+```
+
+`release.sh` derives the next version from the Conventional Commits since the last tag —
+`chore`, `docs`, `test`, `build`, `ci`, `refactor`, `style` and `perf` do not earn a release of
+their own — and prints its reasoning before it writes. It writes `pubspec.yaml` and
+`android/app/build.gradle.kts` in the same run so the two cannot disagree, folds the
+`[Unreleased]` section of `CHANGELOG.md` into the new release (falling back to the commit
+subjects when it is empty), and annotates the tag with the notes. A version and a changelog can
+also be given by hand: `./release.sh 0.2.0 "Short note"`.
+
+It builds no APK. `release.yml` does that from the tag, because an APK built here would never be
+byte-identical to the published one.
+
+### Signing
+
+The published APKs are signed with a keystore that lives only in the repository secrets:
+
+| Secret | What |
+|---|---|
+| `KEYSTORE_BASE64` | the keystore file, base64-encoded |
+| `KEYSTORE_PASSWORD` | its password, used for both the store and the key |
+| `KEY_ALIAS` | the alias of the key inside it |
+
+**Until all three exist, the APK is signed with the Android debug key and the release is
+published as a prerelease.** Such a build is fine for testing and must not be handed out as a
+finished release — an app signed with a different key cannot be installed over one signed with
+the real one.
+
+Generate the keystore once and keep it somewhere safe — losing it means no existing installation
+can ever be upgraded again:
+
+```bash
+keytool -genkey -v -keystore upload-keystore.jks -keyalg RSA -keysize 2048 \
+  -validity 10000 -alias upload
+base64 -w0 upload-keystore.jks | gh secret set KEYSTORE_BASE64
+gh secret set KEYSTORE_PASSWORD
+gh secret set KEY_ALIAS --body upload
+```
+
+For a signed build on your own machine, put the keystore next to `android/app/` and write
+`android/key.properties`:
+
+```properties
+storeFile=upload-keystore.jks
+storePassword=…
+keyAlias=upload
+keyPassword=…
+```
+
+Both are git-ignored. Without them a local release build falls back to the debug key.
+
 ## Contributing
 
 Every change hangs off an issue and a branch named `<type>/<issue>-<slug>`, and lands via pull

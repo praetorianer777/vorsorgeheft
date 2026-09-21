@@ -34,3 +34,8 @@ and the versioning [Semantic Versioning](https://semver.org/).
 ### Other
 
 - Set up the project scaffold, the test entry point and CI
+- Cut releases with `./release.sh`: the version is derived from the commits
+  since the last tag, written to `pubspec.yaml` and the Android config at once,
+  and the tag carries the notes CI publishes. The APKs are signed with the
+  keystore from the repository secrets, or debug-signed and marked a prerelease
+  while those secrets are missing.
