@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/data/catalog_repository.dart';
-import 'package:vorsorgereminder/data/database.dart';
-import 'package:vorsorgereminder/data/database_provider.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/export/ics_export_service.dart';
-import 'package:vorsorgereminder/export/schedule_export.dart';
+import 'package:vorsorgeheft/data/catalog_repository.dart';
+import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/data/database_provider.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/export/ics_export_service.dart';
+import 'package:vorsorgeheft/export/schedule_export.dart';
 
 import '../support/recording_share.dart';
 import '../support/synchronous_assets.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/sync/hlc.dart';
+import 'package:vorsorgeheft/sync/hlc.dart';
 
 void main() {
   DateTime at(int millis) => DateTime.fromMillisecondsSinceEpoch(millis);

@@ -1,4 +1,4 @@
-# <img src="assets/icon/icon.png" width="40" align="top" alt=""> Vorsorgereminder
+# <img src="assets/icon/icon.png" width="40" align="top" alt=""> Vorsorgeheft
 
 Preventive-care appointments in Germany come with fixed time windows — and for children's
 check-ups those windows are **hard deadlines**: a U6 caught up after the 14th month of life is no
@@ -6,7 +6,7 @@ longer covered and comes out of your own pocket. STIKO vaccinations depend on mi
 between doses, and from 35 onwards hardly anyone knows the intervals for the general check-up or
 skin-cancer screening.
 
-Vorsorgereminder keeps a profile per family member, derives the full preventive-care schedule from
+Vorsorgeheft keeps a profile per family member, derives the full preventive-care schedule from
 the date of birth, and reminds you in time.
 
 - 👨‍👩‍👧 **Per family member** — from newborn to grandparent
@@ -32,7 +32,7 @@ neither calendar export nor device-to-device sync, and ships bundled with sponso
 
 ## Installation
 
-Signed APKs will appear under [Releases](https://github.com/praetorianer777/vorsorgereminder/releases).
+Signed APKs will appear under [Releases](https://github.com/praetorianer777/vorsorgeheft/releases).
 iOS is built and tested, but not distributed yet.
 
 ## Catalogs and sources
@@ -167,7 +167,7 @@ test opens a system dialog nobody answers. On an Android device or emulator
 grant it once with
 
 ```bash
-adb shell pm grant de.vorsorgereminder.vorsorgereminder android.permission.POST_NOTIFICATIONS
+adb shell pm grant io.github.praetorianer777.vorsorgeheft android.permission.POST_NOTIFICATIONS
 ```
 
 after the app has been installed. On an iOS simulator the test asks for

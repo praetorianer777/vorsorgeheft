@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/domain/age_offset.dart';
-import 'package:vorsorgereminder/domain/localized_text.dart';
-import 'package:vorsorgereminder/domain/schedule.dart';
+import 'package:vorsorgeheft/domain/age_offset.dart';
+import 'package:vorsorgeheft/domain/localized_text.dart';
+import 'package:vorsorgeheft/domain/schedule.dart';
 
 import '../support/catalogs.dart';
 

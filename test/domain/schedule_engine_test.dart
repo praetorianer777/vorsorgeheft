@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/domain/catalog.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/domain/occurrence.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/domain/schedule_engine.dart';
+import 'package:vorsorgeheft/domain/catalog.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/occurrence.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/domain/schedule_engine.dart';
 
 const _sources = {
   'src': {

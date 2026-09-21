@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/support/support_prompt.dart';
+import 'package:vorsorgeheft/support/support_prompt.dart';
 
 void main() {
   test('nothing before the third recorded appointment', () {

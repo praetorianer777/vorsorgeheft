@@ -7,8 +7,8 @@ import '../notifications/reminder_sync.dart';
 import '../ui/family_screen.dart';
 import '../ui/sync_listener.dart';
 
-class VorsorgereminderApp extends ConsumerWidget {
-  const VorsorgereminderApp({super.key});
+class VorsorgeheftApp extends ConsumerWidget {
+  const VorsorgeheftApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => MaterialApp(

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/domain/age_offset.dart';
+import 'package:vorsorgeheft/domain/age_offset.dart';
 
 void main() {
   group('applyTo', () {

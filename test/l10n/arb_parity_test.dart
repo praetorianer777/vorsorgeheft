@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/domain/localized_text.dart';
+import 'package:vorsorgeheft/domain/localized_text.dart';
 
 /// A missing translation must fail the build rather than fall back silently at
 /// runtime, where nobody notices it until a user sees English in a German app.

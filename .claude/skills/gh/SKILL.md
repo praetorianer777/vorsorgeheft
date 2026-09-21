@@ -5,7 +5,7 @@ description: GitHub workflow for this repo — read before any code change. Crea
 
 # GitHub workflow
 
-Repo: `praetorianer777/vorsorgereminder` · default branch: `main`
+Repo: `praetorianer777/vorsorgeheft` · default branch: `main`
 
 ## Rules
 

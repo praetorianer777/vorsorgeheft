@@ -59,7 +59,7 @@ jobs:
           profile: pixel_5
           script: |
             adb install -t -r build/app/outputs/flutter-apk/app-debug.apk
-            adb shell pm grant de.vorsorgereminder.vorsorgereminder android.permission.POST_NOTIFICATIONS
+            adb shell pm grant io.github.praetorianer777.vorsorgeheft android.permission.POST_NOTIFICATIONS
             flutter test integration_test/
 
       - uses: actions/upload-artifact@v4

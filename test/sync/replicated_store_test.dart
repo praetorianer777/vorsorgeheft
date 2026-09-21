@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/data/database.dart';
-import 'package:vorsorgereminder/data/database_provider.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/sync/hlc.dart';
-import 'package:vorsorgereminder/sync/overwrite_notice.dart';
-import 'package:vorsorgereminder/sync/replicated_store.dart';
+import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/data/database_provider.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/sync/hlc.dart';
+import 'package:vorsorgeheft/sync/overwrite_notice.dart';
+import 'package:vorsorgeheft/sync/replicated_store.dart';
 
 /// A device: its own database, its own node id, its own clock.
 class Replica {

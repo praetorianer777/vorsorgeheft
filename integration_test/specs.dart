@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/notifications/reminder.dart';
-import 'package:vorsorgereminder/sync/sync_transport.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/notifications/reminder.dart';
+import 'package:vorsorgeheft/sync/sync_transport.dart';
 
 import '../test/support/recording_gateway.dart';
 import '../test/support/recording_share.dart';

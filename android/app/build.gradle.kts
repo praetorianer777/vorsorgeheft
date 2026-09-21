@@ -14,7 +14,7 @@ val keystoreProperties = Properties().apply {
 }
 
 android {
-    namespace = "de.vorsorgereminder.vorsorgereminder"
+    namespace = "io.github.praetorianer777.vorsorgeheft"
     // permission_handler's Android side is built against API 37 and refuses
     // to be compiled into an app targeting less, whatever Flutter's default is.
     compileSdk = 37
@@ -29,7 +29,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "de.vorsorgereminder.vorsorgereminder"
+        applicationId = "io.github.praetorianer777.vorsorgeheft"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         // Written by release.sh in the same run as pubspec.yaml, so the two

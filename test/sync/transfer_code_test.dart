@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/sync/transfer_code.dart';
+import 'package:vorsorgeheft/sync/transfer_code.dart';
 
 void main() {
   test('a code is six digits', () {

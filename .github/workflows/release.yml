@@ -77,10 +77,10 @@ jobs:
         run: |
           mkdir -p artifacts
           for f in build/app/outputs/flutter-apk/*-release.apk; do
-            cp "$f" "artifacts/vorsorgereminder-${GITHUB_REF_NAME}-$(basename "$f" | sed 's/app-//;s/-release\.apk//').apk"
+            cp "$f" "artifacts/vorsorgeheft-${GITHUB_REF_NAME}-$(basename "$f" | sed 's/app-//;s/-release\.apk//').apk"
           done
           cp build/app/outputs/bundle/release/app-release.aab \
-            "artifacts/vorsorgereminder-${GITHUB_REF_NAME}.aab"
+            "artifacts/vorsorgeheft-${GITHUB_REF_NAME}.aab"
           {
             echo "| Datei | SHA256 |"
             echo "|---|---|"

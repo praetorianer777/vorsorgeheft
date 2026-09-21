@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/l10n/app_localizations.dart';
-import 'package:vorsorgereminder/ui/date_input.dart';
+import 'package:vorsorgeheft/l10n/app_localizations.dart';
+import 'package:vorsorgeheft/ui/date_input.dart';
 
 TextEditingValue _type(
   DateSeparatorFormatter formatter,

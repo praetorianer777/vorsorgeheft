@@ -1,13 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/data/catalog_repository.dart';
-import 'package:vorsorgereminder/data/database.dart';
-import 'package:vorsorgereminder/data/database_provider.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/notifications/reminder.dart';
-import 'package:vorsorgereminder/notifications/reminder_service.dart';
-import 'package:vorsorgereminder/sync/replicated_store.dart';
+import 'package:vorsorgeheft/data/catalog_repository.dart';
+import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/data/database_provider.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/notifications/reminder.dart';
+import 'package:vorsorgeheft/notifications/reminder_service.dart';
+import 'package:vorsorgeheft/sync/replicated_store.dart';
 
 import '../support/synchronous_assets.dart';
 import '../support/recording_gateway.dart';

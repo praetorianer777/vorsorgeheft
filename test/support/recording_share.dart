@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:vorsorgereminder/export/share_gateway.dart';
+import 'package:vorsorgeheft/export/share_gateway.dart';
 
 /// A share sheet that keeps the file instead of handing it to a chooser.
 ///

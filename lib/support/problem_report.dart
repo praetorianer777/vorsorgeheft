@@ -1,7 +1,7 @@
 /// Where a problem report is filed. The settings tile opens this page with the
 /// title and body prefilled; GitHub shows the form, the person edits and sends.
 const problemReportBaseUrl =
-    'https://github.com/praetorianer777/vorsorgereminder/issues/new';
+    'https://github.com/praetorianer777/vorsorgeheft/issues/new';
 
 /// The line the person is meant to replace with what went wrong.
 const problemReportPlaceholder = '<describe what happened here>';

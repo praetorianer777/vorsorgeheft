@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/app/providers.dart';
-import 'package:vorsorgereminder/data/database.dart';
-import 'package:vorsorgereminder/data/database_provider.dart';
-import 'package:vorsorgereminder/l10n/locale_notifier.dart';
+import 'package:vorsorgeheft/app/providers.dart';
+import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/data/database_provider.dart';
+import 'package:vorsorgeheft/l10n/locale_notifier.dart';
 
 /// The override is restored asynchronously, because reading it is a database
 /// query. A fresh container therefore starts on the system language and

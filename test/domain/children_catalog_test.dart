@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/domain/catalog.dart';
-import 'package:vorsorgereminder/domain/completion.dart';
-import 'package:vorsorgereminder/domain/localized_text.dart';
-import 'package:vorsorgereminder/domain/occurrence.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/domain/schedule.dart';
-import 'package:vorsorgereminder/domain/schedule_engine.dart';
+import 'package:vorsorgeheft/domain/catalog.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/localized_text.dart';
+import 'package:vorsorgeheft/domain/occurrence.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/domain/schedule.dart';
+import 'package:vorsorgeheft/domain/schedule_engine.dart';
 
 void main() {
   final catalog = Catalog.parse(

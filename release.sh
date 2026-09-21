@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Vorsorgereminder release script
+# Vorsorgeheft release script
 # Usage: ./release.sh [version] [changelog] [--dry-run]
 #   ./release.sh                        version inferred from the commit history
 #   ./release.sh 0.2.0                  version given by hand, notes generated
@@ -350,9 +350,9 @@ PY
 )
 
 if (( DRY_RUN )); then
-    echo "🔍 Dry run — Vorsorgereminder ${TAG}"
+    echo "🔍 Dry run — Vorsorgeheft ${TAG}"
 else
-    echo "📦 Releasing Vorsorgereminder ${TAG}"
+    echo "📦 Releasing Vorsorgeheft ${TAG}"
 fi
 echo "   Version:   ${VERSION}+${BUILD} ($( (( INFERRED )) && echo "inferred from the commit history" || echo "given on the command line"))"
 echo "   Notes:     ${NOTES_FILE} (${NOTES_SOURCE})"

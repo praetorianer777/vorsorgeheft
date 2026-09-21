@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Vorsorgereminder</string>
+	<string>Vorsorgeheft</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>vorsorgereminder</string>
+	<string>vorsorgeheft</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -59,7 +59,7 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>Vorsorgereminder data</string>
+			<string>Vorsorgeheft data</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
@@ -76,7 +76,7 @@
 			<key>UTTypeIdentifier</key>
 			<string>de.vorsorgereminder.bundle</string>
 			<key>UTTypeDescription</key>
-			<string>Vorsorgereminder data</string>
+			<string>Vorsorgeheft data</string>
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.data</string>

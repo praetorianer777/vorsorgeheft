@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:vorsorgereminder/domain/catalog.dart';
-import 'package:vorsorgereminder/domain/person.dart';
-import 'package:vorsorgereminder/domain/schedule_engine.dart';
-import 'package:vorsorgereminder/export/schedule_export.dart';
+import 'package:vorsorgeheft/domain/catalog.dart';
+import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/domain/schedule_engine.dart';
+import 'package:vorsorgeheft/export/schedule_export.dart';
 
 /// Rewrites the golden calendar the export test compares against.
 ///

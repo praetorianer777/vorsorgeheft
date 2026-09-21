@@ -1,8 +1,8 @@
 import 'package:drift_dev/api/migrations_native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/data/database.dart';
-import 'package:vorsorgereminder/sync/hlc.dart';
-import 'package:vorsorgereminder/sync/replicated_store.dart';
+import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/sync/hlc.dart';
+import 'package:vorsorgeheft/sync/replicated_store.dart';
 
 import 'generated/schema.dart';
 import 'generated/schema_v2.dart' as v2;

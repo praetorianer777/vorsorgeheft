@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vorsorgereminder/sync/change.dart';
-import 'package:vorsorgereminder/sync/hlc.dart';
+import 'package:vorsorgeheft/sync/change.dart';
+import 'package:vorsorgeheft/sync/hlc.dart';
 
 Change change(
   String field,

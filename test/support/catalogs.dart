@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:vorsorgereminder/data/catalog_repository.dart';
-import 'package:vorsorgereminder/domain/catalog.dart';
+import 'package:vorsorgeheft/data/catalog_repository.dart';
+import 'package:vorsorgeheft/domain/catalog.dart';
 
 /// The catalogs that actually ship, read from disk.
 ///
