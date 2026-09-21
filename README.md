@@ -92,7 +92,9 @@ the phone whose entry was replaced says so on its family screen until dismissed.
 ## Privacy
 
 The app stores data locally only, needs no network access beyond the LAN sync, and sends no
-telemetry. There is no account and no operator who could see anything.
+telemetry. There is no account and no operator who could see anything. "Report a problem" in
+settings only opens a GitHub issue form prefilled with the app version and OS, which the person
+reads and sends themselves.
 
 ## Trying it out
 

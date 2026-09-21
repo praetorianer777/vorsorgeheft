@@ -9,6 +9,9 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- A "Report a problem" tile in settings opens a GitHub issue prefilled with
+  app version, OS and language. Nothing leaves the phone until the person
+  sends it.
 - When both phones recorded the same appointment, the later entry wins as
   before, but the phone whose entry was replaced now says so on its family
   screen until dismissed, naming the appointment, both dates and the device.

@@ -321,6 +321,7 @@ void registerAppSpecs() {
     final db = await launchApp(tester, people: [Family.infant], locale: null);
     final settings = await FamilyPage(tester).openSettings();
     expect(settings.title, findsOneWidget);
+    await settings.scrollToVersion();
     expect(settings.version, findsOneWidget);
 
     await settings.chooseGerman();
@@ -389,6 +390,18 @@ void registerAppSpecs() {
     // The link itself stays where it can always be found.
     final settings = await family.openSettings();
     expect(settings.supportLink, findsOneWidget);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('a problem can be reported from settings', (tester) async {
+    // url_launcher opens nothing under test, so the spec stops at the tile;
+    // what the tile opens is pinned down by test/support/problem_report_test.
+    final db = await launchApp(tester, people: [Family.infant]);
+    final settings = await FamilyPage(tester).openSettings();
+    await settings.scrollToReportProblem();
+    expect(settings.reportProblem, findsOneWidget);
+    expect(find.text('Report a problem'), findsOneWidget);
 
     await shutDown(tester, db);
   });
