@@ -43,6 +43,7 @@ Future<void> exportSchedule(
         source: l10n.sourceLabel,
         notStatutory: l10n.notStatutory,
         deadline: l10n.exportDeadlineLine,
+        dose: l10n.doseOf,
       ),
     );
     await service.shareExport(file, subject: name);

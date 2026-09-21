@@ -7,6 +7,19 @@ import '../l10n/app_localizations.dart';
 String formatDate(BuildContext context, DateTime date) =>
     DateFormat.yMMMd(Localizations.localeOf(context).toString()).format(date);
 
+/// The rule title, with the dose spelled out for a vaccination series.
+String occurrenceTitle(
+  AppLocalizations l10n,
+  String locale,
+  Occurrence occurrence,
+) {
+  final title = occurrence.rule.title(locale);
+  final number = occurrence.doseNumber;
+  final total = occurrence.doseCount;
+  if (number == null || total == null || total < 2) return title;
+  return l10n.doseOf(title, number, total);
+}
+
 String formatRange(BuildContext context, DateTime start, DateTime? end) {
   if (end == null || end == start) return formatDate(context, start);
   return '${formatDate(context, start)} – ${formatDate(context, end)}';

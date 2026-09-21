@@ -36,7 +36,7 @@ class OccurrenceDetailScreen extends ConsumerWidget {
     final scheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: Text(rule.title(locale))),
+      appBar: AppBar(title: Text(occurrenceTitle(l10n, locale, occurrence))),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

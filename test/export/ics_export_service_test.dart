@@ -18,6 +18,7 @@ final _texts = IcsTexts(
   source: (name, asOf) => 'Source: $name',
   notStatutory: 'Depends on your insurer',
   deadline: (date) => 'Catch up by $date',
+  dose: (title, number, total) => '$title · dose $number of $total',
 );
 
 void main() {

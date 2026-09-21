@@ -41,6 +41,7 @@ void main() {
       deadline: (date) =>
           'Catch up by ${date.toIso8601String().substring(0, 10)}; after that '
           'the entitlement lapses.',
+      dose: (title, number, total) => '$title · dose $number of $total',
     ),
   );
 

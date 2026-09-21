@@ -873,8 +873,13 @@ void registerAppSpecs() {
     await sync.syncNow('mum');
     await sync.back();
     timeline = await FamilyPage(tester).open('Sara');
-    await timeline.scrollToAppointment('TBE vaccination (risk areas)');
-    expect(find.text('TBE vaccination (risk areas)'), findsWidgets);
+    await timeline.scrollToAppointment(
+      'TBE vaccination (risk areas) · dose 1 of 3',
+    );
+    expect(
+      find.text('TBE vaccination (risk areas) · dose 1 of 3'),
+      findsOneWidget,
+    );
     expect((await dadsDb.personById('mother'))!.optionalRules, {'tbe'});
 
     await shutDown(tester, dadsDb);
