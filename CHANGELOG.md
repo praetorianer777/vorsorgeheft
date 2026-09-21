@@ -9,6 +9,11 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- An icon of its own, a calendar leaf with a check mark in the app's green,
+  on Android (adaptive) and iOS, in place of the Flutter default.
+
+### Features
+
 - A "How this app works" screen in settings explains, in plain words, where
   the appointments come from with the source documents linked, how the dates
   are worked out from the date of birth, what each status symbol means, when
