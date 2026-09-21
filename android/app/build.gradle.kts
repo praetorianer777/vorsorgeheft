@@ -35,8 +35,8 @@ android {
         // Written by release.sh in the same run as pubspec.yaml, so the two
         // cannot disagree about what a tag contains. When using split APKs,
         // 1000 * ABI_VERSION is added on top of this by Flutter.
-        versionCode = 2
-        versionName = "0.2.0"
+        versionCode = 3
+        versionName = "0.2.1"
     }
 
     signingConfigs {
