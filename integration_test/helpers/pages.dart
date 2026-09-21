@@ -31,6 +31,13 @@ class FamilyPage {
   Future<void> exportCalendar(RecordingShareGateway share) =>
       tapExport(tester, share);
 
+  Finder get supportPrompt => find.byKey(const Key('support-prompt'));
+
+  Future<void> dismissSupportPrompt() async {
+    await tester.tap(find.byKey(const Key('support-prompt-dismiss')));
+    await settle(tester);
+  }
+
   Future<SettingsPage> openSettings() async {
     await tester.tap(find.byKey(const Key('open-settings')));
     await settle(tester);
@@ -155,6 +162,8 @@ class SettingsPage {
     await tester.tap(find.byKey(Key(key)));
     await settle(tester);
   }
+
+  Finder get supportLink => find.byKey(const Key('support-link'));
 
   Future<SourcesPage> openSources() async {
     await tester.tap(find.byKey(const Key('open-sources')));

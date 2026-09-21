@@ -238,8 +238,8 @@
     }
   },
   "exportCalendar": "Export as calendar file",
-  "exportCalendarFamily": "Preventive care \u2013 family",
-  "exportCalendarPerson": "Preventive care \u2013 {name}",
+  "exportCalendarFamily": "Preventive care – family",
+  "exportCalendarPerson": "Preventive care – {name}",
   "@exportCalendarPerson": {
     "placeholders": {
       "name": {
@@ -259,5 +259,17 @@
   "exportFailed": "The calendar file could not be created.",
   "notificationsTitle": "Reminders",
   "notificationsDenied": "Notifications are switched off for this app. Turn them on in the system settings to be reminded.",
-  "notificationsEnable": "Allow notifications"
+  "notificationsEnable": "Allow notifications",
+  "supportPromptBody": "This app has reminded you about {count} appointments. It costs nothing and collects nothing. If you like, support its development.",
+  "@supportPromptBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "supportPromptOpen": "Support",
+  "supportPromptDismiss": "No thanks",
+  "supportLink": "Support the development",
+  "supportLinkHint": "Opens the sponsor page on GitHub"
 }

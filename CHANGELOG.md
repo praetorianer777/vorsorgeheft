@@ -9,6 +9,8 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- A one-time support prompt after the third recorded appointment, dismissible
+  for good, plus a permanent link to the sponsor page in settings.
 - Reminders before an appointment's window opens, and escalating warnings
   before an entitlement lapses. In German and English, at nine in the morning
   local time.

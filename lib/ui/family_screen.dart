@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app/providers.dart';
 import '../domain/person.dart';
 import '../l10n/app_localizations.dart';
 import '../notifications/permission_state.dart';
+import '../support/support_prompt.dart';
+import '../support/support_prompt_notifier.dart';
 import 'export_action.dart';
 import 'formatting.dart';
 import 'person_form_screen.dart';
@@ -62,6 +65,32 @@ class FamilyScreen extends ConsumerWidget {
                 TextButton(
                   onPressed: () => openAppSettings(),
                   child: Text(l10n.notificationsEnable),
+                ),
+              ],
+            ),
+          if (ref.watch(supportPromptDueProvider))
+            MaterialBanner(
+              key: const Key('support-prompt'),
+              content: Text(l10n.supportPromptBody(supportPromptThreshold)),
+              leading: const Icon(Icons.favorite_outline),
+              actions: [
+                TextButton(
+                  key: const Key('support-prompt-dismiss'),
+                  onPressed: () => ref
+                      .read(supportPromptDismissedProvider.notifier)
+                      .dismiss(),
+                  child: Text(l10n.supportPromptDismiss),
+                ),
+                FilledButton.tonal(
+                  key: const Key('support-prompt-open'),
+                  onPressed: () {
+                    ref.read(supportPromptDismissedProvider.notifier).dismiss();
+                    launchUrl(
+                      Uri.parse(supportUrl),
+                      mode: LaunchMode.externalApplication,
+                    );
+                  },
+                  child: Text(l10n.supportPromptOpen),
                 ),
               ],
             ),
