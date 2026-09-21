@@ -27,8 +27,9 @@ REPO="${W}/repo"
 build_pristine() { # target tagged
     local dir="$1" tagged="$2"
     rm -rf "${dir}"
-    mkdir -p "${dir}/android/app"
+    mkdir -p "${dir}/android/app" "${dir}/lib/app"
     cp "${SRC}/release.sh" "${dir}/release.sh"
+    printf "const appVersion = '0.1.0';\n" > "${dir}/lib/app/version.dart"
     printf 'name: vorsorgereminder\nversion: 0.1.0+1\n' > "${dir}/pubspec.yaml"
     cat > "${dir}/android/app/build.gradle.kts" <<'EOF'
 android {
@@ -196,6 +197,8 @@ expect_release && {
         "$(gradle_value versionName)" '"0.2.0"'
     check "the Gradle version code mirrors the build number" \
         "$(gradle_value versionCode)" "2"
+    check "the version constant the settings screen prints follows" \
+        "$(sed -n "s/^const appVersion = '\(.*\)';/\1/p" "${REPO}/lib/app/version.dart")" "0.2.0"
 
     NOTES="${REPO}/release-notes-v0.2.0.md"
     if [[ -f "${NOTES}" ]]; then
@@ -248,7 +251,7 @@ EOF
         "$(git -C "${REPO}" log -1 --format=%s)" "release: v0.2.0"
     check "only the release files are committed" \
         "$(git -C "${REPO}" show --name-only --format= HEAD | LC_ALL=C sort | tr '\n' ' ')" \
-        "CHANGELOG.md android/app/build.gradle.kts pubspec.yaml "
+        "CHANGELOG.md android/app/build.gradle.kts lib/app/version.dart pubspec.yaml "
     check "the working tree is left clean" "$(tree_state)" ""
 
     # release-notes-*.md is git-ignored, so a release built from the tag (CI)

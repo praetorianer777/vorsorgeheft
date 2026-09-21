@@ -7,6 +7,11 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Bug fixes
+
+- The version shown in settings follows a release again: v0.2.0 still said
+  0.1.0 because the release script did not rewrite that constant.
+
 ## [0.2.0] - 2026-09-21
 
 ### Features
