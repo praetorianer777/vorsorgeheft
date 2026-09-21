@@ -200,6 +200,7 @@ class TimelinePage {
   Finder get needsAttention => find.text('Needs attention');
   Finder appointmentDates(String fragment) => find.textContaining(fragment);
   Finder get comingUp => find.text('Coming up');
+  Finder get farAhead => find.text('Further ahead');
   Finder get settled => find.text('Done and skipped');
   Finder get noLongerAvailable => find.text('No longer available');
   Finder get germanNeedsAttention => find.text('Jetzt dran');

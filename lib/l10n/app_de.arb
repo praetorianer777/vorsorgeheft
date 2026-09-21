@@ -35,6 +35,7 @@
   "statusSkipped": "Ausgelassen",
   "sectionNeedsAttention": "Jetzt dran",
   "sectionComingUp": "Demnächst",
+  "sectionFarAhead": "In ferner Zukunft",
   "sectionSettled": "Erledigt und ausgelassen",
   "sectionExpired": "Nicht mehr möglich",
   "notStatutory": "Kassenabhängig",
