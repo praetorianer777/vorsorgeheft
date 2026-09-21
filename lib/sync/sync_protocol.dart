@@ -146,8 +146,15 @@ class SyncEngine {
 
   /// The code to show the other phone. Showing it opens the window in which
   /// a device that scanned it may connect and pair.
-  Future<PairingPayload> pairingPayload() async {
+  ///
+  /// [defaultName] becomes this device's name if none was chosen yet; the
+  /// screen passes a localised one, since the name is what the other parent
+  /// sees.
+  Future<PairingPayload> pairingPayload({String? defaultName}) async {
     final identity = await _identityOrGenerate();
+    if (defaultName != null && await _registry.deviceName() == null) {
+      await _registry.putDeviceName(defaultName);
+    }
     _pairingUntil = _clock().add(pairingWindow);
     return PairingPayload(
       nodeId: nodeId,
@@ -325,8 +332,9 @@ class SyncEngine {
   Future<DeviceIdentity> _identityOrGenerate() async {
     if (_identity != null) return _identity!;
     final stored = await _registry.privateKey();
-    if (stored != null)
+    if (stored != null) {
       return _identity = await DeviceIdentity.fromPrivateKey(stored);
+    }
     final generated = await DeviceIdentity.generate();
     await _registry.putPrivateKey(generated.privateKey);
     return _identity = generated;

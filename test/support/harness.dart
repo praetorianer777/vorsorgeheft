@@ -13,7 +13,10 @@ import 'package:vorsorgereminder/sync/replicated_store.dart';
 import 'package:vorsorgereminder/domain/person.dart';
 import 'package:vorsorgereminder/export/ics_export_service.dart';
 import 'package:vorsorgereminder/l10n/locale_notifier.dart';
+import 'package:vorsorgereminder/sync/bundle_service.dart';
+import 'package:vorsorgereminder/sync/sync_transport.dart';
 
+import 'fake_sync.dart';
 import 'recording_gateway.dart';
 import 'recording_share.dart';
 import 'synchronous_assets.dart';
@@ -101,6 +104,20 @@ void appTest(
             ),
           ),
           localeProvider.overrideWith(() => _FixedLocale(locale)),
+          // No sockets, no camera and no file chooser under a widget test.
+          syncTransportProvider.overrideWith(
+            (ref) => LoopbackTransport(LoopbackNetwork()),
+          ),
+          qrScannerProvider.overrideWithValue(FakeQrScanner()),
+          bundlePickerProvider.overrideWithValue(FakeBundlePicker()),
+          bundleServiceProvider.overrideWith(
+            (ref) => BundleService(
+              store: store,
+              share: activeShare,
+              picker: FakeBundlePicker(),
+              directory: () async => exportDirectory,
+            ),
+          ),
         ],
         child: const VorsorgereminderApp(),
       ),

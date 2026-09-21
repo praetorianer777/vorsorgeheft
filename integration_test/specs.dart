@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgereminder/domain/completion.dart';
 import 'package:vorsorgereminder/notifications/reminder.dart';
+import 'package:vorsorgereminder/sync/sync_transport.dart';
 
 import '../test/support/recording_gateway.dart';
 import '../test/support/recording_share.dart';
@@ -407,4 +408,122 @@ void registerAppSpecs() {
 
     await shutDown(tester, db);
   });
+
+  testWidgets('two phones pair over a code and end up with the same family', (
+    tester,
+  ) async {
+    // One tester shows one app at a time, so the two phones take turns on
+    // screen while both stay on the same wire.
+    final wire = LoopbackNetwork();
+    final mum = SyncFixture(network: wire);
+    final dad = SyncFixture(network: wire);
+
+    final mumsDb = await launchApp(
+      tester,
+      people: [Family.infant],
+      sync: mum,
+      nodeId: 'mum',
+    );
+    var sync = await FamilyPage(tester).openSync();
+    expect(sync.title, findsOneWidget);
+    expect(sync.noDevices, findsOneWidget);
+    final code = await sync.showMyCode(deviceName: "Mum's phone");
+    await detach(tester);
+    await mum.stayReachable();
+
+    final dadsDb = await launchApp(
+      tester,
+      people: [Family.schoolAge],
+      sync: dad,
+      nodeId: 'dad',
+    );
+    sync = await FamilyPage(tester).openSync();
+    await sync.scanCode(dad, 'https://example.com/not-a-code');
+    expect(sync.invalidCode, findsOneWidget);
+    await sync.scanCode(dad, code);
+    expect(sync.pairedWith("Mum's phone"), findsOneWidget);
+    expect(sync.neverSynced, findsOneWidget);
+
+    await sync.syncNow('mum');
+    expect(sync.synced(received: 4, sent: 4), findsOneWidget);
+    expect(sync.lastSynced, findsOneWidget);
+
+    await sync.syncNow('mum');
+    expect(sync.nothingNew, findsOneWidget);
+
+    await sync.back();
+    expect(FamilyPage(tester).personNamed('Mila'), findsOneWidget);
+    expect(FamilyPage(tester).personNamed('Jonas'), findsOneWidget);
+    await detach(tester);
+
+    await launchApp(tester, sync: mum, nodeId: 'mum', database: mumsDb);
+    expect(FamilyPage(tester).personNamed('Mila'), findsOneWidget);
+    expect(FamilyPage(tester).personNamed('Jonas'), findsOneWidget);
+    sync = await FamilyPage(tester).openSync();
+    expect(sync.deviceNamed('Phone'), findsOneWidget);
+    expect(sync.lastSynced, findsOneWidget);
+
+    await shutDown(tester, mumsDb);
+    await dadsDb.close();
+  });
+
+  testWidgets('a phone that cannot be found can be given an address', (
+    tester,
+  ) async {
+    final wire = LoopbackNetwork();
+    final mum = SyncFixture(network: wire);
+    final dad = SyncFixture(network: wire);
+
+    final mumsDb = await launchApp(tester, sync: mum, nodeId: 'mum');
+    final code = await (await FamilyPage(tester).openSync()).showMyCode();
+    // Mum's phone goes off the network without coming back.
+    await detach(tester);
+
+    final dadsDb = await launchApp(tester, sync: dad, nodeId: 'dad');
+    final sync = await FamilyPage(tester).openSync();
+    await sync.scanCode(dad, code);
+    await sync.syncNow('mum');
+
+    expect(sync.addressPrompt, findsOneWidget);
+    await sync.enterAddress('192.168.1.20:4321');
+    expect(sync.unreachable('My phone'), findsOneWidget);
+
+    await shutDown(tester, dadsDb);
+    await mumsDb.close();
+  });
+
+  testWidgets(
+    'an encrypted file carries the family to a phone on another network',
+    (tester) async {
+      final share = RecordingShareGateway();
+      final mum = SyncFixture();
+      final mumsDb = await launchApp(
+        tester,
+        people: [Family.infant],
+        share: share,
+        sync: mum,
+        nodeId: 'mum',
+      );
+      var sync = await (await FamilyPage(tester).openSettings()).openSync();
+      await sync.exportBundle(share, password: 'correct horse');
+      final file = share.lastFile.readAsBytesSync();
+      expect(share.lastFile.path, endsWith('.vorsorge'));
+      expect(String.fromCharCodes(file), isNot(contains('Mila')));
+      await shutDown(tester, mumsDb);
+
+      final dad = SyncFixture();
+      final dadsDb = await launchApp(tester, sync: dad, nodeId: 'dad');
+      sync = await FamilyPage(tester).openSync();
+      await sync.importBundle(dad, file, password: 'battery staple');
+      expect(sync.wrongPassword, findsOneWidget);
+      expect(FamilyPage(tester).personNamed('Mila'), findsNothing);
+
+      await sync.importBundle(dad, file, password: 'correct horse');
+      expect(sync.imported(4), findsOneWidget);
+      await sync.back();
+      expect(FamilyPage(tester).personNamed('Mila'), findsOneWidget);
+
+      await shutDown(tester, dadsDb);
+    },
+  );
 }

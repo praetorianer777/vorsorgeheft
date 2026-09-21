@@ -47,6 +47,14 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Scans the pairing code shown on the other parent's phone.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Finds the other parent's phone on your home network to sync appointments directly, without a server.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_vorsorgereminder._tcp</string>
+	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

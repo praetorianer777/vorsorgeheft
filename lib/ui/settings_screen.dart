@@ -7,6 +7,7 @@ import '../l10n/app_localizations.dart';
 import '../l10n/locale_notifier.dart';
 import '../support/support_prompt.dart';
 import 'sources_screen.dart';
+import 'sync_screen.dart';
 
 /// What belongs to this device rather than to the family.
 ///
@@ -59,6 +60,15 @@ class SettingsScreen extends ConsumerWidget {
             ),
           ),
           const Divider(),
+          ListTile(
+            key: const Key('settings-open-sync'),
+            leading: const Icon(Icons.sync),
+            title: Text(l10n.syncTitle),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(
+              context,
+            ).push(MaterialPageRoute<void>(builder: (_) => const SyncScreen())),
+          ),
           ListTile(
             key: const Key('open-sources'),
             leading: const Icon(Icons.info_outline),

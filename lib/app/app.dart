@@ -5,6 +5,7 @@ import '../l10n/app_localizations.dart';
 import '../l10n/locale_notifier.dart';
 import '../notifications/reminder_sync.dart';
 import '../ui/family_screen.dart';
+import '../ui/sync_listener.dart';
 
 class VorsorgereminderApp extends ConsumerWidget {
   const VorsorgereminderApp({super.key});
@@ -20,6 +21,6 @@ class VorsorgereminderApp extends ConsumerWidget {
       colorSchemeSeed: const Color(0xFF2E7D6F),
       brightness: Brightness.dark,
     ),
-    home: const ReminderSync(child: FamilyScreen()),
+    home: const ReminderSync(child: SyncListener(child: FamilyScreen())),
   );
 }

@@ -11,6 +11,18 @@
          where the user has already allowed them. -->
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
+    <!-- Pairing scans the other phone's QR code. The camera is used on that
+         one screen only, and the app works without it: pairing can still be
+         completed through the exported file. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <!-- The sync talks to the other phone over a plain socket on the local
+         network; INTERNET is what Android requires for any socket. Multicast
+         is what mDNS discovery rides on. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+
     <application
         android:label="vorsorgereminder"
         android:name="${applicationName}"
