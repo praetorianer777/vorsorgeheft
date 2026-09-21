@@ -302,6 +302,19 @@
   },
   "exportFailed": "The calendar file could not be created.",
   "notificationsTitle": "Reminders",
+  "remindersEnabled": "Remind me",
+  "remindersEnabledHint": "Off means no notifications from this app on this phone. The calendar export keeps its reminders.",
+  "remindersTime": "Time of day",
+  "remindersBeforeWindow": "Before an appointment's window opens",
+  "remindersBeforeDeadline": "Before an entitlement lapses",
+  "reminderLeadDays": "{days, plural, =1{1 day ahead} other{{days} days ahead}}",
+  "@reminderLeadDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
   "notificationsDenied": "Notifications are switched off for this app. Turn them on in the system settings to be reminded.",
   "notificationsEnable": "Allow notifications",
   "confirm": "OK",

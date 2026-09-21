@@ -88,9 +88,16 @@ void main() {
     await _back(tester);
     await tester.tap(find.byKey(const Key('open-settings')));
     await _shot(tester, '05-settings');
+    await tester.scrollUntilVisible(find.byKey(const Key('open-sources')), 300);
+    await settle(tester);
     await tester.tap(find.byKey(const Key('open-sources')));
     await _shot(tester, '06-sources');
     await _back(tester);
+    await tester.scrollUntilVisible(
+      find.byKey(const Key('open-how-it-works')),
+      300,
+    );
+    await settle(tester);
     await tester.tap(find.byKey(const Key('open-how-it-works')));
     await _shot(tester, '11-how-it-works');
   });
