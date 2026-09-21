@@ -181,7 +181,7 @@ at night.
 | Workflow | When | What |
 |---|---|---|
 | `ci.yml` | PR, push to `main`, nightly | runs nothing but `run-tests.sh` |
-| `release.yml` | tag `v*` | builds and signs the APKs and publishes them idempotently as a release |
+| `release.yml` | tag `v*` | builds and signs the APKs and the Play Store app bundle and publishes them idempotently as a release |
 | `ios-build.yml` | nightly | `flutter build ios --no-codesign` — keeps iOS compiling |
 | `android-e2e.yml` | nightly | integration tests on the emulator |
 | `ios-e2e.yml` | nightly | the same integration tests on an iOS simulator |

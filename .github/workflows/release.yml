@@ -1,4 +1,4 @@
-# Builds and publishes the APK for a v* tag. Every step is written to survive a
+# Builds and publishes the APKs and the app bundle for a v* tag. Every step is written to survive a
 # re-run of the same tag, because a release that fails halfway must be fixable
 # by pressing the button again rather than by deleting and re-cutting the tag.
 name: Release
@@ -68,6 +68,10 @@ jobs:
 
       - run: flutter build apk --release --split-per-abi
 
+      # The Play Store takes only an app bundle; it is signed with the same
+      # upload key, Play App Signing re-signs it for distribution.
+      - run: flutter build appbundle --release
+
       - name: Collect artifacts and checksums
         id: collect
         run: |
@@ -75,10 +79,12 @@ jobs:
           for f in build/app/outputs/flutter-apk/*-release.apk; do
             cp "$f" "artifacts/vorsorgereminder-${GITHUB_REF_NAME}-$(basename "$f" | sed 's/app-//;s/-release\.apk//').apk"
           done
+          cp build/app/outputs/bundle/release/app-release.aab \
+            "artifacts/vorsorgereminder-${GITHUB_REF_NAME}.aab"
           {
             echo "| Datei | SHA256 |"
             echo "|---|---|"
-            for f in artifacts/*.apk; do
+            for f in artifacts/*.apk artifacts/*.aab; do
               echo "| $(basename "$f") | \`$(sha256sum "$f" | cut -d' ' -f1)\` |"
             done
           } | tee -a "$GITHUB_STEP_SUMMARY" > artifacts/SHA256SUMS.md
@@ -99,4 +105,4 @@ jobs:
         run: |
           gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 \
             || gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file notes.md $PRERELEASE
-          gh release upload "$GITHUB_REF_NAME" artifacts/*.apk --clobber
+          gh release upload "$GITHUB_REF_NAME" artifacts/*.apk artifacts/*.aab --clobber
