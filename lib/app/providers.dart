@@ -13,6 +13,7 @@ import '../export/share_gateway.dart';
 import '../l10n/locale_notifier.dart';
 import '../notifications/local_notification_gateway.dart';
 import '../notifications/notification_gateway.dart';
+import '../notifications/reminder_preferences_notifier.dart';
 import '../notifications/reminder_service.dart';
 import '../sync/bundle_service.dart';
 import '../sync/device_info.dart';
@@ -50,6 +51,7 @@ final reminderServiceProvider = Provider<ReminderService>(
         ref.read(localeProvider) ??
         WidgetsBinding.instance.platformDispatcher.locale,
     clock: () => ref.watch(clockProvider)().toLocal(),
+    settings: () => ref.read(reminderPreferencesProvider).toSettings(),
   ),
 );
 

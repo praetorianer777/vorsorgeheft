@@ -146,6 +146,8 @@ void main() {
   ) async {
     await tester.tap(find.byKey(const Key('open-settings')));
     await settle(tester);
+    await tester.scrollUntilVisible(find.byKey(const Key('open-sources')), 300);
+    await settle(tester);
     await tester.tap(find.byKey(const Key('open-sources')));
     await settle(tester);
 

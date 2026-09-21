@@ -241,7 +241,37 @@ class SettingsPage {
   }
 
   Finder get supportLink => find.byKey(const Key('support-link'));
+
+  Future<void> scrollToSupportLink() => scrollTo(tester, supportLink);
   Finder get reportProblem => find.byKey(const Key('report-problem'));
+  Finder get remindersSwitch => find.byKey(const Key('reminders-enabled'));
+  Finder reminderTime(String label) => find.text(label);
+
+  Future<void> toggleReminders() async {
+    await tester.tap(remindersSwitch);
+    await settle(tester);
+  }
+
+  /// Drives the real time picker in its keyboard-input mode.
+  Future<void> pickReminderTime({
+    required int hour,
+    required int minute,
+  }) async {
+    await tester.tap(find.byKey(const Key('reminders-time')));
+    await settle(tester);
+    await tester.tap(find.byIcon(Icons.keyboard_outlined));
+    await settle(tester);
+    final fields = find.byType(TextField);
+    await tester.enterText(fields.at(0), '$hour');
+    await tester.enterText(fields.at(1), '$minute');
+    await tester.tap(find.text('OK'));
+    await settle(tester);
+  }
+
+  Future<void> toggleLead(int days) async {
+    await tester.tap(find.byKey(Key('reminder-lead-$days')));
+    await settle(tester);
+  }
 
   Future<HowItWorksPage> openHowItWorks() async {
     await scrollTo(tester, find.byKey(const Key('open-how-it-works')));
@@ -251,12 +281,14 @@ class SettingsPage {
   }
 
   Future<SourcesPage> openSources() async {
+    await scrollTo(tester, find.byKey(const Key('open-sources')));
     await tester.tap(find.byKey(const Key('open-sources')));
     await settle(tester);
     return SourcesPage(tester);
   }
 
   Future<SyncPage> openSync() async {
+    await scrollTo(tester, find.byKey(const Key('settings-open-sync')));
     await tester.tap(find.byKey(const Key('settings-open-sync')));
     await settle(tester);
     return SyncPage(tester);
@@ -486,6 +518,7 @@ Future<void> tapExport(
   Key button,
 ) async {
   final before = share.shared.length;
+  await scrollTo(tester, find.byKey(button));
   // The tap itself happens inside runAsync: under the headless binding the
   // continuations of the export would otherwise be queued on the fake clock,
   // which nothing advances while the real file is being written.

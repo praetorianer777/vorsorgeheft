@@ -231,6 +231,45 @@ void registerAppSpecs() {
     await shutDown(tester, db);
   });
 
+  testWidgets('reminders follow the time and lead times chosen in settings', (
+    tester,
+  ) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.infant],
+      gateway: gateway,
+    );
+    expect(gateway.pending.every((r) => r.fireAt.hour == 9), isTrue);
+    expect(gateway.pending.any((r) => r.leadTime.inDays == 14), isTrue);
+
+    final settings = await FamilyPage(tester).openSettings();
+    await settings.pickReminderTime(hour: 7, minute: 30);
+    expect(settings.reminderTime('7:30 AM'), findsOneWidget);
+    await settings.toggleLead(14);
+
+    expect(gateway.pending, isNotEmpty);
+    expect(
+      gateway.pending.every((r) => r.fireAt.hour == 7 && r.fireAt.minute == 30),
+      isTrue,
+    );
+    expect(gateway.pending.any((r) => r.leadTime.inDays == 14), isFalse);
+
+    await settings.toggleReminders();
+    expect(gateway.pending, isEmpty);
+
+    // The choice belongs to this phone and survives a restart.
+    await detach(tester);
+    await launchApp(tester, gateway: gateway, database: db);
+    expect(gateway.pending, isEmpty);
+    final again = await FamilyPage(tester).openSettings();
+    await again.toggleReminders();
+    expect(gateway.pending, isNotEmpty);
+    expect(gateway.pending.every((r) => r.fireAt.hour == 7), isTrue);
+
+    await shutDown(tester, db);
+  });
+
   testWidgets('a lapsing entitlement is warned about more urgently', (
     tester,
   ) async {
@@ -417,6 +456,7 @@ void registerAppSpecs() {
     expect(family.supportPrompt, findsNothing);
     // The link itself stays where it can always be found.
     final settings = await family.openSettings();
+    await settings.scrollToSupportLink();
     expect(settings.supportLink, findsOneWidget);
 
     await shutDown(tester, db);

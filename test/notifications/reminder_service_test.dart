@@ -34,7 +34,7 @@ void main() {
     catalogs: CatalogRepository(bundle: SynchronousAssetBundle()),
     locale: () => locale,
     clock: () => now,
-    settings: settings,
+    settings: () => settings,
   );
 
   setUp(() async {

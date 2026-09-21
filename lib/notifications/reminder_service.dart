@@ -23,20 +23,24 @@ class ReminderService {
     required CatalogRepository catalogs,
     required Locale Function() locale,
     DateTime Function()? clock,
-    ReminderSettings settings = const ReminderSettings(),
+    ReminderSettings Function()? settings,
   }) : _db = database,
        _gateway = gateway,
        _catalogs = catalogs,
        _locale = locale,
        _clock = clock ?? DateTime.now,
-       _settings = settings;
+       _settings = settings ?? (() => const ReminderSettings());
 
   final AppDatabase _db;
   final NotificationGateway _gateway;
   final CatalogRepository _catalogs;
   final Locale Function() _locale;
   final DateTime Function() _clock;
-  final ReminderSettings _settings;
+
+  /// Read on every run, not once: the person can change the time of day or
+  /// switch reminders off while the app is open, and the next plan has to
+  /// follow.
+  final ReminderSettings Function() _settings;
 
   Future<bool> start() async {
     await _gateway.initialize();
@@ -86,7 +90,7 @@ class ReminderService {
     final plan = planReminders(
       occurrences: occurrences,
       now: now,
-      settings: _settings,
+      settings: _settings(),
     );
 
     await _gateway.cancelAll();

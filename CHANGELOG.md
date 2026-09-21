@@ -8,6 +8,13 @@ and the versioning [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Features
+
+- Reminders can be switched off, moved to another time of day, and set to
+  fire 30, 14, 7, 3 or 1 days before a window opens and before an
+  entitlement lapses, in settings. The choice stays on the phone it was made
+  on; the "How this app works" screen states the chosen values.
+
+### Features
 - "Send to the other phone" seals the family under a six-digit code, shows
   the code and hands the file to the share sheet; "Receive from the other
   phone" opens it with that code. The `.vorsorge` file type is registered

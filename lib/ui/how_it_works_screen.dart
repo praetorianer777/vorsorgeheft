@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../app/providers.dart';
 import '../domain/occurrence.dart';
 import '../l10n/app_localizations.dart';
-import '../notifications/reminder.dart';
+import '../notifications/reminder_preferences_notifier.dart';
 import 'formatting.dart';
 import 'sources_screen.dart';
 import 'timeline_screen.dart';
@@ -27,7 +27,7 @@ class HowItWorksScreen extends ConsumerWidget {
     final locale = Localizations.localeOf(context).languageCode;
     final catalogs = ref.watch(catalogsProvider).value;
     final scheme = Theme.of(context).colorScheme;
-    const reminders = ReminderSettings();
+    final reminders = ref.watch(reminderPreferencesProvider).toSettings();
 
     String days(List<Duration> offsets) =>
         offsets.map((d) => d.inDays).join(', ');

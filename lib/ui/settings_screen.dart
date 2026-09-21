@@ -9,6 +9,8 @@ import '../l10n/app_localizations.dart';
 import '../l10n/locale_notifier.dart';
 import '../support/problem_report.dart';
 import '../support/support_prompt.dart';
+import '../notifications/reminder_preferences.dart';
+import '../notifications/reminder_preferences_notifier.dart';
 import 'export_action.dart';
 import 'how_it_works_screen.dart';
 import 'sources_screen.dart';
@@ -64,6 +66,8 @@ class SettingsScreen extends ConsumerWidget {
               ],
             ),
           ),
+          const Divider(),
+          const _ReminderSection(),
           const Divider(),
           const ExportTile(),
           ListTile(
@@ -126,6 +130,103 @@ class SettingsScreen extends ConsumerWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// When and how often this phone reminds. Nothing here reaches the other
+/// phone; see [ReminderPreferences].
+class _ReminderSection extends ConsumerWidget {
+  const _ReminderSection();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final prefs = ref.watch(reminderPreferencesProvider);
+    final notifier = ref.read(reminderPreferencesProvider.notifier);
+    final time = TimeOfDay(hour: prefs.hour, minute: prefs.minute);
+
+    Future<void> pickTime() async {
+      final picked = await showTimePicker(context: context, initialTime: time);
+      if (picked == null) return;
+      await notifier.update(
+        prefs.copyWith(hour: picked.hour, minute: picked.minute),
+      );
+    }
+
+    Widget leadChips({
+      required String keyPrefix,
+      required List<int> chosen,
+      required void Function(List<int>) onChanged,
+    }) => Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Wrap(
+        spacing: 8,
+        children: [
+          for (final days in ReminderPreferences.leadChoices)
+            FilterChip(
+              key: Key('$keyPrefix-$days'),
+              label: Text(l10n.reminderLeadDays(days)),
+              selected: chosen.contains(days),
+              onSelected: !prefs.enabled
+                  ? null
+                  : (selected) => onChanged(
+                      selected
+                          ? [...chosen, days]
+                          : chosen.where((d) => d != days).toList(),
+                    ),
+            ),
+        ],
+      ),
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
+          child: Text(
+            l10n.notificationsTitle,
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
+        ),
+        SwitchListTile(
+          key: const Key('reminders-enabled'),
+          title: Text(l10n.remindersEnabled),
+          subtitle: Text(l10n.remindersEnabledHint),
+          value: prefs.enabled,
+          onChanged: (value) => notifier.update(prefs.copyWith(enabled: value)),
+        ),
+        ListTile(
+          key: const Key('reminders-time'),
+          enabled: prefs.enabled,
+          leading: const Icon(Icons.schedule_outlined),
+          title: Text(l10n.remindersTime),
+          subtitle: Text(time.format(context)),
+          onTap: prefs.enabled ? pickTime : null,
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+          child: Text(l10n.remindersBeforeWindow),
+        ),
+        leadChips(
+          keyPrefix: 'reminder-lead',
+          chosen: prefs.beforeWindowOpens,
+          onChanged: (days) =>
+              notifier.update(prefs.copyWith(beforeWindowOpens: days)),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+          child: Text(l10n.remindersBeforeDeadline),
+        ),
+        leadChips(
+          keyPrefix: 'deadline-lead',
+          chosen: prefs.beforeDeadline,
+          onChanged: (days) =>
+              notifier.update(prefs.copyWith(beforeDeadline: days)),
+        ),
+        const SizedBox(height: 8),
+      ],
     );
   }
 }

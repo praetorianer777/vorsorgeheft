@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app/providers.dart';
 import 'permission_state.dart';
+import 'reminder_preferences_notifier.dart';
 
 /// Keeps the pending notifications in step with the data.
 ///
@@ -57,6 +58,7 @@ class _ReminderSyncState extends ConsumerState<ReminderSync>
   Widget build(BuildContext context) {
     ref.listen(personsProvider, (_, _) => _rescheduleSoon());
     ref.listen(completionsProvider, (_, _) => _rescheduleSoon());
+    ref.listen(reminderPreferencesProvider, (_, _) => _rescheduleSoon());
     return widget.child;
   }
 }
