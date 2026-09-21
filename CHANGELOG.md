@@ -9,6 +9,9 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ### Features
 
+- A "Report a problem" tile in settings opens a GitHub issue prefilled with
+  app version, OS and language. Nothing leaves the phone until the person
+  sends it.
 - A phone that was never given a name introduces itself to the other one by
   its model, such as "Pixel 8" or "iPhone 15", instead of both showing up as
   "My phone". The pairing dialog says that the name is what the other phone
