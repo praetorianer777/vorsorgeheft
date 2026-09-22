@@ -90,6 +90,7 @@ List<PlannedReminder> planReminders({
   for (final occurrence in occurrences) {
     if (!occurrence.isOpen) continue;
 
+    final before = planned.length;
     for (final lead in settings.beforeWindowOpens) {
       _add(
         planned,
@@ -97,6 +98,23 @@ List<PlannedReminder> planReminders({
         kind: ReminderKind.windowOpens,
         target: occurrence.windowStart,
         lead: lead,
+        settings: settings,
+        now: now,
+      );
+    }
+    // A window that opens sooner than the shortest lead would otherwise get
+    // no warning at all: the newborn screening, 36 hours after birth, on a
+    // baby entered on the day it was born. One reminder at the next
+    // configured time of day stands in for the leads that are already past.
+    if (planned.length == before &&
+        settings.beforeWindowOpens.isNotEmpty &&
+        occurrence.status == OccurrenceStatus.upcoming) {
+      _add(
+        planned,
+        occurrence: occurrence,
+        kind: ReminderKind.windowOpens,
+        target: _nextTimeOfDay(now, settings),
+        lead: Duration.zero,
         settings: settings,
         now: now,
       );
@@ -119,6 +137,18 @@ List<PlannedReminder> planReminders({
 
   planned.sort((a, b) => a.fireAt.compareTo(b.fireAt));
   return List.unmodifiable(planned.take(settings.maxPending));
+}
+
+/// Today at the configured time if that is still ahead, else tomorrow.
+DateTime _nextTimeOfDay(DateTime now, ReminderSettings settings) {
+  final today = DateTime(
+    now.year,
+    now.month,
+    now.day,
+    settings.hour,
+    settings.minute,
+  );
+  return today.isAfter(now) ? today : today.add(const Duration(days: 1));
 }
 
 void _add(
