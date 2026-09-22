@@ -20,6 +20,8 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-tags: true
 
       - name: Enable KVM
         run: |

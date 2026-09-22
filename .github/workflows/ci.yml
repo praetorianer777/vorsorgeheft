@@ -23,7 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      # The upgrade tests compare their fixtures against the release tags.
       - uses: actions/checkout@v4
+        with:
+          fetch-tags: true
 
       - uses: subosito/flutter-action@v2
         with:
