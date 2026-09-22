@@ -238,6 +238,7 @@ const releases = [
   Release('v0.5.0', 5, _v050),
   Release('v0.5.1', 5, _v050),
   Release('v0.6.0', 6, _v060),
+  Release('v0.6.1', 6, _v060),
 ];
 
 Future<void> checkData(AppDatabase db, Release release) async {
