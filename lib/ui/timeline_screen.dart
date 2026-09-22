@@ -11,15 +11,17 @@ import 'occurrence_detail_screen.dart';
 import 'person_form_screen.dart';
 import 'relative_time.dart';
 
-/// The five groups a timeline is split into.
+/// The five groups a timeline is split into, in the order they are shown.
 ///
-/// What costs something if ignored comes first; what is already settled sinks
-/// to the bottom, and what can no longer be had is last but still visible,
-/// because a lapsed entitlement is something a parent should be able to find.
-/// What opens more than [farAheadAfter] from today is set apart from what is
-/// coming up, so next year's check-up is not listed beside the colonoscopy in
-/// twenty years.
-enum TimelineSection { needsAttention, comingUp, farAhead, settled, expired }
+/// What costs something if ignored comes first. What has lapsed follows what
+/// is coming up rather than sinking to the bottom: for someone entered years
+/// after their first appointments it is the longest part of the list, every
+/// entry of it can still be recorded, and below a group that runs to the
+/// colonoscopy at fifty nobody finds it. What is already settled comes after
+/// it, and the distant future last, because nothing there asks anything of
+/// anyone today. What opens more than [farAheadAfter] from today counts as
+/// distant, so next year's check-up is not listed beside that colonoscopy.
+enum TimelineSection { needsAttention, comingUp, expired, settled, farAhead }
 
 /// The distance at which an upcoming appointment stops being "coming up".
 const farAheadAfter = 5;

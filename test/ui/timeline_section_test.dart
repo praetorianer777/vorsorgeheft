@@ -46,4 +46,15 @@ void main() {
   test('the other groups do not depend on the distance', () {
     expect(sectionOf(exam('u1'), today), TimelineSection.needsAttention);
   });
+
+  test('what has lapsed is shown before what is decades away', () {
+    // The order of the enum is the order of the list.
+    expect(TimelineSection.values, [
+      TimelineSection.needsAttention,
+      TimelineSection.comingUp,
+      TimelineSection.expired,
+      TimelineSection.settled,
+      TimelineSection.farAhead,
+    ]);
+  });
 }
