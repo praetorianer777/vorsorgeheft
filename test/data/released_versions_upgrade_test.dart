@@ -67,13 +67,18 @@ void main() {
   test('every released version has a fixture here', () {
     // A tag without a row above is an upgrade path nobody tests. The tag
     // list is git's, so cutting a release without extending this file fails
-    // the next test run.
+    // the next test run. A fixture may come before its tag: that is how the
+    // commit release.sh makes stays green.
     final tags = Process.runSync('git', [
       'tag',
       '--list',
       'v*',
     ]).stdout.toString().split('\n').where((t) => t.isNotEmpty).toSet();
-    expect(releases.map((r) => r.name).toSet(), tags);
+    expect(
+      releases.map((r) => r.name).toSet(),
+      containsAll(tags),
+      reason: 'add a Release row for every tag',
+    );
   });
 }
 
@@ -85,6 +90,7 @@ enum Trace {
   optionalRules,
   familyName,
   ownAppointments,
+  pets,
 }
 
 class Release {
@@ -112,10 +118,11 @@ class Release {
         ? ", 'influenza-under-60,tbe'"
         : '';
     final optionalNull = has(Trace.optionalRules) ? ', NULL' : '';
+    final species = schema >= 6 ? ", 'human'" : '';
     final buffer = StringBuffer('''
       INSERT INTO persons VALUES
-        ('infant', 'Mila', '2026-09-01T00:00:00.000Z', 2, NULL$optionalNull),
-        ('mother', 'Sara', '1988-06-30T00:00:00.000Z', 1, 'allergic to penicillin'$optional);
+        ('infant', 'Mila', '2026-09-01T00:00:00.000Z', 2, NULL$optionalNull$species),
+        ('mother', 'Sara', '1988-06-30T00:00:00.000Z', 1, 'allergic to penicillin'$optional$species);
       INSERT INTO completions VALUES
         ('infant', 'u2', '', '2026-09-05T00:00:00.000Z', 0, 'Dr. Weber'),
         ('mother', 'td-booster', '', '2026-03-15T00:00:00.000Z', 0, NULL),
@@ -176,6 +183,18 @@ class Release {
         ('person', 'mother', 'optionalRules', '1758000004000-0000-phone-2026', '"influenza-under-60,tbe"');
       ''');
     }
+    if (has(Trace.pets)) {
+      buffer.writeln('''
+      INSERT INTO persons VALUES
+        ('bello', 'Bello', '2025-03-01T00:00:00.000Z', 0, NULL, 'dog-deworming', 'dog');
+      INSERT INTO completions VALUES
+        ('bello', 'dog-rabies', 'g1', '2025-05-24T00:00:00.000Z', 0, NULL);
+      INSERT INTO changes VALUES
+        ('person', 'bello', 'name', '1758000006000-0000-phone-2026', '"Bello"'),
+        ('person', 'bello', 'dateOfBirth', '1758000006000-0001-phone-2026', '"2025-03-01T00:00:00.000Z"'),
+        ('person', 'bello', 'species', '1758000006000-0002-phone-2026', '"dog"');
+      ''');
+    }
     if (has(Trace.ownAppointments)) {
       buffer.writeln('''
       INSERT INTO own_appointments VALUES
@@ -193,7 +212,9 @@ class Release {
 
   /// The newest timestamp the fixture wrote, which the store must pick up.
   Hlc get latestHlc => Hlc.parse(
-    has(Trace.ownAppointments)
+    has(Trace.pets)
+        ? '1758000006000-0002-phone-2026'
+        : has(Trace.ownAppointments)
         ? '1758000005000-0004-phone-2026'
         : has(Trace.optionalRules)
         ? '1758000004000-0000-phone-2026'
@@ -206,6 +227,7 @@ class Release {
 const _v020 = {Trace.reminderPreferences, Trace.syncNotices, Trace.familyName};
 const _v030 = {..._v020, Trace.catalogsSeen, Trace.optionalRules};
 const _v050 = {..._v030, Trace.ownAppointments};
+const _v060 = {..._v050, Trace.pets};
 
 const releases = [
   Release('v0.1.0', 2, {}),
@@ -215,11 +237,20 @@ const releases = [
   Release('v0.4.0', 4, _v030),
   Release('v0.5.0', 5, _v050),
   Release('v0.5.1', 5, _v050),
+  Release('v0.6.0', 6, _v060),
 ];
 
 Future<void> checkData(AppDatabase db, Release release) async {
-  final people = await db.allPersons();
+  final everyone = await db.allPersons();
+  final people = everyone.where((p) => p.id != 'bello').toList();
   expect(people.map((p) => p.name), ['Sara', 'Mila']);
+  final bello = everyone.where((p) => p.id == 'bello').firstOrNull;
+  if (release.has(Trace.pets)) {
+    expect(bello!.species, Species.dog);
+    expect(bello.optionalRules, {'dog-deworming'});
+  } else {
+    expect(bello, isNull);
+  }
   final sara = people.first;
   expect(sara.dateOfBirth, DateTime.utc(1988, 6, 30));
   expect(sara.sex, Sex.female);
@@ -233,7 +264,7 @@ Future<void> checkData(AppDatabase db, Release release) async {
   expect(people.map((p) => p.species).toSet(), {Species.human});
 
   final completions = await db.allCompletions();
-  expect(completions, hasLength(3));
+  expect(completions, hasLength(release.has(Trace.pets) ? 4 : 3));
   expect(completions.singleWhere((c) => c.ruleId == 'u2').note, 'Dr. Weber');
   final dose = completions.singleWhere((c) => c.ruleId == 'six-in-one');
   expect(dose.doseId, 'g1');
@@ -327,6 +358,16 @@ Future<void> checkTimeline(AppDatabase db, Release release) async {
     OccurrenceStatus.skipped,
   );
 
+  if (release.has(Trace.pets)) {
+    final bello = await timeline('bello');
+    expect(bello.map((o) => o.rule.catalogId).toSet(), {'dogs'});
+    expect(
+      bello.any((o) => o.rule.id == 'dog-rabies' && o.completedOn != null),
+      isTrue,
+    );
+    expect(bello.any((o) => o.rule.id == 'dog-deworming-routine'), isTrue);
+  }
+
   final sara = await timeline('mother');
   expect(
     sara.where((o) => o.rule.id == 'td-booster' && o.completedOn != null),
@@ -357,11 +398,17 @@ Future<void> checkSync(AppDatabase db, Release release) async {
     await store.changesSince(Hlc.zero('')),
     from: 'phone-2026',
   );
-  expect((await other.allPersons()).map((p) => p.name), ['Sara', 'Mila']);
-  expect((await other.allCompletions()).map((c) => c.ruleId).toSet(), {
-    'u2',
-    'td-booster',
-  });
+  expect(
+    (await other.allPersons()).map((p) => p.name).where((n) => n != 'Bello'),
+    ['Sara', 'Mila'],
+  );
+  if (release.has(Trace.pets)) {
+    expect((await other.personById('bello'))!.species, Species.dog);
+  }
+  expect(
+    (await other.allCompletions()).map((c) => c.ruleId).toSet(),
+    containsAll(['u2', 'td-booster']),
+  );
   expect(
     await other.familyName('family'),
     release.has(Trace.familyName) ? 'Familie Weber' : isNull,
@@ -374,7 +421,10 @@ Future<void> checkSync(AppDatabase db, Release release) async {
   final golden = File('test/sync/golden/family-v1.vorsorge').readAsBytesSync();
   final contents = await SyncBundle.open(golden, 'correct horse');
   await store.merge(contents.changes, from: contents.nodeId);
-  expect((await db.allPersons()).map((p) => p.name), ['Sara', 'Mila']);
+  expect(
+    (await db.allPersons()).map((p) => p.name).where((n) => n != 'Bello'),
+    ['Sara', 'Mila'],
+  );
 }
 
 /// What was added after the release works on top of its data, and the
@@ -407,10 +457,14 @@ Future<void> checkNewFeaturesOnOldData(AppDatabase db) async {
   );
 
   await store.deletePerson('infant');
-  expect((await db.allPersons()).map((p) => p.name), ['Sara']);
-  expect((await db.allCompletions()).map((c) => c.personId).toSet(), {
-    'mother',
-  });
+  expect(
+    (await db.allPersons()).map((p) => p.name).where((n) => n != 'Bello'),
+    ['Sara'],
+  );
+  expect(
+    (await db.allCompletions()).map((c) => c.personId).toSet(),
+    isNot(contains('infant')),
+  );
   expect(
     (await db.allOwnAppointments()).map((a) => a.personId).toSet(),
     isNot(contains('infant')),
