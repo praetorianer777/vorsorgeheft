@@ -48,6 +48,7 @@ class IcsExportService {
         ? all
         : all.where((person) => person.id == personId).toList();
     final completions = await _db.allCompletions();
+    final ownAppointments = await _db.allOwnAppointments();
     final catalogs = await _catalogs.load();
     final now = _clock();
     final today = DateTime.utc(now.year, now.month, now.day);
@@ -58,6 +59,8 @@ class IcsExportService {
           person: person,
           catalogs: catalogs,
           completions: completions,
+          ownAppointments: ownAppointments,
+          ownSourceName: texts.ownSource,
           today: today,
         ),
     ];

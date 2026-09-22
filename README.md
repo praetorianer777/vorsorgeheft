@@ -16,6 +16,8 @@ the date of birth, and reminds you in time.
 - 📤 **ICS export** — into any calendar or mail client, with stable UIDs instead of duplicates
 - 🔄 **Two devices, one state** — QR pairing, then encrypted sync over your WLAN
 - 📚 **Sourced** — every appointment names its source and its as-of date, right in the app
+- ✏️ **Own appointments** — the eye check, the blood test, the dental cleaning: anything no guideline
+  knows about, repeating from a first date, with the same reminders and export
 - 🔔 **Reminders** — 30, 14 and 3 days before a window opens, and again before an entitlement lapses
 - 🌍 **Bilingual** — the app speaks German and English
 

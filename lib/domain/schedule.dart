@@ -98,6 +98,16 @@ final class Recurring extends Schedule {
   final AgeOffset? until;
 }
 
+/// An appointment that repeats from a fixed first date rather than from an
+/// age, which is what a person's own appointments do. Never read from a
+/// catalog, so it has no JSON form.
+final class RecurringFromDate extends Schedule {
+  const RecurringFromDate({required this.first, required this.every});
+
+  final DateTime first;
+  final AgeOffset every;
+}
+
 /// A one-off entitlement that opens at a given age, such as the hepatitis B
 /// and C screening from 35.
 final class OnceFromAge extends Schedule {

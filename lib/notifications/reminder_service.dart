@@ -71,6 +71,7 @@ class ReminderService {
     final now = _clock();
     final catalogs = await _catalogs.load();
     final completions = await _db.allCompletions();
+    final ownAppointments = await _db.allOwnAppointments();
     final persons = await _db.allPersons();
 
     final occurrences = <Occurrence>[];
@@ -82,6 +83,7 @@ class ReminderService {
           person: person,
           catalogs: catalogs,
           completions: completions,
+          ownAppointments: ownAppointments,
           today: DateTime.utc(now.year, now.month, now.day),
         ),
       );

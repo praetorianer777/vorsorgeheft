@@ -5,11 +5,14 @@ import '../data/catalog_repository.dart';
 import '../data/database.dart';
 import '../domain/catalog.dart';
 import '../domain/completion.dart';
+import '../domain/localized_text.dart';
 import '../domain/occurrence.dart';
+import '../domain/own_appointment.dart';
 import '../domain/person.dart';
 import '../domain/schedule_engine.dart';
 import '../export/ics_export_service.dart';
 import '../export/share_gateway.dart';
+import '../l10n/app_localizations.dart';
 import '../l10n/locale_notifier.dart';
 import '../notifications/local_notification_gateway.dart';
 import '../notifications/notification_gateway.dart';
@@ -140,6 +143,18 @@ final completionsProvider = StreamProvider<List<Completion>>(
   (ref) => ref.watch(databaseProvider).watchCompletions(),
 );
 
+final ownAppointmentsProvider = StreamProvider<List<OwnAppointment>>(
+  (ref) => ref.watch(databaseProvider).watchOwnAppointments(),
+);
+
+/// The name own appointments carry as their source, in the app's language.
+final ownSourceNameProvider = Provider<LocalizedText>(
+  (ref) => LocalizedText({
+    for (final locale in LocalizedText.supportedLocales)
+      locale: lookupAppLocalizations(Locale(locale)).ownSourceName,
+  }),
+);
+
 final personProvider = Provider.family<Person?, String>((ref, id) {
   final persons = ref.watch(personsProvider).value ?? const [];
   for (final person in persons) {
@@ -157,6 +172,7 @@ final timelineProvider = Provider.family<AsyncValue<List<Occurrence>>, String>((
 ) {
   final catalogs = ref.watch(catalogsProvider);
   final completions = ref.watch(completionsProvider);
+  final own = ref.watch(ownAppointmentsProvider);
   final person = ref.watch(personProvider(personId));
 
   if (person == null) return const AsyncValue.data([]);
@@ -166,6 +182,8 @@ final timelineProvider = Provider.family<AsyncValue<List<Occurrence>>, String>((
       person: person,
       catalogs: catalogSet,
       completions: completions.value ?? const [],
+      ownAppointments: own.value ?? const [],
+      ownSourceName: ref.watch(ownSourceNameProvider),
       today: ref.watch(clockProvider)(),
     ),
   );

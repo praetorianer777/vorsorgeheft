@@ -3,12 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
 import '../app/providers.dart';
+import '../domain/own_appointment.dart';
 import '../domain/person.dart';
 import '../domain/rule.dart';
 import '../domain/schedule_engine.dart';
 import '../l10n/app_localizations.dart';
 import 'date_input.dart';
 import 'formatting.dart';
+import 'own_appointment_dialog.dart';
 
 class PersonFormScreen extends ConsumerStatefulWidget {
   const PersonFormScreen({super.key, this.existing});
@@ -31,6 +33,19 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
   late Sex _sex = widget.existing?.sex ?? Sex.notStated;
   late final Set<String> _optionalRules = {...?widget.existing?.optionalRules};
   bool _dateTouched = false;
+
+  /// The person's id is fixed up front so own appointments added before the
+  /// first save already belong to someone; nothing is written until save.
+  late final String _personId = widget.existing?.id ?? const Uuid().v4();
+  List<OwnAppointment>? _ownAppointments;
+
+  /// Buffered like the switches: edits land together with the person, and a
+  /// cancelled form leaves nothing behind.
+  List<OwnAppointment> _own(WidgetRef ref) => _ownAppointments ??= [
+    for (final own
+        in ref.read(ownAppointmentsProvider).value ?? const <OwnAppointment>[])
+      if (own.personId == _personId) own,
+  ];
 
   @override
   void dispose() {
@@ -60,14 +75,28 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
     if (_dateOfBirth == null) return;
 
     final person = Person(
-      id: widget.existing?.id ?? const Uuid().v4(),
+      id: _personId,
       name: _name.text.trim(),
       dateOfBirth: _dateOfBirth!,
       sex: _sex,
       notes: _notes.text.trim().isEmpty ? null : _notes.text.trim(),
       optionalRules: _optionalRules,
     );
-    await ref.read(storeProvider).savePerson(person);
+    final store = ref.read(storeProvider);
+    await store.savePerson(person);
+    final before = {
+      for (final own
+          in ref.read(ownAppointmentsProvider).value ??
+              const <OwnAppointment>[])
+        if (own.personId == _personId) own.id: own,
+    };
+    final after = {for (final own in _own(ref)) own.id: own};
+    for (final own in after.values) {
+      if (before[own.id] != own) await store.saveOwnAppointment(own);
+    }
+    for (final id in before.keys) {
+      if (!after.containsKey(id)) await store.deleteOwnAppointment(id);
+    }
     if (mounted) Navigator.of(context).pop();
   }
 
@@ -179,6 +208,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
               ),
             ),
             ..._optionalVaccinations(context, l10n),
+            ..._ownAppointmentsSection(context, l10n, today),
             const SizedBox(height: 24),
             FilledButton(
               key: const Key('save-person'),
@@ -264,6 +294,66 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
       ),
       isThreeLine: true,
     );
+  }
+
+  List<Widget> _ownAppointmentsSection(
+    BuildContext context,
+    AppLocalizations l10n,
+    DateTime today,
+  ) {
+    final theme = Theme.of(context);
+    final own = _own(ref);
+    return [
+      const SizedBox(height: 24),
+      Text(l10n.ownAppointmentsTitle, style: theme.textTheme.titleMedium),
+      const SizedBox(height: 4),
+      Text(l10n.ownAppointmentsHelp, style: theme.textTheme.bodySmall),
+      const SizedBox(height: 8),
+      for (final appointment in own)
+        ListTile(
+          key: Key('own-${appointment.id}'),
+          contentPadding: EdgeInsets.zero,
+          title: Text(appointment.title),
+          subtitle: Text(
+            '${repeatLabel(l10n, appointment.everyMonths)} · '
+            '${formatDate(context, appointment.firstOn)}',
+          ),
+          trailing: IconButton(
+            key: Key('own-remove-${appointment.id}'),
+            icon: const Icon(Icons.delete_outline),
+            tooltip: l10n.removeOwnAppointment,
+            onPressed: () => setState(() => own.remove(appointment)),
+          ),
+          onTap: () => _editOwnAppointment(today, appointment),
+        ),
+      Align(
+        alignment: AlignmentDirectional.centerStart,
+        child: TextButton.icon(
+          key: const Key('add-own-appointment'),
+          onPressed: () => _editOwnAppointment(today, null),
+          icon: const Icon(Icons.add),
+          label: Text(l10n.addOwnAppointment),
+        ),
+      ),
+    ];
+  }
+
+  Future<void> _editOwnAppointment(
+    DateTime today,
+    OwnAppointment? existing,
+  ) async {
+    final result = await showOwnAppointmentDialog(
+      context: context,
+      personId: _personId,
+      today: today,
+      existing: existing,
+    );
+    if (result == null || !mounted) return;
+    setState(() {
+      final own = _own(ref);
+      final index = own.indexWhere((a) => a.id == result.id);
+      index < 0 ? own.add(result) : own[index] = result;
+    });
   }
 
   String? _dateError(AppLocalizations l10n, DateTime today) {

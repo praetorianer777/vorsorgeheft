@@ -20,6 +20,36 @@
   "sexFemale": "Weiblich",
   "sexNotStated": "Keine Angabe",
   "notes": "Notizen",
+  "ownSourceName": "Eigener Termin",
+  "ownAppointmentsTitle": "Eigene Termine",
+  "ownAppointmentsHelp": "Termine, die in keiner Richtlinie stehen: Augenarzt, Blutbild, Zahnreinigung. Sie wiederholen sich ab dem ersten Termin und bekommen Erinnerungen wie alles andere.",
+  "addOwnAppointment": "Termin hinzufügen",
+  "editOwnAppointment": "Termin bearbeiten",
+  "ownAppointmentTitle": "Bezeichnung",
+  "ownAppointmentTitleMissing": "Bitte gib dem Termin einen Namen",
+  "ownAppointmentFirstOn": "Erster Termin",
+  "ownAppointmentFirstOnMissing": "Bitte wähle den ersten Termin",
+  "ownAppointmentEvery": "Wiederholt sich alle",
+  "unitMonths": "Monate",
+  "unitYears": "Jahre",
+  "ownAppointmentNote": "Notiz",
+  "removeOwnAppointment": "Entfernen",
+  "ownRepeatMonths": "{count, plural, =1{jeden Monat} other{alle {count} Monate}}",
+  "@ownRepeatMonths": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ownRepeatYears": "{count, plural, =1{jedes Jahr} other{alle {count} Jahre}}",
+  "@ownRepeatYears": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "optionalVaccinationsTitle": "Optionale Impfungen",
   "optionalVaccinationsHelp": "Impfungen, die die STIKO nur für manche empfiehlt, je nach Krankheit, Schwangerschaft, Region oder Beruf. Was zutrifft, hier einschalten; Termine und Erinnerungen folgen.",
   "save": "Speichern",

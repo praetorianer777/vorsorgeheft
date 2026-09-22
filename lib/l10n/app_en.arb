@@ -20,6 +20,36 @@
   "sexFemale": "Female",
   "sexNotStated": "Not stated",
   "notes": "Notes",
+  "ownSourceName": "Own appointment",
+  "ownAppointmentsTitle": "Own appointments",
+  "ownAppointmentsHelp": "Appointments no guideline knows about: the eye check, the blood test, the dental cleaning. They repeat from the first date and get reminders like everything else.",
+  "addOwnAppointment": "Add appointment",
+  "editOwnAppointment": "Edit appointment",
+  "ownAppointmentTitle": "Title",
+  "ownAppointmentTitleMissing": "Please give the appointment a name",
+  "ownAppointmentFirstOn": "First appointment",
+  "ownAppointmentFirstOnMissing": "Please pick the first date",
+  "ownAppointmentEvery": "Repeats every",
+  "unitMonths": "months",
+  "unitYears": "years",
+  "ownAppointmentNote": "Note",
+  "removeOwnAppointment": "Remove",
+  "ownRepeatMonths": "{count, plural, =1{every month} other{every {count} months}}",
+  "@ownRepeatMonths": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ownRepeatYears": "{count, plural, =1{every year} other{every {count} years}}",
+  "@ownRepeatYears": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "optionalVaccinationsTitle": "Optional vaccinations",
   "optionalVaccinationsHelp": "Vaccinations the STIKO recommends only for some people, depending on illness, pregnancy, region or occupation. Switch on what applies, and the appointments and reminders follow.",
   "save": "Save",

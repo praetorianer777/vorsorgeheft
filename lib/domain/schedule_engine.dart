@@ -1,7 +1,9 @@
 import 'age_offset.dart';
 import 'catalog.dart';
 import 'completion.dart';
+import 'localized_text.dart';
 import 'occurrence.dart';
+import 'own_appointment.dart';
 import 'person.dart';
 import 'rule.dart';
 import 'schedule.dart';
@@ -22,13 +24,20 @@ List<Occurrence> computeOccurrences({
   required CatalogSet catalogs,
   required List<Completion> completions,
   required DateTime today,
+  List<OwnAppointment> ownAppointments = const [],
+  LocalizedText? ownSourceName,
   Duration horizon = const Duration(days: 730),
 }) {
   final history = _History(person.id, completions);
   final generateUntil = today.add(horizon);
   final occurrences = <Occurrence>[];
+  final rules = [
+    ...catalogs.rules,
+    for (final own in ownAppointments)
+      if (own.personId == person.id) own.toRule(sourceName: ownSourceName),
+  ];
 
-  for (final rule in catalogs.rules) {
+  for (final rule in rules) {
     if (!isSwitchedOn(rule, person: person, catalogs: catalogs)) continue;
     final applicability = _applicability(rule, person);
     if (applicability == null) continue;
@@ -201,10 +210,20 @@ Iterable<Occurrence> _forRule({
 
     Recurring(:final from, :final every, :final until) => _recurring(
       rule: rule,
-      birth: birth,
-      from: from,
+      firstDue: from.applyTo(birth),
       every: every,
-      untilAge: until,
+      cutoff: until?.applyTo(birth),
+      history: history,
+      today: today,
+      generateUntil: generateUntil,
+      make: make,
+    ),
+
+    RecurringFromDate(:final first, :final every) => _recurring(
+      rule: rule,
+      firstDue: first,
+      every: every,
+      cutoff: null,
       history: history,
       today: today,
       generateUntil: generateUntil,
@@ -260,10 +279,9 @@ typedef _Make =
 /// a year early is next due three years after that, not on the original grid.
 List<Occurrence> _recurring({
   required Rule rule,
-  required DateTime birth,
-  required AgeOffset from,
+  required DateTime firstDue,
   required AgeOffset every,
-  required AgeOffset? untilAge,
+  required DateTime? cutoff,
   required _History history,
   required DateTime today,
   required DateTime generateUntil,
@@ -284,8 +302,7 @@ List<Occurrence> _recurring({
   }
 
   final anchor = history.lastDone(rule.id);
-  var due = anchor == null ? from.applyTo(birth) : every.applyTo(anchor);
-  final cutoff = untilAge?.applyTo(birth);
+  var due = anchor == null ? firstDue : every.applyTo(anchor);
   due = _currentRepeat(due, every, today, cutoff);
 
   // With an age limit the last repeat can have elapsed entirely. Nothing can

@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgeheft/data/database.dart';
 import 'package:vorsorgeheft/data/database_provider.dart';
 import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/domain/own_appointment.dart';
 import 'package:vorsorgeheft/domain/person.dart';
 import 'package:vorsorgeheft/sync/hlc.dart';
 import 'package:vorsorgeheft/sync/overwrite_notice.dart';
@@ -145,6 +146,26 @@ void main() {
       );
       await alice.store.clearCompletion(personId: 'anna', ruleId: 'u6');
       expect(await alice.db.allCompletions(), isEmpty);
+    });
+
+    test('an own appointment projects to its row and can be removed', () async {
+      await alice.store.savePerson(anna);
+      final eyes = OwnAppointment(
+        id: 'eyes',
+        personId: 'anna',
+        title: 'Eye check',
+        firstOn: DateTime.utc(2026, 11, 3),
+        everyMonths: 12,
+        note: 'bring the glasses',
+      );
+      await alice.store.saveOwnAppointment(eyes);
+      expect(await alice.db.allOwnAppointments(), [eyes]);
+
+      await alice.store.saveOwnAppointment(eyes.copyWith(everyMonths: 6));
+      expect((await alice.db.allOwnAppointments()).single.everyMonths, 6);
+
+      await alice.store.deleteOwnAppointment('eyes');
+      expect(await alice.db.allOwnAppointments(), isEmpty);
     });
 
     test('the family name projects to its row', () async {
@@ -310,6 +331,48 @@ void main() {
       expect(onBob.ruleId, 'u6');
       expect(onBob.completedOn, DateTime.utc(2026, 11, 2));
     });
+
+    test('an own appointment reaches the other phone', () async {
+      await alice.store.savePerson(anna);
+      final eyes = OwnAppointment(
+        id: 'eyes',
+        personId: 'anna',
+        title: 'Eye check',
+        firstOn: DateTime.utc(2026, 11, 3),
+        everyMonths: 12,
+      );
+      await alice.store.saveOwnAppointment(eyes);
+      await exchange(alice, bob);
+      expect(await bob.db.allOwnAppointments(), [eyes]);
+
+      bob.advance(const Duration(minutes: 1));
+      await bob.store.deleteOwnAppointment('eyes');
+      await exchange(alice, bob);
+      expect(await alice.db.allOwnAppointments(), isEmpty);
+    });
+
+    test(
+      'an own appointment for a person deleted meanwhile is dropped',
+      () async {
+        await alice.store.savePerson(anna);
+        await exchange(alice, bob);
+        bob.advance(const Duration(minutes: 1));
+        await bob.store.deletePerson('anna');
+        alice.advance(const Duration(seconds: 30));
+        await alice.store.saveOwnAppointment(
+          OwnAppointment(
+            id: 'eyes',
+            personId: 'anna',
+            title: 'Eye check',
+            firstOn: DateTime.utc(2026, 11, 3),
+            everyMonths: 12,
+          ),
+        );
+        await exchange(alice, bob);
+        expect(await bob.db.allPersons(), isEmpty);
+        expect(await bob.db.allOwnAppointments(), isEmpty);
+      },
+    );
 
     test('a deletion propagates', () async {
       await alice.store.savePerson(anna);
