@@ -7,6 +7,16 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-09-22
+
+### Features
+
+- let a person have their own recurring appointments (4be39fd)
+
+### Bug fixes
+
+- keep the detail page on an appointment it just recorded (404d9c2)
+
 ## [0.4.0] - 2026-09-21
 
 ### Features
