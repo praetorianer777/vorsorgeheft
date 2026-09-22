@@ -1,0 +1,364 @@
+{
+  "_conversion": "The StIKo Vet schedule lists parvovirus, distemper and leptospirosis at 8, 12 and 16 weeks and 15 months, leptospirosis not at 16 weeks. Parvovirus and distemper come as one combination vaccine and are one rule here; leptospirosis is its own rule because its booster is yearly while theirs is every three years. The basic immunisation is everything in the first two years, so the series leave the timeline at two; an adult dog without records sees the boosters, counted from the age at which the series would have ended. Rabies is modelled as a standard vaccination although the 6th edition moved it to non-core: the Tollwutverordnung still treats an unvaccinated dog very differently, and travel requires it. Deworming and tick protection are optional, because their frequency depends on how the animal lives.",
+  "catalogId": "dogs",
+  "catalogVersion": "2026.09",
+  "_changes": [
+    {
+      "version": "2026.09",
+      "en": "First edition: vaccinations after the StIKo Vet guideline, deworming and tick protection after ESCCAP.",
+      "de": "Erste Ausgabe: Impfungen nach der Leitlinie der StIKo Vet, Entwurmung und Zeckenschutz nach ESCCAP."
+    }
+  ],
+  "name": {
+    "en": "Dogs",
+    "de": "Hunde"
+  },
+  "species": [
+    "dog"
+  ],
+  "sources": {
+    "stiko-vet": {
+      "name": {
+        "en": "StIKo Vet guideline for small animal vaccination",
+        "de": "StIKo Vet: Leitlinie zur Impfung von Kleintieren"
+      },
+      "url": "https://www.openagrar.de/servlets/MCRFileNodeServlet/openagrar_derivate_00063989/Impfleitlinie_Kleintiere_2025-01-06.pdf",
+      "document": "6. Auflage, Stand 06.01.2025, Ständige Impfkommission Veterinärmedizin am Friedrich-Loeffler-Institut",
+      "asOf": "2026-09-22"
+    },
+    "esccap-worms": {
+      "name": {
+        "en": "ESCCAP recommendation on worms in dogs and cats",
+        "de": "ESCCAP-Empfehlung zur Bekämpfung von Würmern bei Hunden und Katzen"
+      },
+      "url": "https://www.esccap.de/v2/wp-content/uploads/2025/09/ESCCAP_Empfehlung_No1_Helminthen_082025.pdf",
+      "document": "Deutsche Adaption der ESCCAP-Empfehlung Nr. 1, 08/2025",
+      "asOf": "2026-09-22"
+    },
+    "esccap-ticks": {
+      "name": {
+        "en": "ESCCAP recommendation on ticks, fleas and other ectoparasites",
+        "de": "ESCCAP-Empfehlung zur Bekämpfung von Ektoparasiten"
+      },
+      "url": "https://www.esccap.de/v2/wp-content/uploads/2022/02/2-2022-Ektoparasiten-Empfehlung-3.pdf",
+      "document": "Deutsche Adaption der ESCCAP-Empfehlung Nr. 3, Stand Februar 2022",
+      "asOf": "2026-09-22"
+    }
+  },
+  "rules": [
+    {
+      "id": "dog-distemper-parvo",
+      "title": {
+        "en": "Distemper and parvovirus",
+        "de": "Staupe und Parvovirose"
+      },
+      "description": {
+        "en": "Core vaccination every dog should have at all times. Puppies at 8, 12 and 16 weeks; the dose at 15 months completes the basic immunisation. The 16-week dose matters because the mother's antibodies can block the earlier ones.",
+        "de": "Core-Impfung, gegen die jeder Hund jederzeit geschützt sein sollte. Welpen mit 8, 12 und 16 Wochen; die Impfung mit 15 Monaten schließt die Grundimmunisierung ab. Die Impfung mit 16 Wochen zählt, weil mütterliche Antikörper die früheren unwirksam machen können."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "weeks": 8
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "weeks": 12
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 3
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "weeks": 16
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 3
+            }
+          },
+          {
+            "id": "g4",
+            "from": {
+              "months": 15
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 2
+        }
+      }
+    },
+    {
+      "id": "dog-distemper-parvo-booster",
+      "title": {
+        "en": "Distemper and parvovirus booster",
+        "de": "Staupe-Parvovirose-Auffrischung"
+      },
+      "description": {
+        "en": "Every three years after the basic immunisation. Some vaccines are licensed for shorter intervals; an antibody test can show whether a booster is needed.",
+        "de": "Alle drei Jahre nach der Grundimmunisierung. Manche Impfstoffe sind für kürzere Abstände zugelassen; ein Antikörpertest kann zeigen, ob die Auffrischung nötig ist."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "years": 3
+        },
+        "after": "dog-distemper-parvo",
+        "fromAge": {
+          "months": 51
+        }
+      }
+    },
+    {
+      "id": "dog-leptospirosis",
+      "title": {
+        "en": "Leptospirosis",
+        "de": "Leptospirose"
+      },
+      "description": {
+        "en": "Core vaccination. Puppies at 8 and 12 weeks and again at 15 months; the StIKo Vet advises staying with one vaccine for the whole series, ideally one against four serovars.",
+        "de": "Core-Impfung. Welpen mit 8 und 12 Wochen und nochmals mit 15 Monaten; die StIKo Vet rät, während der Grundimmunisierung beim selben Impfstoff zu bleiben, möglichst einem gegen vier Serovare."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "weeks": 8
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "weeks": 12
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 3
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "months": 15
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 2
+        }
+      }
+    },
+    {
+      "id": "dog-leptospirosis-booster",
+      "title": {
+        "en": "Leptospirosis booster",
+        "de": "Leptospirose-Auffrischung"
+      },
+      "description": {
+        "en": "Every year: the protection does not last longer.",
+        "de": "Jedes Jahr: Der Schutz hält nicht länger."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "years": 1
+        },
+        "after": "dog-leptospirosis",
+        "fromAge": {
+          "months": 27
+        }
+      }
+    },
+    {
+      "id": "dog-rabies",
+      "title": {
+        "en": "Rabies",
+        "de": "Tollwut"
+      },
+      "description": {
+        "en": "From 12 weeks, completed by a second dose at 15 months. Terrestrial rabies has been eradicated in Germany and the StIKo Vet no longer counts this as a core vaccination, but a vaccinated dog is treated far more leniently under the Tollwutverordnung after contact with a suspect animal, and travel abroad requires it. Some countries outside the EU also want a dose at 16 weeks and an antibody test.",
+        "de": "Ab 12 Wochen, abgeschlossen durch eine zweite Impfung mit 15 Monaten. Die terrestrische Tollwut ist in Deutschland getilgt, und die StIKo Vet zählt diese Impfung nicht mehr zu den Core-Impfungen. Ein geimpfter Hund ist nach der Tollwutverordnung bei Kontakt mit einem verdächtigen Tier aber deutlich bessergestellt, und für Reisen ins Ausland ist sie Pflicht. Manche Länder außerhalb der EU verlangen zusätzlich eine Impfung mit 16 Wochen und einen Antikörpertest."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "weeks": 12
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "months": 15
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 2
+        }
+      }
+    },
+    {
+      "id": "dog-rabies-booster",
+      "title": {
+        "en": "Rabies booster",
+        "de": "Tollwut-Auffrischung"
+      },
+      "description": {
+        "en": "Every three years, or as the vaccine's leaflet says.",
+        "de": "Alle drei Jahre oder nach Angabe des Impfstoffherstellers."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "years": 3
+        },
+        "after": "dog-rabies",
+        "fromAge": {
+          "months": 51
+        }
+      }
+    },
+    {
+      "id": "dog-deworming",
+      "optional": true,
+      "title": {
+        "en": "Deworming",
+        "de": "Entwurmung"
+      },
+      "description": {
+        "en": "For the young dog: from 2 weeks every two weeks until two weeks after weaning, usually around 10 weeks. After that, how often depends on how the animal lives: ESCCAP groups dogs from once or twice a year (indoors, no contact) to monthly (hunting, raw meat, unsupervised roaming). Without a clear risk assessment, ESCCAP advises at least four times a year, which is what the reminder uses; a faecal test instead of a treatment counts too. Ask your vet which group applies.",
+        "de": "Für Hundewelpen: ab 2 Wochen alle zwei Wochen bis zwei Wochen nach dem Absetzen, meist bis etwa zur 10. Woche. Danach hängt die Häufigkeit von der Haltung ab: ESCCAP teilt Hunde von ein- bis zweimal im Jahr (kaum Auslauf, kein Kontakt) bis monatlich ein (Jagd, rohes Fleisch, unbeaufsichtigter Auslauf). Ist das Risiko nicht klar einzuschätzen, rät ESCCAP zu mindestens vier Behandlungen im Jahr; danach richtet sich die Erinnerung. Eine Kotuntersuchung statt der Behandlung zählt ebenso. Welche Gruppe passt, weiß die Tierarztpraxis."
+      },
+      "source": "esccap-worms",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "weeks": 2
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "weeks": 4
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 2
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "weeks": 6
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 2
+            }
+          },
+          {
+            "id": "g4",
+            "from": {
+              "weeks": 8
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 2
+            }
+          },
+          {
+            "id": "g5",
+            "from": {
+              "weeks": 10
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 2
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "months": 6
+        }
+      }
+    },
+    {
+      "id": "dog-deworming-routine",
+      "optional": true,
+      "title": {
+        "en": "Deworming (every three months)",
+        "de": "Entwurmung (alle drei Monate)"
+      },
+      "description": {
+        "en": "Four times a year, the minimum ESCCAP advises when the risk cannot be assessed more closely. Animals that hunt, eat raw meat or roam unsupervised need it monthly; ask your vet. Comes with the deworming switch.",
+        "de": "Viermal im Jahr, das Mindestmaß, zu dem ESCCAP rät, wenn sich das Risiko nicht genauer einschätzen lässt. Tiere, die jagen, rohes Fleisch fressen oder unbeaufsichtigt streunen, brauchen es monatlich; fragen Sie die Tierarztpraxis. Gehört zum Schalter der Entwurmung."
+      },
+      "source": "esccap-worms",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "months": 3
+        },
+        "after": "dog-deworming",
+        "fromAge": {
+          "months": 6
+        }
+      }
+    },
+    {
+      "id": "dog-ectoparasites",
+      "optional": true,
+      "title": {
+        "en": "Tick and flea protection",
+        "de": "Zecken- und Flohschutz"
+      },
+      "description": {
+        "en": "ESCCAP advises protection against ticks and fleas all year round: fleas thrive in heated homes, and some ticks are active from February to December. How long one treatment lasts depends on the product, from a month to a year; the reminder comes monthly, the most common interval. For a product that lasts longer, record the reminder as done while the protection holds, or add an own appointment with its interval instead.",
+        "de": "ESCCAP rät zu ganzjährigem Schutz vor Zecken und Flöhen: Flöhe finden in geheizten Wohnungen das ganze Jahr Bedingungen, und manche Zecken sind von Februar bis Dezember aktiv. Wie lange eine Behandlung wirkt, hängt vom Präparat ab, von einem Monat bis zu einem Jahr; die Erinnerung kommt monatlich, im häufigsten Abstand. Bei einem länger wirkenden Präparat den Termin als erledigt eintragen, solange der Schutz hält, oder stattdessen einen eigenen Termin mit dessen Intervall anlegen."
+      },
+      "source": "esccap-ticks",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "months": 2
+        },
+        "every": {
+          "months": 1
+        }
+      }
+    }
+  ]
+}

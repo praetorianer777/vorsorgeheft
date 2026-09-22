@@ -168,6 +168,43 @@ void main() {
     },
   );
 
+  appTest('a dog added through the form gets the dog catalog', (
+    tester,
+    db,
+  ) async {
+    await tester.tap(find.byKey(const Key('add-person')));
+    await settle(tester);
+    await tester.tap(find.text('Dog'));
+    await settle(tester);
+    // The help about screenings for people is not shown for an animal.
+    expect(find.textContaining('screenings someone is entitled'), findsNothing);
+
+    await tester.enterText(find.byKey(const Key('person-name')), 'Bello');
+    await tester.tap(find.byKey(const Key('pick-date-of-birth')));
+    await settle(tester);
+    await tester.enterText(find.byKey(const Key('date-input')), '07202026');
+    await tester.tap(find.byKey(const Key('date-input-ok')));
+    await settle(tester);
+
+    await tester.dragUntilVisible(
+      find.byKey(const Key('optional-dog-deworming')),
+      find.byType(ListView),
+      const Offset(0, -300),
+    );
+    expect(find.text('Depending on how the animal lives'), findsOneWidget);
+    expect(find.byKey(const Key('optional-dog-deworming')), findsOneWidget);
+    expect(find.byKey(const Key('optional-tbe')), findsNothing);
+    await saveForm(tester);
+
+    expect((await db.allPersons()).single.species, Species.dog);
+    expect(find.byIcon(Icons.pets), findsOneWidget);
+
+    await tester.tap(find.text('Bello'));
+    await settle(tester);
+    expect(find.text('Distemper and parvovirus · dose 1 of 4'), findsOneWidget);
+    expect(find.text('U6'), findsNothing);
+  });
+
   appTest(
     'U10 is labelled as depending on the insurer',
     people: [

@@ -27,6 +27,11 @@ class Persons extends Table {
   /// null when there are none. See [encodeOptionalRules].
   TextColumn get optionalRules => text().nullable()();
 
+  /// The [domain.Species] by name rather than by index, so adding a species
+  /// can never turn an existing dog into something else. Every row written
+  /// before pets existed is a person.
+  TextColumn get species => text().withDefault(const Constant('human'))();
+
   @override
   Set<Column<Object>> get primaryKey => {id};
 }
@@ -163,11 +168,11 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
       const DriftDatabaseOptions(storeDateTimeAsText: true);
 
   /// Bumped for the peers table in #10, the families table in #46, the
-  /// optional vaccinations in #70 and the own appointments in #92. An older
-  /// database gains the tables and the column in [migration]; everything it
-  /// already holds stays as it is.
+  /// optional vaccinations in #70, the own appointments in #92 and the
+  /// species in #96. An older database gains the tables and the columns in
+  /// [migration]; everything it already holds stays as it is.
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   /// SQLite enforces foreign keys only when asked to, and without this a
   /// deleted person leaves their recorded appointments behind.
@@ -179,6 +184,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
       if (from < 3) await m.createTable(families);
       if (from < 4) await m.addColumn(persons, persons.optionalRules);
       if (from < 5) await m.createTable(ownAppointments);
+      if (from < 6) await m.addColumn(persons, persons.species);
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
@@ -214,6 +220,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
           sex: person.sex,
           notes: Value(person.notes),
           optionalRules: Value(encodeOptionalRules(person.optionalRules)),
+          species: Value(person.species.name),
         ),
       );
 
@@ -481,6 +488,7 @@ domain.Person _toPerson(PersonRow row) => domain.Person(
   sex: row.sex,
   notes: row.notes,
   optionalRules: decodeOptionalRules(row.optionalRules),
+  species: domain.Species.parse(row.species),
 );
 
 /// Rule ids are lowercase ASCII with hyphens, so a comma-separated list is

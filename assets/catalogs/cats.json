@@ -1,0 +1,368 @@
+{
+  "_conversion": "The StIKo Vet schedule lists feline herpesvirus, calicivirus and panleukopenia together at 8, 12 and 16 weeks and 15 months; one combination vaccine covers them, so they are one rule. The basic immunisation is everything in the first two years; an adult cat without records sees the booster, counted from the age at which the series would have ended. Rabies and feline leukaemia are non-core for cats and depend on travel and outdoor access, so both are optional, as are deworming and tick protection.",
+  "catalogId": "cats",
+  "catalogVersion": "2026.09",
+  "_changes": [
+    {
+      "version": "2026.09",
+      "en": "First edition: vaccinations after the StIKo Vet guideline, deworming and tick protection after ESCCAP.",
+      "de": "Erste Ausgabe: Impfungen nach der Leitlinie der StIKo Vet, Entwurmung und Zeckenschutz nach ESCCAP."
+    }
+  ],
+  "name": {
+    "en": "Cats",
+    "de": "Katzen"
+  },
+  "species": [
+    "cat"
+  ],
+  "sources": {
+    "stiko-vet": {
+      "name": {
+        "en": "StIKo Vet guideline for small animal vaccination",
+        "de": "StIKo Vet: Leitlinie zur Impfung von Kleintieren"
+      },
+      "url": "https://www.openagrar.de/servlets/MCRFileNodeServlet/openagrar_derivate_00063989/Impfleitlinie_Kleintiere_2025-01-06.pdf",
+      "document": "6. Auflage, Stand 06.01.2025, Ständige Impfkommission Veterinärmedizin am Friedrich-Loeffler-Institut",
+      "asOf": "2026-09-22"
+    },
+    "esccap-worms": {
+      "name": {
+        "en": "ESCCAP recommendation on worms in dogs and cats",
+        "de": "ESCCAP-Empfehlung zur Bekämpfung von Würmern bei Hunden und Katzen"
+      },
+      "url": "https://www.esccap.de/v2/wp-content/uploads/2025/09/ESCCAP_Empfehlung_No1_Helminthen_082025.pdf",
+      "document": "Deutsche Adaption der ESCCAP-Empfehlung Nr. 1, 08/2025",
+      "asOf": "2026-09-22"
+    },
+    "esccap-ticks": {
+      "name": {
+        "en": "ESCCAP recommendation on ticks, fleas and other ectoparasites",
+        "de": "ESCCAP-Empfehlung zur Bekämpfung von Ektoparasiten"
+      },
+      "url": "https://www.esccap.de/v2/wp-content/uploads/2022/02/2-2022-Ektoparasiten-Empfehlung-3.pdf",
+      "document": "Deutsche Adaption der ESCCAP-Empfehlung Nr. 3, Stand Februar 2022",
+      "asOf": "2026-09-22"
+    }
+  },
+  "rules": [
+    {
+      "id": "cat-core",
+      "title": {
+        "en": "Cat flu and panleukopenia",
+        "de": "Katzenschnupfen und Katzenseuche"
+      },
+      "description": {
+        "en": "Core vaccination against feline herpesvirus and calicivirus (cat flu) and panleukopenia, which every cat, indoor cats included, should have. Kittens at 8, 12 and 16 weeks; the dose at 15 months completes the basic immunisation. The mother's antibodies can last until the 20th week, which is why the 16-week dose matters.",
+        "de": "Core-Impfung gegen Herpes- und Caliciviren (Katzenschnupfen) und Panleukopenie (Katzenseuche), die jede Katze haben sollte, auch reine Wohnungskatzen. Katzenwelpen mit 8, 12 und 16 Wochen; die Impfung mit 15 Monaten schließt die Grundimmunisierung ab. Mütterliche Antikörper können bis in die 20. Woche bestehen, deshalb zählt die Impfung mit 16 Wochen."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "weeks": 8
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "weeks": 12
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 3
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "weeks": 16
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 3
+            }
+          },
+          {
+            "id": "g4",
+            "from": {
+              "months": 15
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 2
+        }
+      }
+    },
+    {
+      "id": "cat-core-booster",
+      "title": {
+        "en": "Cat flu and panleukopenia booster",
+        "de": "Katzenschnupfen-Katzenseuche-Auffrischung"
+      },
+      "description": {
+        "en": "Up to every three years after the basic immunisation; an antibody test against panleukopenia can show whether it is needed.",
+        "de": "Im Abstand von bis zu drei Jahren nach der Grundimmunisierung; ein Antikörpertest gegen Katzenseuche kann zeigen, ob sie nötig ist."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "years": 3
+        },
+        "after": "cat-core",
+        "fromAge": {
+          "months": 51
+        }
+      }
+    },
+    {
+      "id": "cat-rabies",
+      "optional": true,
+      "title": {
+        "en": "Rabies",
+        "de": "Tollwut"
+      },
+      "description": {
+        "en": "Non-core for cats: terrestrial rabies has been eradicated in Germany, so a cat that does not travel abroad can go without. Required for travel; a vaccinated cat is also treated more leniently under the Tollwutverordnung. From 12 weeks, completed at 15 months.",
+        "de": "Für Katzen keine Core-Impfung: Die terrestrische Tollwut ist in Deutschland getilgt, eine Katze, die nicht ins Ausland reist, kann darauf verzichten. Für Reisen Pflicht; eine geimpfte Katze ist außerdem nach der Tollwutverordnung bessergestellt. Ab 12 Wochen, abgeschlossen mit 15 Monaten."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "weeks": 12
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "months": 15
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 4
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 2
+        }
+      }
+    },
+    {
+      "id": "cat-rabies-booster",
+      "optional": true,
+      "title": {
+        "en": "Rabies booster",
+        "de": "Tollwut-Auffrischung"
+      },
+      "description": {
+        "en": "Every three years. Comes with the rabies switch.",
+        "de": "Alle drei Jahre. Gehört zum Schalter der Tollwutimpfung."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "years": 3
+        },
+        "after": "cat-rabies",
+        "fromAge": {
+          "months": 51
+        }
+      }
+    },
+    {
+      "id": "cat-felv",
+      "optional": true,
+      "title": {
+        "en": "Feline leukaemia (outdoor cats)",
+        "de": "Leukose (Freigänger)"
+      },
+      "description": {
+        "en": "For cats with a high exposure: outdoor cats and contact with cats of unknown FeLV status. Test for an existing infection first. Two doses three to four weeks apart from 8 weeks, completed by a third a year later.",
+        "de": "Für Katzen mit hohem Ansteckungsrisiko: Freigänger und Kontakt zu Katzen mit unbekanntem FeLV-Status. Vorher auf eine bestehende Infektion testen. Zwei Impfungen im Abstand von drei bis vier Wochen ab 8 Wochen, abgeschlossen durch eine dritte ein Jahr später."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "weeks": 8
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "weeks": 11
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 3
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "months": 14
+            },
+            "minIntervalFromPrevious": {
+              "months": 12
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "years": 2
+        }
+      }
+    },
+    {
+      "id": "cat-felv-booster",
+      "optional": true,
+      "title": {
+        "en": "Feline leukaemia booster",
+        "de": "Leukose-Auffrischung"
+      },
+      "description": {
+        "en": "Up to every three years while the cat goes outdoors. Comes with the leukaemia switch.",
+        "de": "Im Abstand von bis zu drei Jahren, solange die Katze Freigang hat. Gehört zum Schalter der Leukoseimpfung."
+      },
+      "source": "stiko-vet",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "years": 3
+        },
+        "after": "cat-felv",
+        "fromAge": {
+          "months": 50
+        }
+      }
+    },
+    {
+      "id": "cat-deworming",
+      "optional": true,
+      "title": {
+        "en": "Deworming",
+        "de": "Entwurmung"
+      },
+      "description": {
+        "en": "For the young cat: from 3 weeks every two weeks until two weeks after weaning, usually around 11 weeks. After that, how often depends on how the animal lives: ESCCAP groups cats from once or twice a year (indoors) to monthly (hunting outdoor cats). Without a clear risk assessment, ESCCAP advises at least four times a year, which is what the reminder uses; a faecal test instead of a treatment counts too. Ask your vet which group applies.",
+        "de": "Für Katzenwelpen: ab 3 Wochen alle zwei Wochen bis zwei Wochen nach dem Absetzen, meist bis etwa zur 11. Woche. Danach hängt die Häufigkeit von der Haltung ab: ESCCAP teilt Katzen von ein- bis zweimal im Jahr (Wohnungshaltung) bis monatlich ein (jagende Freigänger). Ist das Risiko nicht klar einzuschätzen, rät ESCCAP zu mindestens vier Behandlungen im Jahr; danach richtet sich die Erinnerung. Eine Kotuntersuchung statt der Behandlung zählt ebenso. Welche Gruppe passt, weiß die Tierarztpraxis."
+      },
+      "source": "esccap-worms",
+      "schedule": {
+        "type": "series",
+        "doses": [
+          {
+            "id": "g1",
+            "from": {
+              "weeks": 3
+            }
+          },
+          {
+            "id": "g2",
+            "from": {
+              "weeks": 5
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 2
+            }
+          },
+          {
+            "id": "g3",
+            "from": {
+              "weeks": 7
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 2
+            }
+          },
+          {
+            "id": "g4",
+            "from": {
+              "weeks": 9
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 2
+            }
+          },
+          {
+            "id": "g5",
+            "from": {
+              "weeks": 11
+            },
+            "minIntervalFromPrevious": {
+              "weeks": 2
+            }
+          }
+        ]
+      },
+      "eligibility": {
+        "maxAge": {
+          "months": 6
+        }
+      }
+    },
+    {
+      "id": "cat-deworming-routine",
+      "optional": true,
+      "title": {
+        "en": "Deworming (every three months)",
+        "de": "Entwurmung (alle drei Monate)"
+      },
+      "description": {
+        "en": "Four times a year, the minimum ESCCAP advises when the risk cannot be assessed more closely. Animals that hunt, eat raw meat or roam unsupervised need it monthly; ask your vet. Comes with the deworming switch.",
+        "de": "Viermal im Jahr, das Mindestmaß, zu dem ESCCAP rät, wenn sich das Risiko nicht genauer einschätzen lässt. Tiere, die jagen, rohes Fleisch fressen oder unbeaufsichtigt streunen, brauchen es monatlich; fragen Sie die Tierarztpraxis. Gehört zum Schalter der Entwurmung."
+      },
+      "source": "esccap-worms",
+      "schedule": {
+        "type": "booster",
+        "every": {
+          "months": 3
+        },
+        "after": "cat-deworming",
+        "fromAge": {
+          "months": 6
+        }
+      }
+    },
+    {
+      "id": "cat-ectoparasites",
+      "optional": true,
+      "title": {
+        "en": "Tick and flea protection",
+        "de": "Zecken- und Flohschutz"
+      },
+      "description": {
+        "en": "ESCCAP advises protection against ticks and fleas all year round: fleas thrive in heated homes, and some ticks are active from February to December. How long one treatment lasts depends on the product, from a month to a year; the reminder comes monthly, the most common interval. For a product that lasts longer, record the reminder as done while the protection holds, or add an own appointment with its interval instead.",
+        "de": "ESCCAP rät zu ganzjährigem Schutz vor Zecken und Flöhen: Flöhe finden in geheizten Wohnungen das ganze Jahr Bedingungen, und manche Zecken sind von Februar bis Dezember aktiv. Wie lange eine Behandlung wirkt, hängt vom Präparat ab, von einem Monat bis zu einem Jahr; die Erinnerung kommt monatlich, im häufigsten Abstand. Bei einem länger wirkenden Präparat den Termin als erledigt eintragen, solange der Schutz hält, oder stattdessen einen eigenen Termin mit dessen Intervall anlegen."
+      },
+      "source": "esccap-ticks",
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "months": 2
+        },
+        "every": {
+          "months": 1
+        }
+      }
+    }
+  ]
+}

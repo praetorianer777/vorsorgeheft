@@ -50,6 +50,12 @@
       }
     }
   },
+  "speciesLabel": "Who is it?",
+  "speciesHuman": "Person",
+  "speciesDog": "Dog",
+  "speciesCat": "Cat",
+  "optionalCareTitle": "Depending on how the animal lives",
+  "optionalCareHelp": "Vaccinations the StIKo Vet recommends only for some animals, and deworming and tick protection after ESCCAP. Switch on what applies, and the appointments and reminders follow.",
   "optionalVaccinationsTitle": "Optional vaccinations",
   "optionalVaccinationsHelp": "Vaccinations the STIKO recommends only for some people, depending on illness, pregnancy, region or occupation. Switch on what applies, and the appointments and reminders follow.",
   "save": "Save",
@@ -147,7 +153,7 @@
   "privacyBody": "Everything is stored on this device. There is no account, no server and no analytics.",
   "howTitle": "How this app works",
   "howOriginTitle": "Where the appointments come from",
-  "howOriginBody": "The check-ups and vaccinations your health insurance covers are laid down in public documents. The Federal Joint Committee (G-BA) writes the guidelines for check-ups, and the Standing Committee on Vaccination (STIKO) at the Robert Koch Institute publishes the vaccination calendar. This app carries those documents as tables, typed in by hand and reviewed on the dates shown. Nothing is made up, and nothing is fetched from the internet.",
+  "howOriginBody": "The check-ups and vaccinations your health insurance covers are laid down in public documents. The Federal Joint Committee (G-BA) writes the guidelines for check-ups, and the Standing Committee on Vaccination (STIKO) at the Robert Koch Institute publishes the vaccination calendar. For dogs and cats, the Standing Committee on Veterinary Vaccination (StIKo Vet) at the Friedrich-Loeffler-Institut writes the vaccination guideline, and ESCCAP the recommendations on worms and ticks. This app carries those documents as tables, typed in by hand and reviewed on the dates shown. Nothing is made up, and nothing is fetched from the internet.",
   "howSourceReviewed": "reviewed {date}",
   "@howSourceReviewed": {
     "placeholders": {

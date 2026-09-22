@@ -4,6 +4,7 @@ import 'package:vorsorgeheft/data/database_provider.dart';
 import 'package:vorsorgeheft/domain/completion.dart';
 import 'package:vorsorgeheft/domain/own_appointment.dart';
 import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/sync/change.dart';
 import 'package:vorsorgeheft/sync/hlc.dart';
 import 'package:vorsorgeheft/sync/overwrite_notice.dart';
 import 'package:vorsorgeheft/sync/replicated_store.dart';
@@ -89,6 +90,7 @@ void main() {
         'sex',
         'notes',
         'optionalRules',
+        'species',
       });
     });
 
@@ -330,6 +332,36 @@ void main() {
       final onBob = (await bob.db.allCompletions()).single;
       expect(onBob.ruleId, 'u6');
       expect(onBob.completedOn, DateTime.utc(2026, 11, 2));
+    });
+
+    test('a dog reaches the other phone as a dog', () async {
+      final bello = Person(
+        id: 'bello',
+        name: 'Bello',
+        dateOfBirth: DateTime.utc(2026, 6, 1),
+        species: Species.dog,
+      );
+      await alice.store.savePerson(bello);
+      await exchange(alice, bob);
+      expect((await bob.db.personById('bello'))!.species, Species.dog);
+    });
+
+    test('a person from a phone that predates pets is a person', () async {
+      // The older phone's change log has no species field at all.
+      await alice.store.merge([
+        for (final (field, value) in [
+          ('name', 'Anna'),
+          ('dateOfBirth', '2026-01-15T00:00:00.000Z'),
+        ])
+          Change(
+            entity: ReplicatedStore.personEntity,
+            entityId: 'anna',
+            field: field,
+            hlc: Hlc.parse('1758000000000-0000-old-phone'),
+            value: value,
+          ),
+      ], from: 'old-phone');
+      expect((await alice.db.personById('anna'))!.species, Species.human);
     });
 
     test('an own appointment reaches the other phone', () async {

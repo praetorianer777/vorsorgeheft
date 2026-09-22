@@ -50,6 +50,12 @@
       }
     }
   },
+  "speciesLabel": "Wer ist es?",
+  "speciesHuman": "Mensch",
+  "speciesDog": "Hund",
+  "speciesCat": "Katze",
+  "optionalCareTitle": "Je nach Haltung",
+  "optionalCareHelp": "Impfungen, die die StIKo Vet nur für manche Tiere empfiehlt, sowie Entwurmung und Zeckenschutz nach ESCCAP. Einschalten, was zutrifft, dann folgen Termine und Erinnerungen.",
   "optionalVaccinationsTitle": "Optionale Impfungen",
   "optionalVaccinationsHelp": "Impfungen, die die STIKO nur für manche empfiehlt, je nach Krankheit, Schwangerschaft, Region oder Beruf. Was zutrifft, hier einschalten; Termine und Erinnerungen folgen.",
   "save": "Speichern",
@@ -103,7 +109,7 @@
   "privacyBody": "Alles wird auf diesem Gerät gespeichert. Es gibt kein Konto, keinen Server und keine Analyse.",
   "howTitle": "So funktioniert die App",
   "howOriginTitle": "Woher die Termine kommen",
-  "howOriginBody": "Welche Vorsorgeuntersuchungen und Impfungen die Krankenkasse bezahlt, steht in öffentlichen Dokumenten. Der Gemeinsame Bundesausschuss (G-BA) schreibt die Richtlinien für die Untersuchungen, die Ständige Impfkommission (STIKO) am Robert Koch-Institut veröffentlicht den Impfkalender. Diese App enthält diese Dokumente als Tabellen, von Hand eingetragen und an den angegebenen Tagen geprüft. Nichts ist erfunden, und nichts wird aus dem Internet geladen.",
+  "howOriginBody": "Welche Vorsorgeuntersuchungen und Impfungen die Krankenkasse bezahlt, steht in öffentlichen Dokumenten. Der Gemeinsame Bundesausschuss (G-BA) schreibt die Richtlinien für die Untersuchungen, die Ständige Impfkommission (STIKO) am Robert Koch-Institut veröffentlicht den Impfkalender. Für Hunde und Katzen schreibt die Ständige Impfkommission Veterinärmedizin (StIKo Vet) am Friedrich-Loeffler-Institut die Impfleitlinie, ESCCAP die Empfehlungen zu Würmern und Zecken. Diese App enthält diese Dokumente als Tabellen, von Hand eingetragen und an den angegebenen Tagen geprüft. Nichts ist erfunden, und nichts wird aus dem Internet geladen.",
   "howSourceReviewed": "geprüft am {date}",
   "howComputeTitle": "Wie die Termine berechnet werden",
   "howComputeBody": "Jeder Termin hat in seiner Richtlinie ein Altersfenster, die U6 zum Beispiel zwischen 10 und 12 Monaten. Die App nimmt das Geburtsdatum einer Person und rechnet alle Fenster von dort aus. Es wird nichts im Voraus gespeichert: Wenn du einen Termin einträgst oder sich eine Richtlinie ändert, wird alles neu berechnet. Eine Impfung mit mehreren Dosen zählt ab der vorigen Dosis, eine Auffrischung ab der letzten, die du eingetragen hast.",

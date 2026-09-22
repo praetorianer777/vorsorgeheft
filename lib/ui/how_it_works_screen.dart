@@ -44,21 +44,24 @@ class HowItWorksScreen extends ConsumerWidget {
             body: l10n.howOriginBody,
           ),
           if (catalogs != null)
-            for (final catalog in catalogs.catalogs)
-              for (final source in catalog.sources.values)
-                ListTile(
-                  key: Key('how-source-${source.id}'),
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.link),
-                  title: Text(source.name(locale)),
-                  subtitle: Text(
-                    '${source.url}\n${l10n.howSourceReviewed(source.asOf)}',
-                  ),
-                  onTap: () => launchUrl(
-                    Uri.parse(source.url),
-                    mode: LaunchMode.externalApplication,
-                  ),
+            // The dog and cat catalogs cite the same documents; one line each.
+            for (final source in {
+              for (final catalog in catalogs.catalogs)
+                for (final source in catalog.sources.values) source.url: source,
+            }.values)
+              ListTile(
+                key: Key('how-source-${source.id}'),
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.link),
+                title: Text(source.name(locale)),
+                subtitle: Text(
+                  '${source.url}\n${l10n.howSourceReviewed(source.asOf)}',
                 ),
+                onTap: () => launchUrl(
+                  Uri.parse(source.url),
+                  mode: LaunchMode.externalApplication,
+                ),
+              ),
           _Section(
             icon: Icons.calculate_outlined,
             title: l10n.howComputeTitle,

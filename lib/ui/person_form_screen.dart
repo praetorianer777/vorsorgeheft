@@ -31,6 +31,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
   );
   late DateTime? _dateOfBirth = widget.existing?.dateOfBirth;
   late Sex _sex = widget.existing?.sex ?? Sex.notStated;
+  late Species _species = widget.existing?.species ?? Species.human;
   late final Set<String> _optionalRules = {...?widget.existing?.optionalRules};
   bool _dateTouched = false;
 
@@ -81,6 +82,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
       sex: _sex,
       notes: _notes.text.trim().isEmpty ? null : _notes.text.trim(),
       optionalRules: _optionalRules,
+      species: _species,
     );
     final store = ref.read(storeProvider);
     await store.savePerson(person);
@@ -142,6 +144,40 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            Text(
+              l10n.speciesLabel,
+              style: Theme.of(context).textTheme.labelLarge,
+            ),
+            const SizedBox(height: 4),
+            SegmentedButton<Species>(
+              key: const Key('species'),
+              showSelectedIcon: false,
+              segments: [
+                ButtonSegment(
+                  value: Species.human,
+                  icon: const Icon(Icons.person_outline),
+                  label: Text(l10n.speciesHuman),
+                ),
+                ButtonSegment(
+                  value: Species.dog,
+                  icon: const Icon(Icons.pets),
+                  label: Text(l10n.speciesDog),
+                ),
+                ButtonSegment(
+                  value: Species.cat,
+                  icon: const Icon(Icons.pets),
+                  label: Text(l10n.speciesCat),
+                ),
+              ],
+              selected: {_species},
+              // Switches belong to one species' catalogs; carrying the TBE
+              // switch over to a dog would leave a rule id nobody can see.
+              onSelectionChanged: (s) => setState(() {
+                _species = s.first;
+                _optionalRules.clear();
+              }),
+            ),
+            const SizedBox(height: 16),
             TextFormField(
               key: const Key('person-name'),
               controller: _name,
@@ -196,8 +232,10 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
               selected: {_sex},
               onSelectionChanged: (s) => setState(() => _sex = s.first),
             ),
-            const SizedBox(height: 8),
-            Text(l10n.sexHelp, style: Theme.of(context).textTheme.bodySmall),
+            if (_species == Species.human) ...[
+              const SizedBox(height: 8),
+              Text(l10n.sexHelp, style: Theme.of(context).textTheme.bodySmall),
+            ],
             const SizedBox(height: 16),
             TextFormField(
               controller: _notes,
@@ -242,7 +280,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
   ) {
     final catalogs = ref.watch(catalogsProvider).value;
     if (catalogs == null) return const [];
-    final rules = switchableRules(catalogs).where((rule) {
+    final rules = switchableRules(catalogs, species: _species).where((rule) {
       final sex = rule.eligibility.sex;
       return sex == null || _sex == Sex.notStated || _sex == sex;
     }).toList();
@@ -251,9 +289,19 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
     final theme = Theme.of(context);
     return [
       const SizedBox(height: 24),
-      Text(l10n.optionalVaccinationsTitle, style: theme.textTheme.titleMedium),
+      Text(
+        _species == Species.human
+            ? l10n.optionalVaccinationsTitle
+            : l10n.optionalCareTitle,
+        style: theme.textTheme.titleMedium,
+      ),
       const SizedBox(height: 4),
-      Text(l10n.optionalVaccinationsHelp, style: theme.textTheme.bodySmall),
+      Text(
+        _species == Species.human
+            ? l10n.optionalVaccinationsHelp
+            : l10n.optionalCareHelp,
+        style: theme.textTheme.bodySmall,
+      ),
       const SizedBox(height: 8),
       for (final rule in rules) _optionalSwitch(context, l10n, rule),
     ];

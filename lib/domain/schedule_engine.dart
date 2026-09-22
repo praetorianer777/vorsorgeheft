@@ -32,7 +32,7 @@ List<Occurrence> computeOccurrences({
   final generateUntil = today.add(horizon);
   final occurrences = <Occurrence>[];
   final rules = [
-    ...catalogs.rules,
+    ...catalogs.rulesFor(person.species),
     for (final own in ownAppointments)
       if (own.personId == person.id) own.toRule(sourceName: ownSourceName),
   ];
@@ -78,11 +78,14 @@ bool isSwitchedOn(
       isSwitchedOn(primary, person: person, catalogs: catalogs);
 }
 
-/// The optional rules a person can switch on, one switch each. A booster that
-/// follows an optional series is not listed, because it takes that series'
-/// switch.
-List<Rule> switchableRules(CatalogSet catalogs) => [
-  for (final rule in catalogs.rules)
+/// The optional rules a person of [species] can switch on, one switch each.
+/// A booster that follows an optional series is not listed, because it takes
+/// that series' switch.
+List<Rule> switchableRules(
+  CatalogSet catalogs, {
+  Species species = Species.human,
+}) => [
+  for (final rule in catalogs.rulesFor(species))
     if (rule.optional && !_followsOptionalSeries(rule, catalogs)) rule,
 ];
 

@@ -23,6 +23,7 @@ import 'generated/schema_v2.dart' as v2;
 import 'generated/schema_v3.dart' as v3;
 import 'generated/schema_v4.dart' as v4;
 import 'generated/schema_v5.dart' as v5;
+import 'generated/schema_v6.dart' as v6;
 
 /// One test per released version: a database written the way that version
 /// left it, with every table and setting the version could fill, upgraded
@@ -100,6 +101,7 @@ class Release {
     3 => v3.DatabaseAtV3(executor),
     4 => v4.DatabaseAtV4(executor),
     5 => v5.DatabaseAtV5(executor),
+    6 => v6.DatabaseAtV6(executor),
     _ => throw StateError('no generated database for schema $schema'),
   };
 
@@ -227,6 +229,8 @@ Future<void> checkData(AppDatabase db, Release release) async {
     release.has(Trace.optionalRules) ? {'influenza-under-60', 'tbe'} : isEmpty,
   );
   expect(people.last.sex, Sex.notStated);
+  // Every member a release before pets wrote is a person.
+  expect(people.map((p) => p.species).toSet(), {Species.human});
 
   final completions = await db.allCompletions();
   expect(completions, hasLength(3));
