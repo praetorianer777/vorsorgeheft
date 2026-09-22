@@ -7,37 +7,6 @@ X-WR-CALNAME:Preventive care – Mila
 X-WR-CALDESC:Not medical advice. Entitlements vary between insurers\; ask y
  our doctor's office when in doubt.
 BEGIN:VEVENT
-UID:infant-u1@vorsorgereminder
-DTSTAMP:20260920T120000Z
-SEQUENCE:0
-DTSTART;VALUE=DATE:20260901
-DTEND;VALUE=DATE:20260902
-SUMMARY:Mila: U1
-DESCRIPTION:The first of the statutory children's check-ups (U-series)\, im
- mediately after birth\, within the first 30 minutes.\nSource: G-BA guideli
- ne on early detection of illness in children · as of 2026-09-20\nhttps://
- www.g-ba.de/richtlinien/15/
-CATEGORIES:children
-URL:https://www.g-ba.de/richtlinien/15/
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Mila: U1
-TRIGGER:-P30D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Mila: U1
-TRIGGER:-P14D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Mila: U1
-TRIGGER:-P3D
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:infant-cf-screening@vorsorgereminder
 DTSTAMP:20260920T120000Z
 SEQUENCE:0
@@ -89,8 +58,11 @@ SUMMARY:Mila: Extended newborn screening
 DESCRIPTION:Blood sample screening for metabolic\, hormone and other congen
  ital disorders. Taken no earlier than 36 and no later than 72 hours of lif
  e\; 48 to 72 hours is optimal. A sample missed in this window must be take
- n without delay.\nSource: G-BA guideline on early detection of illness in 
- children · as of 2026-09-20\nhttps://www.g-ba.de/richtlinien/15/
+ n without delay\, at the latest by the end of the fourth week\, like the c
+ ystic fibrosis screening from the same sample.\nCatch up by 2026-09-29\; a
+ fter that the entitlement lapses.\nSource: G-BA guideline on early detecti
+ on of illness in children · as of 2026-09-20\nhttps://www.g-ba.de/richtli
+ nien/15/
 CATEGORIES:children
 URL:https://www.g-ba.de/richtlinien/15/
 STATUS:CONFIRMED
@@ -109,6 +81,16 @@ BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Mila: Extended newborn screening
 TRIGGER:-P3D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2026-09-29\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20260830T080000Z
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Catch up by 2026-09-29\; after that the entitlement lapses.
+TRIGGER;VALUE=DATE-TIME:20260922T080000Z
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT

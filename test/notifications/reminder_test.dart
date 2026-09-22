@@ -52,9 +52,12 @@ void main() {
         now: DateTime(2026, 9, 20, 11),
         settings: const ReminderSettings(maxPending: 500),
       );
-      final screening = plan.where((r) => r.ruleId == 'newborn-screening');
+      final screening = plan.where(
+        (r) =>
+            r.ruleId == 'newborn-screening' &&
+            r.kind == ReminderKind.windowOpens,
+      );
       expect(screening.map((r) => r.fireAt), [DateTime(2026, 9, 21, 9)]);
-      expect(screening.single.kind, ReminderKind.windowOpens);
       expect(screening.single.leadTime, Duration.zero);
     });
 

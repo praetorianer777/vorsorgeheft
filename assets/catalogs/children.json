@@ -1,8 +1,13 @@
 {
-  "_conversion": "German guidelines count periods as 'Lebenstag/-woche/-monat', where the first one begins at birth: the 10th month of life is the month between ages 9 and 10 months. Ages here are therefore the guideline number minus one for a window's start, and the guideline number minus one day for its end. 'from' and 'to' are the recommended window; 'toleranceTo' is the last date the appointment can still be caught up. Every rule is capped at 18 because § 1 of the Kinder-Richtlinie grants the entitlement only until the 18th birthday; without that cap an adult's timeline fills with childhood check-ups that lapsed decades ago. The hearing, pulse-oximetry and cystic-fibrosis screenings end with the U2 or the fourth week of life ('spaetestens bis zur U2', 'innerhalb der ersten vier Lebenswochen'), so they carry that date as a hard deadline: past it they are not late, they are a different examination, and an entry that stays 'overdue' for years is noise. The U1 and the extended newborn screening have no such bound in the text and keep none here.",
+  "_conversion": "German guidelines count periods as 'Lebenstag/-woche/-monat', where the first one begins at birth: the 10th month of life is the month between ages 9 and 10 months. Ages here are therefore the guideline number minus one for a window's start, and the guideline number minus one day for its end. 'from' and 'to' are the recommended window; 'toleranceTo' is the last date the appointment can still be caught up. Every rule is capped at 18 because § 1 of the Kinder-Richtlinie grants the entitlement only until the 18th birthday; without that cap an adult's timeline fills with childhood check-ups that lapsed decades ago. The hearing, pulse-oximetry and cystic-fibrosis screenings end with the U2 or the fourth week of life ('spaetestens bis zur U2', 'innerhalb der ersten vier Lebenswochen'), so they carry that date as a hard deadline: past it they are not late, they are a different examination, and an entry that stays 'overdue' for years is noise. The U1 has no tolerance limit in the § 2 table, and § 2 grants every examination only within its period: 'unmittelbar nach der Geburt' ends with the day of birth, so the U1 lapses then like a U2 after day 14. The extended newborn screening says only that a missed sample must be taken without delay; it lapses with the cystic fibrosis screening from the same blood sample at the end of the fourth week, rather than staying 'overdue' for the rest of childhood.",
   "catalogId": "children",
-  "catalogVersion": "2026.09",
+  "catalogVersion": "2026.09.1",
   "_changes": [
+    {
+      "version": "2026.09.1",
+      "en": "The U1 lapses after the day of birth and the extended newborn screening after the fourth week of life, instead of staying overdue for a child entered later.",
+      "de": "Die U1 verfällt nach dem Tag der Geburt und das erweiterte Neugeborenen-Screening nach der vierten Lebenswoche, statt bei einem später angelegten Kind dauerhaft überfällig zu bleiben."
+    },
     {
       "version": "2026.09",
       "en": "First edition: U1 to U9, J1 and the newborn screenings, with time windows and exclusion deadlines from the Kinder-Richtlinie as of May 2025.",
@@ -49,8 +54,8 @@
         "de": "U1"
       },
       "description": {
-        "en": "The first of the statutory children's check-ups (U-series), immediately after birth, within the first 30 minutes.",
-        "de": "Untersuchung unmittelbar nach der Geburt, innerhalb der ersten 30 Minuten."
+        "en": "The first of the statutory children's check-ups (U-series), immediately after birth, within the first 30 minutes. It cannot be caught up later.",
+        "de": "Untersuchung unmittelbar nach der Geburt, innerhalb der ersten 30 Minuten. Später lässt sie sich nicht nachholen."
       },
       "source": "gba-kinder-rl",
       "schedule": {
@@ -58,7 +63,11 @@
         "from": {},
         "to": {
           "minutes": 30
-        }
+        },
+        "toleranceTo": {
+          "minutes": 30
+        },
+        "hardDeadline": true
       },
       "eligibility": {
         "maxAge": {
@@ -73,8 +82,8 @@
         "de": "Erweitertes Neugeborenen-Screening"
       },
       "description": {
-        "en": "Blood sample screening for metabolic, hormone and other congenital disorders. Taken no earlier than 36 and no later than 72 hours of life; 48 to 72 hours is optimal. A sample missed in this window must be taken without delay.",
-        "de": "Blutprobe zur Früherkennung von Stoffwechsel-, Hormon- und weiteren angeborenen Erkrankungen. Nicht vor vollendeten 36 und nicht nach 72 Lebensstunden; optimal sind 48 bis 72 Lebensstunden. Eine in diesem Zeitfenster versäumte Probenentnahme muss unverzüglich nachgeholt werden."
+        "en": "Blood sample screening for metabolic, hormone and other congenital disorders. Taken no earlier than 36 and no later than 72 hours of life; 48 to 72 hours is optimal. A sample missed in this window must be taken without delay, at the latest by the end of the fourth week, like the cystic fibrosis screening from the same sample.",
+        "de": "Blutprobe zur Früherkennung von Stoffwechsel-, Hormon- und weiteren angeborenen Erkrankungen. Nicht vor vollendeten 36 und nicht nach 72 Lebensstunden; optimal sind 48 bis 72 Lebensstunden. Eine in diesem Zeitfenster versäumte Probenentnahme muss unverzüglich nachgeholt werden, spätestens bis zum Ende der vierten Lebenswoche wie das Mukoviszidose-Screening aus derselben Probe."
       },
       "source": "gba-kinder-rl",
       "schedule": {
@@ -84,7 +93,11 @@
         },
         "to": {
           "hours": 72
-        }
+        },
+        "toleranceTo": {
+          "weeks": 4
+        },
+        "hardDeadline": true
       },
       "eligibility": {
         "maxAge": {

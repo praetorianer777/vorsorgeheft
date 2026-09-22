@@ -136,6 +136,53 @@ void main() {
     }
   });
 
+  group('what can only happen right after birth', () {
+    test('the U1 is due on the day of birth', () {
+      expect(occurrenceFor('u1').status, OccurrenceStatus.due);
+    });
+
+    test('the U1 has lapsed the next day, not become overdue', () {
+      expect(
+        occurrenceFor('u1', today: DateTime.utc(2026, 1, 16)).status,
+        OccurrenceStatus.expired,
+      );
+    });
+
+    test('a missed blood screening can be caught up for four weeks', () {
+      final late = occurrenceFor(
+        'newborn-screening',
+        today: DateTime.utc(2026, 2, 10),
+      );
+      expect(late.status, OccurrenceStatus.overdue);
+      expect(late.deadline, DateTime.utc(2026, 2, 12));
+      expect(
+        occurrenceFor(
+          'newborn-screening',
+          today: DateTime.utc(2026, 2, 13),
+        ).status,
+        OccurrenceStatus.expired,
+      );
+    });
+
+    test('a child entered at three leaves neither of them open', () {
+      final timeline = computeOccurrences(
+        person: child,
+        catalogs: catalogs,
+        completions: const [],
+        today: DateTime.utc(2029, 3, 1),
+      );
+      final open = timeline.where(
+        (o) =>
+            o.status == OccurrenceStatus.due ||
+            o.status == OccurrenceStatus.overdue,
+      );
+      expect(
+        open.map((o) => o.rule.id),
+        isNot(anyOf(contains('u1'), contains('newborn-screening'))),
+      );
+    });
+  });
+
   test('U10, U11 and J2 are flagged as not a standard benefit', () {
     for (final id in ['u10', 'u11', 'j2']) {
       expect(catalog.ruleById(id)!.statutory, isFalse, reason: id);
