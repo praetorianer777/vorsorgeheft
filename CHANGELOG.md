@@ -7,6 +7,17 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-09-22
+
+### Features
+
+- take dogs and cats into the family (feff2ac)
+
+### Other
+
+- check out the full history so the release tags are present (cf9d696)
+- upgrade a database from every released version to the current one (8a7d5da)
+
 ## [0.5.1] - 2026-09-22
 
 ### Other
