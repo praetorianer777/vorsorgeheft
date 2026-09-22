@@ -220,8 +220,12 @@ class TimelinePage {
     matching: find.text(label),
   );
 
+  /// [scrollTo] stops as soon as the entry is built, which can be just below
+  /// the screen; the tap needs it on screen.
   Future<AppointmentPage> open(String title) async {
     await scrollTo(tester, find.text(title));
+    await tester.ensureVisible(find.text(title).first);
+    await settle(tester);
     await tester.tap(find.text(title).first);
     await settle(tester);
     return AppointmentPage(tester);

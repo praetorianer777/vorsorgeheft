@@ -79,10 +79,10 @@ void main() {
     (tester, db) async {
       await openTimeline(tester);
 
-      // At nineteen days old the U1 is late, the U3 has not opened yet, and
-      // the U2 is past its exclusion deadline.
+      // At nineteen days old the blood screening is late but can still be
+      // caught up, the U3 has not opened yet, and the U1 and U2 have lapsed.
       expect(find.text('Needs attention'), findsOneWidget);
-      expect(find.text('U1'), findsOneWidget);
+      expect(find.text('Extended newborn screening'), findsOneWidget);
 
       await scrollTo(tester, find.text('U3'));
       expect(find.text('U3'), findsOneWidget);
@@ -91,6 +91,8 @@ void main() {
       await scrollTo(tester, find.text('U2'));
       expect(find.text('U2'), findsOneWidget);
       expect(find.text('Expired'), findsWidgets);
+      await scrollTo(tester, find.text('U1'));
+      expect(find.text('U1'), findsOneWidget);
     },
   );
 

@@ -67,7 +67,8 @@ void main() {
   });
 
   test('every appointment carries its source and the catalog it came from', () {
-    final ics = exportFor().content;
+    // Long lines are folded at 75 octets; unfold before searching them.
+    final ics = exportFor().content.replaceAll('\r\n ', '');
     expect(ics, contains('CATEGORIES:children'));
     expect(ics, contains('G-BA guideline on early detection'));
     expect(ics, contains('URL:https://www.g-ba.de/richtlinien/15/'));

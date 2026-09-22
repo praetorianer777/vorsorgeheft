@@ -60,12 +60,19 @@ void main() {
     // immunisation, which the STIKO recommends for every infant in its first
     // season.
     'month 0': _Expect(open: ['u1', 'hearing-screening', 'rsv-infant']),
-    // One month: the U3 (3rd to 5th week) is open. The U2 and the screenings
-    // with a two-week limit have lapsed; the newborn blood screening has no
-    // exclusion deadline, so it is merely overdue.
+    // One month: the U3 (3rd to 5th week) is open. The U1 lapsed with the day
+    // of birth, the U2 and the screenings with a two-week limit after it, and
+    // the blood screenings with the fourth week.
     'month 1': _Expect(
-      open: ['u3', 'newborn-screening', 'rsv-infant'],
-      lapsed: ['u2', 'hearing-screening', 'pulse-oximetry', 'cf-screening'],
+      open: ['u3', 'rsv-infant'],
+      lapsed: [
+        'u1',
+        'u2',
+        'hearing-screening',
+        'pulse-oximetry',
+        'cf-screening',
+        'newborn-screening',
+      ],
     ),
     // Two months: U4 opens, and with it the first doses; rotavirus from six
     // weeks. The U3 could be caught up until the end of the eighth week.
@@ -269,6 +276,12 @@ void main() {
         test('at ${entry.key} sees what the guidelines say', () {
           final timeline = timelineOf(sex, entry.value);
           final openNow = withStatus(timeline, open);
+          // Nothing that can only happen at birth is ever left open after the
+          // first month.
+          if (entry.key != 'month 0') {
+            expect(openNow, isNot(contains('u1')));
+            expect(openNow, isNot(contains('newborn-screening')));
+          }
           final lapsed = withStatus(timeline, {OccurrenceStatus.expired});
           final all = timeline.map(label).toSet();
 

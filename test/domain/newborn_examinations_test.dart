@@ -61,9 +61,10 @@ void main() {
       expect(byRule['hearing-screening'], OccurrenceStatus.expired);
       expect(byRule['pulse-oximetry'], OccurrenceStatus.expired);
       expect(byRule['cf-screening'], OccurrenceStatus.expired);
-      // The guideline names no bound for these two, so the app invents none.
-      expect(byRule['u1'], OccurrenceStatus.overdue);
-      expect(byRule['newborn-screening'], OccurrenceStatus.overdue);
+      // The U1 has no tolerance at all, and the blood screening goes with the
+      // cystic fibrosis screening taken from the same sample.
+      expect(byRule['u1'], OccurrenceStatus.expired);
+      expect(byRule['newborn-screening'], OccurrenceStatus.expired);
     },
   );
 }
