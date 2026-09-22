@@ -7,6 +7,12 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-09-22
+
+### Other
+
+- walk both sexes through every age from birth to twenty (f052334)
+
 ## [0.5.0] - 2026-09-22
 
 ### Features
