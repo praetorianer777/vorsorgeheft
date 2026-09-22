@@ -9,7 +9,7 @@ import '../l10n/app_localizations.dart';
 import 'date_input.dart';
 import 'formatting.dart';
 
-class OccurrenceDetailScreen extends ConsumerWidget {
+class OccurrenceDetailScreen extends ConsumerStatefulWidget {
   const OccurrenceDetailScreen({
     required this.personId,
     required this.occurrenceKey,
@@ -20,13 +20,55 @@ class OccurrenceDetailScreen extends ConsumerWidget {
   final String occurrenceKey;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<OccurrenceDetailScreen> createState() =>
+      _OccurrenceDetailScreenState();
+}
+
+class _OccurrenceDetailScreenState
+    extends ConsumerState<OccurrenceDetailScreen> {
+  late String _key = widget.occurrenceKey;
+  String? _ruleId;
+  String? _doseId;
+  bool _wasSettled = false;
+
+  static bool _settled(Occurrence o) =>
+      o.status == OccurrenceStatus.done || o.status == OccurrenceStatus.skipped;
+
+  /// The appointment this page is about, followed across a record or undo.
+  ///
+  /// A recurring appointment or a booster is keyed by its due date while open
+  /// and by the recorded date once done, so recording it makes the key this
+  /// page was opened with disappear from the timeline. Rather than going
+  /// blank, the page moves on to the occurrence of the same rule and dose
+  /// whose settled state flipped, which is the one just recorded or reopened.
+  Occurrence? _resolve(List<Occurrence> timeline) {
+    final exact = timeline.where((o) => o.key == _key).firstOrNull;
+    if (exact != null) {
+      _ruleId = exact.rule.id;
+      _doseId = exact.doseId;
+      _wasSettled = _settled(exact);
+      return exact;
+    }
+    if (_ruleId == null) return null;
+    final siblings = timeline.where(
+      (o) => o.rule.id == _ruleId && o.doseId == _doseId,
+    );
+    final moved =
+        siblings.where((o) => _settled(o) != _wasSettled).firstOrNull ??
+        siblings.firstOrNull;
+    if (moved == null) return null;
+    _key = moved.key;
+    _wasSettled = _settled(moved);
+    return moved;
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final locale = Localizations.localeOf(context).languageCode;
-    final timeline = ref.watch(timelineProvider(personId)).value ?? const [];
-    final occurrence = timeline
-        .where((o) => o.key == occurrenceKey)
-        .firstOrNull;
+    final timeline =
+        ref.watch(timelineProvider(widget.personId)).value ?? const [];
+    final occurrence = _resolve(timeline);
 
     if (occurrence == null) {
       return Scaffold(appBar: AppBar(), body: const SizedBox.shrink());

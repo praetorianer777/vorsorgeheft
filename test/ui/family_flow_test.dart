@@ -139,6 +139,36 @@ void main() {
   );
 
   appTest(
+    'the page follows a booster it records and undoes',
+    people: [
+      Person(id: 'sara', name: 'Sara', dateOfBirth: DateTime.utc(1988, 6, 30)),
+    ],
+    (tester, db) async {
+      await tester.tap(find.text('Sara'));
+      await settle(tester);
+      await scrollTo(tester, find.text('Tetanus and diphtheria booster'));
+      await tester.tap(find.text('Tetanus and diphtheria booster'));
+      await settle(tester);
+
+      await tester.tap(find.byKey(const Key('mark-done')));
+      await settle(tester);
+      await tester.enterText(find.byKey(const Key('date-input')), '03152026');
+      await tester.tap(find.byKey(const Key('date-input-ok')));
+      await settle(tester);
+
+      expect(find.text('Tetanus and diphtheria booster'), findsOneWidget);
+      expect(find.text('Done'), findsOneWidget);
+      expect((await db.allCompletions()).single.ruleId, 'td-booster');
+
+      await tester.tap(find.byKey(const Key('undo-record')));
+      await settle(tester);
+      expect(find.text('Tetanus and diphtheria booster'), findsOneWidget);
+      expect(find.byKey(const Key('mark-done')), findsOneWidget);
+      expect(await db.allCompletions(), isEmpty);
+    },
+  );
+
+  appTest(
     'U10 is labelled as depending on the insurer',
     people: [
       Person(id: 'kid', name: 'Kind', dateOfBirth: DateTime.utc(2019, 1, 1)),
