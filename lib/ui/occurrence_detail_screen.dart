@@ -226,9 +226,12 @@ class _Actions extends ConsumerWidget {
           : await showDateInputDialog(
               context: context,
               initialDate: _initialDate(ref),
-              firstDate: occurrence.windowStart.subtract(
-                const Duration(days: 365 * 5),
-              ),
+              // Anything since the person was born: the two measles doses an
+              // adult had as a child are decades before that rule's window,
+              // and they are exactly what the entry is about.
+              firstDate:
+                  ref.read(personProvider(occurrence.personId))?.dateOfBirth ??
+                  occurrence.windowStart,
               lastDate: ref.read(clockProvider)(),
             );
       if (picked == null) return;

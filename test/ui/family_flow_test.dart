@@ -211,6 +211,60 @@ void main() {
   });
 
   appTest(
+    'a vaccination from decades ago can be recorded on its real date',
+    people: [
+      Person(id: 'sara', name: 'Sara', dateOfBirth: DateTime.utc(1988, 6, 30)),
+    ],
+    (tester, db) async {
+      await tester.tap(find.text('Sara'));
+      await settle(tester);
+      await scrollTo(tester, find.text('Measles vaccination for adults'));
+      await tester.ensureVisible(find.text('Measles vaccination for adults'));
+      await settle(tester);
+      await tester.tap(find.text('Measles vaccination for adults'));
+      await settle(tester);
+
+      // The second childhood dose, five years before this rule's window even
+      // opens.
+      await tester.tap(find.byKey(const Key('mark-done')));
+      await settle(tester);
+      await tester.enterText(find.byKey(const Key('date-input')), '05152001');
+      await tester.tap(find.byKey(const Key('date-input-ok')));
+      await settle(tester);
+
+      final recorded = (await db.allCompletions()).single;
+      expect(recorded.ruleId, 'measles-adult');
+      expect(recorded.completedOn, DateTime.utc(2001, 5, 15));
+      expect(find.text('Done'), findsOneWidget);
+    },
+  );
+
+  appTest(
+    'a date before the person was born is refused',
+    people: [
+      Person(id: 'sara', name: 'Sara', dateOfBirth: DateTime.utc(1988, 6, 30)),
+    ],
+    (tester, db) async {
+      await tester.tap(find.text('Sara'));
+      await settle(tester);
+      await scrollTo(tester, find.text('Measles vaccination for adults'));
+      await tester.ensureVisible(find.text('Measles vaccination for adults'));
+      await settle(tester);
+      await tester.tap(find.text('Measles vaccination for adults'));
+      await settle(tester);
+
+      await tester.tap(find.byKey(const Key('mark-done')));
+      await settle(tester);
+      await tester.enterText(find.byKey(const Key('date-input')), '05151980');
+      await tester.tap(find.byKey(const Key('date-input-ok')));
+      await settle(tester);
+
+      expect(find.text('Out of range.'), findsOneWidget);
+      expect(await db.allCompletions(), isEmpty);
+    },
+  );
+
+  appTest(
     'U10 is labelled as depending on the insurer',
     people: [
       Person(id: 'kid', name: 'Kind', dateOfBirth: DateTime.utc(2019, 1, 1)),

@@ -1,8 +1,13 @@
 {
   "_conversion": "The calendar lists tetanus, diphtheria, pertussis, Hib, polio and hepatitis B as six rows given at the same three appointments, because one six-in-one vaccine covers them. They are one rule here: six reminders for one appointment would be six chances to ignore it. Ages are the calendar's own columns; a dose also carries the minimum interval to the one before it, which is what makes a late dose move the ones after it instead of silently going out of date. Standard immunisations (S) are modelled as they are. Indication-based vaccinations (I) depend on illness, occupation, pregnancy or travel, none of which the app knows about, and a reminder for one would be wrong for almost everyone who saw it; the ones a family is likely to ask about carry `optional: true`, are never generated until switched on for a person, and say in their description who the STIKO means them for. A booster whose `after` names an optional series takes that series' switch. `thenEvery` is the interval once a booster has been given, where it differs from the first one.",
   "catalogId": "vaccinations",
-  "catalogVersion": "2026.09.1",
+  "catalogVersion": "2026.09.2",
   "_changes": [
+    {
+      "version": "2026.09.2",
+      "en": "The measles vaccination for adults says that two documented doses are protection for life, and the second one can be recorded whenever it was given.",
+      "de": "Die Masernimpfung für Erwachsene nennt jetzt, dass zwei dokumentierte Impfungen lebenslang schützen und die zweite mit ihrem tatsächlichen Datum eingetragen werden kann."
+    },
     {
       "version": "2026.09.1",
       "en": "Optional vaccinations a person can switch on: influenza and COVID-19 below the standard age, TBE for risk areas, pertussis in pregnancy, HPV and meningococcal B catch-up.",
@@ -474,8 +479,8 @@
         "de": "Masernimpfung für Erwachsene"
       },
       "description": {
-        "en": "One dose of an MMR vaccine for everyone born after 1970 who is 18 or older and was never vaccinated, vaccinated only once, or does not know.",
-        "de": "Eine Dosis eines MMR-Impfstoffs für alle nach 1970 Geborenen ab 18 Jahren, die nicht, nur einmal oder mit unklarem Status geimpft sind."
+        "en": "One dose of an MMR vaccine for everyone born after 1970 who is 18 or older and was never vaccinated, vaccinated only once, or does not know. Two documented doses of a live vaccine are protection for life; record the second one here, whenever it was.",
+        "de": "Eine Dosis eines MMR-Impfstoffs für alle nach 1970 Geborenen ab 18 Jahren, die nicht, nur einmal oder mit unklarem Status geimpft sind. Zwei dokumentierte Impfungen mit einem Lebendimpfstoff schützen lebenslang; trage die zweite hier ein, egal wie lange sie her ist."
       },
       "source": "stiko-2026",
       "schedule": {
