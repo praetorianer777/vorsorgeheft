@@ -1,6 +1,7 @@
 import 'package:drift_dev/api/migrations_native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgeheft/data/database.dart';
+import 'package:vorsorgeheft/domain/own_appointment.dart';
 import 'package:vorsorgeheft/sync/hlc.dart';
 import 'package:vorsorgeheft/sync/replicated_store.dart';
 
@@ -17,7 +18,7 @@ void main() {
 
   setUpAll(() => verifier = SchemaVerifier(GeneratedHelper()));
 
-  const current = 4;
+  const current = 5;
 
   for (final from in GeneratedHelper.versions.where((v) => v < current)) {
     test('a version $from database migrates to the current schema', () async {
@@ -68,6 +69,18 @@ void main() {
     expect(people.first.dateOfBirth, DateTime.utc(1988, 6, 30));
     expect(people.first.notes, 'allergic to penicillin');
     expect(people.first.optionalRules, isEmpty);
+    // The table that arrived with schema 5 is empty but usable.
+    expect(await db.allOwnAppointments(), isEmpty);
+    await db.upsertOwnAppointment(
+      OwnAppointment(
+        id: 'eyes',
+        personId: 'sara',
+        title: 'Eye check',
+        firstOn: DateTime.utc(2026, 11, 3),
+        everyMonths: 12,
+      ),
+    );
+    expect((await db.allOwnAppointments()).single.title, 'Eye check');
     expect(people.last.dateOfBirth, DateTime.utc(2026, 9, 1));
 
     final completions = await db.allCompletions();

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 
 import '../domain/completion.dart' as domain;
+import '../domain/own_appointment.dart' as domain;
 import '../domain/person.dart' as domain;
 import '../sync/change.dart';
 import '../sync/hlc.dart';
@@ -48,6 +49,22 @@ class Completions extends Table {
   /// is an edit, not a second appointment.
   @override
   Set<Column<Object>> get primaryKey => {personId, ruleId, doseId};
+}
+
+/// A person's own recurring appointments, projected from the change log like
+/// persons and completions.
+@DataClassName('OwnAppointmentRow')
+class OwnAppointments extends Table {
+  TextColumn get id => text()();
+  TextColumn get personId =>
+      text().references(Persons, #id, onDelete: KeyAction.cascade)();
+  TextColumn get title => text()();
+  DateTimeColumn get firstOn => dateTime()();
+  IntColumn get everyMonths => integer()();
+  TextColumn get note => text().nullable()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {id};
 }
 
 /// Device-local key/value settings.
@@ -125,7 +142,15 @@ class Families extends Table {
 }
 
 @DriftDatabase(
-  tables: [Persons, Completions, Settings, Changes, Peers, Families],
+  tables: [
+    Persons,
+    Completions,
+    OwnAppointments,
+    Settings,
+    Changes,
+    Peers,
+    Families,
+  ],
 )
 class AppDatabase extends _$AppDatabase implements PeerRegistry {
   AppDatabase(super.executor);
@@ -137,11 +162,12 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
   DriftDatabaseOptions get options =>
       const DriftDatabaseOptions(storeDateTimeAsText: true);
 
-  /// Bumped for the peers table in #10, the families table in #46 and the
-  /// optional vaccinations in #70. An older database gains the tables and
-  /// the column in [migration]; everything it already holds stays as it is.
+  /// Bumped for the peers table in #10, the families table in #46, the
+  /// optional vaccinations in #70 and the own appointments in #92. An older
+  /// database gains the tables and the column in [migration]; everything it
+  /// already holds stays as it is.
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   /// SQLite enforces foreign keys only when asked to, and without this a
   /// deleted person leaves their recorded appointments behind.
@@ -152,6 +178,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
       if (from < 2) await m.createTable(peers);
       if (from < 3) await m.createTable(families);
       if (from < 4) await m.addColumn(persons, persons.optionalRules);
+      if (from < 5) await m.createTable(ownAppointments);
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
@@ -224,6 +251,44 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
                 c.doseId.equals(doseId ?? ''),
           ))
           .go();
+
+  Stream<List<domain.OwnAppointment>> watchOwnAppointments() => select(
+    ownAppointments,
+  ).watch().map((rows) => rows.map(_toOwnAppointment).toList());
+
+  Future<List<domain.OwnAppointment>> allOwnAppointments() async =>
+      (await select(ownAppointments).get()).map(_toOwnAppointment).toList();
+
+  Future<void> upsertOwnAppointment(domain.OwnAppointment appointment) =>
+      into(ownAppointments).insertOnConflictUpdate(
+        OwnAppointmentsCompanion.insert(
+          id: appointment.id,
+          personId: appointment.personId,
+          title: appointment.title,
+          firstOn: appointment.firstOn,
+          everyMonths: appointment.everyMonths,
+          note: Value(appointment.note),
+        ),
+      );
+
+  Future<bool> hasPerson(String id) async =>
+      await (select(
+        persons,
+      )..where((p) => p.id.equals(id))).getSingleOrNull() !=
+      null;
+
+  Future<void> deleteOwnAppointment(String id) =>
+      (delete(ownAppointments)..where((a) => a.id.equals(id))).go();
+
+  domain.OwnAppointment _toOwnAppointment(OwnAppointmentRow row) =>
+      domain.OwnAppointment(
+        id: row.id,
+        personId: row.personId,
+        title: row.title,
+        firstOn: row.firstOn,
+        everyMonths: row.everyMonths,
+        note: row.note,
+      );
 
   Stream<String?> watchFamilyName(String id) => (select(
     families,

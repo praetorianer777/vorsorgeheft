@@ -3,6 +3,7 @@ import 'package:uuid/uuid.dart';
 
 import '../data/database.dart';
 import '../domain/completion.dart';
+import '../domain/own_appointment.dart';
 import '../domain/person.dart';
 import 'change.dart';
 import 'hlc.dart';
@@ -22,6 +23,7 @@ class ReplicatedStore {
   static const personEntity = 'person';
   static const completionEntity = 'completion';
   static const familyEntity = 'family';
+  static const ownAppointmentEntity = 'ownAppointment';
 
   /// There is one family per database, so its record has a fixed id.
   static const familyId = 'family';
@@ -74,6 +76,18 @@ class ReplicatedStore {
 
   Future<void> deletePerson(String id) =>
       _write(personEntity, id, {Change.deletedField: true});
+
+  Future<void> saveOwnAppointment(OwnAppointment appointment) =>
+      _write(ownAppointmentEntity, appointment.id, {
+        'personId': appointment.personId,
+        'title': appointment.title,
+        'firstOn': appointment.firstOn.toIso8601String(),
+        'everyMonths': appointment.everyMonths,
+        'note': appointment.note,
+      });
+
+  Future<void> deleteOwnAppointment(String id) =>
+      _write(ownAppointmentEntity, id, {Change.deletedField: true});
 
   Future<void> recordCompletion(Completion completion) {
     final id = completionId(
@@ -255,6 +269,17 @@ class ReplicatedStore {
         } else {
           await _db.recordCompletion(_completionFrom(fields));
         }
+      } else if (entity == ownAppointmentEntity) {
+        // The person may be gone by the time the change arrives; the row
+        // would violate the foreign key, and there is nothing to show it on.
+        final personId = fields?['personId'] as String?;
+        if (fields == null ||
+            personId == null ||
+            !await _db.hasPerson(personId)) {
+          await _db.deleteOwnAppointment(entityId);
+        } else {
+          await _db.upsertOwnAppointment(_ownAppointmentFrom(entityId, fields));
+        }
       } else if (entity == familyEntity) {
         final name = fields?['name'] as String? ?? '';
         if (name.isEmpty) {
@@ -286,6 +311,16 @@ class ReplicatedStore {
     notes: fields['notes'] as String?,
     optionalRules: decodeOptionalRules(fields['optionalRules'] as String?),
   );
+
+  OwnAppointment _ownAppointmentFrom(String id, Map<String, Object?> fields) =>
+      OwnAppointment(
+        id: id,
+        personId: fields['personId']! as String,
+        title: fields['title'] as String? ?? '',
+        firstOn: DateTime.parse(fields['firstOn']! as String),
+        everyMonths: (fields['everyMonths'] as num?)?.toInt() ?? 12,
+        note: fields['note'] as String?,
+      );
 
   Completion _completionFrom(Map<String, Object?> fields) => Completion(
     personId: fields['personId']! as String,

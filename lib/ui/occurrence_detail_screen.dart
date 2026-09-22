@@ -131,12 +131,20 @@ class _OccurrenceDetailScreenState
             ),
           const SizedBox(height: 24),
           _Actions(occurrence: occurrence),
-          const Divider(height: 48),
-          Text(
-            l10n.sourceLabel(rule.source.name(locale), rule.source.asOf),
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          if (rule.source.document != null)
+          if (rule.own) ...[
+            const Divider(height: 48),
+            Text(
+              rule.source.name(locale),
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ] else ...[
+            const Divider(height: 48),
+            Text(
+              l10n.sourceLabel(rule.source.name(locale), rule.source.asOf),
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ],
+          if (!rule.own && rule.source.document != null)
             Padding(
               padding: const EdgeInsets.only(top: 4),
               child: Text(
@@ -144,18 +152,20 @@ class _OccurrenceDetailScreenState
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ),
-          const SizedBox(height: 8),
-          Align(
-            alignment: AlignmentDirectional.centerStart,
-            child: TextButton.icon(
-              onPressed: () => launchUrl(
-                Uri.parse(rule.source.url),
-                mode: LaunchMode.externalApplication,
+          if (!rule.own) ...[
+            const SizedBox(height: 8),
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: TextButton.icon(
+                onPressed: () => launchUrl(
+                  Uri.parse(rule.source.url),
+                  mode: LaunchMode.externalApplication,
+                ),
+                icon: const Icon(Icons.open_in_new),
+                label: Text(l10n.openSource),
               ),
-              icon: const Icon(Icons.open_in_new),
-              label: Text(l10n.openSource),
             ),
-          ),
+          ],
         ],
       ),
     );

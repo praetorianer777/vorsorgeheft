@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import '../domain/localized_text.dart';
 import '../domain/occurrence.dart';
 import '../domain/person.dart';
 import '../notifications/reminder.dart';
@@ -17,6 +18,7 @@ class IcsTexts {
     required this.notStatutory,
     required this.deadline,
     required this.dose,
+    this.ownSource,
   });
 
   final String calendarName;
@@ -27,6 +29,10 @@ class IcsTexts {
 
   /// The title of one dose of a series, e.g. "TBE vaccination · dose 1 of 3".
   final String Function(String title, int number, int total) dose;
+
+  /// What a person's own appointment names as its source, in every language.
+  /// Null leaves the appointment's own title in that place.
+  final LocalizedText? ownSource;
 }
 
 /// What a previous export wrote for one event, so the next one can tell an
@@ -130,8 +136,10 @@ IcsEvent _event(
     rule.description(locale),
     if (!rule.statutory) texts.notStatutory,
     if (deadline != null) texts.deadline(deadline),
-    texts.source(rule.source.name(locale), rule.source.asOf),
-    rule.source.url,
+    if (!rule.own) ...[
+      texts.source(rule.source.name(locale), rule.source.asOf),
+      rule.source.url,
+    ],
   ].join('\n');
 
   final number = occurrence.doseNumber;
@@ -151,7 +159,7 @@ IcsEvent _event(
     start: _dateOnly(occurrence.windowStart),
     endExclusive: _dateOnly(end).add(const Duration(days: 1)),
     categories: [rule.catalogId],
-    url: rule.source.url,
+    url: rule.own ? null : rule.source.url,
     cancelled: cancelled,
     alarms: cancelled
         ? const []

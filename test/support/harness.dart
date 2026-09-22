@@ -10,6 +10,7 @@ import 'package:vorsorgeheft/data/catalog_repository.dart';
 import 'package:vorsorgeheft/data/database.dart';
 import 'package:vorsorgeheft/data/database_provider.dart';
 import 'package:vorsorgeheft/sync/replicated_store.dart';
+import 'package:vorsorgeheft/domain/own_appointment.dart';
 import 'package:vorsorgeheft/domain/person.dart';
 import 'package:vorsorgeheft/export/ics_export_service.dart';
 import 'package:vorsorgeheft/l10n/locale_notifier.dart';
@@ -58,6 +59,7 @@ void appTest(
   String description,
   Future<void> Function(WidgetTester tester, AppDatabase db) body, {
   List<Person> people = const [],
+  List<OwnAppointment> ownAppointments = const [],
   DateTime? today,
   Locale? locale,
   RecordingGateway? gateway,
@@ -80,6 +82,9 @@ void appTest(
     );
     for (final person in people) {
       await store.savePerson(person);
+    }
+    for (final appointment in ownAppointments) {
+      await store.saveOwnAppointment(appointment);
     }
 
     await tester.pumpWidget(

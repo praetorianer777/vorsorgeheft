@@ -58,6 +58,7 @@ class Rule {
     this.statutory = true,
     this.optional = false,
     this.retiredOn,
+    this.own = false,
   });
 
   factory Rule.fromJson(
@@ -140,6 +141,10 @@ class Rule {
   /// by its id and have to stay readable. From this date on nothing new is
   /// planned; what was recorded still shows as done.
   final DateTime? retiredOn;
+
+  /// True for a person's own appointment: no guideline behind it, no source
+  /// to open, and edited where the person is edited.
+  final bool own;
 
   @override
   String toString() => 'Rule($catalogId/$id)';
