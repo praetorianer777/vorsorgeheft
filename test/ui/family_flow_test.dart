@@ -128,6 +128,9 @@ void main() {
       await settle(tester);
       await openTimeline(tester);
       await scrollTo(tester, find.text('Done and skipped'));
+      await scrollTo(tester, find.text('U3'));
+      await tester.ensureVisible(find.text('U3'));
+      await settle(tester);
       await tester.tap(find.text('U3'));
       await settle(tester);
 
