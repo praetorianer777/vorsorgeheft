@@ -3,7 +3,7 @@ description: >-
   Preventive-care appointments for the whole family, derived from each date of birth.
   Local-only, no account, with ICS export and encrypted device-to-device sync.
 publish_to: none
-version: 0.6.0+8
+version: 0.6.1+9
 
 environment:
   # 3.10 is the floor for dot-shorthand syntax, which the Flutter templates emit.

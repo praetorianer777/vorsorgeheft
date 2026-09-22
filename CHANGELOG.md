@@ -7,6 +7,19 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-09-22
+
+### Bug fixes
+
+- allow recording an appointment on any date since birth (431aa74)
+- show what has lapsed above what is decades away (2f0ee07)
+- let the U1 and the newborn screening lapse instead of staying due (6451487)
+
+### Other
+
+- add the v0.6.1 upgrade fixture ahead of its tag (a68efeb)
+- add the v0.6.0 upgrade fixture and let fixtures precede tags (1e97788)
+
 ## [0.6.0] - 2026-09-22
 
 ### Features
