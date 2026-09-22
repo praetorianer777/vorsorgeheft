@@ -41,6 +41,23 @@ void main() {
       });
     });
 
+    test('a window opening within the shortest lead is still announced', () {
+      // Born today: the newborn screening opens in 36 hours, inside every
+      // lead. One reminder fires at the next nine o'clock instead of none.
+      final plan = planReminders(
+        occurrences: scheduleFor(
+          DateTime.utc(2026, 9, 20),
+          DateTime.utc(2026, 9, 20),
+        ),
+        now: DateTime(2026, 9, 20, 11),
+        settings: const ReminderSettings(maxPending: 500),
+      );
+      final screening = plan.where((r) => r.ruleId == 'newborn-screening');
+      expect(screening.map((r) => r.fireAt), [DateTime(2026, 9, 21, 9)]);
+      expect(screening.single.kind, ReminderKind.windowOpens);
+      expect(screening.single.leadTime, Duration.zero);
+    });
+
     test('nothing is scheduled in the past', () {
       final plan = planReminders(
         occurrences: scheduleFor(
