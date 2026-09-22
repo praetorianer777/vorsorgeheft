@@ -11,13 +11,26 @@ import '../support/catalogs.dart';
 void main() {
   final set = shippedCatalogs();
 
-  test('all four catalogs ship', () {
+  test('the four catalogs for people and one each for dogs and cats ship', () {
     expect(set.catalogs.map((c) => c.id), [
       'children',
       'vaccinations',
       'dental',
       'adults',
+      'dogs',
+      'cats',
     ]);
+    expect(
+      {for (final c in set.catalogs) c.id: c.species.map((s) => s.name)},
+      {
+        'children': ['human'],
+        'vaccinations': ['human'],
+        'dental': ['human'],
+        'adults': ['human'],
+        'dogs': ['dog'],
+        'cats': ['cat'],
+      },
+    );
   });
 
   test('every rule names a resolvable source with an as-of date', () {

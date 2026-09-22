@@ -9,7 +9,8 @@ skin-cancer screening.
 Vorsorgeheft keeps a profile per family member, derives the full preventive-care schedule from
 the date of birth, and reminds you in time.
 
-- 👨‍👩‍👧 **Per family member** — from newborn to grandparent
+- 👨‍👩‍👧 **Per family member** — from newborn to grandparent, and the dog and the cat: their vaccinations
+  after the StIKo Vet guideline, deworming and tick protection after ESCCAP
 - 📅 **Four catalogs** — children's check-ups U1–U9/J1, the STIKO vaccination calendar, dental
   care, and adult and cancer screening
 - 🔒 **Entirely local** — no account, no servers, no analytics, no ads

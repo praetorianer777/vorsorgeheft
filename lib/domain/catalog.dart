@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'localized_text.dart';
+import 'person.dart';
 import 'rule.dart';
 import 'source_ref.dart';
 
@@ -53,6 +54,7 @@ class Catalog {
     required this.sources,
     required this.rules,
     this.changes = const [],
+    this.species = const {Species.human},
   });
 
   factory Catalog.parse(String source) {
@@ -116,8 +118,21 @@ class Catalog {
           CatalogChange.fromJson((change as Map).cast()),
       ];
 
+      final rawSpecies = json['species'];
+      if (rawSpecies != null && (rawSpecies is! List || rawSpecies.isEmpty)) {
+        throw const FormatException('"species" must be a non-empty list');
+      }
+      final species = <Species>{
+        for (final name in rawSpecies as List? ?? const ['human'])
+          Species.values.firstWhere(
+            (s) => s.name == name,
+            orElse: () => throw FormatException('unknown species "$name"'),
+          ),
+      };
+
       return Catalog(
         id: id,
+        species: Set.unmodifiable(species),
         version: version,
         name: LocalizedText.fromJson(json['name']),
         sources: Map.unmodifiable(sources),
@@ -141,6 +156,9 @@ class Catalog {
 
   /// One note per edition, oldest first, from the catalog's `_changes` list.
   final List<CatalogChange> changes;
+
+  /// Who the catalog is written for; people unless it says otherwise.
+  final Set<Species> species;
 
   /// The note that describes this edition: the entry for [version], or the
   /// last one written when no entry names it.
@@ -167,6 +185,12 @@ class CatalogSet {
 
   final List<Catalog> catalogs;
   final List<Rule> rules;
+
+  /// The rules of the catalogs written for [species].
+  List<Rule> rulesFor(Species species) => [
+    for (final catalog in catalogs)
+      if (catalog.species.contains(species)) ...catalog.rules,
+  ];
 
   Rule? ruleById(String id) {
     for (final rule in rules) {

@@ -73,6 +73,28 @@
       "colorectal-stool-test": [],
       "colonoscopy": [],
       "chlamydia": []
+    },
+    "dogs": {
+      "dog-distemper-parvo": ["g1", "g2", "g3", "g4"],
+      "dog-distemper-parvo-booster": [],
+      "dog-leptospirosis": ["g1", "g2", "g3"],
+      "dog-leptospirosis-booster": [],
+      "dog-rabies": ["g1", "g2"],
+      "dog-rabies-booster": [],
+      "dog-deworming": ["g1", "g2", "g3", "g4", "g5"],
+      "dog-deworming-routine": [],
+      "dog-ectoparasites": []
+    },
+    "cats": {
+      "cat-core": ["g1", "g2", "g3", "g4"],
+      "cat-core-booster": [],
+      "cat-rabies": ["g1", "g2"],
+      "cat-rabies-booster": [],
+      "cat-felv": ["g1", "g2", "g3"],
+      "cat-felv-booster": [],
+      "cat-deworming": ["g1", "g2", "g3", "g4", "g5"],
+      "cat-deworming-routine": [],
+      "cat-ectoparasites": []
     }
   }
 }

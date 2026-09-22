@@ -213,6 +213,13 @@ class _Empty extends StatelessWidget {
   );
 }
 
+String _speciesName(AppLocalizations l10n, Person person) =>
+    switch (person.species) {
+      Species.human => l10n.speciesHuman,
+      Species.dog => l10n.speciesDog,
+      Species.cat => l10n.speciesCat,
+    };
+
 class _PersonTile extends ConsumerWidget {
   const _PersonTile({required this.person});
 
@@ -227,7 +234,9 @@ class _PersonTile extends ConsumerWidget {
     return ListTile(
       key: Key('person-${person.id}'),
       leading: CircleAvatar(
-        child: Text(person.name.characters.firstOrNull?.toUpperCase() ?? '?'),
+        child: person.species == Species.human
+            ? Text(person.name.characters.firstOrNull?.toUpperCase() ?? '?')
+            : Icon(Icons.pets, semanticLabel: _speciesName(l10n, person)),
       ),
       title: Text(person.name),
       subtitle: Text(formatAge(l10n, person.dateOfBirth, today)),

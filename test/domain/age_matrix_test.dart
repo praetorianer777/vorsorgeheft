@@ -336,7 +336,7 @@ void main() {
       }
     }
     final expectedRules = [
-      for (final rule in catalogs.rules)
+      for (final rule in catalogs.rulesFor(Species.human))
         if (!rule.optional &&
             (rule.eligibility.maxAge == null ||
                 rule.eligibility.maxAge!.years <= 25))

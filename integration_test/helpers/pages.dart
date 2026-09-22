@@ -412,6 +412,8 @@ class HowItWorksPage {
 
   Future<SourcesPage> openSources() async {
     await scrollTo(tester, find.byKey(const Key('how-open-sources')));
+    await tester.ensureVisible(find.byKey(const Key('how-open-sources')));
+    await settle(tester);
     await tester.tap(find.byKey(const Key('how-open-sources')));
     await settle(tester);
     return SourcesPage(tester);
