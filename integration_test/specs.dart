@@ -1110,8 +1110,9 @@ void registerAppSpecs() {
     final timeline = await FamilyPage(tester).open('Sara');
     final booster = await timeline.open('Tetanus and diphtheria booster');
     await booster.markDoneOn('03/15/2026');
-    // Recording a booster replaces its occurrence with the next one, and the
-    // detail page of the one just recorded has nothing left to show.
+    // Recording a booster re-keys its occurrence by the recorded date; the
+    // detail page must follow it rather than go blank.
+    expect(booster.statusText('Done'), findsOneWidget);
     await booster.back();
     await timeline.back();
     var sync = await FamilyPage(tester).openSync();
