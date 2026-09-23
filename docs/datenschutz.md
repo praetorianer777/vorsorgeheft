@@ -30,6 +30,21 @@ werden keine Nutzungsdaten, Gerätekennungen oder Standortdaten erhoben.
 Die Vorsorgetermine selbst werden aus Geburtsdatum und den in der App
 hinterlegten Katalogen berechnet und nicht gespeichert.
 
+## Systembackup und Umzug auf ein neues Telefon
+
+Die App ist vom Cloud-Backup des Betriebssystems ausgenommen. Google und
+Apple erhalten also keine Kopie deiner Daten.
+
+Richtest du ein neues Telefon direkt vom alten ein (Geräteumzug bei Android,
+Schnellstart bei iOS), werden die Daten dabei übertragen; das läuft von
+Gerät zu Gerät und über keinen Server. Auf Android 11 und älter lässt sich
+beides technisch nicht trennen, dort wird gar nichts gesichert — der Weg auf
+ein neues Telefon ist dann der Abgleich oder die verschlüsselte Datei.
+
+Bis einschließlich Version 0.6.1 hat Android die Daten in das Google-Konto
+gesichert. Eine solche ältere Sicherung löschst du in den Google-One-
+Einstellungen unter „Sicherung" bei den App-Daten.
+
 ## Berechtigungen und wofür sie gebraucht werden
 
 | Berechtigung | Zweck |
