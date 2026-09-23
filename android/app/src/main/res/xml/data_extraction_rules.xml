@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 12 and higher. The database holds names, dates of birth and what
+     someone has had done; the app promises it stays on the device, so it is
+     kept out of the Google account backup. Device transfer is left at its
+     default, which includes everything: setting up a new phone from the old
+     one is a direct copy and never reaches a server. -->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" path="." />
+    </cloud-backup>
+</data-extraction-rules>

@@ -30,6 +30,21 @@ identifiers or location data are collected.
 The appointments themselves are computed from the date of birth and the
 catalogs shipped with the app; they are not stored.
 
+## System backup and moving to a new phone
+
+The app is excluded from the operating system's cloud backup, so neither
+Google nor Apple receives a copy of your data.
+
+If you set up a new phone directly from the old one (device transfer on
+Android, Quick Start on iOS), the data comes along; that copy runs from
+device to device and through no server. Android 11 and lower cannot tell the
+two apart, so nothing is backed up there at all - the way to a new phone is
+the sync or the encrypted file.
+
+Up to and including version 0.6.1, Android backed the data up to your Google
+account. You can delete such an older backup in the Google One settings,
+under Backup, with the app data.
+
 ## Permissions and what they are for
 
 | Permission | Purpose |
