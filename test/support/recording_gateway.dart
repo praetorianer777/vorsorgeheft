@@ -15,6 +15,10 @@ class RecordingGateway implements NotificationGateway {
   final List<(PlannedReminder, String, String)> scheduled = [];
   final List<String> channelNames = [];
   int cancelAllCount = 0;
+
+  /// Makes the next [schedule] throw, the way a platform that refuses a
+  /// notification does.
+  bool failNextSchedule = false;
   bool initialized = false;
   bool permissionAsked = false;
 
@@ -47,6 +51,10 @@ class RecordingGateway implements NotificationGateway {
     required String body,
     required String channelName,
   }) async {
+    if (failNextSchedule) {
+      failNextSchedule = false;
+      throw StateError('the platform refused this notification');
+    }
     channelNames.add(channelName);
     scheduled.add((reminder, title, body));
   }

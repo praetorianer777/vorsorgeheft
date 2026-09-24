@@ -51,6 +51,20 @@ void main() {
     expect(gateway.cancelAllCount, 1);
   });
 
+  test('a run that fails does not block the next one', () async {
+    // The platform can refuse a notification, and the queue that serialises
+    // the runs would carry that error into every later run if it kept it.
+    await store.savePerson(newborn);
+    gateway.failNextSchedule = true;
+    final service = serviceWith();
+
+    await expectLater(service.reschedule(), throwsA(isA<StateError>()));
+
+    final plan = await service.reschedule();
+    expect(plan, isNotEmpty);
+    expect(gateway.pending.map((r) => r.id), plan.map((r) => r.id));
+  });
+
   test('a person with appointments gets reminders', () async {
     await store.savePerson(newborn);
     final plan = await serviceWith().reschedule();
