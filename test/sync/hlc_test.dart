@@ -97,6 +97,19 @@ void main() {
       expect(Hlc.parse(clock.toString()), clock);
     });
 
+    test('a string that is not a timestamp is refused', () {
+      // It is read from what a peer sent or from a transfer file, so it is
+      // not necessarily something this app wrote.
+      for (final broken in [
+        '',
+        'nonsense',
+        '1726829400000',
+        '1726829400000-258',
+      ]) {
+        expect(() => Hlc.parse(broken), throwsFormatException, reason: broken);
+      }
+    });
+
     test('zero orders before everything', () {
       expect(Hlc.zero('a') < Hlc.now('a', at(1)), isTrue);
     });
