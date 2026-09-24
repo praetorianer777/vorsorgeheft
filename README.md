@@ -24,6 +24,15 @@ the date of birth, and reminds you in time.
 
 > **Status:** under development. There is no release yet.
 
+## Screenshots
+
+| Family | Timeline | Appointment | Sources |
+|---|---|---|---|
+| <img src="docs/store/en-1-family.png" width="200"> | <img src="docs/store/en-2-timeline.png" width="200"> | <img src="docs/store/en-3-appointment.png" width="200"> | <img src="docs/store/en-4-sources.png" width="200"> |
+
+They are generated from the app itself with `./tools/store-graphics.sh`, in German and English,
+together with the icon and the feature graphic the Play Store listing needs.
+
 ## Why another app
 
 Health-insurer apps cover parts of this, but only for their own members and only by handing the
