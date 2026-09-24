@@ -11,8 +11,8 @@ the date of birth, and reminds you in time.
 
 - 👨‍👩‍👧 **Per family member** — from newborn to grandparent, and the dog and the cat: their vaccinations
   after the StIKo Vet guideline, deworming and tick protection after ESCCAP
-- 📅 **Four catalogs** — children's check-ups U1–U9/J1, the STIKO vaccination calendar, dental
-  care, and adult and cancer screening
+- 📅 **Six catalogs** — children's check-ups U1–U9/J1, the STIKO vaccination calendar, dental
+  care, adult and cancer screening, and one each for dogs and cats
 - 🔒 **Entirely local** — no account, no servers, no analytics, no ads
 - 📤 **ICS export** — into any calendar or mail client, with stable UIDs instead of duplicates
 - 🔄 **Two devices, one state** — QR pairing, then encrypted sync over your WLAN
@@ -22,7 +22,9 @@ the date of birth, and reminds you in time.
 - 🔔 **Reminders** — 30, 14 and 3 days before a window opens, and again before an entitlement lapses
 - 🌍 **Bilingual** — the app speaks German and English
 
-> **Status:** under development. There is no release yet.
+> **Status:** released as signed APKs and an app bundle under
+> [Releases](https://github.com/praetorianer777/vorsorgeheft/releases). The Play Store listing is
+> being prepared; iOS is built and tested but not distributed.
 
 ## Screenshots
 
@@ -31,7 +33,9 @@ the date of birth, and reminds you in time.
 | <img src="docs/store/en-1-family.png" width="200"> | <img src="docs/store/en-2-timeline.png" width="200"> | <img src="docs/store/en-3-appointment.png" width="200"> | <img src="docs/store/en-4-sources.png" width="200"> |
 
 They are generated from the app itself with `./tools/store-graphics.sh`, in German and English,
-together with the icon and the feature graphic the Play Store listing needs.
+together with the icon and the feature graphic the Play Store listing needs. For looking at a
+screen during development there is also `flutter test tool/screenshots/screenshots_test.dart
+--update-goldens`, which renders eleven screens into `tool/screenshots/out/` and asserts nothing.
 
 ## Why another app
 
@@ -44,8 +48,14 @@ neither calendar export nor device-to-device sync, and ships bundled with sponso
 
 ## Installation
 
-Signed APKs will appear under [Releases](https://github.com/praetorianer777/vorsorgeheft/releases).
-iOS is built and tested, but not distributed yet.
+Every release carries one signed APK per ABI and the app bundle the Play Store takes, with their
+SHA256 sums:
+[Releases](https://github.com/praetorianer777/vorsorgeheft/releases). Download the APK matching
+the phone, or `-universal` when in doubt.
+
+An installation from here and one from the Play Store cannot replace each other: Play re-signs
+what it distributes, and Android refuses an update whose signature changed. Pick one source and
+stay with it, or uninstall before switching.
 
 The privacy policy for the store listings lives in [`docs/`](docs/) and is published at
 <https://praetorianer777.github.io/vorsorgeheft/>.
@@ -57,8 +67,10 @@ carries a source reference with an as-of date, shown in the app both on the appo
 page and collected under "Sources & legal". A test fails as soon as a rule without a resolvable
 source enters a catalog — the sourcing requirement is enforced by CI, not by discipline.
 
-All catalogs describe the German statutory system; rule text is stored per language so the app can
-present it in German or English.
+The catalogs for people describe the German statutory system, the two for animals the German
+veterinary recommendations; rule text is stored per language so the app can present it in German
+or English. Which catalog a family member gets follows from the species chosen when they are
+added, and a dog never sees a U6.
 
 | Catalog | Contents | Source |
 |---|---|---|
@@ -68,6 +80,8 @@ present it in German or English.
 | Adult check-up | Once between 18 and 34, then every three years from 35; hepatitis B/C screening; abdominal aortic aneurysm | [G-BA Gesundheitsuntersuchungs-Richtlinie][gba-gu] |
 | Cancer screening | Skin from 35, cervical from 20, mammography 50–75, prostate from 45, chlamydia to 25 | [G-BA Krebsfrüherkennungs-Richtlinie][gba-kfe] |
 | Organised programmes | Cervical co-test from 35 and colorectal screening from 50, which moved into their own guideline | [G-BA oKFE-Richtlinie][gba-okfe] |
+| Dogs | Puppy series and boosters for distemper/parvovirus, leptospirosis and rabies; deworming and tick protection as optional rules | [StIKo Vet guideline][stiko-vet], [ESCCAP][esccap] |
+| Cats | Kitten series and boosters for the core vaccination and feline leukaemia, rabies optional; deworming and tick protection as optional rules | [StIKo Vet guideline][stiko-vet], [ESCCAP][esccap] |
 
 Two things are deliberately not shown to everyone. The lung cancer screening is only for heavy
 smokers, and the app does not ask about smoking, so it is missing. Indication-based vaccinations
@@ -125,6 +139,12 @@ telemetry. There is no account and no operator who could see anything. "Report a
 settings only opens a GitHub issue form prefilled with the app version and OS, which the person
 reads and sends themselves.
 
+It is also excluded from the operating system's cloud backup, which would otherwise copy the
+database into the owner's Google or Apple account: `android/app/src/main/res/xml/` holds the
+rules, and `AppDelegate` flags the application support directory. Setting up a new phone directly
+from the old one still carries the data over, because that transfer runs device to device.
+Android 11 and lower cannot tell the two apart and back up nothing.
+
 ## Trying it out
 
 Every push to `main` builds an installable APK. Open the latest run of the **APK** workflow under
@@ -159,6 +179,8 @@ machine without an emulator. It is not shipped and is not built in CI.
 | Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, data layer, UI flows |
 | End-to-end | `flutter test` | The specs in `integration_test/specs.dart`, run headless so they gate every push |
 | Schema upgrades | `flutter test test/data/migration_test.dart` | Every schema version ever shipped (`drift_schemas/`) migrates to the current one and matches a fresh install; what v0.1.0 wrote survives the upgrade |
+| Released versions | `flutter test test/data/released_versions_upgrade_test.dart` | One fixture per released tag: a database as that version wrote it opens in the current app, keeps its data and settings, and takes the features added since. A test fails when a tag has no fixture |
+| Store graphics | `./tools/store-graphics.sh` | Renders the store icon, the feature graphic and four screenshots per language from the real screens into `docs/store/`; under `flutter test` it renders into `build/store/` and checks the sizes |
 | End-to-end on a device | `ANDROID_E2E=1 ./run-tests.sh` | The same specs on an emulator or device, where platform channels and the real asset bundle are in play; runs nightly in CI |
 | Reminder on a device | `flutter test integration_test/reminder_on_device_test.dart -d <device>` | Schedules a reminder through the real notification plugin and reads it back from the shade; device only, part of the nightly run |
 
@@ -209,6 +231,12 @@ at night.
 ./release.sh             # version, changelog, notes, release commit and tag
 git push origin main --follow-tags
 ```
+
+Two things belong in the last pull request before a release rather than after it. The upgrade
+fixture for the version about to be cut goes into `test/data/released_versions_upgrade_test.dart`,
+because its guard demands a fixture for every tag and the tag does not exist yet while the branch
+is open. And if any screen changed, `./tools/store-graphics.sh` refreshes `docs/store/`, which is
+what the store listing shows.
 
 `release.sh` derives the next version from the Conventional Commits since the last tag —
 `chore`, `docs`, `test`, `build`, `ci`, `refactor`, `style` and `perf` do not earn a release of
@@ -284,3 +312,5 @@ when in doubt, ask your doctor's office or your health insurer.
 [gba-okfe]: https://www.g-ba.de/richtlinien/104/
 [gba-ip]: https://www.g-ba.de/richtlinien/31/
 [sgb55]: https://www.gesetze-im-internet.de/sgb_5/__55.html
+[stiko-vet]: https://www.openagrar.de/servlets/MCRFileNodeServlet/openagrar_derivate_00063989/Impfleitlinie_Kleintiere_2025-01-06.pdf
+[esccap]: https://www.esccap.de/empfehlungen/
