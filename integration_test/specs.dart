@@ -669,6 +669,13 @@ void registerAppSpecs() {
     await form.pickDateOfBirth('09/12/2026');
     await form.save();
 
+    // The screen behind the form redraws when the changed person comes back
+    // out of the database, which on a device is a moment after the form has
+    // closed.
+    await waitUntil(
+      tester,
+      () => find.text('Mila Vogel').evaluate().isNotEmpty,
+    );
     expect(find.text('Mila Vogel'), findsOneWidget);
     await timeline.scrollToAppointment('U2');
     expect(timeline.status('U2', 'Due'), findsOneWidget);

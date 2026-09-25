@@ -120,6 +120,7 @@ class PersonFormPage {
       () => button.evaluate().isEmpty,
       timeout: const Duration(seconds: 10),
     );
+    await settle(tester);
     if (find.byKey(const Key('save-person')).evaluate().isNotEmpty) {
       await tester.drag(find.byType(ListView), const Offset(0, 4000));
       await settle(tester);
