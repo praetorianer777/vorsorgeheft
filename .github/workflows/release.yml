@@ -6,11 +6,16 @@ name: Release
 on:
   push:
     tags: ["v*"]
-  # Run it on the tag - `gh workflow run release.yml --ref v1.2.3`. A push
-  # that GitHub skipped, or one whose run was deleted, leaves no run to
-  # re-run, and re-cutting the tag is exactly what this file is written to
-  # avoid.
+  # For a tag whose push built nothing - GitHub skips a push whose head
+  # commit message carries a CI-skip marker - or whose run was deleted:
+  # `gh workflow run release.yml -f tag=v1.2.3`. The tag goes in as an input
+  # rather than as the ref, because a dispatch runs the workflow file of the
+  # ref it is started on and an older tag does not have this trigger yet.
   workflow_dispatch:
+    inputs:
+      tag:
+        description: The tag to build, for example v1.2.3
+        required: true
 
 permissions:
   contents: write
@@ -19,10 +24,13 @@ jobs:
   release:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ inputs.tag || github.ref_name }}
 
       - uses: actions/setup-java@v4
         with:
@@ -38,7 +46,7 @@ jobs:
 
       - name: Check the tag against pubspec.yaml
         run: |
-          tag="${GITHUB_REF_NAME#v}"
+          tag="${TAG#v}"
           pub="$(sed -n 's/^version: *\([0-9.]*\).*/\1/p' pubspec.yaml)"
           [[ "$tag" == "$pub" ]] || echo "::warning::tag $tag != pubspec $pub"
 
@@ -82,10 +90,10 @@ jobs:
         run: |
           mkdir -p artifacts
           for f in build/app/outputs/flutter-apk/*-release.apk; do
-            cp "$f" "artifacts/vorsorgeheft-${GITHUB_REF_NAME}-$(basename "$f" | sed 's/app-//;s/-release\.apk//').apk"
+            cp "$f" "artifacts/vorsorgeheft-${TAG}-$(basename "$f" | sed 's/app-//;s/-release\.apk//').apk"
           done
           cp build/app/outputs/bundle/release/app-release.aab \
-            "artifacts/vorsorgeheft-${GITHUB_REF_NAME}.aab"
+            "artifacts/vorsorgeheft-${TAG}.aab"
           {
             echo "| Datei | SHA256 |"
             echo "|---|---|"
@@ -96,10 +104,10 @@ jobs:
 
       - name: Resolve release notes
         run: |
-          if [[ -f "release-notes-${GITHUB_REF_NAME}.md" ]]; then
-            cp "release-notes-${GITHUB_REF_NAME}.md" notes.md
+          if [[ -f "release-notes-${TAG}.md" ]]; then
+            cp "release-notes-${TAG}.md" notes.md
           else
-            git tag -l --format='%(contents)' "$GITHUB_REF_NAME" > notes.md
+            git tag -l --format='%(contents)' "$TAG" > notes.md
           fi
           cat artifacts/SHA256SUMS.md >> notes.md
 
@@ -108,6 +116,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PRERELEASE: ${{ steps.signing.outputs.signed == 'true' && ' ' || '--prerelease' }}
         run: |
-          gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 \
-            || gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file notes.md $PRERELEASE
-          gh release upload "$GITHUB_REF_NAME" artifacts/*.apk artifacts/*.aab --clobber
+          gh release view "$TAG" >/dev/null 2>&1 \
+            || gh release create "$TAG" --title "$TAG" --notes-file notes.md $PRERELEASE
+          gh release upload "$TAG" artifacts/*.apk artifacts/*.aab --clobber
