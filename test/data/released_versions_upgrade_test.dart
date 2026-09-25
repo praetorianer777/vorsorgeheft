@@ -239,6 +239,9 @@ const releases = [
   Release('v0.5.1', 5, _v050),
   Release('v0.6.0', 6, _v060),
   Release('v0.6.1', 6, _v060),
+  // v0.7.0 changed no table: it excluded the database from the cloud backup
+  // and added the store graphics.
+  Release('v0.7.0', 6, _v060),
 ];
 
 Future<void> checkData(AppDatabase db, Release release) async {

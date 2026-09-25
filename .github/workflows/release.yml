@@ -6,6 +6,11 @@ name: Release
 on:
   push:
     tags: ["v*"]
+  # Run it on the tag - `gh workflow run release.yml --ref v1.2.3`. A push
+  # that GitHub skipped, or one whose run was deleted, leaves no run to
+  # re-run, and re-cutting the tag is exactly what this file is written to
+  # avoid.
+  workflow_dispatch:
 
 permissions:
   contents: write

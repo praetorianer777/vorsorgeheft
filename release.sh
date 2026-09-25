@@ -235,6 +235,16 @@ BREAKING, FEATURES, FIXES, OTHER = (
 HEADER = re.compile(
     r'^(?P<type>[A-Za-z]+)(?:\((?P<scope>[^)]*)\))?(?P<bang>!)?:\s+(?P<desc>.+)$')
 TRAILER = re.compile(r'^BREAKING[ -]CHANGE:\s*(?P<desc>.*)$')
+
+# GitHub reads these anywhere in the head commit message of a push and then
+# skips every workflow for it - including the tag pushed alongside, which is
+# what the release is built from. The nightly catalog commit carries one, and
+# quoting its subject in the notes once cost a release its build.
+SKIP_CI = re.compile(
+    r'\s*(\[(skip|no)[ -]ci\]|\[(ci|actions)[ -]skip\]'
+    r'|\[skip[ -]actions\]|\*\*\*NO_CI\*\*\*)',
+    re.IGNORECASE,
+)
 UNRELEASED = re.compile(r'^## \[Unreleased\]\s*$', re.IGNORECASE)
 
 KEEP_A_CHANGELOG_HEADER = """# Changelog
@@ -265,12 +275,15 @@ def collect(log):
         else:
             # Not a Conventional Commit — kept verbatim rather than dropped.
             text = subject
+        text = SKIP_CI.sub('', text).strip()
         trailer = None
         for line in body.splitlines():
             found = TRAILER.match(line.strip())
             if found:
                 trailer = found.group('desc').strip() or text
                 break
+        if trailer:
+            trailer = SKIP_CI.sub('', trailer).strip()
         if (match and match.group('bang')) or trailer:
             sections[BREAKING].append((trailer or text, sha[:7]))
         elif ctype == 'feat':
