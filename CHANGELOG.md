@@ -7,6 +7,23 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-09-25
+
+### Features
+
+- generate the Play Store listing graphics (a7c52a8)
+
+### Bug fixes
+
+- keep the database out of cloud backups (b5336a4)
+
+### Other
+
+- bring the README up to date with what ships (e1d1f2a)
+- cover a peer that does not speak the protocol (c0b78db)
+- confirm the dental rules against the reissued IP-RL (a5dd118)
+- record the catalog source texts as of 2026-09-23 [skip ci] (404d3eb)
+
 ## [0.6.1] - 2026-09-22
 
 ### Bug fixes

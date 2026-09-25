@@ -4,4 +4,4 @@
 /// print it, and a unit test keeps it in step with `pubspec.yaml`, which is
 /// cheaper than a plugin every widget test would then have to fake. Written
 /// by release.sh together with pubspec.yaml.
-const appVersion = '0.6.1';
+const appVersion = '0.7.0';
