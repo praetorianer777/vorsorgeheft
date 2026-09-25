@@ -191,10 +191,17 @@ Future<void> scrollTo(WidgetTester tester, Finder finder) async {
   // Found is not the same as on screen: a list builds a little beyond the
   // viewport, so the target can sit just below the bottom edge, where a tap
   // lands outside the render tree and hits nothing.
-  if (finder.evaluate().isNotEmpty) {
+  if (finder.evaluate().isNotEmpty && !_onScreen(tester, finder.first)) {
     await tester.ensureVisible(finder.first);
     await settle(tester);
   }
+}
+
+bool _onScreen(WidgetTester tester, Finder finder) {
+  final view = tester.binding.renderViews.first;
+  final screen = Offset.zero & (view.size);
+  final rect = tester.getRect(finder);
+  return screen.contains(rect.topLeft) && screen.contains(rect.bottomRight);
 }
 
 /// Pumps frames until [condition] holds, and returns whether it did.
