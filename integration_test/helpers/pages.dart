@@ -90,19 +90,34 @@ class PersonFormPage {
 
   final WidgetTester tester;
 
+  /// Each step checks that it landed. A device swallows a tap that arrives
+  /// while the screen is still moving, and without these the failure turns
+  /// up screens later as something that was never typed.
   Future<void> enterName(String name) async {
-    await tester.enterText(find.byKey(const Key('person-name')), name);
+    final field = find.byKey(const Key('person-name'));
+    await tester.enterText(field, name);
     await settle(tester);
+    final written = tester
+        .widget<EditableText>(
+          find.descendant(of: field, matching: find.byType(EditableText)),
+        )
+        .controller
+        .text;
+    expect(written, name, reason: 'the name field did not take the text');
   }
 
   /// Types the date into the date dialog, in the order of the pinned English
   /// locale; the separators are the dialog's own.
   Future<void> pickDateOfBirth(String mmddyyyy) async {
+    final input = find.byKey(const Key('date-input'));
     await tester.tap(find.byKey(const Key('pick-date-of-birth')));
+    await waitUntil(tester, () => input.evaluate().isNotEmpty);
+    expect(input, findsOneWidget, reason: 'the date dialog did not open');
+    await tester.enterText(input, mmddyyyy);
     await settle(tester);
-    await tester.enterText(find.byKey(const Key('date-input')), mmddyyyy);
     await tester.tap(find.byKey(const Key('date-input-ok')));
-    await settle(tester);
+    await waitUntil(tester, () => input.evaluate().isEmpty);
+    expect(input, findsNothing, reason: 'the date dialog stayed open');
   }
 
   /// The optional vaccinations push the button below the fold, and the form
