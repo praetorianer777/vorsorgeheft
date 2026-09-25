@@ -56,20 +56,16 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_5
+          # The reminder test needs POST_NOTIFICATIONS, and asking for it
+          # from inside the test would open a dialog nobody is there to
+          # answer. Granting it once is not enough either: `flutter test`
+          # installs the app for each test file, and the install drops the
+          # runtime permissions of the one before it - so it is granted again
+          # and again for as long as the run lasts. The runner hands each
+          # line of this script to a shell of its own, which is why the loop
+          # is a single command.
           script: |
-            # The reminder test needs POST_NOTIFICATIONS, and asking from
-            # inside it would open a dialog nobody is there to answer.
-            # Granting it once is not enough either: `flutter test` installs
-            # the app for each test file, and the install drops the runtime
-            # permissions of the previous one. So it is granted over and over
-            # for as long as the run lasts.
-            while true; do
-              adb shell pm grant io.github.praetorianer777.vorsorgeheft \
-                android.permission.POST_NOTIFICATIONS >/dev/null 2>&1
-              sleep 2
-            done &
-            granter=$!
-            trap 'kill "$granter" 2>/dev/null' EXIT
+            nohup sh -c 'while true; do adb shell pm grant io.github.praetorianer777.vorsorgeheft android.permission.POST_NOTIFICATIONS; sleep 2; done' >/dev/null 2>&1 &
             flutter test integration_test/
 
       - uses: actions/upload-artifact@v4
