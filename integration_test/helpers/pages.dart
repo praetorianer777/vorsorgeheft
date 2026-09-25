@@ -516,6 +516,7 @@ class SyncPage {
   }
 
   Future<void> syncNow(String peerNodeId) async {
+    await _dismissMessage();
     await tester.tap(find.byKey(Key('sync-now-$peerNodeId')));
     await _awaitAnswer();
   }
@@ -524,6 +525,24 @@ class SyncPage {
     await tester.enterText(addressPrompt, address);
     await tester.tap(find.byKey(const Key('connect')));
     await _awaitAnswer(until: find.byKey(const Key('connect')));
+  }
+
+  /// Gets the last message out of the way before the next button is tapped.
+  ///
+  /// A snack bar sits over the bottom of the sync screen, which is where
+  /// these buttons are: on a device the tap then lands on the message
+  /// instead. Dragging it down is what a person would do; waiting for it to
+  /// expire costs four seconds.
+  Future<void> _dismissMessage() async {
+    final snack = find.byType(SnackBar);
+    if (snack.evaluate().isEmpty) return;
+    await tester.drag(snack.first, const Offset(0, 100));
+    await settle(tester);
+    await waitUntil(
+      tester,
+      () => find.byType(SnackBar).evaluate().isEmpty,
+      timeout: const Duration(seconds: 6),
+    );
   }
 
   /// Waits until the screen says something.
@@ -591,6 +610,7 @@ class SyncPage {
     required String password,
   }) async {
     final before = share.shared.length;
+    await _dismissMessage();
     await scrollTo(tester, find.byKey(const Key('export-bundle')));
     await tester.tap(find.byKey(const Key('export-bundle')));
     await settle(tester);
@@ -613,6 +633,7 @@ class SyncPage {
   /// dialog is up, so the wait is the same as [exportBundle]'s.
   Future<String> sendToPhone(RecordingShareGateway share) async {
     final before = share.shared.length;
+    await _dismissMessage();
     await scrollTo(tester, find.byKey(const Key('send-to-phone')));
     await tester.runAsync(() async {
       await tester.tap(find.byKey(const Key('send-to-phone')));
@@ -634,6 +655,7 @@ class SyncPage {
     required String code,
   }) async {
     sync.picker.nextFile = bytes;
+    await _dismissMessage();
     await scrollTo(tester, find.byKey(const Key('receive-from-phone')));
     await tester.tap(find.byKey(const Key('receive-from-phone')));
     await settle(tester);
@@ -648,6 +670,7 @@ class SyncPage {
     required String password,
   }) async {
     sync.picker.nextFile = bytes;
+    await _dismissMessage();
     await scrollTo(tester, find.byKey(const Key('import-bundle')));
     await tester.tap(find.byKey(const Key('import-bundle')));
     await settle(tester);
