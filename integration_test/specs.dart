@@ -192,6 +192,9 @@ void registerAppSpecs() {
     );
     await sources.scrollToDisclaimer();
     expect(sources.disclaimer, findsOneWidget);
+    // Below the disclaimer, and on a phone screen that is a scroll away
+    // rather than the same screenful a widget test shows.
+    await scrollTo(tester, sources.privacy);
     expect(sources.privacy, findsOneWidget);
 
     await shutDown(tester, db);
