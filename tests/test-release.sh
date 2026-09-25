@@ -190,6 +190,10 @@ commit "fix: stop the timeline flickering (#42)"
 commit "chore: bump a dependency"
 commit "Update the README by hand"
 commit "feat!: drop the old catalog format"
+# The nightly catalog commit carries a marker GitHub reads anywhere in the
+# head commit message of a push; quoting its subject in the notes skipped a
+# release build once.
+commit "chore: record the catalog source texts as of 2026-09-23 [skip ci]"
 expect_release && {
     check "pubspec.yaml carries the version and the next build" \
         "$(released_version)" "0.2.0+2"
@@ -238,6 +242,13 @@ EOF
         "$(grep -m1 '^### ' "${NOTES}")" "### Breaking changes"
     check "issue references are kept" \
         "$(grep -c 'stop the timeline flickering (#42)' "${NOTES}")" "1"
+
+    check "a quoted skip-ci marker does not reach the notes" \
+        "$(grep -c 'skip ci' "${NOTES}")" "0"
+    check "the commit that carried it is still listed" \
+        "$(section_of 'record the catalog source texts')" "Other"
+    check "no skip-ci marker reaches the release commit" \
+        "$(cd "${REPO}" && git log -1 --format='%B' | grep -ci 'skip ci')" "0"
 
     check "the changelog carries the released version and date" \
         "$(grep -m1 "^## \[0" "${REPO}/CHANGELOG.md")" \
