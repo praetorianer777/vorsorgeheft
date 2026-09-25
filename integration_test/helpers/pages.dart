@@ -95,15 +95,22 @@ class PersonFormPage {
   /// up screens later as something that was never typed.
   Future<void> enterName(String name) async {
     final field = find.byKey(const Key('person-name'));
-    await tester.enterText(field, name);
-    await settle(tester);
-    final written = tester
+    String written() => tester
         .widget<EditableText>(
           find.descendant(of: field, matching: find.byType(EditableText)),
         )
         .controller
         .text;
-    expect(written, name, reason: 'the name field did not take the text');
+    // Focus first: a field that is not focused yet gets the text through a
+    // connection the device is still opening, and on a form that already has
+    // a name in it the old text is what stays.
+    for (var attempt = 0; attempt < 2 && written() != name; attempt++) {
+      await tester.tap(field);
+      await settle(tester);
+      await tester.enterText(field, name);
+      await settle(tester);
+    }
+    expect(written(), name, reason: 'the name field did not take the text');
   }
 
   /// Types the date into the date dialog, in the order of the pinned English
@@ -531,8 +538,11 @@ class SyncPage {
   /// Scans whatever the fixture's camera has been handed.
   Future<void> scanCode(SyncFixture sync, String code) async {
     sync.scanner.nextCode = code;
+    await _dismissMessage();
     await tester.tap(find.byKey(const Key('scan-code')));
-    await settle(tester);
+    // Pairing derives a shared key, which on a device is not done within the
+    // frames a settle pumps.
+    await _awaitAnswer();
   }
 
   Future<void> syncNow(String peerNodeId) async {
