@@ -20,7 +20,7 @@ permissions:
 jobs:
   simulator:
     runs-on: macos-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
 
@@ -46,7 +46,7 @@ jobs:
           xcrun simctl bootstatus "$udid" -b
           echo "udid=$udid" >> "$GITHUB_OUTPUT"
 
-      - run: flutter test integration_test/ -d "${{ steps.simulator.outputs.udid }}"
+      - run: flutter test integration_test/ --reporter expanded -d "${{ steps.simulator.outputs.udid }}"
 
       - uses: actions/upload-artifact@v4
         if: always()

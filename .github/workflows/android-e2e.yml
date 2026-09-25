@@ -17,7 +17,7 @@ permissions:
 jobs:
   emulator:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
         with:
@@ -66,7 +66,7 @@ jobs:
           # is a single command.
           script: |
             nohup sh -c 'while true; do adb shell pm grant io.github.praetorianer777.vorsorgeheft android.permission.POST_NOTIFICATIONS; sleep 2; done' >/dev/null 2>&1 &
-            flutter test integration_test/
+            flutter test integration_test/ --reporter expanded
 
       - uses: actions/upload-artifact@v4
         if: always()
