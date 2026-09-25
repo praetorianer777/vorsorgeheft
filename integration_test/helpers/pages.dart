@@ -110,16 +110,21 @@ class PersonFormPage {
   /// scrolled to the bottom, so the top is brought back for the errors.
   Future<void> save() async {
     final button = find.byKey(const Key('save-person'));
-    await _reveal(button);
-    await tester.tap(button);
     // Writing the person and leaving the form is work the device does at its
-    // own pace; a refused save keeps the form open, which is what the branch
-    // below is for.
-    await waitUntil(
-      tester,
-      () => button.evaluate().isEmpty,
-      timeout: const Duration(seconds: 10),
-    );
+    // own pace. A form still open after that either refused the save, which
+    // is what the branch below is for, or never got the tap - the button
+    // sits at the end of a long list, where a drag can leave it half off
+    // the screen.
+    for (var attempt = 0; attempt < 2; attempt++) {
+      await _reveal(button);
+      await tester.tap(button);
+      final closed = await waitUntil(
+        tester,
+        () => button.evaluate().isEmpty,
+        timeout: const Duration(seconds: 10),
+      );
+      if (closed) break;
+    }
     await settle(tester);
     if (find.byKey(const Key('save-person')).evaluate().isNotEmpty) {
       await tester.drag(find.byType(ListView), const Offset(0, 4000));

@@ -39,6 +39,11 @@ jobs:
       - name: Boot a simulator
         id: simulator
         run: |
+          # With the software keyboard the simulator animates the view
+          # insets, and a dialog built while they are in flight can be given
+          # a negative padding, which is a framework assertion rather than
+          # anything this app does. The hardware keyboard has no animation.
+          defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool true
           udid="$(xcrun simctl list devices available --json \
             | jq -r '[.devices[][] | select(.name | test("^iPhone"))][-1].udid')"
           [[ -n "$udid" && "$udid" != null ]] || { echo "::error::no iPhone simulator on this runner"; exit 1; }
