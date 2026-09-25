@@ -247,7 +247,13 @@ subjects when it is empty), and annotates the tag with the notes. A version and 
 also be given by hand: `./release.sh 0.2.0 "Short note"`.
 
 It builds no APK. `release.yml` does that from the tag, because an APK built here would never be
-byte-identical to the published one.
+byte-identical to the published one. If a tag ever ends up without a build - GitHub skips a whole
+push, tag included, when the head commit message carries a CI-skip marker - start it by hand
+instead of re-cutting the tag:
+
+```bash
+gh workflow run release.yml -f tag=v0.7.0
+```
 
 ### Signing
 
