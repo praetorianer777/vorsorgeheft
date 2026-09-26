@@ -23,7 +23,7 @@ class FamilyPage {
   Future<void> rename(String name) async {
     await tester.tap(find.byKey(const Key('edit-family-name')));
     await settle(tester);
-    await tester.enterText(find.byKey(const Key('family-name')), name);
+    await typeInto(tester, find.byKey(const Key('family-name')), name);
     await tester.tap(find.byKey(const Key('family-name-ok')));
     await settle(tester);
   }
@@ -109,6 +109,8 @@ class PersonFormPage {
       await settle(tester);
       await tester.enterText(field, name);
       await settle(tester);
+      tester.binding.focusManager.primaryFocus?.unfocus();
+      await settle(tester);
     }
     expect(written(), name, reason: 'the name field did not take the text');
   }
@@ -120,7 +122,7 @@ class PersonFormPage {
     await tester.tap(find.byKey(const Key('pick-date-of-birth')));
     await waitUntil(tester, () => input.evaluate().isNotEmpty);
     expect(input, findsOneWidget, reason: 'the date dialog did not open');
-    await tester.enterText(input, mmddyyyy);
+    await typeInto(tester, input, mmddyyyy);
     await settle(tester);
     await tester.tap(find.byKey(const Key('date-input-ok')));
     await waitUntil(tester, () => input.evaluate().isEmpty);
@@ -324,7 +326,7 @@ class AppointmentPage {
   Future<void> markDoneOn(String mmddyyyy) async {
     await tester.tap(find.byKey(const Key('mark-done')));
     await settle(tester);
-    await tester.enterText(find.byKey(const Key('date-input')), mmddyyyy);
+    await typeInto(tester, find.byKey(const Key('date-input')), mmddyyyy);
     await tester.tap(find.byKey(const Key('date-input-ok')));
     await settle(tester);
   }
@@ -525,7 +527,7 @@ class SyncPage {
     await tester.tap(find.byKey(const Key('show-my-code')));
     await settle(tester);
     if (deviceName != null) {
-      await tester.enterText(find.byKey(const Key('device-name')), deviceName);
+      await typeInto(tester, find.byKey(const Key('device-name')), deviceName);
       await settle(tester);
       // The name is part of the code, so the dialog is opened once more to
       // read the code that carries it.
@@ -543,13 +545,15 @@ class SyncPage {
   }
 
   /// Scans whatever the fixture's camera has been handed.
-  Future<void> scanCode(SyncFixture sync, String code) async {
+  /// Returns what the screen said about it, so a spec that expected a
+  /// pairing and got a refusal says which.
+  Future<String?> scanCode(SyncFixture sync, String code) async {
     sync.scanner.nextCode = code;
     await _dismissMessage();
     await tester.tap(find.byKey(const Key('scan-code')));
     // Pairing derives a shared key, which on a device is not done within the
     // frames a settle pumps.
-    await _awaitAnswer();
+    return _awaitAnswer();
   }
 
   Future<void> syncNow(String peerNodeId) async {
@@ -559,7 +563,7 @@ class SyncPage {
   }
 
   Future<void> enterAddress(String address) async {
-    await tester.enterText(addressPrompt, address);
+    await typeInto(tester, addressPrompt, address);
     await tester.tap(find.byKey(const Key('connect')));
     await _awaitAnswer(until: find.byKey(const Key('connect')));
   }
@@ -590,7 +594,7 @@ class SyncPage {
   /// frames asserts against a screen that has not answered yet. [until] is
   /// the button of the dialog the action was started from: while it is still
   /// there, the app is still working.
-  Future<void> _awaitAnswer({Finder? until}) async {
+  Future<String?> _awaitAnswer({Finder? until}) async {
     if (until != null) {
       // The action was started from a dialog, and the dialog closes when the
       // work behind it is done - which is the same frame the answer is shown
@@ -602,7 +606,7 @@ class SyncPage {
       if (_message() == null) {
         await waitUntil(tester, () => _message() != null);
       }
-      return;
+      return _message();
     }
     final before = _message();
     // A message that was already there when the button was tapped - the
@@ -619,6 +623,7 @@ class SyncPage {
       }
       return now != before || vanished;
     });
+    return _message();
   }
 
   /// What the screen is saying: every outcome of a sync or a transfer arrives
@@ -661,7 +666,7 @@ class SyncPage {
     await scrollTo(tester, find.byKey(const Key('export-bundle')));
     await tester.tap(find.byKey(const Key('export-bundle')));
     await settle(tester);
-    await tester.enterText(find.byKey(const Key('bundle-password')), password);
+    await typeInto(tester, find.byKey(const Key('bundle-password')), password);
     // Unlike the calendar export, the confirmation pops a dialog, and that
     // needs frames before the export even starts; the frames are pumped from
     // inside runAsync so the file write that follows can complete too.
@@ -706,7 +711,7 @@ class SyncPage {
     await scrollTo(tester, find.byKey(const Key('receive-from-phone')));
     await tester.tap(find.byKey(const Key('receive-from-phone')));
     await settle(tester);
-    await tester.enterText(find.byKey(const Key('transfer-code-input')), code);
+    await typeInto(tester, find.byKey(const Key('transfer-code-input')), code);
     await tester.tap(find.byKey(const Key('transfer-code-confirm')));
     await _awaitAnswer(until: find.byKey(const Key('transfer-code-confirm')));
   }
@@ -721,7 +726,7 @@ class SyncPage {
     await scrollTo(tester, find.byKey(const Key('import-bundle')));
     await tester.tap(find.byKey(const Key('import-bundle')));
     await settle(tester);
-    await tester.enterText(find.byKey(const Key('bundle-password')), password);
+    await typeInto(tester, find.byKey(const Key('bundle-password')), password);
     await tester.tap(find.byKey(const Key('bundle-confirm')));
     // Stretching the password pauses every couple of thousand rounds to let
     // the UI breathe, and each pause is a timer the pumped clock has to pass;
