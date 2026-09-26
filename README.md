@@ -174,7 +174,7 @@ machine without an emulator. It is not shipped and is not built in CI.
 | Suite | How | What it covers |
 |---|---|---|
 | Everything | `./run-tests.sh` | The single entry point. The branch-guard hook runs it before every push, and `ci.yml` has no other step. |
-| Shell | `./tests/test-release.sh`, `./.claude/hooks/tests/branch-guard-test.sh` | Release script and branch guard, offline and without Flutter |
+| Shell | `./tests/test-release.sh`, `./tests/test-catalog-watch.sh`, `./.claude/hooks/tests/branch-guard-test.sh` | Release script, catalog watch and branch guard, offline and without Flutter |
 | Format & analysis | `dart format --set-exit-if-changed .`, `flutter analyze --fatal-infos` | |
 | Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, data layer, UI flows |
 | End-to-end | `flutter test` | The specs in `integration_test/specs.dart`, run headless so they gate every push |

@@ -4,6 +4,7 @@ import 'package:vorsorgeheft/domain/completion.dart';
 import 'package:vorsorgeheft/domain/person.dart';
 
 import '../support/harness.dart';
+import '../support/recording_gateway.dart';
 
 void main() {
   // Nineteen days old on the pinned today, which puts the U2 past its
@@ -207,6 +208,51 @@ void main() {
     await tester.tap(find.text('Bello'));
     await settle(tester);
     expect(find.text('Distemper and parvovirus · dose 1 of 4'), findsOneWidget);
+    expect(find.text('U6'), findsNothing);
+  });
+
+  appTest(
+    'the family list says when notifications are switched off',
+    gateway: RecordingGateway(permissionGranted: false),
+    (tester, db) async {
+      expect(
+        find.textContaining('Notifications are switched off'),
+        findsOneWidget,
+      );
+      expect(find.text('Allow notifications'), findsOneWidget);
+    },
+  );
+
+  appTest('a cat added through the form gets the cat catalog', (
+    tester,
+    db,
+  ) async {
+    await tester.tap(find.byKey(const Key('add-person')));
+    await settle(tester);
+    await tester.tap(find.text('Cat'));
+    await settle(tester);
+
+    await tester.enterText(find.byKey(const Key('person-name')), 'Minka');
+    await tester.tap(find.byKey(const Key('pick-date-of-birth')));
+    await settle(tester);
+    await tester.enterText(find.byKey(const Key('date-input')), '07202026');
+    await tester.tap(find.byKey(const Key('date-input-ok')));
+    await settle(tester);
+
+    // Rabies is a choice for a cat, where it is standard for a dog.
+    await tester.dragUntilVisible(
+      find.byKey(const Key('optional-cat-rabies')),
+      find.byType(ListView),
+      const Offset(0, -300),
+    );
+    expect(find.byKey(const Key('optional-dog-deworming')), findsNothing);
+    await saveForm(tester);
+
+    expect((await db.allPersons()).single.species, Species.cat);
+
+    await tester.tap(find.text('Minka'));
+    await settle(tester);
+    expect(find.textContaining('Cat flu and panleukopenia'), findsWidgets);
     expect(find.text('U6'), findsNothing);
   });
 

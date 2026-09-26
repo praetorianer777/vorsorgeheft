@@ -382,6 +382,7 @@ class SettingsPage {
   Finder reminderTime(String label) => find.text(label);
 
   Future<void> toggleReminders() async {
+    await scrollTo(tester, remindersSwitch);
     await tester.tap(remindersSwitch);
     await settle(tester);
   }
@@ -404,6 +405,12 @@ class SettingsPage {
 
   Future<void> toggleLead(int days) async {
     await tester.tap(find.byKey(Key('reminder-lead-$days')));
+    await settle(tester);
+  }
+
+  Future<void> toggleDeadlineLead(int days) async {
+    await scrollTo(tester, find.byKey(Key('deadline-lead-$days')));
+    await tester.tap(find.byKey(Key('deadline-lead-$days')));
     await settle(tester);
   }
 
@@ -626,10 +633,20 @@ class SyncPage {
     return texts.isEmpty ? null : (texts.first.widget as Text).data;
   }
 
-  Future<void> removeDevice(String peerNodeId) async {
+  Future<void> removeDevice(String peerNodeId, {bool confirm = true}) async {
+    await scrollTo(tester, find.byKey(Key('remove-peer-$peerNodeId')));
     await tester.tap(find.byKey(Key('remove-peer-$peerNodeId')));
     await settle(tester);
-    await tester.tap(find.byKey(const Key('confirm-remove-peer')));
+    expect(
+      find.byKey(const Key('confirm-remove-peer')),
+      findsOneWidget,
+      reason: 'removing a phone asks first',
+    );
+    await tester.tap(
+      confirm
+          ? find.byKey(const Key('confirm-remove-peer'))
+          : find.widgetWithText(TextButton, 'Cancel'),
+    );
     await settle(tester);
   }
 
