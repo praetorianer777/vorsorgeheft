@@ -204,6 +204,21 @@ bool _onScreen(WidgetTester tester, Finder finder) {
   return screen.contains(rect.topLeft) && screen.contains(rect.bottomRight);
 }
 
+/// Types into a field and lets the keyboard go again before anything else
+/// happens.
+///
+/// iOS reports briefly negative view insets while the keyboard animates, and
+/// a dialog rebuilt in that moment fails a framework assertion, because
+/// Dialog adds the insets to its own padding. Dropping the focus while the
+/// dialog is still standing keeps the animation out of the route transition
+/// that follows.
+Future<void> typeInto(WidgetTester tester, Finder field, String text) async {
+  await tester.enterText(field, text);
+  await settle(tester);
+  tester.binding.focusManager.primaryFocus?.unfocus();
+  await settle(tester);
+}
+
 /// Pumps frames until [condition] holds, and returns whether it did.
 ///
 /// A fixed number of frames is the wrong measure on a device: the app runs at
