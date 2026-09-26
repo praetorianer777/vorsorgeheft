@@ -1,10 +1,10 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:multicast_dns/multicast_dns.dart';
 
+import 'mdns_announcement.dart';
 import 'sync_transport.dart';
 
 /// TCP on the local network, with the peer found through mDNS.
@@ -16,7 +16,7 @@ import 'sync_transport.dart';
 class LanTransport implements SyncTransport {
   LanTransport({this.lookupTimeout = const Duration(seconds: 4)});
 
-  static const serviceType = '_vorsorgereminder._tcp.local';
+  static const serviceType = MdnsAnnouncement.serviceType;
 
   /// Anything larger than this is not a sync frame, and reading it would
   /// mean allocating whatever length a stray connection claims.
@@ -221,21 +221,12 @@ class _SocketChannel implements SyncChannel {
 
 /// Answers mDNS queries for this device's service instance.
 ///
-/// The multicast_dns package only looks things up; it has no responder, and
-/// the alternatives are platform plugins. Answering the three queries a
-/// lookup makes - PTR for the service, SRV for the instance, A for the host -
-/// is small enough to do here, and it means discovery works without a
-/// second native dependency.
+/// The socket that carries [MdnsAnnouncement] onto the network.
 class _MdnsResponder {
-  _MdnsResponder._(this._socket, this._instance, this._port, this._addresses);
+  _MdnsResponder._(this._socket, this._announcement);
 
   static final _group = InternetAddress('224.0.0.251');
   static const _mdnsPort = 5353;
-  static const _typeA = 1;
-  static const _typePtr = 12;
-  static const _typeTxt = 16;
-  static const _typeSrv = 33;
-  static const _typeAny = 255;
 
   static Future<_MdnsResponder> start({
     required String instance,
@@ -250,19 +241,17 @@ class _MdnsResponder {
     );
     socket.joinMulticast(_group);
     socket.multicastHops = 255;
-    final responder = _MdnsResponder._(socket, instance, port, addresses);
+    final responder = _MdnsResponder._(
+      socket,
+      MdnsAnnouncement(instance: instance, port: port, addresses: addresses),
+    );
     socket.listen(responder._onEvent);
     responder._announce();
     return responder;
   }
 
   final RawDatagramSocket _socket;
-  final String _instance;
-  final int _port;
-  final List<InternetAddress> _addresses;
-
-  String get _instanceName => '$_instance.${LanTransport.serviceType}';
-  String get _hostName => '$_instance.local';
+  final MdnsAnnouncement _announcement;
 
   void stop() => _socket.close();
 
@@ -270,149 +259,8 @@ class _MdnsResponder {
     if (event != RawSocketEvent.read) return;
     final datagram = _socket.receive();
     if (datagram == null) return;
-    if (_asksForUs(datagram.data)) _announce();
+    if (_announcement.answers(datagram.data)) _announce();
   }
 
-  void _announce() => _socket.send(_response(), _group, _mdnsPort);
-
-  bool _asksForUs(Uint8List packet) {
-    if (packet.length < 12) return false;
-    final data = ByteData.sublistView(packet);
-    if (data.getUint16(2) & 0x8000 != 0) return false;
-    final questions = data.getUint16(4);
-    var offset = 12;
-    for (var i = 0; i < questions; i++) {
-      final name = _readName(packet, offset);
-      if (name == null) return false;
-      offset = name.$2;
-      if (offset + 4 > packet.length) return false;
-      final type = data.getUint16(offset);
-      offset += 4;
-      final asked = name.$1.toLowerCase();
-      final matches = switch (type) {
-        _typePtr => asked == LanTransport.serviceType,
-        _typeSrv || _typeTxt => asked == _instanceName.toLowerCase(),
-        _typeA => asked == _hostName.toLowerCase(),
-        _typeAny =>
-          asked == LanTransport.serviceType ||
-              asked == _instanceName.toLowerCase() ||
-              asked == _hostName.toLowerCase(),
-        _ => false,
-      };
-      if (matches) return true;
-    }
-    return false;
-  }
-
-  /// A name and the offset after it, following compression pointers as
-  /// RFC 1035 lays them out; null when the packet is malformed.
-  (String, int)? _readName(Uint8List packet, int offset) {
-    final labels = <String>[];
-    int? end;
-    var hops = 0;
-    while (true) {
-      if (offset >= packet.length || hops++ > 64) return null;
-      final length = packet[offset];
-      if (length == 0) {
-        end ??= offset + 1;
-        return (labels.join('.'), end);
-      }
-      if (length & 0xC0 == 0xC0) {
-        if (offset + 1 >= packet.length) return null;
-        end ??= offset + 2;
-        offset = ((length & 0x3F) << 8) | packet[offset + 1];
-        continue;
-      }
-      if (offset + 1 + length > packet.length) return null;
-      labels.add(
-        utf8.decode(
-          packet.sublist(offset + 1, offset + 1 + length),
-          allowMalformed: true,
-        ),
-      );
-      offset += 1 + length;
-    }
-  }
-
-  Uint8List _response() {
-    final out = BytesBuilder();
-    out.add(
-      (ByteData(12)
-            ..setUint16(2, 0x8400)
-            ..setUint16(6, 3 + _addresses.length))
-          .buffer
-          .asUint8List(),
-    );
-    _record(
-      out,
-      LanTransport.serviceType,
-      _typePtr,
-      0x0001,
-      _name(_instanceName),
-    );
-    _record(
-      out,
-      _instanceName,
-      _typeSrv,
-      0x8001,
-      Uint8List.fromList([
-        0,
-        0,
-        0,
-        0,
-        _port >> 8,
-        _port & 0xFF,
-        ..._name(_hostName),
-      ]),
-    );
-    final txt = utf8.encode('node=$_instance');
-    _record(
-      out,
-      _instanceName,
-      _typeTxt,
-      0x8001,
-      Uint8List.fromList([txt.length, ...txt]),
-    );
-    for (final address in _addresses) {
-      _record(
-        out,
-        _hostName,
-        _typeA,
-        0x8001,
-        Uint8List.fromList(address.rawAddress),
-      );
-    }
-    return out.toBytes();
-  }
-
-  void _record(
-    BytesBuilder out,
-    String name,
-    int type,
-    int rrClass,
-    Uint8List data,
-  ) {
-    out.add(_name(name));
-    out.add(
-      (ByteData(10)
-            ..setUint16(0, type)
-            ..setUint16(2, rrClass)
-            ..setUint32(4, 120)
-            ..setUint16(8, data.length))
-          .buffer
-          .asUint8List(),
-    );
-    out.add(data);
-  }
-
-  Uint8List _name(String name) {
-    final out = BytesBuilder();
-    for (final label in name.split('.')) {
-      final bytes = utf8.encode(label);
-      out.addByte(bytes.length);
-      out.add(bytes);
-    }
-    out.addByte(0);
-    return out.toBytes();
-  }
+  void _announce() => _socket.send(_announcement.response(), _group, _mdnsPort);
 }

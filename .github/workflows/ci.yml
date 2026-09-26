@@ -37,3 +37,11 @@ jobs:
       - run: flutter pub get
 
       - run: ./run-tests.sh
+
+      # Multicast is what a lookup rides on, and a PR gate should not depend
+      # on the runner's network, so the one test that needs it runs nightly.
+      - name: Discovery over multicast
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          MDNS_E2E: "1"
+        run: flutter test test/sync/mdns_discovery_test.dart
