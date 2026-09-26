@@ -955,7 +955,11 @@ void registerAppSpecs() {
     sync = await FamilyPage(tester).openSync();
     await sync.scanCode(dad, 'https://example.com/not-a-code');
     expect(sync.invalidCode, findsOneWidget);
-    await sync.scanCode(dad, code);
+    expect(
+      await sync.scanCode(dad, code),
+      contains("Mum's phone"),
+      reason: 'the code was not accepted',
+    );
     expect(sync.pairedWith("Mum's phone"), findsOneWidget);
     expect(sync.neverSynced, findsOneWidget);
 
@@ -996,7 +1000,11 @@ void registerAppSpecs() {
 
     final dadsDb = await launchApp(tester, sync: dad, nodeId: 'dad');
     final sync = await FamilyPage(tester).openSync();
-    await sync.scanCode(dad, code);
+    expect(
+      await sync.scanCode(dad, code),
+      contains("Mum's phone"),
+      reason: 'the code was not accepted',
+    );
     expect(sync.pairedWith("Mum's phone"), findsOneWidget);
 
     await sync.removeDevice('mum', confirm: false);
