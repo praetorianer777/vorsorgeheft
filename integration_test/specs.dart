@@ -264,6 +264,30 @@ void registerAppSpecs() {
     );
     expect(gateway.pending.any((r) => r.leadTime.inDays == 14), isFalse);
 
+    // Back on again, because switching a lead time off and on are separate
+    // branches of the same chip.
+    await settings.toggleLead(14);
+    expect(gateway.pending.any((r) => r.leadTime.inDays == 14), isTrue);
+
+    // The warnings before an entitlement lapses are chosen separately.
+    expect(
+      gateway.pending.any(
+        (r) =>
+            r.kind == ReminderKind.deadlineApproaching &&
+            r.leadTime.inDays == 30,
+      ),
+      isTrue,
+    );
+    await settings.toggleDeadlineLead(30);
+    expect(
+      gateway.pending.any(
+        (r) =>
+            r.kind == ReminderKind.deadlineApproaching &&
+            r.leadTime.inDays == 30,
+      ),
+      isFalse,
+    );
+
     await settings.toggleReminders();
     expect(gateway.pending, isEmpty);
 
@@ -956,6 +980,36 @@ void registerAppSpecs() {
 
     await shutDown(tester, mumsDb);
     await dadsDb.close();
+  });
+
+  testWidgets('a paired phone is only removed after confirming', (
+    tester,
+  ) async {
+    final mum = SyncFixture();
+    final dad = SyncFixture(network: mum.network);
+    final mumsDb = await launchApp(tester, sync: mum, nodeId: 'mum');
+    final code = await (await FamilyPage(
+      tester,
+    ).openSync()).showMyCode(deviceName: "Mum's phone");
+    await detach(tester);
+    await mum.stayReachable();
+
+    final dadsDb = await launchApp(tester, sync: dad, nodeId: 'dad');
+    final sync = await FamilyPage(tester).openSync();
+    await sync.scanCode(dad, code);
+    expect(sync.pairedWith("Mum's phone"), findsOneWidget);
+
+    await sync.removeDevice('mum', confirm: false);
+    expect(sync.deviceNamed("Mum's phone"), findsOneWidget);
+    expect(await dadsDb.peer('mum'), isNotNull);
+
+    await sync.removeDevice('mum');
+    expect(sync.deviceNamed("Mum's phone"), findsNothing);
+    expect(sync.noDevices, findsOneWidget);
+    expect(await dadsDb.peer('mum'), isNull);
+
+    await shutDown(tester, dadsDb);
+    await mumsDb.close();
   });
 
   testWidgets('two untouched phones list each other by model', (tester) async {
