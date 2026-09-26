@@ -182,6 +182,7 @@ machine without an emulator. It is not shipped and is not built in CI.
 | Released versions | `flutter test test/data/released_versions_upgrade_test.dart` | One fixture per released tag: a database as that version wrote it opens in the current app, keeps its data and settings, and takes the features added since. A test fails when a tag has no fixture |
 | Store graphics | `./tools/store-graphics.sh` | Renders the store icon, the feature graphic and four screenshots per language from the real screens into `docs/store/`; under `flutter test` it renders into `build/store/` and checks the sizes |
 | End-to-end on a device | `ANDROID_E2E=1 ./run-tests.sh` | The same specs on an emulator or device, where platform channels and the real asset bundle are in play; runs nightly in CI |
+| Discovery over multicast | `MDNS_E2E=1 flutter test test/sync/mdns_discovery_test.dart` | One phone announces itself, the other finds it by name and they exchange a frame. Needs a network that carries multicast to itself, so it is opt-in and runs in the nightly CI rather than in the gate |
 | Reminder on a device | `flutter test integration_test/reminder_on_device_test.dart -d <device>` | Schedules a reminder through the real notification plugin and reads it back from the shade; device only, part of the nightly run |
 
 When a table changes, bump `schemaVersion`, write the migration in `lib/data/database.dart`, then
