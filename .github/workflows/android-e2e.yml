@@ -17,7 +17,7 @@ permissions:
 jobs:
   emulator:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
         with:
@@ -46,11 +46,8 @@ jobs:
       # checkout with a wall of missing types.
       - run: dart run build_runner build --delete-conflicting-outputs
 
-      # Built before the emulator boots so it can be installed and granted
-      # POST_NOTIFICATIONS ahead of the tests. `flutter test` installs its own
-      # build over it with `adb install -r`, which keeps the runtime
-      # permissions of the same package; asking for the permission from inside
-      # the test would open a dialog nobody is there to answer.
+      # Built before the emulator boots so the run does not wait for Gradle
+      # with an emulator idling next to it.
       - run: flutter build apk --debug
 
       - uses: reactivecircus/android-emulator-runner@v2
@@ -59,10 +56,17 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_5
+          # The reminder test needs POST_NOTIFICATIONS, and asking for it
+          # from inside the test would open a dialog nobody is there to
+          # answer. Granting it once is not enough either: `flutter test`
+          # installs the app for each test file, and the install drops the
+          # runtime permissions of the one before it - so it is granted again
+          # and again for as long as the run lasts. The runner hands each
+          # line of this script to a shell of its own, which is why the loop
+          # is a single command.
           script: |
-            adb install -t -r build/app/outputs/flutter-apk/app-debug.apk
-            adb shell pm grant io.github.praetorianer777.vorsorgeheft android.permission.POST_NOTIFICATIONS
-            flutter test integration_test/
+            nohup sh -c 'while true; do adb shell pm grant io.github.praetorianer777.vorsorgeheft android.permission.POST_NOTIFICATIONS; sleep 2; done' >/dev/null 2>&1 &
+            flutter test integration_test/ --reporter expanded
 
       - uses: actions/upload-artifact@v4
         if: always()

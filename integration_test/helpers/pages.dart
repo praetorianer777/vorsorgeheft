@@ -90,27 +90,63 @@ class PersonFormPage {
 
   final WidgetTester tester;
 
+  /// Each step checks that it landed. A device swallows a tap that arrives
+  /// while the screen is still moving, and without these the failure turns
+  /// up screens later as something that was never typed.
   Future<void> enterName(String name) async {
-    await tester.enterText(find.byKey(const Key('person-name')), name);
-    await settle(tester);
+    final field = find.byKey(const Key('person-name'));
+    String written() => tester
+        .widget<EditableText>(
+          find.descendant(of: field, matching: find.byType(EditableText)),
+        )
+        .controller
+        .text;
+    // Focus first: a field that is not focused yet gets the text through a
+    // connection the device is still opening, and on a form that already has
+    // a name in it the old text is what stays.
+    for (var attempt = 0; attempt < 2 && written() != name; attempt++) {
+      await tester.tap(field);
+      await settle(tester);
+      await tester.enterText(field, name);
+      await settle(tester);
+    }
+    expect(written(), name, reason: 'the name field did not take the text');
   }
 
   /// Types the date into the date dialog, in the order of the pinned English
   /// locale; the separators are the dialog's own.
   Future<void> pickDateOfBirth(String mmddyyyy) async {
+    final input = find.byKey(const Key('date-input'));
     await tester.tap(find.byKey(const Key('pick-date-of-birth')));
+    await waitUntil(tester, () => input.evaluate().isNotEmpty);
+    expect(input, findsOneWidget, reason: 'the date dialog did not open');
+    await tester.enterText(input, mmddyyyy);
     await settle(tester);
-    await tester.enterText(find.byKey(const Key('date-input')), mmddyyyy);
     await tester.tap(find.byKey(const Key('date-input-ok')));
-    await settle(tester);
+    await waitUntil(tester, () => input.evaluate().isEmpty);
+    expect(input, findsNothing, reason: 'the date dialog stayed open');
   }
 
   /// The optional vaccinations push the button below the fold, and the form
   /// only builds what is on screen. A save the form refuses leaves it open,
   /// scrolled to the bottom, so the top is brought back for the errors.
   Future<void> save() async {
-    await _reveal(find.byKey(const Key('save-person')));
-    await tester.tap(find.byKey(const Key('save-person')));
+    final button = find.byKey(const Key('save-person'));
+    // Writing the person and leaving the form is work the device does at its
+    // own pace. A form still open after that either refused the save, which
+    // is what the branch below is for, or never got the tap - the button
+    // sits at the end of a long list, where a drag can leave it half off
+    // the screen.
+    for (var attempt = 0; attempt < 2; attempt++) {
+      await _reveal(button);
+      await tester.tap(button);
+      final closed = await waitUntil(
+        tester,
+        () => button.evaluate().isEmpty,
+        timeout: const Duration(seconds: 10),
+      );
+      if (closed) break;
+    }
     await settle(tester);
     if (find.byKey(const Key('save-person')).evaluate().isNotEmpty) {
       await tester.drag(find.byType(ListView), const Offset(0, 4000));
@@ -502,21 +538,92 @@ class SyncPage {
   /// Scans whatever the fixture's camera has been handed.
   Future<void> scanCode(SyncFixture sync, String code) async {
     sync.scanner.nextCode = code;
+    await _dismissMessage();
     await tester.tap(find.byKey(const Key('scan-code')));
-    await settle(tester);
+    // Pairing derives a shared key, which on a device is not done within the
+    // frames a settle pumps.
+    await _awaitAnswer();
   }
 
   Future<void> syncNow(String peerNodeId) async {
+    await _dismissMessage();
     await tester.tap(find.byKey(Key('sync-now-$peerNodeId')));
-    await settle(tester);
-    await settle(tester);
+    await _awaitAnswer();
   }
 
   Future<void> enterAddress(String address) async {
     await tester.enterText(addressPrompt, address);
     await tester.tap(find.byKey(const Key('connect')));
+    await _awaitAnswer(until: find.byKey(const Key('connect')));
+  }
+
+  /// Gets the last message out of the way before the next button is tapped.
+  ///
+  /// A snack bar sits over the bottom of the sync screen, which is where
+  /// these buttons are: on a device the tap then lands on the message
+  /// instead. Dragging it down is what a person would do; waiting for it to
+  /// expire costs four seconds.
+  Future<void> _dismissMessage() async {
+    final snack = find.byType(SnackBar);
+    if (snack.evaluate().isEmpty) return;
+    await tester.drag(snack.first, const Offset(0, 100));
     await settle(tester);
-    await settle(tester);
+    await waitUntil(
+      tester,
+      () => find.byType(SnackBar).evaluate().isEmpty,
+      timeout: const Duration(seconds: 6),
+    );
+  }
+
+  /// Waits until the screen says something.
+  ///
+  /// Every outcome of a sync or a transfer arrives as a snack bar or a
+  /// dialog, and the work behind these buttons - a socket, a key derivation,
+  /// a file - runs on the device's clock, where a fixed number of pumped
+  /// frames asserts against a screen that has not answered yet. [until] is
+  /// the button of the dialog the action was started from: while it is still
+  /// there, the app is still working.
+  Future<void> _awaitAnswer({Finder? until}) async {
+    if (until != null) {
+      // The action was started from a dialog, and the dialog closes when the
+      // work behind it is done - which is the same frame the answer is shown
+      // in, or just before the next one opens.
+      await waitUntil(tester, () => until.evaluate().isEmpty);
+      await settle(tester);
+      // The answer is usually up by then; a failed attempt that reopens the
+      // dialog needs another moment.
+      if (_message() == null) {
+        await waitUntil(tester, () => _message() != null);
+      }
+      return;
+    }
+    final before = _message();
+    // A message that was already there when the button was tapped - the
+    // dialog the action was started from, or the snack bar of the step
+    // before - is not this action's answer. The answer is a different
+    // message, or the same one again after the dialog has closed and
+    // reopened, which is what a second failed attempt looks like.
+    var vanished = before == null;
+    await waitUntil(tester, () {
+      final now = _message();
+      if (now == null) {
+        vanished = true;
+        return false;
+      }
+      return now != before || vanished;
+    });
+  }
+
+  /// What the screen is saying: every outcome of a sync or a transfer arrives
+  /// as a snack bar or a dialog.
+  String? _message() {
+    final texts = find
+        .descendant(
+          of: find.byWidgetPredicate((w) => w is SnackBar || w is AlertDialog),
+          matching: find.byType(Text),
+        )
+        .evaluate();
+    return texts.isEmpty ? null : (texts.first.widget as Text).data;
   }
 
   Future<void> removeDevice(String peerNodeId) async {
@@ -533,6 +640,7 @@ class SyncPage {
     required String password,
   }) async {
     final before = share.shared.length;
+    await _dismissMessage();
     await scrollTo(tester, find.byKey(const Key('export-bundle')));
     await tester.tap(find.byKey(const Key('export-bundle')));
     await settle(tester);
@@ -555,6 +663,7 @@ class SyncPage {
   /// dialog is up, so the wait is the same as [exportBundle]'s.
   Future<String> sendToPhone(RecordingShareGateway share) async {
     final before = share.shared.length;
+    await _dismissMessage();
     await scrollTo(tester, find.byKey(const Key('send-to-phone')));
     await tester.runAsync(() async {
       await tester.tap(find.byKey(const Key('send-to-phone')));
@@ -576,14 +685,13 @@ class SyncPage {
     required String code,
   }) async {
     sync.picker.nextFile = bytes;
+    await _dismissMessage();
     await scrollTo(tester, find.byKey(const Key('receive-from-phone')));
     await tester.tap(find.byKey(const Key('receive-from-phone')));
     await settle(tester);
     await tester.enterText(find.byKey(const Key('transfer-code-input')), code);
     await tester.tap(find.byKey(const Key('transfer-code-confirm')));
-    for (var i = 0; i < 4; i++) {
-      await settle(tester);
-    }
+    await _awaitAnswer(until: find.byKey(const Key('transfer-code-confirm')));
   }
 
   Future<void> importBundle(
@@ -592,16 +700,16 @@ class SyncPage {
     required String password,
   }) async {
     sync.picker.nextFile = bytes;
+    await _dismissMessage();
     await scrollTo(tester, find.byKey(const Key('import-bundle')));
     await tester.tap(find.byKey(const Key('import-bundle')));
     await settle(tester);
     await tester.enterText(find.byKey(const Key('bundle-password')), password);
     await tester.tap(find.byKey(const Key('bundle-confirm')));
     // Stretching the password pauses every couple of thousand rounds to let
-    // the UI breathe, and each pause is a timer the pumped clock has to pass.
-    for (var i = 0; i < 4; i++) {
-      await settle(tester);
-    }
+    // the UI breathe, and each pause is a timer the pumped clock has to pass;
+    // on a device the whole thing takes seconds of real time.
+    await _awaitAnswer(until: find.byKey(const Key('bundle-confirm')));
   }
 
   Future<void> back() async {

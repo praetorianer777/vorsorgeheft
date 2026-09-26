@@ -188,7 +188,40 @@ Future<void> scrollTo(WidgetTester tester, Finder finder) async {
     await tester.drag(find.byType(Scrollable).last, const Offset(0, -400));
     await settle(tester);
   }
-  await settle(tester);
+  // Found is not the same as on screen: a list builds a little beyond the
+  // viewport, so the target can sit just below the bottom edge, where a tap
+  // lands outside the render tree and hits nothing.
+  if (finder.evaluate().isNotEmpty && !_onScreen(tester, finder.first)) {
+    await tester.ensureVisible(finder.first);
+    await settle(tester);
+  }
+}
+
+bool _onScreen(WidgetTester tester, Finder finder) {
+  final view = tester.binding.renderViews.first;
+  final screen = Offset.zero & (view.size);
+  final rect = tester.getRect(finder);
+  return screen.contains(rect.topLeft) && screen.contains(rect.bottomRight);
+}
+
+/// Pumps frames until [condition] holds, and returns whether it did.
+///
+/// A fixed number of frames is the wrong measure on a device: the app runs at
+/// its own speed there, so stretching a password takes seconds, a socket
+/// answers when it answers, and an assertion made after a set number of
+/// frames looks at a screen that has not answered yet. Pumping is what moves
+/// both clocks - the fake one a widget test runs on, and the real one, where
+/// each pumped frame waits for the device to draw it.
+Future<bool> waitUntil(
+  WidgetTester tester,
+  bool Function() condition, {
+  Duration timeout = const Duration(seconds: 20),
+}) async {
+  final frames = timeout.inMilliseconds ~/ 16;
+  for (var i = 0; i < frames && !condition(); i++) {
+    await tester.pump(const Duration(milliseconds: 16));
+  }
+  return condition();
 }
 
 class _FixedLocale extends LocaleNotifier {

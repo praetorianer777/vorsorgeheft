@@ -44,11 +44,21 @@ void main() {
             .resolvePlatformSpecificImplementation<
               AndroidFlutterLocalNotificationsPlugin
             >()!;
+        // `flutter test` reinstalls the app before the run, and a reinstall
+        // drops the runtime permission the workflow granted, so the workflow
+        // keeps granting it while the run is going. That happens within
+        // seconds of the app starting, not before it.
+        var enabled = await android.areNotificationsEnabled() ?? false;
+        final deadline = DateTime.now().add(const Duration(seconds: 30));
+        while (!enabled && DateTime.now().isBefore(deadline)) {
+          await Future<void>.delayed(const Duration(seconds: 1));
+          enabled = await android.areNotificationsEnabled() ?? false;
+        }
         expect(
-          await android.areNotificationsEnabled(),
+          enabled,
           isTrue,
           reason:
-              'POST_NOTIFICATIONS is not granted; grant it before the run '
+              'POST_NOTIFICATIONS is not granted; grant it during the run '
               'with adb shell pm grant, because asking from here would open '
               'a dialog nobody answers',
         );
