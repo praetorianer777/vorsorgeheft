@@ -31,6 +31,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
   );
   late DateTime? _dateOfBirth = widget.existing?.dateOfBirth;
   late Sex _sex = widget.existing?.sex ?? Sex.notStated;
+  late DateTime? _expectingOn = widget.existing?.expectingOn;
   late Species _species = widget.existing?.species ?? Species.human;
   late final Set<String> _optionalRules = {...?widget.existing?.optionalRules};
   bool _dateTouched = false;
@@ -53,6 +54,23 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
     _name.dispose();
     _notes.dispose();
     super.dispose();
+  }
+
+  /// The expected date of delivery, which is what the maternity guideline's
+  /// weeks are counted back from. Forward only: a date in the past is a
+  /// child who has been born, and belongs in the family as a person.
+  Future<void> _pickExpectingOn() async {
+    final today = ref.read(clockProvider)();
+    final picked = await showDateInputDialog(
+      context: context,
+      initialDate: _expectingOn,
+      firstDate: DateTime.utc(today.year, today.month, today.day),
+      lastDate: DateTime.utc(today.year + 1, today.month, today.day),
+    );
+    if (picked == null) return;
+    setState(
+      () => _expectingOn = DateTime.utc(picked.year, picked.month, picked.day),
+    );
   }
 
   Future<void> _pickDate() async {
@@ -83,6 +101,7 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
       notes: _notes.text.trim().isEmpty ? null : _notes.text.trim(),
       optionalRules: _optionalRules,
       species: _species,
+      expectingOn: _expectingOn,
     );
     final store = ref.read(storeProvider);
     await store.savePerson(person);
@@ -236,6 +255,39 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
               const SizedBox(height: 8),
               Text(l10n.sexHelp, style: Theme.of(context).textTheme.bodySmall),
             ],
+            if (_species == Species.human && _sex != Sex.male) ...[
+              const SizedBox(height: 16),
+              InputDecorator(
+                decoration: InputDecoration(
+                  labelText: l10n.expectingLabel,
+                  helperText: l10n.expectingHelp,
+                  helperMaxLines: 3,
+                  border: const OutlineInputBorder(),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        _expectingOn == null
+                            ? '—'
+                            : formatDate(context, _expectingOn!),
+                      ),
+                    ),
+                    if (_expectingOn != null)
+                      TextButton(
+                        key: const Key('clear-expecting'),
+                        onPressed: () => setState(() => _expectingOn = null),
+                        child: Text(l10n.clear),
+                      ),
+                    TextButton(
+                      key: const Key('pick-expecting'),
+                      onPressed: _pickExpectingOn,
+                      child: Text(l10n.pickDate),
+                    ),
+                  ],
+                ),
+              ),
+            ],
             const SizedBox(height: 16),
             TextFormField(
               controller: _notes,
@@ -280,10 +332,15 @@ class _PersonFormScreenState extends ConsumerState<PersonFormScreen> {
   ) {
     final catalogs = ref.watch(catalogsProvider).value;
     if (catalogs == null) return const [];
-    final rules = switchableRules(catalogs, species: _species).where((rule) {
-      final sex = rule.eligibility.sex;
-      return sex == null || _sex == Sex.notStated || _sex == sex;
-    }).toList();
+    final rules =
+        switchableRules(
+          catalogs,
+          species: _species,
+          expecting: _expectingOn != null,
+        ).where((rule) {
+          final sex = rule.eligibility.sex;
+          return sex == null || _sex == Sex.notStated || _sex == sex;
+        }).toList();
     if (rules.isEmpty) return const [];
 
     final theme = Theme.of(context);

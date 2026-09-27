@@ -11,12 +11,13 @@ import '../support/catalogs.dart';
 void main() {
   final set = shippedCatalogs();
 
-  test('the four catalogs for people and one each for dogs and cats ship', () {
+  test('the five catalogs for people and one each for dogs and cats ship', () {
     expect(set.catalogs.map((c) => c.id), [
       'children',
       'vaccinations',
       'dental',
       'adults',
+      'maternity',
       'dogs',
       'cats',
     ]);
@@ -27,6 +28,7 @@ void main() {
         'vaccinations': ['human'],
         'dental': ['human'],
         'adults': ['human'],
+        'maternity': ['human'],
         'dogs': ['dog'],
         'cats': ['cat'],
       },

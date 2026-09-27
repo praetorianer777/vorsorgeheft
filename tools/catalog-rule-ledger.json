@@ -23,30 +23,69 @@
     },
     "vaccinations": {
       "rsv-infant": [],
-      "rotavirus": ["g1", "g2", "g3"],
-      "six-in-one": ["g1", "g2", "g3"],
-      "pneumococcal-infant": ["g1", "g2", "g3"],
-      "meningococcal-b": ["g1", "g2", "g3"],
-      "mmr": ["g1", "g2"],
-      "varicella": ["g1", "g2"],
+      "rotavirus": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "six-in-one": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "pneumococcal-infant": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "meningococcal-b": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "mmr": [
+        "g1",
+        "g2"
+      ],
+      "varicella": [
+        "g1",
+        "g2"
+      ],
       "tdap-booster-preschool": [],
       "tdap-ipv-booster-teen": [],
-      "hpv": ["g1", "g2"],
+      "hpv": [
+        "g1",
+        "g2"
+      ],
       "meningococcal-acwy": [],
       "td-booster": [],
       "measles-adult": [],
-      "herpes-zoster": ["g1", "g2"],
+      "herpes-zoster": [
+        "g1",
+        "g2"
+      ],
       "pneumococcal-adult": [],
       "influenza": [],
       "covid": [],
       "rsv-adult": [],
       "influenza-under-60": [],
       "covid-under-75": [],
-      "tbe": ["g1", "g2", "g3"],
+      "tbe": [
+        "g1",
+        "g2",
+        "g3"
+      ],
       "tbe-booster": [],
       "pertussis-pregnancy": [],
-      "hpv-catch-up": ["g1", "g2", "g3"],
-      "meningococcal-b-catch-up": ["g1", "g2"]
+      "hpv-catch-up": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "meningococcal-b-catch-up": [
+        "g1",
+        "g2"
+      ]
     },
     "dental": {
       "z1": [],
@@ -75,26 +114,73 @@
       "chlamydia": []
     },
     "dogs": {
-      "dog-distemper-parvo": ["g1", "g2", "g3", "g4"],
+      "dog-distemper-parvo": [
+        "g1",
+        "g2",
+        "g3",
+        "g4"
+      ],
       "dog-distemper-parvo-booster": [],
-      "dog-leptospirosis": ["g1", "g2", "g3"],
+      "dog-leptospirosis": [
+        "g1",
+        "g2",
+        "g3"
+      ],
       "dog-leptospirosis-booster": [],
-      "dog-rabies": ["g1", "g2"],
+      "dog-rabies": [
+        "g1",
+        "g2"
+      ],
       "dog-rabies-booster": [],
-      "dog-deworming": ["g1", "g2", "g3", "g4", "g5"],
+      "dog-deworming": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5"
+      ],
       "dog-deworming-routine": [],
       "dog-ectoparasites": []
     },
     "cats": {
-      "cat-core": ["g1", "g2", "g3", "g4"],
+      "cat-core": [
+        "g1",
+        "g2",
+        "g3",
+        "g4"
+      ],
       "cat-core-booster": [],
-      "cat-rabies": ["g1", "g2"],
+      "cat-rabies": [
+        "g1",
+        "g2"
+      ],
       "cat-rabies-booster": [],
-      "cat-felv": ["g1", "g2", "g3"],
+      "cat-felv": [
+        "g1",
+        "g2",
+        "g3"
+      ],
       "cat-felv-booster": [],
-      "cat-deworming": ["g1", "g2", "g3", "g4", "g5"],
+      "cat-deworming": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5"
+      ],
       "cat-deworming-routine": [],
       "cat-ectoparasites": []
+    },
+    "maternity": {
+      "pregnancy-checkup-monthly": [],
+      "pregnancy-checkup-fortnightly": [],
+      "pregnancy-ultrasound-1": [],
+      "pregnancy-ultrasound-2": [],
+      "pregnancy-ultrasound-3": [],
+      "pregnancy-diabetes": [],
+      "pregnancy-antibody-test": [],
+      "pregnancy-anti-d": [],
+      "pregnancy-postnatal": []
     }
   }
 }

@@ -141,10 +141,10 @@ void main() {
 
       final result = await bob.engine.syncWith('alice');
 
-      // Six fields per person: name, date of birth, sex, notes, optional
-      // rules and species.
-      expect(result.received, 6);
-      expect(result.sent, 6);
+      // Seven fields per person: name, date of birth, sex, notes, optional
+      // rules, species and the expected date.
+      expect(result.received, 7);
+      expect(result.sent, 7);
       expect((await alice.db.allPersons()).map((p) => p.id), ['anna', 'mila']);
       expect((await bob.db.allPersons()).map((p) => p.id), ['anna', 'mila']);
     });
@@ -179,6 +179,8 @@ void main() {
         );
 
         final result = await bob.engine.syncWith('alice');
+        // The completion's own fields, not the person's: only what changed
+        // since the last exchange travels.
         expect(result.received, 6);
         expect((await bob.db.allCompletions()).single.ruleId, 'u6');
       },
@@ -298,7 +300,7 @@ void main() {
       alice.advance(const Duration(minutes: 1));
       await alice.store.savePerson(mila);
       final later = await bob.engine.syncWith('alice');
-      expect(later.received, 6);
+      expect(later.received, 7);
       expect((await bob.db.allPersons()).map((p) => p.id), ['anna', 'mila']);
     });
   });

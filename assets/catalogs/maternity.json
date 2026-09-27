@@ -1,0 +1,288 @@
+{
+  "_conversion": "German maternity dating counts completed weeks since the last period, written as '8+0 SSW' for eight completed weeks and no days. The expected date of delivery is 40+0, so the anchor is that date minus 280 days, which is what Anchor.pregnancy computes. A window '8+0 bis 11+6 SSW' therefore opens at 8 weeks and closes the day before 12 weeks. The check-up after the birth is counted here from the expected date, because the app cannot know the real one until the child is added; the description says so. The four-weekly rule stops at 31 weeks rather than 32, or the fortnightly one would put a second check-up on the same day as its last.",
+  "catalogId": "maternity",
+  "catalogVersion": "2026.09",
+  "_changes": [
+    {
+      "version": "2026.09",
+      "en": "First edition: the check-ups, the three ultrasound screenings, the gestational diabetes screening, the antibody search test with the Anti-D prophylaxis, and the check-up after the birth.",
+      "de": "Erste Ausgabe: die Vorsorgeuntersuchungen, die drei Ultraschall-Screenings, der Test auf Schwangerschaftsdiabetes, der Antikörper-Suchtest mit der Anti-D-Prophylaxe und die Untersuchung nach der Geburt."
+    }
+  ],
+  "name": {
+    "en": "Pregnancy",
+    "de": "Schwangerschaft"
+  },
+  "species": [
+    "human"
+  ],
+  "sources": {
+    "gba-mu-rl": {
+      "name": {
+        "en": "G-BA maternity guideline",
+        "de": "G-BA Mutterschafts-Richtlinie"
+      },
+      "url": "https://www.g-ba.de/richtlinien/19/",
+      "document": "Fassung vom 16. Juli 2026, in Kraft getreten am 25. August 2026, §§ 2, 4 und 7",
+      "asOf": "2026-09-27"
+    }
+  },
+  "rules": [
+    {
+      "id": "pregnancy-checkup-monthly",
+      "category": "maternity",
+      "anchor": "pregnancy",
+      "title": {
+        "en": "Antenatal check-up",
+        "de": "Vorsorgeuntersuchung"
+      },
+      "description": {
+        "en": "Blood pressure, weight, urine and the baby's heartbeat, every four weeks. From the 32nd week they move to every two weeks.",
+        "de": "Blutdruck, Gewicht, Urin und die Herztöne des Kindes, alle vier Wochen. Ab der 32. Woche im Abstand von zwei Wochen."
+      },
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "weeks": 12
+        },
+        "every": {
+          "weeks": 4
+        },
+        "until": {
+          "weeks": 31
+        }
+      },
+      "source": "gba-mu-rl"
+    },
+    {
+      "id": "pregnancy-checkup-fortnightly",
+      "category": "maternity",
+      "anchor": "pregnancy",
+      "title": {
+        "en": "Antenatal check-up, fortnightly",
+        "de": "Vorsorgeuntersuchung, zweiwöchentlich"
+      },
+      "description": {
+        "en": "In the last two months two check-ups a month are the rule.",
+        "de": "In den letzten beiden Monaten sind zwei Untersuchungen im Monat vorgesehen."
+      },
+      "schedule": {
+        "type": "recurring",
+        "from": {
+          "weeks": 32
+        },
+        "every": {
+          "weeks": 2
+        },
+        "until": {
+          "weeks": 40
+        }
+      },
+      "source": "gba-mu-rl"
+    },
+    {
+      "id": "pregnancy-ultrasound-1",
+      "category": "maternity",
+      "anchor": "pregnancy",
+      "title": {
+        "en": "First ultrasound screening",
+        "de": "Erstes Ultraschall-Screening"
+      },
+      "description": {
+        "en": "Between 8+0 and 11+6 weeks: whether the pregnancy is in the womb, how many there are, and how far along it is.",
+        "de": "Zwischen 8+0 und 11+6 SSW: ob die Schwangerschaft in der Gebärmutter liegt, wie viele Kinder es sind und wie weit sie ist."
+      },
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "weeks": 8
+        },
+        "to": {
+          "weeks": 12,
+          "days": -1
+        },
+        "toleranceTo": {
+          "weeks": 12,
+          "days": -1
+        },
+        "hardDeadline": true
+      },
+      "source": "gba-mu-rl"
+    },
+    {
+      "id": "pregnancy-ultrasound-2",
+      "category": "maternity",
+      "anchor": "pregnancy",
+      "title": {
+        "en": "Second ultrasound screening",
+        "de": "Zweites Ultraschall-Screening"
+      },
+      "description": {
+        "en": "Between 18+0 and 21+6 weeks: how the baby is growing, and, if you want it, the detailed look at the organs.",
+        "de": "Zwischen 18+0 und 21+6 SSW: wie das Kind wächst und, wenn du möchtest, der genauere Blick auf die Organe."
+      },
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "weeks": 18
+        },
+        "to": {
+          "weeks": 22,
+          "days": -1
+        },
+        "toleranceTo": {
+          "weeks": 22,
+          "days": -1
+        },
+        "hardDeadline": true
+      },
+      "source": "gba-mu-rl"
+    },
+    {
+      "id": "pregnancy-ultrasound-3",
+      "category": "maternity",
+      "anchor": "pregnancy",
+      "title": {
+        "en": "Third ultrasound screening",
+        "de": "Drittes Ultraschall-Screening"
+      },
+      "description": {
+        "en": "Between 28+0 and 31+6 weeks: growth, the amount of amniotic fluid and how the baby is lying.",
+        "de": "Zwischen 28+0 und 31+6 SSW: Wachstum, Fruchtwassermenge und die Lage des Kindes."
+      },
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "weeks": 28
+        },
+        "to": {
+          "weeks": 32,
+          "days": -1
+        },
+        "toleranceTo": {
+          "weeks": 32,
+          "days": -1
+        },
+        "hardDeadline": true
+      },
+      "source": "gba-mu-rl"
+    },
+    {
+      "id": "pregnancy-diabetes",
+      "category": "maternity",
+      "anchor": "pregnancy",
+      "title": {
+        "en": "Gestational diabetes screening",
+        "de": "Test auf Schwangerschaftsdiabetes"
+      },
+      "description": {
+        "en": "Between 24+0 and 27+6 weeks: a glucose drink and one blood sample an hour later. You do not have to be fasting.",
+        "de": "Zwischen 24+0 und 27+6 SSW: ein Glukosegetränk und eine Stunde später eine Blutprobe. Nüchtern sein musst du dafür nicht."
+      },
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "weeks": 24
+        },
+        "to": {
+          "weeks": 28,
+          "days": -1
+        },
+        "toleranceTo": {
+          "weeks": 28,
+          "days": -1
+        },
+        "hardDeadline": true
+      },
+      "source": "gba-mu-rl"
+    },
+    {
+      "id": "pregnancy-antibody-test",
+      "category": "maternity",
+      "anchor": "pregnancy",
+      "title": {
+        "en": "Antibody search test",
+        "de": "Antikörper-Suchtest"
+      },
+      "description": {
+        "en": "Between 23+0 and 26+6 weeks, for everyone. If you are RhD negative, what follows from it is the Anti-D prophylaxis.",
+        "de": "Zwischen 23+0 und 26+6 SSW, für alle. Bist du RhD-negativ, folgt daraus die Anti-D-Prophylaxe."
+      },
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "weeks": 23
+        },
+        "to": {
+          "weeks": 27,
+          "days": -1
+        },
+        "toleranceTo": {
+          "weeks": 27,
+          "days": -1
+        },
+        "hardDeadline": true
+      },
+      "source": "gba-mu-rl"
+    },
+    {
+      "id": "pregnancy-anti-d",
+      "category": "maternity",
+      "anchor": "pregnancy",
+      "title": {
+        "en": "Anti-D prophylaxis",
+        "de": "Anti-D-Prophylaxe"
+      },
+      "description": {
+        "en": "Between 27+0 and 29+6 weeks, if you are RhD negative and have no anti-D antibodies. Switch it on when that is you.",
+        "de": "Zwischen 27+0 und 29+6 SSW, wenn du RhD-negativ bist und keine Anti-D-Antikörper hast. Schalte sie ein, wenn das auf dich zutrifft."
+      },
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "weeks": 27
+        },
+        "to": {
+          "weeks": 30,
+          "days": -1
+        },
+        "toleranceTo": {
+          "weeks": 30,
+          "days": -1
+        },
+        "hardDeadline": true
+      },
+      "source": "gba-mu-rl",
+      "optional": true
+    },
+    {
+      "id": "pregnancy-postnatal",
+      "category": "maternity",
+      "anchor": "pregnancy",
+      "title": {
+        "en": "Check-up after the birth",
+        "de": "Untersuchung nach der Geburt"
+      },
+      "description": {
+        "en": "About six weeks after the birth, at the latest eight. Counted here from the expected date, because the app does not know the real one.",
+        "de": "Etwa sechs Wochen nach der Geburt, spätestens acht. Hier ab dem errechneten Termin gerechnet, weil die App den tatsächlichen nicht kennt."
+      },
+      "schedule": {
+        "type": "ageWindow",
+        "from": {
+          "weeks": 46
+        },
+        "to": {
+          "weeks": 48,
+          "days": -1
+        },
+        "toleranceTo": {
+          "weeks": 48,
+          "days": -1
+        },
+        "hardDeadline": true
+      },
+      "source": "gba-mu-rl"
+    }
+  ]
+}

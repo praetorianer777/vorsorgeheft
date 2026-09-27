@@ -32,6 +32,10 @@ class Persons extends Table {
   /// before pets existed is a person.
   TextColumn get species => text().withDefault(const Constant('human'))();
 
+  /// The expected date of delivery while this person is pregnant, which is
+  /// what the maternity guideline's weeks are counted back from.
+  DateTimeColumn get expectingOn => dateTime().nullable()();
+
   @override
   Set<Column<Object>> get primaryKey => {id};
 }
@@ -189,7 +193,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
   /// species in #96. An older database gains the tables and the columns in
   /// [migration]; everything it already holds stays as it is.
   @override
-  int get schemaVersion => 7;
+  int get schemaVersion => 8;
 
   /// SQLite enforces foreign keys only when asked to, and without this a
   /// deleted person leaves their recorded appointments behind.
@@ -212,6 +216,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
         // ever will be; what matters is that later changes sort after it.
         await m.database.customStatement('UPDATE changes SET seq = rowid');
       }
+      if (from < 8) await m.addColumn(persons, persons.expectingOn);
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
@@ -248,6 +253,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
           notes: Value(person.notes),
           optionalRules: Value(encodeOptionalRules(person.optionalRules)),
           species: Value(person.species.name),
+          expectingOn: Value(person.expectingOn),
         ),
       );
 
@@ -570,6 +576,7 @@ domain.Person _toPerson(PersonRow row) => domain.Person(
   notes: row.notes,
   optionalRules: decodeOptionalRules(row.optionalRules),
   species: domain.Species.parse(row.species),
+  expectingOn: row.expectingOn,
 );
 
 /// Rule ids are lowercase ASCII with hyphens, so a comma-separated list is

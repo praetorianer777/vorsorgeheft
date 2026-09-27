@@ -60,7 +60,7 @@ void main() {
       await pair(bob, alice);
       await alice.store.savePerson(anna);
       final result = await alice.engine.syncWith('bob');
-      expect(result.sent, 6);
+      expect(result.sent, 7);
       expect((await bob.db.allPersons()).single.name, 'Anna');
     });
 

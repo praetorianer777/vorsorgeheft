@@ -294,6 +294,9 @@
       }
     }
   },
+  "expectingLabel": "Expecting a child on",
+  "expectingHelp": "The date in your maternity record. While it is set, this person sees the antenatal appointments; clear it once the child is born and add them as a person of their own.",
+  "clear": "Clear",
   "reminderActionDone": "Done",
   "@reminderActionDone": {
     "description": "Button on a reminder notification that records the appointment for today"

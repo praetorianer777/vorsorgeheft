@@ -87,6 +87,12 @@ void main() {
         'cat-ectoparasites',
       ]);
       expect(human.map((r) => r.catalogId).toSet(), {'vaccinations'});
+      // The Anti-D prophylaxis is a switch too, but only for somebody who
+      // is expecting.
+      expect(
+        switchableRules(catalogs, expecting: true).map((r) => r.catalogId),
+        contains('maternity'),
+      );
     });
   });
 

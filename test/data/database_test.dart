@@ -247,7 +247,7 @@ void main() {
     });
     expect(
       (await migrated.customSelect('PRAGMA user_version').getSingle()).data,
-      {'user_version': 7},
+      {'user_version': 8},
     );
   });
 }

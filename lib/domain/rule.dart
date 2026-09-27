@@ -44,6 +44,27 @@ class Eligibility {
   final AgeOffset? maxAge;
 }
 
+/// What a rule's schedule is measured from.
+enum Anchor {
+  /// The person's date of birth, which is what nearly everything counts from.
+  birth,
+
+  /// The start of a pregnancy, which German guidelines count in completed
+  /// weeks since the last period. What the person knows is the expected
+  /// date of delivery, and the two are 280 days apart.
+  pregnancy;
+
+  static Anchor parse(Object? value) => switch (value) {
+    null || 'birth' => Anchor.birth,
+    'pregnancy' => Anchor.pregnancy,
+    _ => throw FormatException('"anchor" cannot be "$value"'),
+  };
+
+  /// How long a pregnancy is taken to be, by the convention the guidelines
+  /// date it with: the expected date is 40 completed weeks.
+  static const pregnancyLength = Duration(days: 280);
+}
+
 /// One entitlement in a catalog: what it is, who it applies to, when it falls
 /// due, and where that came from.
 class Rule {
@@ -59,6 +80,7 @@ class Rule {
     this.optional = false,
     this.retiredOn,
     this.own = false,
+    this.anchor = Anchor.birth,
   });
 
   factory Rule.fromJson(
@@ -97,6 +119,7 @@ class Rule {
         statutory: json['statutory'] != false,
         optional: json['optional'] == true,
         retiredOn: _retiredOn(json['retiredOn']),
+        anchor: Anchor.parse(json['anchor']),
       );
     } on FormatException catch (e) {
       throw FormatException('rule "$id": ${e.message}');
@@ -145,6 +168,10 @@ class Rule {
   /// True for a person's own appointment: no guideline behind it, no source
   /// to open, and edited where the person is edited.
   final bool own;
+
+  /// What the schedule counts from. A rule anchored to a pregnancy applies
+  /// only while the person has an expected date, and is silent otherwise.
+  final Anchor anchor;
 
   @override
   String toString() => 'Rule($catalogId/$id)';

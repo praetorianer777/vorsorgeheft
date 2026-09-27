@@ -73,6 +73,7 @@ class ReplicatedStore {
     'notes': person.notes,
     'optionalRules': encodeOptionalRules(person.optionalRules),
     'species': person.species.name,
+    'expectingOn': person.expectingOn?.toIso8601String(),
   });
 
   Future<void> deletePerson(String id) =>
@@ -318,6 +319,10 @@ class ReplicatedStore {
     optionalRules: decodeOptionalRules(fields['optionalRules'] as String?),
     // A change log written before pets existed carries no species.
     species: Species.parse(fields['species'] as String?),
+    expectingOn: switch (fields['expectingOn']) {
+      final String date => DateTime.tryParse(date),
+      _ => null,
+    },
   );
 
   OwnAppointment _ownAppointmentFrom(String id, Map<String, Object?> fields) =>

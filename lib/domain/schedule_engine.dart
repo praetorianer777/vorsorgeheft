@@ -84,9 +84,15 @@ bool isSwitchedOn(
 List<Rule> switchableRules(
   CatalogSet catalogs, {
   Species species = Species.human,
+  bool expecting = false,
 }) => [
   for (final rule in catalogs.rulesFor(species))
-    if (rule.optional && !_followsOptionalSeries(rule, catalogs)) rule,
+    if (rule.optional &&
+        !_followsOptionalSeries(rule, catalogs) &&
+        // Something that only means anything during a pregnancy is not
+        // offered to everyone else.
+        (expecting || rule.anchor != Anchor.pregnancy))
+      rule,
 ];
 
 bool _followsOptionalSeries(Rule rule, CatalogSet catalogs) {
@@ -156,7 +162,14 @@ Iterable<Occurrence> _forRule({
   required DateTime generateUntil,
   required Applicability applicability,
 }) {
-  final birth = person.dateOfBirth;
+  // What this rule counts from: the day the person was born, or the day
+  // their pregnancy is counted from. A rule anchored to a pregnancy is
+  // silent for anybody who is not expecting.
+  final birth = switch (rule.anchor) {
+    Anchor.birth => person.dateOfBirth,
+    Anchor.pregnancy => person.pregnancyFrom,
+  };
+  if (birth == null) return const [];
 
   final maxAge = rule.eligibility.maxAge?.applyTo(birth);
   if (maxAge != null && today.isAfter(maxAge)) return const [];
