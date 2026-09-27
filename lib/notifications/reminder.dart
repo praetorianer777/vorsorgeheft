@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import '../domain/occurrence.dart';
 
 /// Why a reminder is being sent.
@@ -21,6 +23,7 @@ class PlannedReminder {
     required this.kind,
     required this.fireAt,
     required this.leadTime,
+    this.doseId,
   });
 
   /// Stable across restarts, so rescheduling replaces a notification rather
@@ -32,6 +35,11 @@ class PlannedReminder {
   final String occurrenceKey;
   final String personId;
   final String ruleId;
+
+  /// The dose of a vaccination series, so acting on the notification records
+  /// the dose it was about rather than the rule as a whole.
+  final String? doseId;
+
   final ReminderKind kind;
 
   /// Local time, because a reminder belongs to a time of day where the person
@@ -43,6 +51,63 @@ class PlannedReminder {
 
   @override
   String toString() => 'PlannedReminder($occurrenceKey, ${kind.name}, $fireAt)';
+}
+
+/// What a notification carries, so that acting on it does not mean guessing
+/// which appointment it was about.
+///
+/// A bare occurrence key would have to be taken apart again to find the
+/// person, and a person id may contain the separator.
+class ReminderPayload {
+  const ReminderPayload({
+    required this.occurrenceKey,
+    required this.personId,
+    required this.ruleId,
+    this.doseId,
+  });
+
+  factory ReminderPayload.of(PlannedReminder reminder) => ReminderPayload(
+    occurrenceKey: reminder.occurrenceKey,
+    personId: reminder.personId,
+    ruleId: reminder.ruleId,
+    doseId: reminder.doseId,
+  );
+
+  /// Null when the payload is not one of ours, which is what an old
+  /// notification from a previous version looks like.
+  static ReminderPayload? tryParse(String? raw) {
+    if (raw == null) return null;
+    final Object? json;
+    try {
+      json = jsonDecode(raw);
+    } on FormatException {
+      return null;
+    }
+    if (json is! Map) return null;
+    final key = json['key'];
+    final person = json['person'];
+    final rule = json['rule'];
+    if (key is! String || person is! String || rule is! String) return null;
+    final dose = json['dose'];
+    return ReminderPayload(
+      occurrenceKey: key,
+      personId: person,
+      ruleId: rule,
+      doseId: dose is String ? dose : null,
+    );
+  }
+
+  final String occurrenceKey;
+  final String personId;
+  final String ruleId;
+  final String? doseId;
+
+  String encode() => jsonEncode({
+    'key': occurrenceKey,
+    'person': personId,
+    'rule': ruleId,
+    if (doseId != null) 'dose': doseId,
+  });
 }
 
 /// When reminders fire, and how many may be pending at once.
@@ -84,11 +149,29 @@ List<PlannedReminder> planReminders({
   required List<Occurrence> occurrences,
   required DateTime now,
   ReminderSettings settings = const ReminderSettings(),
+  Map<String, DateTime> putOff = const {},
 }) {
   final planned = <PlannedReminder>[];
 
   for (final occurrence in occurrences) {
     if (!occurrence.isOpen) continue;
+
+    // Put off from the notification: the one reminder the person asked for
+    // takes the place of every lead this appointment would otherwise get,
+    // until the day they named.
+    final until = putOff[occurrence.key];
+    if (until != null && until.isAfter(now)) {
+      _add(
+        planned,
+        occurrence: occurrence,
+        kind: ReminderKind.windowOpens,
+        target: until,
+        lead: Duration.zero,
+        settings: settings,
+        now: now,
+      );
+      continue;
+    }
 
     final before = planned.length;
     for (final lead in settings.beforeWindowOpens) {
@@ -179,6 +262,7 @@ void _add(
       occurrenceKey: occurrence.key,
       personId: occurrence.personId,
       ruleId: occurrence.rule.id,
+      doseId: occurrence.doseId,
       kind: kind,
       fireAt: fireAt,
       leadTime: lead,

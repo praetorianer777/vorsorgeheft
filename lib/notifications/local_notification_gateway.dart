@@ -13,23 +13,78 @@ class LocalNotificationGateway implements NotificationGateway {
     : _plugin = plugin ?? FlutterLocalNotificationsPlugin();
 
   static const _channelId = 'appointments';
+  static const _categoryId = 'appointment';
+  static const _doneAction = 'done';
+  static const _laterAction = 'later';
 
   final FlutterLocalNotificationsPlugin _plugin;
   bool _exactAllowed = false;
+  String _doneLabel = 'Done';
+  String _laterLabel = 'Later';
 
   @override
-  Future<void> initialize() async {
+  Future<void> initialize({
+    void Function(ReminderAction action)? onAction,
+    String doneLabel = 'Done',
+    String laterLabel = 'Later',
+  }) async {
     tz_data.initializeTimeZones();
+    _doneLabel = doneLabel;
+    _laterLabel = laterLabel;
     await _plugin.initialize(
-      settings: const InitializationSettings(
-        android: AndroidInitializationSettings('@mipmap/ic_launcher'),
+      settings: InitializationSettings(
+        android: const AndroidInitializationSettings('@mipmap/ic_launcher'),
         iOS: DarwinInitializationSettings(
           requestAlertPermission: false,
           requestBadgePermission: false,
           requestSoundPermission: false,
+          // iOS registers its buttons once, here, and a notification refers
+          // to them by the category it was posted under.
+          notificationCategories: [
+            DarwinNotificationCategory(
+              _categoryId,
+              actions: [
+                DarwinNotificationAction.plain(
+                  _doneAction,
+                  doneLabel,
+                  options: {DarwinNotificationActionOption.foreground},
+                ),
+                DarwinNotificationAction.plain(
+                  _laterAction,
+                  laterLabel,
+                  options: {DarwinNotificationActionOption.foreground},
+                ),
+              ],
+            ),
+          ],
         ),
       ),
+      onDidReceiveNotificationResponse: (response) =>
+          _deliver(response, onAction),
     );
+
+    // The app may have been started by the notification itself, in which
+    // case the tap happened before there was anything to hand it to.
+    final launch = await _plugin.getNotificationAppLaunchDetails();
+    if (launch?.didNotificationLaunchApp ?? false) {
+      final response = launch!.notificationResponse;
+      if (response != null) _deliver(response, onAction);
+    }
+  }
+
+  void _deliver(
+    NotificationResponse response,
+    void Function(ReminderAction action)? onAction,
+  ) {
+    if (onAction == null) return;
+    final payload = ReminderPayload.tryParse(response.payload);
+    if (payload == null) return;
+    final kind = switch (response.actionId) {
+      _doneAction => ReminderActionKind.done,
+      _laterAction => ReminderActionKind.later,
+      _ => ReminderActionKind.open,
+    };
+    onAction(ReminderAction(kind, payload));
   }
 
   @override
@@ -68,6 +123,9 @@ class LocalNotificationGateway implements NotificationGateway {
   Future<void> cancelAll() => _plugin.cancelAll();
 
   @override
+  Future<void> cancel(int id) => _plugin.cancel(id: id);
+
+  @override
   Future<void> schedule(
     PlannedReminder reminder, {
     required String title,
@@ -77,7 +135,7 @@ class LocalNotificationGateway implements NotificationGateway {
     id: reminder.id,
     title: title,
     body: body,
-    payload: reminder.occurrenceKey,
+    payload: ReminderPayload.of(reminder).encode(),
     scheduledDate: tz.TZDateTime.from(reminder.fireAt, tz.local),
     // Appointments are day-precise, so the inexact mode is enough and needs no
     // special access. Exact alarms are used only where the user has already
@@ -89,6 +147,23 @@ class LocalNotificationGateway implements NotificationGateway {
       android: AndroidNotificationDetails(
         _channelId,
         channelName,
+        actions: [
+          // Both open the app: recording from a background isolate would
+          // mean a second connection to the same database while the app may
+          // be running, which is a race this does not need.
+          AndroidNotificationAction(
+            _doneAction,
+            _doneLabel,
+            showsUserInterface: true,
+            cancelNotification: true,
+          ),
+          AndroidNotificationAction(
+            _laterAction,
+            _laterLabel,
+            showsUserInterface: true,
+            cancelNotification: true,
+          ),
+        ],
         importance: reminder.kind == ReminderKind.deadlineApproaching
             ? Importance.high
             : Importance.defaultImportance,
@@ -96,7 +171,7 @@ class LocalNotificationGateway implements NotificationGateway {
             ? Priority.high
             : Priority.defaultPriority,
       ),
-      iOS: const DarwinNotificationDetails(),
+      iOS: const DarwinNotificationDetails(categoryIdentifier: _categoryId),
     ),
   );
 

@@ -7,7 +7,9 @@ import '../domain/occurrence.dart';
 import '../domain/person.dart';
 import '../domain/schedule_engine.dart';
 import '../l10n/app_localizations.dart';
+import '../sync/replicated_store.dart';
 import '../ui/formatting.dart';
+import '../domain/completion.dart';
 import 'notification_gateway.dart';
 import 'reminder.dart';
 
@@ -23,9 +25,11 @@ class ReminderService {
     required NotificationGateway gateway,
     required CatalogRepository catalogs,
     required Locale Function() locale,
+    ReplicatedStore? store,
     DateTime Function()? clock,
     ReminderSettings Function()? settings,
   }) : _db = database,
+       _store = store,
        _gateway = gateway,
        _catalogs = catalogs,
        _locale = locale,
@@ -33,6 +37,11 @@ class ReminderService {
        _settings = settings ?? (() => const ReminderSettings());
 
   final AppDatabase _db;
+
+  /// Recording from a notification writes through the store, so the other
+  /// phone learns about it like any other change. Null in the tests that
+  /// only plan reminders.
+  final ReplicatedStore? _store;
   final NotificationGateway _gateway;
   final CatalogRepository _catalogs;
   final Locale Function() _locale;
@@ -43,12 +52,71 @@ class ReminderService {
   /// follow.
   final ReminderSettings Function() _settings;
 
-  Future<bool> start() async {
-    await _gateway.initialize();
+  /// How long "later" puts a reminder off. Long enough that the person is
+  /// not asked again the same evening, short enough that a window does not
+  /// close in between.
+  static const putOffBy = Duration(days: 3);
+
+  static const _putOffPrefix = 'reminder.put-off.';
+
+  /// [onHandled] is called once this service has done its part, so the app
+  /// can open the appointment or say what it recorded.
+  Future<bool> start({void Function(ReminderAction action)? onHandled}) async {
+    final l10n = lookupAppLocalizations(_locale());
+    await _gateway.initialize(
+      doneLabel: l10n.reminderActionDone,
+      laterLabel: l10n.reminderActionLater,
+      onAction: (action) => act(action, onHandled: onHandled),
+    );
     final granted = await _gateway.requestPermission();
     await _gateway.canScheduleExactly();
     if (granted) await reschedule();
     return granted;
+  }
+
+  /// Carries out what the person chose on the notification.
+  ///
+  /// Recording and putting off both happen here rather than in a background
+  /// isolate: a second connection to the same database while the app may be
+  /// open is a race this feature does not need, and both actions bring the
+  /// app to the front anyway.
+  Future<void> act(
+    ReminderAction action, {
+    void Function(ReminderAction action)? onHandled,
+  }) async {
+    final payload = action.payload;
+    switch (action.kind) {
+      case ReminderActionKind.open:
+        break;
+      case ReminderActionKind.done:
+        final now = _clock();
+        await _record(payload, DateTime.utc(now.year, now.month, now.day));
+        await _db.deleteSetting('$_putOffPrefix${payload.occurrenceKey}');
+        await reschedule();
+      case ReminderActionKind.later:
+        final until = _clock().add(putOffBy);
+        await _db.putSetting(
+          '$_putOffPrefix${payload.occurrenceKey}',
+          DateTime.utc(until.year, until.month, until.day).toIso8601String(),
+        );
+        await reschedule();
+    }
+    onHandled?.call(action);
+  }
+
+  Future<void> _record(ReminderPayload payload, DateTime on) async {
+    final completion = Completion(
+      personId: payload.personId,
+      ruleId: payload.ruleId,
+      doseId: payload.doseId,
+      completedOn: on,
+    );
+    final store = _store;
+    if (store == null) {
+      await _db.recordCompletion(completion);
+    } else {
+      await store.recordCompletion(completion);
+    }
   }
 
   Future<List<PlannedReminder>> _queue = Future.value(const []);
@@ -65,6 +133,27 @@ class ReminderService {
       onError: (_) => const <PlannedReminder>[],
     );
     return next;
+  }
+
+  /// The appointments the person asked to be reminded about later, minus
+  /// the ones that are settled or whose day has come: a row that is no
+  /// longer about anything is dropped rather than kept forever.
+  Future<Map<String, DateTime>> _putOff(
+    Set<String> stillOpen,
+    DateTime now,
+  ) async {
+    final stored = await _db.settingsUnder(_putOffPrefix);
+    final live = <String, DateTime>{};
+    for (final entry in stored.entries) {
+      final key = entry.key.substring(_putOffPrefix.length);
+      final until = DateTime.tryParse(entry.value);
+      if (until == null || !stillOpen.contains(key) || until.isBefore(now)) {
+        await _db.deleteSetting(entry.key);
+        continue;
+      }
+      live[key] = until;
+    }
+    return live;
   }
 
   Future<List<PlannedReminder>> _reschedule() async {
@@ -94,6 +183,10 @@ class ReminderService {
       occurrences: occurrences,
       now: now,
       settings: _settings(),
+      putOff: await _putOff({
+        for (final occurrence in occurrences)
+          if (occurrence.isOpen) occurrence.key,
+      }, now),
     );
 
     await _gateway.cancelAll();

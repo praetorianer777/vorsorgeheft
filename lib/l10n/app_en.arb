@@ -294,6 +294,16 @@
       }
     }
   },
+  "reminderActionDone": "Done",
+  "@reminderActionDone": {
+    "description": "Button on a reminder notification that records the appointment for today"
+  },
+  "reminderActionLater": "Later",
+  "@reminderActionLater": {
+    "description": "Button on a reminder notification that asks to be reminded again in three days"
+  },
+  "reminderRecorded": "Recorded for today.",
+  "reminderPutOff": "Put off for three days.",
   "reminderWindowOpensTitle": "{person}: {appointment} is coming up",
   "@reminderWindowOpensTitle": {
     "placeholders": {

@@ -2,6 +2,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgeheft/domain/completion.dart';
+import 'package:vorsorgeheft/notifications/notification_gateway.dart';
 import 'package:vorsorgeheft/notifications/reminder.dart';
 import 'package:vorsorgeheft/sync/sync_transport.dart';
 
@@ -213,6 +214,71 @@ void registerAppSpecs() {
     // without saying so, which is why the app schedules a rolling window.
     expect(gateway.pending.length, lessThanOrEqualTo(20));
     expect(gateway.pending.every((r) => r.fireAt.isAfter(pinnedToday)), isTrue);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('a reminder can be acted on without opening the app', (
+    tester,
+  ) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.infant],
+      gateway: gateway,
+    );
+
+    final u4 = gateway.pending.firstWhere((r) => r.ruleId == 'u4');
+    // The button on the lock screen. The app is brought to the front by the
+    // platform, which is what the harness already has on screen.
+    gateway.press(ReminderActionKind.done, u4);
+    await settle(tester);
+
+    expect(find.text('Recorded for today.'), findsOneWidget);
+    final recorded = (await db.allCompletions()).single;
+    expect(recorded.ruleId, 'u4');
+    expect(gateway.pending.map((r) => r.ruleId), isNot(contains('u4')));
+
+    // And the timeline agrees, without anything else being tapped.
+    final timeline = await FamilyPage(tester).open('Mila');
+    await timeline.scrollToAppointment('U4');
+    expect(timeline.status('U4', 'Done'), findsOneWidget);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('a reminder put off comes back later, not now', (tester) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(
+      tester,
+      people: [Family.infant],
+      gateway: gateway,
+    );
+
+    final u4 = gateway.pending.firstWhere((r) => r.ruleId == 'u4');
+    gateway.press(ReminderActionKind.later, u4);
+    await settle(tester);
+
+    expect(find.text('Put off for three days.'), findsOneWidget);
+    expect(await db.allCompletions(), isEmpty);
+    final again = gateway.pending.where((r) => r.ruleId == 'u4');
+    expect(again, hasLength(1));
+    expect(again.single.fireAt.day, 23);
+
+    await shutDown(tester, db);
+  });
+
+  testWidgets('tapping a reminder opens the appointment it is about', (
+    tester,
+  ) async {
+    final gateway = RecordingGateway();
+    final db = await launchApp(tester, people: Family.all, gateway: gateway);
+
+    final reminder = gateway.pending.first;
+    gateway.press(ReminderActionKind.open, reminder);
+    await settle(tester);
+
+    expect(find.byKey(const Key('mark-done')), findsOneWidget);
 
     await shutDown(tester, db);
   });

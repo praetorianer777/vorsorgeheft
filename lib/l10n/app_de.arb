@@ -148,6 +148,16 @@
   "ageYears": "{years, plural, =1{1 Jahr alt} other{{years} Jahre alt}}",
   "ageMonths": "{months, plural, =1{1 Monat alt} other{{months} Monate alt}}",
   "ageDays": "{days, plural, =1{1 Tag alt} other{{days} Tage alt}}",
+  "reminderActionDone": "Erledigt",
+  "@reminderActionDone": {
+    "description": "Button on a reminder notification that records the appointment for today"
+  },
+  "reminderActionLater": "Später",
+  "@reminderActionLater": {
+    "description": "Button on a reminder notification that asks to be reminded again in three days"
+  },
+  "reminderRecorded": "Für heute eingetragen.",
+  "reminderPutOff": "Um drei Tage verschoben.",
   "reminderWindowOpensTitle": "{person}: {appointment} steht an",
   "reminderWindowOpensBody": "Der Zeitraum beginnt am {date}.",
   "reminderDeadlineTitle": "{person}: {appointment} läuft bald ab",

@@ -389,6 +389,19 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
     settings,
   ).insertOnConflictUpdate(SettingsCompanion.insert(key: key, value: value));
 
+  /// Every setting whose key begins with [prefix], which is how the app
+  /// keeps a small set of rows it has to read as a whole: one per
+  /// appointment that was put off.
+  Future<Map<String, String>> settingsUnder(String prefix) async {
+    final rows = await (select(
+      settings,
+    )..where((s) => s.key.like('$prefix%'))).get();
+    return {for (final row in rows) row.key: row.value};
+  }
+
+  Future<void> deleteSetting(String key) =>
+      (delete(settings)..where((s) => s.key.equals(key))).go();
+
   Stream<String?> watchSetting(String key) =>
       (select(settings)..where((s) => s.key.equals(key)))
           .watchSingleOrNull()
