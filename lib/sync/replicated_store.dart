@@ -136,7 +136,7 @@ class ReplicatedStore {
       _hlc = (_hlc ?? Hlc.zero(nodeId)).receive(change.hlc, _clock());
     }
     final before = await _ownCompletions(changes);
-    final applied = await _db.applyChanges(changes);
+    final applied = await _db.applyChanges(changes, from: from);
     await _project(applied);
     final overwritten = await _overwritten(before, applied, from);
     if (overwritten.isNotEmpty) await _remember(overwritten);
@@ -221,6 +221,11 @@ class ReplicatedStore {
 
   Future<List<Change>> changesSince(Hlc watermark) =>
       _db.changesSince(watermark);
+
+  /// Everything this device has learned after [cursor], in that order, with
+  /// the cursor to continue from next time.
+  Future<(List<Change>, int)> changesAfter(int cursor, {String? except}) =>
+      _db.changesAfter(cursor, except: except);
 
   Future<Hlc?> get latest => _db.latestHlc();
 

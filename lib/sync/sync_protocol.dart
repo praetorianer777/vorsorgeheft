@@ -19,6 +19,7 @@ class Peer {
     required this.sharedKey,
     this.lastSyncHlc,
     this.lastSyncAt,
+    this.cursor,
   });
 
   final String nodeId;
@@ -32,6 +33,11 @@ class Peer {
   /// what came after.
   final Hlc? lastSyncHlc;
   final DateTime? lastSyncAt;
+
+  /// How far this device has read in the peer's own order of changes, which
+  /// is what the next exchange asks to continue from. Null before the first
+  /// exchange, and for a peer too old to keep one.
+  final int? cursor;
 }
 
 /// Where the engine keeps its peers and its own identity.
@@ -48,6 +54,7 @@ abstract class PeerRegistry {
     String nodeId, {
     required Hlc watermark,
     required DateTime at,
+    int? cursor,
   });
 
   Future<List<int>?> privateKey();
@@ -230,13 +237,22 @@ class SyncEngine {
       await session.send({
         'type': 'pull',
         'since': peer.lastSyncHlc?.toString(),
+        'cursor': peer.cursor ?? 0,
       });
       final theirs = await session.receive('changes');
-      final ours = await _delta(_sinceOf(theirs['since']));
+      final ours = await _delta(
+        peerNodeId,
+        since: _sinceOf(theirs['since']),
+        // How far the peer has read of this device, which it sends back
+        // with its own changes. Its 'cursor' is the other direction: the
+        // mark this device keeps for it.
+        cursor: theirs['from'],
+      );
       await session.send({
         'type': 'changes',
-        'changes': [for (final c in ours.$1) c.toJson()],
-        'latest': ours.$2?.toString(),
+        'changes': [for (final c in ours.changes) c.toJson()],
+        'latest': ours.latest?.toString(),
+        'cursor': ours.cursor,
       });
       final received = await _apply(peerNodeId, theirs);
       await session.receive('done');
@@ -244,7 +260,7 @@ class SyncEngine {
         SyncResult(
           peerNodeId: peerNodeId,
           received: received.applied.length,
-          sent: ours.$1.length,
+          sent: ours.changes.length,
           overwritten: received.overwritten,
         ),
       );
@@ -290,12 +306,18 @@ class SyncEngine {
 
     final session = _Session(channel, SessionCipher(peer.sharedKey));
     final pull = await session.receive('pull');
-    final ours = await _delta(_sinceOf(pull['since']));
+    final ours = await _delta(
+      peerNodeId,
+      since: _sinceOf(pull['since']),
+      cursor: pull['cursor'],
+    );
     await session.send({
       'type': 'changes',
-      'changes': [for (final c in ours.$1) c.toJson()],
-      'latest': ours.$2?.toString(),
+      'changes': [for (final c in ours.changes) c.toJson()],
+      'latest': ours.latest?.toString(),
+      'cursor': ours.cursor,
       'since': peer.lastSyncHlc?.toString(),
+      'from': peer.cursor ?? 0,
     });
     final theirs = await session.receive('changes');
     final received = await _apply(peerNodeId, theirs);
@@ -304,7 +326,7 @@ class SyncEngine {
       SyncResult(
         peerNodeId: peerNodeId,
         received: received.applied.length,
-        sent: ours.$1.length,
+        sent: ours.changes.length,
         overwritten: received.overwritten,
       ),
     );
@@ -313,15 +335,37 @@ class SyncEngine {
   Hlc _sinceOf(Object? encoded) =>
       encoded is String ? Hlc.parse(encoded) : Hlc.zero('');
 
-  /// This device's own changes after [since], and the mark the peer should
-  /// hold for it. The mark is read together with the delta rather than after
-  /// the peer's changes were applied, or a local write landing in between
-  /// would sort below the mark and never be sent.
-  Future<(List<Change>, Hlc?)> _delta(Hlc since) async {
-    final changes = await _store.changesSince(since);
-    return (
-      changes.where((c) => c.hlc.nodeId == nodeId).toList(),
+  /// What the peer has not seen, and the two marks it should hold for this
+  /// device. They are read together with the delta rather than after the
+  /// peer's changes were applied, or a local write landing in between would
+  /// sort below the mark and never be sent.
+  ///
+  /// With a cursor the answer is everything this device has learned since,
+  /// whoever made it: that is what carries a change from a third phone, or
+  /// one that arrived as a file, any further. A peer too old to send one
+  /// gets what it always got - this device's own changes, by timestamp.
+  Future<_Delta> _delta(
+    String peerNodeId, {
+    required Hlc since,
+    required Object? cursor,
+  }) async {
+    if (cursor is! int) {
+      final byTime = await _store.changesSince(since);
+      return _Delta(
+        byTime.where((c) => c.hlc.nodeId == nodeId).toList(),
+        await _store.latest,
+        null,
+      );
+    }
+    final (changes, mark) = await _store.changesAfter(
+      cursor,
+      except: peerNodeId,
+    );
+    return _Delta(
+      // Nor its own writes, which it has by definition.
+      changes.where((c) => c.hlc.nodeId != peerNodeId).toList(),
       await _store.latest,
+      mark,
     );
   }
 
@@ -336,10 +380,12 @@ class SyncEngine {
     ];
     final result = await _store.merge(changes, from: peerNodeId);
     final latest = message['latest'];
+    final cursor = message['cursor'];
     await _registry.recordSync(
       peerNodeId,
       watermark: latest is String ? Hlc.parse(latest) : Hlc.zero(peerNodeId),
       at: _clock(),
+      cursor: cursor is int ? cursor : null,
     );
     return result;
   }
@@ -379,6 +425,15 @@ class SyncEngine {
     if (json is! Map) throw const SyncProtocolException('frame is not a map');
     return json.cast<String, Object?>();
   }
+}
+
+/// What one side hands the other, with the marks to continue from.
+class _Delta {
+  const _Delta(this.changes, this.latest, this.cursor);
+
+  final List<Change> changes;
+  final Hlc? latest;
+  final int? cursor;
 }
 
 /// The encrypted part of an exchange.

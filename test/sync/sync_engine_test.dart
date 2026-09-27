@@ -234,35 +234,6 @@ void main() {
     });
   });
 
-  group('a third phone', () {
-    late Device carol;
-
-    setUp(() async {
-      carol = await Device.open('carol', network);
-      await pair(alice, bob);
-      await pair(bob, carol);
-    });
-    tearDown(() => carol.close());
-
-    test('hears only what the phone it talks to wrote itself', () async {
-      // An exchange carries a device's own changes, never what it received
-      // from someone else. Two parents are two phones, and echoing changes
-      // back is what would make every repeat sync carry something. With a
-      // third phone that means Carol never learns of Anna through Bob.
-      await alice.store.savePerson(anna);
-      await bob.engine.syncWith('alice');
-      expect(await bob.db.personById('anna'), isNotNull);
-
-      final result = await carol.engine.syncWith('bob');
-      expect(result.received, 0);
-      expect(await carol.db.personById('anna'), isNull);
-
-      await bob.store.savePerson(mila);
-      await carol.engine.syncWith('bob');
-      expect((await carol.db.allPersons()).map((p) => p.id), ['mila']);
-    });
-  });
-
   group('one phone changes its mind', () {
     Completion u6(DateTime on) =>
         Completion(personId: 'anna', ruleId: 'u6', completedOn: on);
