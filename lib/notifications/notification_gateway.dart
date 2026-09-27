@@ -1,12 +1,41 @@
 import 'reminder.dart';
 
+/// What the person did with a notification.
+enum ReminderActionKind {
+  /// Tapped the notification itself, which opens the appointment.
+  open,
+
+  /// Recorded the appointment as done, today.
+  done,
+
+  /// Asked to be reminded again in a few days.
+  later,
+}
+
+class ReminderAction {
+  const ReminderAction(this.kind, this.payload);
+
+  final ReminderActionKind kind;
+  final ReminderPayload payload;
+}
+
 /// What the app needs from the platform's notification service.
 ///
 /// An interface rather than a direct call so the scheduling rules can be
 /// tested without a device: the platform limits this code exists to respect
 /// are exactly the things an emulator makes slow and awkward to assert.
 abstract class NotificationGateway {
-  Future<void> initialize();
+  /// [onAction] is called when a notification is tapped or one of its
+  /// buttons is used - including for the notification that started the app,
+  /// which the platform hands over at initialisation.
+  ///
+  /// The labels belong here rather than in the gateway because iOS registers
+  /// its buttons once, at initialisation, in the language the app is in.
+  Future<void> initialize({
+    void Function(ReminderAction action)? onAction,
+    String doneLabel = 'Done',
+    String laterLabel = 'Later',
+  });
 
   /// Asks for permission to post notifications, returning whether it was
   /// granted. Android has required this at runtime since 13, and iOS always
@@ -28,6 +57,9 @@ abstract class NotificationGateway {
     required String body,
     required String channelName,
   });
+
+  /// Drops a single notification, for the one that has just been acted on.
+  Future<void> cancel(int id);
 
   Future<List<int>> pendingIds();
 }

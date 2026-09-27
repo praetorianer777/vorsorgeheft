@@ -48,6 +48,7 @@ final notificationGatewayProvider = Provider<NotificationGateway>(
 final reminderServiceProvider = Provider<ReminderService>(
   (ref) => ReminderService(
     database: ref.watch(databaseProvider),
+    store: ref.watch(storeProvider),
     gateway: ref.watch(notificationGatewayProvider),
     catalogs: ref.watch(catalogRepositoryProvider),
     locale: () =>

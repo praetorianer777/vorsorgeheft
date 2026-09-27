@@ -26,8 +26,30 @@ class RecordingGateway implements NotificationGateway {
   List<String> get titles => scheduled.map((s) => s.$2).toList();
   List<String> get bodies => scheduled.map((s) => s.$3).toList();
 
+  /// The buttons the platform was told to put on a notification, and the
+  /// callback it would deliver a press to.
+  String? doneLabel;
+  String? laterLabel;
+  void Function(ReminderAction action)? onAction;
+
+  final List<int> cancelled = [];
+
   @override
-  Future<void> initialize() async => initialized = true;
+  Future<void> initialize({
+    void Function(ReminderAction action)? onAction,
+    String doneLabel = 'Done',
+    String laterLabel = 'Later',
+  }) async {
+    initialized = true;
+    this.onAction = onAction;
+    this.doneLabel = doneLabel;
+    this.laterLabel = laterLabel;
+  }
+
+  /// Presses a button on a notification that is pending, the way the person
+  /// would from the lock screen.
+  void press(ReminderActionKind kind, PlannedReminder reminder) =>
+      onAction?.call(ReminderAction(kind, ReminderPayload.of(reminder)));
 
   @override
   Future<bool> requestPermission() async {
@@ -37,6 +59,12 @@ class RecordingGateway implements NotificationGateway {
 
   @override
   Future<bool> canScheduleExactly() async => exactAllowed;
+
+  @override
+  Future<void> cancel(int id) async {
+    cancelled.add(id);
+    scheduled.removeWhere((s) => s.$1.id == id);
+  }
 
   @override
   Future<void> cancelAll() async {

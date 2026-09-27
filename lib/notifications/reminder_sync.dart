@@ -1,9 +1,13 @@
 import 'dart:async';
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app/providers.dart';
+import '../l10n/app_localizations.dart';
+import '../ui/occurrence_detail_screen.dart';
+import '../ui/timeline_screen.dart';
+import 'notification_gateway.dart';
 import 'permission_state.dart';
 import 'reminder_preferences_notifier.dart';
 
@@ -30,12 +34,48 @@ class _ReminderSyncState extends ConsumerState<ReminderSync>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final granted = await ref.read(reminderServiceProvider).start();
+      final granted = await ref
+          .read(reminderServiceProvider)
+          .start(onHandled: _show);
       if (mounted) {
         ref.read(notificationPermissionProvider.notifier).set(granted: granted);
       }
     });
   }
+
+  /// What the person sees after using a notification: the appointment it was
+  /// about, or a line saying what was recorded. The work itself is already
+  /// done by the time this runs.
+  void _show(ReminderAction action) {
+    if (!mounted) return;
+    final l10n = AppLocalizations.of(context);
+    switch (action.kind) {
+      case ReminderActionKind.open:
+        Navigator.of(context)
+          ..popUntil((route) => route.isFirst)
+          ..push(
+            MaterialPageRoute<void>(
+              builder: (_) => TimelineScreen(personId: action.payload.personId),
+            ),
+          )
+          ..push(
+            MaterialPageRoute<void>(
+              builder: (_) => OccurrenceDetailScreen(
+                personId: action.payload.personId,
+                occurrenceKey: action.payload.occurrenceKey,
+              ),
+            ),
+          );
+      case ReminderActionKind.done:
+        _say(l10n.reminderRecorded);
+      case ReminderActionKind.later:
+        _say(l10n.reminderPutOff);
+    }
+  }
+
+  void _say(String text) => ScaffoldMessenger.of(context)
+    ..clearSnackBars()
+    ..showSnackBar(SnackBar(content: Text(text)));
 
   @override
   void dispose() {

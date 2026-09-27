@@ -19,7 +19,8 @@ the date of birth, and reminds you in time.
 - 📚 **Sourced** — every appointment names its source and its as-of date, right in the app
 - ✏️ **Own appointments** — the eye check, the blood test, the dental cleaning: anything no guideline
   knows about, repeating from a first date, with the same reminders and export
-- 🔔 **Reminders** — 30, 14 and 3 days before a window opens, and again before an entitlement lapses
+- 🔔 **Reminders** — 30, 14 and 3 days before a window opens, and again before an entitlement lapses;
+  record it or put it off straight from the notification
 - 🌍 **Bilingual** — the app speaks German and English
 
 > **Status:** released as signed APKs and an app bundle under
