@@ -15,7 +15,7 @@ the date of birth, and reminds you in time.
   care, adult and cancer screening, and one each for dogs and cats
 - 🔒 **Entirely local** — no account, no servers, no analytics, no ads
 - 📤 **ICS export** — into any calendar or mail client, with stable UIDs instead of duplicates
-- 🔄 **Two devices, one state** — QR pairing, then encrypted sync over your WLAN
+- 🔄 **Several devices, one state** — QR pairing, then encrypted sync over your WLAN; a phone passes on what it heard from a third
 - 📚 **Sourced** — every appointment names its source and its as-of date, right in the app
 - ✏️ **Own appointments** — the eye check, the blood test, the dental cleaning: anything no guideline
   knows about, repeating from a first date, with the same reminders and export
@@ -121,10 +121,13 @@ event that was simply left out would stay in the calendar forever.
 
 ## Device sync
 
-Both devices exchange public keys once via QR code and derive a shared key from them
+Two devices exchange public keys once via QR code and derive a shared key from them
 (X25519 → HKDF); the private half never leaves the device. After that they find each other over
 mDNS on the same WLAN and exchange only the changes since the last sync, encrypted with
-AES-256-GCM. There is no server and no account. Without a shared WLAN, a hotspot on one phone
+AES-256-GCM. More than two works: each phone hands on what it heard from another, so a
+grandparent's phone that only ever meets one of the two still ends up with everything. What a peer
+has seen is tracked as a position in the sender's own order of changes, not as a timestamp - a
+change can arrive late and be stamped early, and a timestamp would step over it for good. There is no server and no account. Without a shared WLAN, a hotspot on one phone
 does, or you export a password-encrypted file instead. The same file moves the family to a new
 phone, on either platform: `test/sync/golden/` holds one written in 2026 that every later version
 has to open.

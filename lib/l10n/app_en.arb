@@ -382,8 +382,8 @@
   "notificationsEnable": "Allow notifications",
   "confirm": "OK",
   "syncTitle": "Sync",
-  "syncIntro": "Pair this phone with the other parent's once. After that, a sync exchanges what each of you has recorded, directly between the two phones. Nothing is sent anywhere else.",
-  "syncConflictRule": "If you both record the same appointment, the later entry counts. The phone whose entry was replaced says so on its family screen.",
+  "syncIntro": "Pair this phone with another one once - the other parent's, a grandparent's, a tablet at home. After that, a sync exchanges what each of you has recorded, directly between the phones, and what one of them heard from a third is passed along. Nothing is sent anywhere else.",
+  "syncConflictRule": "If two of you record the same appointment, the later entry counts. The phone whose entry was replaced says so on its family screen.",
   "syncNoticesTitle": "The other phone had different entries",
   "syncNoticeReplaced": "{title} for {name}: your entry ({previous}) was replaced by {current} from {device}.",
   "@syncNoticeReplaced": {

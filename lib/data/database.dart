@@ -105,6 +105,18 @@ class Changes extends Table {
   /// column having to know which.
   TextColumn get value => text()();
 
+  /// The order this device learned of the change, whoever made it.
+  ///
+  /// A peer's cursor is a position in this order rather than a timestamp,
+  /// because a change can arrive late and still be stamped early - through
+  /// a third phone or an imported file - and a timestamp watermark would
+  /// step over it for good.
+  IntColumn get seq => integer().withDefault(const Constant(0))();
+
+  /// The peer this change came in from, or null when this device made it.
+  /// Sending a change back where it came from is work for nothing.
+  TextColumn get origin => text().nullable()();
+
   @override
   Set<Column<Object>> get primaryKey => {entity, entityId, field};
 }
@@ -126,6 +138,11 @@ class Peers extends Table {
   /// The peer's high-water mark as of the last exchange, in the sortable
   /// encoding, or null before the first one.
   TextColumn get lastSyncHlc => text().nullable()();
+
+  /// How far this device has read in the peer's own order of changes. Null
+  /// before the first exchange, and for a peer whose app is too old to keep
+  /// one.
+  IntColumn get cursor => integer().nullable()();
   DateTimeColumn get lastSyncAt => dateTime().nullable()();
 
   @override
@@ -172,7 +189,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
   /// species in #96. An older database gains the tables and the columns in
   /// [migration]; everything it already holds stays as it is.
   @override
-  int get schemaVersion => 6;
+  int get schemaVersion => 7;
 
   /// SQLite enforces foreign keys only when asked to, and without this a
   /// deleted person leaves their recorded appointments behind.
@@ -185,6 +202,16 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
       if (from < 4) await m.addColumn(persons, persons.optionalRules);
       if (from < 5) await m.createTable(ownAppointments);
       if (from < 6) await m.addColumn(persons, persons.species);
+      if (from < 7) {
+        await m.addColumn(changes, changes.seq);
+        await m.addColumn(changes, changes.origin);
+        // A database older than that has just had its peers table created
+        // above, with the column already in it.
+        if (from >= 2) await m.addColumn(peers, peers.cursor);
+        // Everything already here is ordered by its timestamp as well as it
+        // ever will be; what matters is that later changes sort after it.
+        await m.database.customStatement('UPDATE changes SET seq = rowid');
+      }
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
@@ -333,6 +360,33 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
     return rows.map(_toChange).toList();
   }
 
+  Future<int> _lastSeq() async {
+    final row = await customSelect(
+      'SELECT MAX(seq) AS seq FROM changes',
+      readsFrom: {changes},
+    ).getSingle();
+    return row.read<int?>('seq') ?? 0;
+  }
+
+  /// Everything this device learned after [cursor], in that order, with the
+  /// cursor a peer should hold once it has taken them.
+  Future<(List<Change>, int)> changesAfter(int cursor, {String? except}) async {
+    final rows =
+        await (select(changes)
+              ..where(
+                (c) => except == null
+                    ? c.seq.isBiggerThanValue(cursor)
+                    : c.seq.isBiggerThanValue(cursor) &
+                          (c.origin.isNull() | c.origin.equals(except).not()),
+              )
+              ..orderBy([(c) => OrderingTerm(expression: c.seq)]))
+            .get();
+    // The mark is the end of the order, not the last row handed over: the
+    // rows left out here are ones the peer gave us, and re-reading them at
+    // every exchange would never end.
+    return (rows.map(_toChange).toList(), await _lastSeq());
+  }
+
   Future<Hlc?> latestHlc() async {
     final row =
         await (select(changes)
@@ -348,35 +402,43 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
   ///
   /// The comparison happens here rather than in Dart so that a concurrent
   /// write cannot slip between reading the current value and deciding.
-  Future<List<Change>> applyChanges(Iterable<Change> incoming) =>
-      transaction(() async {
-        final applied = <Change>[];
-        for (final change in incoming) {
-          final existing =
-              await (select(changes)..where(
-                    (c) =>
-                        c.entity.equals(change.entity) &
-                        c.entityId.equals(change.entityId) &
-                        c.field.equals(change.field),
-                  ))
-                  .getSingleOrNull();
+  Future<List<Change>> applyChanges(
+    Iterable<Change> incoming, {
+    String? from,
+  }) => transaction(() async {
+    final applied = <Change>[];
+    var seq = await _lastSeq();
+    for (final change in incoming) {
+      final existing =
+          await (select(changes)..where(
+                (c) =>
+                    c.entity.equals(change.entity) &
+                    c.entityId.equals(change.entityId) &
+                    c.field.equals(change.field),
+              ))
+              .getSingleOrNull();
 
-          if (existing != null && change.hlc <= Hlc.parse(existing.hlc)) {
-            continue;
-          }
-          await into(changes).insertOnConflictUpdate(
-            ChangesCompanion.insert(
-              entity: change.entity,
-              entityId: change.entityId,
-              field: change.field,
-              hlc: change.hlc.toString(),
-              value: change.encodeValue(),
-            ),
-          );
-          applied.add(change);
-        }
-        return applied;
-      });
+      if (existing != null && change.hlc <= Hlc.parse(existing.hlc)) {
+        continue;
+      }
+      await into(changes).insertOnConflictUpdate(
+        ChangesCompanion.insert(
+          entity: change.entity,
+          entityId: change.entityId,
+          field: change.field,
+          hlc: change.hlc.toString(),
+          value: change.encodeValue(),
+          // A change this device has just learned of goes to the end of
+          // its order, whoever made it and whenever it was stamped: a
+          // peer reading from its cursor has to see it.
+          seq: Value(++seq),
+          origin: Value(from),
+        ),
+      );
+      applied.add(change);
+    }
+    return applied;
+  });
 
   Future<String?> settingValue(String key) async {
     final row = await (select(
@@ -439,6 +501,7 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
       sharedKey: base64.encode(peer.sharedKey),
       lastSyncHlc: Value(peer.lastSyncHlc?.toString()),
       lastSyncAt: Value(peer.lastSyncAt),
+      cursor: Value(peer.cursor),
     ),
   );
 
@@ -451,10 +514,14 @@ class AppDatabase extends _$AppDatabase implements PeerRegistry {
     String nodeId, {
     required Hlc watermark,
     required DateTime at,
+    int? cursor,
   }) => (update(peers)..where((p) => p.nodeId.equals(nodeId))).write(
     PeersCompanion(
       lastSyncHlc: Value(watermark.toString()),
       lastSyncAt: Value(at),
+      // Left alone for a peer whose app does not keep one, so an older
+      // version on the other phone keeps working the way it always did.
+      cursor: cursor == null ? const Value.absent() : Value(cursor),
     ),
   );
 
@@ -484,6 +551,7 @@ Peer _toPeer(PeerRow row) => Peer(
   sharedKey: base64.decode(row.sharedKey),
   lastSyncHlc: row.lastSyncHlc == null ? null : Hlc.parse(row.lastSyncHlc!),
   lastSyncAt: row.lastSyncAt,
+  cursor: row.cursor,
 );
 
 Change _toChange(ChangeRow row) => Change(
