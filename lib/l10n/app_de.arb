@@ -148,6 +148,9 @@
   "ageYears": "{years, plural, =1{1 Jahr alt} other{{years} Jahre alt}}",
   "ageMonths": "{months, plural, =1{1 Monat alt} other{{months} Monate alt}}",
   "ageDays": "{days, plural, =1{1 Tag alt} other{{days} Tage alt}}",
+  "expectingLabel": "Erwartet ein Kind am",
+  "expectingHelp": "Der errechnete Termin aus dem Mutterpass. Solange er gesetzt ist, erscheinen die Vorsorgetermine der Schwangerschaft; nimm ihn nach der Geburt heraus und lege das Kind als eigene Person an.",
+  "clear": "Löschen",
   "reminderActionDone": "Erledigt",
   "@reminderActionDone": {
     "description": "Button on a reminder notification that records the appointment for today"

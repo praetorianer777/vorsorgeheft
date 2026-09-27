@@ -11,8 +11,8 @@ the date of birth, and reminds you in time.
 
 - 👨‍👩‍👧 **Per family member** — from newborn to grandparent, and the dog and the cat: their vaccinations
   after the StIKo Vet guideline, deworming and tick protection after ESCCAP
-- 📅 **Six catalogs** — children's check-ups U1–U9/J1, the STIKO vaccination calendar, dental
-  care, adult and cancer screening, and one each for dogs and cats
+- 📅 **Seven catalogs** — children's check-ups U1–U9/J1, the STIKO vaccination calendar, dental
+  care, adult and cancer screening, pregnancy, and one each for dogs and cats
 - 🔒 **Entirely local** — no account, no servers, no analytics, no ads
 - 📤 **ICS export** — into any calendar or mail client, with stable UIDs instead of duplicates
 - 🔄 **Several devices, one state** — QR pairing, then encrypted sync over your WLAN; a phone passes on what it heard from a third
@@ -68,6 +68,11 @@ carries a source reference with an as-of date, shown in the app both on the appo
 page and collected under "Sources & legal". A test fails as soon as a rule without a resolvable
 source enters a catalog — the sourcing requirement is enforced by CI, not by discipline.
 
+A pregnancy is the one schedule that is not counted from a date of birth: the guideline counts
+completed weeks since the last period, so a person carries the expected date of delivery and the
+maternity rules are anchored to it, 280 days earlier. They appear while the date is set and are
+gone when it is cleared, which is what happens when the child is born and is added as a person.
+
 The catalogs for people describe the German statutory system, the two for animals the German
 veterinary recommendations; rule text is stored per language so the app can present it in German
 or English. Which catalog a family member gets follows from the species chosen when they are
@@ -81,6 +86,7 @@ added, and a dog never sees a U6.
 | Adult check-up | Once between 18 and 34, then every three years from 35; hepatitis B/C screening; abdominal aortic aneurysm | [G-BA Gesundheitsuntersuchungs-Richtlinie][gba-gu] |
 | Cancer screening | Skin from 35, cervical from 20, mammography 50–75, prostate from 45, chlamydia to 25 | [G-BA Krebsfrüherkennungs-Richtlinie][gba-kfe] |
 | Organised programmes | Cervical co-test from 35 and colorectal screening from 50, which moved into their own guideline | [G-BA oKFE-Richtlinie][gba-okfe] |
+| Pregnancy | Antenatal check-ups every four weeks and fortnightly from the 32nd, the three ultrasound screenings, the gestational diabetes screening, the antibody search test with the optional Anti-D prophylaxis, and the check-up after the birth | [G-BA Mutterschafts-Richtlinie][gba-mu] |
 | Dogs | Puppy series and boosters for distemper/parvovirus, leptospirosis and rabies; deworming and tick protection as optional rules | [StIKo Vet guideline][stiko-vet], [ESCCAP][esccap] |
 | Cats | Kitten series and boosters for the core vaccination and feline leukaemia, rabies optional; deworming and tick protection as optional rules | [StIKo Vet guideline][stiko-vet], [ESCCAP][esccap] |
 
@@ -323,5 +329,6 @@ when in doubt, ask your doctor's office or your health insurer.
 [gba-okfe]: https://www.g-ba.de/richtlinien/104/
 [gba-ip]: https://www.g-ba.de/richtlinien/31/
 [sgb55]: https://www.gesetze-im-internet.de/sgb_5/__55.html
+[gba-mu]: https://www.g-ba.de/richtlinien/19/
 [stiko-vet]: https://www.openagrar.de/servlets/MCRFileNodeServlet/openagrar_derivate_00063989/Impfleitlinie_Kleintiere_2025-01-06.pdf
 [esccap]: https://www.esccap.de/empfehlungen/

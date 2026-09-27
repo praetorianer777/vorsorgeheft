@@ -18,7 +18,7 @@ void main() {
 
   setUpAll(() => verifier = SchemaVerifier(GeneratedHelper()));
 
-  const current = 7;
+  const current = 8;
 
   for (final from in GeneratedHelper.versions.where((v) => v < current)) {
     test('a version $from database migrates to the current schema', () async {

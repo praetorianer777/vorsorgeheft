@@ -46,7 +46,7 @@ void main() {
 
     final result = await granny.engine.syncWith('dad');
 
-    expect(result.received, 6, reason: 'the six fields of a person');
+    expect(result.received, 7, reason: 'the seven fields of a person');
     expect((await granny.db.allPersons()).single.name, 'Mila');
   });
 

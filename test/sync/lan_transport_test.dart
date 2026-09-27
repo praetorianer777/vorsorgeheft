@@ -99,7 +99,7 @@ void main() {
       address: '127.0.0.1:${server.port}',
     );
 
-    expect(result.received, 6);
+    expect(result.received, 7);
     expect((await bobDb.personById('anna'))!.name, 'Anna');
     expect(await aliceDb.peer('bob'), isNotNull);
   });

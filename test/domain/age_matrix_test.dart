@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgeheft/domain/occurrence.dart';
 import 'package:vorsorgeheft/domain/person.dart';
+import 'package:vorsorgeheft/domain/rule.dart';
 import 'package:vorsorgeheft/domain/schedule_engine.dart';
 import 'package:vorsorgeheft/notifications/reminder.dart';
 
@@ -350,7 +351,10 @@ void main() {
     }
     final expectedRules = [
       for (final rule in catalogs.rulesFor(Species.human))
+        // A pregnancy is counted from its own anchor, so none of those
+        // rules can appear on a walk that only varies the age.
         if (!rule.optional &&
+            rule.anchor != Anchor.pregnancy &&
             (rule.eligibility.maxAge == null ||
                 rule.eligibility.maxAge!.years <= 25))
           rule.id,

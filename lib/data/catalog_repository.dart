@@ -15,6 +15,7 @@ class CatalogRepository {
     'assets/catalogs/vaccinations.json',
     'assets/catalogs/dental.json',
     'assets/catalogs/adults.json',
+    'assets/catalogs/maternity.json',
     'assets/catalogs/dogs.json',
     'assets/catalogs/cats.json',
   ];

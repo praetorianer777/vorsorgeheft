@@ -1030,7 +1030,7 @@ void registerAppSpecs() {
     expect(sync.neverSynced, findsOneWidget);
 
     await sync.syncNow('mum');
-    expect(sync.synced(received: 6, sent: 6), findsOneWidget);
+    expect(sync.synced(received: 7, sent: 7), findsOneWidget);
     expect(sync.lastSynced, findsOneWidget);
 
     await sync.syncNow('mum');
@@ -1186,7 +1186,7 @@ void registerAppSpecs() {
       expect(FamilyPage(tester).personNamed('Mila'), findsNothing);
 
       await sync.importBundle(dad, file, password: 'correct horse');
-      expect(sync.imported(6), findsOneWidget);
+      expect(sync.imported(7), findsOneWidget);
       await sync.back();
       expect(FamilyPage(tester).personNamed('Mila'), findsOneWidget);
 
@@ -1223,7 +1223,7 @@ void registerAppSpecs() {
     expect(FamilyPage(tester).personNamed('Mila'), findsNothing);
 
     await sync.receiveFromPhone(dad, file, code: code);
-    expect(sync.imported(6), findsOneWidget);
+    expect(sync.imported(7), findsOneWidget);
     await sync.back();
     expect(FamilyPage(tester).personNamed('Mila'), findsOneWidget);
 

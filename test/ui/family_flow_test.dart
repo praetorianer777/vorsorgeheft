@@ -257,6 +257,44 @@ void main() {
   });
 
   appTest(
+    'an expected date puts the pregnancy appointments on the timeline',
+    people: [
+      Person(
+        id: 'sara',
+        name: 'Sara',
+        dateOfBirth: DateTime.utc(1994, 3, 8),
+        sex: Sex.female,
+      ),
+    ],
+    (tester, db) async {
+      await tester.tap(find.text('Sara'));
+      await settle(tester);
+      expect(find.text('Second ultrasound screening'), findsNothing);
+
+      await tester.tap(find.byKey(const Key('edit-person')));
+      await settle(tester);
+      await tester.dragUntilVisible(
+        find.byKey(const Key('pick-expecting')),
+        find.byType(ListView),
+        const Offset(0, -300),
+      );
+      await tester.tap(find.byKey(const Key('pick-expecting')));
+      await settle(tester);
+      // Twenty weeks along on the pinned today.
+      await tester.enterText(find.byKey(const Key('date-input')), '02072027');
+      await tester.tap(find.byKey(const Key('date-input-ok')));
+      await settle(tester);
+      await saveForm(tester);
+
+      await tester.tap(find.text('Sara'));
+      await settle(tester);
+      await scrollTo(tester, find.text('Second ultrasound screening'));
+      expect(find.text('Second ultrasound screening'), findsOneWidget);
+      expect((await db.allPersons()).single.expectingOn, isNotNull);
+    },
+  );
+
+  appTest(
     'a vaccination from decades ago can be recorded on its real date',
     people: [
       Person(id: 'sara', name: 'Sara', dateOfBirth: DateTime.utc(1988, 6, 30)),
@@ -345,6 +383,9 @@ void main() {
     );
 
     await scrollTo(tester, find.text('This is not medical advice'));
+    // One catalog further down the list than before; the privacy block sits
+    // below the disclaimer.
+    await scrollTo(tester, find.text('Your data stays here'));
     expect(find.text('Your data stays here'), findsOneWidget);
   });
 

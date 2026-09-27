@@ -25,6 +25,7 @@ import 'generated/schema_v4.dart' as v4;
 import 'generated/schema_v5.dart' as v5;
 import 'generated/schema_v6.dart' as v6;
 import 'generated/schema_v7.dart' as v7;
+import 'generated/schema_v8.dart' as v8;
 
 /// One test per released version: a database written the way that version
 /// left it, with every table and setting the version could fill, upgraded
@@ -110,6 +111,7 @@ class Release {
     5 => v5.DatabaseAtV5(executor),
     6 => v6.DatabaseAtV6(executor),
     7 => v7.DatabaseAtV7(executor),
+    8 => v8.DatabaseAtV8(executor),
     _ => throw StateError('no generated database for schema $schema'),
   };
 

@@ -91,6 +91,7 @@ void main() {
         'notes',
         'optionalRules',
         'species',
+        'expectingOn',
       });
     });
 

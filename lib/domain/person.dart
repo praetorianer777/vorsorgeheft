@@ -1,3 +1,5 @@
+import 'rule.dart';
+
 /// Whether sex-specific entitlements apply to a person.
 ///
 /// Recorded only to work out which screenings someone is entitled to; several
@@ -29,6 +31,7 @@ class Person {
     this.notes,
     this.optionalRules = const {},
     this.species = Species.human,
+    this.expectingOn,
   });
 
   final String id;
@@ -48,7 +51,20 @@ class Person {
 
   final Species species;
 
+  /// The expected date of delivery, while this person is pregnant.
+  ///
+  /// The maternity guideline counts in completed weeks since the last
+  /// period, which nobody keeps in their head; the expected date is what
+  /// stands in the Mutterpass, and the two are [Anchor.pregnancyLength]
+  /// apart. Cleared when the child is born, which is also when the child is
+  /// added as a person of their own.
+  final DateTime? expectingOn;
+
   DateTime get birthInstant => dateOfBirth;
+
+  /// Midnight UTC on the day the pregnancy is counted from, or null when
+  /// this person is not expecting.
+  DateTime? get pregnancyFrom => expectingOn?.subtract(Anchor.pregnancyLength);
 
   @override
   String toString() => 'Person($id, $name)';
