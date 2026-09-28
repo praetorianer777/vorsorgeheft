@@ -1,0 +1,1967 @@
+Richtlinie
+des Gemeinsamen Bundesausschusses
+über die ärztliche Betreuung während der Schwangerschaft
+und nach der Geburt
+
+(Mutterschafts-Richtlinie/Mu-RL)
+
+in der Fassung vom 21. September 2023
+veröffentlicht im Bundesanzeiger (BAnz AT 14.12.2023 B6)
+in Kraft getreten am 15. Dezember 2023
+
+zuletzt geändert am 16. Juli 2026
+veröffentlicht im Bundesanzeiger AT 24.08.2026 B5
+in Kraft getreten am 25. August 2026
+Inhalt
+
+         §1   Allgemeine Grundsätze ........................................................................................ 3
+         §2   Untersuchungen und Beratungen sowie sonstige Maßnahmen während der
+              Schwangerschaft .................................................................................................. 4
+         §3   Schwangerschaften                     mit         besonderem                  Überwachungsbedarf                       sowie
+              Schwangerschaften mit besonderen Risiken und Risikogeburten....................... 8
+         §4   Serologische Untersuchungen und Maßnahmen während der Schwangerschaft
+              ............................................................................................................................ 11
+         §5   Blutgruppenserologische Untersuchungen nach Geburt oder Fehlgeburt und
+              Anti-D-Immunglobulin-Prophylaxe .................................................................... 14
+         §6   Voraussetzungen für die Durchführung serologischer Untersuchungen .......... 15
+         §7   Untersuchungen und Beratungen der Wöchnerin ............................................ 15
+         §8   Medikamentöse Maßnahmen und Verordnung von Verband- und Heilmitteln15
+         §9   Aufzeichnungen und Bescheinigungen .............................................................. 16
+
+Anlage I       Ultraschall-Untersuchungen in der Schwangerschaft (a bis d) .................... 17
+
+Anlage II      Indikationen zur Kardiotokografie (CTG) während der Schwangerschaft .... 24
+
+Anlage III     Mutterpass ............................................................................................... 25
+
+Anlage IV      Versicherteninformation zum HIV-Test in der Schwangerschaft ................. 26
+
+Anlage V       Versicherteninformation zu Basis-Ultraschalluntersuchungen in der
+               Schwangerschaft ....................................................................................... 30
+
+Anlage VI      Versicherteninformation zum Test auf Schwangerschaftsdiabetes ............. 36
+
+Anlage VII     Versicherteninformation zur Bestimmung des Rhesusfaktors vor der Geburt .
+               ................................................................................................................. 39
+
+Anlage VIII    Versicherteninformation zum nicht-invasiven Pränataltest (NIPT) auf
+               Trisomie 13, 18 und 21 .............................................................................. 41
+
+2
+     Die vom Gemeinsamen Bundesauschuss gemäß § 92 Absatz 1 Satz 2 Nummer 4 des
+     Fünften Buches Sozialgesetzbuch (SGB V) in Verbindung mit den §§ 24c bis 24f SGB V bzw.
+     § 8 Absatz 1 des Gesetzes über die Krankenversicherung der Landwirte (KVLG 1989)
+     beschlossene Richtlinie dient der Sicherung einer nach den Regeln der ärztlichen Kunst
+     und unter Berücksichtigung des allgemein anerkannten Standes der medizinischen
+     Erkenntnisse ausreichenden, zweckmäßigen und wirtschaftlichen ärztlichen Betreuung
+     der Versicherten während der Schwangerschaft und nach der Geburt (§ 2 Absatz 1, § 12
+     Absatz 1, § 28 Absatz 1, § 70 Absatz 1 und § 73 Absatz 2 SGB V).
+     Die Hebammenhilfe nach § 24d SGB V ist nicht Gegenstand dieser Richtlinie.
+
+§1     Allgemeine Grundsätze
+     (1) Durch die ärztliche Betreuung während der Schwangerschaft und nach der Geburt
+         sollen mögliche Gefahren für Leben und Gesundheit von Mutter oder Kind
+         abgewendet sowie Gesundheitsstörungen rechtzeitig erkannt und der Behandlung
+         zugeführt werden. Die ärztliche Beratung der Versicherten umfasst bei Bedarf auch
+         Hinweise auf regionale Unterstützungsangebote für Eltern und Kind (zum Beispiel
+         „Frühe Hilfen“).
+        Vorrangiges Ziel der ärztlichen Schwangerenvorsorge ist die frühzeitige Erkennung von
+        Risikoschwangerschaften und Risikogeburten.
+     (2) Zur notwendigen Aufklärung über den Wert dieser den Erkenntnissen der
+         medizinischen Wissenschaft entsprechenden ärztlichen Betreuung während der
+         Schwangerschaft und nach der Geburt sollen Ärztinnen und Ärzte, Krankenkassen und
+         Hebammen zusammenwirken.
+     (3) Die an der kassenärztlichen Versorgung teilnehmenden Ärztinnen und Ärzte treffen
+         ihre Maßnahmen der ärztlichen Betreuung während der Schwangerschaft und nach
+         der Geburt nach pflichtgemäßem Ermessen innerhalb des durch Gesetz bestimmten
+         Rahmens. Die Ärztinnen und Ärzte sollten diese Richtlinie beachten, um den
+         Versicherten und ihren Angehörigen eine nach den Regeln der ärztlichen Kunst
+         zweckmäßige und ausreichende ärztliche Betreuung während der Schwangerschaft
+         und nach der Geburt unter Vermeidung entbehrlicher Kosten zukommen zu lassen.
+     (4) Die Maßnahmen nach dieser Richtlinie dürfen nur diejenigen Ärztinnen und Ärzte
+         ausführen, welche die vorgesehenen Leistungen aufgrund ihrer Kenntnisse und
+         Erfahrungen erbringen können, nach der ärztlichen Berufsordnung dazu berechtigt
+         sind und über die erforderlichen Einrichtungen verfügen. Sofern eine Ärztin oder ein
+         Arzt Maßnahmen nach § 2 Absatz 10 sowie Einzelmaßnahmen nach den §§ 3, 4 und 5
+         nicht selbst ausführen kann, sollen diese von solchen Ärztinnen oder Ärzten ausgeführt
+         werden, die über die entsprechenden Kenntnisse und Einrichtungen verfügen.
+     (5) Die an der kassenärztlichen Versorgung teilnehmenden Ärztinnen und Ärzte haben
+         darauf hinzuwirken, dass für sie tätig werdende Vertreterinnen und Vertreter diese
+         Richtlinie kennen und beachten.
+     (6) Es sollen nur Maßnahmen angewendet werden, deren diagnostischer und
+         vorbeugender Wert ausreichend gesichert ist.
+     (7) Ärztliche Betreuung im Sinne des § 24d SGB V sind solche Maßnahmen, welche der
+         Überwachung des Gesundheitszustandes der Schwangeren bzw. Wöchnerinnen
+         dienen, soweit sie nicht ärztliche Behandlung im Sinne des § 28 Absatz 1 SGB V
+         darstellen. Im Einzelnen gehören zu der Betreuung:
+
+                                                                                             3
+           1.      Untersuchungen und Beratungen während der Schwangerschaft 1 (siehe § 2),
+           2.      Frühzeitige   Erkennung      und      besondere    Überwachung     von
+                   Risikoschwangerschaften – amnioskopische und kardiotokografische
+                   Untersuchungen, Ultraschalldiagnostik, Fruchtwasseruntersuchungen usw.
+                   (siehe § 3),
+           3.      Serologische Untersuchungen
+                       − auf Infektionen, zum Beispiel Röteln bei Schwangeren ohne
+                         dokumentierte zweimalige Impfung, Lues, Hepatitis B,
+                       − bei begründetem Verdacht auf Toxoplasmose und andere Infektionen,
+                       − zum Ausschluss einer HIV-Infektion; auf freiwilliger Basis nach
+                         vorheriger ärztlicher Beratung der Schwangeren,
+                       − blutgruppenserologische Untersuchungen an                     der    Schwangeren
+                         während der Schwangerschaft (siehe § 4) sowie
+                       − die nichtinvasive Untersuchung des fetalen Rhesusfaktors D bei RhD-
+                         negativen Schwangeren (siehe § 4),
+           4.      Blutgruppenserologische Untersuchungen nach Geburt oder Fehlgeburt und
+                   Anti-D-Immunglobulin-Prophylaxe (siehe § 5),
+           5.      Untersuchungen und Beratungen der Wöchnerin (siehe § 7),
+           6.      Medikamentöse Maßnahmen und Verordnungen von Verband- und Heilmitteln
+                   (siehe § 8),
+           7.      Aufzeichnungen und Bescheinigungen (siehe § 9).
+
+      (8) Sofern in dieser Richtlinie Angaben zum Gestationsalter gemacht werden, gilt für diese
+          die Zählweise post menstruationem (p. m.).
+
+§2       Untersuchungen und Beratungen sowie sonstige Maßnahmen während der
+         Schwangerschaft
+      (1) Die Schwangere soll in ausreichendem Maße ärztlich untersucht und beraten werden.
+          Die Beratung soll sich auch auf die Risiken einer HIV-Infektion bzw. AIDS-Erkrankung
+          erstrecken. Jeder Schwangeren soll ein HIV-Antikörpertest empfohlen werden, da die
+          Wahrscheinlichkeit einer HIV-Übertragung auf das Kind durch wirksame
+          therapeutische Maßnahmen erheblich gesenkt werden kann. Die Testdurchführung
+          erfordert eine Information zum Test und die Einwilligung der Schwangeren. Als
+          Hilfestellung für die Information der Frau zu dieser Untersuchung ist das Merkblatt mit
+          dem Titel „Ich bin schwanger. Warum wird allen Schwangeren ein HIV-Test
+          angeboten?“ (siehe Anlage IV) zur Verfügung zu stellen.
+      (2) Zudem soll die Schwangere über die Impfung gegen saisonale Influenza beraten
+          werden. Gesunden Schwangeren soll diese Impfung ab dem zweiten Trimenon
+          empfohlen werden, Schwangeren mit erhöhter gesundheitlicher Gefährdung infolge
+          eines Grundleidens bereits im ersten Trimenon. Die Empfehlungen der Schutz-
+          impfungs-Richtlinie (SI-RL) zur Pertussisimpfung in der Schwangerschaft sind zu
+          beachten.
+
+1
+    Die Untersuchung zum Zwecke der Feststellung der Schwangerschaft ist Bestandteil der kurativen Versorgung.
+
+4
+       (3) Darüber hinaus soll die Ärztin oder der Arzt in der Schwangerschaft bedarfsgerecht
+           über die Bedeutung der Mundgesundheit für Mutter und Kind aufklären.
+       (4) In die ärztliche Beratung sind auch ernährungsmedizinische Empfehlungen als
+           Maßnahme der Gesundheitsförderung einzubeziehen. Dabei ist insbesondere auf eine
+           ausreichende Jodzufuhr (in der Regel ist eine zusätzliche Zufuhr von 100 bis 200 µg
+           Jodid pro Tag notwendig 2) und den Zusammenhang zwischen Ernährung und
+           Kariesrisiko hinzuweisen.
+       (5) Die Schwangere soll über ihren Rechtsanspruch auf Beratung zu allgemeinen Fragen
+           der Schwangerschaft nach § 2 des Schwangerschaftskonfliktgesetzes (SchKG)
+           unterrichtet werden.
+       (6) Die erste Untersuchung nach Feststellung der Schwangerschaft sollte möglichst
+           frühzeitig erfolgen. Sie umfasst:
+           1.      a) die Familienanamnese,
+                   b) die Eigenanamnese,
+                   c) die Schwangerschaftsanamnese,
+                   d) die Arbeits- und Sozialanamnese;
+
+           2.      a) die Allgemeinuntersuchung,
+                   b) die gynäkologische Untersuchung einschließlich einer Untersuchung auf
+                   genitale Chlamydia-trachomatis-Infektion. Die Untersuchung wird an einer
+                   Urinprobe mittels eines Nukleinsäure-amplifizierenden Tests (NAT)
+                   durchgeführt. Zur Wahrung des Wirtschaftlichkeitsgebotes kann der Test in
+                   einem Poolingverfahren durchgeführt werden, bei dem Proben von bis zu fünf
+                   Personen gemeinsam getestet werden. Dabei dürfen nur Testkits verwendet
+                   werden, die für die Anwendung im Poolingverfahren geeignet sind. Die
+                   Zuverlässigkeit der Tests im Poolingverfahren ist in den Laboren durch
+                   geeignete Qualitätssicherungsmaßnahmen sicherzustellen.
+                   Schnelltests (sogenannte „bed-side-Tests“, Tests auf            vorgefertigtem
+                   Reagenzträger) sind für diese Untersuchung nicht geeignet.
+           Umfasst sind zudem weitere diagnostische Maßnahmen. Zu diesen gehören:
+
+           3.
+                   a)       Blutdruckmessung,
+                   b)       Feststellung des Körpergewichts,
+                   c)       Untersuchung des Mittelstrahlurins auf Eiweiß und Zucker,
+                   d)       Hämoglobinbestimmung und – je nach dem Ergebnis dieser
+                            Bestimmung (bei weniger als 11,2 g pro 100 ml = 70 % Hb) – Zählung der
+                            Erythrozyten,
+                   e)       bakteriologische Urinuntersuchungen, soweit nach Befundlage
+                            erforderlich (zum Beispiel bei auffälligen Symptomen, rezidivierenden
+                            Harnwegsinfektionen in der Anamnese, Z. n. Frühgeburt, erhöhtem
+                            Risiko für Infektionen der ableitenden Harnwege).
+
+2
+    Dieser Hinweis führt nicht automatisch zur Verordnungsfähigkeit von Jodid.
+
+                                                                                                5
+    (7) Ergeben sich im Rahmen der Mutterschaftsvorsorge Anhaltspunkte für ein genetisch
+        bedingtes Risiko, so ist die Ärztin oder der Arzt gehalten, die Schwangere über die
+        Möglichkeiten einer humangenetischen Beratung und/oder humangenetischen
+        Untersuchung aufzuklären.
+    (8) Die nachfolgenden Untersuchungen sollen – unabhängig von der Behandlung von
+        Beschwerden und Krankheitserscheinungen – im Allgemeinen im Abstand von vier
+        Wochen stattfinden und umfassen:
+       1.     Blutdruckmessung,
+       2.     Gewichtskontrolle,
+       3.     Untersuchung des Mittelstrahlurins auf Eiweiß und Zucker,
+       4.     Hämoglobinbestimmung – im Regelfall ab 6. Monat, falls bei Erstuntersuchung
+              normal –; je nach dem Ergebnis dieser Bestimmung (bei weniger als 11,2 g je
+              100 ml = 70 % Hb) Zählung der Erythrozyten,
+       5.     bakteriologische Urinuntersuchungen, soweit nach Befundlage erforderlich
+              (zum Beispiel      bei     auffälligen   Symptomen,        rezidivierenden
+              Harnwegsinfektionen in der Anamnese, Z. n. Frühgeburt, erhöhtem Risiko für
+              Infektionen der ableitenden Harnwege),
+       6.     Kontrolle des Höhenstands der Gebärmutter,
+       7.     Kontrolle der kindlichen Herzaktionen,
+       8.     Feststellung der Lage des Kindes.
+       In den letzten zwei Schwangerschaftsmonaten sind im Allgemeinen je zwei
+       Untersuchungen angezeigt.
+    (9) Im Verlauf der Schwangerschaft soll ein Ultraschallscreening mittels B-Mode-
+        Verfahren angeboten werden. Die Untersuchungen erfolgen in den
+        Schwangerschaftswochen (SSW):
+       1.      8 + 0 bis 11 + 6 SSW (1. Screening),
+       2.     18 + 0 bis 21 + 6 SSW (2. Screening),
+       3.     28 + 0 bis 31 + 6 SSW (3. Screening).
+
+       Dieses Ultraschallscreening dient der Überwachung einer normal verlaufenden
+       Schwangerschaft, insbesondere mit dem Ziel
+       1.     der genauen Bestimmung des Gestationsalters,
+       2.     der Kontrolle der somatischen Entwicklung des Feten,
+       3.     der Suche nach auffälligen fetalen Merkmalen sowie
+       4.     des frühzeitigen Erkennens von Mehrlingsschwangerschaften.
+
+       Der Inhalt des Screenings ist für die jeweiligen Untersuchungszeiträume in Anlage I a
+       festgelegt.
+       Vor Durchführung des 1. Ultraschallscreenings ist die Schwangere über Ziele, Inhalte
+       und Grenzen sowie mögliche Folgen der Untersuchung aufzuklären.
+       Im Anschluss an dieses Gespräch stehen der Schwangeren folgende Optionen für die
+       Durchführung der Ultraschalluntersuchungen im zweiten Trimenon offen:
+
+6
+   1.      Sonografie mit Biometrie ohne systematische Untersuchung der fetalen
+           Morphologie,
+   2.      Sonografie mit Biometrie und systematische Untersuchung der fetalen
+           Morphologie durch einen besonders qualifizierten Untersucher.
+   Die ärztliche Aufklärung wird unterstützt durch das Merkblatt gemäß Anlage V (siehe
+   Anlage V).
+   Ergeben sich aus dem Screening auffällige Befunde, die der Kontrolle durch
+   Ultraschalluntersuchungen mit B-Mode oder gegebenenfalls anderen sonografischen
+   Verfahren bedürfen, sind diese Kontrolluntersuchungen auch außerhalb der
+   vorgegebenen Untersuchungszeiträume Bestandteil des Screenings.
+   Dies gilt insbesondere für Untersuchungen bei den in Anlage I b aufgeführten
+   Indikationen.
+(10)       Ergibt sich aus den Screening-Untersuchungen – gegebenenfalls einschließlich
+    der Kontrolluntersuchungen – die Notwendigkeit zu einer weiterführenden
+    sonografischen Diagnostik, auch mit anderen sonografischen Verfahren, sind diese
+    Untersuchungen ebenfalls Bestandteil der Mutterschaftsvorsorge, aber nicht mehr des
+    Screenings. Dies gilt auch für Untersuchungen nach § 3 Absatz 3. Dies gilt auch für alle
+    weiterführenden sonografischen Untersuchungen, die notwendig werden, den
+    Schwangerschaftsverlauf und die Entwicklung des Feten zu kontrollieren, um
+    gegebenenfalls therapeutische Maßnahmen ergreifen oder geburtshilfliche
+    Konsequenzen ziehen zu können. Die Indikationen hierfür sind in den Anlagen I c und I
+    d angeführt.
+   Die Anwendung dopplersonografischer Untersuchungen zur weiterführenden Di-
+   agnostik ist ebenfalls Bestandteil der Mutterschaftsvorsorge. Diese Untersuchungen
+   können nur nach Maßgabe der in Anlage I d aufgeführten Indikationen durchgeführt
+   werden.
+   Ergibt sich aus sonografischen Untersuchungen die Notwendigkeit zu weiterführender
+   sonografischer Diagnostik durch eine andere Ärztin oder einen anderen Arzt, sind die
+   relevanten Bilddokumentationen, welche die Indikation zu dieser weiterführenden
+   Diagnostik begründen, dieser Ärztin oder diesem Arzt vor der Untersuchung zur
+   Verfügung zu stellen.
+(11)        Jeder Schwangeren, die nicht bereits einen manifesten Diabetes hat, soll ein
+    Screening auf Schwangerschaftsdiabetes mit nachfolgend beschriebenem Ablauf
+    angeboten werden. Als Hilfestellung für die Information der Frau zu diesem Screening
+    ist das Merkblatt mit dem Titel „Ich bin schwanger. Warum wird allen Schwangeren
+    ein Test auf Schwangerschaftsdiabetes angeboten?“ zur Verfügung zu stellen (siehe
+    Anlage VI). Dieses wird der Schwangeren frühzeitig ausgehändigt, um eine informierte
+    Entscheidung auch angesichts möglicher Therapieoptionen treffen zu können.
+(11a) Screeningablauf:
+         Im Zeitraum zwischen 24 +0 und 27 +6 SSW Bestimmung der
+   Plasmaglukosekonzentration eine Stunde nach oraler Gabe von 50 g Glucoselösung
+   (unabhängig vom Zeitpunkt der letzten Mahlzeit, nicht nüchtern).
+           Schwangere mit Blutzuckerwerten ≥ 7,5 mmol/l (≥ 135 mg/dl) und ≤ 11,1
+   mmol/l (≤ 200 mg/dl) erhalten zeitnah einen oralen Glukosetoleranztest (oGTT) mit
+   75 g Glukoselösung nach Einhaltung von mindestens 8 Stunden Nahrungskarenz. Bei
+   Erreichen bzw. Überschreiten eines oder mehrerer der nachfolgend genannten Werte
+   soll die weitere Betreuung der Schwangeren in enger Zusammenarbeit mit einer
+   diabetologisch qualifizierten Ärztin bzw. einem diabetologisch qualifizierten Arzt
+   erfolgen. In die Entscheidung über eine nachfolgende Behandlung sind Möglichkeiten
+                                                                                          7
+        zur Risikosenkung durch vermehrte körperliche Betätigung und einer Anpassung der
+        Ernährung einzubeziehen.
+     Grenzwerte:
+               1. nüchtern:          ≥ 5,1 mmol/l (92 mg/dl),
+               2. nach 1 Stunde:     ≥ 10,0 mmol/l (180 mg/dl),
+               3. nach 2 Stunden:    ≥ 8,5 mmol/l (153 mg/dl).
+     (11b) Empfehlungen zur Qualitätssicherung gemäß § 135 Absatz 1 Satz 1 Nummer 2 SGB V:
+        Die Blutzucker-Bestimmung erfolgt im Venenblut mittels standardgerechter und
+        qualitätsgesicherter Glukosemessmethodik. Das Messergebnis wird als
+        Glukosekonzentration im venösen Plasma angegeben. Dabei sind geeignete
+        Maßnahmen zur Vermeidung von Verfälschungen der Messwerte durch Glykolyse
+        vorzusehen.
+        Werden zum Screening und zur Erstdiagnostik des Gestationsdiabetes Unit-use-
+        Reagenzien und die entsprechenden Messsysteme in der patientennahen
+        Sofortdiagnostik angewendet, müssen diese nach Herstellerempfehlungen für die
+        ärztliche Anwendung in Diagnose und Screening vorgesehen sein.
+        Geräte, die lediglich zur Eigenanwendung durch die Patientin bestimmt sind, sind
+        damit ausgeschlossen.
+        Neben diesen Regelungen zur Qualitätssicherung gelten unverändert die Regelungen
+        der     Richtlinie     der     Bundesärztekammer         zur    Qualitätssicherung
+        laboratoriumsmedizinischer Untersuchungen. Dabei ist insbesondere auf die
+        Vorgaben zur regelmäßigen Qualitätskontrolle der Messsysteme Teil B1, Abschnitte
+        2.1.5 und 2.1.6 der genannten Richtlinie der Bundesärztekammer hinzuweisen.
+     (12)       Die betreuende Ärztin oder der betreuende Arzt soll die Schwangere in der von
+         ihr gewählten Geburtsklinik rechtzeitig vor der zu erwartenden Geburt vorstellen.
+         Dabei soll die Planung der Geburtsleitung durch die betreuende Ärztin oder den
+         betreuenden Arzt der Geburtsklinik erfolgen. Dies schließt eine geburtshilfliche
+         Untersuchung, eine Besprechung mit der Schwangeren sowie gegebenenfalls eine
+         sonografische Untersuchung ein.
+
+§3     Schwangerschaften mit besonderem Überwachungsbedarf sowie Schwangerschaften
+       mit besonderen Risiken und Risikogeburten
+     (1) Schwangerschaften mit besonderem Überwachungsbedarf sind Schwangerschaften,
+         bei denen aufgrund der Vorgeschichte oder erhobener Befunde nach ärztlicher
+         Beurteilung im konkreten Einzelfall mit einem erhöhten Risiko für Leben und
+         Gesundheit von Mutter oder Kind zu rechnen ist. Dazu zählen insbesondere:
+        1.     Anamnestische Besonderheiten
+               a)     Schwere Allgemeinerkrankungen der Mutter (zum Beispiel an Niere und
+                      Leber oder erhebliche Adipositas),
+               b)     Zustand nach Sterilitätsbehandlung, wiederholten Aborten oder
+                      Frühgeburten,
+               c)     Totgeborenes oder geschädigtes Kind,
+               d)     Vorausgegangene Geburten von Kindern über 4 000 g Gewicht,
+                      hypotrophen Kindern (small for gestational age), Mehrlingen,
+
+8
+          e)     Zustand nach       Uterusoperationen    (zum Beispiel     Sectio, Myom,
+                 Fehlbildung),
+          f)     Komplikationen bei vorangegangenen Geburten (zum Beispiel Placenta
+                 praevia, vorzeitige Lösung der Plazenta, Rissverletzungen, Atonie oder
+                 sonstige Nachgeburtsblutungen, Gerinnungsstörungen, Krämpfe,
+                 Thromboembolie),
+          g)     Erstgebärende unter 18 Jahren oder über 35 Jahre,
+          h)     Mehrgebärende über 40 Jahre, Vielgebärende mit mehr als vier Kindern
+                 (Gefahren: genetische Defekte, sogenannte Plazentainsuffizienz,
+                 geburtsmechanische Komplikationen).
+   2.     Befunde (jetzige Schwangerschaft)
+          a)     Hypertensive Schwangerschaftserkrankungen           (in     allen   ihren
+                 Ausprägungen),
+          b)     Anämie unter 10 g/100 ml (g %),
+          c)     Diabetes mellitus,
+          d)     Uterine Blutung,
+          e)     Blutgruppen-Inkompatibilität (Früherkennung und Prophylaxe des
+                 Morbus haemolyticus fetalis bzw. neonatorum),
+          f)     Diskrepanz   zwischen    Uterus-    bzw.     Kindsgröße  und
+                 Schwangerschaftsdauer (zum Beispiel fraglicher Geburtstermin,
+                 retardiertes Wachstum, Makrosomie, Gemini, Molenbildung,
+                 Hydramnion, Myom),
+          g)     Drohende Frühgeburt (vorzeitige Wehen, Zervixinsuffizienz),
+          h)     Mehrlinge; pathologische Kindslagen,
+          i)     Überschreitung des Geburtstermins bzw. Unklarheit über den
+                 Geburtstermin,
+          j)     Pyelonephritis.
+
+   Bei Schwangerschaften mit besonderem Überwachungsbedarf können häufigere als
+   vierwöchentliche Untersuchungen (bis zur 32. SSW) und häufigere als
+   zweiwöchentliche Untersuchungen (in den letzten 8 SSW) angezeigt sein.
+(2) Aus Schwangerschaften mit besonderem Überwachungsbedarf oder besonderen
+    Risiken können sich Risikogeburten entwickeln. Bei folgenden Befunden ist mit einem
+    erhöhten Risiko unter der Geburt zu rechnen:
+   1.     Frühgeburt,
+   2.     Placenta praevia, vorzeitige Plazentalösung,
+   3.     jede Art von Missverhältnis Kind/Geburtswege.
+
+(3) Bei besonderen Risiken oder zur Abklärung von Auffälligkeiten können im Einzelfall
+    neben den üblichen Untersuchungen noch folgende Untersuchungen in Frage
+    kommen. Dabei handelt es sich nicht um Screening-Untersuchungen. Für die
+    Untersuchungen nach Nummer 5, 6 und 7 sind zusätzlich die Vorgaben des
+    Gendiagnostikgesetzes (GenDG) zu beachten:
+
+                                                                                        9
+        1.     Ultraschall-Untersuchungen (Sonografie):
+               Die Voraussetzungen für die Durchführung von zusätzlichen Ultraschall-
+               Untersuchungen        bei      Schwangerschaften           mit         besonderem
+               Überwachungsbedarf oder besonderen Risiken, die über das sonografische
+               Screening nach § 2 Absatz 9 hinausgehen, werden im § 2 Absatz 10 abgehandelt
+               und sind in den Anlagen I c und I d zu dieser Richtlinie spezifiziert.
+        2.     Tokografische Untersuchungen vor der 28. SSW bei Verdacht auf vorzeitige
+               Wehentätigkeit oder bei medikamentöser Wehenhemmung,
+        3.     Kardiotokografische Untersuchungen (CTG):
+               CTG sind nur nach Maßgabe des Indikationskataloges nach Anlage II der
+               Richtlinie angezeigt,
+        4.     Amnioskopien,
+        5.     Untersuchungen an fetaler DNA aus mütterlichem Blut zur Frage des Vorliegens
+               einer Trisomie 13, 18 oder 21 (Nicht-invasiver Pränataltest – NIPT) mit dem Ziel
+               der Vermeidung der in den Nummern 6 und 7 geregelten invasiven
+               Maßnahmen: Der Test kann dann durchgeführt werden, wenn er geboten ist,
+               um der Schwangeren eine Auseinandersetzung mit ihrer individuellen Situation
+               hinsichtlich des Vorliegens einer Trisomie im Rahmen der ärztlichen Begleitung
+               zu ermöglichen. Eine statistisch erhöhte Wahrscheinlichkeit für eine Trisomie
+               allein reicht für die Anwendung dieses Tests nicht aus.
+        6.     Fruchtwasseruntersuchungen nach Gewinnung des Fruchtwassers durch
+               Amniozentese,
+        7.     Transzervikale Gewinnung von Chorionzottengewebe oder transabdominale
+               Gewinnung von Plazentagewebe.
+
+     (3a) Für Untersuchungen gemäß Absatz 3 Nummer 5 dürfen nur NIPT-Verfahren
+         verwendet werden, die die Validität ihrer Ergebnisse durch eine Qualitätssicherung
+         absichern. Die Testgüte zur Abklärung der jeweils gegenständlichen Trisomien muss im
+         Rahmen von prospektiv geplanten, verblindeten Studien untersucht worden sein.
+         Dabei muss für Trisomie 21 eine Sensitivität von mindestens 97 % und eine Spezifität
+         von mindestens 99 % und für Trisomie 13 eine Spezifität von mindestens 99 % sowie
+         für Trisomie 18 eine Spezifität von 99 % nachgewiesen worden sein.
+        Die Studienergebnisse müssen entsprechend den wissenschaftlichen Standards
+        vollständig veröffentlicht worden sein.
+        Diese Regelungen zur NIPT lassen die sonstigen rechtlichen Voraussetzungen,
+        insbesondere datenschutzrechtliche Vorgaben im Hinblick auf besonders
+        schützenswerte genetische Daten, unberührt.
+        Voraussetzung für die NIPT-Untersuchung ist das Vorliegen des sonografisch
+        bestimmten Gestationsalters und die Kenntnis der Anzahl der Embryonen oder Feten.
+        Liegen zum Zeitpunkt der Blutabnahme Befunde vor, deren Abklärung ein invasives
+        Vorgehen erfordert, sodass das Ziel einer Vermeidung von invasiven Maßnahmen nach
+        Nummer 6 oder Nummer 7 nicht erreichbar ist, kann der Test nicht im Rahmen dieser
+        Richtlinie erbracht werden.
+        Sofern die Probe auswertbar war, muss das Testergebnis eine Angabe enthalten, ob
+        ein auffälliges oder unauffälliges NIPT-Ergebnis bezüglich der Fragestellung (Trisomie)
+        vorliegt. Weist das Testergebnis auf eine Trisomie hin, muss der Befund die
+
+10
+        Information enthalten, dass         eine   gesicherte    Diagnose    einer   invasiven
+        Abklärungsdiagnostik bedarf.
+     (3b) Die Ärztin oder der Arzt, der oder die die Schwangere vor und nach Durchführung des
+         NIPT aufklärt und berät, muss über eine Qualifikation gemäß GenDG und den
+         Richtlinien der Gendiagnostik-Kommission verfügen und die Aufklärungs- und
+         Beratungsverpflichtungen des GenDG entsprechend erfüllen.
+        Die Aufklärung und Beratung haben ergebnisoffen stattzufinden und dienen dem Ziel
+        einer eigenständigen informierten Entscheidung der Schwangeren. Die Bedeutung der
+        Untersuchungsergebnisse ist in verständlicher Form zu erläutern. Die möglichen
+        Folgen einer Entscheidung für diesen Test sind in die Beratung einzubeziehen.
+        Insbesondere ist das jederzeitige Recht auf Nichtwissen, auch für Teilergebnisse des
+        NIPT, zu betonen. Im Zusammenhang mit der Fragestellung Trisomie ist der Hinweis zu
+        geben, dass es die Möglichkeit gibt, über die entsprechenden
+        Selbsthilfeorganisationen oder Behindertenverbände mit betroffenen Familien
+        Kontakt aufzunehmen.
+        Zur Unterstützung der Beratung zu Untersuchungen auf Trisomie 13, 18 oder 21 ist die
+        Versicherteninformation (siehe Anlage VIII) dieser Richtlinie zu verwenden.
+     (4) Von der Erkennung eines Risikomerkmals ab soll eine Ärztin oder ein Arzt die
+         Betreuung einer Schwangeren nur dann weiterführen, wenn sie oder er die
+         Untersuchungen nach Absatz 3 Nummer 1 bis 7 erbringen oder veranlassen und die
+         sich daraus ergebenen Maßnahmen durchführen kann. Anderenfalls soll sie oder er
+         die Schwangere einer Ärztin oder einem Arzt überweisen, die oder der über solche
+         Möglichkeiten verfügt.
+     (5) Die betreuende Ärztin oder der betreuende Arzt soll die Schwangere bei der Wahl der
+         Geburtsklinik unter dem Gesichtspunkt beraten, dass die Klinik über die nötigen
+         personellen und apparativen Möglichkeiten zur Betreuung von Risikogeburten
+         und/oder Risikokindern verfügt.
+     (6) Gemäß § 2a Absatz 1 Schwangerschaftskonfliktgesetz (SchKG) gelten folgende An-
+         forderungen an die Aufklärung und Beratung: Sprechen nach den Ergebnissen von
+         pränataldiagnostischen Maßnahmen dringende Gründe für die Annahme, dass die
+         körperliche oder geistige Gesundheit des Kindes geschädigt ist, so hat die Ärztin oder
+         der Arzt, die oder der der Schwangeren die Diagnose mitteilt, über die medizinischen
+         und psychosozialen Aspekte, die sich aus dem Befund ergeben, unter Hinzuziehung
+         von Ärztinnen oder Ärzten, die mit dieser Gesundheitsschädigung bei geborenen
+         Kindern Erfahrung haben, gemäß § 2a Absatz 1 SchKG verständlich und ergebnisoffen
+         zu beraten. Dies umfasst die eingehende Erörterung der möglichen medizinischen,
+         psychischen und sozialen Fragen sowie der Möglichkeiten zur Unterstützung bei
+         physischen und psychischen Belastungen. Die Ärztin oder der Arzt hat über den
+         Anspruch auf weitere und vertiefende psychosoziale Beratung nach § 2 SchKG zu
+         informieren und im Einvernehmen mit der Schwangeren Kontakte zu Beratungsstellen
+         nach § 3 SchKG und zu Selbsthilfegruppen oder Behindertenverbänden zu vermitteln.
+
+§4     Serologische Untersuchungen und Maßnahmen während der Schwangerschaft
+     (1) Bei jeder Schwangeren sollte zu einem möglichst frühen Zeitpunkt aus einer Blut-
+         probe
+        1.     der TPHA (Treponema-pallidum-Hämagglutinationstest) oder ELISA (Enzyme-
+               linked-immunosorbent-assay)        oder    TPPA     (Treponema      pallidum-
+               Partikelagglutinationstest) als Lues-Suchreaktion (LSR) durchgeführt werden:
+
+                                                                                            11
+                   Ist die Lues-Suchreaktion positiv, so sollen aus derselben Blutprobe die üblichen
+                   serologischen Untersuchungen auf Lues durchgeführt werden. Bei der Lues-
+                   Suchreaktion ist lediglich die Durchführung und nicht das Ergebnis der
+                   Untersuchung im Mutterpass zu dokumentieren.
+           2.      gegebenenfalls ein HIV-Test durchgeführt werden:
+                   Aus dem Blut der Schwangeren ist ein immunochemischer Antikörpertest
+                   vorzunehmen, für welchen die benötigten Reagenzien staatlich zugelassen 3
+                   sind. Ist diese Untersuchung positiv, so muss das Ergebnis mittels Immuno-Blot
+                   aus derselben Blutprobe gesichert werden. Alle notwendigen weiterführenden
+                   Untersuchungen sind Bestandteil der kurativen Versorgung. Die Durchführung
+                   der Beratung und die Durchführung des HIV-Antikörpertests sind im
+                   Mutterpass zu dokumentieren. Das Ergebnis der Untersuchung wird im
+                   Mutterpass nicht dokumentiert.
+           3.      die Bestimmung der Blutgruppe und des Rh-Faktors D der Mutter durchgeführt
+                   werden:
+                   Die Untersuchung des Merkmals RhD erfolgt mit mindestens zwei
+                   verschiedenen Testreagenzien. Für die Untersuchung wird die Anwendung
+                   zweier monoklonaler Antikörper (IgM-Typ), die die Kategorie DVI nicht
+                   erfassen, empfohlen. Bei negativem Ergebnis beider Testansätze gilt die
+                   Schwangere als RhD-negativ. Bei übereinstimmend positivem Ergebnis der
+                   beiden Testansätze ist die Schwangere RhD-positiv. Bei Diskrepanzen oder
+                   schwach positiven Ergebnissen der Testansätze ist eine Klärung zum Beispiel im
+                   indirekten Antiglobulintest mit geeigneten Testreagenzien notwendig. Fällt
+                   dieser Test positiv aus, so ist die Schwangere RhD-positiv (zum Beispiel weak
+                   RhD).
+                   Die Bestimmung der Blutgruppe und des Merkmals RhD der Mutter entfällt,
+                   wenn entsprechende Untersuchungsergebnisse bereits vorliegen und von einer
+                   Ärztin oder einem Arzt bescheinigt wurden.
+           4.      ein Antikörper-Suchtest (AK) durchgeführt werden:
+                   Der Antikörpersuchtest wird mittels des indirekten Antiglobulintests gegen
+                   zwei Test-Blutmuster mit den Antigenen D, C, c, E, e, Kell, Fy und S
+                   durchgeführt. Bei Nachweis von Antikörpern sollen möglichst aus derselben
+                   Blutprobe deren Spezifität und Titerhöhe bestimmt werden.
+                   Gegebenenfalls müssen in solchen Fällen auch das Blut des Kindesvaters und
+                   die Bestimmung weiterer Blutgruppen-Antigene der Mutter in die
+                   Untersuchung einbezogen werden. Eine schriftliche Erläuterung der Befunde
+                   an die überweisende Ärztin oder den überweisenden Arzt kann sich dabei als
+                   notwendig erweisen.
+                   Auch nicht zum Morbus haemolyticus neonatorum führende Antikörper (IgM
+                   und/oder Kälte-Antikörper) sind in den Mutterpass einzutragen, da sie
+                   gegebenenfalls bei einer Bluttransfusion für die Schwangere wichtig sein
+                   können.
+           5.      eine Untersuchung auf Hepatitis-B-Virus-Antigen (HBsAg) durchgeführt
+                   werden:
+
+3
+    Zulassung der Reagenzien durch das Paul-Ehrlich-Institut, Langen
+
+12
+          Jeder Schwangeren soll ein Screening auf HBsAg empfohlen werden, da die
+          Wahrscheinlichkeit einer Hepatitis-B-Übertragung auf das Kind durch wirksame
+          therapeutische Maßnahmen erheblich gesenkt werden kann.
+          Ist das Ergebnis positiv, soll bei der Schwangeren erforderlichenfalls eine
+          Mitbehandlung durch Ärztinnen und Ärzte mit Fachkenntnissen in Bezug auf
+          die Behandlung dieser Patientinnen-Gruppe erfolgen.
+          Ist das Ergebnis positiv, soll das Neugeborene unmittelbar post partum gegen
+          Hepatitis B aktiv/passiv immunisiert werden.
+          Die Untersuchung auf HBsAg entfällt, wenn Immunität (zum Beispiel nach
+          Schutzimpfung) nachgewiesen ist.
+          Nicht geimpften gesunden Schwangeren mit erhöhtem Expositionsrisiko sollte
+          eine Impfung entsprechend den Vorgaben der Schutzimpfungs-RL empfohlen
+          werden.
+
+(2) Ein Test auf Rötelnantikörper ist bei Schwangeren ohne Rötelnimmunität erforderlich.
+    Immunität, und damit Schutz vor Röteln-Embryopathie für die bestehende
+    Schwangerschaft, ist anzunehmen, wenn der Nachweis über zwei erfolgte
+    Rötelnimpfungen vorliegt oder wenn spezifische Antikörper rechtzeitig vor Eintritt
+    dieser Schwangerschaft nachgewiesen worden sind und dieser Befund
+    ordnungsgemäß dokumentiert worden ist. Die Ärztin oder der Arzt soll sich solche
+    Befunde vorlegen lassen und sie in den Mutterpass übertragen. Liegen Befunde aus
+    der Vorschwangerschaftszeit vor, die auf Immunität schließen lassen (siehe Absatz 2
+    Satz 2), so kann von einem Schutz vor einer Röteln-Embryopathie ausgegangen
+    werden.
+   Liegen entsprechende Befunde nicht vor, so ist der Immunstatus der Schwangeren zu
+   bestimmen. Im serologischen Befund ist wörtlich auszudrücken, ob Immunität
+   angenommen werden kann oder nicht.
+   Wird Immunität erstmals während der laufenden Schwangerschaft serologisch
+   festgestellt, kann Schutz vor Röteln-Embryopathie nur dann angenommen werden,
+   wenn sich aus der gezielt erhobenen Anamnese keine für die Schwangerschaft
+   relevanten Anhaltspunkte für Röteln-Kontakt oder eine frische Röteln-Infektion
+   ergeben. Die Ärztin oder der Arzt, die oder der die Schwangere betreut, ist deshalb
+   gehalten, die Anamnese sorgfältig zu erheben und zu dokumentieren. Bei auffälliger
+   Anamnese sind weitere serologische Untersuchungen, gegebenenfalls in Absprache
+   mit dem Labor erforderlich (Nachweis rötelnspezifischer IgM-Antikörper und/oder
+   Kontrolle des Titerverlaufs).
+   Schwangere, bei denen ein Befund vorliegt, der nicht auf Immunität schließen läßt,
+   sollen aufgefordert werden, sich unverzüglich zur ärztlichen Beratung zu begeben, falls
+   sie innerhalb der ersten vier Schwangerschaftsmonate Röteln-Kontakt haben oder an
+   rötelnverdächtigen Symptomen erkranken. Auch ohne derartige Verdachtsmomente
+   soll bei diesen Schwangeren in der 16. bis 17. SSW eine erneute Antikörper-
+   Untersuchung gemäß Absatz 2 durchgeführt werden.
+   Eine aktive Rötelnschutzimpfung soll während der Schwangerschaft nicht vor-
+   genommen werden.
+
+(3) Jeder RhD-negativen Schwangeren mit einer Einlingsschwangerschaft soll die Be-
+    stimmung des fetalen Rhesusfaktors an fetaler DNA aus mütterlichem Blut angeboten
+    werden. Der nicht invasive Pränataltest zur Bestimmung des fetalen Rhesusfaktors zur
+
+                                                                                       13
+        Vermeidung einer mütterlichen Rhesus-Sensibilisierung (NIPT-RhD) ist frühestens ab
+        der 11+0 SSW möglich, sofern der verwendete Test die in Nummer 1 geforderten
+        Testkriterien erfüllt. Für diese genetische vorgeburtliche Untersuchung gelten die
+        Vorgaben des GenDG. Als Hilfestellung für die Information der Schwangeren zu dieser
+        Untersuchung ist die Versicherteninformation mit dem Titel: „Welchen Nutzen hat die
+        Bestimmung des Rhesusfaktors vor der Geburt?“ (siehe Anlage VII) zur Verfügung zu
+        stellen.
+        1.     Für die Bestimmung des fetalen Rhesusfaktors an fetaler DNA aus mütterlichem
+               Blut dürfen nur NIPT-RhD-Verfahren verwendet werden, für die die Validität
+               ihrer Ergebnisse durch eine Qualitätssicherung abgesichert ist. Die Testgüte zur
+               Abklärung des fetalen Rhesusfaktors muss für den im konkreten Fall zum
+               Einsatz kommenden Test im Rahmen von prospektiv geplanten, verblindeten
+               Studien untersucht worden sein und eine Sensitivität von mindestens 99 %
+               sowie eine Spezifität von 98 % aufweisen. Die Studienergebnisse zur Testgüte
+               müssen entsprechend den wissenschaftlichen Standards vollständig
+               veröffentlicht worden sein.
+        2.     Die verantwortliche ärztliche Person, die die Schwangere vor und nach
+               Durchführung des NIPT-RhD genetisch berät, muss über eine Qualifikation für
+               diese Beratung gemäß GenDG und den Richtlinien der Gendiagnostik-
+               Kommission verfügen. Die Aufklärungs- und Beratungsverpflichtungen müssen
+               erfüllt sein.
+        3.     Die Ergebnismitteilung muss eine Angabe enthalten, ob beim Fetus ein RHD-
+               negatives oder RHD-positives Ergebnis vorliegt, sofern die Probe auswertbar
+               war. Das Ergebnis ist im Mutterpass zu dokumentieren, wenn die Einwilligung
+               hierfür sowie die Einwilligung in die Untersuchung und die Gewinnung der
+               dafür erforderlichen genetischen Probe ebenfalls vorliegt und nicht widerrufen
+               wurde.
+
+     (3a) Ein weiterer Antikörper-Suchtest ist bei allen Schwangeren (RhD-positiven und RhD-
+         negativen) in der 23+0 bis 26+6 SSW durchzuführen. Sind bei RhD-negativen
+         Schwangeren keine Anti-D-Antikörper nachweisbar, so soll in der 27+0 bis 29+6 SSW
+         eine Standarddosis (um 300 µg) Anti-D-Immunglobulin injiziert werden, um möglichst
+         bis zur Geburt eine Sensibilisierung der Schwangeren zu verhindern. Das Datum der
+         präpartalen Anti-D-Prophylaxe ist im Mutterpass zu vermerken.
+        Liegt bis 29+6 SSW kein Ergebnis des NIPT-RhD vor, soll die ungezielte Anti-D-
+        Prophylaxe durchgeführt werden.
+        Eine Anti-D-Prophylaxe bei der RhD-negativen Schwangeren ist nicht notwendig, wenn
+        der Fetus mit einem Verfahren gemäß Absatz 3 RHD-negativ bestimmt wurde oder
+        wenn die RhD-negative Schwangere mit RHD-positivem Feten bereits Antikörper
+        entwickelt hat.
+
+§5     Blutgruppenserologische Untersuchungen nach Geburt oder Fehlgeburt und Anti-D-
+       Immunglobulin-Prophylaxe
+     (1) Bei jedem Kind einer RhD-negativen Mutter ist unmittelbar nach der Geburt das
+         Merkmal RhD unter Beachtung der Ergebnisse des direkten Coombstests zu
+         bestimmen. Ist dieser RhD-Faktor positiv (D+) oder liegt eine schwach ausgeprägte
+         RhD-Variante (zum Beispiel weak RhD) vor, so ist aus derselben Blutprobe auch die
+         Blutgruppe des Kindes zu bestimmen. Bei RhD-positivem Kind ist bei der RhD-
+
+14
+        negativen Mutter eine weitere Standarddosis Anti-D-Immunglobulin (um 300 µg)
+        innerhalb von 72 Stunden post partum zu applizieren, selbst wenn nach der Geburt
+        schwach reagierende Anti-D-Antikörper bei der Mutter gefunden worden sind
+        und/oder der direkte Coombstest beim Kind schwach positiv ist. Hierdurch soll ein
+        schneller Abbau der insbesondere während der Geburt in den mütterlichen Kreislauf
+        übergetretenen RhD-positiven Erythrozyten bewirkt werden, um die Bildung von Anti-
+        D-Antikörpern bei der Mutter zu verhindern.
+     (2) RhD-negativen Frauen mit fehlenden Anti-D-Antikörpern und unbekanntem fetalen
+         Rhesusfaktor oder bekannt RHD-positivem Fetus sollte so bald wie möglich nach einer
+         Fehlgeburt oder einem Schwangerschaftsabbruch, jedoch innerhalb 72 Stunden post
+         abortum bzw. nach Schwangerschaftsabbruch, Anti-D-Immunglobulin injiziert werden.
+
+§6     Voraussetzungen für die Durchführung serologischer Untersuchungen
+       Die serologischen Untersuchungen nach den §§ 4 und 5 sollen nur von solchen Ärztinnen
+       oder Ärzten durchgeführt werden, die über die entsprechenden Kenntnisse und
+       Einrichtungen verfügen. Dieselben Voraussetzungen gelten für Untersuchungen in
+       Instituten.
+
+§7     Untersuchungen und Beratungen der Wöchnerin
+     (1) Eine Untersuchung soll innerhalb der ersten Woche nach der Geburt vorgenommen
+         werden. Dabei soll das Hämoglobin bestimmt werden.
+     (2) Die Empfehlungen der Schutzimpfungs-RL zur Pertussisimpfung im Wochenbett sind
+         zu beachten.
+     (3) Eine weitere Untersuchung soll etwa sechs Wochen, spätestens jedoch acht Wochen
+         nach der Geburt durchgeführt werden. Die Untersuchung umfasst:
+        1.     Allgemeinuntersuchung (falls erforderlich einschließlich Hb-Bestimmung),
+        2.     Feststellung des gynäkologischen Befundes,
+        3.     Blutdruckmessung,
+        4.     Untersuchung des Mittelstrahlurins auf Eiweiß und Zucker,
+        5.     bakteriologische Urinuntersuchungen, soweit nach Befundlage erforderlich
+               (zum Beispiel      bei     auffälligen   Symptomen,        rezidivierenden
+               Harnwegsinfektionen in der Anamnese, Z. n. Frühgeburt, erhöhtem Risiko für
+               Infektionen der ableitenden Harnwege) sowie
+        6.     Beratung der Mutter.
+
+§8     Medikamentöse Maßnahmen und Verordnung von Verband- und Heilmitteln
+       Die Versicherte hat während der Schwangerschaft und im Zusammenhang mit der
+       Geburt Anspruch auf Versorgung mit Arznei-, Verband-, Heil- und Hilfsmitteln. Die für
+       die Leistungen nach den §§ 31 bis 33 SGB V geltenden Vorschriften gelten entsprechend;
+       bei Schwangerschaftsbeschwerden und im Zusammenhang mit der Geburt finden die
+       Regelungen, die für die Versorgung mit Arznei-, Verband-, Heil- und Hilfsmitteln eine
+       Zuzahlung der Versicherten vorsehen, keine Anwendung.
+
+                                                                                          15
+§9     Aufzeichnungen und Bescheinigungen
+     (1) Nach Feststellung der Schwangerschaft stellt die Ärztin oder der Arzt der Schwan-
+         geren einen Mutterpass gemäß Anlage III aus, sofern sie nicht bereits einen
+         Mutterpass dieses Musters gemäß Anlage III besitzt.
+     (2) Als Mutterpass im Sinne dieser Richtlinie gelten sowohl der Mutterpass gemäß Anlage
+         III als auch der elektronische Mutterpass gemäß den Festlegungen nach § 355 Absatz
+         1 SGB V. Nach dem Mutterpass richten sich die von der Ärztin oder vom Arzt
+         vorzunehmenden Eintragungen der Ergebnisse der Untersuchungen im Rahmen der
+         ärztlichen Betreuung während der Schwangerschaft und nach der Geburt. Darüber
+         hinausgehende für die Schwangerschaft relevante Untersuchungsergebnisse sollen in
+         den Mutterpass eingetragen werden, soweit die Eintragung durch die Richtlinie nicht
+         ausgeschlossen       ist    (Lues-Suchreaktion    sowie    HIV-Untersuchung).    Die
+         vorzunehmenden Eintragungen erfolgen entweder im Mutterpass gemäß der Anlage
+         III oder auf Wunsch der Versicherten im elektronischen Mutterpass. Um die
+         Vollständigkeit der Daten zu gewährleisten, sollte vermieden werden, innerhalb einer
+         Schwangerschaft zwischen der Dokumentation im elektronischen Mutterpass und der
+         Dokumentation im Mutterpass gemäß Anlage III zu wechseln.
+     (3) Die Befunde der ärztlichen Betreuung und der blutgruppenserologischen
+         Untersuchungen hält die Ärztin oder der Arzt für ihre oder seine Patientenkartei fest
+         und stellt sie bei eventuellem Arztwechsel der anderen Ärztin oder dem anderen Arzt
+         auf deren oder dessen Anforderung zur Verfügung, sofern die Schwangere zustimmt.
+     (4) Beim Anlegen eines weiteren Mutterpasses sind die Blutgruppenbefunde zu über-
+         tragen. Die Richtigkeit der Übertragung ist ärztlich zu bescheinigen.
+     (5) Der zuständige Unterausschuss des Gemeinsamen Bundesausschusses ist berechtigt,
+         Änderungen an dem Mutterpass gemäß Anlage III und den Versicherteninformationen
+         gemäß den Anlagen IV bis VIII vorzunehmen, deren Notwendigkeit sich aus der
+         praktischen Anwendung ergibt, soweit der Mutterpass gemäß Anlage III und die
+         Versicherteninformationen gemäß Anlage IV bis VIII nicht in ihrem Aufbau und in ihren
+         wesentlichen Inhalten verändert werden.
+
+16
+    Anlage I Ultraschall-Untersuchungen in der Schwangerschaft (a bis d)
+                (zu § 2 Absatz 9 und § 3 Absatz 3 der Mutterschafts-Richtlinie)
+
+               Ultraschall-Untersuchungen in der Schwangerschaft (Sonografie)
+Es gilt die Anlage I der Mutterschafts-Richtlinie in der Fassung vom 22. November 1994, zuletzt
+geändert am 21. März 2013.
+
+                                              Anlage I a4
+                           (zu § 2 Absatz 9 der Mutterschafts-Richtlinie)
+
+Ultraschall-Screening in der Schwangerschaft
+Die nachfolgend aufgeführten Befunde sind mittels B-Mode-Verfahren im jeweiligen Zeitraum
+zu erheben. Dabei ist die jeweilige Bilddokumentation durchzuführen.
+
+1. Untersuchung: 8 + 0 bis 11 + 6 SSW
+Intrauteriner Sitz:                                                       ja/nein
+Embryo darstellbar:                                                       ja/nein
+Mehrlingsschwangerschaft:                                                 ja/nein
+        – monochorial                                                     ja/nein
+Herzaktion:                                                               ja/nein
+
+Biometrie I:
+Scheitelsteißlänge (SSL)
+        oder: Biparietaler Durchmesser (BPD)
+Auffälligkeiten:                                                          ja/nein/kontrollbedürftig
+
+Zeitgerechte Entwicklung:                                                 ja/nein/kontrollbedürftig
+
+Weiterführende Untersuchung veranlasst:                                   ja/nein
+Bilddokumentation der Biometrie (ein Maß) und auffälliger oder kontrollbedürftiger Befunde.
+2. Untersuchung: 18 + 0 bis 21 + 6 SSW
+
+4
+  Für die Durchführung der in Anlage I a in den Nummern 1, 2 Buchstabe a, und Nummer 3 angeführten
+Ultraschalluntersuchungen ist die Erfüllung der Anforderungen gemäß Anwendungsbereich Nummer 9.1 der
+Anlage I der Vereinbarung von Qualitätssicherungsmaßnahmen nach § 135 Absatz 2 SGB V zur
+Ultraschalldiagnostik (Ultraschall-Vereinbarung) Voraussetzung. Für die Durchführung der Untersuchung nach
+Nummer 2 Buchstabe b ist die Erfüllung der Anforderungen gemäß Anwendungsbereich Nummer 9.1 Buchstabe
+a der Anlage I der Ultraschall-Vereinbarung Voraussetzung, letzteres beinhaltet, dass ein entsprechender
+Befähigungsnachweis gegenüber der Kassenärztlichen Vereinigung erbracht wurde.
+
+                                                                                                       17
+a)   Sonografie mit Biometrie ohne systematische Untersuchung der fetalen
+     Morphologie
+
+     Einlingsschwangerschaft:                                           ja/nein
+     Herzaktion:                                                        ja/nein
+
+     Biometrie II:
+        − Biparietaler Durchmesser (BPD)
+        − Fronto-okzipitaler Durchmesser (FOD)
+          oder: Kopfumfang (KU)
+        − Abdomen/Thorax-quer-Durchmesser (ATD)
+            und Abdomen/Thorax-anterior posterior-Durchmesser (APD)
+          oder: Abdomen/Thorax-Umfang (AU)
+        − Messung einer Femurlänge (FL)
+
+     Zeitgerechte Entwicklung:                                ja/nein/kontrollbedürftig
+
+     Hinweiszeichen für Entwicklungsstörungen hinsichtlich:
+        − Fruchtwassermenge:                                  ja/nein/kontrollbedürftig
+        − körperlicher Entwicklung:                           ja/nein/kontrollbedürftig
+        − Plazentalokalisation und -struktur:                 normal/kontrollbedürftig
+
+     Weiterführende Untersuchung veranlasst:                  ja/nein
+
+     Bilddokumentation von insgesamt vier der in Biometrie II genannten Maße sowie
+     auffälliger und/oder kontrollbedürftiger Befunde.
+
+b)   Sonografie mit Biometrie und systematischer Untersuchung der fetalen Morphologie
+     durch eine besonders qualifizierte Untersucherin oder einen besonders qualifizierten
+     Untersucher. Zusätzlich zu den in Buchstabe a vorgegebenen Untersuchungsinhalten
+     Beurteilung der folgenden fetalen Strukturen:
+
+     Kopf:
+        − Ventrikelauffälligkeiten:                                     ja/nein
+        − Auffälligkeiten der Kopfform:                                 ja/nein
+        − Darstellbarkeit des Kleinhirns:                               ja/nein
+
+     Hals und Rücken:
+        − Unregelmäßigkeit der dorsalen Hautkontur:                     ja/nein
+
+18
+Thorax:
+   − Auffällige Herz/Thorax-Relation      (Blickdiagnose):     ja/nein
+   − Linksseitige Herzposition:                                ja/nein
+   − Persistierende Arrhythmie im
+     Untersuchungszeitraum:                                    ja/nein
+   − Darstellbarkeit des Vier-Kammer-Blicks:                   ja/nein
+
+Rumpf:
+   − Konturunterbrechung an der vorderen Bauchwand:            ja/nein
+   − Darstellbarkeit des Magens im linken Oberbauch:           ja/nein
+   − Darstellbarkeit der Harnblase:                            ja/nein
+
+Bilddokumentation der Auffälligkeiten.
+
+3. Untersuchung: 28 + 0 bis 31 + 6 SSW
+Einlingsschwangerschaft:                                       ja/nein
+Kindslage:
+Herzaktion:                                                    ja/nein
+
+Biometrie III:
+   − Biparietaler Durchmesser (BPD)
+   − Fronto-okzipitaler Durchmesser (FOD)
+     oder: Kopfumfang (KU)
+   − Abdomen/Thorax-quer-Durchmesser (ATD)
+       und Abdomen/Thorax-anterior posterior-Durchmesser (APD)
+     oder: Abdomen/Thorax-Umfang (AU)
+   − Messung einer Femurlänge (FL)
+
+Zeitgerechte Entwicklung:                               ja/nein/kontrollbedürftig
+
+Kontrolle der Hinweiszeichen für Entwicklungsstörungen gemäß dem 2. Screening
+(gemäß Nummer 2 Buchstabe a).
+
+Weiterführende Untersuchung veranlasst:                        ja/nein
+
+Bilddokumentation von insgesamt vier der in Biometrie III genannten Maße sowie
+auffälliger und/oder kontrollbedürftiger Befunde.
+
+                                                                                    19
+                                        Anlage I b
+              (zu § 2 Absatz 9 und § 3 Absatz 3 der Mutterschafts-Richtlinie)
+
+Über die in Anlage I a genannten Screening-Untersuchungen hinaus können bei Vorliegen
+einer der nachfolgend angeführten Indikationen weitere sonografische Untersuchungen zur
+Überwachung der Schwangerschaft angezeigt sein, die als Kontrolluntersuchungen
+Bestandteil des Screenings sind.
+
+1.    Sicherung des Schwangerschaftsalters bei
+          − unklarer Regelanamnese
+          − Diskrepanz zwischen Uterusgröße und berechnetem Gestationsalter aufgrund
+             des klinischen oder sonografischen Befundes
+          − fehlenden Untersuchungsergebnissen aus dem Ultraschall-Screening bei
+             Übernahme der Mutterschaftsvorsorge durch eine andere Ärztin oder einen
+             anderen Arzt
+
+2.    Kontrolle des fetalen Wachstums bei
+         − Schwangeren mit einer Erkrankung, die zu Entwicklungsstörungen des Feten
+             führen kann,
+         − Verdacht auf Entwicklungsstörung des Feten aufgrund vorausgegangener
+             Untersuchungen
+
+3.    Überwachung einer Mehrlingsschwangerschaft
+
+4.    Neu- oder Nachbeurteilung des Schwangerschaftsalters bei auffälligen Ergebnissen der
+      in der Mutterschaftsvorsorge notwendigen serologischen Untersuchungen der Mutter
+
+5.    Diagnostik und Kontrolle des Plazentasitzes bei vermuteter oder nachgewiesener
+      Placenta praevia
+
+6.    Erstmaliges Auftreten einer uterinen Blutung
+
+7.    Verdacht auf intrauterinen Fruchttod
+
+8.    Verdacht auf Lageanomalie ab Beginn der 36. SSW.
+
+20
+                                              Anlage I c
+                           (zu § 3 Absatz 3 der Mutterschafts-Richtlinie)
+
+Über die in den Anlagen I a und I b genannten Untersuchungen hinaus können weitere
+Ultraschall-Untersuchungen mittels B-Mode oder auch mit anderen sonografischen Verfahren
+angezeigt sein, wenn sie der Abklärung und/oder Überwachung von pathologischen Befunden
+dienen und eine der nachfolgend aufgeführten Indikationen vorliegt. Diese Untersuchungen
+gehören zwar zum Programm der Mutterschaftsvorsorge, sind aber nicht mehr Bestandteil
+des Screenings.
+
+I. 5
+1.      Rezidivierende oder persistierende uterine Blutung
+
+2.      Gestörte intrauterine Frühschwangerschaft
+
+3.      Frühschwangerschaft bei liegendem IUP, Uterus myomatosus, Adnex-tumor
+
+4.      Nachkontrolle intrauteriner Eingriffe
+
+5.      Zervixmessung mittels Ultraschall bei Zervixinsuffizienz oder Verdacht
+
+6.      Bestätigter vorzeitiger Blasensprung und/oder vorzeitige Wehentätigkeit
+
+7.      Kontrolle und gegebenenfalls Verlaufsbeobachtung nach Bestätigung einer
+        bestehenden Anomalie oder Erkrankung des Fetus
+
+8.      Verdacht auf vorzeitige Plazentalösung
+
+9.      Ultraschall-Kontrollen bei gestörtem Geburtsverlauf zum Beispiel vor, während und
+        nach äußerer Wendung aus Beckenend- oder Querlage in Schädellage.
+
+5
+  Für die Durchführung der in Abschnitt I angeführten Ultraschalluntersuchungen ist die Erfüllung der An-
+forderungen gemäß Anwendungsbereich Nummer 9.1 oder Nummer 9.1 Buchstabe a der Anlage I der Ultraschall-
+Vereinbarung Voraussetzung, für die in Abschnitt II angeführten Ultraschalluntersuchungen sind die
+Anforderungen nach Anwendungsbereich Nummer 9.2 der Anlage I der Ultraschall-Vereinbarung zu erfüllen.
+
+                                                                                                      21
+II. 6
+1.      Durchführung intrauteriner Eingriffe wie Amniocentese, Chorionzottenbiopsie,
+        Fetalblutgewinnung, Körperhöhlen- oder Gefäßpunktionen, Fruchtwasserersatz-
+        Auffüllungen, Transfusionen, Anlegen von Shunts, Fetoskopie
+
+2.      Gezielte Ausschlußdiagnostik bei erhöhtem Risiko für Fehlbildungen oder
+        Erkrankungen des Fetus aufgrund von
+        a)      ultraschalldiagnostischen Hinweisen
+        b)      laborchemischen Befunden
+        c)      genetisch bedingten oder familiär gehäuften Erkrankungen oder Fehlbildungen
+                in der Familienanamnese
+        d)      teratogenen Noxen
+                oder als Alternative zur invasiven pränatalen Diagnostik.
+
+6
+  Für die Durchführung der in Abschnitt I angeführten Ultraschalluntersuchungen ist die Erfüllung der An-
+forderungen gemäß Anwendungsbereich Nummer 9.1 oder Nummer 9.1 Buchstabe a der Anlage I der Ultraschall-
+Vereinbarung Voraussetzung, für die in Abschnitt II angeführten Ultraschalluntersuchungen sind die
+Anforderungen nach Anwendungsbereich Nummer 9.2 der Anlage I der Ultraschall-Vereinbarung zu erfüllen.
+
+22
+                                        Anlage I d
+                      (zu § 3 Absatz 3 der Mutterschafts-Richtlinie)
+
+Dopplersonografische Untersuchungen
+Die Anwendung der Dopplersonografie als Maßnahme der Mutterschaftsvorsorge ist nur bei
+einer oder mehreren der nachfolgend aufgeführten Indikationen und – mit Ausnahme der
+Fehlbildungsdiagnostik – nur in der zweiten Schwangerschaftshälfte zulässig.
+
+1.    Verdacht auf intrauterine Wachstumsretardierung
+
+2.    Hypertensive Schwangerschaftserkrankungen (in allen ihren Ausprägungen)
+
+3.    Zustand nach Mangelgeburt (small for gestational age)/intrauterinem Fruchttod
+
+4.    Zustand nach Präeklampsie/Eklampsie
+
+5.    Auffälligkeiten der fetalen Herzfrequenzregistrierung
+
+6.    Begründeter Verdacht auf Fehlbildung/fetale Erkrankung
+
+7.    Mehrlingsschwangerschaft bei diskordantem Wachstum
+
+8.    Abklärung bei Verdacht auf Herzfehler/Herzerkrankungen.
+
+                                                                                      23
+     Anlage II Indikationen zur Kardiotokografie (CTG) während der Schwangerschaft
+                   (zu § 3 Absatz 3 Nummer 3 der Mutterschafts-Richtlinie)
+
+Eine CTG ist im Rahmen der Schwangerenvorsorge nur angezeigt, wenn eine der nachfolgend
+aufgeführten Indikationen vorliegt:
+
+1.     Indikationen zur erstmaligen CTG
+           − in der 26. und 27. SSW drohende Frühgeburt
+
+            − ab der 28. SSW
+            a) Auskultatorisch festgestellte Herztonalterationen
+            b) Verdacht auf vorzeitige Wehentätigkeit.
+
+2.     Indikationen zur CTG-Wiederholung
+       CTG-Alterationen
+       a)      Anhaltende Tachykardie (> 160/Minute)
+       b)      Bradykardie (< 100/Minute)
+       c)      Dezeleration(en) (auch wiederholter Dip null)
+       d)      Hypooszillation, Anoszillation
+       e)      Unklarer Kardiotokogramm-Befund bei Verdacht auf vorzeitige Wehentätigkeit
+       f)      Mehrlinge
+       g)      Intrauteriner Fruchttod bei früherer Schwangerschaft
+       h)      Verdacht auf Plazentainsuffizienz nach klinischem oder bio-chemischem
+               Befund
+       i)      Verdacht auf Übertragung
+       j)      Uterine Blutung
+       Medikamentöse Wehenhemmung
+
+24
+Anlage III Mutterpass
+
+                        25
+     Anlage IV Versicherteninformation zum HIV-Test in der Schwangerschaft
+                       (zu § 2 Absatz 1 der Mutterschafts-Richtlinie)
+
+                                    Ich bin schwanger.
+                 Warum wird allen Schwangeren ein HIV-Test angeboten?
+
+Diese Information erläutert, warum allen Schwangeren in Deutschland ein HIV-Test
+angeboten wird. Sie soll Sie bei Ihrem Beratungsgespräch mit Ihrer Ärztin oder Ihrem Arzt
+unterstützen. Bei weitergehenden Fragen können Sie sich auch an Beratungsstellen, zum
+Beispiel bei Ihrem Gesundheitsamt, oder an die örtliche AIDS-Hilfe wenden.
+
+Die wichtigsten Informationen vorab:
+           − HIV kann während der Schwangerschaft, bei der Geburt und später durch die
+              Muttermilch auf das Kind übertragen werden.
+           − Die frühzeitige Feststellung einer HIV-Infektion ist wichtig. Durch eine
+              rechtzeitige Behandlung besteht eine sehr gute Aussicht, eine Ansteckung des
+              Kindes zu verhindern. Aber auch wenn eine Ansteckung erst später in der
+              Schwangerschaft festgestellt wird, kann eine Behandlung das Kind immer noch
+              schützen.
+           − Ein anonymer HIV-Test ist möglich.
+Sie haben Anspruch auf einen HIV-Test. Sie haben aber selbstverständlich das Recht, einen
+HIV-Test abzulehnen.
+
+Was ist HIV?
+Das HI-Virus („Humanes Immunschwäche-Virus“) befällt Zellen des Abwehrsystems des
+Körpers und zerstört sie. Die meisten Menschen mit HIV haben über Jahre kaum Beschwerden.
+Wenn das Virus das Immunsystem aber stark geschwächt hat, treten schwere Erkrankungen
+auf. Diese Phase wird als „AIDS“ (deutsch: „erworbenes Immunschwäche-Syndrom“)
+bezeichnet. Eine lebenslange Behandlung mit Medikamenten kann verhindern, dass HIV zu
+AIDS führt. Eine Heilung von HIV und AIDS ist momentan nicht möglich.
+Frauen stecken sich meistens durch ungeschützten sexuellen Kontakt an, bei dem
+Samenflüssigkeit oder Blut in den Körper gelangt. Auch beim gemeinsamen Benutzen von
+Spritzen oder Injektionsnadeln kann HIV übertragen werden.
+
+Warum wird mir ein HIV-Test angeboten?
+In Deutschland sind nur wenige Schwangere mit HIV infiziert. Aber es kommt vor, dass eine
+Frau nicht weiß, dass sie sich angesteckt hat.
+Es ist wichtig zu wissen, ob eine HIV-Infektion besteht, denn das Virus kann auf das Kind
+übertragen werden. Wenn eine Schwangere HIV hat, kann sie eine Ansteckung ihres Kindes
+wirksam verhindern, wenn sie während der gesamten Schwangerschaft Medikamente
+einnimmt. Das Risiko für eine Übertragung sinkt dann auf unter 1 %. Die heutigen
+Behandlungsmöglichkeiten sind so gut, dass eine Mutter mit HIV oft ohne Beschwerden leben
+und so auch für ihr Kind da sein kann.
+
+26
+Falls ich HIV habe, wie kann ich mein Kind schützen?
+Die Gefahr einer HIV-Übertragung auf das Kind ist sehr gering, wenn
+1. Sie während der Schwangerschaft Medikamente einnehmen, die HIV bekämpfen. Bei einer
+erfolgreichen Behandlung sinkt die Zahl der Viren so stark, dass sie im Blut nicht mehr
+nachweisbar sind.
+2. die Art der Geburt angepasst wird: Wenn die Behandlung erfolgreich war, ist eine normale
+Geburt möglich. Wenn Sie keine Medikamente nehmen oder sie nicht ausreichend wirken,
+kann ein Kaiserschnitt das Übertragungsrisiko verringern.
+3. Sie nach der Geburt darauf verzichten, das Kind zu stillen. Ihre Muttermilch kann HIV
+enthalten, außerdem Reste der Medikamente. Deshalb darf das Kind auch keine abgepumpte
+Muttermilch bekommen. Handelsübliche Fertigmilch ist eine sichere Alternative.
+4. das Kind nach der Geburt behandelt wird.
+Kann ich mich auch in der Schwangerschaft mit HIV infizieren?
+Eine HIV-Infektion ist auch während der Schwangerschaft möglich. Bei sexuellen Kontakten
+sind Kondome ein guter Schutz.
+
+Gibt es Bedenken bei einem HIV-Test?
+Für die meisten Frauen ist ein HIV-Test nur ein Test unter vielen in der Schwangerschaft. Die
+Entscheidung für einen HIV-Test fällt jedoch nicht immer leicht und kann Ängste auslösen. Die
+Wartezeit bis zum Testergebnis kann als belastend erlebt werden. Bei Bedenken oder Sorgen
+können Sie mit Ihrer Ärztin oder Ihrem Arzt, aber auch mit Mitarbeiterinnen und Mitarbeitern
+der Beratungsstellen sprechen – auf Wunsch auch anonym.
+Wer mit HIV infiziert ist und dies weiß, muss mit Nachteilen rechnen, zum Beispiel beim
+Abschluss einer (Lebens-)Versicherung. Unabhängig davon, ob Sie den Test durchführen
+lassen und welches Ergebnis er hat, wirkt sich das aber zum Beispiel nicht auf Ihren
+gesetzlichen Krankenversicherungsstatus oder den Aufenthaltsstatus als Migrantin in
+Deutschland aus.
+
+Wer erfährt von dem Test?
+Ihre Ärztin oder Ihr Arzt teilt Ihnen das Testergebnis in einem vertraulichen Gespräch mit.
+Ärztinnen, Ärzte und ihr Personal unterliegen der Schweigepflicht. Arbeitgeber oder andere
+Stellen werden über das Ergebnis nicht informiert.
+Sie alleine entscheiden, wer von dem Test und seinem Ergebnis erfährt. Nur mit Ihrem
+Einverständnis wird es an andere Ärztinnen oder Ärzte übermittelt.
+Die Durchführung der Beratung und die Durchführung des HIV-Antikörpertestes sind im
+Mutterpass zu dokumentieren. Das Ergebnis der Untersuchung wird im Mutterpass nicht
+dokumentiert.
+
+Kann ich mich anonym testen lassen?
+Sie können sich auch anonym testen lassen. Dies ist zum Beispiel in einer Arztpraxis, in Kliniken
+mit einer HIV-Ambulanz, beim Gesundheitsamt, bei manchen AIDS-Beratungsstellen oder
+einem Tropeninstitut möglich.
+
+                                                                                              27
+Was passiert bei einem HIV-Test?
+Für einen HIV-Test wird eine Blutprobe entnommen und in einem Labor untersucht. Beim Test
+kann das Virus nur entdeckt werden, wenn im Blut Zeichen dafür vorhanden sind, dass der
+Körper schon gegen die Infektion kämpft. Normalerweise kann HIV spätestens drei Monate
+nach der Ansteckung im Blut nachgewiesen werden.
+Ein Testergebnis wird als „positiv“ bezeichnet, wenn Viren im Blut nachgewiesen wurden. Mit
+dem Ausdruck „HIV-positiv“ ist gemeint, dass ein Mensch HIV im Blut hat.
+Wenn Sie meinen, dass Sie sich mit HIV angesteckt haben könnten, zum Beispiel durch einen
+ungeschützten sexuellen Kontakt, können Sie sich an Ihre Ärztin oder Ihren Arzt wenden, um
+einen oder mehrere Test-Zeitpunkte zu vereinbaren. Der Test ist sehr genau.
+
+Was kostet der HIV-Test?
+Die Kosten für einen HIV-Test in einer Arztpraxis werden während der Schwangerschaft von
+den Krankenkassen übernommen. Wenn Sie einen Test anonym durchführen lassen wollen,
+kann dies mit geringen Kosten für Sie verbunden sein.
+
+Wo bekomme ich weitere Informationen?
+Für weitere Informationen können Sie sich an Ihre Ärztin, Ihren Arzt, an Ihr Gesundheitsamt
+oder die örtliche AIDS-Hilfe wenden.
+
+Das Bundesinstitut für Öffentliche Gesundheit (BIÖG) bietet unter der Nummer 0221/892031
+eine anonyme Telefonberatung an.
+Über die Website des BIÖG können Sie auch Beratungsstellen finden und sich anonym im
+Internet beraten lassen: www.liebesleben.de
+
+Quellen:
+Chou R, Smits AK, Huffman LH, Fu R, Korthuis PT, US Preventive Services Task Force. Prenatal
+screening for HIV: A review of the evidence for the U.S. Preventive Services Task Force. Ann
+Intern Med 2005; 143: 38-54. http://www.ncbi.nlm.nih.gov/pubmed/15998754
+
+Chou R, Cantor A, Bougatsos C, Zakher B. Screening for HIV in pregnant women: systematic
+review to update the U.S. Preventive Services Task Force Recommendation. Rockville: Agency
+for        Healthcare         Research         and         Quality;     2012.         URL:
+http://www.ncbi.nlm.nih.gov/books/NBK114880/pdf/TOC.pdf.
+
+Coutsoudis A, Dabis F, Fawzi W, Gaillard P et al. Late postnatal transmission of HIV-1 in breast-
+fed children: an individual patient data meta-analysis. J Infect Dis 2004; 189: 2154-2166.
+http://www.ncbi.nlm.nih.gov/pubmed/15181561
+
+Deutsche AIDS-Gesellschaft (DAIG) u.a. S2k-Leitlinie: Deutsch-Österreichische Leitlinie zur
+HIV-Therapie in der Schwangerschaft und bei HIV-exponierten Neugeborenen. September
+2011. http://www.awmf.org/leitlinien/detail/ll/055-002.html
+
+28
+Forbes JC, Alimenti AM, Singer J, Brophy JC, Bitnun A, Samson LM et al. A national review of
+vertical       HIV       transmission.        AIDS        2012;      26(6):         757-763.
+http://www.ncbi.nlm.nih.gov/pubmed/22210635
+
+Horvath T, Madi BC, Iuppa IM, Kennedy GE, Rutherford G, Read JS. Interventions for
+preventing late postnatal mother-to-child transmission of HIV. Cochrane Database Sys Rev
+2009; (1): CD006734. http://www.ncbi.nlm.nih.gov/pubmed/19160297
+
+Read JS, Newell M-L. Efficacy and safety of cesarean delivery for prevention of mother-to-child
+trans-mission of HIV-1. Cochrane Database Sys Rev 2005; (4): CD005479.
+http://www.ncbi.nlm.nih.gov/pubmed/16235405
+
+Robert   Koch     Institut (RKI).    RKI-Ratgeber   für    Ärzte.   Dezember    2013.
+http://www.rki.de/DE/Content/Infekt/EpidBull/Merkblaetter/Ratgeber_HIV_AIDS.html?nn=
+2374210
+
+Siegfried N, van der Merwe L, Brocklehurst P, Sint TT. Antiretrovirals for reducing the risk of
+mother-to-child transmission of HIV infection. Cochrane Database Sys Rev 2011; (7):
+CD003510. http://www.ncbi.nlm.nih.gov/pubmed/21735394
+
+Sturt AS, Dokubo EK, Sint TT. Antiretroviral therapy (ART) for treating HIV infection in ART-
+eligible preg-nant women. Cochrane Database Sys Rev 2010; (3): CD008440.
+http://www.ncbi.nlm.nih.gov/pubmed/20238370
+
+World Health Organization (WHO) 2010: ANTIRETROVIRAL drugs for treating pregnant women
+and preventing HIV infection in infants. Recommendations for a public health approach - 2010
+Version. HIV/Aids Programme; Strengthening health service to fight HIV/AIDS)
+http://whqlibdoc.who.int/publications/2010/9789241599818_eng.pdf
+
+                                                                                            29
+     Anlage V Versicherteninformation zu Basis-Ultraschalluntersuchungen in der
+              Schwangerschaft
+                       (zu § 2 Absatz 9 der Mutterschafts-Richtlinie)
+
+          Ich bin schwanger. Warum werden allen schwangeren Frauen drei Basis-
+                          Ultraschalluntersuchungen angeboten?
+
+Viele Frauen und ihre Partner freuen sich bei einer Schwangerschaft auf die Ultraschallunter-
+suchungen. Die Bilder stärken oft die erste Beziehung zum heranwachsenden Kind. Doch das
+ist nicht der Grund, warum allen Schwangeren drei Basis-Ultraschalluntersuchungen
+angeboten werden. Die Untersuchungen haben vielmehr einen medizinischen Hintergrund:
+Mit ihrer Hilfe soll festgestellt werden, ob die Schwangerschaft normal verläuft und ob sich
+das Kind normal entwickelt. Das ist die Regel: Von 100 Schwangeren bringen 96 bis 98 ein
+gesundes Kind zur Welt. Manchmal zeigen sich beim Ultraschall aber Auffälligkeiten, die dann
+weitere Untersuchungen notwendig machen.
+Dieses Merkblatt beschreibt die Basis-Ultraschalluntersuchungen, auf die gesetzlich
+krankenversicherte Frauen einen Anspruch haben. Diese Untersuchungen werden im
+Mutterpass mit dem englischen Begriff für Reihenuntersuchung als „Screening“ bezeichnet.
+Das Merkblatt erläutert auch, welche Fragen durch die Untersuchungen aufgeworfen werden
+können und was gegen die Untersuchungen sprechen kann. Wir hoffen, dass Ihnen diese
+Informationen beim Gespräch mit Ihrer Frauenärztin oder Ihrem Frauenarzt helfen und die
+Entscheidung für oder gegen Ultraschalluntersuchungen erleichtern. Wenn Sie im
+Zusammenhang mit Ihrer Schwangerschaft Fragen haben, können Sie sich außerdem jederzeit
+an eine psychosoziale Beratungsstelle und Beratungsstellen für werdende Eltern wenden.
+
+Die wichtigsten Informationen dieses Merkblatts:
+           − Während einer unkomplizierten Schwangerschaft haben Sie Anspruch auf drei
+              Basis-Ultraschalluntersuchungen, wenn Sie gesetzlich krankenversichert sind.
+           − Mithilfe der Basis-Ultraschalluntersuchungen soll vor allem abgeschätzt
+           − werden, ob die Schwangerschaft und die Entwicklung des Kindes normal
+              verlaufen.
+           − Direkte unerwünschte Wirkungen oder Risiken der Ultraschalluntersuchung
+              selbst sind weder für die Schwangere noch für das Ungeborene bekannt.
+           − Ultraschalluntersuchungen können auch auf Auffälligkeiten hindeuten und
+              schwierige Entscheidungen erforderlich machen.
+           − Ärztinnen und Ärzte sind verpflichtet, Sie vor dem Ultraschall über die Vor- und
+              Nachteile aufzuklären.
+           − Sie können auf Ultraschalluntersuchungen verzichten, ohne Gründe nennen zu
+              müssen und ohne dass dies Folgen für den Versicherungsschutz hat.
+           − Ultraschalluntersuchungen zu nichtmedizinischen Zwecken dürfen nicht
+              durchgeführt werden.
+
+Was ist eine Ultraschalluntersuchung?
+Mit einer Ultraschalluntersuchung (Sonografie) kann das Kind in der Gebärmutter sichtbar
+gemacht werden. Dazu werden Schallwellen verwendet, die nicht hörbar sind. Die
+Schallwellen werden von Gewebeschichten im Körper als Echo zurückgeworfen.
+
+30
+Für die Untersuchung trägt die Frauenärztin oder der Frauenarzt ein Gel auf den Bauch auf
+und bewegt den Schallkopf des Ultraschallgerätes darüber. Der Schallkopf sendet Schallwellen
+aus und empfängt auch ihre Echos. Diese werden vom Ultraschallgerät in ein Bild
+umgewandelt, das auf einem Bildschirm sichtbar wird. Bei der ersten Ultraschalluntersuchung
+kann auch eine sogenannte Vaginalsonde eingesetzt werden. Sie wird in die Scheide
+eingeführt und sendet von dort Schallwellen aus.
+
+Wann erhalte ich die Ergebnisse der Untersuchung und wer erfährt davon?
+In der Regel teilt Ihnen Ihre Frauenärztin oder Ihr Frauenarzt die Ergebnisse während oder
+direkt nach der Untersuchung mit. Sie können mit Ihrer Frauenärztin
+oder Ihrem Frauenarzt besprechen, ob Sie die Ultraschallbilder sehen wollen. Wenn Sie das
+Geschlecht des Kindes nicht erfahren möchten, sprechen Sie dies vor der Untersuchung an.
+Alle im Rahmen der Untersuchung erhobenen Befunde sind zu dokumentieren.
+Ärztinnen, Ärzte und das Praxispersonal unterliegen der Schweigepflicht.
+
+Welche Basis-Ultraschalluntersuchungen gibt es in der Schwangerschaft?
+Wenn Sie gesetzlich krankenversichert sind und nicht als Risikoschwangere gelten, werden
+Ihnen drei Basis-Ultraschalluntersuchungen angeboten. Diese Untersuchungen liefern
+grundlegende Informationen über die Schwangerschaft, etwa wie groß das Ungeborene ist
+und wie es liegt. Die Frauenärztin oder der Frauenarzt schaut nach der Lage des
+Mutterkuchens (Plazenta) und der Fruchtwassermenge. Die Größe des Kindes wird gemessen
+und im Mutterpass in einer Wachstumskurve dokumentiert. Die Untersuchungsergebnisse
+können dabei helfen, die Geburt vorzubereiten.
+Bei allen drei Ultraschalluntersuchungen wird überprüft,
+− ob sich das Ungeborene altersgerecht entwickelt,
+− ob es sich vielleicht um Mehrlinge handelt und
+− ob es Hinweise auf Entwicklungsstörungen gibt.
+
+Darüber hinaus wird bei den einzelnen Untersuchungen Folgendes untersucht:
+9. bis 12. Schwangerschaftswoche: 1. Basis-Ultraschalluntersuchung
+Der erste Basis-Ultraschall dient vor allem dazu, die Schwangerschaft zu bestätigen. Es wird
+geprüft, ob sich die befruchtete Eizelle in der Gebärmutter eingenistet und zu einem Embryo
+oder Fötus entwickelt hat. In den ersten Schwangerschaftswochen spricht man von einem
+Embryo, nach der 10. Woche von einem Fötus. Beim ersten Ultraschall können bereits die
+Körperlänge oder der Durchmesser des Kopfes gemessen werden. Die Ergebnisse helfen da-
+bei, die Schwangerschaftswoche und den voraussichtlichen Geburtstermin zu schätzen. Die
+Frauenärztin oder der Frauenarzt kontrolliert auch, ob ein Herzschlag feststellbar ist und ob
+es sich um Mehrlinge handelt.
+
+19. bis 22. Schwangerschaftswoche: 2. Basis-Ultraschalluntersuchung
+Beim zweiten Ultraschall können Sie zwischen zwei Alternativen wählen, um eventuelle Auf-
+fälligkeiten zu erkennen:
+a) Einer „Basis-Ultraschalluntersuchung“
+b) Einer „erweiterten Basis-Ultraschalluntersuchung“
+
+                                                                                          31
+Wenn Sie sich für eine Basis-Ultraschalluntersuchung entscheiden, werden die Größe von Kopf
+und Bauch des Kindes sowie die Länge des Oberschenkelknochens gemessen. Außerdem wird
+die Position der Plazenta in der Gebärmutter beurteilt. Wenn die Plazenta besonders tief sitzt,
+können bei der weiteren Betreuung und für die Geburt besondere Vorkehrungen nötig
+werden.
+Wenn Sie sich für einen erweiterten Basis-Ultraschall entscheiden, werden zusätzlich folgende
+Körperteile genauer untersucht:
+− Kopf: Sind Kopf und Hirnkammern normal geformt? Ist das Kleinhirn sichtbar?
+− Hals und Rücken: Sind sie gut entwickelt?
+− Brustkorb: Wie ist das Größenverhältnis von Herz und Brustkorb? Ist das Herz auf der
+    linken Seite sichtbar? Schlägt das Herz rhythmisch? Sind die vier Kammern des Herzens
+    ausgebildet?
+− Rumpf: Ist die vordere Bauchwand geschlossen? Sind Magen und Harnblase zu sehen?
+
+Auch der erweiterte Basis-Ultraschall wird in der Regel von Ihrer Frauenärztin oder Ihrem
+Frauenarzt durchgeführt, wenn sie oder er eine entsprechende Wissensprüfung absolviert
+hat. Andernfalls ist eine Überweisung an eine andere Frauenarztpraxis nötig.
+
+29. bis 32. Schwangerschaftswoche: 3. Basis-Ultraschalluntersuchung
+Beim dritten Basis-Ultraschall werden Kopf, Bauch und Oberschenkelknochen gemessen. Auch
+die Lage des Kindes und sein Herzschlag werden kontrolliert.
+Sollte ein Ultraschall auf Auffälligkeiten hindeuten oder zu unklaren Ergebnissen führen,
+können diese durch weiterführende Untersuchungen abgeklärt werden. Welche zusätzlichen
+Untersuchungen infrage kommen, können Sie mit Ihrer Ärztin oder Ihrem Arzt besprechen.
+
+Was gehört nicht zum Basis-Ultraschall?
+Wenn es besondere medizinische Gründe gibt, übernehmen die gesetzlichen Krankenkassen
+auch weitergehende Ultraschalluntersuchungen. Nicht zum Basis-Ultraschall gehört zum
+Beispiel der sogenannte Fein-Ultraschall (Organ-Ultraschall) durch besonders spezialisierte
+Frauenärztinnen und Frauenärzte. Er kann sinnvoll sein, wenn etwa eine Schwangerschaft als
+Risikoschwangerschaft eingeschätzt wird oder wenn andere Untersuchungen zu unklaren
+Ergebnissen geführt haben.
+Untersuchungen, in denen gezielt nach Hinweisen auf genetisch bedingte Auffälligkeiten
+gesucht wird, unterliegen dem Gendiagnostikgesetz. Dazu gehört beispielsweise der
+Nackentransparenz-Test, bei dem mittels Ultraschall nach Hinweisen zum Beispiel auf ein
+Down-Syndrom gesucht wird. Vor solchen Untersuchungen sind Ärztinnen und Ärzte zu einer
+besonderen Aufklärung und genetischen Beratung verpflichtet. Dabei geht es nicht nur um
+medizinische Fragen, sondern auch um psychische und soziale Belange, die im Zusammenhang
+mit der Untersuchung und ihren Ergebnissen von Bedeutung sein können.
+Auch beim Basis-Ultraschall können Auffälligkeiten am Ungeborenen entdeckt werden, die
+verschiedene, auch genetische, Ursachen haben können. Ihre Ärztin oder Ihr Arzt muss Ihnen
+dann ebenfalls eine besondere Beratung anbieten.
+
+Wie zuverlässig sind die Ergebnisse des Basis-Ultraschalls?
+Bestimmte Entwicklungsstörungen des Kindes sind bei einem Basis-Ultraschall unmittelbar
+erkennbar. Bei anderen gesundheitlichen Problemen oder Fehlbildungen liefert die
+
+32
+Untersuchung nur Hinweise auf Auffälligkeiten. Wieder andere Probleme                      und
+Entwicklungsstörungen lassen sich mit einer Ultraschalluntersuchung nicht erkennen.
+Wie alle Untersuchungen können Ultraschalluntersuchungen zu falschen Ergebnissen führen.
+Dabei sind zwei Fehler möglich:
+1)     Der Ultraschall kann beispielsweise auf Entwicklungsstörungen hinweisen,
+       obwohl sich das Kind normal entwickelt.
+2)     Das Ergebnis der Ultraschalluntersuchung ist unauffällig, obwohl das
+       Ungeborene gesundheitliche Probleme oder Fehlbildungen hat.
+
+Wie häufig ein Ultraschall in Deutschland zu fehlerhaften Ergebnissen führt, lässt sich nicht
+genau sagen. Die Fehlerhäufigkeit hängt unter anderem davon ab, wie viel Fruchtwasser die
+Fruchtblase enthält, wie das Kind liegt und wie dick die Bauchwand der Schwangeren ist. Auch
+die Qualität des Ultraschallgeräts und die Qualifikation des Untersuchenden können das
+Ergebnis beeinflussen. Nach internationalen Zahlen muss etwa eine von 100 Schwangeren mit
+einem falschen Ergebnis rechnen.
+
+Kann eine Ultraschalluntersuchung auch schaden?
+Die bei den Basis-Ultraschalluntersuchungen verwendeten Schallwellen schaden nach
+jetzigem Stand des Wissens weder der Schwangeren noch dem Kind. Ein Ultraschall kann aber
+schaden, wenn er unklare Ergebnisse oder Auffälligkeiten zeigt. Dies kann Ängste oder Sorgen
+auslösen und dazu führen, dass zur Abklärung weitere Untersuchungen angeboten werden.
+Weitere Untersuchungen können aufwendig sein und ihrerseits manchmal schwerwiegende
+Auswirkungen haben und die werdenden Eltern stark belasten.
+Auf der anderen Seite kann eine Ultraschalluntersuchung den Eindruck vermitteln, dass sich
+das Ungeborene normal entwickelt, obwohl es gesundheitliche Probleme hat. Dann gehen die
+werdenden Eltern fälschlicherweise davon aus, dass ihr Kind gesund ist. Falls sich dann nach
+der Geburt völlig unerwartet eine schwerwiegende gesundheitliche Beeinträchtigung oder
+Fehlbildung zeigt, kann das ein Schock sein.
+Zudem sind nicht alle Untersuchungsergebnisse eindeutig und nicht alle Probleme, die bei
+einer Ultraschalluntersuchung festgestellt werden können, sind behandelbar. Dies kann
+belasten, verunsichern und schwierige Entscheidungen erforderlich machen. Wenn es
+Hinweise gibt, dass das Ungeborene körperlich oder geistig beeinträchtigt sein könnte, kann
+sich zum Beispiel die Frage nach Abbruch oder Fortsetzung der Schwangerschaft stellen. Dies
+kann zu inneren Konflikten führen. Manche Frauen sagen im Nachhinein, sie hätten die
+Untersuchung nicht machen lassen, wenn sie die möglichen Folgen vorher bedacht hätten.
+Wenn Sie sich Sorgen machen oder wegen weiterer Untersuchungen und möglicher Schritte
+unsicher sind, können Sie mit Ihrer Ärztin oder Ihrem Arzt und Beraterinnen und Beratern von
+verschiedenen Beratungsstellen sprechen.
+
+Kann ich auf Ultraschalluntersuchungen verzichten?
+Sie haben das Recht, auf alle oder einzelne Ultraschalluntersuchungen während der
+Schwangerschaft zu verzichten. Vielleicht möchten Sie nur wissen, ob sich Ihr Kind
+altersgemäß entwickelt, aber nicht, ob es Fehlbildungen hat. In diesem Fall wird die Ärztin
+oder der Arzt Sie bitten, Ihre Entscheidung durch Ihre Unterschrift zu bestätigen.
+Sie entbinden sie bzw. ihn dadurch von der Informationspflicht. Für sie oder ihn kann dies eine
+Entlastung sein, da sie oder er nicht mehr in jedem Fall dafür haftbar gemacht werden kann,
+wenn Sie über auffällige Untersuchungsergebnisse nicht informiert werden wollten. Oder Sie
+
+                                                                                            33
+entscheiden sich ganz gegen Ultraschalluntersuchungen, weil Sie sich den damit verbundenen
+Unsicherheiten und möglichen Entscheidungsnöten nicht aussetzen möchten, zum Beispiel
+wenn für Sie feststeht, dass Sie die Schwangerschaft in jedem Fall fortsetzen werden, ganz
+gleich wie sich ihr Kind entwickelt.
+Auf der anderen Seite kann auch ein Verzicht auf Ultraschalluntersuchungen oder auf
+bestimmte Informationen Nachteile haben. So könnten Auffälligkeiten des ungeborenen
+Kindes unerkannt oder unbehandelt bleiben, obwohl eine Behandlung im Mutterleib vielleicht
+möglich gewesen wäre. Darüber hinaus könnten auch Befunde, die Ihre eigene Gesundheit
+betreffen, etwa zur Lage der Plazenta in der Gebärmutter, nicht erhoben werden. Bestimmte
+Untersuchungsergebnisse können auch dafür sprechen, sich während der weiteren
+Schwangerschaft und Geburt in einer spezialisierten Klinik oder Praxis betreuen zu lassen.
+Eine Entscheidung gegen Ultraschalluntersuchungen hat keine Auswirkungen auf Ihren
+Krankenversicherungsschutz oder den Ihres Kindes.
+
+Wie erleben andere schwangere Frauen Ultraschalluntersuchungen?
+Einige Frauen benötigen Zeit, um herauszufinden, ob sie wirklich ein Kind haben möchten, und
+wollen die Ultraschallbilder nicht sehen. Viele Frauen freuen sich aber darauf, ihr Kind beim
+Ultraschall zum ersten Mal zu sehen. Oft nehmen Frauen ihren Partner oder eine andere
+nahestehende Person zur Untersuchung mit. Familie und Freunden ein Foto des ungeborenen
+Kindes zu zeigen, kann zudem eine Möglichkeit sein, andere an der Schwangerschaft teilhaben
+zu lassen. Bei aller Freude können Ultraschalluntersuchungen aber auch mit Ängsten,
+Aufregung oder Unsicherheit verbunden sein.
+
+Was kostet eine Basis-Ultraschalluntersuchung?
+Die Kosten für alle hier beschriebenen Basis-Ultraschalluntersuchungen werden von der
+gesetzlichen Krankenversicherung übernommen. Sie haben in jedem Schwangerschaftsdrittel
+(Trimenon) Anspruch auf eine Basis-Ultraschalluntersuchung. Im 2. Trimenon kann diese
+entweder      als   Basis-Ultraschalluntersuchung    oder     als   erweiterte  Basis-
+Ultraschalluntersuchung erfolgen.
+
+Wo finde ich weitere Informationen?
+Bei allen Fragen rund um das Thema Schwangerschaft und Geburt können Sie sich an eine
+Schwangerschaftsberatungsstelle wenden. Der Anspruch auf Beratung umfasst auch die
+Vorsorgeuntersuchungen im Rahmen der Schwangerschaft. Die Beratung ist in der Regel
+kostenlos.
+Hilfen zu Fragen rund um das Thema Schwangerschaft und Geburt bieten auch viele andere
+Beratungsstellen für werdende Eltern. Adressen und weitere Informationen finden Sie auf der
+Website      des    Bundesinstituts    für   Öffentliche    Gesundheit     (BIÖG)    unter
+www.familienplanung.de. Dort finden Sie auch Adressen von Beratungsstellen in Ihrer Nähe.
+
+Stand:
+Juli 2013
+Das Merkblatt ist eine Anlage der Mutterschafts-Richtlinie.
+Herausgeber:
+Gemeinsamer Bundesausschuss (G-BA)
+Wegelystraße 8
+
+34
+10623 Berlin
+Telefon: 030 / 27 58 38 - 0
+Telefax: 030 / 27 58 38 - 990
+www.g-ba.de
+Der Gemeinsame Bundesausschuss (G-BA) ist ein Gremium der gemeinsamen Selbstverwaltung von Ärztinnen und Ärzten,
+Zahnärztinnen und Zahnärzten, Psychotherapeutinnen und Psychotherapeuten, Krankenhäusern und Krankenkassen in
+Deutschland, in dem seit 2004 auch Patientenvertreterinnen und Patientenvertreter aktiv mitwirken.
+Erstellung:
+Dieses Merkblatt wurde im Auftrag des G-BA vom Institut für Qualität und Wirtschaftlichkeit im Gesundheitswesen
+(www.iqwig.de) entworfen, nachfolgend vom G-BA weiterbearbeitet und in der vorliegenden Fassung beschlossen.
+
+                                                                                                             35
+     Anlage VI Versicherteninformation zum Test auf Schwangerschaftsdiabetes
+                        (zu § 2 Absatz 12 der Mutterschafts-Richtlinie)
+
+            Ich bin schwanger. Warum wird allen schwangeren Frauen ein Test auf
+                           Schwangerschaftsdiabetes angeboten?
+
+Liebe Leserin,
+dieses Merkblatt erläutert, warum allen Schwangeren ein Test auf Schwangerschaftsdiabetes
+(Gestationsdiabetes) angeboten wird. Sie erfahren unter anderem, wie der Test abläuft,
+welche     Folgen    ein     Schwangerschaftsdiabetes    haben     kann    und    welche
+Behandlungsmöglichkeiten es gibt.
+
+Die wichtigsten Informationen:
+
+     •   Bei einem Schwangerschaftsdiabetes sind die Blutzuckerwerte erhöht. Damit nimmt
+         das Risiko für bestimmte seltene Geburtskomplikationen etwas zu. Das Risiko kann
+         aber meist schon durch eine Umstellung der Ernährung wieder normalisiert werden.
+     •   Wenn Schwangerschaftsdiabetes festgestellt wird, eröffnet dies die Möglichkeit, selbst
+         etwas dagegen zu tun.
+     •   Die weitaus meisten Frauen mit Schwangerschaftsdiabetes haben eine ansonsten
+         normale Schwangerschaft und bringen ein gesundes Kind zur Welt.
+     •   Schwangerschaftsdiabetes bedeutet nicht, dass Sie dauerhaft zuckerkrank sind
+         (Diabetes Typ 1 oder Typ 2).
+
+Sie haben Anspruch auf einen Test auf Schwangerschaftsdiabetes.
+Sie haben selbstverständlich auch das Recht, diesen Test abzulehnen.
+
+Was ist Schwangerschaftsdiabetes?
+Bei den meisten Frauen bleiben die Blutzuckerwerte während der Schwangerschaft normal.
+Wenn der Blutzucker während der Schwangerschaft jedoch bestimmte Werte übersteigt,
+sprechen Fachleute von Schwangerschaftsdiabetes. Sehr hohe Blutzuckerwerte können ein
+Zeichen sein, dass eine Frau schon vor der Schwangerschaft einen Diabetes aufwies, ohne
+davon zu wissen. Diesen Frauen wird eine besondere Betreuung angeboten, über die
+Ärztinnen und Ärzte dann informieren.
+Erhöhte Blutzuckerwerte treten häufiger bei Frauen mit starkem Übergewicht, mit
+Verwandten mit Diabetes oder einem früheren Schwangerschaftsdiabetes auf. Vielleicht wird
+Ihre Ärztin oder Ihr Arzt Sie schon zu Beginn der Schwangerschaft nach solchen Faktoren
+fragen und dann zu einem Test raten.
+
+Welche Folgen kann ein Schwangerschaftsdiabetes haben und was ändert eine Behandlung?
+Wohl jede Schwangere wünscht sich eine normale Schwangerschaft und Geburt. Wichtig ist
+deshalb zu wissen, dass sich auch bei den meisten Schwangeren mit
+
+36
+Schwangerschaftsdiabetes das Kind ganz normal entwickelt. Es gibt jedoch Frauen, bei denen
+eine Behandlung Vorteile hat.
+
+Kinder von Frauen mit Schwangerschaftsdiabetes sind bei der Geburt im Durchschnitt etwas
+schwerer. Das allein ist aber kein Grund zur Beunruhigung. Bei größeren Kindern kommt es
+aber nach Austritt des Kopfes häufiger zu einer Verzögerung der Geburt. Bei einer solchen
+„Schulterdystokie“ müssen Hebammen und Ärztinnen/Ärzte dann ohne Verzögerung
+reagieren, dabei kommt es manchmal zu Verletzungen bei Mutter oder Kind. Auch wenn diese
+Verletzungen nur selten bleibende Folgen haben – Schulterdystokien sind seltener, wenn ein
+Schwangerschaftsdiabetes behandelt wird. In Studien zeigte sich: Während es ohne
+Behandlung bei 3 bis 4 von 100 Frauen mit Schwangerschaftsdiabetes zu einer
+Schulterdystokie kam, war dies nach einer Behandlung nur bei 1 bis 2 von 100 Geburten der
+Fall.
+Bei erhöhtem Blutzucker steigt zudem das Risiko für eine ebenfalls seltene
+Schwangerschaftserkrankung:        die       sogenannte       Präeklampsie.        Diese
+Schwangerschaftserkrankung geht mit einer erhöhten Eiweißausscheidung im Urin einher, der
+Blutdruck steigt, und es kommt zu Wassereinlagerungen im Körper. Ohne Behandlung kann
+eine Präeklampsie Mutter und Kind schaden. Dem kann eine Behandlung des
+Schwangerschaftsdiabetes nach heutigem Kenntnisstand vorbeugen.
+
+Wie wird Schwangerschaftsdiabetes festgestellt?
+Die beste Methode, einen Schwangerschaftsdiabetes festzustellen, ist ein Zuckertest
+(Glukosetoleranztest). Der Test misst, wie der Körper auf eine größere Menge Traubenzucker
+(Glukose) reagiert. Für die Mutter und das Baby bringt der Test keine Risiken mit sich, aber
+manche Frauen empfinden die süße Flüssigkeit als unangenehm.
+
+Der Zuckertest wird im 6. oder 7. Schwangerschaftsmonat angeboten. Wenn Sie sich dafür
+entscheiden, machen Sie zunächst einen Vortest, bei dem Sie ein Glas Wasser mit 50 Gramm
+Zucker trinken. Für diesen Vortest müssen Sie nicht nüchtern sein. Nach einer Stunde wird
+Ihnen Blut aus einer Armvene abgenommen und die Höhe des Blutzuckers bestimmt. Liegt der
+Wert unter 7,5 Millimol pro Liter (mmol/l, das entspricht 135 mg/dl), ist das Ergebnis
+unauffällig und der Test beendet.
+Wird im Vortest ein erhöhter Wert gefunden, ist das noch keine Diagnose. Der Vortest dient
+dazu, die Frauen zu erkennen, denen dann ein zweiter, entscheidender Zuckertest angeboten
+wird. Dieser zweite Test ist aufwändiger: Für diesen „Diagnosetest“ muss die Schwangere
+nüchtern sein, das heißt, mindestens acht Stunden nichts gegessen oder getrunken haben,
+nur Wasser ist erlaubt. Der Test beginnt damit, dass der Frau nüchtern Blut abgenommen
+wird. Erst dann trinkt sie eine Zuckerlösung mit 75 Gramm Glukose. Nach einer und nach zwei
+Stunden wird erneut Blut aus einer Armvene abgenommen. Wenn einer der drei folgenden
+Blutzuckerwerte       erreicht     oder    überschritten   ist,    wird    die     Diagnose
+„Schwangerschaftsdiabetes“ gestellt:
+
+Nüchtern: 5,1 mmol/l (92 mg/dl), nach einer Stunde: 10,0 mmol/l (180 mg/dl), nach zwei
+Stunden: 8,5 mmol/l (153 mg/dl).
+
+Das Ergebnis wird im Mutterpass dokumentiert. Die Kosten beider Tests werden von den
+gesetzlichen Krankenkassen übernommen.
+
+                                                                                         37
+Wie kann ein Schwangerschaftsdiabetes behandelt werden?
+Meist kann der erhöhte Blutzucker allein durch eine Umstellung der Ernährung und mehr
+Bewegung ausreichend gesenkt werden. Betroffene Frauen erhalten dazu eine spezielle
+Beratung. Nur wenige Frauen mit Schwangerschaftsdiabetes haben so anhaltend hohe
+Zuckerwerte, dass sie Insulin spritzen sollten. Andere Diabetes-Medikamente sind für
+schwangere Frauen nicht zugelassen.
+Nach der Geburt wird Frauen mit Schwangerschaftsdiabetes ein erneuter Zuckertest
+angeboten, um sicher zu sein, dass sich die Blutzuckerwerte wieder normalisiert haben. Dann
+ist keine weitere Behandlung erforderlich. Allerdings entwickeln Frauen mit
+Schwangerschaftsdiabetes später im Leben häufiger einen Diabetes Typ 2.
+
+Der Umgang mit der Diagnose Schwangerschaftsdiabetes
+Die Diagnose „Schwangerschaftsdiabetes“ kommt oft aus heiterem Himmel. Es sind ja keine
+Beschwerden spürbar. Die Sorge um das Wohlbefinden des Kindes und um die eigene
+Gesundheit kann dann die Schwangerschaft belasten. Auch die zur Behandlung gehörenden
+Umstellungen sind anfangs gewöhnungsbedürftig. Sie können aber schnell zu einem
+selbstverständlichen Teil des Alltags werden. Und es ist wichtig, eins nicht aus dem Blick zu
+verlieren: Auch mit Schwangerschaftsdiabetes kommen die allermeisten Kinder gesund zur
+Welt.
+
+Stand:
+Dezember 2011
+Das Merkblatt ist eine Anlage der Mutterschafts-Richtlinie.
+
+Herausgeber:
+Gemeinsamer Bundesausschuss (G-BA)
+Wegelystraße 8
+10623 Berlin
+Telefon: 030/ 27 58 38 – 0
+Telefax: 030 / 27 58 38 - 990
+www.g-ba.de
+
+Der Gemeinsame Bundesausschuss (G-BA) ist ein Gremium der gemeinsamen Selbstverwaltung von Ärztinnen und Ärzten,
+Zahnärztinnen und Zahnärzten, Psychotherapeutinnen und Psychotherapeuten, Krankenhäusern und Krankenkassen in
+Deutschland, in dem seit 2004 auch Patientenvertreterinnen und Patientenvertreter aktiv mitwirken.
+
+Erstellung:
+Dieses Merkblatt wurde im Auftrag des G-BA vom Institut für Qualität und Wirtschaftlichkeit im Gesundheitswesen
+(www.iqwig.de) entwickelt.
+
+38
+    Anlage VII Versicherteninformation zur Bestimmung des Rhesusfaktors vor der Geburt
+       (zu § 4 Absatz 3 Serologische Untersuchungen und Maßnahmen während der
+                                     Schwangerschaft)
+
+Welchen Nutzen hat die Bestimmung des Rhesusfaktors vor der Geburt?
+Ein Bluttest kann den Rhesusfaktor eines Kindes bereits während der Schwangerschaft
+bestimmen. Dies hilft zu erkennen, ob eine Anti-D-Prophylaxe für Rhesus-negative Frauen
+sinnvoll ist. Nachteile dieses vorgeburtlichen Tests sind nicht zu erwarten.
+Der Rhesusfaktor RhD ist ein wichtiges Blutgruppenmerkmal. Er zeigt an, ob sich das Blut
+zweier Menschen verträgt, wenn es vermischt wird – wie zum Beispiel das Blut von Mutter
+und Kind bei der Geburt. Haben sie verschiedene Blutgruppenmerkmale, kann dies zu
+Problemen führen.
+Ob sich das Blut von Mutter und Kind verträgt, hängt vom Blutgruppenmerkmal RhD ab, einem
+bestimmten Eiweißstoff auf der Oberfläche der roten Blutkörperchen. Er wird auch Antigen D
+genannt und findet sich bei den meisten Menschen; sie sind „rhesus-positiv“. Einigen
+Menschen fehlt er; sie sind „rhesus-negativ“. In Europa betrifft dies etwa 15 % der
+Bevölkerung.
+Schwangerschaft bei negativem Rhesusfaktor D
+Etwa 30 bis 40 % der Schwangeren mit negativem Rhesusfaktor erwartet ein rhesus-negatives
+Kind. Dann sind keine Probleme zu erwarten: Das Blut von Mutter und Kind verträgt sich.
+Erwartet eine rhesus-negative Frau aber ein rhesus-positives Kind, kann das mütterliche Blut
+Abwehrstoffe (Anti-D-Antikörper) gegen den Rhesusfaktor des Kindes bilden. Das kann
+passieren, wenn sich das kindliche Blut mit dem der Mutter mischt – zum Beispiel bei der
+Geburt durch kleine Verletzungen des Mutterkuchens (Plazenta) oder der Nabelschnur. Auch
+während der Schwangerschaft kann es zu einer Vermischung kommen, entweder ohne äußere
+Einwirkung oder durch Eingriffe wie etwa eine Fruchtwasseruntersuchung.
+Anti-D-Antikörper schaden dem Kind normalerweise nicht, wenn eine Frau zum ersten Mal
+schwanger ist. Wird sie aber erneut schwanger und erwartet wieder ein rhesus-positives Kind,
+können die Antikörper dessen Entwicklung beeinträchtigen. Die sogenannte Anti-D-
+Prophylaxe soll dies vermeiden: Dabei bekommen rhesus-negative Schwangere eine Spritze
+mit Anti-D-Immunglobulinen. Sie können meistens verhindern, dass Abwehrstoffe gebildet
+werden. Die Anti-D-Immunglobuline werden aus menschlichem Spenderblut gewonnen. Das
+Übertragungsrisiko für Infektionen ist sehr gering, aber nicht vollständig ausgeschlossen.
+Bisherige Anti-D-Prophylaxe in Deutschland
+In der Mutterschafts-Richtlinie ist die ärztliche Betreuung während der Schwangerschaft und
+nach der Geburt festgelegt. Zu den Vorsorgeuntersuchungen für schwangere Frauen gehört
+beispielsweise eine Blutuntersuchung, um ihren Rhesusfaktor zu bestimmen. Stellt sich
+heraus, dass eine schwangere Frau rhesus-negatives Blut hat, erhält sie eine Anti-D-
+Prophylaxe. Ob das Kind aber rhesus-positives oder rhesus-negatives Blut hat, ist zu diesem
+Zeitpunkt noch gar nicht bekannt. Ob sich die Blutgruppen von Kind und Mutter vertragen,
+weiß man ohne den Einsatz des hier beschriebenen Tests aus mütterlichem Blut erst nach
+der Geburt. Denn die Blutgruppe des Kindes wird bislang erst nach der Geburt aus dem
+Nabelschnurblut bestimmt. Dann verfährt man derzeit so: Ist das Kind rhesus-positiv, erhält
+die Mutter innerhalb von 72 Stunden nach der Geburt eine weitere Spritze mit Anti-D-
+Immunglobulinen. Diese zweite Dosis soll bereits übergetretene Blutkörperchen des Kindes
+im Blut der Mutter rasch abbauen und so die Bildung von Antikörpern verhindern. Bei dem
+bisherigen Vorgehen erhalten etwa 30 bis 40 % aller rhesus-negativen Schwangeren eine
+
+                                                                                         39
+unnötige Anti-D-Prophylaxe. Denn nur, wenn sie ein rhesus-positives Kind erwarten, bildet ihr
+Blut Antikörper – und nur dann kann eine Anti-D-Prophylaxe überhaupt Vorteile haben.
+Anti-D-Prophylaxe mit Pränataltest
+Seit einigen Jahren ist ein nichtinvasiver Pränataltest verfügbar, der den Rhesusfaktor des
+Kindes bereits vor der Geburt bestimmt. Der Pränataltest soll vermeiden, dass rhesus-negative
+Frauen eine unnötige Anti-D-Gabe während der Schwangerschaft erhalten: Sie bekommen die
+Spritze nur dann, wenn der Test ergibt, dass das Kind rhesus-positives Blut hat. Für den
+Pränataltest wird eine Blutprobe der schwangeren Frau benötigt. Das mütterliche Blut enthält
+Erbmaterial des Kindes, das sich zur Bestimmung des kindlichen Rhesusfaktors eignet.
+Zuverlässigkeit des Tests
+Nach aktuellen Erkenntnissen kann der Test den Rhesusfaktor des ungeborenen Kindes
+zuverlässig bestimmen. Bei Mehrlingsschwangerschaften hat sich der Test noch nicht als
+ausreichend zuverlässig erwiesen, sodass er in dieser Situation nicht empfohlen werden kann.
+Unmittelbar nach der Geburt wird der Rhesusfaktor jedes Kindes einer Mutter mit Rhesus-
+negativem Blut bestimmt, um bei einem seltenen falsch negativen Testergebnis eine Anti-D-
+Prophylaxe nach der Geburt sicherzustellen.
+Vor- und Nachteile des Tests
+Die aktuellen Erkenntnisse sprechen dafür, dass der Test weder für Schwangere noch für ihre
+Kinder erkennbare Nachteile hat. Das Ergebnis des Tests kann Schwangeren mit rhesus-
+negativem Blut, die ein rhesus-negatives Kind erwarten, eine Anti-D-Prophylaxe ersparen.
+Beratung und Aufklärung
+Da es sich um eine Untersuchung am Erbmaterial Ihres Kindes handelt, wird Ihre Ärztin oder
+Ihr Arzt Sie nach den gesetzlichen Vorschriften beraten und aufklären. Ihre schriftliche
+Einwilligung zur Untersuchung und zur Dokumentation des Testergebnisses im Mutterpass ist
+erforderlich.
+Quellen
+Institut für Qualität und Wirtschaftlichkeit im Gesundheitswesen. Nicht invasive Bestimmung
+des fetalen Rhesusfaktors zur Vermeidung einer mütterlichen Rhesussensibilisierung: Ab-
+schlussbericht; Auftrag D16-01. 20. März 2018. (IQWiG-Berichte; Band 607).
+https://www.iqwig.de/download/D16-01_Bestimmung-fetaler-
+Rhesusfaktor_Abschlussbericht_V1-0.pdf.
+
+40
+    Anlage VIII        Versicherteninformation zum nicht-invasiven Pränataltest (NIPT) auf
+                                       Trisomie 13, 18 und 21
+(zu § 3 Absatz 3 Nummer 5: Untersuchungen an fetaler DNA aus mütterlichem Blut zur Frage
+des Vorliegens einer Trisomie 13, 18 oder 21 – Nicht-invasiver Pränataltest – NIPT-Trisomie
+13, 18, 21)
+
+Bluttest auf Trisomien – Der nicht invasive Pränataltest (NIPT) auf Trisomie 13, 18 und 21 –
+Eine Versicherteninformation
+Worum geht es?
+Liebe Leserin, lieber Leser,
+Ihre Ärztin oder Ihr Arzt hat mit Ihnen über einen „nicht invasiven Pränataltest“ (NIPT)
+gesprochen. Der NIPT ist ein Bluttest auf die Trisomien 13, 18 und 21. Diese Trisomien sind
+seltene genetische Veränderungen, die die körperliche und geistige Entwicklung
+unterschiedlich beeinflussen. Am bekanntesten ist die Trisomie 21 (Down-Syndrom).
+Der NIPT gehört nicht zu den allgemein empfohlenen Vorsorgeuntersuchungen in der
+Schwangerschaft. Er wird nur dann von den gesetzlichen Krankenkassen bezahlt, wenn Sie und
+Ihre Ärztin oder Ihr Arzt gemeinsam entschieden haben, dass der Test für Sie sinnvoll ist. Das
+hängt vor allem von Ihrer persönlichen Situation ab.
+Wichtig ist: Falls der Test für Sie infrage kommt, muss Ihre Ärztin oder Ihr Arzt Sie vorher
+ausführlich aufklären und zu den möglichen Konsequenzen beraten.
+Diese Broschüre soll über den Test informieren und die Beratung unterstützen.
+
+Inhaltsverzeichnis
+Vorgeburtliche Untersuchungen
+Aufklärung und Beratung
+Was sind Trisomien?
+Was ist ein NIPT?
+Was bedeuten die Testergebnisse?
+Wie zuverlässig ist ein NIPT?
+Wie entscheiden?
+Weitere Informationen
+
+Vorgeburtliche Untersuchungen – ja oder nein?
+Alle vorgeburtlichen Untersuchungen sind freiwillig – das heißt, Sie können eine angebotene
+Untersuchung oder einen Test jederzeit ohne Begründung ablehnen. Ihr Recht auf
+Nichtwissen ist so wichtig, dass Sie niemand zu einer Untersuchung drängen darf.
+Vorgeburtliche Untersuchungen können weitreichende Folgen haben. Bevor Sie sich für oder
+gegen einen NIPT auf Trisomie 13, 18 und 21 entscheiden, ist es wichtig, dass Sie sich über
+folgende Fragen Gedanken machen und rechtzeitig gut beraten lassen:
+
+   •   Möchten Sie überhaupt erfahren, ob Ihr ungeborenes Kind eine Trisomie hat?
+
+                                                                                           41
+     •   Was würden Sie bei einem auffälligen Ergebnis tun:
+         - Würden Sie das Kind auf jeden Fall bekommen?
+         - Oder würde ein Schwangerschaftsabbruch für Sie infrage kommen?
+
+     •   Was wissen Sie über Kinder mit einer Trisomie?
+     •   Benötigen Sie weitere Informationen?
+
+Welche Aufklärung und Beratung gibt es?
+
+     •   Die ärztliche Aufklärung und Beratung: Ärztinnen und Ärzte sind verpflichtet, über die
+         Ziele, die Aussagekraft und die möglichen Folgen einer Untersuchung aufzuklären und
+         zu beraten. Wenn es um genetische Untersuchungen geht, dürfen nur Ärztinnen und
+         Ärzte die Beratung übernehmen, die dafür eine Berechtigung erworben haben. Das
+         kann Ihre Frauenärztin oder Ihr Frauenarzt sein, eine Praxis oder ein Institut für
+         Pränataldiagnostik oder Humangenetik.
+     •   Die psychosoziale Beratung: Sie wird vor allem von Schwangerschaftsberatungsstellen
+         angeboten. Sie werden dort persönlich, online oder telefonisch beraten (auf Wunsch
+         auch anonym). Die Beratung kann bei der Entscheidung für oder gegen einen Test
+         helfen, aber auch beim Umgang mit einem auffälligen Ergebnis. Außerdem können Sie
+         dort Erwartungen und Sorgen besprechen, die mit Ihrer Schwangerschaft verbunden
+         sind. In der manchmal belastenden Wartezeit auf ein Testergebnis kann sie ebenfalls
+         unterstützen.
+Ärztinnen und Ärzte sind vor genetischen Untersuchungen und nach einem auffälligen Befund
+verpflichtet, auf den Anspruch einer genetischen und psychosozialen Beratung hinzuweisen.
+Auf Wunsch müssen sie konkrete Kontakte zu Schwangerschaftsberatungsstellen vermitteln.
+Sie nennen auch Kontaktadressen von Selbsthilfegruppen oder Behindertenverbänden.
+
+Was sind Trisomien?
+Bei Trisomien sind bestimmte Chromosomen in den Zellen des Kindes dreifach statt zweifach
+vorhanden. Dies verändert die Entwicklung des Kindes schon im Mutterleib. Folgende
+Trisomien können durch vorgeburtliche Untersuchungen erkannt werden:
+Trisomie 21 (Down-Syndrom)
+Kinder mit Down-Syndrom entwickeln sich ganz unterschiedlich. Sie sind von ihrer
+Persönlichkeit her genauso vielfältig wie andere Kinder. Auch wenn sie bestimmte körperliche
+Merkmale haben und sich meist langsamer entwickeln: Oft haben sie nur leichte
+Beeinträchtigungen und können vieles, das andere auch können. Einige leben als Erwachsene
+weitgehend selbstständig. Andere sind stärker beeinträchtigt und brauchen mehr Unter-
+stützung. Viele werden 60 Jahre und älter. Wie sich ein Kind mit Down-Syndrom entwickeln
+wird, lässt sich vor der Geburt nicht feststellen.
+Trisomie 18 (Edwards-Syndrom)
+Kinder mit Trisomie 18 haben Fehlbildungen am Kopf, am Körper und an den inneren Organen.
+Diese sind häufig im Ultraschall erkennbar. Fast alle Kinder haben einen schweren Herzfehler.
+Sie sind geistig stark behindert. Die meisten Kinder sterben noch im Mutterleib oder in den
+ersten Tagen nach der Geburt. Etwa 10 % der lebend Geborenen können bis zu fünf Jahre oder
+älter werden. Dies gilt aber in erster Linie für Kinder mit leichteren Fehlbildungen.
+
+42
+Trisomie 13 (Pätau-Syndrom)
+Diese Kinder haben verschiedene, fast immer schwere körperliche Fehlbildungen, die sich
+auch im Ultraschallbild zeigen. Typisch sind Veränderungen des Herzens und des Gehirns, viele
+haben eine Lippen-Kiefer-Gaumen-Spalte. Hinzu kommt eine starke geistige Behinderung. Ihre
+Lebenserwartung ist ähnlich wie die von Kindern mit einer Trisomie 18.
+
+Was bedeutet ein Kind mit einer Trisomie für das Familienleben?
+Diese Frage lässt sich nicht allgemein beantworten, denn jede Familie macht ihre ganz eigenen
+Erfahrungen. Es hängt davon ab, wie gut ein Kind und seine Familie unterstützt wird und wie
+es gelingt, das gemeinsame Leben zu gestalten. Auch die Art der Trisomie spielt eine Rolle.
+Kinder mit einem Down-Syndrom brauchen besondere Unterstützung – manche mehr, andere
+weniger. Viele entwickeln sich gut und sind oft sehr zugewandte, fröhliche und zufriedene
+Menschen. Die meisten Kinder mit Down-Syndrom erlernen Alltagsfähigkeiten wie Lesen und
+Schreiben. Viele Eltern berichten von einem ziemlich normalen und erfüllten Leben mit ihren
+Kindern. Natürlich bringt es auch eigene Herausforderungen mit sich.
+Neben einer frühzeitigen Förderung ist wie bei allen Kindern die Bindung zur Familie und
+anderen Menschen sehr wichtig. Den meisten Eltern gelingt es, mit den Anforderungen gut
+umzugehen. Dabei können verschiedene Unterstützungsangebote helfen, beispielsweise
+Frühförderstellen, Beratungsstellen, Wohlfahrts- und Elternverbände und sozialpädiatrische
+Zentren. Die Krankenkassen und andere Träger finanzieren verschiedene
+Unterstützungsleistungen.
+Kinder mit einer Trisomie 13 oder 18 benötigen immer umfassende Hilfen. Ihre Familien haben
+oft nur wenige gemeinsame Tage, selten auch Monate oder Jahre mit dem Kind. Auch in dieser
+Situation kann ein bereicherndes gemeinsames Leben gelingen.
+
+Wie häufig sind Trisomien?
+Die folgende Tabelle zeigt, dass Trisomien bei Schwangeren in jedem Alter selten sind. Die
+Häufigkeit nimmt mit dem Alter aber zu. Die häufigste Trisomie ist das Down-Syndrom
+(Trisomie 21).
+
+     Alter der
+                         Zahl der Trisomien pro 10 000 Schwangerschaften
+   Schwangeren
+
+                      Down-Syndrom          Trisomie 18          Trisomie 13
+
+                             8                   2                   1
+   20 – 24 Jahre
+                         von 10 000          von 10 000          von 10 000
+
+                             10                  2                   1
+   25 – 29 Jahre
+                         von 10 000          von 10 000          von 10 000
+
+                             17                  3                   2
+   30 – 34 Jahre
+                         von 10 000          von 10 000          von 10 000
+
+                             52                  10                  4
+   35 – 39 Jahre
+                         von 10 000          von 10 000          von 10 000
+
+                                                                                          43
+                            163                  41                  10
+     über 40 Jahre
+                         von 10 000          von 10 000          von 10 000
+
+Wie häufig sind Trisomien?
+Trisomien sind in jedem Alter selten. Deshalb sind die Angaben zur Häufigkeit auf 10 000
+Frauen bezogen. Die folgende Grafik soll das veranschaulichen.
+[Hier schließt sich in der Internet-Version der Mutterschafts-Richtlinie eine Graphik zur
+Veranschaulichung des Textes zum Abschnitt „Wie häufig sind Trisomien?“ mit folgendem
+Erklärungstext an:
+Diese Punkte entsprechen 10 000 schwangeren Frauen.
+Beispiel:
+Etwa 17 von 10 000 Schwangeren zwischen
+30 und 34 Jahren erwarten ein Kind mit einem Down-Syndrom.]
+
+Was ist ein nicht invasiver Pränataltest (NIPT)?
+Mit einem nicht invasiven Pränataltest (NIPT) lässt sich kindliches Erbgut (die DNA) aus der
+Plazenta (Mutterkuchen) untersuchen. Da für den Test kein Eingriff in die Gebärmutter nötig
+ist, wird er „nicht invasiv“ (nicht eingreifend) genannt. Beim NIPT besteht kein Risiko einer
+Fehlgeburt.
+Für den Test wird Blut aus der Armvene einer Schwangeren entnommen. Ihr Blut enthält etwa
+ab der 10. Woche so viel Erbgut des ungeborenen Kindes, dass es im Labor untersucht werden
+kann.
+Das Testergebnis liegt meist innerhalb von einer Woche vor. Es wird von der Ärztin oder dem
+Arzt in einem Gespräch mitgeteilt.
+Wichtig ist: Mit einem NIPT werden nur einzelne genetische Veränderungen untersucht. Ob
+das ungeborene Kind insgesamt gesund ist, kann der Test nicht erkennen.
+Es ist auch möglich, vorher abzusprechen, sich nur bestimmte Ergebnisse eines NIPT mitteilen
+zu lassen: zum Beispiel nur das Ergebnis zu den Trisomien 13 und 18, aber nicht zum Down-
+Syndrom.
+
+Wann wird der NIPT von den Krankenkassen übernommen?
+Die gesetzlichen Krankenkassen übernehmen die Kosten für einen NIPT auf Trisomie 13, 18
+und 21. Dieser Test ist keine Routineuntersuchung. Die Kosten werden übernommen,
+
+     •   wenn sich aus anderen Untersuchungen ein Hinweis auf eine Trisomie ergeben hat
+         oder
+     •   wenn eine Frau gemeinsam mit ihrer Ärztin oder ihrem Arzt zu der Überzeugung
+         kommt, dass der Test in ihrer persönlichen Situation notwendig ist.
+Diese Situation kann entstehen, wenn die Möglichkeit einer Trisomie eine Frau so stark
+belastet, dass sie dies abklären lassen möchte.
+Ein Hinweis auf eine Trisomie kann sich zum Beispiel durch die normalen
+Vorsorgeuntersuchungen oder das sogenannte Ersttrimester-Screening (ETS) ergeben, das
+
+44
+manche Frauenärztinnen und -ärzte zwischen der 12. und 14. Woche anbieten. Das ETS
+besteht aus einer Ultraschalluntersuchung und der Bestimmung bestimmter Blutwerte der
+Mutter. Dies kann Hinweise auf Trisomien und andere Auffälligkeiten ergeben. Ein ETS kann
+eine Trisomie aber nicht sicher feststellen, sondern nur eine Wahrscheinlichkeit errechnen.
+Ein ETS wird in der Regel nicht von den Krankenkassen bezahlt und kostet zwischen 150 und
+250 Euro.
+Was bedeutet das Ergebnis des NIPT?
+Ihre Ärztin oder Ihr Arzt wird Sie über das Testergebnis informieren und darüber aufklären,
+was daraus folgt. Die folgenden drei Ergebnisse sind möglich.
+„Der Test kann nicht ausgewertet werden“
+Der NIPT lässt sich manchmal nicht auswerten, weil die Blutprobe zu wenig Erbgut des
+ungeborenen Kindes enthält. Bei etwa 2 bis 6 von 100 Schwangeren ist das Ergebnis nicht
+eindeutig. Dann kann der NIPT etwas später wiederholt werden. Unter Umständen schlägt die
+Ärztin oder der Arzt auch direkt eine Fruchtwasseruntersuchung vor.
+„Der Test ist unauffällig“
+Dieses Ergebnis ist sehr zuverlässig. Es ist sehr unwahrscheinlich, dass das Ungeborene eine
+Trisomie hat. Zur Abklärung einer Trisomie sind dann keine weiteren Untersuchungen wie
+eine Fruchtwasseruntersuchung nötig.
+„Der Test ist auffällig“
+Dieses Ergebnis ist ein starker Hinweis auf eine Trisomie. Dennoch kommt es vor, dass das
+Ergebnis des NIPT falsch ist, das Kind also doch keine Trisomie hat. So ist es möglich, dass nur
+in einem Teil der Zellen der Plazenta eine Trisomie vorliegt. Zur Abklärung ist dann zum
+Beispiel eine Fruchtwasseruntersuchung nötig.
+
+Wie wird ein auffälliges NIPT-Ergebnis abgeklärt?
+Ein auffälliges Testergebnis kann nur durch einen Eingriff sicher bestätigt oder widerlegt
+werden, bei dem das Erbgut des Kindes untersucht wird. Dazu gibt es zwei Möglichkeiten:
+
+    •   Entnahme von Gewebe aus der Plazenta (Chorionzottenbiopsie): möglich ab der 12.
+        Schwangerschaftswoche. Das Gewebe wird im Labor untersucht. Ein vorläufiger
+        Befund liegt nach etwa zwei Tagen vor, das endgültige Ergebnis nach zwei bis drei
+        Wochen.
+    •   Entnahme von Fruchtwasser (Amniozentese): möglich ab etwa der 16. Woche. Das
+        Ergebnis liegt nach etwa zwei Wochen vor. Es gibt einen Schnelltest, der nach ein bis
+        zwei Tagen ein Ergebnis liefert. Er muss aber meist selbst bezahlt werden.
+Bei beiden Untersuchungen führt die Ärztin oder der Arzt unter Ultraschallkontrolle eine
+dünne Nadel durch die Bauchdecke in die Gebärmutter ein. Eine Betäubung ist meist nicht
+notwendig.
+Der Eingriff selbst ist körperlich wenig belastend. Einige Stunden bis Tage kann ein leichtes
+Ziehen im Unterleib zu spüren sein.
+Schwerwiegender ist aber, dass etwa 1 bis 4 von 1 000 Frauen durch den Eingriff eine
+Fehlgeburt haben. Deshalb versucht man, diese eingreifenden Untersuchungen möglichst zu
+vermeiden.
+
+                                                                                             45
+Wie zuverlässig ist ein NIPT?
+Grundsätzlich ist ein NIPT zwar genau, trotzdem kommt es auch zu falschen Ergebnissen.
+Deshalb kann der Test keine sichere Diagnose einer Trisomie stellen.
+Bei einem NIPT können zwei Fehler passieren:
+
+     •   Eine Trisomie wird übersehen. Beim Down-Syndrom passiert das bei weniger als 1 von
+         10 000 Untersuchungen.
+     •   Der NIPT ist auffällig, das Ungeborene hat aber in Wirklichkeit keine Trisomie. Das
+         wird falscher Verdachtsbefund genannt. Dazu kommt es beim Down-Syndrom in etwa
+         5 von 10 000 Untersuchungen.
+
+Bei Trisomie 13 und 18 passieren solche Fehler häufiger als beim Down-Syndrom.
+Das Beispiel zum Down-Syndrom auf der folgenden Seite zeigt:
+
+     •   Bei den allermeisten Frauen ist der NIPT unauffällig.
+     •   Auch wenn der NIPT ein auffälliges Ergebnis zeigt, heißt es nicht, dass das Ungeborene
+         tatsächlich eine Trisomie hat. Es kann auch ein falscher Verdachtsbefund sein.
+     •   Um das auszuschließen, ist es nötig, einen auffälligen NIPT-Befund durch einen Eingriff
+         weiter abklären zu lassen.
+
+Zuverlässigkeit: Beispiel Down-Syndrom
+Das Verhältnis von richtigen zu falschen Befunden hängt davon ab, wie wahrscheinlich eine
+Trisomie ist. Diese Wahrscheinlichkeit hängt unter anderem vom Alter ab.
+Stellen Sie sich eine Gruppe von 10 000 Schwangeren vor, von denen 10 ein Ungeborenes mit
+einem Down-Syndrom haben. Wenn alle diese Frauen ein auswertbares Ergebnis erhalten,
+ergibt sich Folgendes:
+10 000 Frauen erhalten ein Testergebnis
+
+     •   Bei 15 Frauen ist der Test auffällig
+         -      10 Frauen haben tatsächlich ein Kind mit einem Down-Syndrom
+         -      5 Frauen haben kein Kind mit einem Down-Syndrom, obwohl der Test auffällig
+                war
+Mit anderen Worten: In diesem Beispiel ist jedes dritte auffällige Ergebnis falsch (bei 5 von
+15 Frauen).
+
+Vor einer Untersuchung - wie entscheiden?
+Die Entscheidung für oder gegen eine Untersuchung wie den NIPT kann schwerfallen. Manche
+Frauen oder Paare fühlen sich gedrängt, schnell zu entscheiden, ob sie einen Test machen
+wollen. Es ist jedoch genug Zeit, sich umfassend ärztlich oder psychosozial beraten zu lassen.
+Eine Frau hat zudem das gesetzliche Recht, allein zu entscheiden.
+Viele entscheiden sich für vorgeburtliche Untersuchungen, weil sie so weit wie möglich
+sichergehen möchten, dass ihr Kind keine größere Beeinträchtigung hat. Ein unauffälliges
+
+46
+Ergebnis kann Sorgen nehmen. Auf der anderen Seite können Untersuchungen aber auch
+verunsichern. Zudem bieten sie keine „Garantie“: Nicht alles kann während der
+Schwangerschaft erkannt oder ausgeschlossen werden.
+Andere entscheiden sich von vornherein gegen bestimmte vorgeburtliche Untersuchungen,
+wie etwa auf Trisomien. Ein Grund kann sein, dass sie das Kind so annehmen möchten, wie es
+ist. Ein Schwangerschaftsabbruch kommt für sie nicht infrage.
+Nicht alle, die sich für solche Untersuchungen entscheiden, möchten die Schwangerschaft
+später abbrechen. Ein Testergebnis kann auch Anlass sein, sich auf ein Kind mit Trisomie
+einzustellen und sich vorzubereiten. Zudem kann es immer sein, dass man seine Einstellung
+während der Schwangerschaft ändert.
+
+Was, wenn eine Trisomie festgestellt wird?
+Durch eine Abklärungsuntersuchung kann sich ein Hinweis auf eine Trisomie bestätigen. Dann
+stellt sich für einige Frauen oder Paare die Frage, ob sie die Schwangerschaft fortführen oder
+abbrechen. Sie fühlen sich häufig unter Druck, vor der 12. Woche entscheiden zu müssen.
+Zeitdruck gibt es bei einer Trisomie aber nicht: Ein Abbruch ist auch nach der 12. Woche
+möglich. Es ist also genug Zeit, um sich psychosozial beraten zu lassen, mit Familie,
+Freundinnen und Freunden darüber zu sprechen und zu einer passenden Entscheidung zu
+kommen.
+Zudem besteht die Möglichkeit, Kinder oder Erwachsene mit Down-Syndrom zu treffen oder
+sich mit den Eltern auszutauschen. Ärztinnen und Ärzte können Adressen von
+Selbsthilfegruppen nennen, die dann einen Kontakt vermitteln.
+Viele Kinder mit den Trisomien 13 und 18 leben nach der Geburt nur eine kurze Zeit. Es gibt
+Frauen und Paare, die ihr Kind trotzdem zur Welt bringen möchten. Sie möchten nicht
+„bestimmen“, wann das Kind aus dem Leben tritt. Eine solche Geburt wird medizinisch und
+psychologisch begleitet und „palliative Geburt“ genannt. Sie gibt Eltern die Möglichkeit, ihr
+Kind kennenzulernen und sich von ihm zu verabschieden.
+
+Weitere Informationen
+Diese Broschüre kann nicht alle Fragen zum NIPT beantworten. Sie soll die Beratung durch
+Ihre Ärztin oder Ihren Arzt oder eine Beratungsstelle unterstützen. Im Gendiagnostik- und im
+Schwangerschaftskonfliktgesetz ist beschrieben, welche Rechte auf Aufklärung und Beratung
+Sie haben.
+
+Informationen dazu und zu weiteren Fragen finden Sie hier:
+
+      www.familienplanung.de: Das Bundesinstitut für Öffentliche Gesundheit (BIÖG)
+       informiert über viele Themen rund um Schwangerschaft und Geburt, und auch zum
+       Thema Schwangerschaftsabbruch. Das BIÖG-Portal bietet zudem eine Suche nach
+       Schwangerschaftsberatungsstellen.
+      www.kindergesundheit-info.de: Diese Internetseite des BIÖG informiert über das
+       Leben mit Kindern. Teil des Angebots ist ein „Wegweiser für Familien mit einem
+       behinderten oder chronisch kranken Kind“.
+      www.familienratgeber.de: Der Ratgeber der Aktion Mensch enthält Informationen,
+       Rat und Adressen für Menschen mit Behinderungen und deren Angehörige.
+Informationen zu Trisomien finden Sie unter anderem auf diesen Seiten:
+
+                                                                                           47
+        www.ds-infocenter.de: Deutsches Down-Syndrom InfoCenter
+        www.down-syndrom.org: Arbeitskreis Down-Syndrom Deutschland e. V.
+        www.leona-ev.de: Familienselbsthilfe bei seltenen Chromosomenveränderungen (wie
+         Trisomie 13 und 18)
+
+ Standarduntersuchungen                    Zusätzliche Untersuchungen
+                                           Ab 10. Woche:
+ 9.-12. Woche: Ultraschall                 Nicht invasiver Pränataltest (NIPT)
+                                           Kann einen Hinweis auf eine Trisomie geben.
+ Hinzu kommen weitere Untersuchungen                Seite 10
+ wie das Abtasten des Bauches und
+ Blutentnahmen.                            Ab 12. Woche: Entnahme von Gewebe aus der
+ Standarduntersuchungen sollen             Plazenta (Chorionzottenbiopsie)
+ abschätzen, ob die Schwangerschaft und            Seite 13
+ die Entwicklung des Kindes normal
+ verlaufen.                                Ab 16. Woche: Entnahme von Fruchtwasser
+                                           (Amniozentese)
+                                                   Seite 13
+ 19.-22. Woche: Ultraschall
+                                           Dienen zur Abklärung eines Verdachts auf
+ 29.-32. Woche: Ultraschall                Trisomien oder anderer Auffälligkeiten.
+
+ Es gibt weitere Untersuchungen, die in der Regel selbst bezahlt werden müssen. Dazu
+ gehört beispielsweise das Ersttrimester-Screening (ETS). Dies kann Hinweise auf
+ verschiedene Auffälligkeiten geben, auch auf Trisomien.
+
+Welche Fragen haben Sie?
+Hier können Sie Ihre Fragen notieren:
+
+Platz für Ihre Fragen
+
+Quellen
+Institut für Qualität und Wirtschaftlichkeit im Gesundheitswesen (IQWiG).
+Versicherteninformation zur Pränataldiagnostik. Abschlussbericht; Auftrag P17-01. 2020
+Weitere Informationen:
+www.gesundheitsinformation.de/praenataldiagnostik
+
+48

@@ -1,0 +1,452 @@
+
+FAQ Einzelansicht | kindergesundheit-info.de
+
+Webanalyse / Datenerfassung
+
+Wir möchten diese Website fortlaufend verbessern. Dazu wird um Ihre Einwilligung in die statistische Erfassung von Nutzungsinformationen gebeten. Die Einwilligung kann jederzeit widerrufen werden.
+
+Einwilligen
+Ablehnen
+
+Weitere Informationen
+
+Welcher Dienst wird eingesetzt?
+
+Matomo
+
+Zu welchem Zweck wird der Dienst eingesetzt?
+
+Erfassung von Kennzahlen zur Webanalyse, um das Angebot zu verbessern.
+
+Welche Daten werden erfasst?
+
+IP-Adresse (wird umgehend anonymisiert)
+
+Gerätetyp, Gerätemarke, Gerätemodell
+
+Betriebssystem-Version
+
+Browser/Browser-Engines und Browser-Plugins
+
+aufgerufene URLs
+
+die Website, von der auf die aufgerufene Seite gelangt wurde (Referrer-Site)
+
+Verweildauer
+
+heruntergeladene PDFs
+
+eingegebene Suchbegriffe.
+
+Die IP-Adresse wird nicht vollständig gespeichert, die letzten beiden Oktette werden zum frühestmöglichen Zeitpunkt weggelassen/verfremdet (Beispiel: 181.153.xxx.xxx).
+
+Es werden keine Cookies auf dem Endgerät gespeichert. Wird eine Einwilligung für die Datenerfassung nicht erteilt, erfolgt ein Opt-Out-Cookie auf dem Endgerät, welcher dafür sorgt, dass keine Daten erfasst werden.
+
+Wie lange werden die Daten gespeichert?
+
+Die anonymisierte IP-Adresse wird für 90 Tage gespeichert und danach gelöscht.
+
+Auf welcher Rechtsgrundlage werden die Daten erfasst?
+
+Die Rechtsgrundlage für die Erfassung der Daten ist die Einwilligung der Nutzenden nach Art. 6 Abs. 1 lit. a der Datenschutz-Grundverordnung (DSGVO). Die Einwilligung kann auf der Datenschutzseite jederzeit widerrufen werden. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt davon unberührt.
+
+Wo werden die Daten verarbeitet?
+
+Matomo wird lokal auf den Servern des technischen Dienstleisters in Deutschland betrieben (Auftragsverarbeiter).
+
+Weitere Informationen:
+
+Weitere Informationen zur Verarbeitung personenbezogener Daten finden sich in den Datenschutzhinweisen.
+
+Zur Navigation
+
+Zum Inhalt
+
+Zur Suche
+
+Zur Breadcrumb
+
+Gebärdensprache
+
+Leichte Sprache
+
+Datenschutz
+
+Impressum
+
+Kontakt
+
+Rund ums Kind
+
+Fachkräfte
+
+Service
+
+Wir über uns
+
+Suchbegriff
+
+Suchen
+
+Eingabe löschen und Suche schließen
+
+Rund ums Kind
+
+Überblick
+
+Früherkennung U1–U9 und J1
+
+Früherkennung & Vorsorge
+
+Untersuchungstermine
+
+Das Gelbe Heft
+
+Untersuchungen U1–U9
+
+J1-Untersuchung
+
+Was wollen Jugendliche zur J1 wissen?
+
+Terminrechner
+
+Ernährung
+
+0-12 Monate
+
+Stillen
+
+1-6 Jahre
+
+Gesundes Ernährungsverhalten
+
+Probleme rund ums Essen
+
+Essen außer Haus
+
+Schlafen
+
+0-12 Monate
+
+Babyschlaf Multimedia-Geschichte
+
+1-6 Jahre
+
+Schlafprobleme
+
+Spielen
+
+Hauptsache Spielen
+
+0-12 Monate
+
+1-3 Jahre
+
+3-6 Jahre
+
+Medien
+
+Mediennutzung
+
+Medienwahrnehmung
+
+Medienarten
+
+Krankes Kind
+
+Im Krankheitsfall
+
+Krankheitszeichen
+
+Erkrankungen
+
+Kopfläuse
+
+Würmer
+
+Zeckenschutz
+
+Krätze
+
+Sicher aufwachsen
+
+Entwicklungsaspekte
+
+Sicherheit im Alltag
+
+0-12 Monate
+
+1-3 Jahre
+
+3-6 Jahre
+
+Notfall-Infos
+
+Risiken & Vorbeugen
+
+Impfen
+
+Zahngesundheit
+
+Passivrauchen
+
+Plötzlicher Kindstod (SIDS)
+
+Allergievorbeugung
+
+Sonnenschutz
+
+Entwicklung
+
+Entwicklungsschritte
+
+0-12 Monate
+
+Psychische Gesundheit
+
+Frühgeburt
+
+Behinderung
+
+Fördern & Unterstützen
+
+Bewegung & Sport
+
+Bewegung tut gut
+
+Wie viel Bewegung ist gut?
+
+Bewegungstipps
+
+Bewegung bei Hitze
+
+Bewegungsorte
+
+Bewegung bei Erkrankung
+
+Bewegungsideen für Kinder und Jugendliche
+
+Fachkräfte
+
+Überblick
+
+Kindergesundheit in der Kita
+
+Materialsuche
+
+Wie Kinder psychisch stabil bleiben
+
+Kranke Kinder in der Kita
+
+Alltag in der Kita
+
+U-Untersuchungen
+
+Zusammenarbeit mit Eltern
+
+Kindergesundheit in der Kommune
+
+Willkommensangebote
+
+Mehrsprachige BIÖG-Materialien
+
+U-Untersuchungen & J1
+
+Suche: Fachorganisationen & Referierende
+
+Internet- und Beratungsangebote des BIÖG
+
+Thema Impfschutz
+
+Medien der Frühen Hilfen
+
+Grundlagen
+
+Gesundheitsförderung
+
+Daten und Fakten
+
+Frühe Hilfen
+
+Mehrsprachige Materialien
+
+Ukrainisch-sprachige Materialien
+
+Krankes Kind
+
+Ernährung
+
+Impfen
+
+Zahngesundheit
+
+Entwicklung
+
+Risiken & Vorbeugen
+
+Deutsch lernen
+
+Familien-/Hebammen
+
+Für ärztliche Praxen
+
+Handout-Service
+
+Infopaket zusammenstellen
+
+Handout-Pakete
+
+Creative Commons
+
+Inhalte auswählen
+
+Anleitung
+
+Verwendungshinweise
+
+Unser Anliegen
+
+Service
+
+Überblick
+
+Infografiken
+
+CC-Illustrationen
+
+Elternbriefe
+
+Filme
+
+Eltern und Kind
+
+Einschlafen
+
+Beikost
+
+Spielen
+
+Sprechen lernen
+
+Baby beruhigen
+
+Niemals schütteln
+
+Infomaterial & Broschüren
+
+Eltern sein
+
+KURZ.KNAPP. Elterninfo
+
+U-Untersuchungen & J1
+
+Info-Plakate
+
+Risiken vorbeugen
+
+Impfen
+
+Arbeiten mit Eltern
+
+Gesund leben
+
+kindergesundheit-info.de
+
+Warenkorb
+
+Nachrichten
+
+Nachrichten
+
+Nachrichten Archiv
+
+Newsletter
+
+Newsletter bestellen
+
+Newsletter Archiv
+
+Service
+
+Kontakt
+
+Impressum
+
+Datenschutz
+
+Wir über uns
+
+Überblick
+
+Wer wir sind
+
+Wen wir ansprechen
+
+Wie wir arbeiten
+
+Navigation schließen
+
+Zum Handout-Service
+
+Startseite
+
+Rund ums Kind
+FAQ
+
+Zurück
+
+Gehören U10, U11 und J2 auch zu den „normalen“ Früherkennungsuntersuchungen?
+
+Häufige Fragen
+Die U10, U11 und J2 sind  Früherkennungsuntersuchungen , die von Kinder- und Jugendärzten bzw. -ärztinnen zusätzlich empfohlen und durchgeführt werden. Sie sollen die Abstände der Untersuchungen im Früherkennungsprogramm von Kindern und Jugendlichen verkürzen – zwischen der  U9  (mit etwa 5 Jahren) und der  J1  (mit etwa 12 bis 14 Jahren) – und das Programm mit der J2 ergänzen. Die U10 wird im Alter von 7 bis 8 Jahren, die U11 im Alter von 9 bis 10 Jahren und die J2 im Alter von 16 bis 17 Jahren angeboten. Die Kosten werden mittlerweile von vielen, aber nicht von allen gesetzlichen Krankenkassen übernommen. Fragen Sie wegen der Kostenübernahme am besten vorher bei Ihrer Krankenkasse nach.
+
+Weitere Fragen zum Thema
+
+In welchem Alter des Kindes finden die U-Untersuchungen statt?
+
+zur Antwort
+
+Wofür sind die Vitamin-K-Tropfen bei den ersten Untersuchungen?
+
+zur Antwort
+
+Die Untersuchungstermine: Müssen sie genau eingehalten werden?
+
+zur Antwort
+
+Zurück
+
+Facebook
+
+Mail
+
+Per WhatsApp empfehlen
+
+nach oben
+
+Suche
+
+Ihr Suchbegriff
+
+Rund ums Kind
+Fachkräfte
+Service
+Wir über uns
+
+Kontakt
+Impressum
+Datenschutz
+
+Gebärdensprache
+Leichte Sprache
+Barriere melden
+Erklärung zur Barrierefreiheit
+
+Die Webseite www.kindergesundheit-info.de ist ein Informationsangebot des Bundesinstituts für Öffentliche Gesundheit (BIÖG) mit fachlich fundierten und aktuellen Informationen.
+
+Das Bundesinstitut für Öffentliche Gesundheit ist eine Fachbehörde im Geschäftsbereich des Bundesministeriums für Gesundheit.
+
+©
+2026
+Bundesinstitut für Öffentliche Gesundheit (BIÖG)
+
