@@ -61,6 +61,7 @@ void main() {
       await checkData(db, release);
       await checkSettings(db, release);
       await checkTimeline(db, release);
+      await checkDelta(db, release);
       await checkSync(db, release);
       await checkNewFeaturesOnOldData(db);
     });
@@ -93,6 +94,9 @@ enum Trace {
   familyName,
   ownAppointments,
   pets,
+  deltaCursor,
+  pregnancy,
+  putOff,
 }
 
 class Release {
@@ -123,10 +127,14 @@ class Release {
         : '';
     final optionalNull = has(Trace.optionalRules) ? ', NULL' : '';
     final species = schema >= 6 ? ", 'human'" : '';
+    final noDate = schema >= 8 ? ', NULL' : '';
+    final expecting = !has(Trace.pregnancy)
+        ? noDate
+        : ", '2027-02-14T00:00:00.000Z'";
     final buffer = StringBuffer('''
       INSERT INTO persons VALUES
-        ('infant', 'Mila', '2026-09-01T00:00:00.000Z', 2, NULL$optionalNull$species),
-        ('mother', 'Sara', '1988-06-30T00:00:00.000Z', 1, 'allergic to penicillin'$optional$species);
+        ('infant', 'Mila', '2026-09-01T00:00:00.000Z', 2, NULL$optionalNull$species$noDate),
+        ('mother', 'Sara', '1988-06-30T00:00:00.000Z', 1, 'allergic to penicillin'$optional$species$expecting);
       INSERT INTO completions VALUES
         ('infant', 'u2', '', '2026-09-05T00:00:00.000Z', 0, 'Dr. Weber'),
         ('mother', 'td-booster', '', '2026-03-15T00:00:00.000Z', 0, NULL),
@@ -138,7 +146,7 @@ class Release {
         ('sync.device-name', 'Pixel 8 (Steve)'),
         ('support.prompt.dismissed', 'true'),
         ('ics.export.records', '{"mother-td-booster":{"fingerprint":"abc","sequence":2}}');
-      INSERT INTO changes VALUES
+      INSERT INTO changes (entity, entity_id, field, hlc, value) VALUES
         ('person', 'infant', 'name', '1758000000000-0000-phone-2026', '"Mila"'),
         ('person', 'infant', 'dateOfBirth', '1758000000000-0001-phone-2026', '"2026-09-01T00:00:00.000Z"'),
         ('person', 'mother', 'name', '1758000000000-0002-phone-2026', '"Sara"'),
@@ -152,7 +160,7 @@ class Release {
         ('completion', 'mother|td-booster|', 'personId', '1758000002000-0000-phone-2026', '"mother"'),
         ('completion', 'mother|td-booster|', 'ruleId', '1758000002000-0001-phone-2026', '"td-booster"'),
         ('completion', 'mother|td-booster|', 'completedOn', '1758000002000-0002-phone-2026', '"2026-03-15T00:00:00.000Z"');
-      INSERT INTO peers VALUES
+      INSERT INTO peers (node_id, device_name, shared_key, last_sync_hlc, last_sync_at) VALUES
         ('other-phone', 'iPhone 15 (Anna)', 'AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE=',
           '1758000002000-0002-phone-2026', '2026-09-21T10:00:00.000Z');
     ''');
@@ -177,23 +185,23 @@ class Release {
     if (has(Trace.familyName)) {
       buffer.writeln('''
       INSERT INTO families VALUES ('family', 'Familie Weber');
-      INSERT INTO changes VALUES
+      INSERT INTO changes (entity, entity_id, field, hlc, value) VALUES
         ('family', 'family', 'name', '1758000003000-0000-phone-2026', '"Familie Weber"');
       ''');
     }
     if (has(Trace.optionalRules)) {
       buffer.writeln('''
-      INSERT INTO changes VALUES
+      INSERT INTO changes (entity, entity_id, field, hlc, value) VALUES
         ('person', 'mother', 'optionalRules', '1758000004000-0000-phone-2026', '"influenza-under-60,tbe"');
       ''');
     }
     if (has(Trace.pets)) {
       buffer.writeln('''
       INSERT INTO persons VALUES
-        ('bello', 'Bello', '2025-03-01T00:00:00.000Z', 0, NULL, 'dog-deworming', 'dog');
+        ('bello', 'Bello', '2025-03-01T00:00:00.000Z', 0, NULL, 'dog-deworming', 'dog'$noDate);
       INSERT INTO completions VALUES
         ('bello', 'dog-rabies', 'g1', '2025-05-24T00:00:00.000Z', 0, NULL);
-      INSERT INTO changes VALUES
+      INSERT INTO changes (entity, entity_id, field, hlc, value) VALUES
         ('person', 'bello', 'name', '1758000006000-0000-phone-2026', '"Bello"'),
         ('person', 'bello', 'dateOfBirth', '1758000006000-0001-phone-2026', '"2025-03-01T00:00:00.000Z"'),
         ('person', 'bello', 'species', '1758000006000-0002-phone-2026', '"dog"');
@@ -203,12 +211,29 @@ class Release {
       buffer.writeln('''
       INSERT INTO own_appointments VALUES
         ('eyes', 'mother', 'Augenarzt', '2026-11-03T00:00:00.000Z', 12, 'Brille mitnehmen');
-      INSERT INTO changes VALUES
+      INSERT INTO changes (entity, entity_id, field, hlc, value) VALUES
         ('ownAppointment', 'eyes', 'personId', '1758000005000-0000-phone-2026', '"mother"'),
         ('ownAppointment', 'eyes', 'title', '1758000005000-0001-phone-2026', '"Augenarzt"'),
         ('ownAppointment', 'eyes', 'firstOn', '1758000005000-0002-phone-2026', '"2026-11-03T00:00:00.000Z"'),
         ('ownAppointment', 'eyes', 'everyMonths', '1758000005000-0003-phone-2026', '12'),
         ('ownAppointment', 'eyes', 'note', '1758000005000-0004-phone-2026', '"Brille mitnehmen"');
+      ''');
+    }
+    if (has(Trace.putOff)) {
+      buffer.writeln('''
+      INSERT INTO settings VALUES
+        ('reminder.put-off.mother-skin-cancer', '2026-09-25T00:00:00.000Z');
+      ''');
+    }
+    if (has(Trace.deltaCursor)) {
+      // Every change carries its position in this device's own order, and
+      // one of them came in from the other phone rather than being made
+      // here, which is what keeps it from being sent back.
+      buffer.writeln('''
+      UPDATE changes SET seq = rowid;
+      UPDATE changes SET origin = 'other-phone'
+        WHERE hlc = '1758000001000-0003-phone-2026';
+      UPDATE peers SET cursor = 12 WHERE node_id = 'other-phone';
       ''');
     }
     return buffer.toString();
@@ -232,6 +257,7 @@ const _v020 = {Trace.reminderPreferences, Trace.syncNotices, Trace.familyName};
 const _v030 = {..._v020, Trace.catalogsSeen, Trace.optionalRules};
 const _v050 = {..._v030, Trace.ownAppointments};
 const _v060 = {..._v050, Trace.pets};
+const _v080 = {..._v060, Trace.deltaCursor, Trace.pregnancy, Trace.putOff};
 
 const releases = [
   Release('v0.1.0', 2, {}),
@@ -246,6 +272,10 @@ const releases = [
   // v0.7.0 changed no table: it excluded the database from the cloud backup
   // and added the store graphics.
   Release('v0.7.0', 6, _v060),
+  // v0.8.0 is the first release to write schema 8: the cursor a delta is
+  // taken from, the origin that stops a change being echoed, and the date a
+  // pregnancy is counted from.
+  Release('v0.8.0', 8, _v080),
 ];
 
 Future<void> checkData(AppDatabase db, Release release) async {
@@ -388,6 +418,48 @@ Future<void> checkTimeline(AppDatabase db, Release release) async {
   expect(
     sara.any((o) => o.rule.id == 'own:eyes'),
     release.has(Trace.ownAppointments),
+  );
+  expect(
+    sara.any((o) => o.rule.catalogId == 'maternity'),
+    release.has(Trace.pregnancy),
+    reason: 'the expected date still puts the antenatal appointments up',
+  );
+}
+
+/// What a release wrote for the delta exchange survives the upgrade: a peer
+/// that has to start over from nothing would resend its whole history, and
+/// a change that lost its origin would be posted back to the phone it came
+/// from.
+Future<void> checkDelta(AppDatabase db, Release release) async {
+  final peer = (await db.allPeers()).single;
+  expect(peer.cursor, release.has(Trace.deltaCursor) ? 12 : isNull);
+
+  final (changes, mark) = await db.changesAfter(0);
+  expect(changes, isNotEmpty);
+  expect(
+    mark,
+    changes.length,
+    reason: 'every change got its own place in this device order',
+  );
+  expect(
+    (await db.changesAfter(mark)).$1,
+    isEmpty,
+    reason: 'a peer that has read this far is offered nothing twice',
+  );
+
+  final fromPeer = await db.changesAfter(0, except: 'other-phone');
+  expect(
+    fromPeer.$1.length,
+    release.has(Trace.deltaCursor) ? changes.length - 1 : changes.length,
+    reason: 'a change learned from a peer is not offered back to it',
+  );
+
+  final putOff = await db.settingsUnder('reminder.put-off.');
+  expect(
+    putOff.keys,
+    release.has(Trace.putOff)
+        ? ['reminder.put-off.mother-skin-cancer']
+        : isEmpty,
   );
 }
 
