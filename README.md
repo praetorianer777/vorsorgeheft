@@ -100,7 +100,9 @@ each says who the STIKO means it for.
 
 Services that are **not** statutory (U10, U11, J2, professional tooth cleaning) are labelled
 "depends on your insurer" in the app. `catalog-watch.yml` checks nightly whether one of the source
-documents has changed and files an issue if so.
+documents has changed and files an issue if so. Each entry there names under `covers` which of
+the sources cited in the catalogs it stands behind, and a test fails when a cited document is
+watched by nobody.
 
 ### Changing a catalog
 
@@ -187,6 +189,7 @@ machine without an emulator. It is not shipped and is not built in CI.
 | Shell | `./tests/test-release.sh`, `./tests/test-catalog-watch.sh`, `./.claude/hooks/tests/branch-guard-test.sh` | Release script, catalog watch and branch guard, offline and without Flutter |
 | Format & analysis | `dart format --set-exit-if-changed .`, `flutter analyze --fatal-infos` | |
 | Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, data layer, UI flows |
+| Guideline conformance | `flutter test test/tools/` | Reads the windows out of the source documents under `tools/catalog-sources/` and holds the catalogs to them: the § 2 table of the Kinder-RL, §§ 4 and 9 of the FU-RL, § 2 of each part of the GU-RL. Also that every source a catalog cites is watched by an entry in `tools/catalog-sources.json` |
 | End-to-end | `flutter test` | The specs in `integration_test/specs.dart`, run headless so they gate every push |
 | Schema upgrades | `flutter test test/data/migration_test.dart` | Every schema version ever shipped (`drift_schemas/`) migrates to the current one and matches a fresh install; what v0.1.0 wrote survives the upgrade |
 | Released versions | `flutter test test/data/released_versions_upgrade_test.dart` | One fixture per released tag: a database as that version wrote it opens in the current app, keeps its data and settings, and takes the features added since. A test fails when a tag has no fixture |

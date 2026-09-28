@@ -265,4 +265,88 @@ void main() {
       }
     });
   });
+
+  group('the payload a notification carries', () {
+    /// What the app taps into is a string the operating system kept while
+    /// the app was not running, possibly written by a version that has since
+    /// been replaced. It has to survive the round trip and it has to be
+    /// refused rather than trusted when it did not come from here.
+    final plan = planReminders(
+      occurrences: scheduleFor(
+        DateTime.utc(2026, 1, 15),
+        DateTime.utc(2026, 9, 20),
+      ),
+      now: DateTime(2026, 9, 20, 8),
+      settings: const ReminderSettings(maxPending: 500),
+    );
+
+    test('comes back out of its own encoding unchanged', () {
+      for (final reminder in plan) {
+        final there = ReminderPayload.of(reminder);
+        final back = ReminderPayload.tryParse(there.encode());
+        expect(back, isNotNull, reason: reminder.occurrenceKey);
+        expect(back!.occurrenceKey, there.occurrenceKey);
+        expect(back.personId, there.personId);
+        expect(back.ruleId, there.ruleId);
+        expect(back.doseId, there.doseId);
+      }
+    });
+
+    test('a dose is carried along, and its absence is not invented', () {
+      const withDose = ReminderPayload(
+        occurrenceKey: 'p1-mmr#2',
+        personId: 'p1',
+        ruleId: 'mmr',
+        doseId: '2',
+      );
+      expect(ReminderPayload.tryParse(withDose.encode())!.doseId, '2');
+
+      const without = ReminderPayload(
+        occurrenceKey: 'p1-u9',
+        personId: 'p1',
+        ruleId: 'u9',
+      );
+      expect(without.encode(), isNot(contains('dose')));
+      expect(ReminderPayload.tryParse(without.encode())!.doseId, isNull);
+    });
+
+    test('an id that contains the key separator survives', () {
+      // The occurrence key is built as "person-rule#dose", and a person id
+      // is a uuid today but has not always been one; splitting the key back
+      // apart is exactly what this payload exists to avoid.
+      const payload = ReminderPayload(
+        occurrenceKey: 'a-b#c-d-u9',
+        personId: 'a-b#c-d',
+        ruleId: 'u9',
+      );
+      final back = ReminderPayload.tryParse(payload.encode())!;
+      expect(back.personId, 'a-b#c-d');
+      expect(back.ruleId, 'u9');
+    });
+
+    test('anything that is not one of ours is refused', () {
+      for (final raw in <String?>[
+        null,
+        '',
+        'not json',
+        '[]',
+        '17',
+        '"just a string"',
+        '{}',
+        '{"key":"k","person":"p"}',
+        '{"key":"k","person":"p","rule":null}',
+        '{"key":1,"person":"p","rule":"r"}',
+      ]) {
+        expect(ReminderPayload.tryParse(raw), isNull, reason: '$raw');
+      }
+    });
+
+    test('a dose that is not a string is dropped rather than fatal', () {
+      final payload = ReminderPayload.tryParse(
+        '{"key":"k","person":"p","rule":"r","dose":7}',
+      );
+      expect(payload, isNotNull);
+      expect(payload!.doseId, isNull);
+    });
+  });
 }
