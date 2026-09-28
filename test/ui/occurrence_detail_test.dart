@@ -37,8 +37,13 @@ void main() {
   Future<void> open(WidgetTester tester, Occurrence occurrence) async {
     await tester.tap(find.text(child.name));
     await settle(tester);
-    await scrollTo(tester, find.byKey(Key('occurrence-${occurrence.key}')));
-    await tester.tap(find.byKey(Key('occurrence-${occurrence.key}')));
+    final entry = find.byKey(Key('occurrence-${occurrence.key}'));
+    await scrollTo(tester, entry);
+    // scrollTo stops as soon as the row is built, which for one far down a
+    // long timeline can still be below the fold.
+    await tester.ensureVisible(entry);
+    await settle(tester);
+    await tester.tap(entry);
     await settle(tester);
   }
 

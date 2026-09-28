@@ -23,6 +23,7 @@ void main() {
     DateTime birth, {
     Set<String> optional = const {},
     List<Completion> completions = const [],
+    Duration horizon = const Duration(days: 90),
   }) => computeOccurrences(
     person: Person(
       id: 'p',
@@ -34,6 +35,7 @@ void main() {
     catalogs: catalogs,
     completions: completions,
     today: today,
+    horizon: horizon,
   );
 
   String label(Occurrence o) =>
@@ -187,6 +189,7 @@ void main() {
         Species.dog,
         bornYearsAgo(5),
         optional: {'dog-deworming'},
+        horizon: const Duration(days: 365),
       );
       final routine = wormed
           .where((o) => o.rule.id == 'dog-deworming-routine')

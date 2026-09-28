@@ -28,21 +28,28 @@ void main() {
     List<Completion> completions = const [],
     DateTime? on,
     List<OwnAppointment> appointments = const [],
+    Duration horizon = const Duration(days: 90),
   }) => computeOccurrences(
     person: sara,
     catalogs: CatalogSet([childrenCatalog()]),
     completions: completions,
     ownAppointments: appointments,
     today: on ?? today,
+    horizon: horizon,
   ).where((o) => o.rule.own).toList();
 
   test('an own appointment is scheduled from its first date', () {
     final occurrences = own(appointments: [eyes]);
-    // Repeats within the horizon follow, like any recurring entitlement.
-    expect(occurrences.map((o) => o.windowStart), [
-      DateTime.utc(2026, 11, 3),
-      DateTime.utc(2027, 11, 3),
-    ]);
+    expect(occurrences.map((o) => o.windowStart), [DateTime.utc(2026, 11, 3)]);
+    // Repeats follow, like any recurring entitlement, as far ahead as the
+    // horizon reaches.
+    expect(
+      own(
+        appointments: [eyes],
+        horizon: const Duration(days: 730),
+      ).map((o) => o.windowStart),
+      [DateTime.utc(2026, 11, 3), DateTime.utc(2027, 11, 3)],
+    );
     final first = occurrences.first;
     expect(first.rule.id, 'own:eyes');
     expect(first.windowStart, DateTime.utc(2026, 11, 3));
