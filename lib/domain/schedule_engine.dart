@@ -254,7 +254,13 @@ Iterable<Occurrence> _forRule({
       make: make,
     ),
 
-    Booster(:final every, :final after, :final fromAge, :final thenEvery) =>
+    Booster(
+      :final every,
+      :final after,
+      :final fromAge,
+      :final thenEvery,
+      :final repeats,
+    ) =>
       _booster(
         rule: rule,
         birth: birth,
@@ -262,6 +268,7 @@ Iterable<Occurrence> _forRule({
         thenEvery: thenEvery ?? every,
         afterRuleId: after ?? rule.id,
         fromAge: fromAge,
+        repeats: repeats,
         history: history,
         today: today,
         generateUntil: generateUntil,
@@ -405,6 +412,7 @@ List<Occurrence> _booster({
   required AgeOffset thenEvery,
   required String afterRuleId,
   required AgeOffset? fromAge,
+  required int? repeats,
   required _History history,
   required DateTime today,
   required DateTime generateUntil,
@@ -432,12 +440,23 @@ List<Occurrence> _booster({
     );
   }
 
+  final left = repeats == null
+      ? null
+      : repeats - history.forKey(rule.id).where((c) => !c.skipped).length;
+  if (left != null && left <= 0) return occurrences;
+
   final first = anchor == null
       ? fromAge!.applyTo(birth)
       : (own == null ? every : thenEvery).applyTo(anchor);
-  var due = _currentRepeat(first, thenEvery, today, null);
+  // A finite entitlement has a date, not a grid: the second colonoscopy is
+  // available from ten years after the first and stays available, so it must
+  // not be walked forward the way a yearly repeat is.
+  var due = left == null
+      ? _currentRepeat(first, thenEvery, today, null)
+      : first;
   var emitted = 0;
-  while (emitted == 0 || !due.isAfter(generateUntil)) {
+  while ((emitted == 0 || !due.isAfter(generateUntil)) &&
+      (left == null || emitted < left)) {
     occurrences.add(make(windowStart: due, instanceId: _instanceId(due)));
     emitted++;
     due = thenEvery.applyTo(due);

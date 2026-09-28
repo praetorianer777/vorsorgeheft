@@ -115,4 +115,90 @@ void main() {
       expect(skin.first.status, OccurrenceStatus.due);
     },
   );
+
+  group('the second screening colonoscopy', () {
+    final sixtyEight = DateTime.utc(1958, 5, 4);
+
+    Completion colonoscopyOn(DateTime date, {bool skipped = false}) =>
+        Completion(
+          personId: Sex.male.name,
+          ruleId: 'colonoscopy',
+          completedOn: date,
+          skipped: skipped,
+        );
+
+    test('stays away until the first one is recorded', () {
+      // The guideline counts ten years from the colonoscopy that was
+      // actually done; with nothing recorded there is nothing to count from,
+      // and offering a second before the first would be nonsense.
+      final ids = ruleIdsFor(person(Sex.male, sixtyEight));
+      expect(ids, contains('colonoscopy'));
+      expect(ids, isNot(contains('colonoscopy-second')));
+    });
+
+    test('falls due ten years after the one that was had', () {
+      final timeline = scheduleFor(
+        person(Sex.male, sixtyEight),
+        completions: [colonoscopyOn(DateTime.utc(2020, 6, 1))],
+      );
+      final second = timeline.singleWhere(
+        (o) => o.rule.id == 'colonoscopy-second',
+      );
+      expect(second.windowStart, DateTime.utc(2030, 6, 1));
+    });
+
+    test('there is no third', () {
+      final timeline = scheduleFor(
+        person(Sex.male, sixtyEight),
+        completions: [
+          colonoscopyOn(DateTime.utc(2010, 6, 1)),
+          Completion(
+            personId: Sex.male.name,
+            ruleId: 'colonoscopy-second',
+            completedOn: DateTime.utc(2020, 6, 1),
+          ),
+        ],
+      );
+      final second = timeline.where((o) => o.rule.id == 'colonoscopy-second');
+      expect(second, hasLength(1));
+      expect(second.single.status, OccurrenceStatus.done);
+    });
+
+    test('skipping the offer does not use the entitlement up', () {
+      final timeline = scheduleFor(
+        person(Sex.male, sixtyEight),
+        completions: [
+          colonoscopyOn(DateTime.utc(2010, 6, 1)),
+          Completion(
+            personId: Sex.male.name,
+            ruleId: 'colonoscopy-second',
+            completedOn: DateTime.utc(2020, 6, 1),
+            skipped: true,
+          ),
+        ],
+      );
+      expect(
+        timeline
+            .where((o) => o.rule.id == 'colonoscopy-second' && o.isOpen)
+            .map((o) => o.windowStart),
+        [DateTime.utc(2020, 6, 1)],
+      );
+    });
+
+    test('it does not walk forward the way a yearly repeat does', () {
+      // Ten years after a colonoscopy at 52 is the age of 62, and the person
+      // is 68: the entitlement is still the one from 62, not one invented
+      // for 72.
+      final timeline = scheduleFor(
+        person(Sex.male, sixtyEight),
+        completions: [colonoscopyOn(DateTime.utc(2010, 5, 4))],
+      );
+      expect(
+        timeline
+            .singleWhere((o) => o.rule.id == 'colonoscopy-second')
+            .windowStart,
+        DateTime.utc(2020, 5, 4),
+      );
+    });
+  });
 }
