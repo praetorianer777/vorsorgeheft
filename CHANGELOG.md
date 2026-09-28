@@ -7,6 +7,43 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-09-28
+
+### Features
+
+- grant the second screening colonoscopy (0e92901)
+- add the maternity catalog (8f5dd98)
+- pass changes on to a third phone (8050de2)
+- record or put off an appointment from the reminder (e208a7a)
+
+### Bug fixes
+
+- stop listing a yearly entitlement three times (505c63c)
+- grant the notification permission in one command (9ff7b8f)
+- make the specs survive a real device (f0ff348)
+- build any tag from a dispatch of the release workflow (a088a4b)
+- keep a quoted CI-skip marker out of the release commit (0ab3730)
+
+### Other
+
+- add the upgrade fixture for v0.8.0 (3308785)
+- record the catalog source texts as of 2026-09-28 (7e092db)
+- close the gaps a coverage run turned up (28a8efc)
+- hold the children's catalog to the guideline table (a1e8d6c)
+- hold the engine, the clock change and large type (f5f7384)
+- say what the screen answered when a code is scanned (38fc275)
+- let the keyboard go before a dialog closes (0eaf3b7)
+- cover the mDNS answers the app writes by hand (ac2cc8c)
+- walk the screens nothing walked (9d1168c)
+- untrack the generated Linux build files (a34fa08)
+- focus a field before typing, and wait for pairing (278becc)
+- let each step of the form check that it landed (c356799)
+- retry a save, and keep the simulator keyboard still (41676d1)
+- get the last message out of the way before tapping (1181827)
+- wait for the screen behind a saved form (d77ba13)
+- scroll only when the target is off screen (25cbb8f)
+- give the device suites room and a live report (0ebe568)
+
 ## [0.7.0] - 2026-09-25
 
 ### Features
