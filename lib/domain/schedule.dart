@@ -188,6 +188,7 @@ final class Booster extends Schedule {
     this.after,
     this.fromAge,
     this.thenEvery,
+    this.repeats,
   });
 
   factory Booster.fromJson(Map<String, Object?> json) {
@@ -195,11 +196,18 @@ final class Booster extends Schedule {
     if (after != null && after is! String) {
       throw const FormatException('"schedule.after" must be a rule id');
     }
+    final repeats = json['repeats'];
+    if (repeats != null && (repeats is! int || repeats < 1)) {
+      throw const FormatException(
+        '"schedule.repeats" must be a positive whole number',
+      );
+    }
     return Booster(
       every: Schedule._offset(json, 'every'),
       after: after as String?,
       fromAge: Schedule._optionalOffset(json, 'fromAge'),
       thenEvery: Schedule._optionalOffset(json, 'thenEvery'),
+      repeats: repeats as int?,
     );
   }
 
@@ -219,4 +227,14 @@ final class Booster extends Schedule {
   /// first one: the TBE vaccination is refreshed three years after the series
   /// and every five years after that.
   final AgeOffset? thenEvery;
+
+  /// How often this booster is given at all, where the entitlement is
+  /// finite: the oKFE-RL grants a second screening colonoscopy ten years
+  /// after the first and no third. Null is the usual case, a refresher for
+  /// the rest of someone's life.
+  ///
+  /// Only appointments actually carried out count against it. Skipping the
+  /// offer is not the same as using the entitlement up, so a skipped booster
+  /// comes round again.
+  final int? repeats;
 }
