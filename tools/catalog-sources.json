@@ -1,65 +1,133 @@
 {
-  "_comment": "Primary sources of the preventive-care catalogs. catalog-watch.yml extracts each document's text nightly, keeps the last known text under tools/catalog-sources/<id>.txt, and opens an issue with the diff when it changes.",
+  "_comment": "Primary sources of the preventive-care catalogs. catalog-watch.yml extracts each document's text nightly, keeps the last known text under tools/catalog-sources/<id>.txt, and opens an issue with the diff when it changes. \"covers\" names the catalog source ids this document stands behind; every source a catalog cites has to appear under one of them.",
   "sources": [
     {
       "id": "gba-kinder-rl",
       "name": "G-BA Kinder-Richtlinie (consolidated version in force 2026-01-01)",
-      "url": "https://www.g-ba.de/downloads/62-492-3998/Kinder-RL_2025-05-15_iK-2026-01-01.pdf"
+      "url": "https://www.g-ba.de/downloads/62-492-3998/Kinder-RL_2025-05-15_iK-2026-01-01.pdf",
+      "covers": [
+        "gba-kinder-rl"
+      ]
     },
     {
       "id": "gba-jug-rl",
       "name": "G-BA Jugendgesundheitsuntersuchungs-Richtlinie (J1)",
-      "url": "https://www.g-ba.de/downloads/62-492-1270/RL-JUG_2016-07-21_iK-2017-01-01.pdf"
+      "url": "https://www.g-ba.de/downloads/62-492-1270/RL-JUG_2016-07-21_iK-2017-01-01.pdf",
+      "covers": [
+        "gba-jug-rl"
+      ]
     },
     {
       "id": "stiko-impfkalender",
       "name": "STIKO-Empfehlungen und Impfkalender (Epid. Bull. 4/2026)",
-      "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile"
+      "url": "https://www.rki.de/DE/Aktuelles/Publikationen/Epidemiologisches-Bulletin/2026/04_26.pdf?__blob=publicationFile",
+      "covers": [
+        "stiko-2026"
+      ]
     },
     {
       "id": "gba-zahn-frueherkennung",
       "name": "G-BA Früherkennungsuntersuchungen auf Zahn-, Mund- und Kieferkrankheiten (FU-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-3994/FU-RL-2025-05-15_iK_2026-01-01.pdf"
+      "url": "https://www.g-ba.de/downloads/62-492-3994/FU-RL-2025-05-15_iK_2026-01-01.pdf",
+      "covers": [
+        "gba-fu-rl"
+      ]
     },
     {
       "id": "gba-gesundheitsuntersuchung",
       "name": "G-BA Gesundheitsuntersuchungs-Richtlinie (GU-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-2383/GU-RL_2020-11-20_iK-2021-02-12.pdf"
+      "url": "https://www.g-ba.de/downloads/62-492-2383/GU-RL_2020-11-20_iK-2021-02-12.pdf",
+      "covers": [
+        "gba-gu-rl"
+      ]
     },
     {
       "id": "gba-krebsfrueherkennung",
       "name": "G-BA Krebsfrüherkennungs-Richtlinie (KFE-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-4074/KFE-RL_2025-12-18_iK-2026-03-12.pdf"
+      "url": "https://www.g-ba.de/downloads/62-492-4074/KFE-RL_2025-12-18_iK-2026-03-12.pdf",
+      "covers": [
+        "gba-kfe-rl"
+      ]
     },
     {
       "id": "gba-okfe-rl",
       "name": "G-BA Richtlinie für organisierte Krebsfrüherkennungsprogramme (oKFE-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-3860/oKFE-RL-2025-05-15-iK-2025-07-22.pdf"
+      "url": "https://www.g-ba.de/downloads/62-492-3860/oKFE-RL-2025-05-15-iK-2025-07-22.pdf",
+      "covers": [
+        "gba-okfe-rl"
+      ]
     },
     {
       "id": "gba-ip-rl",
       "name": "G-BA Individualprophylaxe-Richtlinien (IP-RL)",
-      "url": "https://www.g-ba.de/downloads/62-492-10/2003-06-04_IP-RL.pdf"
+      "url": "https://www.g-ba.de/downloads/62-492-10/2003-06-04_IP-RL.pdf",
+      "covers": [
+        "gba-ip-rl"
+      ]
     },
     {
       "id": "stiko-vet-kleintiere",
       "name": "StIKo Vet Leitlinie zur Impfung von Kleintieren (6. Auflage)",
-      "url": "https://www.openagrar.de/servlets/MCRFileNodeServlet/openagrar_derivate_00063989/Impfleitlinie_Kleintiere_2025-01-06.pdf"
+      "url": "https://www.openagrar.de/servlets/MCRFileNodeServlet/openagrar_derivate_00063989/Impfleitlinie_Kleintiere_2025-01-06.pdf",
+      "covers": [
+        "stiko-vet"
+      ]
     },
     {
       "id": "esccap-helminthen",
       "name": "ESCCAP-Empfehlung Nr. 1: Würmer bei Hunden und Katzen",
-      "url": "https://www.esccap.de/v2/wp-content/uploads/2025/09/ESCCAP_Empfehlung_No1_Helminthen_082025.pdf"
+      "url": "https://www.esccap.de/v2/wp-content/uploads/2025/09/ESCCAP_Empfehlung_No1_Helminthen_082025.pdf",
+      "covers": [
+        "esccap-worms"
+      ]
     },
     {
       "id": "esccap-ektoparasiten",
       "name": "ESCCAP-Empfehlung Nr. 3: Ektoparasiten bei Hunden und Katzen",
-      "url": "https://www.esccap.de/v2/wp-content/uploads/2022/02/2-2022-Ektoparasiten-Empfehlung-3.pdf"
+      "url": "https://www.esccap.de/v2/wp-content/uploads/2022/02/2-2022-Ektoparasiten-Empfehlung-3.pdf",
+      "covers": [
+        "esccap-ticks"
+      ]
     },
     {
       "id": "gba-mu-rl",
       "name": "G-BA Mutterschafts-Richtlinie",
-      "url": "https://www.g-ba.de/downloads/62-492-4201/Mu-RL_2026-07-16_iK-2026-08-25.pdf"
+      "url": "https://www.g-ba.de/downloads/62-492-4201/Mu-RL_2026-07-16_iK-2026-08-25.pdf",
+      "covers": [
+        "gba-mu-rl"
+      ]
+    },
+    {
+      "id": "stiko-empfehlungen",
+      "name": "STIKO recommendations, the page that lists what is in force",
+      "url": "https://www.rki.de/DE/Themen/Infektionskrankheiten/Impfen/Staendige-Impfkommission/Empfehlungen-der-STIKO/empfehlungen-der-stiko-node.html",
+      "covers": [
+        "stiko-updates"
+      ]
+    },
+    {
+      "id": "gba-chlamydien",
+      "name": "G-BA Chlamydien-Screening",
+      "url": "https://www.g-ba.de/themen/methodenbewertung/erwachsene/chlamydien-test/",
+      "covers": [
+        "gba-chlamydien"
+      ]
+    },
+    {
+      "id": "sgb5-55",
+      "name": "SGB V § 55 (the bonus booklet the dental check-ups feed)",
+      "url": "https://www.gesetze-im-internet.de/sgb_5/__55.html",
+      "covers": [
+        "sgb5-55"
+      ]
+    },
+    {
+      "id": "bzga-u10-u11-j2",
+      "name": "BZgA on U10, U11 and J2, which are not a statutory entitlement",
+      "url": "https://www.kindergesundheit-info.de/themen/faq/gehoeren-u10-u11-und-j2-auch-zu-den-normalen-frueherkennungsuntersuchungen/",
+      "covers": [
+        "bvkj-u10-u11-j2"
+      ]
     }
   ]
 }
