@@ -11,12 +11,14 @@ void main() {
   final birth = DateTime.utc(2026, 1, 15);
   final child = Person(id: 'p1', name: 'Kind', dateOfBirth: birth);
 
-  List<Occurrence> scheduleFor(Person p, DateTime today) => computeOccurrences(
-    person: p,
-    catalogs: catalogs,
-    completions: const [],
-    today: today,
-  );
+  List<Occurrence> scheduleFor(Person p, DateTime today, {Duration? horizon}) =>
+      computeOccurrences(
+        person: p,
+        catalogs: catalogs,
+        completions: const [],
+        today: today,
+        horizon: horizon ?? const Duration(days: 90),
+      );
 
   Occurrence z(String id) =>
       scheduleFor(child, birth).firstWhere((o) => o.rule.id == id);
@@ -83,7 +85,11 @@ void main() {
       name: 'Kind',
       dateOfBirth: DateTime.utc(2013, 2, 1),
     );
-    final schedule = scheduleFor(thirteen, DateTime.utc(2026, 9, 20));
+    final schedule = scheduleFor(
+      thirteen,
+      DateTime.utc(2026, 9, 20),
+      horizon: const Duration(days: 365),
+    );
     final halfYearly = schedule
         .where((o) => o.rule.id == 'ip-12-17')
         .map((o) => o.windowStart)
@@ -103,6 +109,7 @@ void main() {
     final schedule = scheduleFor(
       adult,
       DateTime.utc(2026, 9, 20),
+      horizon: const Duration(days: 365),
     ).where((o) => o.rule.id == 'dental-checkup-adult').toList();
 
     expect(schedule.first.windowStart, DateTime.utc(2026, 6, 1));

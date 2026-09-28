@@ -42,14 +42,24 @@ List<Occurrence> run({
   required Person person,
   required DateTime today,
   List<Completion> completions = const [],
-  Duration horizon = const Duration(days: 730),
-}) => computeOccurrences(
-  person: person,
-  catalogs: catalogs,
-  completions: completions,
-  today: today,
-  horizon: horizon,
-);
+
+  /// Left out where the point is what the app itself shows, so that the
+  /// engine's own default is what gets tested.
+  Duration? horizon,
+}) => horizon == null
+    ? computeOccurrences(
+        person: person,
+        catalogs: catalogs,
+        completions: completions,
+        today: today,
+      )
+    : computeOccurrences(
+        person: person,
+        catalogs: catalogs,
+        completions: completions,
+        today: today,
+        horizon: horizon,
+      );
 
 Map<String, Object?> u6({bool hardDeadline = true}) => {
   'id': 'u6',
@@ -809,6 +819,30 @@ void main() {
         DateTime.utc(2026, 6, 1),
         DateTime.utc(2027, 6, 1),
         DateTime.utc(2028, 6, 1),
+      ]);
+    });
+
+    test('by default a yearly entitlement is listed once', () {
+      // Three months ahead: the one running now, and nothing more. A repeat
+      // further out is a guess that moves the moment this one is recorded,
+      // and it used to be listed three times.
+      final occurrences = run(
+        catalogs: yearly,
+        person: personBornOn(DateTime.utc(1985, 6, 1)),
+        today: DateTime.utc(2026, 9, 20),
+      );
+      expect(occurrences.map((o) => o.windowStart), [DateTime.utc(2026, 6, 1)]);
+    });
+
+    test('a repeat coming up inside three months is still listed', () {
+      final occurrences = run(
+        catalogs: yearly,
+        person: personBornOn(DateTime.utc(1985, 11, 1)),
+        today: DateTime.utc(2026, 9, 20),
+      );
+      expect(occurrences.map((o) => o.windowStart), [
+        DateTime.utc(2025, 11, 1),
+        DateTime.utc(2026, 11, 1),
       ]);
     });
 

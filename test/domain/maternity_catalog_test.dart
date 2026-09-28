@@ -33,15 +33,19 @@ void main() {
 
   /// [expecting] defaults to the date above; pass null for someone who is
   /// not pregnant.
-  List<Occurrence> on(DateTime day, {Object? expecting = _keep}) =>
-      computeOccurrences(
-        person: mother(
-          expecting: expecting == _keep ? expectedOn : expecting as DateTime?,
-        ),
-        catalogs: catalogs,
-        completions: const [],
-        today: day,
-      ).where((o) => o.rule.catalogId == 'maternity').toList();
+  List<Occurrence> on(
+    DateTime day, {
+    Object? expecting = _keep,
+    Duration horizon = const Duration(days: 90),
+  }) => computeOccurrences(
+    person: mother(
+      expecting: expecting == _keep ? expectedOn : expecting as DateTime?,
+    ),
+    catalogs: catalogs,
+    completions: const [],
+    today: day,
+    horizon: horizon,
+  ).where((o) => o.rule.catalogId == 'maternity').toList();
 
   Set<String> dueOn(DateTime day) => {
     for (final o in on(day))
@@ -111,12 +115,36 @@ void main() {
     final start = expectedOn.subtract(Anchor.pregnancyLength);
     int weekOf(DateTime day) => day.difference(start).inDays ~/ 7;
     final weeks = [
-      for (final o in on(at(12)))
+      for (final o in on(at(12), horizon: const Duration(days: 300)))
         if (o.rule.id.startsWith('pregnancy-checkup')) weekOf(o.windowStart),
     ]..sort();
 
     expect(weeks.where((w) => w < 32), [12, 16, 20, 24, 28]);
     expect(weeks.where((w) => w >= 32 && w <= 40), [32, 34, 36, 38, 40]);
+  });
+
+  test('what she is shown is the next three months of them', () {
+    // The whole plan is nine months of appointments and nobody books the
+    // 38th week in the 12th. The timeline reaches as far as the rest of it
+    // does, and the later ones arrive as the pregnancy does.
+    int weekOf(DateTime day) =>
+        day.difference(expectedOn.subtract(Anchor.pregnancyLength)).inDays ~/ 7;
+    final weeks = [
+      for (final o in on(at(12)))
+        if (o.rule.id.startsWith('pregnancy-checkup')) weekOf(o.windowStart),
+    ]..sort();
+    // The 32nd week is the first of the fortnightly rule, and a rule's first
+    // appointment is always shown however far off it is - the same reason a
+    // twenty-year-old sees that the check-up starts at 35.
+    expect(weeks, [12, 16, 20, 24, 32]);
+
+    final later = [
+      for (final o in on(at(32)))
+        if (o.rule.id.startsWith('pregnancy-checkup')) weekOf(o.windowStart),
+    ]..sort();
+    // The four-weekly appointment of the 28th week runs to the 32nd, so on
+    // that day it is still open alongside the fortnightly ones.
+    expect(later, [28, 32, 34, 36, 38, 40]);
   });
 
   test('the check-up after the birth comes six weeks after the date', () {

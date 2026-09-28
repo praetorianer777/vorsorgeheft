@@ -810,9 +810,12 @@ void registerAppSpecs() {
       findsOneWidget,
     );
     expect(find.text('Depends on your insurer'), findsWidgets);
+    // No reminder yet: a reminder warns ahead of a window opening, and this
+    // one is open already. The next year's is further off than the timeline
+    // reaches, and gets its reminder when it comes within three months.
     expect(
       gateway.pending.where((r) => r.ruleId == 'influenza-under-60'),
-      isNotEmpty,
+      isEmpty,
     );
     expect((await db.personById('mother'))!.optionalRules, {
       'influenza-under-60',

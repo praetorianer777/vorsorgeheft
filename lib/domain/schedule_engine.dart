@@ -19,6 +19,13 @@ import 'schedule.dart';
 /// it a check-up every three years would produce occurrences forever. The next
 /// one is always generated even when it lies beyond the horizon, so a
 /// twenty-year-old still sees that the check-up starts at 35.
+///
+/// Three months, because a repeat further out is a guess that moves: the
+/// interval runs from the date an appointment was actually recorded, so
+/// recording this year's flu shot in November shifts every date after it.
+/// Generating two years of them listed a yearly entitlement three times,
+/// filled the calendar export with dates the app knew it would revise, and
+/// spent notification slots on them.
 List<Occurrence> computeOccurrences({
   required Person person,
   required CatalogSet catalogs,
@@ -26,7 +33,7 @@ List<Occurrence> computeOccurrences({
   required DateTime today,
   List<OwnAppointment> ownAppointments = const [],
   LocalizedText? ownSourceName,
-  Duration horizon = const Duration(days: 730),
+  Duration horizon = const Duration(days: 90),
 }) {
   final history = _History(person.id, completions);
   final generateUntil = today.add(horizon);
