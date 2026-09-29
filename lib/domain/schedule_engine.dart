@@ -342,7 +342,9 @@ List<Occurrence> _recurring({
 
   var emitted = 0;
   while (cutoff == null || !due.isAfter(cutoff)) {
-    if (emitted > 0 && due.isAfter(generateUntil)) break;
+    if (emitted > 0 && (due.isAfter(generateUntil) || _oneAtATime(every))) {
+      break;
+    }
     occurrences.add(
       make(
         windowStart: due,
@@ -462,7 +464,8 @@ List<Occurrence> _booster({
       ? _currentRepeat(first, thenEvery, today, null)
       : first;
   var emitted = 0;
-  while ((emitted == 0 || !due.isAfter(generateUntil)) &&
+  while ((emitted == 0 ||
+          (!due.isAfter(generateUntil) && !_oneAtATime(thenEvery))) &&
       (left == null || emitted < left)) {
     occurrences.add(make(windowStart: due, instanceId: _instanceId(due)));
     emitted++;
@@ -471,6 +474,18 @@ List<Occurrence> _booster({
 
   return occurrences;
 }
+
+/// Whether an entitlement that comes round this often is shown one instance
+/// at a time.
+///
+/// A yearly window is a year long, so its successor begins the day it ends
+/// and the two would stand in the list together - the flu vaccination under
+/// "needs attention" and again under "coming up". There is nothing to do
+/// about next year's while this year's is open, and recording this one moves
+/// the next anyway. Below a year the repeats are a plan rather than the same
+/// entitlement again: the antenatal check-ups every two weeks, the dental
+/// prophylaxis every six months, the dog's deworming.
+bool _oneAtATime(AgeOffset every) => every.approximateDays >= 365;
 
 /// The repeat that can still be acted on, skipping the ones a later repeat has
 /// already superseded.

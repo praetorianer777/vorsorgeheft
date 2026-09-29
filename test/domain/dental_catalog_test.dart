@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgeheft/domain/catalog.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
 import 'package:vorsorgeheft/domain/occurrence.dart';
 import 'package:vorsorgeheft/domain/person.dart';
 import 'package:vorsorgeheft/domain/schedule_engine.dart';
@@ -11,14 +12,18 @@ void main() {
   final birth = DateTime.utc(2026, 1, 15);
   final child = Person(id: 'p1', name: 'Kind', dateOfBirth: birth);
 
-  List<Occurrence> scheduleFor(Person p, DateTime today, {Duration? horizon}) =>
-      computeOccurrences(
-        person: p,
-        catalogs: catalogs,
-        completions: const [],
-        today: today,
-        horizon: horizon ?? const Duration(days: 90),
-      );
+  List<Occurrence> scheduleFor(
+    Person p,
+    DateTime today, {
+    Duration? horizon,
+    List<Completion> completions = const [],
+  }) => computeOccurrences(
+    person: p,
+    catalogs: catalogs,
+    completions: completions,
+    today: today,
+    horizon: horizon ?? const Duration(days: 90),
+  );
 
   Occurrence z(String id) =>
       scheduleFor(child, birth).firstWhere((o) => o.rule.id == id);
@@ -109,11 +114,30 @@ void main() {
     final schedule = scheduleFor(
       adult,
       DateTime.utc(2026, 9, 20),
-      horizon: const Duration(days: 365),
     ).where((o) => o.rule.id == 'dental-checkup-adult').toList();
 
-    expect(schedule.first.windowStart, DateTime.utc(2026, 6, 1));
-    expect(schedule.first.status, OccurrenceStatus.due);
-    expect(schedule[1].windowStart, DateTime.utc(2027, 6, 1));
+    // One at a time: nothing can be done about next year's while this
+    // year's is still open.
+    expect(schedule, hasLength(1));
+    expect(schedule.single.windowStart, DateTime.utc(2026, 6, 1));
+    expect(schedule.single.status, OccurrenceStatus.due);
+
+    // The year is visible once one is recorded, which is also what the
+    // bonus booklet counts.
+    final after = scheduleFor(
+      adult,
+      DateTime.utc(2026, 9, 20),
+      completions: [
+        Completion(
+          personId: adult.id,
+          ruleId: 'dental-checkup-adult',
+          completedOn: DateTime.utc(2026, 9, 15),
+        ),
+      ],
+    ).where((o) => o.rule.id == 'dental-checkup-adult');
+    expect(after.map((o) => o.windowStart), [
+      DateTime.utc(2026, 9, 15),
+      DateTime.utc(2027, 9, 15),
+    ]);
   });
 }

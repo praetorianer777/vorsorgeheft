@@ -44,6 +44,19 @@ class AgeOffset {
   final int hours;
   final int minutes;
 
+  /// Roughly how many days this span covers, for comparing one span with
+  /// another. A month is not a fixed number of days, so this is good enough
+  /// to tell a fortnight from a year and no more; a date is computed with
+  /// [applyTo].
+  int get approximateDays =>
+      (years * 365.2425 +
+              months * 30.436875 +
+              weeks * 7 +
+              days +
+              hours / 24 +
+              minutes / 1440)
+          .round();
+
   bool get isZero =>
       years == 0 &&
       months == 0 &&

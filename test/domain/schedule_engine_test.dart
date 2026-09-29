@@ -388,10 +388,18 @@ void main() {
 
     test('repeats of one rule get distinct keys', () {
       final occurrences = run(
-        catalogs: catalogs,
+        catalogs: catalogOf([
+          {
+            'id': 'quarterly',
+            'schedule': {
+              'type': 'recurring',
+              'from': {'years': 1},
+              'every': {'months': 3},
+            },
+          },
+        ]),
         person: personBornOn(DateTime.utc(1985, 6, 1)),
         today: DateTime.utc(2026, 9, 20),
-        horizon: const Duration(days: 2000),
       );
       final keys = occurrences.map((o) => o.key).toList();
       expect(keys.toSet(), hasLength(keys.length));
@@ -661,8 +669,8 @@ void main() {
 
     test('changes to the later interval once a booster has been given', () {
       // TBE: three years after the series, then every five. The first
-      // booster counts from the series; every one after it counts from the
-      // booster before, whether that one was recorded or merely generated.
+      // booster counts from the series; the one after it counts from the
+      // booster before.
       final catalogs = catalogOf([
         {
           'id': 'tbe',
@@ -702,7 +710,9 @@ void main() {
         completions: [series],
         horizon: const Duration(days: 4000),
       ).where((o) => o.rule.id == 'tbe-booster').map((o) => o.windowStart);
-      expect(afterSeries, [DateTime.utc(2028, 4, 3), DateTime.utc(2033, 4, 3)]);
+      // One at a time, five years apart: the second is not listed until the
+      // first is recorded, which is also when its date stops being a guess.
+      expect(afterSeries, [DateTime.utc(2028, 4, 3)]);
 
       final afterBooster = run(
         catalogs: catalogs,
@@ -808,24 +818,44 @@ void main() {
       },
     ]);
 
+    final quarterly = catalogOf([
+      {
+        'id': 'quarterly',
+        'schedule': {
+          'type': 'recurring',
+          'from': {'years': 35},
+          'every': {'months': 3},
+        },
+      },
+    ]);
+
     test('every repeat inside the horizon is generated, none beyond', () {
       final occurrences = run(
-        catalogs: yearly,
+        catalogs: quarterly,
         person: personBornOn(DateTime.utc(1985, 6, 1)),
         today: DateTime.utc(2026, 9, 20),
-        horizon: const Duration(days: 730),
+        horizon: const Duration(days: 200),
       );
       expect(occurrences.map((o) => o.windowStart), [
-        DateTime.utc(2026, 6, 1),
-        DateTime.utc(2027, 6, 1),
-        DateTime.utc(2028, 6, 1),
+        DateTime.utc(2026, 9, 1),
+        DateTime.utc(2026, 12, 1),
+        DateTime.utc(2027, 3, 1),
       ]);
     });
 
-    test('by default a yearly entitlement is listed once', () {
-      // Three months ahead: the one running now, and nothing more. A repeat
-      // further out is a guess that moves the moment this one is recorded,
-      // and it used to be listed three times.
+    test('by default that is the next three months of them', () {
+      final occurrences = run(
+        catalogs: quarterly,
+        person: personBornOn(DateTime.utc(1985, 6, 1)),
+        today: DateTime.utc(2026, 9, 20),
+      );
+      expect(occurrences.map((o) => o.windowStart), [
+        DateTime.utc(2026, 9, 1),
+        DateTime.utc(2026, 12, 1),
+      ]);
+    });
+
+    test('a yearly entitlement is listed once', () {
       final occurrences = run(
         catalogs: yearly,
         person: personBornOn(DateTime.utc(1985, 6, 1)),
@@ -834,7 +864,12 @@ void main() {
       expect(occurrences.map((o) => o.windowStart), [DateTime.utc(2026, 6, 1)]);
     });
 
-    test('a repeat coming up inside three months is still listed', () {
+    test('still once when the next cycle starts within the horizon', () {
+      // Born in November, so the cycle running now ends and the next one
+      // begins six weeks from today. The horizon cannot separate those: a
+      // yearly window is a year long, so its successor always opens the day
+      // it closes. This is the case that kept the flu vaccination standing
+      // under "needs attention" and again under "coming up".
       final occurrences = run(
         catalogs: yearly,
         person: personBornOn(DateTime.utc(1985, 11, 1)),
@@ -842,8 +877,19 @@ void main() {
       );
       expect(occurrences.map((o) => o.windowStart), [
         DateTime.utc(2025, 11, 1),
-        DateTime.utc(2026, 11, 1),
       ]);
+    });
+
+    test('however long the horizon is', () {
+      expect(
+        run(
+          catalogs: yearly,
+          person: personBornOn(DateTime.utc(1985, 6, 1)),
+          today: DateTime.utc(2026, 9, 20),
+          horizon: const Duration(days: 3650),
+        ),
+        hasLength(1),
+      );
     });
 
     test('a booster repeats inside the horizon the same way', () {
@@ -862,10 +908,27 @@ void main() {
         today: DateTime.utc(2026, 9, 20),
         horizon: const Duration(days: 730),
       );
-      expect(occurrences.map((o) => o.windowStart), [
-        DateTime.utc(2018, 5, 5),
-        DateTime.utc(2028, 5, 5),
-      ]);
+      // Ten years apart, so one at a time, like any other entitlement that
+      // comes round in a year or more.
+      expect(occurrences.map((o) => o.windowStart), [DateTime.utc(2018, 5, 5)]);
+    });
+
+    test('a booster that comes round monthly keeps its plan', () {
+      final occurrences = run(
+        catalogs: catalogOf([
+          {
+            'id': 'tick-protection',
+            'schedule': {
+              'type': 'booster',
+              'every': {'months': 1},
+              'fromAge': {'years': 1},
+            },
+          },
+        ]),
+        person: personBornOn(DateTime.utc(2020, 5, 5)),
+        today: DateTime.utc(2026, 9, 20),
+      );
+      expect(occurrences.length, greaterThan(2));
     });
   });
 
