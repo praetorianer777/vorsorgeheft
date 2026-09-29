@@ -805,17 +805,17 @@ void registerAppSpecs() {
     await form.save();
 
     await timeline.scrollToAppointment('Flu vaccination (under 60)');
+    // Upcoming rather than due: the vaccination follows the season, and on
+    // the twentieth of September the next one opens in eleven days.
     expect(
-      timeline.status('Flu vaccination (under 60)', 'Due'),
+      timeline.status('Flu vaccination (under 60)', 'Upcoming'),
       findsOneWidget,
     );
     expect(find.text('Depends on your insurer'), findsWidgets);
-    // No reminder yet: a reminder warns ahead of a window opening, and this
-    // one is open already. The next year's is further off than the timeline
-    // reaches, and gets its reminder when it comes within three months.
     expect(
       gateway.pending.where((r) => r.ruleId == 'influenza-under-60'),
-      isEmpty,
+      isNotEmpty,
+      reason: 'a season about to open is worth a reminder',
     );
     expect((await db.personById('mother'))!.optionalRules, {
       'influenza-under-60',

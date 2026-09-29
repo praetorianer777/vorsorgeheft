@@ -806,6 +806,174 @@ void main() {
     });
   });
 
+  group('seasons', () {
+    /// The flu vaccination: one per winter, from October to the end of
+    /// January, from the age of six months and no longer once someone is
+    /// sixty and the standard rule takes over.
+    final flu = catalogOf([
+      {
+        'id': 'flu',
+        'schedule': {
+          'type': 'seasonal',
+          'from': {'months': 6},
+          'until': {'years': 60},
+          'opens': {'month': 10},
+          'closes': {'month': 1},
+        },
+      },
+    ]);
+    final person = personBornOn(DateTime.utc(1990, 4, 10));
+
+    Occurrence on(DateTime today, {List<Completion> completions = const []}) =>
+        run(
+          catalogs: flu,
+          person: person,
+          today: today,
+          completions: completions,
+        ).where((o) => o.isOpen).single;
+
+    Completion had(DateTime day) =>
+        Completion(personId: 'p1', ruleId: 'flu', completedOn: day);
+
+    test('the same winter whatever month someone was born in', () {
+      // Born in April, and the season still opens in October. This is the
+      // whole point: a yearly interval from a birthday told this person to
+      // have a flu shot in April.
+      final o = on(DateTime.utc(2026, 9, 20));
+      expect(o.windowStart, DateTime.utc(2026, 10, 1));
+      expect(o.windowEnd, DateTime.utc(2027, 1, 31));
+      expect(o.status, OccurrenceStatus.upcoming);
+    });
+
+    test('due from the day it opens to the day it closes', () {
+      expect(on(DateTime.utc(2026, 10, 1)).status, OccurrenceStatus.due);
+      expect(on(DateTime.utc(2026, 12, 24)).status, OccurrenceStatus.due);
+      expect(on(DateTime.utc(2027, 1, 31)).status, OccurrenceStatus.due);
+    });
+
+    test('a winter that has passed gives way to the next', () {
+      // Nothing carries over: a shot missed in January cannot be had in
+      // February, and what can be had is next winter's.
+      final o = on(DateTime.utc(2027, 2, 1));
+      expect(o.windowStart, DateTime.utc(2027, 10, 1));
+      expect(o.status, OccurrenceStatus.upcoming);
+    });
+
+    test('having it settles that winter and moves on to the next', () {
+      final timeline = run(
+        catalogs: flu,
+        person: person,
+        today: DateTime.utc(2026, 11, 20),
+        completions: [had(DateTime.utc(2026, 11, 3))],
+      );
+      final done = timeline.singleWhere(
+        (o) => o.status == OccurrenceStatus.done,
+      );
+      expect(done.instanceId, '2026');
+      expect(done.completedOn, DateTime.utc(2026, 11, 3));
+
+      final next = timeline.singleWhere((o) => o.isOpen);
+      expect(next.instanceId, '2027');
+      expect(next.windowStart, DateTime.utc(2027, 10, 1));
+    });
+
+    test('one had in January belongs to the winter that opened in October', () {
+      final timeline = run(
+        catalogs: flu,
+        person: person,
+        today: DateTime.utc(2027, 1, 20),
+        completions: [had(DateTime.utc(2027, 1, 8))],
+      );
+      expect(
+        timeline.singleWhere((o) => o.completedOn != null).instanceId,
+        '2026',
+      );
+      expect(timeline.where((o) => o.isOpen).single.instanceId, '2027');
+    });
+
+    test('one winter each, however many are recorded', () {
+      final timeline = run(
+        catalogs: flu,
+        person: person,
+        today: DateTime.utc(2026, 11, 20),
+        completions: [
+          had(DateTime.utc(2024, 10, 30)),
+          had(DateTime.utc(2025, 12, 2)),
+          had(DateTime.utc(2026, 11, 3)),
+        ],
+      );
+      expect(
+        timeline.where((o) => o.completedOn != null).map((o) => o.instanceId),
+        ['2024', '2025', '2026'],
+      );
+      expect(timeline.where((o) => o.isOpen), hasLength(1));
+    });
+
+    test('nobody is offered it before they are old enough', () {
+      // Six months old in the January of the season that is running: the
+      // season they can have one in is the next.
+      final baby = personBornOn(DateTime.utc(2026, 8, 1));
+      final o = run(
+        catalogs: flu,
+        person: baby,
+        today: DateTime.utc(2026, 11, 1),
+      ).where((o) => o.isOpen).single;
+      expect(o.windowStart, DateTime.utc(2027, 10, 1));
+    });
+
+    test('and not after the age where another rule takes over', () {
+      final nearlySixty = personBornOn(DateTime.utc(1967, 4, 10));
+      expect(
+        run(
+          catalogs: flu,
+          person: nearlySixty,
+          today: DateTime.utc(2026, 9, 20),
+        ).where((o) => o.isOpen),
+        isNotEmpty,
+      );
+      final sixty = personBornOn(DateTime.utc(1966, 4, 10));
+      expect(
+        run(catalogs: flu, person: sixty, today: DateTime.utc(2026, 9, 20)),
+        isEmpty,
+      );
+    });
+
+    test('a season inside one year does not run over its turn', () {
+      // The COVID-19 booster is an autumn, not a winter.
+      final autumn = catalogOf([
+        {
+          'id': 'covid',
+          'schedule': {
+            'type': 'seasonal',
+            'from': {'years': 75},
+            'opens': {'month': 10},
+            'closes': {'month': 11},
+          },
+        },
+      ]);
+      final old = personBornOn(DateTime.utc(1940, 3, 3));
+      final o = run(
+        catalogs: autumn,
+        person: old,
+        today: DateTime.utc(2026, 10, 15),
+      ).single;
+      expect(o.windowStart, DateTime.utc(2026, 10, 1));
+      expect(o.windowEnd, DateTime.utc(2026, 11, 30));
+      expect(o.status, OccurrenceStatus.due);
+
+      // In December that season is over, and one had in December belongs to
+      // the year it happened in rather than to the season before it.
+      expect(
+        run(
+          catalogs: autumn,
+          person: old,
+          today: DateTime.utc(2026, 12, 1),
+        ).single.windowStart,
+        DateTime.utc(2027, 10, 1),
+      );
+    });
+  });
+
   group('what the horizon cuts off', () {
     final yearly = catalogOf([
       {

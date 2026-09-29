@@ -1,7 +1,7 @@
 {
-  "_conversion": "The calendar lists tetanus, diphtheria, pertussis, Hib, polio and hepatitis B as six rows given at the same three appointments, because one six-in-one vaccine covers them. They are one rule here: six reminders for one appointment would be six chances to ignore it. Ages are the calendar's own columns; a dose also carries the minimum interval to the one before it, which is what makes a late dose move the ones after it instead of silently going out of date. Standard immunisations (S) are modelled as they are. Indication-based vaccinations (I) depend on illness, occupation, pregnancy or travel, none of which the app knows about, and a reminder for one would be wrong for almost everyone who saw it; the ones a family is likely to ask about carry `optional: true`, are never generated until switched on for a person, and say in their description who the STIKO means them for. A booster whose `after` names an optional series takes that series' switch. `thenEvery` is the interval once a booster has been given, where it differs from the first one.",
+  "_conversion": "The calendar lists tetanus, diphtheria, pertussis, Hib, polio and hepatitis B as six rows given at the same three appointments, because one six-in-one vaccine covers them. They are one rule here: six reminders for one appointment would be six chances to ignore it. Ages are the calendar's own columns; a dose also carries the minimum interval to the one before it, which is what makes a late dose move the ones after it instead of silently going out of date. Standard immunisations (S) are modelled as they are. Indication-based vaccinations (I) depend on illness, occupation, pregnancy or travel, none of which the app knows about, and a reminder for one would be wrong for almost everyone who saw it; the ones a family is likely to ask about carry `optional: true`, are never generated until switched on for a person, and say in their description who the STIKO means them for. A booster whose `after` names an optional series takes that series' switch. `thenEvery` is the interval once a booster has been given, where it differs from the first one. Footnote m of the calendar reads \"Jährliche Impfung (einmalig pro Saison) im Herbst (COVID-19) bzw. Herbst/Winter (Influenza)\", which is a season and not an interval: these four rules therefore open on 1 October rather than a year after the last one. October because that is when a season's vaccine is there and the campaigns run; the influenza season closes at the end of January and the COVID-19 one at the end of November, which is the difference the footnote draws between Herbst/Winter and Herbst. A season that has passed is not carried forward - a shot missed in January cannot be had in February, and the one that can be had is next winter's.",
   "catalogId": "vaccinations",
-  "catalogVersion": "2026.09.2",
+  "catalogVersion": "2026.10",
   "_changes": [
     {
       "version": "2026.09.2",
@@ -17,6 +17,11 @@
       "version": "2026.09",
       "en": "First edition: the STIKO calendar 2026 with the standard immunisations from infant to adult, minimum intervals and boosters.",
       "de": "Erste Ausgabe: der STIKO-Impfkalender 2026 mit den Standardimpfungen vom Säugling bis zum Erwachsenen, Mindestabständen und Auffrischungen."
+    },
+    {
+      "version": "2026.10",
+      "en": "The flu and COVID-19 vaccinations follow the season instead of the birthday: due from October, once per season, rather than a year after the last one.",
+      "de": "Grippe- und COVID-19-Impfung richten sich nach der Saison statt nach dem Geburtstag: fällig ab Oktober, einmal je Saison, statt ein Jahr nach der letzten."
     }
   ],
   "name": {
@@ -457,7 +462,7 @@
         "de": "Tetanus-Diphtherie-Auffrischung"
       },
       "description": {
-        "en": "A Td booster \u2013 tetanus and diphtheria \u2013 every ten years throughout adult life. The next one due is given once as Tdap, which adds pertussis, so that it also refreshes that protection.",
+        "en": "A Td booster – tetanus and diphtheria – every ten years throughout adult life. The next one due is given once as Tdap, which adds pertussis, so that it also refreshes that protection.",
         "de": "Td-Auffrischimpfung alle zehn Jahre im Erwachsenenalter. Die nächste fällige Impfung wird einmalig als Tdap gegeben und frischt damit auch den Keuchhustenschutz auf."
       },
       "source": "stiko-2026",
@@ -552,17 +557,20 @@
         "de": "Grippeimpfung"
       },
       "description": {
-        "en": "Once every autumn or winter from 60, one dose per season.",
-        "de": "Jeden Herbst oder Winter ab 60, eine Impfung je Saison."
+        "en": "One dose per season, from October, from the age of 60.",
+        "de": "Eine Impfung je Saison, ab Oktober, ab 60."
       },
       "source": "stiko-2026",
       "schedule": {
-        "type": "recurring",
+        "type": "seasonal",
         "from": {
           "years": 60
         },
-        "every": {
-          "years": 1
+        "opens": {
+          "month": 10
+        },
+        "closes": {
+          "month": 1
         }
       }
     },
@@ -573,17 +581,20 @@
         "de": "COVID-19-Auffrischung"
       },
       "description": {
-        "en": "One dose each autumn from 75. The STIKO moved this from 60 to 75 in July 2026 and dropped the separate recommendation on reaching basic immunity.",
-        "de": "Eine Impfung jeden Herbst ab 75. Die STIKO hat dies im Juli 2026 von 60 auf 75 geändert und die gesonderte Empfehlung zur Basisimmunität gestrichen."
+        "en": "One dose per season, from October, from the age of 75. The STIKO moved this from 60 to 75 in July 2026 and dropped the separate recommendation on reaching basic immunity.",
+        "de": "Eine Impfung je Saison, ab Oktober, ab 75. Die STIKO hat dies im Juli 2026 von 60 auf 75 geändert und die gesonderte Empfehlung zur Basisimmunität gestrichen."
       },
       "source": "stiko-updates",
       "schedule": {
-        "type": "recurring",
+        "type": "seasonal",
         "from": {
           "years": 75
         },
-        "every": {
-          "years": 1
+        "opens": {
+          "month": 10
+        },
+        "closes": {
+          "month": 11
         }
       }
     },
@@ -614,17 +625,20 @@
         "de": "Grippeimpfung (unter 60)"
       },
       "description": {
-        "en": "One dose every autumn or winter, before the age at which everyone is offered it. The STIKO recommends it for people with a chronic illness, in pregnancy, for residents of care homes, for those who live with someone at risk and for health-care workers. Many insurers pay for anyone who asks.",
-        "de": "Eine Impfung jeden Herbst oder Winter, schon vor dem Alter, ab dem sie allen empfohlen wird. Die STIKO empfiehlt sie bei chronischen Krankheiten, in der Schwangerschaft, für Bewohner von Pflegeheimen, für Haushaltskontakte von Risikopersonen und für medizinisches Personal. Viele Kassen zahlen sie auf Wunsch für alle."
+        "en": "One dose per season, from October, before the age at which everyone is offered it. The STIKO recommends it for people with a chronic illness, in pregnancy, for residents of care homes, for those who live with someone at risk and for health-care workers. Many insurers pay for anyone who asks.",
+        "de": "Eine Impfung je Saison, ab Oktober, schon vor dem Alter, ab dem sie allen empfohlen wird. Die STIKO empfiehlt sie bei chronischen Krankheiten, in der Schwangerschaft, für Bewohner von Pflegeheimen, für Haushaltskontakte von Risikopersonen und für medizinisches Personal. Viele Kassen zahlen sie auf Wunsch für alle."
       },
       "source": "stiko-2026",
       "schedule": {
-        "type": "recurring",
+        "type": "seasonal",
         "from": {
           "months": 6
         },
-        "every": {
-          "years": 1
+        "opens": {
+          "month": 10
+        },
+        "closes": {
+          "month": 1
         },
         "until": {
           "years": 60
@@ -645,17 +659,20 @@
         "de": "COVID-19-Auffrischung (unter 75)"
       },
       "description": {
-        "en": "One dose each autumn, before the age at which everyone is offered it. The STIKO recommends it for people with a chronic illness, for residents of care homes, for medical and nursing staff and for those who live with someone at risk; since July 2026 nobody else under 75 is offered it as a matter of course.",
-        "de": "Eine Impfung jeden Herbst, schon vor dem Alter, ab dem sie allen empfohlen wird. Die STIKO empfiehlt sie bei chronischen Krankheiten, für Bewohner von Pflegeheimen, für medizinisches und pflegerisches Personal und für Haushaltskontakte von Risikopersonen; seit Juli 2026 wird sie sonst niemandem unter 75 mehr grundsätzlich angeboten."
+        "en": "One dose per season, from October, before the age at which everyone is offered it. The STIKO recommends it for people with a chronic illness, for residents of care homes, for medical and nursing staff and for those who live with someone at risk; since July 2026 nobody else under 75 is offered it as a matter of course.",
+        "de": "Eine Impfung je Saison, ab Oktober, schon vor dem Alter, ab dem sie allen empfohlen wird. Die STIKO empfiehlt sie bei chronischen Krankheiten, für Bewohner von Pflegeheimen, für medizinisches und pflegerisches Personal und für Haushaltskontakte von Risikopersonen; seit Juli 2026 wird sie sonst niemandem unter 75 mehr grundsätzlich angeboten."
       },
       "source": "stiko-updates",
       "schedule": {
-        "type": "recurring",
+        "type": "seasonal",
         "from": {
           "months": 6
         },
-        "every": {
-          "years": 1
+        "opens": {
+          "month": 10
+        },
+        "closes": {
+          "month": 11
         },
         "until": {
           "years": 75
