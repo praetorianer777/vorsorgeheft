@@ -94,6 +94,11 @@ void main() {
     }
   });
 
+  group(
+    'individual prophylaxis and the adult check-up',
+    _individualProphylaxis,
+  );
+
   test('the minimum interval the app does not model is still four months', () {
     // Nothing schedules around the four months the guideline wants between
     // two examinations; the windows are far enough apart that keeping to
@@ -113,5 +118,116 @@ void main() {
         reason: '${pair.$1} and ${pair.$2} overlap',
       );
     }
+  });
+}
+
+/// The prophylaxis and the adult check-up come from three documents, and
+/// the one that names the interval is not the one the catalog used to cite.
+///
+/// The IP-Richtlinie says who is entitled and what the appointment consists
+/// of, but for six- to eleven-year-olds it names no interval at all. The
+/// catalog claimed once a year, which is half of what the BEMA allows, and
+/// nothing noticed because no test read the source.
+void _individualProphylaxis() {
+  /// Both guidelines are read out of a PDF, which breaks a word across two
+  /// lines with a hyphen. Joining those back up is what lets the sentences
+  /// below be quoted as a person reads them.
+  String flowing(String path) => File(path)
+      .readAsStringSync()
+      .replaceAll(RegExp(r'-[ \t]*\r?\n\s*'), '')
+      .replaceAll(RegExp(r'\s+'), ' ');
+
+  final ipRl = flowing('tools/catalog-sources/gba-ip-rl.txt');
+  final bema = flowing('tools/catalog-sources/bema.txt');
+  final sgb55 = flowing('tools/catalog-sources/sgb5-55.txt');
+  final catalog = catalogNamed('dental');
+
+  Recurring scheduleOf(String id) =>
+      catalog.rules.singleWhere((r) => r.id == id).schedule as Recurring;
+
+  test('prophylaxis is for six- to seventeen-year-olds', () {
+    expect(
+      ipRl,
+      contains(
+        'bei Versicherten fest, die das sechste, aber noch nicht das 18. '
+        'Lebensjahr vollendet haben',
+      ),
+      reason: 'IP-RL A.1 no longer reads as it did',
+    );
+    expect(
+      bema,
+      contains(
+        'Leistungen nach den Nrn. IP 1 bis IP 5 können nur für Versicherte '
+        'abgerechnet werden, die das sechste, aber noch nicht das 18. '
+        'Lebensjahr vollendet haben',
+      ),
+      reason: 'the BEMA age limit changed',
+    );
+
+    expect(scheduleOf('ip-6-11').from.years, 6);
+    expect(scheduleOf('ip-12-17').until!.years, 18);
+  });
+
+  test('it comes once per calendar half-year, at every age', () {
+    // The interval is the BEMA's, not the guideline's: this is the sentence
+    // the catalog was wrong about.
+    expect(
+      bema,
+      contains(
+        'Eine Leistung nach Nr. IP 1 kann je Kalenderhalbjahr einmal '
+        'abgerechnet werden',
+      ),
+      reason: 'the IP 1 interval changed',
+    );
+    for (final id in ['ip-6-11', 'ip-12-17']) {
+      expect(scheduleOf(id).every.months, 6, reason: id);
+      expect(scheduleOf(id).every.years, 0, reason: id);
+    }
+  });
+
+  test('the two halves tile the years between without gap or overlap', () {
+    final younger = scheduleOf('ip-6-11');
+    final older = scheduleOf('ip-12-17');
+    final birth = DateTime.utc(2015, 3, 10);
+    expect(
+      younger.every.applyTo(younger.until!.applyTo(birth)),
+      older.from.applyTo(birth),
+      reason: 'the last appointment before twelve is half a year before it',
+    );
+  });
+
+  test('only from twelve does an appointment count for the bonus', () {
+    expect(
+      ipRl,
+      contains(
+        'In ein Bonusheft ist bei den 12- bis 17-Jährigen für jedes '
+        'Kalenderhalbjahr das Datum der Erhebung des Mundhygienestatus '
+        'einzutragen',
+      ),
+      reason: 'IP-RL Nr. 13 no longer reads as it did',
+    );
+    // Which is why the catalog keeps two rules for one entitlement: the
+    // appointment is the same, what it is worth is not.
+    final bonus = catalog.rules.singleWhere((r) => r.id == 'ip-12-17');
+    expect(bonus.description('de'), contains('Bonusheft'));
+    expect(
+      catalog.rules.singleWhere((r) => r.id == 'ip-6-11').description('de'),
+      isNot(contains('Bonusheft')),
+    );
+  });
+
+  test('the adult check-up is yearly, and starts where the bonus does', () {
+    expect(
+      sgb55,
+      contains(
+        'sich nach Vollendung des 18. Lebensjahres nicht wenigstens einmal '
+        'in jedem Kalenderjahr hat zahnärztlich untersuchen lassen',
+      ),
+      reason: '§ 55 Satz 4 Nr. 2 no longer reads as it did',
+    );
+    final adult = scheduleOf('dental-checkup-adult');
+    expect(adult.from.years, 18);
+    expect(adult.every.years, 1);
+    expect(adult.until, isNull);
   });
 }

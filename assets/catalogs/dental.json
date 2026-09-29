@@ -1,12 +1,17 @@
 {
-  "_conversion": "German guidelines count periods as 'Lebensmonat', where the first one begins at birth: the 34th month of life starts at the age of 33 months. The windows below are therefore the guideline's numbers minus one. The guideline's own boundaries line up when read this way - Teil B ends 'zum vollendeten 33. Lebensmonat' and Teil C begins 'ab dem 34. Lebensmonat', which is the same day. Each examination is granted once within its span and the guideline names no catch-up period, so the span's end is a hard deadline: past it the entitlement is gone, and an entry that stays 'overdue' for years is noise. Teil C actually grants three FU2 anywhere between the 34th and the 72nd month, at least twelve months apart, but the split into Z4, Z5 and Z6 keeps the same deadlines: after the 48th month only two more fit before the 72nd, so the first slot is lost, and the second after the 60th. The fluoride varnish entitlement (twice per calendar half-year, FU-RL §§ 6 and 10) is deliberately not a reminder of its own: four notifications a year for something that happens at the same appointment is noise, so it is named in the examinations it accompanies instead.",
+  "_conversion": "German guidelines count periods as 'Lebensmonat', where the first one begins at birth: the 34th month of life starts at the age of 33 months. The windows below are therefore the guideline's numbers minus one. The guideline's own boundaries line up when read this way - Teil B ends 'zum vollendeten 33. Lebensmonat' and Teil C begins 'ab dem 34. Lebensmonat', which is the same day. Each examination is granted once within its span and the guideline names no catch-up period, so the span's end is a hard deadline: past it the entitlement is gone, and an entry that stays 'overdue' for years is noise. Teil C actually grants three FU2 anywhere between the 34th and the 72nd month, at least twelve months apart, but the split into Z4, Z5 and Z6 keeps the same deadlines: after the 48th month only two more fit before the 72nd, so the first slot is lost, and the second after the 60th. The fluoride varnish entitlement (twice per calendar half-year, FU-RL §§ 6 and 10) is deliberately not a reminder of its own: four notifications a year for something that happens at the same appointment is noise, so it is named in the examinations it accompanies instead. The interval for the individual prophylaxis comes from the BEMA rather than from the IP-Richtlinie, which grants the appointment to six- to seventeen-year-olds without ever saying how often: \"Eine Leistung nach Nr. IP 1 kann je Kalenderhalbjahr einmal abgerechnet werden\". It is split into two rules at twelve because from there every appointment goes in the bonus booklet (IP-RL Nr. 13) and the reminder should say so; the appointment itself is the same one, so the two tile without a gap.",
   "catalogId": "dental",
-  "catalogVersion": "2026.09",
+  "catalogVersion": "2026.10",
   "_changes": [
     {
       "version": "2026.09",
       "en": "First edition: Z1 to Z6 for the first six years, individual prophylaxis from 6 to 17 and the adult check-up once per calendar year.",
       "de": "Erste Ausgabe: Z1 bis Z6 für die ersten sechs Jahre, Individualprophylaxe von 6 bis 17 und die Erwachsenen-Kontrolle einmal pro Kalenderjahr."
+    },
+    {
+      "version": "2026.10",
+      "en": "Individual prophylaxis from 6 to 11 comes twice a year, as it always did: the entitlement is once per calendar half-year from the sixth birthday, not once a year.",
+      "de": "Die Individualprophylaxe von 6 bis 11 kommt zweimal jährlich, wie es immer schon galt: der Anspruch besteht einmal je Kalenderhalbjahr ab dem 6. Geburtstag, nicht einmal im Jahr."
     }
   ],
   "name": {
@@ -40,6 +45,15 @@
       "url": "https://www.gesetze-im-internet.de/sgb_5/__55.html",
       "document": "§ 55 Absatz 1 Sätze 4 und 5",
       "asOf": "2026-09-20"
+    },
+    "bema-ip": {
+      "name": {
+        "en": "BEMA, the scale of dental services, on individual prophylaxis",
+        "de": "BEMA, Bewertungsmaßstab zahnärztlicher Leistungen, zur Individualprophylaxe"
+      },
+      "url": "https://www.kzbv.de/wp-content/uploads/KZBV_BEMA_2026-01-01.pdf",
+      "document": "Anlage A zum BMV-Z, Stand 1. Januar 2026, Nrn. IP 1 bis IP 5",
+      "asOf": "2026-09-29"
     }
   },
   "rules": [
@@ -230,20 +244,21 @@
         "de": "Individualprophylaxe"
       },
       "description": {
-        "en": "Oral hygiene status, instruction and fluoridation, once a year from the 6th birthday.",
-        "de": "Mundhygienestatus, Unterweisung und Fluoridierung, einmal jährlich ab dem 6. Geburtstag."
+        "en": "Oral hygiene status, instruction and fluoridation, once per calendar half-year from the sixth birthday.",
+        "de": "Mundhygienestatus, Unterweisung und Fluoridierung, einmal je Kalenderhalbjahr ab dem 6. Geburtstag."
       },
-      "source": "gba-ip-rl",
+      "source": "bema-ip",
       "schedule": {
         "type": "recurring",
         "from": {
           "years": 6
         },
         "every": {
-          "years": 1
+          "months": 6
         },
         "until": {
-          "years": 11
+          "years": 11,
+          "months": 6
         }
       },
       "eligibility": {
@@ -259,10 +274,10 @@
         "de": "Individualprophylaxe"
       },
       "description": {
-        "en": "From 12 to 17 the oral hygiene status is recorded once per calendar half-year, and each one counts towards the dental prosthesis bonus.",
-        "de": "Von 12 bis 17 wird der Mundhygienestatus einmal je Kalenderhalbjahr erhoben; jeder Termin zählt für den Bonus beim Zahnersatz."
+        "en": "Oral hygiene status once per calendar half-year, as before. From 12 every appointment goes in the bonus booklet and counts towards the insurer’s share of a denture.",
+        "de": "Mundhygienestatus weiterhin einmal je Kalenderhalbjahr. Ab 12 wird jeder Termin ins Bonusheft eingetragen und zählt für den Kassenanteil beim Zahnersatz."
       },
-      "source": "sgb5-55",
+      "source": "bema-ip",
       "schedule": {
         "type": "recurring",
         "from": {

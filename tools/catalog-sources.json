@@ -128,6 +128,14 @@
       "covers": [
         "bvkj-u10-u11-j2"
       ]
+    },
+    {
+      "id": "bema",
+      "name": "BEMA, the scale of dental services (Anlage A to the BMV-Z)",
+      "url": "https://www.kzbv.de/wp-content/uploads/KZBV_BEMA_2026-01-01.pdf",
+      "covers": [
+        "bema-ip"
+      ]
     }
   ]
 }
