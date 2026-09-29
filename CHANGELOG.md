@@ -7,6 +7,17 @@ and the versioning [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-09-29
+
+### Features
+
+- put the flu and COVID-19 shots on the season, not the birthday (3870bc3)
+
+### Bug fixes
+
+- show one instance of a yearly entitlement, not two (e2d62ff)
+- give six- to eleven-year-olds the prophylaxis they are owed (504ca91)
+
 ## [0.8.0] - 2026-09-28
 
 ### Features
