@@ -184,7 +184,7 @@ void main() {
       expect(ids, isNot(contains('influenza-under-60')));
     });
 
-    test('the flu vaccination under sixty runs yearly until sixty', () {
+    test('the flu vaccination under sixty runs per season until sixty', () {
       final flu = scheduleFor(
         person: Person(
           id: 'a',
@@ -194,11 +194,13 @@ void main() {
         ),
         today: today,
       ).where((o) => o.rule.id == 'influenza-under-60').toList();
-      // Yearly from six months of age, so the season running now started
-      // on the birthday-plus-six-months before today.
-      expect(flu.first.windowStart, DateTime.utc(2025, 11, 5));
-      expect(flu.first.status, OccurrenceStatus.due);
-      expect(flu.first.rule.statutory, isFalse);
+      // Twentieth of September: last winter's season is over and the next
+      // one opens in October, whatever month this person was born in.
+      expect(flu, hasLength(1));
+      expect(flu.single.windowStart, DateTime.utc(2026, 10, 1));
+      expect(flu.single.windowEnd, DateTime.utc(2027, 1, 31));
+      expect(flu.single.status, OccurrenceStatus.upcoming);
+      expect(flu.single.rule.statutory, isFalse);
 
       // At sixty the standard rule takes over; the switch adds nothing.
       final sixty = scheduleFor(

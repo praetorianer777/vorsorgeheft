@@ -261,6 +261,15 @@ Iterable<Occurrence> _forRule({
       make: make,
     ),
 
+    final Seasonal season => _seasonal(
+      rule: rule,
+      birth: birth,
+      season: season,
+      history: history,
+      today: today,
+      make: make,
+    ),
+
     Booster(
       :final every,
       :final after,
@@ -472,6 +481,68 @@ List<Occurrence> _booster({
     due = thenEvery.applyTo(due);
   }
 
+  return occurrences;
+}
+
+/// One appointment per season, keyed by the year the season opens in.
+///
+/// The season is a stretch of the calendar rather than an interval from a
+/// birthday, so nothing here counts from [birth] except who is old enough.
+/// A season that has passed is not carried forward: a flu shot missed last
+/// winter cannot be had now, and the one that can be had is next winter's.
+List<Occurrence> _seasonal({
+  required Rule rule,
+  required DateTime birth,
+  required Seasonal season,
+  required _History history,
+  required DateTime today,
+  required _Make make,
+}) {
+  /// The season a day belongs to, named by the year it opened in.
+  int seasonOf(DateTime day) {
+    final opened = season.opens.inYear(day.year);
+    return day.isBefore(opened) && season.spansNewYear
+        ? day.year - 1
+        : day.year;
+  }
+
+  final occurrences = <Occurrence>[];
+  final settled = <int>{};
+  for (final completion in history.forKey(rule.id)) {
+    final year = seasonOf(completion.completedOn);
+    settled.add(year);
+    occurrences.add(
+      make(
+        windowStart: completion.completedOn,
+        windowEnd: completion.completedOn,
+        instanceId: '$year',
+        completion: completion,
+      ),
+    );
+  }
+
+  final firstAllowed = season.from.applyTo(birth);
+  final lastAllowed = season.until?.applyTo(birth);
+
+  var year = seasonOf(today);
+  // Past the end of this season, or already had it, the next one is what
+  // can still be acted on.
+  if (today.isAfter(season.closesAfter(year)) || settled.contains(year)) {
+    year++;
+  }
+  while (season.opens.inYear(year).isBefore(firstAllowed)) {
+    year++;
+  }
+  final opens = season.opens.inYear(year);
+  if (lastAllowed != null && opens.isAfter(lastAllowed)) return occurrences;
+
+  occurrences.add(
+    make(
+      windowStart: opens,
+      windowEnd: season.closesAfter(year),
+      instanceId: '$year',
+    ),
+  );
   return occurrences;
 }
 

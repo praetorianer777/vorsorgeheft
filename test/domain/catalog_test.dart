@@ -143,6 +143,50 @@ void main() {
       );
     });
 
+    test('a season needs a month at each end', () {
+      for (final (broken, fragment) in [
+        (
+          {
+            'type': 'seasonal',
+            'from': <String, Object?>{'years': 60},
+          },
+          'opens',
+        ),
+        (
+          {
+            'type': 'seasonal',
+            'from': <String, Object?>{'years': 60},
+            'opens': <String, Object?>{'month': 10},
+          },
+          'closes',
+        ),
+        (
+          {
+            'type': 'seasonal',
+            'from': <String, Object?>{'years': 60},
+            'opens': <String, Object?>{'month': 13},
+            'closes': <String, Object?>{'month': 1},
+          },
+          'from 1 to 12',
+        ),
+        (
+          {
+            'type': 'seasonal',
+            'from': <String, Object?>{'years': 60},
+            'opens': <String, Object?>{'month': 10, 'day': 0},
+            'closes': <String, Object?>{'month': 1},
+          },
+          'day of a month',
+        ),
+      ]) {
+        expect(
+          () => Catalog.fromJson(catalogWith(rule: ruleWithSchedule(broken))),
+          throwsCatalogError(fragment),
+          reason: '$broken',
+        );
+      }
+    });
+
     test('a hard deadline without a tolerance limit is rejected', () {
       expect(
         () => Catalog.fromJson(

@@ -81,7 +81,7 @@ added, and a dog never sees a U6.
 | Catalog | Contents | Source |
 |---|---|---|
 | Children's check-ups | U1–U9 incl. U7a and J1, with time windows **and** tolerance limits; newborn, hearing, pulse-oximetry and cystic-fibrosis screening | [G-BA Kinder-Richtlinie][gba-kinder] |
-| Vaccinations | Vaccination calendar: standard immunisations from infant to adult, minimum intervals, boosters; optional indication vaccinations a person can switch on | [STIKO recommendations][stiko] |
+| Vaccinations | Vaccination calendar: standard immunisations from infant to adult, minimum intervals, boosters, the flu and COVID-19 shots once per season from October; optional indication vaccinations a person can switch on | [STIKO recommendations][stiko] |
 | Dental care | Z1–Z6 for the first six years, individual prophylaxis once per calendar half-year from 6 to 17, one adult check-up per calendar year | [G-BA FU-Richtlinie][gba-zahn], [IP-Richtlinie][gba-ip], [BEMA][bema], [§ 55 SGB V][sgb55] |
 | Adult check-up | Once between 18 and 34, then every three years from 35; hepatitis B/C screening; abdominal aortic aneurysm | [G-BA Gesundheitsuntersuchungs-Richtlinie][gba-gu] |
 | Cancer screening | Skin from 35, cervical from 20, mammography 50–75, prostate from 45, chlamydia to 25 | [G-BA Krebsfrüherkennungs-Richtlinie][gba-kfe] |
@@ -189,7 +189,7 @@ machine without an emulator. It is not shipped and is not built in CI.
 | Shell | `./tests/test-release.sh`, `./tests/test-catalog-watch.sh`, `./.claude/hooks/tests/branch-guard-test.sh` | Release script, catalog watch and branch guard, offline and without Flutter |
 | Format & analysis | `dart format --set-exit-if-changed .`, `flutter analyze --fatal-infos` | |
 | Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, data layer, UI flows |
-| Guideline conformance | `flutter test test/tools/` | Reads the windows out of the source documents under `tools/catalog-sources/` and holds the catalogs to them: the § 2 table of the Kinder-RL, §§ 4 and 9 of the FU-RL, the IP-RL and the BEMA's IP positions, § 2 of each part of the GU-RL, and §§ 1, 2, 10, 29 and 38 of the KFE-RL with § 3 of each organised programme. Also that every source a catalog cites is watched by an entry in `tools/catalog-sources.json` |
+| Guideline conformance | `flutter test test/tools/` | Reads the windows out of the source documents under `tools/catalog-sources/` and holds the catalogs to them: the § 2 table of the Kinder-RL, §§ 4 and 9 of the FU-RL, the IP-RL and the BEMA's IP positions, § 2 of each part of the GU-RL, §§ 1, 2, 10, 29 and 38 of the KFE-RL with § 3 of each organised programme, and footnote m of the STIKO calendar for the seasonal vaccinations. Also that every source a catalog cites is watched by an entry in `tools/catalog-sources.json` |
 | End-to-end | `flutter test` | The specs in `integration_test/specs.dart`, run headless so they gate every push |
 | Schema upgrades | `flutter test test/data/migration_test.dart` | Every schema version ever shipped (`drift_schemas/`) migrates to the current one and matches a fresh install; what v0.1.0 wrote survives the upgrade |
 | Released versions | `flutter test test/data/released_versions_upgrade_test.dart` | One fixture per released tag: a database as that version wrote it opens in the current app, keeps its data and settings, and takes the features added since. A test fails when a tag has no fixture |

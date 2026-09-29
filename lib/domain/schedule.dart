@@ -14,6 +14,7 @@ sealed class Schedule {
       'recurring' => Recurring.fromJson(json),
       'onceFromAge' => OnceFromAge.fromJson(json),
       'series' => Series.fromJson(json),
+      'seasonal' => Seasonal.fromJson(json),
       'booster' => Booster.fromJson(json),
       _ => throw FormatException('unknown schedule type "$type"'),
     };
@@ -178,6 +179,88 @@ final class Series extends Schedule {
   }
 
   final List<Dose> doses;
+}
+
+/// A day in the calendar with no year: where a season opens or closes.
+class SeasonDay {
+  const SeasonDay({required this.month, required this.day});
+
+  /// A missing day means the first of the month at the start of a season and
+  /// the last of it at the end, so a season can be written as two months.
+  factory SeasonDay.fromJson(Map<String, Object?> json, {required bool end}) {
+    final month = json['month'];
+    if (month is! int || month < 1 || month > 12) {
+      throw const FormatException('a season needs a "month" from 1 to 12');
+    }
+    final day = json['day'];
+    if (day != null && (day is! int || day < 1 || day > 31)) {
+      throw const FormatException('a season\'s "day" must be a day of a month');
+    }
+    return SeasonDay(
+      month: month,
+      day: (day as int?) ?? (end ? _lastDayOf(month) : 1),
+    );
+  }
+
+  final int month;
+  final int day;
+
+  /// February is given 28 days: a season that ends with the month ends on the
+  /// 28th in a leap year too, which is a day nobody notices and saves the
+  /// month from depending on the year.
+  static int _lastDayOf(int month) =>
+      const [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
+
+  DateTime inYear(int year) => DateTime.utc(year, month, day);
+}
+
+/// An appointment that comes round once per season rather than once per year
+/// from a birthday: the flu vaccination, which the STIKO wants in the autumn
+/// and winter whatever month somebody was born in.
+final class Seasonal extends Schedule {
+  const Seasonal({
+    required this.from,
+    required this.opens,
+    required this.closes,
+    this.until,
+  });
+
+  factory Seasonal.fromJson(Map<String, Object?> json) {
+    Map<String, Object?> part(String key) {
+      final value = json[key];
+      if (value is! Map) {
+        throw FormatException('"schedule.$key" is required');
+      }
+      return value.cast<String, Object?>();
+    }
+
+    return Seasonal(
+      from: Schedule._offset(json, 'from'),
+      until: Schedule._optionalOffset(json, 'until'),
+      opens: SeasonDay.fromJson(part('opens'), end: false),
+      closes: SeasonDay.fromJson(part('closes'), end: true),
+    );
+  }
+
+  /// The age from which the season applies to this person at all.
+  final AgeOffset from;
+
+  /// The age past which it no longer does.
+  final AgeOffset? until;
+
+  final SeasonDay opens;
+
+  /// The last day of the season. A season whose end falls in an earlier month
+  /// than its start runs over the turn of the year.
+  final SeasonDay closes;
+
+  bool get spansNewYear =>
+      closes.month < opens.month ||
+      (closes.month == opens.month && closes.day < opens.day);
+
+  /// The day the season that opens in [year] closes.
+  DateTime closesAfter(int year) =>
+      closes.inYear(spansNewYear ? year + 1 : year);
 }
 
 /// A booster that falls due a fixed interval after the last dose of another
