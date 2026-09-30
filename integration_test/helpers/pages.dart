@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:vorsorgeheft/sync/pairing.dart';
 import 'package:vorsorgeheft/ui/sync_screen.dart';
 
 import '../../test/support/recording_share.dart';
@@ -524,24 +525,43 @@ class SyncPage {
   /// Opens the pairing dialog and returns the code the QR image carries,
   /// which is what the other phone's camera would read.
   Future<String> showMyCode({String? deviceName}) async {
-    await tester.tap(find.byKey(const Key('show-my-code')));
-    await settle(tester);
-    if (deviceName != null) {
-      await typeInto(tester, find.byKey(const Key('device-name')), deviceName);
-      await settle(tester);
-      // The name is part of the code, so the dialog is opened once more to
-      // read the code that carries it.
-      await tester.tap(find.byKey(const Key('close-my-code')));
-      await settle(tester);
+    final nameField = find.byKey(const Key('device-name'));
+    String written() => tester
+        .widget<EditableText>(
+          find.descendant(of: nameField, matching: find.byType(EditableText)),
+        )
+        .controller
+        .text;
+
+    Future<String> openAndRead() async {
       await tester.tap(find.byKey(const Key('show-my-code')));
       await settle(tester);
+      if (deviceName != null && written() != deviceName) {
+        await typeInto(tester, nameField, deviceName);
+        await settle(tester);
+      }
+      final code = tester
+          .widget<PairingCodeImage>(find.byKey(const Key('pairing-code')))
+          .code;
+      await tester.tap(find.byKey(const Key('close-my-code')));
+      await settle(tester);
+      return code;
     }
-    final code = tester
-        .widget<PairingCodeImage>(find.byKey(const Key('pairing-code')))
-        .code;
-    await tester.tap(find.byKey(const Key('close-my-code')));
-    await settle(tester);
-    return code;
+
+    if (deviceName == null) return openAndRead();
+
+    // The name travels inside the code, and it gets there through a write
+    // the dialog does not wait for: reopened too soon, it still shows the
+    // code from before the rename, and the other phone pairs with a device
+    // called "My phone". Waiting inside the dialog would not help - its
+    // code is a constructor argument and cannot change while it is up - so
+    // this reopens until the code carries the name. Retyping when the field
+    // has lost the text heals the other way round as well.
+    for (var attempt = 0; attempt < 20; attempt++) {
+      final code = await openAndRead();
+      if (PairingPayload.decode(code).deviceName == deviceName) return code;
+    }
+    fail('the pairing code never carried "$deviceName"');
   }
 
   /// Scans whatever the fixture's camera has been handed.
