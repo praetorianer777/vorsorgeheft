@@ -276,6 +276,10 @@ const releases = [
   // taken from, the origin that stops a change being echoed, and the date a
   // pregnancy is counted from.
   Release('v0.8.0', 8, _v080),
+  // v0.9.0 changed no table: the second screening colonoscopy, the seasonal
+  // vaccinations and the shorter horizon are catalog and engine work, and
+  // the schema is still 8.
+  Release('v0.9.0', 8, _v080),
 ];
 
 Future<void> checkData(AppDatabase db, Release release) async {
