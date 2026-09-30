@@ -371,6 +371,37 @@ fi
 check "the refusal names the branch releases come from" \
     "$(grep -c 'releases are cut from' "${W}/out.log")" "1"
 
+echo "🧪 release.sh — a tag with no upgrade fixture is refused"
+use_fixture tagged
+mkdir -p "${REPO}/test/data"
+# What the real file looks like from this script's point of view: a list of
+# the tags whose upgrade to the current schema is covered.
+cat > "${REPO}/test/data/released_versions_upgrade_test.dart" <<'EOF'
+const releases = [
+  Release('v0.1.0', 2, {}),
+];
+EOF
+git -C "${REPO}" add -A
+commit "feat: something worth a minor bump"
+BEFORE="$(tree_state)$(git -C "${REPO}" tag -l)"
+if run_release; then
+    fail "a release was cut for a tag with no fixture"
+else
+    pass "a release for a tag with no fixture is refused"
+fi
+check "the refusal names the tag and the file" \
+    "$(grep -c 'has no fixture for v0.2.0' "${W}/out.log")" "1"
+check "the refused run changed nothing" "$(tree_state)$(git -C "${REPO}" tag -l)" "${BEFORE}"
+
+echo "🧪 release.sh — the fixture written ahead of the tag lets it through"
+sed -i "s|];|  Release('v0.2.0', 2, {}),\n];|" \
+    "${REPO}/test/data/released_versions_upgrade_test.dart"
+git -C "${REPO}" add -A
+commit "chore: record the fixture for the next tag"
+expect_release && {
+    check "the release went out" "$(released_version)" "0.2.0+2"
+}
+
 # ── Untrusted input ──────────────────────────────────────
 
 # Commit subjects are attacker-shaped input: they reach the version parsing and

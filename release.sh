@@ -204,6 +204,20 @@ fi
 TAG="v${VERSION}"
 NOTES_FILE="release-notes-${TAG}.md"
 
+# The upgrade test keeps one fixture per released tag and fails on a tag that
+# has none, so the fixture has to be written before the tag rather than after
+# the build goes red. Twice it was the other way round.
+UPGRADE_TEST="test/data/released_versions_upgrade_test.dart"
+if [[ -f "${UPGRADE_TEST}" ]] && ! grep -q "'${TAG}'" "${UPGRADE_TEST}"; then
+    echo "❌ ${UPGRADE_TEST} has no fixture for ${TAG}."
+    echo "   A tag without one is an upgrade path nobody tests, and every"
+    echo "   run of run-tests.sh fails from the moment it is pushed."
+    echo ""
+    echo "   Add a Release row for ${TAG} saying which schema it writes and"
+    echo "   what it could have left in the database, then release again."
+    exit 1
+fi
+
 if [[ -n "${MANUAL_CHANGELOG}" ]]; then
     RAW_LOG=""
 fi

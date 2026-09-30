@@ -249,8 +249,9 @@ git push origin main --follow-tags
 Two things belong in the last pull request before a release rather than after it. The upgrade
 fixture for the version about to be cut goes into `test/data/released_versions_upgrade_test.dart`,
 because its guard demands a fixture for every tag and the tag does not exist yet while the branch
-is open. And if any screen changed, `./tools/store-graphics.sh` refreshes `docs/store/`, which is
-what the store listing shows.
+is open; `release.sh` refuses to cut a version whose fixture is missing rather than leaving the
+next test run to find out. And if any screen changed, `./tools/store-graphics.sh` refreshes
+`docs/store/`, which is what the store listing shows.
 
 `release.sh` derives the next version from the Conventional Commits since the last tag —
 `chore`, `docs`, `test`, `build`, `ci`, `refactor`, `style` and `perf` do not earn a release of
