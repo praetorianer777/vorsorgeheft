@@ -186,7 +186,7 @@ machine without an emulator. It is not shipped and is not built in CI.
 | Suite | How | What it covers |
 |---|---|---|
 | Everything | `./run-tests.sh` | The single entry point. The branch-guard hook runs it before every push, and `ci.yml` has no other step. |
-| Shell | `./tests/test-release.sh`, `./tests/test-catalog-watch.sh`, `./.claude/hooks/tests/branch-guard-test.sh` | Release script, catalog watch and branch guard, offline and without Flutter |
+| Shell | `./tests/test-release.sh`, `./tests/test-catalog-watch.sh`, `./tests/test-ios-e2e.sh`, `./.claude/hooks/tests/branch-guard-test.sh` | Release script, catalog watch, the iOS simulator runner and the branch guard, offline and without Flutter |
 | Format & analysis | `dart format --set-exit-if-changed .`, `flutter analyze --fatal-infos` | |
 | Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, data layer, UI flows |
 | Guideline conformance | `flutter test test/tools/` | Reads the windows out of the source documents under `tools/catalog-sources/` and holds the catalogs to them: the § 2 table of the Kinder-RL, §§ 4 and 9 of the FU-RL, the IP-RL and the BEMA's IP positions, § 2 of each part of the GU-RL, §§ 1, 2, 10, 29 and 38 of the KFE-RL with § 3 of each organised programme, and footnote m of the STIKO calendar for the seasonal vaccinations. Also that every source a catalog cites is watched by an entry in `tools/catalog-sources.json` |
@@ -235,7 +235,7 @@ at night.
 | `release.yml` | tag `v*` | builds and signs the APKs and the Play Store app bundle and publishes them idempotently as a release |
 | `ios-build.yml` | nightly | `flutter build ios --no-codesign` — keeps iOS compiling |
 | `android-e2e.yml` | nightly | integration tests on the emulator |
-| `ios-e2e.yml` | nightly | the same integration tests on an iOS simulator |
+| `ios-e2e.yml` | nightly | the same integration tests on an iOS simulator, through `tools/ios-e2e.sh`, which starts over once when a run hangs before reaching a test |
 | `catalog-watch.yml` | nightly | extracts the text of every guideline source, keeps it under `tools/catalog-sources/`, and files an issue with the diff when one changed |
 
 ## Releasing

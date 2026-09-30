@@ -20,7 +20,9 @@ permissions:
 jobs:
   simulator:
     runs-on: macos-latest
-    timeout-minutes: 90
+    # Room for one hung attempt to be cut short at thirty-five minutes and a
+    # second one to run properly.
+    timeout-minutes: 100
     steps:
       - uses: actions/checkout@v4
 
@@ -46,11 +48,19 @@ jobs:
           udid="$(xcrun simctl list devices available --json \
             | jq -r '[.devices[][] | select(.name | test("^iPhone"))][-1].udid')"
           [[ -n "$udid" && "$udid" != null ]] || { echo "::error::no iPhone simulator on this runner"; exit 1; }
+          # From a known state: the runner image may already have one booted,
+          # and a device that has been used once is not the device the last
+          # green run had.
+          xcrun simctl shutdown all || true
+          xcrun simctl erase "$udid"
           xcrun simctl boot "$udid"
           xcrun simctl bootstatus "$udid" -b
           echo "udid=$udid" >> "$GITHUB_OUTPUT"
 
-      - run: flutter test integration_test/ --reporter expanded -d "${{ steps.simulator.outputs.udid }}"
+      # Not flutter test directly: about one run in three hangs after the
+      # Xcode build without reaching a single test, and this cuts that short
+      # and starts over rather than spending the job's whole budget on it.
+      - run: tools/ios-e2e.sh "${{ steps.simulator.outputs.udid }}"
 
       - uses: actions/upload-artifact@v4
         if: always()

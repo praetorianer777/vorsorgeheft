@@ -7,6 +7,7 @@ cd "$(dirname "$0")"
 echo "🐚 Shell tests"
 [[ -x tests/test-release.sh ]] && ./tests/test-release.sh
 ./tests/test-catalog-watch.sh
+./tests/test-ios-e2e.sh
 ./.claude/hooks/tests/branch-guard-test.sh
 
 if ! command -v flutter >/dev/null 2>&1; then
