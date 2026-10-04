@@ -112,6 +112,54 @@ void main() {
     }
   });
 
+  group('three days later, across a clock change', () {
+    for (final entry in switches.entries) {
+      test('is three calendar days and still nine o\'clock, ${entry.key}', () {
+        // "Later" is three days, and the day the clocks move is 23 or 25
+        // hours long. Counted in hours the reminder would land at eight or
+        // at ten; counted in days it lands at nine, which is what the
+        // person agreed to.
+        final day = entry.value;
+        final pressed = DateTime(day.year, day.month, day.day - 1, 20);
+        final until = DateTime.utc(
+          pressed.year,
+          pressed.month,
+          pressed.day + 3,
+        );
+        final occurrence = Occurrence(
+          personId: 'p1',
+          rule: rule,
+          windowStart: DateTime.utc(day.year, day.month, day.day + 10),
+          status: OccurrenceStatus.due,
+        );
+
+        final reminder = planReminders(
+          occurrences: [occurrence],
+          now: pressed,
+          settings: const ReminderSettings(maxPending: 10),
+          putOff: {occurrence.key: until},
+        ).single;
+
+        expect(
+          [reminder.fireAt.year, reminder.fireAt.month, reminder.fireAt.day],
+          [until.year, until.month, until.day],
+          reason: entry.key,
+        );
+        expect(reminder.fireAt.hour, 9, reason: entry.key);
+        expect(reminder.fireAt.isUtc, isFalse, reason: entry.key);
+        // Counted as calendar days rather than as elapsed hours, which
+        // across a switch differ by one.
+        expect(
+          until.difference(
+            DateTime.utc(pressed.year, pressed.month, pressed.day),
+          ),
+          const Duration(days: 3),
+          reason: entry.key,
+        );
+      });
+    }
+  });
+
   test('a time of day the spring switch skips is still planned for', () {
     // Half past two in the morning does not exist on the day the clocks go
     // forward. What must not happen is the reminder falling out of the plan
