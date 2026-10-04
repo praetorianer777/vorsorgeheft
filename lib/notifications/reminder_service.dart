@@ -52,9 +52,9 @@ class ReminderService {
   /// follow.
   final ReminderSettings Function() _settings;
 
-  /// How long "later" puts a reminder off. Long enough that the person is
-  /// not asked again the same evening, short enough that a window does not
-  /// close in between.
+  /// How long "later" puts a reminder off, counted in calendar days. Long
+  /// enough that the person is not asked again the same evening, short
+  /// enough that a window does not close in between.
   static const putOffBy = Duration(days: 3);
 
   static const _putOffPrefix = 'reminder.put-off.';
@@ -94,7 +94,15 @@ class ReminderService {
         await _db.deleteSetting('$_putOffPrefix${payload.occurrenceKey}');
         await reschedule();
       case ReminderActionKind.later:
-        final until = _clock().add(putOffBy);
+        // Three calendar days, not seventy-two hours: on the night the
+        // clocks go back a day is twenty-five hours long, and adding a
+        // duration to a local time would land on the day before.
+        final today = _clock();
+        final until = DateTime(
+          today.year,
+          today.month,
+          today.day + putOffBy.inDays,
+        );
         await _db.putSetting(
           '$_putOffPrefix${payload.occurrenceKey}',
           DateTime.utc(until.year, until.month, until.day).toIso8601String(),

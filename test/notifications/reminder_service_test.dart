@@ -329,6 +329,124 @@ void main() {
       expect(await db.settingsUnder('reminder.put-off.'), isEmpty);
     });
 
+    test('later again moves it three days from the second time', () async {
+      await store.savePerson(newborn);
+      var today = DateTime(2026, 9, 20, 8);
+      final service = ReminderService(
+        database: db,
+        store: store,
+        gateway: gateway,
+        catalogs: CatalogRepository(bundle: SynchronousAssetBundle()),
+        locale: () => const Locale('en'),
+        clock: () => today,
+        settings: () => const ReminderSettings(),
+      );
+      final reminder = await firstFor(service, 'u4');
+      final later = ReminderAction(
+        ReminderActionKind.later,
+        ReminderPayload.of(reminder),
+      );
+
+      await service.act(later);
+      expect(
+        gateway.pending.singleWhere((r) => r.ruleId == 'u4').fireAt,
+        DateTime(2026, 9, 23, 9),
+      );
+
+      // It comes back three days later and is put off again: from then,
+      // not from the first time it was asked about.
+      today = DateTime(2026, 9, 23, 9, 30);
+      await service.act(later);
+      expect(
+        gateway.pending.singleWhere((r) => r.ruleId == 'u4').fireAt,
+        DateTime(2026, 9, 26, 9),
+      );
+      expect(await db.allCompletions(), isEmpty);
+    });
+
+    test(
+      'recording it from the notification clears what was put off',
+      () async {
+        await store.savePerson(newborn);
+        final service = serviceWith();
+        final reminder = await firstFor(service, 'u4');
+        final payload = ReminderPayload.of(reminder);
+
+        await service.act(ReminderAction(ReminderActionKind.later, payload));
+        expect(await db.settingsUnder('reminder.put-off.'), isNotEmpty);
+
+        await service.act(ReminderAction(ReminderActionKind.done, payload));
+        expect(
+          await db.settingsUnder('reminder.put-off.'),
+          isEmpty,
+          reason: 'a row about an appointment that is done is about nothing',
+        );
+      },
+    );
+
+    test('a stored day that is not a date is thrown away', () async {
+      await store.savePerson(newborn);
+      await db.putSetting('reminder.put-off.mila-u4', 'the day after soon');
+      final service = serviceWith();
+
+      await service.reschedule();
+
+      expect(await db.settingsUnder('reminder.put-off.'), isEmpty);
+      expect(
+        gateway.pending.where((r) => r.ruleId == 'u4'),
+        isNotEmpty,
+        reason: 'and the appointment is reminded about as usual',
+      );
+    });
+
+    test('a row about somebody who is gone is thrown away', () async {
+      await store.savePerson(newborn);
+      final service = serviceWith();
+      final reminder = await firstFor(service, 'u4');
+      await service.act(
+        ReminderAction(ReminderActionKind.later, ReminderPayload.of(reminder)),
+      );
+      expect(await db.settingsUnder('reminder.put-off.'), isNotEmpty);
+
+      await store.deletePerson('mila');
+      await service.reschedule();
+
+      expect(await db.settingsUnder('reminder.put-off.'), isEmpty);
+    });
+
+    test('what was put off outlives the app being closed', () async {
+      await store.savePerson(newborn);
+      final reminder = await firstFor(serviceWith(), 'u4');
+      await serviceWith().act(
+        ReminderAction(ReminderActionKind.later, ReminderPayload.of(reminder)),
+      );
+
+      // A fresh service on the same database is what the next launch has.
+      final next = RecordingGateway();
+      await serviceWith(using: next).reschedule();
+
+      final after = next.pending.where((r) => r.ruleId == 'u4');
+      expect(after, hasLength(1));
+      expect(after.single.fireAt, DateTime(2026, 9, 23, 9));
+    });
+
+    test('what was put off stays on this phone', () async {
+      // Which evening somebody did not feel like reading about an
+      // appointment is not something the other phone needs to know, and a
+      // reminder put off there would be put off here too.
+      await store.savePerson(newborn);
+      final service = serviceWith();
+      final reminder = await firstFor(service, 'u4');
+      final before = (await db.changesAfter(0)).$1.length;
+
+      await service.act(
+        ReminderAction(ReminderActionKind.later, ReminderPayload.of(reminder)),
+      );
+
+      expect(await db.settingsUnder('reminder.put-off.'), isNotEmpty);
+      expect((await db.changesAfter(0)).$1, hasLength(before));
+    });
+
     test('a notification from an older version is ignored', () {
       // Its payload was the bare occurrence key, which is not a payload this
       // version can act on.

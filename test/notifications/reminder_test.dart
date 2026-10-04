@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vorsorgeheft/domain/catalog.dart';
+import 'package:vorsorgeheft/domain/completion.dart';
 import 'package:vorsorgeheft/domain/occurrence.dart';
 import 'package:vorsorgeheft/domain/person.dart';
 import 'package:vorsorgeheft/domain/schedule_engine.dart';
@@ -145,6 +146,133 @@ void main() {
         settings: const ReminderSettings(maxPending: 500),
       );
       expect(plan.any((r) => r.ruleId == 'u2'), isFalse);
+    });
+  });
+
+  /// What the "later" button on a notification leaves behind.
+  ///
+  /// The service writes the day and hands it to the planner; everything
+  /// about which reminders survive that is decided here, and until now only
+  /// the service's own tests went anywhere near it.
+  group('put off until a day', () {
+    final occurrences = scheduleFor(
+      DateTime.utc(2026, 1, 15),
+      DateTime.utc(2026, 9, 20),
+    );
+    final now = DateTime(2026, 9, 20, 8);
+    final u9 = occurrences.firstWhere((o) => o.rule.id == 'u9');
+
+    List<PlannedReminder> planWith(
+      Map<String, DateTime> putOff, {
+      ReminderSettings settings = const ReminderSettings(maxPending: 500),
+    }) => planReminders(
+      occurrences: occurrences,
+      now: now,
+      settings: settings,
+      putOff: putOff,
+    );
+
+    test('takes the place of every lead that appointment would get', () {
+      final usual = planWith(const {}).where((r) => r.ruleId == 'u9');
+      expect(
+        usual,
+        hasLength(greaterThan(1)),
+        reason: 'the test is worth nothing if there was only ever one',
+      );
+
+      final after = planWith({
+        u9.key: DateTime.utc(2026, 9, 25),
+      }).where((r) => r.ruleId == 'u9');
+      expect(after, hasLength(1));
+      expect(after.single.fireAt, DateTime(2026, 9, 25, 9));
+      expect(after.single.leadTime, Duration.zero);
+      expect(after.single.kind, ReminderKind.windowOpens);
+    });
+
+    test('at the hour the person asked to be reminded at', () {
+      final plan = planWith(
+        {u9.key: DateTime.utc(2026, 9, 25)},
+        settings: const ReminderSettings(hour: 18, minute: 45, maxPending: 500),
+      ).where((r) => r.ruleId == 'u9');
+      expect(plan.single.fireAt, DateTime(2026, 9, 25, 18, 45));
+    });
+
+    test('leaves every other appointment where it was', () {
+      final before = planWith(const {}).where((r) => r.ruleId != 'u9');
+      final after = planWith({
+        u9.key: DateTime.utc(2026, 9, 25),
+      }).where((r) => r.ruleId != 'u9');
+      expect(
+        after.map((r) => '${r.id}/${r.fireAt}'),
+        before.map((r) => '${r.id}/${r.fireAt}'),
+      );
+    });
+
+    test('a day that has already passed counts for nothing', () {
+      // The service drops a stale row when it reschedules, but the planner
+      // is handed whatever it is handed and has to mean the same thing.
+      final after = planWith({
+        u9.key: DateTime.utc(2026, 9, 10),
+      }).where((r) => r.ruleId == 'u9');
+      expect(after, hasLength(greaterThan(1)), reason: 'the leads are back');
+    });
+
+    test('a deadline warning is put off with the rest', () {
+      // Putting off is about the appointment, not about one of the three
+      // ways it was announced: the person asked not to hear about it again
+      // until Friday.
+      final withDeadline = occurrences.firstWhere(
+        (o) => o.isOpen && o.deadline != null,
+      );
+      expect(
+        planWith(const {}).where((r) => r.occurrenceKey == withDeadline.key),
+        contains(
+          isA<PlannedReminder>().having(
+            (r) => r.kind,
+            'kind',
+            ReminderKind.deadlineApproaching,
+          ),
+        ),
+      );
+
+      final after = planWith({
+        withDeadline.key: DateTime.utc(2026, 9, 25),
+      }).where((r) => r.occurrenceKey == withDeadline.key);
+      expect(after, hasLength(1));
+      expect(after.single.kind, ReminderKind.windowOpens);
+    });
+
+    test('an appointment that is settled is not reminded about anyway', () {
+      final settled = computeOccurrences(
+        person: Person(
+          id: 'p1',
+          name: 'Kind',
+          dateOfBirth: DateTime.utc(2026, 1, 15),
+        ),
+        catalogs: catalogs,
+        completions: [
+          Completion(
+            personId: 'p1',
+            ruleId: 'u9',
+            completedOn: DateTime.utc(2026, 9, 19),
+          ),
+        ],
+        today: DateTime.utc(2026, 9, 20),
+      );
+      final plan = planReminders(
+        occurrences: settled,
+        now: now,
+        settings: const ReminderSettings(maxPending: 500),
+        putOff: {'p1-u9': DateTime.utc(2026, 9, 25)},
+      );
+      expect(plan.where((r) => r.ruleId == 'u9'), isEmpty);
+    });
+
+    test('a key that matches nothing changes nothing', () {
+      expect(
+        planWith({'nobody-at-all': DateTime.utc(2026, 9, 25)}).map((r) => r.id),
+        planWith(const {}).map((r) => r.id),
+      );
     });
   });
 
