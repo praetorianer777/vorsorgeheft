@@ -115,6 +115,33 @@ one disappears from a catalog, and when a catalog carries an id the ledger does 
 rule is added to both. With every change, bump `catalogVersion` and add an entry to the catalog's
 `_changes` list — that note is what the app shows the family after the update.
 
+### Data or code
+
+The rules are data because almost everything that keeps them honest works on data: the nightly
+watch compares their sources, the conformance tests read a guideline and hold the catalog to it,
+the ledger guards their ids, and `catalogVersion` is what tells a family what changed. None of
+that survives moving 93 rules into Dart, and someone who wants to check a rule against a PDF
+should not have to read Dart to do it.
+
+The line that decides what goes where: **numbers are data, shapes are code.** Another age, another
+interval, another rule built from parts that exist — that is JSON, and it must never need a line of
+Dart. A new *kind* of entitlement is a new word in a deliberately small vocabulary and belongs in
+`lib/domain/schedule.dart` with the engine that reads it, once, with tests, after which every
+catalog can use it. "Once per season" cost 154 lines and immediately carried four rules; "at most
+two, ten years apart" was one field on `Booster`.
+
+The temptation to avoid is making the format expressive enough that a guideline never needs code
+again — conditions, expressions, references. That is an interpreter written in JSON: code without
+the analyser, without a debugger, and no longer readable beside the document it came from. Six
+schedule types is the vocabulary, not a shortfall.
+
+The expensive case is neither of those. It is a rule that needs a new **fact about a person**:
+`expectingOn` cost a schema version, a migration, an upgrade fixture and a seventh field in the
+person sync. There is a generic per-person switch already — `optionalRules`, which is how the
+indication vaccinations work — but no generic per-person *value*, which is why the expected date
+became a column of its own. One is worth a column; a third one of those would be the moment to
+ask for something general instead.
+
 ## Calendar export
 
 Every appointment can be exported as an `.ics` file, for one person or for the whole family, and
@@ -189,7 +216,7 @@ machine without an emulator. It is not shipped and is not built in CI.
 | Shell | `./tests/test-release.sh`, `./tests/test-catalog-watch.sh`, `./tests/test-ios-e2e.sh`, `./.claude/hooks/tests/branch-guard-test.sh` | Release script, catalog watch, the iOS simulator runner and the branch guard, offline and without Flutter |
 | Format & analysis | `dart format --set-exit-if-changed .`, `flutter analyze --fatal-infos` | |
 | Unit | `flutter test` | Due-date engine, catalog validation incl. the source requirement, data layer, UI flows |
-| Guideline conformance | `flutter test test/tools/` | Reads the windows out of the source documents under `tools/catalog-sources/` and holds the catalogs to them: the § 2 table of the Kinder-RL, §§ 4 and 9 of the FU-RL, the IP-RL and the BEMA's IP positions, § 2 of each part of the GU-RL, §§ 1, 2, 10, 29 and 38 of the KFE-RL with § 3 of each organised programme, and footnote m of the STIKO calendar for the seasonal vaccinations. Also that every source a catalog cites is watched by an entry in `tools/catalog-sources.json` |
+| Guideline conformance | `flutter test test/tools/` | Reads the windows out of the source documents under `tools/catalog-sources/` and holds the catalogs to them: the § 2 table of the Kinder-RL, §§ 4 and 9 of the FU-RL, the IP-RL and the BEMA's IP positions, § 2 of each part of the GU-RL, §§ 1, 2, 10, 29 and 38 of the KFE-RL with § 3 of each organised programme, and footnote m of the STIKO calendar for the seasonal vaccinations. Also that every source a catalog cites is watched by an entry in `tools/catalog-sources.json`, and that the numbers the "Data or code" section argues from are still the numbers the catalogs have |
 | End-to-end | `flutter test` | The specs in `integration_test/specs.dart`, run headless so they gate every push |
 | Schema upgrades | `flutter test test/data/migration_test.dart` | Every schema version ever shipped (`drift_schemas/`) migrates to the current one and matches a fresh install; what v0.1.0 wrote survives the upgrade |
 | Released versions | `flutter test test/data/released_versions_upgrade_test.dart` | One fixture per released tag: a database as that version wrote it opens in the current app, keeps its data and settings, and takes the features added since. A test fails when a tag has no fixture |
