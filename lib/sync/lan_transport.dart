@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:multicast_dns/multicast_dns.dart';
 
 import 'mdns_announcement.dart';
+import 'peer_addresses.dart';
 import 'sync_transport.dart';
 
 /// TCP on the local network, with the peer found through mDNS.
@@ -27,8 +28,8 @@ class LanTransport implements SyncTransport {
   ServerSocket? _server;
   _MdnsResponder? _responder;
 
-  /// `host:port` of the first non-loopback IPv4 interface, or null when not
-  /// listening.
+  /// `host:port` on the first non-loopback IPv4 address, Wi-Fi before
+  /// cellular, or null when not listening.
   @override
   Future<String?> localAddress() async {
     final server = _server;
@@ -56,7 +57,7 @@ class LanTransport implements SyncTransport {
       _responder = await _MdnsResponder.start(
         instance: nodeId,
         port: server.port,
-        addresses: await _localAddresses(),
+        addresses: _localAddresses,
       );
     } on IOException {
       // Multicast is not available here; the manual address path remains.
@@ -78,23 +79,22 @@ class LanTransport implements SyncTransport {
 
   @override
   Future<SyncChannel> connect(String nodeId, {String? address}) async {
-    final endpoint = address == null
+    final endpoints = address == null
         ? await _discover(nodeId)
-        : _parseAddress(nodeId, address);
-    if (endpoint == null) throw PeerUnreachableException(nodeId);
-    try {
-      final socket = await Socket.connect(
-        endpoint.$1,
-        endpoint.$2,
-        timeout: lookupTimeout,
-      );
-      return _SocketChannel(socket);
-    } on SocketException catch (e) {
-      throw PeerUnreachableException(nodeId, e.message);
+        : [_parseAddress(nodeId, address)];
+    String? reason;
+    for (final (host, port) in endpoints) {
+      try {
+        final socket = await Socket.connect(host, port, timeout: lookupTimeout);
+        return _SocketChannel(socket);
+      } on SocketException catch (e) {
+        reason = e.message;
+      }
     }
+    throw PeerUnreachableException(nodeId, reason);
   }
 
-  (String, int)? _parseAddress(String nodeId, String address) {
+  (String, int) _parseAddress(String nodeId, String address) {
     final colon = address.lastIndexOf(':');
     final port = colon < 0 ? null : int.tryParse(address.substring(colon + 1));
     if (port == null) {
@@ -103,7 +103,9 @@ class LanTransport implements SyncTransport {
     return (address.substring(0, colon), port);
   }
 
-  Future<(String, int)?> _discover(String nodeId) async {
+  /// Every address the peer announced, the likeliest first; empty when it
+  /// was not found.
+  Future<List<(String, int)>> _discover(String nodeId) async {
     final client = MDnsClient();
     try {
       await client.start();
@@ -117,19 +119,30 @@ class LanTransport implements SyncTransport {
           ResourceRecordQuery.service(instance),
           timeout: lookupTimeout,
         )) {
-          await for (final ip in client.lookup<IPAddressResourceRecord>(
-            ResourceRecordQuery.addressIPv4(srv.target),
-            timeout: lookupTimeout,
-          )) {
-            return (ip.address.address, srv.port);
-          }
+          // The responder sends its A records in the same packet as the PTR,
+          // so they are in the client's cache by now and this stream closes
+          // at once instead of waiting out the timeout.
+          final hosts = await client
+              .lookup<IPAddressResourceRecord>(
+                ResourceRecordQuery.addressIPv4(srv.target),
+                timeout: lookupTimeout,
+              )
+              .map((record) => record.address)
+              .toList();
+          return [
+            for (final host in PeerAddresses.peer(
+              hosts,
+              await _localAddresses(),
+            ))
+              (host.address, srv.port),
+          ];
         }
       }
-      return null;
+      return const [];
     } on IOException {
-      return null;
+      return const [];
     } on OSError {
-      return null;
+      return const [];
     } finally {
       client.stop();
     }
@@ -141,7 +154,10 @@ Future<List<InternetAddress>> _localAddresses() async {
     type: InternetAddressType.IPv4,
     includeLoopback: false,
   );
-  return [for (final i in interfaces) ...i.addresses];
+  return PeerAddresses.own([
+    for (final i in interfaces)
+      for (final a in i.addresses) (i.name, a),
+  ]);
 }
 
 /// Length-prefixed frames over a socket.
@@ -223,7 +239,7 @@ class _SocketChannel implements SyncChannel {
 ///
 /// The socket that carries [MdnsAnnouncement] onto the network.
 class _MdnsResponder {
-  _MdnsResponder._(this._socket, this._announcement);
+  _MdnsResponder._(this._socket, this._instance, this._port, this._addresses);
 
   static final _group = InternetAddress('224.0.0.251');
   static const _mdnsPort = 5353;
@@ -231,7 +247,7 @@ class _MdnsResponder {
   static Future<_MdnsResponder> start({
     required String instance,
     required int port,
-    required List<InternetAddress> addresses,
+    required Future<List<InternetAddress>> Function() addresses,
   }) async {
     final socket = await RawDatagramSocket.bind(
       InternetAddress.anyIPv4,
@@ -241,26 +257,39 @@ class _MdnsResponder {
     );
     socket.joinMulticast(_group);
     socket.multicastHops = 255;
-    final responder = _MdnsResponder._(
-      socket,
-      MdnsAnnouncement(instance: instance, port: port, addresses: addresses),
-    );
+    final responder = _MdnsResponder._(socket, instance, port, addresses);
     socket.listen(responder._onEvent);
-    responder._announce();
+    unawaited(responder._announce());
     return responder;
   }
 
   final RawDatagramSocket _socket;
-  final MdnsAnnouncement _announcement;
+  final String _instance;
+  final int _port;
 
-  void stop() => _socket.close();
+  /// Read for every answer rather than once, because the phone may have
+  /// joined the Wi-Fi or got a new lease since it started listening.
+  final Future<List<InternetAddress>> Function() _addresses;
+  var _stopped = false;
+
+  void stop() {
+    _stopped = true;
+    _socket.close();
+  }
 
   void _onEvent(RawSocketEvent event) {
     if (event != RawSocketEvent.read) return;
     final datagram = _socket.receive();
     if (datagram == null) return;
-    if (_announcement.answers(datagram.data)) _announce();
+    if (_announcement([]).answers(datagram.data)) unawaited(_announce());
   }
 
-  void _announce() => _socket.send(_announcement.response(), _group, _mdnsPort);
+  MdnsAnnouncement _announcement(List<InternetAddress> addresses) =>
+      MdnsAnnouncement(instance: _instance, port: _port, addresses: addresses);
+
+  Future<void> _announce() async {
+    final response = _announcement(await _addresses()).response();
+    if (_stopped) return;
+    _socket.send(response, _group, _mdnsPort);
+  }
 }
