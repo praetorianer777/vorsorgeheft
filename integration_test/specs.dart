@@ -1030,10 +1030,6 @@ void registerAppSpecs() {
       reason: 'the code was not accepted',
     );
     expect(sync.pairedWith("Mum's phone"), findsOneWidget);
-    expect(sync.neverSynced, findsOneWidget);
-
-    await sync.syncNow('mum');
-    expect(sync.synced(received: 7, sent: 7), findsOneWidget);
     expect(sync.lastSynced, findsOneWidget);
 
     await sync.syncNow('mum');
@@ -1113,9 +1109,9 @@ void registerAppSpecs() {
       deviceModel: 'iPhone 15',
     );
     sync = await FamilyPage(tester).openSync();
+    // The scan alone is enough for both phones to list each other.
     await sync.scanCode(iphone, code);
     expect(sync.pairedWith('Pixel 8'), findsOneWidget);
-    await sync.syncNow('pixel');
     expect(sync.deviceNamed('Pixel 8'), findsOneWidget);
     expect(sync.deviceNamed('iPhone 15'), findsNothing);
     expect(sync.deviceNamed('My phone'), findsNothing);
@@ -1152,8 +1148,11 @@ void registerAppSpecs() {
     final dadsDb = await launchApp(tester, sync: dad, nodeId: 'dad');
     final sync = await FamilyPage(tester).openSync();
     await sync.scanCode(dad, code);
-    await sync.syncNow('mum');
+    expect(sync.addressPrompt, findsOneWidget);
+    await sync.enterAddress('192.168.1.20:4321');
+    expect(sync.pairedNotReached('My phone'), findsOneWidget);
 
+    await sync.syncNow('mum');
     expect(sync.addressPrompt, findsOneWidget);
     await sync.enterAddress('192.168.1.20:4321');
     expect(sync.unreachable('My phone'), findsOneWidget);

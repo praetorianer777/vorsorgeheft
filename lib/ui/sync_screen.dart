@@ -124,11 +124,30 @@ class SyncScreen extends ConsumerWidget {
     final messenger = ScaffoldMessenger.of(context);
     final code = await ref.read(qrScannerProvider).scan(context);
     if (code == null) return;
+    final engine = ref.read(syncEngineProvider);
+    final Peer peer;
     try {
-      final peer = await ref.read(syncEngineProvider).pairWith(code);
-      _notify(messenger, l10n.syncPaired(peer.deviceName));
+      peer = await engine.pairWith(code);
     } on FormatException {
       _notify(messenger, l10n.syncCodeInvalid);
+      return;
+    }
+    // The phone showing the code only learns about this one from an incoming
+    // connection, and only while its code is open, so the first sync has to
+    // happen now rather than whenever someone next taps it.
+    if (!context.mounted) return;
+    try {
+      final (:result, cancelled: _) = await _reach(context, engine, peer);
+      _notify(
+        messenger,
+        result == null
+            ? l10n.syncPairedNotReached(peer.deviceName)
+            : l10n.syncPairedAndSynced(peer.deviceName),
+      );
+    } on UnknownPeerException {
+      _notify(messenger, l10n.syncNotAccepted);
+    } on Object {
+      _notify(messenger, l10n.syncPairedNotReached(peer.deviceName));
     }
   }
 
@@ -216,6 +235,84 @@ class SyncScreen extends ConsumerWidget {
       );
 }
 
+/// One exchange with [peer], with the manual address as the second try when
+/// it cannot be found. The result is null when it was not reached;
+/// [cancelled] says the person closed the address prompt instead.
+Future<({SyncResult? result, bool cancelled})> _reach(
+  BuildContext context,
+  SyncEngine engine,
+  Peer peer,
+) async {
+  final l10n = AppLocalizations.of(context);
+  final result = await _attempt(engine, peer, address: null);
+  if (result != null || !context.mounted) {
+    return (result: result, cancelled: false);
+  }
+  final address = await _askAddress(context, l10n, peer);
+  if (address == null) return (result: null, cancelled: true);
+  return (
+    result: await _attempt(engine, peer, address: address),
+    cancelled: false,
+  );
+}
+
+/// Null when the peer could not be reached, which is the one failure that
+/// has a second try: the manual address.
+Future<SyncResult?> _attempt(
+  SyncEngine engine,
+  Peer peer, {
+  required String? address,
+}) async {
+  try {
+    return await engine.syncWith(peer.nodeId, address: address);
+  } on PeerUnreachableException {
+    return null;
+  }
+}
+
+Future<String?> _askAddress(
+  BuildContext context,
+  AppLocalizations l10n,
+  Peer peer,
+) {
+  final controller = TextEditingController();
+  return showDialog<String>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text(l10n.syncUnreachable(peer.deviceName)),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(l10n.syncEnterAddress),
+          const SizedBox(height: 12),
+          TextField(
+            key: const Key('peer-address'),
+            controller: controller,
+            autofocus: true,
+            keyboardType: TextInputType.url,
+            decoration: InputDecoration(hintText: l10n.syncAddressHint),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(l10n.cancel),
+        ),
+        FilledButton(
+          key: const Key('connect'),
+          onPressed: () {
+            final value = controller.text.trim();
+            Navigator.of(context).pop(value.isEmpty ? null : value);
+          },
+          child: Text(l10n.syncConnect),
+        ),
+      ],
+    ),
+  );
+}
+
 /// A status message replaces the one before it rather than queueing behind
 /// it: what matters is how the latest attempt went, not the history.
 void _notify(ScaffoldMessengerState messenger, String text) => messenger
@@ -277,13 +374,8 @@ class _PeerTile extends ConsumerWidget {
     final messenger = ScaffoldMessenger.of(context);
     final engine = ref.read(syncEngineProvider);
     try {
-      var result = await _attempt(engine, address: null);
-      if (result == null) {
-        if (!context.mounted) return;
-        final address = await _askAddress(context, l10n);
-        if (address == null) return;
-        result = await _attempt(engine, address: address);
-      }
+      final (:result, :cancelled) = await _reach(context, engine, peer);
+      if (cancelled) return;
       if (result == null) {
         _notify(messenger, l10n.syncUnreachable(peer.deviceName));
         return;
@@ -299,58 +391,6 @@ class _PeerTile extends ConsumerWidget {
     } on Object {
       _notify(messenger, l10n.syncFailed);
     }
-  }
-
-  /// Null when the peer could not be reached, which is the one failure that
-  /// has a second try: the manual address.
-  Future<SyncResult?> _attempt(
-    SyncEngine engine, {
-    required String? address,
-  }) async {
-    try {
-      return await engine.syncWith(peer.nodeId, address: address);
-    } on PeerUnreachableException {
-      return null;
-    }
-  }
-
-  Future<String?> _askAddress(BuildContext context, AppLocalizations l10n) {
-    final controller = TextEditingController();
-    return showDialog<String>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.syncUnreachable(peer.deviceName)),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(l10n.syncEnterAddress),
-            const SizedBox(height: 12),
-            TextField(
-              key: const Key('peer-address'),
-              controller: controller,
-              autofocus: true,
-              keyboardType: TextInputType.url,
-              decoration: InputDecoration(hintText: l10n.syncAddressHint),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text(l10n.cancel),
-          ),
-          FilledButton(
-            key: const Key('connect'),
-            onPressed: () {
-              final value = controller.text.trim();
-              Navigator.of(context).pop(value.isEmpty ? null : value);
-            },
-            child: Text(l10n.syncConnect),
-          ),
-        ],
-      ),
-    );
   }
 
   Future<void> _remove(BuildContext context, WidgetRef ref) async {

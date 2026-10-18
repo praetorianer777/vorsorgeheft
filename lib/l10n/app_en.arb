@@ -493,15 +493,23 @@
     }
   },
   "syncNothingNew": "Nothing to send, nothing new.",
-  "syncPaired": "Paired with {name}.",
-  "@syncPaired": {
+  "syncCodeInvalid": "That is not a pairing code of this app.",
+  "syncPairedAndSynced": "Paired with {name} and synced.",
+  "@syncPairedAndSynced": {
     "placeholders": {
       "name": {
         "type": "String"
       }
     }
   },
-  "syncCodeInvalid": "That is not a pairing code of this app.",
+  "syncPairedNotReached": "Paired with {name}, but it could not be reached. Tap \"Sync now\" next to it while its code is still open there, so it accepts this phone too.",
+  "@syncPairedNotReached": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "syncUnreachable": "{name} could not be found on the network.",
   "@syncUnreachable": {
     "placeholders": {
