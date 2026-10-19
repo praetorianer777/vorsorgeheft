@@ -249,15 +249,23 @@
     }
   },
   "syncNothingNew": "Nichts zu senden, nichts Neues.",
-  "syncPaired": "Mit {name} gekoppelt.",
-  "@syncPaired": {
+  "syncCodeInvalid": "Das ist kein Kopplungscode dieser App.",
+  "syncPairedAndSynced": "Mit {name} gekoppelt und abgeglichen.",
+  "@syncPairedAndSynced": {
     "placeholders": {
       "name": {
         "type": "String"
       }
     }
   },
-  "syncCodeInvalid": "Das ist kein Kopplungscode dieser App.",
+  "syncPairedNotReached": "Mit {name} gekoppelt, aber das Telefon war nicht erreichbar. Tippe daneben auf \"Jetzt abgleichen\", solange dort noch der Code offen ist, damit es dieses Telefon auch annimmt.",
+  "@syncPairedNotReached": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "syncUnreachable": "{name} wurde im Netzwerk nicht gefunden.",
   "@syncUnreachable": {
     "placeholders": {

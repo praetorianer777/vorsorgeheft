@@ -497,7 +497,11 @@ class SyncPage {
   Finder get nothingNew => find.text('Nothing to send, nothing new.');
   Finder synced({required int received, required int sent}) =>
       find.text('Received $received and sent $sent changes.');
-  Finder pairedWith(String name) => find.text('Paired with $name.');
+  Finder pairedWith(String name) => find.text('Paired with $name and synced.');
+  Finder pairedNotReached(String name) => find.text(
+    'Paired with $name, but it could not be reached. Tap "Sync now" next to '
+    'it while its code is still open there, so it accepts this phone too.',
+  );
   Finder get invalidCode =>
       find.text('That is not a pairing code of this app.');
   Finder get wrongPassword =>
