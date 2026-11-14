@@ -45,7 +45,7 @@ zu den Empfehlungen 2025
 
 RSV                                                      Influenza
 Die STIKO empfiehlt für die RSV-Impfung jetzt            Die STIKO hat aufgrund der weltweiten Ausbrei-
-­neben den proteinbasierten RSV-Impfstoffen auch         tung von hochpathogenen H5Nx-Viren unter V  ­ ögeln
+­neben den proteinbasierten RSV-Impfstoffen auch         tung von hochpathogenen H5Nx-Viren unter ­Vögeln
  den mRNA-RSV-Impfstoff mResvia. Die einmalige           sowie der vermehrten Nachweise von H5Nx in di-
  Impfung ist für alle Personen ≥ 75 Jahre als Stan-      versen Säugetierklassen ihre Influenza-Indikations-
 dardimpfung und für Personen im Alter von 60 bis         impfempfehlung angepasst. Eine jährliche Influ­
@@ -117,29 +117,29 @@ Inhaltverzeichnis
 3.      Standardimpfungen des Erwachsenen­alters,                                     Immunprophylaxe ....................................... 56
         Indikations- und Auffrischimpfungen sowie                              5.4    Postexpositionelle Tetanus-
         Impfungen ­aufgrund eines erhöhten                                            Immunprophylaxe ....................................... 58
-        beruflichen Risikos oder einer Reise ........... 9                     5.5    Postexpositionelle Tollwut-
+        beruflichen Risikos oder einer Reise . ......... 9                     5.5    Postexpositionelle Tollwut-
 3.1     Übersicht ..................................................... 9             Immunprophylaxe ....................................... 58
 3.2     Anmerkungen zu einzelnen Impfungen ..... 19
                                                                                6.   Empfehlungen zu Nachholimpfungen ....... 60
 4.    Hinweise zur Durchführung von                                            6.1  Vorbemerkung ............................................. 60
      ­Schutzimpfungen ........................................ 35              6.2  Ungeimpfte und Personen mit unklarem
-4.1 Aufklärungspflicht vor Schutzimpfungen ... 35                                   Impfstatus .................................................... 61
+4.1 Aufklärungspflicht vor Schutzimpfungen . . 35                                   Impfstatus .................................................... 61
 4.2 Off-label-use .................................................. 37        6.3 Teilgeimpfte Personen ................................. 61
 4.3 Dokumentation der Impfung ...................... 38                        6.4 Vorgehen bei fehlender
-4.4 Impfmanagement ........................................ 38                      Impfdokumentation .................................... 61
+4.4 Impfmanagement . ...................................... 38                      Impfdokumentation .................................... 61
 4.5 Impfabstände ............................................... 40            6.5 Anamnestische Angaben zu Varizellen ....... 61
 4.6 Hinweise zur Schmerz- und Stress­reduktion                                 6.6 Indikation für serologische Antikörper­
       beim Impfen ................................................ 41               bestimmungen ............................................ 62
 4.7 Kontraindikationen und falsche                                             6.7 Ist „Überimpfen“ gefährlich? ...................... 62
-      Kontraindikationen ...................................... 42             6.8 Wahl der Impfstoffe ..................................... 62
+      Kontraindikationen ...................................... 42             6.8 Wahl der Impfstoffe . ................................... 62
 4.8. Impfungen zum Schutz der reproduktiven                                    6.9 Impfungen gegen Tetanus, Diphtherie,
       Gesundheit, bei Kinderwunsch und                                              Poliomyelitis und Pertussis ab dem Alter
-      während Schwangerschaft und Stillzeit ...... 44                               von 5 Jahren ................................................. 63
-4.9 Impfen bei Immundefizienz ........................ 46                      6.10 Altersabhängige Empfehlungen zur
+      während Schwangerschaft und Stillzeit ...... 44                               von 5 Jahren . ............................................... 63
+4.9 Impfen bei Immundefizienz . ...................... 46                      6.10 Altersabhängige Empfehlungen zur
 4.10 Impfreaktionen, Impfkomplikationen                                             Durchführung von Nachholimpfungen ...... 63
-      sowie Impfschäden und deren Meldung .... 46
+      sowie Impfschäden und deren Meldung . .. 46
 4.11 Impfungen von Personal in medizinischen                                   Liste der STIKO-Empfehlungen und ihrer
-      Einrichtungen .............................................. 48          ­wissenschaftlichen Begründungen ...................... 73
+      Einrichtungen .............................................. 48          ­wissenschaftlichen Begründungen . .................... 73
 4.12 Impfempfehlungen für Migrantinnen
       und Migranten und Asylsuchende nach                                      STIKO-App ............................................................ 77
       Ankunft in Deutschland .............................. 48
@@ -229,7 +229,7 @@ Impfungen ab dem Alter von ≥ 12 (COVID-19) bzw.           ­sowie die MenB-Imp
  titis B (HB), Pneumokokken, Meningo­kokken B             sonderer Bedeutung, dass bei der Grundimmuni-
  (MenB) und Meningokokken ACWY (MenACWY),                 sierung der empfohlene Mindestabstand zwischen
  Masern, Mumps, Röteln (MMR), Varizellen (V) sowie        vorletzter und letzter Impfstoffdosis nicht unter-
- vor h­ umanen Papillomviren (HPV), Herpes zoster         schritten wird. Deshalb sollten Mindestabstände
+ vor ­humanen Papillomviren (HPV), Herpes zoster          schritten wird. Deshalb sollten Mindestabstände
  (HZ), Influenza und COVID-19.                             nur im dringenden Ausnahmefall (z. B. kurzfristige
                                                            Auslandsreise) unterschritten werden.
 Für eine bessere Übersicht wird der Impfkalender
@@ -339,13 +339,12 @@ fehlung zum                Grund- bzw. Erstimmunisierung      im Abstand von min
   28/2026).
    Epidemiologisches Bulletin            4 | 2026         22. Januar 2026                                         9
 
-Wegen der besonderen Gefährdung in der frühen                    a­ rbeitsbedingten Risikos) und R (Reiseimpfungen)
+Wegen der besonderen Gefährdung in der frühen                    ­arbeitsbedingten Risikos) und R (Reiseimpfungen)
 Kindheit ist es notwendig, empfohlene Impfungen                   handelt es sich um Sonderfälle einer Indikations-
 für Säuglinge und Kleinkinder möglichst frühzeitig                impfung. Reiseimpfungen können aufgrund der
-durchzuführen. Die Sechsfach- sowie die Pneumo-                   internationalen Gesundheitsvorschriften (z. B.
-                                                                  ­
-kokken-Impfung sind bis zum 11. Lebensmonat, die                  Gelbfieber-­Impfung) erforderlich sein oder werden
-MenB-Impfung bis zum 12. Lebensmonat und die                      zum individuellen Schutz empfohlen.
+durchzuführen. Die Sechsfach- sowie die Pneumo-                   i­nternationalen Gesundheitsvorschriften (z. B.
+kokken-Impfung sind bis zum 11. Lebensmonat, die                   Gelbfieber-­Impfung) erforderlich sein oder werden
+MenB-Impfung bis zum 12. Lebensmonat und die                       zum individuellen Schutz empfohlen.
 MMR-Impfung bis zum 15. Lebensmonat abzu-
 schließen. Erfahrungen zeigen, dass Impfungen,                   Die Empfehlung über Art und zeitliche Reihenfolge
 die später als empfohlen begonnen wurden, häufig                 der Impfungen gehört zu den ärztlichen Aufgaben
@@ -392,26 +391,26 @@ Situation einzuschätzen und auf diese weiteren Schutz-
 möglichkeiten hinzuweisen. Insofern ist eine fehlende            R	Impfungen aufgrund von privaten oder beruf­
 STIKO-Empfehlung kein Hindernis für eine begründete                 lichen Reisen (s. a. Reiseimpfempfehlungen der
 Impfung.                                                            STIKO und der DTG)
-                         Epidemiologisches Bulletin                   4 | 2026              22. Januar 2026                                                                   10
+                         Epidemiologisches Bulletin                  4 | 2026             22. Januar 2026                                                                10
 
                       Tabelle 2 | Empfehlungen zu Standardimpfungen des Erwachsenenalters sowie zu Indikations-(Berufs- und Reiseimpfungen) und
                       Auffrischimpfungen für alle Altersgruppen
 
-                      Impfung         Kate­                                                                        Anmerkungen
+                      Impfung         Kate­                                                                      Anmerkungen
                                                 Indikation
-                      gegen           gorie                                                                        (Packungsbeilage/Fachinformation beachten)
-                      Chikungunya         B     Personen, die gezielte Tätigkeiten mit Chikungunya-Viren           Eine Impfstoffdosis des attenuierten Lebendimpfstoffs
-                                                gemäß Biostoffverordnung ausüben (z. B. in Forschungs-             oder des Totimpfstoffs. Für Personen ≥ 60 Jahre soll nur
-                                                einrichtungen oder Laboratorien) unter Berücksichtigung            der Totimpfstoff verwendet werden.
-                                                der Altersgruppen für die jeweiligen Impfstoffe.                   Zum jetzigen Zeitpunkt kann keine Aussage über die
-                                                                                                                   Notwendigkeit bzw. den Zeitpunkt einer Auffrischimp-
+                      gegen           gorie                                                                      (Packungsbeilage/Fachinformation beachten)
+                      Chikungunya         B     Personen, die gezielte Tätigkeiten mit Chikungunya-Viren         Eine Impfstoffdosis des attenuierten Lebendimpfstoffs
+                                                gemäß Biostoffverordnung ausüben (z. B. in Forschungs-           oder des Totimpfstoffs. Für Personen ≥ 60 Jahre soll nur
+                                                einrichtungen oder Laboratorien) unter Berücksichtigung          der Totimpfstoff verwendet werden.
+                                                der Altersgruppen für die jeweiligen Impfstoffe.                 Zum jetzigen Zeitpunkt kann keine Aussage über die
+                                                                                                                 Notwendigkeit bzw. den Zeitpunkt einer Auffrischimp-
                                           R     Personen ≥ 12 Jahre,
                                                 ▶ die in ein Gebiet reisen, für das ein aktuelles
-                                                                                                                   fung getroffen werden.
-                                                  Chikungunya-Ausbruchsgeschehen bekannt ist,                      Weitere Hinweise, u. a. zu den Kontraindikationen und
-                                                ▶ die einen längeren Aufenthalt (> 4 Wochen) oder                  Impfstoffprofilen sowie zu den beruflich Reisenden
-                                                  wiederholte Kurzzeitaufenthalte in Chikungunya-­                 (z. B. Militär), s. Epid Bull 28/20251 sowie Reiseimpf-
-                                                  Endemiegebieten planen und bei denen ein erhöhtes                empfehlungen der STIKO und der DTG.
+                                                                                                                 fung getroffen werden.
+                                                  Chikungunya-Ausbruchsgeschehen bekannt ist,                    Weitere Hinweise, u. a. zu den Kontraindikationen und
+                                                ▶ die einen längeren Aufenthalt (> 4 Wochen) oder                Impfstoffprofilen sowie zu den beruflich Reisenden
+                                                  wiederholte Kurzzeitaufenthalte in Chikungunya-­               (z. B. Militär), s. Epid Bull 28/20251 sowie Reiseimpf-
+                                                  Endemiegebieten planen und bei denen ein erhöhtes              empfehlungen der STIKO und der DTG.
                                                   Risiko für eine Chronifizierung oder einen schweren
                                                   Verlauf der Erkrankung besteht (z. B. Alter ≥ 60 Jahre
                                                   oder eine schwere internistische Grunderkrankung).
@@ -425,12 +424,12 @@ Impfung.                                                            STIKO und de
                                                 Weitere Informationen s. Reiseimpfempfehlungen der
                                                 STIKO und der DTG
 9. Juli 2026:
-                      COVID-19            S     Alle Personen im Alter von 18 – 59 Jahren bei unvollstän-          Impfung mit einem zugelassenen mRNA- oder
-Die STIKO hat         (Coronavirus              diger Basisimmunität (< 3 Antigenkontakte oder                     proteinbasierten COVID-19-Impfstoff mit jeweils von
-ihre COVID-19-        Disease 2019)             ungeimpft)a                                                        der WHO empfohlener Variantenanpassung, bis die
-Impfempfehlung                                                                                                     Anzahl der für die Basisimmunität erforderlichen
-und den emp-                                    Frauen im gebärfähigen Alter und gesunde Schwangerea,b             ≥ 3 SARS-CoV-2-Antigenkontakte (davon mindestens
-fohlenen Impf-                                  jeden Alters bei unvollständiger Basisimmunität                    1 Impfung) erreicht ist.
+                      COVID-19            S     Alle Personen im Alter von 18 – 59 Jahren bei unvollstän-        Impfung mit einem zugelassenen mRNA- oder
+Die STIKO hat         (Coronavirus              diger Basisimmunität (< 3 Antigenkontakte oder                   proteinbasierten COVID-19-Impfstoff mit jeweils von
+ihre COVID-19-        Disease 2019)             ungeimpft)a                                                      der WHO empfohlener Variantenanpassung, bis die
+Impfempfehlung                                                                                                   Anzahl der für die Basisimmunität erforderlichen
+und den emp-                                    Frauen im gebärfähigen Alter und gesunde Schwangerea,b           ≥ 3 SARS-CoV-2-Antigenkontakte (davon mindestens
+fohlenen Impf-                                  jeden Alters bei unvollständiger Basisimmunität                  1 Impfung) erreicht ist.
 zeitraum ange-
 passt. Die Emp-                                 Personen ≥ 60 Jahre                                      Impfung mit einem zugelassenen mRNA- oder
 fehlung zum
@@ -483,13 +482,13 @@ fehlung zum
 
                                       a   Bei Personen im Alter von 12 bis < 30 Jahren und bei Schwangeren soll i. d. R. kein Spikevax-Produkt verwendet werden.
                                       b   Schwangere sollen fehlende Impfstoffdosen erst ab dem 2. Trimenon und vorzugsweise mit dem zugelassenen mRNA-Impfstoff Comirnaty
-                                          erhalten. Nuvaxovid kann erwogen werden, wenn eine produktspezifische, medizinische oder sonstige K    ­ ontraindikation gegen mRNA-Impf-
+                                          erhalten. Nuvaxovid kann erwogen werden, wenn eine produktspezifische, medizinische oder sonstige ­Kontraindikation gegen mRNA-Impf-
                                           stoffe besteht.
                                       c   Bei Immundefizienten mit relevanter Einschränkung der Immunantwort sind evtl. weitere Impfstoffdosen und ein verkürzter Impfabstand
                                           (≥ 4 Wochen) notwendig.
                                       d   Sofern eine Indikation vorliegt, kann am selben Termin auch gegen saisonale Influenza und Pneumokokken geimpft werden.
 
-                                                                                                                                         (Fortsetzung Tabelle 2 auf nächster Seite)
+                                                                                                                                     (Fortsetzung Tabelle 2 auf nächster Seite)
     Epidemiologisches Bulletin                   4 | 2026             22. Januar 2026                                                            11
 
 (Fortsetzung Tabelle 2)
@@ -1305,7 +1304,7 @@ dosis verabreicht. Die STIKO empfiehlt die Imp-           proteinbasierter Impfs
 fung gegen Chikungunya Personen ab 12 Jahren,             WHO empfohlenen Variantenanpassung verwen-              fohlenen Impf-
                                                                                                                   zeitraum ange-
 die in ein Gebiet reisen, wo sich aktuell ein Chikun-     det werden. Die STIKO empfiehlt allen Personen im       passt. Die Emp-
-gunya-Ausbruch ereignet, sowie für Personen, die          Alter ≥ 18 Jahren, Frauen im gebärfähigen A­ lter und   fehlung zum
+gunya-Ausbruch ereignet, sowie für Personen, die          Alter ≥ 18 Jahren, Frauen im gebärfähigen ­Alter und    fehlung zum
                                                                                                                   ­Erlangen der
 einen längeren Aufenthalt (> 4 Wochen) oder wieder­       Schwangeren, sowie den in Tabelle 2 aufgeführten         ­Basisimmunität
                                                                                                                     entfällt und die
@@ -1457,7 +1456,7 @@ zusammen mit der Deutschen Gesellschaft für                6 Monaten nicht unte
 ­Tropenmedizin, Reisemedizin und Globale Gesund­           Hib-Impfung im Alter von 1 bis 4 Jahren nachge-
  heit e. V. (DTG) angepasst. Da auf Basis der neu be-      holt, reicht eine 1-malige Impfung. Ab einem Alter
 werteten Evidenz nicht auf eine lebenslange Immu-          ≥ 5 Jahre ist eine Hib-Impfung nur in Ausnahme­
-nität nach nur einer Impfstoffdosis geschlossen            fällen ­indiziert (s. Tab. 2), z. B. bei Personen mit
+nität nach nur einer Impfstoffdosis geschlossen            fällen i­ndiziert (s. Tab. 2), z. B. bei Personen mit
 werden kann und das Ausmaß der nachlassenden               ­erhöhter Anfälligkeit gegenüber bekapselten Bakte-
  Immu­nität vom Alter und dem Immunstatus bei              rien. Dies sind z. B Personen mit funktioneller oder
  der ­Erst­impfung abhängt, wird vor erneuter oder         anatomischer Asplenie. Monovalente Hib-Impf-
@@ -1481,7 +1480,7 @@ Säugling, sollen Stillende von Säuglingen < 6 Mo-           gewährleistet, da
 naten ebenfalls nicht geimpft werden.                       gen wie in den mono­va­lenten Hepatitis-A-Impfstof-
                                                             fen enthalten ist. Erst nach der 2. Impfstoffdosis des
  Die vollständigen Empfehlungen finden sich in              Kombinationsimpfstoffs kann von einem ca. 1 Jahr
-­Tabelle 2, die entsprechende ausführliche wissen-          andauernden Schutz für H      ­ epatitis A ausgegangen
+­Tabelle 2, die entsprechende ausführliche wissen-          andauernden Schutz für ­Hepatitis A ausgegangen
  schaftliche Begründung im Epid Bull 32/2022.7              werden. Die 3. Impfstoffdosis nach 6 (– 12) Monaten
                                                             verleiht einen langanhaltenden Hepatitis­-A-Schutz.
 Weitere Informationen s. Reiseimpfempfehlungen              Bei Erwachsenen kann für die Twinrix-Kombina­
@@ -1525,7 +1524,7 @@ im Kindes-, Jugend- und Erwachsenen­alter zur Kon-           verabreichte Impfs
 trolle des Impferfolges sind nicht erforderlich.             ponente sind jedoch unschädlich. Wichtig ist, dass
 Ebenso ist eine Auffrisch­impfung nach Impfung im            am Ende der Impfserie zwischen den letzten beiden
 Säuglingsalter und Kleinkindalter derzeit für Kin-           Impfstoffdosen ein Abstand von mindestens 5 Mo-
-der, Jugendliche und Erwachsene ohne b      ­ esonderes      naten eingehalten wird.
+der, Jugendliche und Erwachsene ohne ­besonderes             naten eingehalten wird.
 Risiko nicht empfohlen. Bei Personen, die im Säug-
 lingsalter gegen Hepatitis B geimpft wurden, sollte          Bei Neugeborenen von Müttern, deren HBsAg­-
 eine Hepatitis-B-Auffrisch­impfung nur dann durch-           Status nicht bekannt ist und bei denen vor bzw.
@@ -1578,7 +1577,7 @@ Indikationsgruppen haben in Abhängigkeit von der           ­werden. Um ein HZ-
 zugrundeliegenden Erkrankung ein unterschied-               ­einer HZ-Impfung in einem mindestens 6- bis
 lich hohes Risiko an HZ zu erkranken. Am höchs-              12-monatigen Abstand zur vorangegangenen HZ-­
 ten ist das Risiko bei Personen mit angeborener              Erkrankung geraten. Die Impfung sollte zu einem
-oder erworbener Immundefizienz (z. B. Personen               Zeitpunkt e­ rfolgen, wenn die akute Erkrankung
+oder erworbener Immundefizienz (z. B. Personen               Zeitpunkt ­erfolgen, wenn die akute Erkrankung
 nach hämatopoetischer Stammzelltransplantation               ­vorüber ist und die Symptome abgeklungen sind.
 [HSCT]) sowie bei Personen mit bestimmten Auto-
 immunerkrankungen (z. B. Systemischer Lupus               Humane Papillomviren (HPV)
@@ -1595,7 +1594,7 @@ z. B. chronische Nierenerkrankung, Diabetes melli-         Jugendlichen im Alter
                                                           Alter von 9 bis 14 Jahren (Cervarix, Gardasil-9) ist
 Leichte oder unkomplizierte bzw. medikamentös             ein 2-Dosen-Impfschema mit einem Impfabstand
 gut kontrollierte Formen chronischer Erkrankun-           von 5 Monaten zugelassen. Bei Nachholimpfungen
-gen sind bei Personen zwischen 18 und 59 Jahren           ≥ 15 Jahre oder bei e­ inem Impfabstand von < 5 Mo-
+gen sind bei Personen zwischen 18 und 59 Jahren           ≥ 15 Jahre oder bei ­einem Impfabstand von < 5 Mo-
 nach Einschätzung der STIKO nicht mit einem               naten zwischen der 1. und 2. Impfstoff­dosis ist eine
                                                           3. Impfstoffdosis erforderlich (Angaben in den
    Epidemiologisches Bulletin       4 | 2026       22. Januar 2026                                        26
@@ -1631,7 +1630,7 @@ fen nicht gegen alle potenziell onkogenen HPV-            Japanische Enzephaliti
 Typen schützt. Frauen sollen deshalb die Früherken­       In Deutschland ist nur der inaktivierte adjuvantierte
 nungsuntersuchungen zum Gebärmutterhalskrebs              Totimpfstoff IXIARO zugelassen. Eine Impfung
 weiterhin in Anspruch nehmen. Die wissenschaft­           ­gegen das Japanische Enzephalitis Virus (JEV) ist
-liche Begründung zur Empfehlung der H         ­ PV-        vor Aufenthalten in Endemiegebieten während der
+liche Begründung zur Empfehlung der ­         HPV-         vor Aufenthalten in Endemiegebieten während der
 Impfung für Jungen ist – ergänzend zu den Begrün-          Übertragungszeit empfohlen, insbesondere, wenn
 dungen zur Änderung des Impfalters (Epid Bull              die in Tabelle 2 unter R genannten Bedingungen
 35/2014),17 zur Begründung der HPV-Impfung für             vorliegen.
@@ -1673,8 +1672,7 @@ naten erfolgen:                                          Tätigkeitsbereichen in
 ▶  Nach Kontakt zu an Masern erkrankten Perso-           gen, Einrichtungen zur gemeinschaftlichen Unter-
    nen. Sofern die ­Erstimpfung im Alter von 9 bis       bringung von Asylsuchenden, Ausreisepflichtigen,
    10 Monaten er­folgte, muss die 2. MMR-Impfung         Geflüchteten, Spätaussiedlerinnen und Spätaus-
-   bereits zu B
-              ­ eginn des 2. Lebensjahres gegeben        siedlern sowie in Fach-, Berufs- und Hochschulen
+   bereits zu ­Beginn des 2. Lebensjahres gegeben        siedlern sowie in Fach-, Berufs- und Hochschulen
    werden.                                               (s. Epid Bull 2/2020) .33
 
 Für eine MMR-Impfung von Säuglingen < 9 Mona-            Im März 2020 ist das Masernschutzgesetz in Kraft
@@ -1686,7 +1684,7 @@ schützen sind. Individuelle Risiko-Nutzen-Abwä-          eine ausreichende Imm
 gungen können eine Impfung im Alter von 6 bis            weisen. Kinder im Alter von 12 bis 23 Monaten müs-
 8 Monaten ausnahmsweise begründen. Säuglinge,            sen 1 Masern-Impfstoffdosis erhalten haben und
 die im Alter von 6 bis 8 Monaten geimpft wurden,         Kinder ≥ 24 Monate mindestens 2 Impfstoff­dosen.
-sollen zum A­ ufbau einer langfristigen Immunität        Alternativ kann unabhängig vom Alter ein ärzt­
+sollen zum ­Aufbau einer langfristigen Immunität         Alternativ kann unabhängig vom Alter ein ärzt­
 2 weitere MMR/V-Impfstoffdosen im Alter von 11           liches Zeugnis über eine ausreichende Immunität
 und 15 Monaten ­erhalten.                                gegen Masern vorgelegt werden. Ungeimpfte/Kin-
                                                          der ohne ausreichende Immunität können vom Be-
@@ -1719,8 +1717,7 @@ einem 2+1-Impfschema im Alter von 2, 4 und 12 Mo-                      chen). Be
 naten verabreicht werden. Nachholimpfungen sollen                      Jahren ist keine prophylaktische Paracetamol-Gabe
 spätestens bis zum 5. Geburtstag verabreicht wer-                      erforderlich. Auch bei Frühgebo­renen, die zum
 den. Bei Beginn der Impfserie im Alter von 12 bis                      Zeitpunkt der Impfung ein Körpergewicht (KG) von
-23 Monaten wird ebenfalls das 2+1-Impfschema mit                       < 3 kg h
-                                                                              ­ aben, ist eine prophylaktische Paracetamol-
+23 Monaten wird ebenfalls das 2+1-Impfschema mit                       < 3 kg ­haben, ist eine prophylaktische Paracetamol-
 einem Abstand von 2 Monaten zwischen den ersten                        Gabe möglich. Das Kinderformu­larium empfiehlt
 beiden Impfstoffdosen und einem Abstand von 12                         als ­Dosis 10 bis 15 mg/kg KG Paracetamol je Gabe in
 bis 23 Monaten zwischen der 2. und 3. Impfstoff­                       Saftform (maximale Tagesdosis von 45 mg/kg KG)
@@ -1821,7 +1818,7 @@ gleich­zeitiger Varizellen-Indikation, Verwendung        Diphtherietoxoid-Gehal
  bereichen indiziert. Hierzu zählt das Personal in       als Tdap-IPV-Kombina­tionsimpfung. Da ein mono-
  medizinischen Einrichtungen, Einrichtungen der          valenter Pertussis-Impfstoff nicht mehr zur Verfü-
  Pflege, Gemeinschaftseinrich­tungen, Einrichtun-        gung steht, muss einer der genannten Kombina­
- gen zur gemeinschaftlichen U   ­ nterbringung von       tionsimpfstoffe verwendet werden. Bei bestehender
+ gen zur gemeinschaftlichen ­Unterbringung von           tionsimpfstoffe verwendet werden. Bei bestehender
  Asyl­su­chen­den, Ausreisepflichtigen, Geflüchteten     Indi­kation zur ­Pertussis-Impfung kann auch kurz
  und Spätaussiedlerinnen und Spätaussiedlern sowie       nach einer erfolgten Td-Impfung eine Impfung mit
  in Fach-, Berufs- und Hochschulen (s. Epid Bull         Tdap-Impfstoff durchgeführt werden. Für einen der
@@ -1985,11 +1982,10 @@ myelitis, Hib und Hepatitis B schützt. Im Alter von                  lich. Für
                   Standardimpfung für Erwachsene ≥ 75 Jahre: Eine         Ein monovalenter Röteln-Impfstoff ist in Deutsch-
                   1-malige RSV-Impfung mit einem der beiden zuge-         land nicht mehr erhältlich. Für die Grundimmuni-
                   lassenen proteinbasierten Impfstoffe (Arexvy            sierung gegen Röteln werden 2 Impfstoffdosen
-                  [RSVPreF3] oder Abrysvo [RSVPreF]) oder dem             eines Kombinationsimpfstoffs (MMR-/MMR/V-
-                                                                          ­
-                  mRNA-RSV-Impfstoff mResvia (mRNA-1345) ist für          Impfstoff) im Alter von 11 und 15 Monaten verab-
-                  alle Personen ≥ 75 Jahre als Standardimpfung emp-       reicht. Hierbei ist ein Mindestabstand von 4 Wochen
-                  fohlen. Für einen optimalen Schutz in der nächst-       zwischen den beiden Impfstoffdosen einzuhalten.
+                  [RSVPreF3] oder Abrysvo [RSVPreF]) oder dem             e­ines Kombinationsimpfstoffs (MMR-/MMR/V-
+                  mRNA-RSV-Impfstoff mResvia (mRNA-1345) ist für           Impfstoff) im Alter von 11 und 15 Monaten verab-
+                  alle Personen ≥ 75 Jahre als Standardimpfung emp-        reicht. Hierbei ist ein Mindestabstand von 4 Wochen
+                  fohlen. Für einen optimalen Schutz in der nächst-        zwischen den beiden Impfstoffdosen einzuhalten.
                   folgenden RSV-Saison sollte die 1-malige Impfung
                   im Spätsommer/Herbst erfolgen. Es ist somit zwar        Eine bereits bestehende Immunität gegen einen
                   sinnvoll, aber nicht erforderlich, dass die Impfung     oder 2 der enthaltenen Erreger des Kombinations-
@@ -2037,16 +2033,16 @@ der 1. Woche nach der 1. RV-Impfung, das mit dem           Zwischen der letzten 
 Alter des zu impfenden Säuglings zunimmt. Daher            weiligen Impfschemas sollte ein Abstand von 6 Mo-
 ­empfiehlt die STIKO dringend, die Impfserie früh-         naten nicht unterschritten werden. Auffrisch­
  zeitig – spätestens bis zum Alter von ≤ 12 Wochen –       impfungen sind im Alter von 5 bis 6 Jahren und im
- zu b­ eginnen und vorzugsweise bis zum Alter von          Alter von 9 bis 16 Jahren e­ mpfohlen. Alle weiteren
+ zu ­beginnen und vorzugsweise bis zum Alter von           Alter von 9 bis 16 Jahren ­empfohlen. Alle weiteren
  ≤ 16 Wochen (Rotarix) bzw. von 20 bis 22 Wochen           Auf­f rischimpfungen sollten in 10-jährigem Abstand
  (RotaTeq) abzuschließen. Die Impfserie muss für           zur vorangegangenen Impfung erfolgen. Jede Auf-
  Rotarix auf jeden Fall bis zum Alter von ≤ 24 Wo-         frischimpfung mit Td (auch im Verletzungsfall) soll-
  chen und für RotaTeq bis zum Alter von ≤ 32 Wo-           te Anlass sein, die Indikation für eine Pertussis-
- chen abgeschlossen sein.                                  Impfung zu überprüfen und g    ­ egebenenfalls einen
+ chen abgeschlossen sein.                                  Impfung zu überprüfen und ­gegebenenfalls einen
                                                            Kombinationsimpfstoff (Tdap) einzusetzen, bei ent-
  Eine ausführliche Begründung der Impfempfeh-              sprechender Indikation ­Tdap-IPV.
  lung findet sich im Epid Bull 35/2013 .63 Zur gleich-
-zeitigen Gabe mit anderen Impfstoffen v­ erweist die       Tollwut
+zeitigen Gabe mit anderen Impfstoffen ­verweist die        Tollwut
 ­STIKO auf die jeweiligen Fachinformationen.               Deutschland gilt nach den Kriterien der WHO seit
                                                            2008 als frei von terrestrischer Tollwut. Lediglich
 Auch für Frühgeborene und andere Reifgeborene,             durch den illegalen Import von Haustieren (z. B.
@@ -2058,7 +2054,7 @@ vor einer nosokomialen RV-Infektion geschützt zu           European Bat Lyssavi
 werden, überwiegt deutlich das äußerst geringe Er-         nität entspricht der von klassischen Rabiesviren
 krankungsrisiko anderer hospitalisierter Personen          (RABV).
 durch die denkbare Übertragung von RV-­Impfviren.
-Das Übertragungsrisiko von Impfviren ist z­ udem           Die aus 3 Impfstoffdosen bestehende Grundimmu-
+Das Übertragungsrisiko von Impfviren ist ­zudem            Die aus 3 Impfstoffdosen bestehende Grundimmu-
 bei konsequenter Anwendung der auf neonatolo­              nisierung an den Tagen 0, 7, 21 oder 28 kann mit
 gischen Stationen üblichen Standardhygienemaß­             Rabipur oder Verorab durchgeführt werden (für
 nahmen als gering zu bewerten. Zur RV-Impfung              Schnellimpfschemata s. Reiseimpfempfehlungen
@@ -2097,7 +2093,7 @@ Körperstellen bevorzugt werden. Grund für diese          Gemäß § 20c IfSG d
 Empfehlung ist das leicht erhöhte Risiko von Fieber­     Apotheken Personen impfen gegen: Influenza­viren
 krämpfen 5 bis 12 Tage nach der Gabe des kombi-          (ab 18 Jahren), SARS-CoV-2-Viren (ab 12 Jahren).
 nierten MMRV-Impfstoffs im Vergleich zur simul­          Gem. § 1a Abs. 11 Nr. 2a ApBetrO sind die Vorberei-
-tanen Impfung mit V     ­ arizellen- und MMR-Impf-       tung sowie die Durchführung von Schutzimpfun-
+tanen Impfung mit ­Varizellen- und MMR-Impf-             tung sowie die Durchführung von Schutzimpfun-
 stoff. Dies wurde nur bei der Erstimpfung beobach-       gen durch öffentliche Apotheken nunmehr eine
 tet. Die 2. Impfung gegen Varizellen sollte im Alter     apothekenübliche Dienstleistung. Ziel der Durch-
 von 15 Monaten verabreicht ­werden und kann mit          führung von Schutzimpfungen in öffentlichen Apo-
@@ -2162,7 +2158,7 @@ de Person sehr genau dokumentiert werden.                  chen als Downloads ko
 Form und Zeitpunkt der Aufklärung                          das Bundesinstitut für Öffentliche Gesundheit
 Die Aufklärung muss gemäß § 630e Abs. 2 Nr. 1              (BIÖG) zahlreiches Informationsmaterial zum
 BGB mündlich durch die behandelnde Person oder             Impfen und zu impfpräventablen Krankheiten für
-durch eine Person erfolgen, die über die zur Durch-        Laien über ihre Homepage w ­ ww.infektionsschutz.
+durch eine Person erfolgen, die über die zur Durch-        Laien über ihre Homepage ­www.infektionsschutz.
 führung der Maßnahme notwendige Ausbildung                 de zur Verfügung.
 verfügt. Im Hinblick auf die Durchführung von
 Schutzimpfungen in Apotheken ist; gemäß § 20c              Die Aufklärungsmerkblätter enthalten auch einen
@@ -2185,15 +2181,14 @@ Eine schriftliche Einwilligung ist nicht gesetzlich        zunehmen und dies ihr
 vorgeschrieben, sie kann jedoch in Einzelfällen sinn­
 voll sein.                                                 Öffentliche Impftermine
                                                            Für öffentliche Impftermine (z. B. bei Schulimpf-
-Aufklärungen und Einwilligungen – egal in w   ­ elcher     programmen) wird im Vorfeld der mündlichen Auf-
-Form sie erfolgt bzw. erklärt worden sind –­ sind ver-     klärung die Aushändigung einer schriftlichen Infor-
+Aufklärungen und Einwilligungen – egal in ­welcher         programmen) wird im Vorfeld der mündlichen Auf-
+Form sie erfolgt bzw. erklärt worden sind ­– sind ver-     klärung die Aushändigung einer schriftlichen Infor-
 pflichtend in der Krankenakte zu dokumentieren             mation empfohlen. Das entbindet ärztliches Perso-
-(§ 630 f. Abs. 2 S. 1 BGB). Wird der A
-                                     ­ ufklärung ein       nal allerdings nicht von ihrer gesetzlichen Verpflich-
+(§ 630 f. Abs. 2 S. 1 BGB). Wird der ­Aufklärung ein       nal allerdings nicht von ihrer gesetzlichen Verpflich-
 entsprechendes Aufklärungsmerkblatt zugrunde               tung, die zu impfende Person bzw. die Eltern oder
 gelegt, sollte in der Dokumentation darauf verwie-         Sorgeberechtigten zusätzlich auch mündlich aufzu-
 sen werden. Zudem ist es sinnvoll, die Ablehnung           klären, um ihnen die Möglichkeit für Rückfragen zu
-einer Impfung durch die vorstellige P­ erson bzw. die      geben. Ggf. empfiehlt es sich in diesen Fällen, die
+einer Impfung durch die vorstellige ­Person bzw. die       geben. Ggf. empfiehlt es sich in diesen Fällen, die
 Eltern oder Sorgeberechtigten nach durchgeführter          Einwilligungserklärung schriftlich einzuholen.
 Aufklärung in der Krankenakte zu dokumentieren.
 Von Unterlagen, die Patientinnen oder Patienten
@@ -2343,7 +2338,7 @@ der Injektion sollte die Haut wieder trocken sein.         Impfabstände besonde
                                                            den werden. Zudem ist die HPV-Impfung besonders
 Für i. m. zu injizierende Impfstoffe ist die bevorzug-     zeitsensibel: Für eine optimale Schutzwirkung sollte
 te Impfstelle der M. deltoideus. Solange dieser Mus-       sie im Alter von 9 bis 14 Jahren – idealerweise vor
-kel nicht ausreichend ausgebildet ist (z. B. bei Säug­     Aufnahme s­ exueller Kontakte – verabreicht und spä-
+kel nicht ausreichend ausgebildet ist (z. B. bei Säug­     Aufnahme ­sexueller Kontakte – verabreicht und spä-
 lingen und Kleinkindern), wird empfohlen, in den           testens bis zum 18. Geburtstag nachgeholt werden.
 M. vastus lateralis (anterolateraler Oberschenkel) zu
 injizieren. Hier ist die Gefahr einer Verletzung von       Für Abstände zwischen unterschiedlichen Impfun-
@@ -2442,14 +2437,14 @@ Generelle Empfehlungen                                      besten bewältigen k
 ▶ Kinder < 2 Jahre, die nicht mehr gestillt werden,       ▶ Manuelle Stimulation der Injektionsstelle z. B.
   können 1 bis 2 Minuten vor der Impfung 2 ml               durch Reiben oder Kneifen
   einer 25 %-igen Glukoselösung oder eine andere          ▶ Orale Analgetikagabe vor oder während der Imp-
-  süße Flüssigkeit b­ ekommen. Da RV-Impfstoffe             fung (Ausnahme ist die Paracetamol-Prophylaxe
+  süße Flüssigkeit ­bekommen. Da RV-Impfstoffe              fung (Ausnahme ist die Paracetamol-Prophylaxe
   Saccharose enthalten, sollte bei der Durchfüh-            bei der MenB-Impfung von < 2-Jährigen)
   rung mehrerer Impfungen an einem Termin die
   RV-Impfung, sofern geplant, als erste verabreicht       4.7 Kontraindikationen und
   werden.                                                 falsche Kontra­indikationen
 
 Empfehlungen zur Körperposition                           Kontraindikationen
-▶ Kleinkinder < 3 Jahre sollten w­ ährend der Imp-        Kinder, Jugendliche und Erwachsene mit akuten
+▶ Kleinkinder < 3 Jahre sollten ­während der Imp-         Kinder, Jugendliche und Erwachsene mit akuten
   fung am besten auf dem Arm oder auf dem                 schweren Erkrankungen sollten erst nach Genesung
   Schoß gehalten und nach der Impfung leicht ge-          geimpft werden (Ausnahme: postexpositionelle
   schaukelt und liebkost werden.                          Impfung).
@@ -2482,7 +2477,7 @@ Empfehlungen zu Injektionstechniken                       malige Impfung mit dem
     Extremität sollte ein Mindestabstand von 2 cm
     eingehalten werden.                                   Personen, die nach dem Genuss von Hühner­eiweiß
                                                           innerhalb kurzer Zeit mit anaphylaktischen Symp-
-   Epidemiologisches Bulletin       4 | 2026      22. Januar 2026                                                         43
+   Epidemiologisches Bulletin       4 | 2026      22. Januar 2026                                                        43
 
 tomen (z. B. Angioödem, Atembeschwerden oder             ▶ ein möglicher Kontakt der zu impfenden Person
 Kreislaufkollaps) reagieren, sollten nicht mit Impf-       zu Personen mit ansteckenden Krankheiten
@@ -2530,7 +2525,7 @@ Häufig unterbleiben indizierte Impfungen, weil be-
 stimmte Umstände irrtümlicherweise als Kontra­
 indikationen angesehen werden. Dazu gehören
 zum Beispiel:                                            *    Bei der derzeitigen Varizellen-Impfquote ist das Risiko für ein
-                                                             k­ onnatales Varizellen-Syndrom bei einer seronegativen Schwan­geren
+                                                             ­konnatales Varizellen-Syndrom bei einer seronegativen Schwan­geren
 ▶  banale Infekte, auch wenn sie mit subfebrilen              mit Kontakt zu ihrem ungeimpften und damit ansteckungsgefährdeten
    Temperaturen (< 38,5° C) einhergehen                       Kind höher als das Risiko einer Komplikation durch die Impfung des
                                                               Kindes und dessen Übertragung von Impfvari­zellen auf die Schwan-
@@ -2540,8 +2535,8 @@ zum Beispiel:                                            *    Bei der derzeitige
 4.8 Impfungen zum Schutz der reproduktiven                  tionen können neben Genitalwarzen zu Zellverän-
 Gesundheit, bei Kinderwunsch und während                    derungen im Bereich des Gebärmutterhalses, der
 Schwangerschaft und Stillzeit                               Vagina und Vulva, des Penis, des Anus und im
-Bestimmte impfpräventable Infektionen vor und               Rachenraum führen. Diese Zellveränderungen
-                                                            ­
+Bestimmte impfpräventable Infektionen vor und               ­
+                                                            Rachenraum führen. Diese Zellveränderungen
 während der Schwangerschaft sowie in der Post­              ­können im Verlauf eine Krebserkrankung bedingen
 partalzeit sind mit erhöhten Risiken für die Ge-             und haben daher ggf. einen relevanten, langfristi-
 sundheit der Frau, den Schwangerschaftsverlauf               gen Einfluss u. a. auf die sexuelle Gesundheit so-
@@ -2566,7 +2561,7 @@ Ein Großteil der akuten Hepatitis-B-Erkrankungen            genitales embryofet
 wird nach sexueller Übertragung bei jungen Er-              genitales Varizellen-Syndrom mit Beteiligung ein-
 wachsenen beobachtet. Aufgrund anderer mögli-               zelner oder mehrerer Organe zur Folge haben. Eine
 cher Übertragungswege z. B. durch den Kontakt               ­peripartale Varizellen-Erkrankung der Mutter kann
-­infizierter Körperflüssigkeiten mit Schleimhäuten           zudem zu lebensbedrohlichen neonatalen Varizellen
+i­nfizierter Körperflüssigkeiten mit Schleimhäuten           zudem zu lebensbedrohlichen neonatalen Varizellen
  bzw. Bagatellverletzungen oder anderweitig geschä-          führen. Die STIKO empfiehlt ungeimpften Frauen
  digter Haut sind Infektionen z. B. auch in Familien         oder Frauen mit unklarem Impfstatus im gebär­
  oder in Gemeinschaftseinrichtungen für Kinder               fähigen Alter die 2-malige Impfung gegen Röteln
@@ -2646,18 +2641,17 @@ Müttern, bei denen keine 2 Impfstoffdosen gegen            hinweise wurden in 4
 Röteln dokumentiert sind oder die in der Schwan-           menten publiziert und sind online verfügbar (www.
 gerschaft seronegativ für Röteln getestet wurden,          rki.de/immundefizienz): Das Grundlagenpapier
 sollte postpartal 2 MMR-Impfstoffdosen im (Min-            (Papier I), die Anwendungshinweise zum Impfen
-dest-)Abstand von 4 Wochen verabreicht werden.             bei primären Immundefekterkrankungen (inkl.
-                                                           autoinflammatorischer Erkrankungen) und bei
-                                                           ­
-                                                           HIV-Infektion (Papier II), die Anwendungs­hinweise
-4.9 Impfen bei Immundefizienz                              zum Impfen bei hämato­log­ischen und onkologi-
-Patientinnen und Patienten mit Immundefizienz              schen Erkrankungen (anti­neoplastische Therapie,
-leiden oft an Infektionskrankheiten, die bei diesen        Stammzell­trans­plan­tation), Organtransplantation
-Personen häufiger mit schwereren Verläufen ein-            und Asplenie (Papier III) sowie die Anwendungs-
-hergehen als bei Immungesunden. Daher sollten              hinweise zum Impfen bei Autoimmunkrankheiten,
-Menschen mit Immundefizienz grundsätzlich ei-              bei an­deren chronisch-entzündlichen Erkrankun-
-nen möglichst weitreichenden Schutz durch Imp-             gen und unter immunmodulatorischer Therapie
-fungen erhalten. Daneben spielt ein solider Impf-          (Papier IV).
+dest-)Abstand von 4 Wochen verabreicht werden.              bei primären Immundefekterkrankungen (inkl.
+                                                           a­utoinflammatorischer Erkrankungen) und bei
+                                                            HIV-Infektion (Papier II), die Anwendungs­hinweise
+4.9 Impfen bei Immundefizienz                               zum Impfen bei hämato­log­ischen und onkologi-
+Patientinnen und Patienten mit Immundefizienz               schen Erkrankungen (anti­neoplastische Therapie,
+leiden oft an Infektionskrankheiten, die bei diesen         Stammzell­trans­plan­tation), Organtransplantation
+Personen häufiger mit schwereren Verläufen ein-             und Asplenie (Papier III) sowie die Anwendungs-
+hergehen als bei Immungesunden. Daher sollten               hinweise zum Impfen bei Autoimmunkrankheiten,
+Menschen mit Immundefizienz grundsätzlich ei-               bei an­deren chronisch-entzündlichen Erkrankun-
+nen möglichst weitreichenden Schutz durch Imp-              gen und unter immunmodulatorischer Therapie
+fungen erhalten. Daneben spielt ein solider Impf-           (Papier IV).
 schutz von Haushalts­kon­     taktpersonen entspre-
 chend der STIKO-Empfeh­lungen sowie anderer
 Personen aus dem direkten Umfeld der Patientin-            4.10 Impfreaktionen, Impfkomplikationen
@@ -2671,7 +2665,7 @@ Immundefizienz aufgeführt. Bei der Planung und              über das übliche 
 Durchführung von Impfungen bei diesem speziel-              ausgehenden gesundheitlichen Schädigung dem
 len Personenkreis sind einige Besonderheiten zu             zuständigen Gesundheitsamt zu melden. Diese
 beachten, wie z. B.:                                        Meldung gehört zu den ärztlichen Aufgaben. Zur
-▶  das Erkennen und Abschätzen der Schwere des              Abgrenzung einer ü ­ blichen Impfreaktion und einer
+▶  das Erkennen und Abschätzen der Schwere des              Abgrenzung einer ­üblichen Impfreaktion und einer
    Immundefekts                                             über das übliche Ausmaß einer Impfreaktion hin-
 ▶  das Erfassen der Indikationen und Kontraindika-          ausgehenden gesundheitlichen Schädigung hat die
    tionen für spezifische Impfungen bzw. Impf-              STIKO (gemäß § 20 Abs. 2 S. 3 IfSG) Krite­rien ent-
@@ -2683,15 +2677,15 @@ beachten, wie z. B.:                                        Meldung gehört zu d
    rechtzeitig vor geplanter iatrogener Immun­             tionen sind das übliche Ausmaß nicht überschrei-
    suppression)                                            tende, vorübergehende Lokal- und Allgemeinreak­
 ▶  die spezifische Aufklärung der Personen,                tio­nen, die als Ausdruck der Auseinandersetzung
-   ­insbesondere wenn eine Off-label-Anwendung             des Organismus mit dem Impfstoff anzusehen
+   i­nsbesondere wenn eine Off-label-Anwendung             des Organismus mit dem Impfstoff anzusehen
     unumgänglich ist                                       sind. Die STIKO hat die folgenden Kriterien für
                                                            ­übliche, nicht meldepflichtige Impfreaktionen ent­
 Eine Gruppe von Expertinnen und Experten hat               wickelt:
-unter Federführung der STIKO Anwendungs­
-­                                                           ▶  für die Dauer von 1 bis 3 Tagen (gelegentlich län-
+­nter Federführung der STIKO Anwendungs­
+u                                                           ▶  für die Dauer von 1 bis 3 Tagen (gelegentlich län-
 hinweise für Impfungen bei Personen mit Immun-                 ger) anhaltende Rötung, Schwellung oder
 defizienz mit dem Ziel erarbeitet, die impfende Ärz-           Schmerz­haftigkeit an der Injektionsstelle;
-    Epidemiologisches Bulletin        4 | 2026       22. Januar 2026                                          47
+    Epidemiologisches Bulletin        4 | 2026       22. Januar 2026                                           47
 
 ▶ für die Dauer von 1 bis 3 Tagen Fieber < 39,5° C (bei     die Datenlage über Impfkomplikationen zu verbes-
   rektaler Messung), Kopf- und Gliederschmerzen,            sern.
@@ -2711,43 +2705,42 @@ defizienz mit dem Ziel erarbeitet, die impfende Ärz-           Schmerz­haftigk
    liegt.                                                    ­gesundheitliche Schädigung, die über das übliche
                                                               Ausmaß einer Reaktion auf eine Schutzimpfung
 Alle anderen Impfreaktionen sollen ge­meldet wer-             ­hinausgeht und für die ein kausaler Zusammen-
-den.                                                           hang zur Impfung oder spezifischen Prophylaxe
-                                                               erwiesen oder wahrscheinlich ist (§§ 4, 5 und
-                                                               ­
-Meldung des Verdachts auf eine Impfkomplikation                24 SGB XIV). Wer durch eine Schutzimpfung ge-
-Gemäß IfSG (§ 6 Abs. 1 Nr. 3) ist der Verdacht einer           mäß § 2 Nr. 9 IfSG oder durch eine andere Maß-
-über das übliche Ausmaß einer Impfreaktion hin-                nahme der spezifischen Prophylaxe gemäß § 2
-ausgehenden gesundheitlichen Schädigung (d. h.                 Nr. 10 IfSG,
-der Verdacht auf eine Impfkomplikation) innerhalb              ▶ die von einer zuständigen Landesbehörde gemäß
-von 24 Stunden namentlich an das Gesundheitsamt                  § 20 Abs. 3 IfSG öffentlich empfohlen und in
-zu melden (§ 9 Abs. 1 und 3 IfSG). Diese Meldung                 ­ihrem Bereich vorgenommen wurde,
-muss vom Gesundheitsamt gemäß § 11 Abs. 4 IfSG                 ▶  die auf Grundlage eines Anspruchs nach einer
-unverzüglich der zuständigen Landesbehörde mit-                   Rechtsverordnung gemäß § 20i Abs. 3 SGB V
-geteilt werden. Die zuständige ­Behörde übermittelt               vorgenommen wurde oder, im Fall einer Schutz-
-die Angaben unverzüglich dem PEI. Die Melde­                      impfung, gegenüber einer Person, die in der
-verpflichtung wurde gesetzlich festgeschrieben, um                ­privaten Krankenversicherung versichert ist, in
-die zur Klärung einer UAW relevanten immunolo-                     einem dem Anspruch nach einer Rechtsverord-
-gischen (z. B. zum Ausschluss eines Immundefek-                    nung gemäß § 20i Abs. 3 SGB V entsprechenden
-tes) oder mikro­biologischen (z. B. zum differenzial-              Umfang vorgenommen wurde,
-diagnostischen Ausschluss einer interkurrenten In-             ▶   die von Gesundheitsämtern gemäß § 20 Abs. 5
-fektion) Untersuchung unverzüglich einzuleiten                     IfSG unentgeltlich durchgeführt wurde oder
-und dafür notwendige Untersuchungsmaterialien,                 ▶   die auf Grund einer Rechtsverordnung gemäß
-wie z. B. Serum oder Stuhlproben, zu asservieren.                  § 20 Abs. 6 oder 7 IfSG angeordnet wurde oder
-                                                                   sonst auf Grund eines Gesetzes vorgeschrieben
-Die Meldepflicht besteht unabhängig davon, ob die                  war, eine derartige gesundheitliche Schädigung
-betroffene Schutzimpfung öffentlich empfohlen ist.                 erlitten hat, erhält bei Vorliegen der Vorausset-
-Für die bundesweit einheitliche Meldung eines                      zungen gemäß § 4 Abs. 1 SGB XIV Leistungen der
-­Ver­dachtsfalls wird vom PEI ein Berichtsformblatt                Sozialen Entschädigung (seit 01.01.2024 durch
- „Bericht über Verdachtsfälle einer über das übliche               § 24 SGB XIV geregelt; bis 31.12.2023 § 60 IfSG).
- Ausmaß einer Impfreaktion hinausgehenden ge-                      Dies gilt auch, wenn die Schutzimpfung mit ver-
- sundheitlichen Schädigung“ zur Verfügung gestellt,                mehrungsfähigen Erregern (d. h. mit Lebend­
- das in Absprache mit der STIKO und dem BMG                        impfstoffen) durchgeführt und eine andere als
- entwickelt wurde. Die Meldungen tragen dazu bei,                  die geimpfte Person geschädigt wurde.
-   Epidemiologisches Bulletin       4 | 2026      22. Januar 2026                                          48
+den.                                                            hang zur Impfung oder spezifischen Prophylaxe
+                                                               e­rwiesen oder wahrscheinlich ist (§§ 4, 5 und
+Meldung des Verdachts auf eine Impfkomplikation                 24 SGB XIV). Wer durch eine Schutzimpfung ge-
+Gemäß IfSG (§ 6 Abs. 1 Nr. 3) ist der Verdacht einer            mäß § 2 Nr. 9 IfSG oder durch eine andere Maß-
+über das übliche Ausmaß einer Impfreaktion hin-                 nahme der spezifischen Prophylaxe gemäß § 2
+ausgehenden gesundheitlichen Schädigung (d. h.                  Nr. 10 IfSG,
+der Verdacht auf eine Impfkomplikation) innerhalb               ▶ die von einer zuständigen Landesbehörde gemäß
+von 24 Stunden namentlich an das Gesundheitsamt                   § 20 Abs. 3 IfSG öffentlich empfohlen und in
+zu melden (§ 9 Abs. 1 und 3 IfSG). Diese Meldung                  ­ihrem Bereich vorgenommen wurde,
+muss vom Gesundheitsamt gemäß § 11 Abs. 4 IfSG                  ▶  die auf Grundlage eines Anspruchs nach einer
+unverzüglich der zuständigen Landesbehörde mit-                    Rechtsverordnung gemäß § 20i Abs. 3 SGB V
+geteilt werden. Die zuständige ­Behörde übermittelt                vorgenommen wurde oder, im Fall einer Schutz-
+die Angaben unverzüglich dem PEI. Die Melde­                       impfung, gegenüber einer Person, die in der
+verpflichtung wurde gesetzlich festgeschrieben, um                 ­privaten Krankenversicherung versichert ist, in
+die zur Klärung einer UAW relevanten immunolo-                      einem dem Anspruch nach einer Rechtsverord-
+gischen (z. B. zum Ausschluss eines Immundefek-                     nung gemäß § 20i Abs. 3 SGB V entsprechenden
+tes) oder mikro­biologischen (z. B. zum differenzial-               Umfang vorgenommen wurde,
+diagnostischen Ausschluss einer interkurrenten In-              ▶   die von Gesundheitsämtern gemäß § 20 Abs. 5
+fektion) Untersuchung unverzüglich einzuleiten                      IfSG unentgeltlich durchgeführt wurde oder
+und dafür notwendige Untersuchungsmaterialien,                  ▶   die auf Grund einer Rechtsverordnung gemäß
+wie z. B. Serum oder Stuhlproben, zu asservieren.                   § 20 Abs. 6 oder 7 IfSG angeordnet wurde oder
+                                                                    sonst auf Grund eines Gesetzes vorgeschrieben
+Die Meldepflicht besteht unabhängig davon, ob die                   war, eine derartige gesundheitliche Schädigung
+betroffene Schutzimpfung öffentlich empfohlen ist.                  erlitten hat, erhält bei Vorliegen der Vorausset-
+Für die bundesweit einheitliche Meldung eines                       zungen gemäß § 4 Abs. 1 SGB XIV Leistungen der
+­Ver­dachtsfalls wird vom PEI ein Berichtsformblatt                 Sozialen Entschädigung (seit 01.01.2024 durch
+ „Bericht über Verdachtsfälle einer über das übliche                § 24 SGB XIV geregelt; bis 31.12.2023 § 60 IfSG).
+ Ausmaß einer Impfreaktion hinausgehenden ge-                       Dies gilt auch, wenn die Schutzimpfung mit ver-
+ sundheitlichen Schädigung“ zur Verfügung gestellt,                 mehrungsfähigen Erregern (d. h. mit Lebend­
+ das in Absprache mit der STIKO und dem BMG                         impfstoffen) durchgeführt und eine andere als
+ entwickelt wurde. Die Meldungen tragen dazu bei,                   die geimpfte Person geschädigt wurde.
+   Epidemiologisches Bulletin       4 | 2026      22. Januar 2026                                        48
 
 Erfüllte Voraussetzungen gemäß § 4 Abs. 1 SGB XIV        bereichen zu verhindern und bei dem in medizini-
 liegen vor, wenn die maßgebliche gesundheitliche         schen Einrichtungen tätigen Personal für einen
-Schädigung ursächlich auf ein schädigendes Ereig-        ­ihrem Einsatzgebiet entsprechenden, ausreichen-
+Schädigung ursächlich auf ein schädigendes Ereig-        i­hrem Einsatzgebiet entsprechenden, ausreichen-
 nis (in diesem Fall eine Impfung) zurückzuführen         den Impfschutz zu sorgen. Die Stellungnahme
 und anerkannt worden ist. Das Vorliegen der An-           ­beinhaltet eine Tabelle mit Informationen zu aus-
 spruchsvoraussetzungen ist auf Antrag durch die          gewählten impfpräventablen Infektionskrankheiten
@@ -2772,7 +2765,7 @@ sorgungsämtern selbst eingeholt werden.                  Vorliegende Impfdokume
 4.11 Impfungen von Personal in medizinischen             zuholen ­(s. Kapitel 6). Häufig kann der Impfstatus
 Einrichtungen                                            aufgrund fehlender Dokumente nicht überprüft
 Impfungen von Personal in medizinischen Einrich-         werden. Aus pragmatischen Gründen sollten Imp-
-   tungen kommt eine besondere Bedeutung zu.             fungen, die nicht dokumentiert sind, als nicht
+    tungen kommt eine besondere Bedeutung zu.            fungen, die nicht dokumentiert sind, als nicht
 ­Einerseits ist das Personal aufgrund seiner beruf­      durchgeführt angesehen und entsprechend der
  lichen Tätigkeit einem erhöhten Expositionsrisiko       ­STIKO-Empfehlungen nachgeholt werden. Glaub-
  gegenüber bestimmten Infektionserregern ausge-           hafte mündliche Angaben zu früher erfolgten Imp-
@@ -2781,7 +2774,7 @@ Impfungen von Personal in medizinischen Einrich-         werden. Aus pragmatisch
  tionen. Andererseits kann das Personal selbst zu          Kinder und Jugendliche, die ungeimpft sind bzw.
  ­einer Infektionsquelle für die von ihnen betreuten       deren Impfstatus unklar ist, sollten Impfungen ge-
   Patientinnen und Patienten oder für Kolleginnen          gen Diphtherie, Tetanus und Pertussis sowie gegen
-  und Kollegen werden. Die Impfung medizinischen         Poliomyelitis, Masern, Mumps, R     ­ öteln, Varizellen,
+  und Kollegen werden. Die Impfung medizinischen         Poliomyelitis, Masern, Mumps, ­Röteln, Varizellen,
   Personals kann somit auch der Verhinderung von         Hepatitis B, Meningokokken B (bis < 5 Jahre) erhal-
   impfpräventablen nosokomialen Infektionen der          ten. Ab 9 Jahren sollen Kinder und Jugendliche
   betreuten Patientinnen und Patienten dienen (sog.      ­gegen HPV sowie im Alter von 12 – 14 Jahren gegen
@@ -2793,8 +2786,7 @@ Impfungen von Personal in medizinischen Einrich-         werden. Aus pragmatisch
    Einrichtungen und die mit der Umsetzung von             virus-Impfserie bis zum ­Alter von 24 Wochen (Rota­
    Impfungen beauftragten Personen dabei zu unter-         rix) bzw. 32 Wochen (RotaTeq). Säuglinge und Klein-
    stützen, die Übertragung von impfpräventablen         kinder sollten gegen Pneumokokken (bis zum Alter
-   Infektionskrankheiten in ihren Zuständigkeits­
-   ­                                                       von 24 Monaten) und Hib sowie MenB (bis < 5 Jah-
+   I­nfektionskrankheiten in ihren Zuständigkeits­         von 24 Monaten) und Hib sowie MenB (bis < 5 Jah-
    Epidemiologisches Bulletin       4 | 2026       22. Januar 2026                                         49
 
 re) geimpft werden. Kinder, bei denen eine Grun­d­        Die Kostenübernahme für öffentlich empfohlene
@@ -2823,7 +2815,7 @@ Ungeimpfte Erwachsene bzw. Erwachsene mit                  raum unter beengten W
  en oder Frauen ohne Impfdokumentation im gebär­            ­Gemeinschaftsunterkünften besteht hingegen ein
  fähigen Alter sollten 2-mal gegen Röteln (MMR)              ­guter Zugang durch den ÖGD oder durch vom
  und seronegative Frauen mit Kinderwunsch 2-mal               ÖGD beauftragtes ärztliches Personal zur gezielten
- gegen V ­ arizellen geimpft werden. Zudem sollen             Schließung von Impf­lücken. Durch frühzeitige
+ gegen ­Varizellen geimpft werden. Zudem sollen               Schließung von Impf­lücken. Durch frühzeitige
  Schwangere mit unvollstän­diger SARS-CoV-2-­Basis­           Impfungen nach Ankunft in Deutschland können
  immunität ab dem 2. Trimenon die noch notwendi-              folgende Ziele erreicht werden:
 gen COVID-19-Impfungen erhalten. Ab dem Alter                 ▶  individueller Impfschutz durch Schließen von
@@ -2928,9 +2920,9 @@ gestellt werden kann (s. Tab. 6). Auch wenn es keine                            
  lungen – gerade im Säuglings- und Kleinkindalter                                 trotz des vom PEI deklarierten Lieferengpasses ggf.
  – zu bevorzugen. Dies gilt auch für die Grippeimp-                               regional noch Rest­bestände dieses Impfstoffes ver-
  fung, bei der ein Impfschutz idealerweise vor Be-                              fügbar sind. Für die Anwendung der alternativen
- ginn der Saison erreicht werden sollte. Auffrisch-                               Empfehlung ist die I­ nformation auf den Internet­
+ ginn der Saison erreicht werden sollte. Auffrisch-                               Empfehlung ist die ­Information auf den Internet­
  impfungen können ggf. bei vollständiger Grundim-                                 seiten des PEI maßgeblich; ergänzend hierzu infor-
- munisierung verschoben werden, da die von der                                    miert die STIKO auf ­ihren Internetseiten (Mittei-
+ munisierung verschoben werden, da die von der                                    miert die STIKO auf i­hren Internetseiten (Mittei-
  STIKO empfohlenen Zeitintervalle für Auffrisch-                                  lungen der STIKO zum Impfen bei ein­ge­schränkter
  impfungen eine gewisse Flexibilität erlauben.                                    Verfüg­barkeit von Impf­stoffen). Die alternative Emp-
                                                                                 fehlung verliert ihre Gültigkeit, sobald das PEI die
@@ -2975,7 +2967,7 @@ Abkürzungen: Diphtherie: D bzw. d (je nach Antigengehalt); Haemophilus influenz
 Mumps-Röteln: MMR; Pertussis: aP bzw. ap (je nach Antigengehalt); Poliomyelitis: IPV; Tetanus: T; Varizellen: V
   Epidemiologisches Bulletin        4 | 2026       22. Januar 2026                                       52
 
-I­ nternetseite wieder aufhebt. Ergänzend nimmt auch      digen Behörden der Länder zu treffen, in denen die
+­Internetseite wieder aufhebt. Ergänzend nimmt auch       digen Behörden der Länder zu treffen, in denen die
  die STIKO den Hinweis der Anwendbarkeit der              Förderung der Schutzimpfungen und die Erstat-
  ­alternativen Empfehlung von ihrer Internetseite.        tung von Impfstoffkosten geregelt werden.
   Weitere Informationen siehe Epid Bull 23/2021.7
@@ -3019,7 +3011,7 @@ kassen erstattet werden, bis die Richtlinie vorliegt.     Weiterverbreitung der 
 Die Krankenkassen können in ihren Satzungsleis-           hindern oder den Verlauf einer Erkrankung abzu-
 tungen die Kostenübernahme auch für Schutz­imp­           mildern. Als Präventionsmaßnahmen werden die
 fungen vorsehen, die nicht Bestandteil der Schutz-        postexpositionelle Impfung, die passive Immunisie-
-impfungs-Richtlinie des G-BA sind. A ­ ußerdem ha­        rung durch die Gabe von Immunglobulinen oder
+impfungs-Richtlinie des G-BA sind. ­Außerdem ha­          rung durch die Gabe von Immunglobulinen oder
 ben die Krankenkassenverbände auf Landes­ebene            eine Chemoprophylaxe aufgeführt. Informationen
 gemeinsam und einheitlich Vereinbarungen mit              zur PEP einzelner Infektionskrankheiten finden
 den für die Durchführung von Impfungen zustän-            sich auch in den „RKI-Ratgebern“ unter „Infektions-
@@ -3405,7 +3397,7 @@ Abbildung 1 | Vorgehen zur postexpositionellen Hepatitis-B-Immunprophylaxe (Einz
       < 10 IE/l)
 
 a	Bei unvollständig geimpften oder ungeimpften Personen sollte die Grundimmunisierung komplettiert werden.
-    Epidemiologisches Bulletin                  4 | 2026            22. Januar 2026                                                             58
+    Epidemiologisches Bulletin                  4 | 2026            22. Januar 2026                                                              58
 
 Für vollständig geimpfte exponierte Personen gilt:                         ▶ Blutentnahme (Bestimmung von: HBsAg, Anti-­
 Vorgehen in Abhängigkeit vom letzten Anti-HBs-                               HBc, Anti-HBs), danach sofort simultane Gabe
@@ -3442,22 +3434,21 @@ Für unvollständig geimpfte exponierte Personen gilt:                       5.5
   gewandt werden, s. Fachinformation).
 
 Für ungeimpfte exponierte Personen und bekannte
-„Non-­Responder“ (d. h. dauerhaft Anti-HBs < 10 IE/l)                      *    Ein isoliert positives Ergebnis des Anti-HBc-Tests erfordert u. U.
-                                                                               ­ eitere diagnostische Abklärung. Eine erforderliche Impfung darf
-                                                                               w
-gilt:                                                                          ­dadurch nicht verzögert werden.
+„Non-­Responder“ (d. h. dauerhaft Anti-HBs < 10 IE/l)                      *     Ein isoliert positives Ergebnis des Anti-HBc-Tests erfordert u. U.
+                                                                               ­weitere diagnostische Abklärung. Eine erforderliche Impfung darf
+gilt:                                                                           ­dadurch nicht verzögert werden.
 
 Tabelle 8 | Hepatitis-B-Immunprophylaxe nach Exposition in Abhängigkeit vom aktuellen Anti-HBs-Wert
 (Fließschema Abb. 1 und Text beachten!)
 
                                                                                                               Erforderlich ist die Gabe von
 Aktueller Anti-HBs-Wert
-                                                                                                       HB-Impfstoff*         HB-Immunglobulin
-≥ 100 IE/l                                                                                                  Nein                     Nein
-10 – 99 IE/l                                                                                                  Ja                     Nein
+                                                                                                       HB-Impfstoff*          HB-Immunglobulin
+≥ 100 IE/l                                                                                                   Nein                     Nein
+10 – 99 IE/l                                                                                                  Ja                      Nein
 
-< 10 IE/l oder nicht innerhalb        und Anti-HBs war ≥ 100 IE/l zu einem früheren Zeitpunkt                 Ja                     Nein
-von 48 Stunden zu bestimmen           und Anti-HBs war nie ≥ 100 IE/l oder unbekannt                          Ja                       Ja
+< 10 IE/l oder nicht innerhalb        und Anti-HBs war ≥ 100 IE/l zu einem früheren Zeitpunkt                 Ja                      Nein
+von 48 Stunden zu bestimmen           und Anti-HBs war nie ≥ 100 IE/l oder unbekannt                          Ja                        Ja
 * 	Nicht alle HB-Impfstoffe sind zur Immunprophylaxe zugelassen.
      Epidemiologisches Bulletin                     4 | 2026             22. Januar 2026                                                                59
 
@@ -3502,10 +3493,10 @@ Immunprophylaxe                                                                 
    ­Jodpräparat zu behandeln. Wunden sollten mög-                                   ▶ Bei unvollständiger Impfanamnese wird ent-
   lichst nicht primär genäht werden.                                                   sprechend Tabelle 10 eine vollständige Immun-
 ▶   Ab Expositionsgrad II erfolgt die Immunisierung                                    prophylaxe durchgeführt.
-    mit einem Tollwut-Impfstoff nach e­ inem für die                                ▶ Bei gegebener Indikation ist die Immunprophy­
+    mit einem Tollwut-Impfstoff nach ­einem für die                                 ▶ Bei gegebener Indikation ist die Immunprophy­
     PEP indizierten Schema entsprechend den Fach­                                     laxe unverzüglich durchzuführen; kein ­Abwarten
     informationen.                                                                    bis zur Klärung des Infektionsverdachts beim
-▶   Bei Expositionsgrad III werden bei Personen, die                                  Tier. Wird der Tollwutverdacht b ­ eim Tier durch
+▶   Bei Expositionsgrad III werden bei Personen, die                                  Tier. Wird der Tollwutverdacht ­beim Tier durch
     keinen aktuellen Tollwut-Impfschutz haben, zu-                                    tierärztliche Untersuchung entkräftet, kann die
     sätzlich zur Immunisierung humane Tollwut-                                        Impfserie abgebrochen oder als präexpositionelle
     Immunglobuline verabreicht mit 20 IE/kg KG.                                       Impfung weitergeführt ­werden.
@@ -3593,7 +3584,7 @@ sind altersabhängige Besonderheiten der Impfemp-         werden, die Informatio
 fehlungen sowie Anwendungshinweise aus den               ten Impfungen aus ärztlichen Unterlagen zu ermit-
 Fachinformationen der zugelassenen Impfstoffe be-        teln. Gegebenenfalls kann auf Basis der dokumen-
 rücksichtigt. Maßgeblich für die erforderlichen          tierten Impfanamnese ein neuer Impfausweis aus-
-Impfungen ist das A ­ lter zu Beginn der Nachholim­      gestellt werden.
+Impfungen ist das ­Alter zu Beginn der Nachholim­        gestellt werden.
 pfserie.
                                                          Dem Problem fehlender Impfdokumente begegnet
                                                          man in der Praxis auch häufig bei kürzlich zuge-
@@ -3601,9 +3592,9 @@ pfserie.
 Bei teilimmunisierten Kindern, Jugendlichen und          nen. Einen Überblick über die aktuellen Impfemp-
 Erwachsenen zählen bisher dokumentierte Impfun-          fehlungen im Herkunftsland bietet die WHO-Inter-
 gen, sofern der Mindestabstand zwischen den ein-         netseite und die ECDC-Internetseite, wo die natio-
-zelnen Impfstoffdosen nicht unterschritten wurde.        nalen Impfpläne ­   aller Länder aufgelistet sind.
+zelnen Impfstoffdosen nicht unterschritten wurde.        nalen Impfpläne a­ller Länder aufgelistet sind.
 Für einen lang andauernden Impfschutz ist es von         Grundsätzlich gilt, dass Impfungen, die nicht doku-
-besonderer Bedeutung, dass bei der Erst- bzw.            mentiert sind, den S­ TIKO-Empfehlungen entspre-
+besonderer Bedeutung, dass bei der Erst- bzw.            mentiert sind, den ­STIKO-Empfehlungen entspre-
 Grund­immunisierung (G) der empfohlene Mindest­          chend nachgeholt werden sollen.
 abstand zwischen vorletzter und letzter Impfung
 (meist 6 Monate) nicht unterschritten wird. Unter        Bei unbekanntem Impfstatus, das heißt bei fehlen-
@@ -3614,8 +3605,8 @@ dieser Voraussetzung gilt:                               der oder unvollständig
 Dies bedeutet, dass es grundsätzlich keine unzuläs-      durchgemachten Krankheiten (z. B. Masern, Mumps,
 sig großen Abstände zwischen den Impfungen gibt.         Röteln) sind mit Ausnahme von Varizellen (s. u.) oft
 In der Regel muss auch bei einer für viele Jahre         unzuverlässig und sollten bei der Planung von
-unterbrochenen Grundimmunisierung – z. B.
-­                                                        Nachholimpfungen nicht berücksichtigt werden. In
+u
+­nterbrochenen Grundimmunisierung – z. B.                Nachholimpfungen nicht berücksichtigt werden. In
 ­gegen Diphtherie, FSME, Tetanus, Poliomyelitis,         Einzelfällen ist ein hiervon abweichendes Vorgehen
  Hepatitis B – die Impfserie nicht neu begonnen          vertretbar.
  werden. Auch eine nicht rechtzeitig gegebene Auf-
@@ -3677,7 +3668,7 @@ nen zur Verringerung der notwendigen Injektionen            Infanrix-­IPV+Hib u
 Kombinationsimpfstoffe auch dann verwendet wer-             informationen ab dem Alter von ≥ 2 Monaten an-
 den, wenn nicht alle enthaltenen Antigene/Impf-             wendbar; eine obere Altersgrenze ist nicht ge-
 stoffkomponenten erforderlich sind (s. a. Wahl der          nannt (s. Tab. 12). Zur Grundimmunisierung gegen
-Impfstoffe). In Ausnahmefällen kann es nach wie-            Hib reicht ab dem A   ­ lter von ≥ 12 Monaten 1 Impf­
+Impfstoffe). In Ausnahmefällen kann es nach wie-            Hib reicht ab dem ­Alter von ≥ 12 Monaten 1 Impf­
 derholter Gabe von Totimpfstoffen zu Nebenwir-              stoff­dosis aus. Trotzdem können die üblichen 5-fach-
 kungen wie einer ausgeprägten lokalen Unverträg-            bzw. 6-fach-Impfstoffe DTaP-IPV-Hib(-HepB) weiter
 lichkeitsreaktion mit schmerzhafter Schwellung              verwendet werden, wenn dies zur Komplettierung
@@ -3687,8 +3678,8 @@ tierende Reaktion tritt am ehesten bei hohen vor­           Impfstoff­dosen si
    Epidemiologisches Bulletin       4 | 2026      22. Januar 2026                                       63
 
 können fehlende Impfungen mit dem 3-fach-Impf-           stoffe zur Erstimmunisierung von älteren Kindern,
-stoff I­ nfanrix (DTaP, zugelassen bis zum Alter < 6     Jugendlichen und Erwachsenen mit unbekanntem
-Jahre) und – s­ imultan oder zeitlich versetzt – mit     Impfstatus bzw. ohne bisherige Impfung gegen
+stoff ­Infanrix (DTaP, zugelassen bis zum Alter < 6      Jugendlichen und Erwachsenen mit unbekanntem
+Jahre) und – ­simultan oder zeitlich versetzt – mit      Impfstatus bzw. ohne bisherige Impfung gegen
 monovalenten Impfstoffen gegen Hepatitis B und           Tdap(-IPV) verwendet werden können
 Polio­myelitis ergänzt werden. Eine mit einem be-
 stimmten Kombinationsimpfstoff begonnene Impf-           Der Gebrauch von Boostrix (Tdap), Boostrix-Polio
@@ -4332,68 +4323,68 @@ Dengue                                                        erhöhten Risiko, 
   ­Begründung der STIKO zur Impfung gegen                  14 Wissenschaftliche Begründung zur Empfehlung
    ­Dengue mit dem Impfstoff Qdenga; publiziert               einer Impfung mit dem Herpes zoster-subunit-
     im Epid Bull 48/2023                                      Totimpfstoff; publiziert im Epid Bull 50/2018
-   Epidemiologisches Bulletin         4 | 2026       22. Januar 2026                                         74
+   Epidemiologisches Bulletin        4 | 2026       22. Januar 2026                                         74
 
-                                                            27 Änderung der Empfehlungen zur Impfung gegen
+                                                           27 Änderung der Empfehlungen zur Impfung gegen
 15 Wissenschaftliche Begründung zur Entschei-
-                                                               Influenza; Empfehlung zur Impfung von Schwan-
+                                                              Influenza; Empfehlung zur Impfung von Schwan-
   dung die Herpes zoster Lebendimpfung nicht als
-                                                               geren; publiziert im Epid Bull 31/2010
+                                                              geren; publiziert im Epid Bull 31/2010
   Standardimpfung zu empfehlen; publiziert im
-                                                            28 Begründung der STIKO für die Influenza-Imp-
+                                                           28 Begründung der STIKO für die Influenza-Imp-
   Epid Bull 36/2017
-                                                               fung bei Patientinnen und Patienten mit Multi­
-                                                               pler Skle­rose (MS) mit durch Infektionen getrig-
+                                                              fung bei Patientinnen und Patienten mit Multi­
+                                                              pler Skle­rose (MS) mit durch Infektionen getrig-
 HPV
-                                                               gerten Schüben; publiziert im Epid Bull 32/2004
+                                                              gerten Schüben; publiziert im Epid Bull 32/2004
 16 Wissenschaftliche Begründung für die
-                                                            29 Wirksamkeit und Sicherheit der Influenza-
+                                                           29 Wirksamkeit und Sicherheit der Influenza-
    ­Empfehlung der HPV-Impfung für Jungen im
-                                                               Impfung für Patientinnen und Patienten mit
-    ­Alter von 9 – 14 J­ ahren; publiziert im Epid Bull
-                                                               chronischen Lungen­erkrankungen (online
+                                                              Impfung für Patientinnen und Patienten mit
+    ­Alter von 9 – 14 ­Jahren; publiziert im Epid Bull
+                                                              chronischen Lungen­erkrankungen (online
       26/2018
-                                                               verfügbar unter: www.rki.de > Kommissionen
+                                                              verfügbar unter: www.rki.de > Kommissionen
 17 Wissenschaftliche Begründung für die Änderung
-                                                               > STIKO > Empfehlung der STIKO > Begründung
+                                                              > STIKO > Empfehlung der STIKO > Begründung
      der Empfehlung zur Impfung gegen humane
-                                                               > Influenza)
+                                                              > Influenza)
      Papillom­viren; publiziert im Epid Bull 35/2014
-18 Impfung gegen HPV – Aktuelle Bewertung der               Japanische Enzephalitis
-     ­STIKO; publiziert im Epid Bull 32/2009                30 Wissenschaftliche Begründung für die Empfeh-
-19 Impfung gegen humane Papillomaviren (HPV)                   lung zur Impfung gegen Japanische Enzepha­litis
-      für Mädchen von 12 bis 17 Jahren – Empfehlung            bei Reisen in Endemiegebiete und für Labor­
-      und Begründung; publiziert im Epid Bull 12/2007          personal; publiziert im Epid Bull 18/2020
+18 Impfung gegen HPV – Aktuelle Bewertung der              Japanische Enzephalitis
+     ­STIKO; publiziert im Epid Bull 32/2009               30 Wissenschaftliche Begründung für die Empfeh-
+19 Impfung gegen humane Papillomaviren (HPV)                  lung zur Impfung gegen Japanische Enzepha­litis
+      für Mädchen von 12 bis 17 Jahren – Empfehlung           bei Reisen in Endemiegebiete und für Labor­
+      und Begründung; publiziert im Epid Bull 12/2007         personal; publiziert im Epid Bull 18/2020
 
-Influenza (saisonal)                                        Lieferengpass
-20 Wissenschaftliche Begründung der STIKO zur               31 Empfehlung und wissenschaftliche Begründung
-   zur Erweiterung der Indikationsund beruflichen              zum Beschluss der STIKO zu Lieferengpässen
-   Indikationsempfehlung für die saisonale                     von Impfstoffen; publiziert im Epid Bull 23/2021
+Influenza (saisonal)                                       Lieferengpass
+20 Wissenschaftliche Begründung der STIKO zur              31 Empfehlung und wissenschaftliche Begründung
+   zur Erweiterung der Indikationsund beruflichen             zum Beschluss der STIKO zu Lieferengpässen
+   Indikationsempfehlung für die saisonale                    von Impfstoffen; publiziert im Epid Bull 23/2021
    ­Influenza-Impfung; publiziert im Epid Bull
-     29/2025                                                Masern
-21 Wissenschaftliche Begründung zur Empfehlung              32 Änderung der Empfehlung zur Impfung gegen
-    der STIKO zur Anwendung von Hoch­dosis-                    Masern; publiziert im Epid Bull 32/2010
+     29/2025                                               Masern
+21 Wissenschaftliche Begründung zur Empfehlung             32 Änderung der Empfehlung zur Impfung gegen
+    der STIKO zur Anwendung von Hoch­dosis-                   Masern; publiziert im Epid Bull 32/2010
    oder MF-59 adjuvantierten Influenza-Impfstoffen
-   bei der Influenza-Standardimpfung von Perso-             Masern-Mumps-Röteln-Varizellen
-    nen ≥ 60 Jahre; publiziert im Epid Bull 44/2024         33 Empfehlung und wissenschaftliche Begründung
-22 Wissenschaftliche Begründung zum Wechsel                    für die Angleichung der beruflich indizierten
-    von quadrivalenten zu trivalenten Influenza-               ­Masern-Mumps-Röteln-(MMR-) und Varizellen-
-    Impfstoffen; publiziert im Epid Bull 31/2024                Impfung; publiziert im Epid Bull 2/2020
+   bei der Influenza-Standardimpfung von Perso-            Masern-Mumps-Röteln-Varizellen
+    nen ≥ 60 Jahre; publiziert im Epid Bull 44/2024        33 Empfehlung und wissenschaftliche Begründung
+22 Wissenschaftliche Begründung zum Wechsel                   für die Angleichung der beruflich indizierten
+    von quadrivalenten zu trivalenten Influenza-              ­Masern-Mumps-Röteln-(MMR-) und Varizellen-
+    Impfstoffen; publiziert im Epid Bull 31/2024               Impfung; publiziert im Epid Bull 2/2020
 23 Wissenschaftliche Begründung für die Aktua­
-    lisierung der Influenza-Impfempfehlung für              Meningokokken
-    Personen ≥ 60 Jahre; publiziert im Epid Bull            34 Empfehlung und Begründung einer postexposi-
-   1/2021                                                      tionellen Meningokokken-Impfung; publiziert im
-24 Wissenschaftliche Begründung für die Empfeh-                Epid Bull 31/2009
+    lisierung der Influenza-Impfempfehlung für             Meningokokken
+    Personen ≥ 60 Jahre; publiziert im Epid Bull           34 Empfehlung und Begründung einer postexposi-
+   1/2021                                                     tionellen Meningokokken-Impfung; publiziert im
+24 Wissenschaftliche Begründung für die Empfeh-               Epid Bull 31/2009
     lung des quadrivalenten saisonalen Influenza­
-    impfstoffs; publiziert im Epid Bull 2/2018              Meningokokken ACWY
-25 Wissenschaftliche Begründung für die geänderte           35 Wissenschaftliche Begründung zur Evaluation
-    Empfehlung zur Anwendung von Influenza­                    ­einer quadrivalenten Meningokokken-Impfung
-    impfstoffen bei Kindern und Jugendlichen im                 für Kleinkinder sowie ältere Kinder, Jugendliche
-    ­Alter von 2 – 17 Jahren; publiziert im Epid Bull           und junge Erwachsene; publiziert im Epid Bull
-     35/2017                                                    44/2025
-26 Wissenschaftliche Begründung für die Änderung            36 Änderung der Empfehlungen zur Indikations-
-     der Empfehlung zur Impfung gegen Influenza;                impfung gegen Meningokokken; publiziert im
-     publiziert im Epid Bull 36/37/2013                         Epid Bull 32/2012
+    impfstoffs; publiziert im Epid Bull 2/2018             Meningokokken ACWY
+25 Wissenschaftliche Begründung für die geänderte          35 Wissenschaftliche Begründung zur Evaluation
+    Empfehlung zur Anwendung von Influenza­                   ­einer quadrivalenten Meningokokken-Impfung
+    impfstoffen bei Kindern und Jugendlichen im                für Kleinkinder sowie ältere Kinder, Jugendliche
+    ­Alter von 2 – 17 Jahren; publiziert im Epid Bull          und junge Erwachsene; publiziert im Epid Bull
+     35/2017                                                   44/2025
+26 Wissenschaftliche Begründung für die Änderung           36 Änderung der Empfehlungen zur Indikations-
+     der Empfehlung zur Impfung gegen Influenza;               impfung gegen Meningokokken; publiziert im
+     publiziert im Epid Bull 36/37/2013                        Epid Bull 32/2012
    Epidemiologisches Bulletin       4 | 2026      22. Januar 2026                                          75
 
 37 Änderung der Empfehlungen zur Impfung                 46 Klinische Studien mit azellulären Pertussis­
@@ -4558,16 +4549,16 @@ in verschiedenen Sprachen
    ▶  Influenza-Impfung mit dem Lebend­impfstoff
       (nasal);
    ▶  Meningokokken-B-Impfung;
-   Epidemiologisches Bulletin          4 | 2026        22. Januar 2026                                         79
+   Epidemiologisches Bulletin         4 | 2026         22. Januar 2026                                         79
 
 Ständige Impfkommission (STIKO)                               Autoren
 beim Robert Koch-Institut                                     Ständige Impfkommission
 Vorsitzender                                                  Korrespondenz: STIKO-Geschäftsstelle@rki.de
-Prof. Dr. Reinhard Berner, Pädiater und I­ nfektiologe,
+Prof. Dr. Reinhard Berner, Pädiater und ­Infektiologe,
 Direktor der Klinik und Poliklinik für Kinder- und
                                                               Interessenkonflikt
 ­Jugendmedizin des ­Universitäts­klinikums
- Carl Gustav Carus der Technischen U ­ niversität Dresden     Die Autorinnen und Autoren geben an, dass kein
+ Carl Gustav Carus der Technischen ­Universität Dresden       Die Autorinnen und Autoren geben an, dass kein
                                                               Interessenkonflikt besteht.
 Stellvertretende Vorsitzende
 Dr. Marianne Röbl-Mathieu, Niedergelassene
